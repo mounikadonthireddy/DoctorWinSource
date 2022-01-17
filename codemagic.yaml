@@ -1,10 +1,2 @@
-workflow:
-    doctorWin-workflow:
-    scripts:
-        - name: say hello
-        script: echo "Hello Codemagician!"
-        - name: Build doctorWin
-        script: xcodebuild build -workspace "DoctorWin.xcworkspace" - scheme "DoctorWin" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGN_ALLOWED=NO
-     
-        
+
 
