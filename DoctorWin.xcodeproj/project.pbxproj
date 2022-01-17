@@ -216,6 +216,7 @@
 		BF0DD96C278D8C930053747A /* RecentSearchCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF0DD96A278D8C930053747A /* RecentSearchCVCell.xib */; };
 		BF0DD96F278D92EF0053747A /* CarrierHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0DD96D278D92EF0053747A /* CarrierHeaderCell.swift */; };
 		BF0DD970278D92EF0053747A /* CarrierHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF0DD96E278D92EF0053747A /* CarrierHeaderCell.xib */; };
+		BF0DD97A279563800053747A /* codemagic.yaml in Resources */ = {isa = PBXBuildFile; fileRef = BF0DD979279563800053747A /* codemagic.yaml */; };
 		BF30C7D6277AEE240047E277 /* SearchJobCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF30C7D4277AEE240047E277 /* SearchJobCell.swift */; };
 		BF30C7D7277AEE240047E277 /* SearchJobCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF30C7D5277AEE240047E277 /* SearchJobCell.xib */; };
 		BF30C7D9277B33DE0047E277 /* AddCustomJobViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF30C7D8277B33DE0047E277 /* AddCustomJobViewModel.swift */; };
@@ -477,6 +478,7 @@
 		BF0DD96A278D8C930053747A /* RecentSearchCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecentSearchCVCell.xib; sourceTree = "<group>"; };
 		BF0DD96D278D92EF0053747A /* CarrierHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrierHeaderCell.swift; sourceTree = "<group>"; };
 		BF0DD96E278D92EF0053747A /* CarrierHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarrierHeaderCell.xib; sourceTree = "<group>"; };
+		BF0DD979279563800053747A /* codemagic.yaml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = codemagic.yaml; sourceTree = "<group>"; };
 		BF30C7D4277AEE240047E277 /* SearchJobCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchJobCell.swift; sourceTree = "<group>"; };
 		BF30C7D5277AEE240047E277 /* SearchJobCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchJobCell.xib; sourceTree = "<group>"; };
 		BF30C7D8277B33DE0047E277 /* AddCustomJobViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCustomJobViewModel.swift; sourceTree = "<group>"; };
@@ -534,6 +536,7 @@
 		4392977C2722D628001891B8 = {
 			isa = PBXGroup;
 			children = (
+				BF0DD979279563800053747A /* codemagic.yaml */,
 				439297872722D628001891B8 /* DoctorWin */,
 				4392979E2722D629001891B8 /* DoctorWinTests */,
 				439297A92722D629001891B8 /* DoctorWinUITests */,
@@ -1152,6 +1155,7 @@
 				43A6A98F27329E5800400F72 /* PollTableViewCell.xib in Resources */,
 				43A6A97727324F2E00400F72 /* ProfilePersonalEditCell.xib in Resources */,
 				43A2809C272A74DB001B88A1 /* CollegeData.json in Resources */,
+				BF0DD97A279563800053747A /* codemagic.yaml in Resources */,
 				43A6A99327329F1C00400F72 /* CasesTableViewCell.xib in Resources */,
 				439AA1FB2737F2F400D09E26 /* CourseNameCell.xib in Resources */,
 				BF0DD968278D8BF30053747A /* RecentSearchCell.xib in Resources */,
