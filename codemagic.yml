@@ -1,7 +1,7 @@
 
 workflows:
   DoctorWin-workflow:
-  name: DoctorWin pileline
+ 
     scripts:
       - name: CICD started
         script: echo "Welcome to your CICD set up"

@@ -1,11 +1,5 @@
 workflows:
-  DoctorWin-workflow:
-  name: DoctorWin pileline
+  DoctorWin:
+    name:  DoctorWin workflow
     scripts:
-      - name: CICD started
-        script: echo "Welcome to your CICD set up"
-        publishing:
-        email:
-        recipients:
-        - mounika214.d@gmail.com
-
+        - echo " DoctorWin!"
