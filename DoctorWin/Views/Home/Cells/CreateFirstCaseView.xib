@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CreateFirstCaseView" customModule="DoctorWin" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="book" translatesAutoresizingMaskIntoConstraints="NO" id="iBC-HQ-A3A">
+                    <rect key="frame" x="306" y="20" width="54" height="72"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="54" id="ZCy-I3-tu1"/>
+                        <constraint firstAttribute="height" constant="72" id="gnX-Pb-s4x"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jnB-xU-99M">
+                    <rect key="frame" x="50" y="30" width="246" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="18" id="1ID-Mg-OLs"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="Faster &amp; Verified Tenunts/Buyers">
+                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="428-Pk-IsH">
+                    <rect key="frame" x="50" y="53" width="246" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="18" id="EV0-6p-aOG"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                    <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="Spend Zero Brokerage">
+                        <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M20-S9-IXb">
+                    <rect key="frame" x="20" y="92" width="335" height="1"/>
+                    <color key="backgroundColor" red="0.94509803921568625" green="0.94509803921568625" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="Nbl-L5-vyg"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uRQ-cO-5LG">
+                    <rect key="frame" x="20" y="101" width="335" height="45"/>
+                    <color key="backgroundColor" red="0.89803921568627454" green="0.22352941176470587" blue="0.20784313725490194" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="8aB-oZ-J7p"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="Post your First case">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7wb-VB-LGQ">
+                    <rect key="frame" x="0.0" y="156" width="375" height="6"/>
+                    <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="6" id="xeA-GJ-OP1"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="RWo-zo-gQE">
+                    <rect key="frame" x="20" y="32" width="15" height="11.5"/>
+                    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="15" id="ucq-lj-AFb"/>
+                        <constraint firstAttribute="height" constant="15" id="ufU-SD-zNr"/>
+                    </constraints>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ONF-na-ESY">
+                    <rect key="frame" x="20" y="57" width="15" height="11.5"/>
+                    <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="15" id="UEo-hc-Kio"/>
+                        <constraint firstAttribute="height" constant="15" id="fuf-Rq-KMl"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="jnB-xU-99M" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="30" id="0td-Fi-M53"/>
+                <constraint firstItem="iBC-HQ-A3A" firstAttribute="leading" secondItem="jnB-xU-99M" secondAttribute="trailing" constant="10" id="3dO-Jk-umT"/>
+                <constraint firstItem="428-Pk-IsH" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="CxZ-gV-DjU"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="uRQ-cO-5LG" secondAttribute="trailing" constant="20" id="DCx-3C-F4T"/>
+                <constraint firstItem="ONF-na-ESY" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="EkT-y7-VL7"/>
+                <constraint firstItem="M20-S9-IXb" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="HQD-An-8qe"/>
+                <constraint firstItem="RWo-zo-gQE" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="Lnl-kk-4VU"/>
+                <constraint firstItem="7wb-VB-LGQ" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="NS4-uF-dEi"/>
+                <constraint firstItem="7wb-VB-LGQ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Ra9-5i-nO5"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="M20-S9-IXb" secondAttribute="trailing" constant="20" id="Scp-ox-gKq"/>
+                <constraint firstItem="7wb-VB-LGQ" firstAttribute="top" secondItem="uRQ-cO-5LG" secondAttribute="bottom" constant="10" id="TA3-Zw-5jE"/>
+                <constraint firstItem="uRQ-cO-5LG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="Usz-uw-OWB"/>
+                <constraint firstItem="jnB-xU-99M" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="ZAQ-lF-RC0"/>
+                <constraint firstItem="RWo-zo-gQE" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="30" id="bFf-Km-Lbn"/>
+                <constraint firstItem="iBC-HQ-A3A" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="bV8-C7-WB4"/>
+                <constraint firstItem="428-Pk-IsH" firstAttribute="top" secondItem="jnB-xU-99M" secondAttribute="bottom" constant="5" id="dqq-hw-35d"/>
+                <constraint firstItem="iBC-HQ-A3A" firstAttribute="leading" secondItem="428-Pk-IsH" secondAttribute="trailing" constant="10" id="jMs-q1-vz4"/>
+                <constraint firstItem="uRQ-cO-5LG" firstAttribute="top" secondItem="M20-S9-IXb" secondAttribute="bottom" constant="8" id="kCK-gE-tUh"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="iBC-HQ-A3A" secondAttribute="trailing" constant="15" id="kcQ-rb-R8s"/>
+                <constraint firstItem="ONF-na-ESY" firstAttribute="top" secondItem="RWo-zo-gQE" secondAttribute="bottom" constant="10" id="tR0-S3-PCu"/>
+                <constraint firstItem="M20-S9-IXb" firstAttribute="top" secondItem="iBC-HQ-A3A" secondAttribute="bottom" id="uff-FG-mqx"/>
+            </constraints>
+            <connections>
+                <outlet property="postBtn" destination="uRQ-cO-5LG" id="BiA-PX-OT9"/>
+            </connections>
+            <point key="canvasLocation" x="138.40000000000001" y="77.811094452773617"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="book" width="64" height="64"/>
+        <image name="checkmark" catalog="system" width="128" height="114"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

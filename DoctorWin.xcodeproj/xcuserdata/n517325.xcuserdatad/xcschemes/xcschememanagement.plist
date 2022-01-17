@@ -7,7 +7,25 @@
 		<key>DoctorWin.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>5</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>439297842722D628001891B8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4392979A2722D629001891B8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>439297A52722D629001891B8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

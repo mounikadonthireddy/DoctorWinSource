@@ -1,0 +1,75 @@
+
+{
+  "hospital_type": [
+    "General Medical & Surgical Hospitals",
+    "Specialty Hospitals",
+    "Teaching Hospitals",
+    "Clinics",
+    "Psychiatric Hospitals",
+    "Family Planning & Abortion Clinics",
+    "Hospices & Palliative Care Centers",
+    "Emergency & Other Outpatient Care Centers",
+    "Sleep Disorder Clinics",
+    "Dental Laboratories",
+    "Blood & Organ Banks"
+  ],
+  "position": [
+    "Attending physician",
+    "Residents",
+    "interns",
+    "medical students",
+    "Specialists",
+    "senior doctor",
+    "Licensed practical nurses",
+    "Physical therapists"
+  ],
+  "department": [
+    "Accident and emergency (A&E)",
+    "Anesthetics",
+    "CASUALTY",
+    "CARDIOLOGY",
+    "CRITICAL CARE",
+    "EARS, NOSE AND THROAT",
+    "GERIATRICS",
+    "Anatomy",
+    "GENERAL SURGERY",
+    "Urology",
+    "HAEMATOLOGY",
+    "NEUROLOGY"
+  ],
+  "salary": [
+    30000,
+    35000,
+    40000,
+    45000,
+    50000,
+    55000,
+    60000,
+    65000
+  ],
+  "location": [
+    "Gachibowli",
+    "Shamshabad",
+    "Kukatpally",
+    "Mallapur",
+    "Hi-Tech City",
+    "Habsiguda",
+    "Jubilee Hills",
+    "Secunderabad"
+  ],
+  "vacancy": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "job_type": [
+    "Full_Time",
+    "Part_Time"
+  ]
+}

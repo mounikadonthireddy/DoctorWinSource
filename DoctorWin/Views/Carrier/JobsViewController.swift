@@ -1,0 +1,97 @@
+//
+//  JobsViewController.swift
+//  DoctorWin
+//
+//  Created by N517325 on 25/10/21.
+//
+
+import UIKit
+import iOSDropDown
+
+class JobsViewController: UIViewController {
+    @IBOutlet weak var jobTableView: UITableView!
+    @IBOutlet weak var backBtn: UIButton!
+    @IBOutlet weak var locationTF: DropDown!
+    @IBOutlet weak var departmentTF: DropDown!
+    @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var stackViewHeight: NSLayoutConstraint!
+    var jobType: JobType = .none
+    var categoryID: Int = 0
+    var jobsArray :[JobsDataModel] = []
+    var jobsVM = JobsViewModel()
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        jobTableView.register(UINib.init(nibName: "CarrierSubCell", bundle: nil), forCellReuseIdentifier: "CarrierSubCell")
+        jobsVM.delegate = self
+        parse1()
+        print(jobType)
+        self.backBtn.setTitle("  \(jobType.rawValue)", for: .normal)
+        handleSearch()
+        // Do any additional setup after loading the view.
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = true
+    }
+    func handleSearch() {
+        stackViewHeight.constant = 0
+        //        switch jobType {
+        //        case .specilities:
+        //            locationTF.removeFromSuperview()
+        //
+        //        case .academics, .teleJobs, .freelancer:
+        //            stackViewHeight.constant = 0
+        //            stackView.isHidden = true
+        //        default: break
+        //
+        //        }
+    }
+    
+    func parse1() {
+        
+        jobsVM.getJobDataBasedOnCategory(userID: User.shared.userID, categoryID: categoryID)
+    }
+
+    @IBAction func backClicked(_ sender: Any){
+        self.navigationController?.popViewController(animated: true)
+    }
+    @IBAction func filterClikced(_ sender: Any) {
+        let str = UIStoryboard(name: "Home", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "FilterViewController") as! FilterViewController
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+}
+
+extension JobsViewController : UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return jobsArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: CarrierSubCell = tableView.dequeueReusableCell(withIdentifier: "CarrierSubCell") as! CarrierSubCell
+        cell.configureCell(with: jobsArray[indexPath.row])
+        
+        
+        return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let str = UIStoryboard(name: "Home", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "JobDetailsViewController") as! JobDetailsViewController
+        nextVC.detailsModel = jobsArray[indexPath.row]
+        self.navigationController?.pushViewController(nextVC, animated: true)
+        
+    }
+    
+    
+}
+extension JobsViewController: JobsViewModelDelegate {
+    func didReceiveJobsResponse(response: [JobsDataModel]?, error: String?) {
+        if error == nil {
+            jobsArray = response ?? []
+            jobTableView.reloadData()
+        }
+    }
+    
+    
+}

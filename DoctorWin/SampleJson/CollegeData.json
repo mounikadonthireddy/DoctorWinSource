@@ -1,0 +1,92 @@
+
+[
+    {
+        "id": 1,
+        "name": "All India Institute of Medical Sciences",
+        "sortname": "AIIMS",
+        "approved": "MINISTRY OF HEALTH & FAMILY WELFARE",
+        "level": "National Label",
+        "state_ranking": 1,
+        "national_ranking": 1,
+        "branch": 12,
+        "sit": 5000,
+        "establishment": "2021-09-06",
+        "staff": 123123,
+        "autonomus": "Yes",
+        "university": "AIIMS University",
+        "image": "/media/college/image/download.jpeg",
+        "about_college": "There was first class in infrastructure. Wi-fi, lab, smart boards, and all the necessary equipments are available in this institution. They are providing very best in classroom. And all other things also quite good in this institution. All the places are clean and neatly arranged. They are offering hygienic foods also. Hostel room also good in condition. We need to have our own belongings alone other than that all the necessary equipments and needs will be available at all the time.",
+        "properties": "Government",
+        "last_year_rank": 3,
+        "cutoff": 70,
+        "annual_free": 120000,
+        "city": "New Delhi",
+        "district": "Delhi",
+        "state": "Delhi",
+        "landmark": "Raiway Station",
+        "postal_address": "AIIMS Delhi new",
+        "pincode": 804267,
+        "Examination": [
+            {
+                "name": "NEET"
+            },
+            {
+                "name": "NEET PG"
+            }
+        ],
+        "Course": [
+            {
+                "name": "AIAPGET"
+            },
+            {
+                "name": "MBBS"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Christian Medical College",
+        "sortname": "CMC Vellore",
+        "approved": "MINISTRY OF HEALTH & FAMILY WELFARE",
+        "level": "National Label",
+        "state_ranking": 12,
+        "national_ranking": 234,
+        "branch": 12,
+        "sit": 12345,
+        "establishment": "2021-09-06",
+        "staff": 2345,
+        "autonomus": "Yes",
+        "university": "Dr MGR Medical University, Chennai",
+        "image": "/media/college/image/pjimage-2020-08-30t080849-1598755162.jpg",
+        "about_college": "Christian Medical College, Vellore was established in the year 1918 and was founded by Dr Ida Sophia Scudder, the daughter of a medical missionary. The medical institute is also known as CMC Vellore. The institute is an unaided, non-capitation, Christian minority, educational institution. Earlier the college was affiliated to the University of Madras, later on, it got affiliated to Tamil Nadu Dr M.G.R. Medical University. CMC Vellore courses include BSc Nursing, AHS Degree, Diploma Nursing, AHS Diploma/PG Diploma/Fellowship, DM/M.Ch, Post Doctoral Fellowships, MPH & MSc Epidemiology, M.Sc Biostatistics, Medical Physics, MS Bioengineering, Medical Post Graduate Courses, Medical Post Graduate Fellowship Courses",
+        "properties": "Privete",
+        "last_year_rank": 23,
+        "cutoff": 43,
+        "annual_free": 1290000,
+        "city": "Vellore",
+        "district": "Banglure",
+        "state": "Tamil Nadu",
+        "landmark": "opposite Gandhi maidan",
+        "postal_address": "Tamil Nadu vellore",
+        "pincode": 67337,
+        "Examination": [
+            {
+                "name": "NEET MDS"
+            },
+            {
+                "name": "NEET PG"
+            },
+            {
+                "name": "NEET PG"
+            }
+        ],
+        "Course": [
+            {
+                "name": "MBBS"
+            },
+            {
+                "name": "AYUSH"
+            }
+        ]
+    }
+]

@@ -13,9 +13,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        if let windowScene = scene as? UIWindowScene {
+            if let userId = UserDefaults.standard.value(forKey: "user_id") {
+            let window = UIWindow(windowScene: windowScene)
+            let str = UIStoryboard(name: "Home", bundle: nil)
+            let nextViewController = str.instantiateViewController(withIdentifier: "tabbar")
+                
+              
+
+                
+//                let nextViewController = str.instantiateViewController(withIdentifier: "RegisterDetailsViewController") as? RegisterDetailsViewController
+               window.rootViewController = nextViewController
+                User.shared.userID = "\(userId)"
+               self.window = window
+               window.makeKeyAndVisible()
+           }
+        }
         guard let _ = (scene as? UIWindowScene) else { return }
     }
 
@@ -50,3 +63,40 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+extension UIApplication {
+var statusBarUIView: UIView? {
+    if #available(iOS 13.0, *) {
+        let tag = 38482
+        let keyWindow = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+
+        if let statusBar = keyWindow?.viewWithTag(tag) {
+            return statusBar
+        } else {
+            guard let statusBarFrame = keyWindow?.windowScene?.statusBarManager?.statusBarFrame else { return nil }
+            let statusBarView = UIView(frame: statusBarFrame)
+            statusBarView.tag = tag
+            keyWindow?.addSubview(statusBarView)
+            return statusBarView
+        }
+    } else if responds(to: Selector(("statusBar"))) {
+        return value(forKey: "statusBar") as? UIView
+    } else {
+        return nil
+    }
+  }
+}
+extension UINavigationController {
+
+    func setStatusBar(backgroundColor: UIColor) {
+        let statusBarFrame: CGRect
+        if #available(iOS 13.0, *) {
+            statusBarFrame = view.window?.windowScene?.statusBarManager?.statusBarFrame ?? CGRect.zero
+        } else {
+            statusBarFrame = UIApplication.shared.statusBarFrame
+        }
+        let statusBarView = UIView(frame: statusBarFrame)
+        statusBarView.backgroundColor = backgroundColor
+        view.addSubview(statusBarView)
+    }
+
+}
