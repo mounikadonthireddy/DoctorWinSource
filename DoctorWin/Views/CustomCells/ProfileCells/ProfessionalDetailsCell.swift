@@ -31,17 +31,13 @@ class ProfessionalDetailsCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    func cellConfigureWith(data: ProfileDataModel, section: Int) {
-        self.graduation.text = data.underGraduation
-        self.postGraduation.text = data.postGraduation
-        self.postGraduationInstitute.text = data.postGraduationInstitute
-        self.graduationInstitute.text = data.underGraduationInstitute
-        self.workingCompany.text = data.currentDepartment
-        self.currentInstitution.text = data.currentInstitute
-        
-      
-        
-        
+    func cellConfigureWith(data: ProfileDataModel) {
+        self.graduation.text = data.underGraduation ?? "XXXXXXX"
+        self.postGraduation.text = data.postGraduation ?? "XXXXXXX"
+        self.postGraduationInstitute.text = data.postGraduationInstitute ?? "XXXXXXX"
+        self.graduationInstitute.text = data.underGraduationInstitute ?? "XXXXXXX"
+        self.workingCompany.text = data.currentDepartment ?? "XXXXXXX"
+        self.currentInstitution.text = data.currentInstitute ?? "XXXXXXX"
     }
     
 }

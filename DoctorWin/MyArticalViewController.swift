@@ -1,19 +1,19 @@
 //
-//  MyNewsViewController.swift
+//  MyArticalViewController.swift
 //  DoctorWin
 //
-//  Created by Donthireddy Mounika on 03/01/22.
+//  Created by Donthireddy Mounika on 20/01/22.
 //
 
 import UIKit
 
-class MyNewsViewController: ViewController {
+class MyArticalViewController: ViewController {
 
     var newsArray:[NewsDataModel] = []
     @IBOutlet weak var newsTableView: UITableView!
     @IBOutlet weak var interfaceSegmented: CustomSegmentedControl!{
         didSet{
-            interfaceSegmented.setButtonTitles(buttonTitles: ["My News","Bookmark News", "Likes News"])
+            interfaceSegmented.setButtonTitles(buttonTitles: ["My Articles","Bookmark Articles", "Liked Articles"])
             interfaceSegmented.selectorViewColor = .black
             interfaceSegmented.selectorTextColor = .black
         }
@@ -58,7 +58,7 @@ class MyNewsViewController: ViewController {
     }
 }
 
-extension MyNewsViewController : UITableViewDelegate, UITableViewDataSource {
+extension MyArticalViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return newsArray.count
     }
@@ -78,7 +78,7 @@ extension MyNewsViewController : UITableViewDelegate, UITableViewDataSource {
     
     
 }
-extension MyNewsViewController: NewsViewModelDelegate {
+extension MyArticalViewController: NewsViewModelDelegate {
     func didReceiveNews(response: [NewsDataModel]?, error: String?) {
         self.dismiss()
         if (error != nil) {
@@ -91,7 +91,7 @@ extension MyNewsViewController: NewsViewModelDelegate {
     
     
 }
-extension MyNewsViewController: CustomSegmentedControlDelegate {
+extension MyArticalViewController: CustomSegmentedControlDelegate {
     func change(to index: Int) {
         print(index)
         if index == 0 {

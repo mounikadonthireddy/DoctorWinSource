@@ -50,7 +50,7 @@ class HomeTableCell: UITableViewCell {
         
         self.postedPersonName.text = "DR. " + (homeModel.profileName ?? "")
         self.titleLable.text =  homeModel.title
-        self.designation.text = homeModel.qualification
+        self.designation.text = homeModel.speciality
 
         
         if let value = homeModel.discussion {

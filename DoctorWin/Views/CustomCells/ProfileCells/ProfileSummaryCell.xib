@@ -110,6 +110,7 @@
             <connections>
                 <outlet property="previewBtn" destination="dkj-SW-mbN" id="rOI-kf-DUD"/>
                 <outlet property="previewView" destination="zNg-Zj-o4F" id="iHt-Dg-dRR"/>
+                <outlet property="profileSummary" destination="tYm-sx-qoR" id="myR-lb-bp5"/>
             </connections>
             <point key="canvasLocation" x="163.04347826086959" y="152.34375"/>
         </tableViewCell>

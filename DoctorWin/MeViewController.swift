@@ -18,11 +18,11 @@ class MeViewController: ViewController {
         profileTableView.register(UINib(nibName: "InfoCell", bundle: nil), forCellReuseIdentifier: "InfoCell")
         profileTableView.register(UINib(nibName: "ProfileSummaryCell", bundle: nil), forCellReuseIdentifier: "ProfileSummaryCell")
         profileTableView.register(UINib(nibName: "ProfileBasicDetailsCell", bundle: nil), forCellReuseIdentifier: "ProfileBasicDetailsCell")
-
+        
         profileTableView.register(UINib(nibName: "ProfessionalDetailsCell", bundle: nil), forCellReuseIdentifier: "ProfessionalDetailsCell")
-
+        
         profileTableView.contentInset = UIEdgeInsets.zero
-
+        
         profileTableView.register(UINib(nibName: "ProfileDashboardCell", bundle: nil), forCellReuseIdentifier: "ProfileDashboardCell")
         
         profileTableView.register(UINib(nibName: "AddSkillsCell", bundle: nil), forCellReuseIdentifier: "AddSkillsCell")
@@ -31,7 +31,7 @@ class MeViewController: ViewController {
         profileTableView.register(UINib(nibName: "ExperienceAddCell", bundle: nil), forCellReuseIdentifier: "ExperienceAddCell")
         profileTableView.register(UINib(nibName: "ExperinceTitleCell", bundle: nil), forCellReuseIdentifier: "ExperinceTitleCell")
         profileTableView.register(UINib(nibName: "ProfileSkillsCell", bundle: nil), forCellReuseIdentifier: "ProfileSkillsCell")
-
+        
         
         self.navigationController?.isNavigationBarHidden = true
         profileTableView.contentInset = UIEdgeInsets(top: -10, left: 0, bottom: 0, right: 0)
@@ -84,35 +84,50 @@ extension MeViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.section {
         case 0:
             let cell: ProfileNameCell = tableView.dequeueReusableCell(withIdentifier: "ProfileNameCell", for: indexPath) as! ProfileNameCell
-           
-
+            
+            cell.cellConfigureWith(data: profileDataModel)
+            
             return cell
             
         case 1:
             let cell: ProfileDashboardCell = tableView.dequeueReusableCell(withIdentifier: "ProfileDashboardCell", for: indexPath) as! ProfileDashboardCell
-           
-
+            cell.casesCountBtn.addTarget(self, action: #selector(casesClicked(button:)), for: .touchUpInside)
+            cell.appliedCountBtn.addTarget(self, action: #selector(appliedClicked(button:)), for: .touchUpInside)
+            cell.newsCountBtn.addTarget(self, action: #selector(newsClicked(button:)), for: .touchUpInside)
+            cell.articalsCountBtn.addTarget(self, action: #selector(articalsClicked(button:)), for: .touchUpInside)
+            cell.storiesCountBtn.addTarget(self, action: #selector(storiesClicked(button:)), for: .touchUpInside)
+            cell.pollsCountBtn.addTarget(self, action: #selector(pollsClicked(button:)), for: .touchUpInside)
+            cell.followCountBtn.addTarget(self, action: #selector(followClicked(button:)), for: .touchUpInside)
+            cell.followingCountBtn.addTarget(self, action: #selector(followClicked(button:)), for: .touchUpInside)
+            
+            cell.cellConfigureWith(data: profileDataModel)
+            
             return cell
             
         case 2:
             let cell: ProfileSummaryCell = tableView.dequeueReusableCell(withIdentifier: "ProfileSummaryCell", for: indexPath) as! ProfileSummaryCell
-           
-
+            cell.cellConfigureWith(data: profileDataModel)
+            
+            
             return cell
             
         case 3:
             let cell: ProfileBasicDetailsCell = tableView.dequeueReusableCell(withIdentifier: "ProfileBasicDetailsCell", for: indexPath) as! ProfileBasicDetailsCell
-            cell.cellConfigureWith(data: profileDataModel, section: indexPath.section)
-
-
+            cell.cellConfigureWith(data: profileDataModel)
+            
+            
             return cell
         case 4:
             let cell: ProfessionalDetailsCell = tableView.dequeueReusableCell(withIdentifier: "ProfessionalDetailsCell", for: indexPath) as! ProfessionalDetailsCell
-            cell.cellConfigureWith(data: profileDataModel, section: indexPath.section)
-
-
+            cell.cellConfigureWith(data: profileDataModel)
+            
+            
             return cell
-      
+            
+        case 5:
+            let cell: ExperinceTitleCell = tableView.dequeueReusableCell(withIdentifier: "ExperinceTitleCell", for: indexPath) as! ExperinceTitleCell
+            
+            return cell
             
         case 6:
             let cell: ExperienceCell = tableView.dequeueReusableCell(withIdentifier: "ExperienceCell", for: indexPath) as! ExperienceCell
@@ -123,17 +138,13 @@ extension MeViewController: UITableViewDelegate, UITableViewDataSource {
             cell.delete.addTarget(self, action: #selector(deleteClicked(button:)), for: .touchUpInside)
             
             return cell
-        case 5:
-            let cell: ExperinceTitleCell = tableView.dequeueReusableCell(withIdentifier: "ExperinceTitleCell", for: indexPath) as! ExperinceTitleCell
-            
-            return cell
             
         case 7:
             let cell: ProfileSkillsCell = tableView.dequeueReusableCell(withIdentifier: "ProfileSkillsCell", for: indexPath) as! ProfileSkillsCell
-            cell.cellConfigureWith(section: indexPath.section, data: profileDataModel)
+            cell.cellConfigureWith(data: profileDataModel)
             
             return cell
-
+            
             
         default:
             
@@ -164,15 +175,29 @@ extension MeViewController: UITableViewDelegate, UITableViewDataSource {
         let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "MyNewsViewController") as! MyNewsViewController
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
+    @objc func storiesClicked(button: UIButton) {
+        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "MyStoriesViewController") as! MyStoriesViewController
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+    @objc func articalsClicked(button: UIButton) {
+        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "MyArticalViewController") as! MyArticalViewController
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+    @objc func pollsClicked(button: UIButton) {
+        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "MyPollsViewController") as! MyPollsViewController
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
+    
     @objc func appliedClicked(button: UIButton) {
         let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "AppliedJobViewController") as! AppliedJobViewController
-//        nextVC.expModel = experienceArray[button.tag]
+        //        nextVC.expModel = experienceArray[button.tag]
         nextVC.showBack = true
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     @objc func followClicked(button: UIButton) {
         let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "FollowViewController") as! FollowViewController
-//        nextVC.expModel = experienceArray[button.tag]
+        //        nextVC.expModel = experienceArray[button.tag]
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     @objc func deleteClicked(button: UIButton) {
@@ -182,20 +207,20 @@ extension MeViewController: UITableViewDelegate, UITableViewDataSource {
             DispatchQueue.main.async {
                 self.dismiss()
                 if result?.status ?? false {
-                let alert = UIAlertController(title: nil, message: "Deleted Successfully", preferredStyle: .alert)
-                
-                alert.addAction(UIAlertAction(title: Constants.OkAlertTitle, style: .default, handler: nil))
-                
-                self.present(alert, animated: true)
+                    let alert = UIAlertController(title: nil, message: "Deleted Successfully", preferredStyle: .alert)
+                    
+                    alert.addAction(UIAlertAction(title: Constants.OkAlertTitle, style: .default, handler: nil))
+                    
+                    self.present(alert, animated: true)
                     self.loadExperince()
-            }
+                }
             }
         }
         
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-     
-         return CGFloat.leastNormalMagnitude
+        
+        return CGFloat.leastNormalMagnitude
         
     }
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -204,6 +229,7 @@ extension MeViewController: UITableViewDelegate, UITableViewDataSource {
     
 }
 extension MeViewController: ProfileViewModelDelegate {
+   
     func didReciveProfileExperienceData(response: [ExperienceModel]?, error: String?) {
         self.dismiss()
         experienceArray = response ?? []
@@ -229,7 +255,7 @@ struct ExperienceModel: Codable {
     let start_date: String?
     let end_date: String?
     let id: Int
-
+    
 }
 struct DeleteExpModel: Codable {
     let exp_id: Int

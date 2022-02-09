@@ -94,8 +94,8 @@
             filePath = "DoctorWin/Views/Register/RegisterViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
             landmarkName = "didValidated(status:error:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -183,38 +183,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "42323648-FDD9-48A8-8A35-4E27FC85B43E"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DoctorWin/Source/HttpUtility.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
-            landmarkName = "putMethod(requestUrl:requestBody:resultType:completionHandler:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "7E577B47-1774-4263-94D6-B8A34274E3E3"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DoctorWin/MyNewsViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "segmentClicked(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "E2CB0EF2-E539-406B-BBC7-21F7AFCB748F"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -241,38 +209,6 @@
             startingLineNumber = "48"
             endingLineNumber = "48"
             landmarkName = "getApiData(urlString:resultType:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "7326C42A-F6F1-4E2F-81EE-D4AA868F2CEE"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DoctorWin/Source/HttpUtility.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
-            landmarkName = "putMethod(requestUrl:requestBody:resultType:completionHandler:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "337C02D2-4656-4B86-A8D1-382A51B25FC3"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DoctorWin/Source/HttpUtility.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
-            landmarkName = "putMethod(requestUrl:requestBody:resultType:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -433,86 +369,6 @@
             startingLineNumber = "40"
             endingLineNumber = "40"
             landmarkName = "verifyClicked(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6EEE3368-7F13-492B-AA5F-377C6197E056"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DoctorWin/Views/Home/Cells/ArticalCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "configureData(homeModel:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "628C8DD3-ADC6-4416-B417-3354AD824044"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DoctorWin/Views/Home/Cells/ArticalCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "addTrailing(with:moreText:moreTextFont:moreTextColor:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "628C8DD3-ADC6-4416-B417-3354AD824044 - 13b546504536904"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__C.UILabel.addTrailing(with: Swift.String, moreText: Swift.String, moreTextFont: __C.UIFont, moreTextColor: __C.UIColor) -&gt; ()"
-                  moduleName = "DoctorWin"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/donthireddymounika/Documents/DoctorWin/DoctorWin/Views/Home/Cells/ArticalCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "69"
-                  endingLineNumber = "69"
-                  offsetFromSymbolStart = "236">
-               </Location>
-               <Location
-                  uuid = "628C8DD3-ADC6-4416-B417-3354AD824044 - 13b546504536904"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__C.UILabel.addTrailing(with: Swift.String, moreText: Swift.String, moreTextFont: __C.UIFont, moreTextColor: __C.UIColor) -&gt; ()"
-                  moduleName = "DoctorWin"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/donthireddymounika/Documents/DoctorWin/DoctorWin/Views/Home/Cells/ArticalCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "69"
-                  endingLineNumber = "69"
-                  offsetFromSymbolStart = "276">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "0262277D-48FF-49BE-9C53-768A8AAA7867"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DoctorWin/Views/Home/Cells/ArticalCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "addTrailing(with:moreText:moreTextFont:moreTextColor:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

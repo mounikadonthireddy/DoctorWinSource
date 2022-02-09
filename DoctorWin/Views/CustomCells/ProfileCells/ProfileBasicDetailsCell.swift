@@ -31,14 +31,14 @@ class ProfileBasicDetailsCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    func cellConfigureWith(data: ProfileDataModel, section: Int) {
+    func cellConfigureWith(data: ProfileDataModel) {
 
-        self.contactNumber.text = data.phoneNumber
+        self.contactNumber.text = data.phoneNumber  
         self.emailID.text = data.email
-        self.gender.text = data.gender
-        self.dob.text = data.dob
-        self.location.text = data.location
-        self.language.text = data.language
+        self.gender.text = data.gender ?? "XXXXXXX"
+        self.dob.text = data.dob ?? "XXXXXXX"
+        self.location.text = data.location ?? "XXXXXXX"
+        self.language.text = data.language ?? "XXXXXXX"
         
         
     }

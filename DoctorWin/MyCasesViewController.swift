@@ -16,17 +16,10 @@ class MyCasesViewController: UIViewController {
         super.viewDidLoad()
         
         tableView.register(UINib(nibName: "HomeTableCell", bundle: nil), forCellReuseIdentifier: "HomeTableCell")
-       
-
-       
-        
-        
         self.tableView.delegate = self
         self.tableView.dataSource = self
         homeVM.delegate = self
         tabBarController?.tabBar.isHidden = false
-       
-        
         
         // Do any additional setup after loading the view.
     }

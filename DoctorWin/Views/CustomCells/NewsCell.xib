@@ -151,11 +151,13 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="bookmarkBtn" destination="lxv-cD-HVe" id="Qc6-or-fV5"/>
                 <outlet property="postImageView" destination="jNj-MA-fKL" id="nyV-t0-9uL"/>
                 <outlet property="postTitle" destination="ngJ-UP-U1m" id="W9Y-Ec-f6V"/>
                 <outlet property="postedDate" destination="KJ0-o3-EVQ" id="dHZ-Ad-xsk"/>
                 <outlet property="postedPersonName" destination="i9F-Hi-9KZ" id="o0x-Gp-To8"/>
                 <outlet property="shadowView" destination="B43-hU-cQf" id="zwL-7j-vVu"/>
+                <outlet property="wishlistBtn" destination="bP8-7u-hXb" id="J8c-mY-0MQ"/>
             </connections>
             <point key="canvasLocation" x="103.62318840579711" y="195.20089285714286"/>
         </tableViewCell>

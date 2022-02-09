@@ -7,12 +7,13 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, ExpandableLabelDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var questionBtn: UIButton!
     var homedataArry: [HomeDataModel] = []
     var homeVM = HomeViewModel()
     @IBOutlet weak var plusBtn: UIButton!
+    var states : Array<Bool>!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,8 +22,8 @@ class HomeViewController: UIViewController {
         tableView.register(UINib(nibName: "HomeTableCell", bundle: nil), forCellReuseIdentifier: "HomeTableCell")
         tableView.register(UINib(nibName: "PollTableViewCell", bundle: nil), forCellReuseIdentifier: "PollTableViewCell")
         tableView.register(UINib(nibName: "ArticalCell", bundle: nil), forCellReuseIdentifier: "ArticalCell")
-
-       
+        
+        
         
         tableView.register(CreateFirstCaseView.nib, forHeaderFooterViewReuseIdentifier: CreateFirstCaseView.identifier)
         
@@ -31,7 +32,7 @@ class HomeViewController: UIViewController {
         self.tableView.dataSource = self
         homeVM.delegate = self
         tabBarController?.tabBar.isHidden = false
-       
+        
         if #available(iOS 13.0, *) {
             let navBarAppearance = UINavigationBarAppearance()
             navBarAppearance.configureWithOpaqueBackground()
@@ -42,18 +43,18 @@ class HomeViewController: UIViewController {
             self.navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
         }
         if #available(iOS 13, *)
-             {
-                 let statusBar = UIView(frame: (UIApplication.shared.keyWindow?.windowScene?.statusBarManager?.statusBarFrame)!)
-                 statusBar.backgroundColor = #colorLiteral(red: 0.0862745098, green: 0.1098039216, blue: 0.3137254902, alpha: 1)
-                 UIApplication.shared.keyWindow?.addSubview(statusBar)
-             } else {
-                // ADD THE STATUS BAR AND SET A CUSTOM COLOR
-                let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
-                if statusBar.responds(to:#selector(setter: UIView.backgroundColor)) {
-                   statusBar.backgroundColor = #colorLiteral(red: 0.0862745098, green: 0.1098039216, blue: 0.3137254902, alpha: 1)
-                }
-                UIApplication.shared.statusBarStyle = .lightContent
-             }
+        {
+            let statusBar = UIView(frame: (UIApplication.shared.keyWindow?.windowScene?.statusBarManager?.statusBarFrame)!)
+            statusBar.backgroundColor = #colorLiteral(red: 0.0862745098, green: 0.1098039216, blue: 0.3137254902, alpha: 1)
+            UIApplication.shared.keyWindow?.addSubview(statusBar)
+        } else {
+            // ADD THE STATUS BAR AND SET A CUSTOM COLOR
+            let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
+            if statusBar.responds(to:#selector(setter: UIView.backgroundColor)) {
+                statusBar.backgroundColor = #colorLiteral(red: 0.0862745098, green: 0.1098039216, blue: 0.3137254902, alpha: 1)
+            }
+            UIApplication.shared.statusBarStyle = .lightContent
+        }
         
         // Do any additional setup after loading the view.
     }
@@ -63,11 +64,11 @@ class HomeViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
         tabBarController?.tabBar.isHidden = false
         tabBarController?.tabBar.frame = CGRect(x: 0, y: 0, width: 220, height: 100)
-      self.parse()
+        self.parse()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-//        tabBarController?.tabBar.isHidden = true
+        //        tabBarController?.tabBar.isHidden = true
     }
     
     func parse() {
@@ -103,24 +104,37 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if homedataArry[indexPath.row].pollStatus ?? false {
             let cell: PollTableViewCell
-                = tableView.dequeueReusableCell(withIdentifier: "PollTableViewCell") as! PollTableViewCell
+            = tableView.dequeueReusableCell(withIdentifier: "PollTableViewCell") as! PollTableViewCell
             cell.configureData(homeModel: homedataArry[indexPath.row])
-
+            
             return cell
         }  else if homedataArry[indexPath.row].artStatus ?? false {
+            
+            
             let cell: ArticalCell
-                = tableView.dequeueReusableCell(withIdentifier: "ArticalCell") as! ArticalCell
+            = tableView.dequeueReusableCell(withIdentifier: "ArticalCell") as! ArticalCell
             cell.configureData(homeModel: homedataArry[indexPath.row])
-
+            cell.descriptionLable.delegate = self
+            
+            cell.descriptionLable.setLessLinkWith(lessLink: "Close", attributes: [.foregroundColor:UIColor.red], position: .left)
+            
+            cell.layoutIfNeeded()
+            
+            cell.descriptionLable.shouldCollapse = true
+            cell.descriptionLable.textReplacementType = .word
+            cell.descriptionLable.numberOfLines = 5
+            cell.descriptionLable.collapsed = states[indexPath.row]
+            cell.descriptionLable.text = homedataArry[indexPath.row].articalDiscription
             return cell
         } else {
-        let cell: HomeTableCell
+            let cell: HomeTableCell
             = tableView.dequeueReusableCell(withIdentifier: "HomeTableCell") as! HomeTableCell
             cell.delegate = self
-        cell.configureData(homeModel: homedataArry[indexPath.row])
-        
-        return cell
+            cell.configureData(homeModel: homedataArry[indexPath.row])
+            
+            return cell
         }
+        
     }
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 10
@@ -131,7 +145,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: CreateFirstCaseView.identifier) as? CreateFirstCaseView {
             headerView.postBtn.addTarget(self, action: #selector(postClicked(button:)), for: .touchUpInside)
-//            headerView.configureCollectionView()
+            //            headerView.configureCollectionView()
             //
             return headerView
         }
@@ -145,11 +159,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if homedataArry[indexPath.row].complaintStatus {
-        
-        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "HomeDetailsViewController") as! HomeDetailsViewController
-        nextVC.detailsModel = homedataArry[indexPath.row]
             
-        self.navigationController?.pushViewController(nextVC, animated: true)
+            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "HomeDetailsViewController") as! HomeDetailsViewController
+            nextVC.detailsModel = homedataArry[indexPath.row]
+            
+            self.navigationController?.pushViewController(nextVC, animated: true)
         }
     }
     @objc func followClicked(button: UIButton) {
@@ -170,7 +184,37 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     @objc func replyBtnClicked(button: UIButton) {
         
     }
+    @objc   func willExpandLabel(_ label: ExpandableLabel) {
+        tableView.beginUpdates()
+    }
+    
+    @objc  func didExpandLabel(_ label: ExpandableLabel) {
+        let point = label.convert(CGPoint.zero, to: tableView)
+        if let indexPath = tableView.indexPathForRow(at: point) as IndexPath? {
+            states[indexPath.row] = false
+            DispatchQueue.main.async { [weak self] in
+                self?.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+            }
+        }
+        tableView.endUpdates()
+    }
+    
+    @objc func willCollapseLabel(_ label: ExpandableLabel) {
+        tableView.beginUpdates()
+    }
+    
+    @objc  func didCollapseLabel(_ label: ExpandableLabel) {
+        let point = label.convert(CGPoint.zero, to: tableView)
+        if let indexPath = tableView.indexPathForRow(at: point) as IndexPath? {
+            states[indexPath.row] = true
+            DispatchQueue.main.async { [weak self] in
+                self?.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+            }
+        }
+        tableView.endUpdates()
+    }
 }
+
 
 extension HomeViewController: CellActionDelegate {
     func like(url: String) {
@@ -188,7 +232,7 @@ extension HomeViewController: CellActionDelegate {
     func reply(url: String, replyText: String) {
         print(url)
     }
-
+    
 }
 
 
@@ -214,8 +258,9 @@ extension HomeViewController : HomeViewModelDelegate {
         if (error != nil) {
             
         } else {
-        self.homedataArry = response ?? []
-        self.tableView.reloadData()
+            self.homedataArry = response ?? []
+            self.tableView.reloadData()
+            states = [Bool](repeating: true, count: homedataArry.count)
         }
     }
     func showLoader() {

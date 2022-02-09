@@ -6,30 +6,42 @@
 //
 
 import UIKit
-import MaterialComponents.MaterialTextControls_OutlinedTextAreas
-import MaterialComponents.MaterialTextControls_OutlinedTextFields
+import iOSDropDown
 
 class RegisterViewController: ViewController {
     
-    @IBOutlet weak var outlineTF: MDCOutlinedTextField!
     @IBOutlet weak var MobileTFView: UIView!
     @IBOutlet weak var nameTFView: UIView!
+    @IBOutlet weak var emailTFView: UIView!
+    @IBOutlet weak var specialityTFView: UIView!
+    @IBOutlet weak var qualificationTFView: UIView!
+    @IBOutlet weak var locationTFView: UIView!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak  var mobileNumTF: UITextField!
+    @IBOutlet weak  var emailTF: UITextField!
+    @IBOutlet weak  var specialityTF: DropDown!
+    @IBOutlet weak  var locationTF: DropDown!
+    @IBOutlet weak  var qualificationTF: DropDown!
+
     @IBOutlet weak var userNameTF: UITextField!
     private var registerViewModel = RegisterViewModel()
     var mobileNum: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        outlineTF.label.text = "Phone number"
-        outlineTF.placeholder = "555-555-5555"
-        outlineTF.leadingAssistiveLabel.text = "This is helper text"
-        outlineTF.sizeToFit()
-        
+//        outlineTF.label.text = "Phone number"
+//        outlineTF.placeholder = "555-555-5555"
+//        outlineTF.leadingAssistiveLabel.text = "This is helper text"
+//        outlineTF.sizeToFit()
+//
         self.MobileTFView.setCornerRadiusWithBorderColor(radius: 10, color: UIColor.blue, borderWidth: 1)
         self.nameTFView.setCornerRadiusWithBorderColor(radius: 10, color: UIColor.blue, borderWidth: 1)
+        self.emailTFView.setCornerRadiusWithBorderColor(radius: 10, color: UIColor.blue, borderWidth: 1)
+        self.specialityTFView.setCornerRadiusWithBorderColor(radius: 10, color: UIColor.blue, borderWidth: 1)
+        self.qualificationTFView.setCornerRadiusWithBorderColor(radius: 10, color: UIColor.blue, borderWidth: 1)
+        self.locationTFView.setCornerRadiusWithBorderColor(radius: 10, color: UIColor.blue, borderWidth: 1)
+        
         registerViewModel.delegate = self
         if mobileNum != "" {
             mobileNumTF.text = mobileNum
@@ -47,10 +59,9 @@ class RegisterViewController: ViewController {
     
     @IBAction func nextClicked(_ sender: Any) {
       //  self.showLoader()
-        let request = RegisterRequest(phone_number:  self.mobileNumTF.text ?? "", username: self.userNameTF.text ?? "")
+        let request = RegisterRequest(phoneNumber: self.mobileNumTF.text ?? "", name: self.userNameTF.text ?? "", email: emailTF.text ?? "", qualification: qualificationTF.text ?? "", currentLocation: locationTF.text ?? "", speciality: specialityTF.text ?? "")
         registerViewModel.registerUser(registerRequest: request)
     }
-    
     
 }
 

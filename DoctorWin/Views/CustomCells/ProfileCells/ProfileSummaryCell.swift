@@ -10,6 +10,7 @@ import UIKit
 class ProfileSummaryCell: UITableViewCell {
     @IBOutlet weak var previewBtn: UIButton!
     @IBOutlet weak var previewView: UIView!
+    @IBOutlet weak var profileSummary: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,5 +24,10 @@ class ProfileSummaryCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    func cellConfigureWith(data: ProfileDataModel) {
+        self.profileSummary.text = data.aboutMe ?? "write something about you"
+        
+    }
+    
     
 }

@@ -29,6 +29,15 @@ struct ProfileDataModel : Codable {
     let language : String?
     let aboutMe: String?
     let skill : String?
+    let storiesCount: Int
+    let pollsCount: Int
+    let newslikeCount: Int
+    let articalsCount : Int
+    let casesCount: Int
+    let speciality: String?
+    let currentLocation: String?
+    let qualification: String?
+
     enum CodingKeys: String, CodingKey {
         case phoneNumber = "phone_number"
         case postGraduationInstitute = "pg_institute_name"
@@ -51,5 +60,13 @@ struct ProfileDataModel : Codable {
         case language
         case aboutMe = "tell_me_about_youself"
         case skill
+        case newslikeCount = "news_post_like"
+        case pollsCount = "poll_likes"
+        case storiesCount = "college_story_likes"
+        case articalsCount = "artical_like"
+        case casesCount = "case_like"
+        case speciality = "speciality"
+        case currentLocation = "current_job_location"
+        case qualification = "hightest_qualification"
     }
 }

@@ -1,28 +1,28 @@
 //
-//  MyNewsViewController.swift
+//  MyPollsViewController.swift
 //  DoctorWin
 //
-//  Created by Donthireddy Mounika on 03/01/22.
+//  Created by Donthireddy Mounika on 20/01/22.
 //
 
 import UIKit
 
-class MyNewsViewController: ViewController {
-
-    var newsArray:[NewsDataModel] = []
+class MyPollsViewController: ViewController {
+    
+    var newsArray:[PollsDataModel] = []
     @IBOutlet weak var newsTableView: UITableView!
     @IBOutlet weak var interfaceSegmented: CustomSegmentedControl!{
         didSet{
-            interfaceSegmented.setButtonTitles(buttonTitles: ["My News","Bookmark News", "Likes News"])
+            interfaceSegmented.setButtonTitles(buttonTitles: ["My Polls","Bookmark Polls", "Liked Polls"])
             interfaceSegmented.selectorViewColor = .black
             interfaceSegmented.selectorTextColor = .black
         }
     }
-    var newsVM = NewsViewModel()
+    var newsVM = PollsViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        newsTableView.register(UINib(nibName: "NewsCell", bundle: nil), forCellReuseIdentifier: "NewsCell")
+        newsTableView.register(UINib(nibName: "PollTableViewCell", bundle: nil), forCellReuseIdentifier: "PollTableViewCell")
 
         self.newsTableView.delegate = self
         self.newsTableView.dataSource = self
@@ -43,13 +43,13 @@ class MyNewsViewController: ViewController {
        // tabBarController?.tabBar.isHidden = true
     }
     func loadMyNews() {
-        newsVM.getMyNews(userID: User.shared.userID)
+        newsVM.getMyPolls(userID: User.shared.userID)
     }
     func loadBookmarkNews() {
-        newsVM.getBookmarkNews(userID: User.shared.userID)
+        newsVM.getBookmarkPolls(userID: User.shared.userID)
     }
     func loadLikedNews() {
-        newsVM.getLikedNews(userID: User.shared.userID)
+        newsVM.getLikedPolls(userID: User.shared.userID)
     }
     
    
@@ -58,28 +58,28 @@ class MyNewsViewController: ViewController {
     }
 }
 
-extension MyNewsViewController : UITableViewDelegate, UITableViewDataSource {
+extension MyPollsViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return newsArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: NewsCell
-            = tableView.dequeueReusableCell(withIdentifier: "NewsCell") as! NewsCell
-        cell.configureCell(with: newsArray[indexPath.row])
+        let cell: PollTableViewCell
+            = tableView.dequeueReusableCell(withIdentifier: "PollTableViewCell") as! PollTableViewCell
+       // cell.configureCell(with: newsArray[indexPath.row])
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "NewsDetailsViewController") as! NewsDetailsViewController
-        nextVC.newsDetailsData = newsArray[indexPath.row]
-        self.navigationController?.pushViewController(nextVC, animated: true)
+//        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "NewsDetailsViewController") as! NewsDetailsViewController
+//        nextVC.newsDetailsData = newsArray[indexPath.row]
+//        self.navigationController?.pushViewController(nextVC, animated: true)
         
     }
     
     
 }
-extension MyNewsViewController: NewsViewModelDelegate {
-    func didReceiveNews(response: [NewsDataModel]?, error: String?) {
+extension MyPollsViewController: PollsViewModelDelegate {
+    func didReceiveNews(response: [PollsDataModel]?, error: String?) {
         self.dismiss()
         if (error != nil) {
             
@@ -91,7 +91,7 @@ extension MyNewsViewController: NewsViewModelDelegate {
     
     
 }
-extension MyNewsViewController: CustomSegmentedControlDelegate {
+extension MyPollsViewController: CustomSegmentedControlDelegate {
     func change(to index: Int) {
         print(index)
         if index == 0 {

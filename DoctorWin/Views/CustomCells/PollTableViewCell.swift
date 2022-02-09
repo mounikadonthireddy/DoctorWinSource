@@ -66,7 +66,7 @@ class PollTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func configureData(homeModel: HomeDataModel) {
-        self.designation.text = homeModel.qualification
+        self.designation.text = homeModel.speciality
         self.postedPersonName.text = homeModel.profileName
         self.titleLable.text = homeModel.pollTitle
         let days = Date().offsetFrom(dateStr: homeModel.postedData)

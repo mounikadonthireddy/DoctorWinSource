@@ -36,6 +36,7 @@ struct JobsDataModel : Codable {
     let course : String?
     let bookmarkStatus: Bool?
     let applyStatus: Bool?
+    let speciality: String?
 
     enum CodingKeys: String, CodingKey {
         case companyName = "hosptial_name"
@@ -67,6 +68,7 @@ struct JobsDataModel : Codable {
         case course = "Speciality"
         case bookmarkStatus = "bookmark_status"
         case applyStatus = "apply_status"
+        case speciality
 
     }
 }

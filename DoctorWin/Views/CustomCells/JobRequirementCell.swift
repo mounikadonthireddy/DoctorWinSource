@@ -45,8 +45,8 @@ class JobRequirementCell: UITableViewCell {
     }
     
     func configureCell(with data: JobsDataModel) {
-        self.title.text = data.title
-        self.subTitle.text = "Consult at \(data.subTitle!)"
+        self.title.text = (data.designation ?? "") + " At " + (data.companyName ?? "")
+        self.subTitle.text = "\(data.course ?? "")"
         self.location.text =  data.location
         self.jobPosted.text = data.date
         self.qualification.text =  data.qualification

@@ -58,6 +58,9 @@ struct HomeDataModel: Codable {
     let caseProfileImage: String?
     let qualification: String?
     let profileName: String?
+    let speciality: String?
+    let location: String?
+
 
     enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -110,6 +113,8 @@ struct HomeDataModel: Codable {
         case caseProfileImage = "ProfileImage"
         case qualification = "hightest_qualification"
         case profileName = "ProfileName"
+        case speciality = "speciality"
+        case location = "location"
     }
     
 }

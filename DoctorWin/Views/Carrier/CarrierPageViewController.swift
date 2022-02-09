@@ -128,6 +128,14 @@ extension CarrierPageViewController: UITableViewDelegate, UITableViewDataSource 
         return nil
         
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let str = UIStoryboard(name: "Home", bundle: nil)
+        if indexPath.section == 5 {
+            let nextVC = str.instantiateViewController(withIdentifier: "JobDetailsViewController") as! JobDetailsViewController
+            nextVC.detailsModel = allJobsArray[indexPath.row]
+            self.navigationController?.pushViewController(nextVC, animated: true)
+        }
+    }
 }
 extension CarrierPageViewController: JobsViewModelDelegate {
     func didReceiveJobsResponse(response: [JobsDataModel]?, error: String?) {

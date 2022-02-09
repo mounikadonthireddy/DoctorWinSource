@@ -56,14 +56,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKW-nq-Exi">
-                                <rect key="frame" x="15" y="346" width="424" height="121"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKW-nq-Exi" customClass="ExpandableLabel" customModule="DoctorWin" customModuleProvider="target">
+                                <rect key="frame" x="15" y="346" width="424" height="77"/>
                                 <string key="text">OS has built-in support for adding shadows to UIView components. All you need to do in order to add a shadow to a UIView object is to set the shadow properties of the view’s layer. </string>
                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Discussions" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ro2-Mq-igm">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 likes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ro2-Mq-igm">
                                 <rect key="frame" x="10" y="487" width="100" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="3fl-tB-A6U"/>
@@ -119,7 +119,7 @@
                                     <constraint firstAttribute="height" constant="20" id="oF0-o4-0Mf"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Likes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggR-Lh-oBm">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Likes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggR-Lh-oBm">
                                 <rect key="frame" x="130" y="487" width="100" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="OOC-Jg-RtK"/>
@@ -150,6 +150,32 @@
                                     <constraint firstAttribute="width" constant="180" id="h3x-pp-mzG"/>
                                 </constraints>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ZrT-co-GMv">
+                                <rect key="frame" x="15" y="443.5" width="30" height="27"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="M6y-UB-RSL"/>
+                                    <constraint firstAttribute="width" constant="30" id="hlZ-G5-8Ef"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D6J-HL-LVY">
+                                <rect key="frame" x="55" y="438" width="40" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="2X2-mv-36h"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                <color key="textColor" red="0.0039215686269999999" green="0.098039215690000001" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Posted date is 2021-09-29" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5d-Pc-i68">
+                                <rect key="frame" x="55" y="462" width="151.5" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="pm8-F5-fQI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -157,14 +183,19 @@
                             <constraint firstAttribute="trailing" secondItem="5GH-1g-l9x" secondAttribute="trailing" id="3GZ-yD-ch7"/>
                             <constraint firstItem="ksM-45-YCL" firstAttribute="leading" secondItem="031-BX-DWl" secondAttribute="leading" constant="15" id="3YE-Rk-xAH"/>
                             <constraint firstItem="ggR-Lh-oBm" firstAttribute="leading" secondItem="Ro2-Mq-igm" secondAttribute="trailing" constant="20" id="3fF-Kd-SVw"/>
+                            <constraint firstItem="Ro2-Mq-igm" firstAttribute="top" secondItem="y5d-Pc-i68" secondAttribute="bottom" constant="10" id="7GD-V9-9e9"/>
+                            <constraint firstItem="D6J-HL-LVY" firstAttribute="leading" secondItem="ZrT-co-GMv" secondAttribute="trailing" constant="10" id="7R3-7r-Gxb"/>
                             <constraint firstItem="5GH-1g-l9x" firstAttribute="top" secondItem="031-BX-DWl" secondAttribute="top" id="BkA-2a-GNU"/>
                             <constraint firstAttribute="bottom" secondItem="9r7-hR-1DH" secondAttribute="bottom" constant="1" id="DdU-nc-Tnx"/>
                             <constraint firstAttribute="bottom" secondItem="gSM-Lr-YqK" secondAttribute="bottom" constant="5" id="GBM-TS-qG4"/>
-                            <constraint firstItem="ggR-Lh-oBm" firstAttribute="top" secondItem="bKW-nq-Exi" secondAttribute="bottom" constant="20" id="Gxz-j6-orb"/>
                             <constraint firstItem="5GH-1g-l9x" firstAttribute="leading" secondItem="031-BX-DWl" secondAttribute="leading" id="H2r-s3-5Um"/>
                             <constraint firstItem="Ro2-Mq-igm" firstAttribute="leading" secondItem="031-BX-DWl" secondAttribute="leading" constant="10" id="Iuy-vf-OqY"/>
+                            <constraint firstItem="Ro2-Mq-igm" firstAttribute="top" secondItem="ZrT-co-GMv" secondAttribute="bottom" constant="15" id="JQc-Mn-JOe"/>
+                            <constraint firstItem="D6J-HL-LVY" firstAttribute="top" secondItem="bKW-nq-Exi" secondAttribute="bottom" constant="15" id="KvC-jg-kQb"/>
                             <constraint firstItem="h9M-07-I8u" firstAttribute="leading" secondItem="031-BX-DWl" secondAttribute="leading" id="Mag-Ar-wNG"/>
                             <constraint firstItem="7c9-HX-s2E" firstAttribute="centerY" secondItem="gSM-Lr-YqK" secondAttribute="centerY" id="RE2-Au-NLL"/>
+                            <constraint firstItem="y5d-Pc-i68" firstAttribute="top" secondItem="D6J-HL-LVY" secondAttribute="bottom" constant="3" id="RVg-EJ-dab"/>
+                            <constraint firstItem="ZrT-co-GMv" firstAttribute="leading" secondItem="031-BX-DWl" secondAttribute="leading" constant="15" id="SrM-py-f3q"/>
                             <constraint firstItem="9r7-hR-1DH" firstAttribute="top" secondItem="h9M-07-I8u" secondAttribute="bottom" constant="1" id="Wjw-OU-iiz"/>
                             <constraint firstItem="gSM-Lr-YqK" firstAttribute="top" secondItem="h9M-07-I8u" secondAttribute="bottom" constant="5" id="ZM3-YS-Ocl"/>
                             <constraint firstItem="h9M-07-I8u" firstAttribute="top" secondItem="Ro2-Mq-igm" secondAttribute="bottom" constant="15" id="as6-iv-lDS"/>
@@ -174,10 +205,12 @@
                             <constraint firstAttribute="trailing" secondItem="h9M-07-I8u" secondAttribute="trailing" id="hA8-uD-uAd"/>
                             <constraint firstItem="bKW-nq-Exi" firstAttribute="top" secondItem="ksM-45-YCL" secondAttribute="bottom" constant="10" id="idj-f0-RmL"/>
                             <constraint firstAttribute="trailing" secondItem="7c9-HX-s2E" secondAttribute="trailing" constant="1" id="mwE-sZ-ELy"/>
+                            <constraint firstItem="h9M-07-I8u" firstAttribute="top" secondItem="ggR-Lh-oBm" secondAttribute="bottom" constant="15" id="oJH-B5-Wtp"/>
+                            <constraint firstItem="y5d-Pc-i68" firstAttribute="leading" secondItem="ZrT-co-GMv" secondAttribute="trailing" constant="10" id="paE-tR-Nea"/>
                             <constraint firstAttribute="trailing" secondItem="ksM-45-YCL" secondAttribute="trailing" constant="15" id="pxx-eq-VbR"/>
                             <constraint firstItem="ksM-45-YCL" firstAttribute="top" secondItem="RW1-P1-HWm" secondAttribute="bottom" constant="15" id="rOK-CP-s2v"/>
+                            <constraint firstItem="h9M-07-I8u" firstAttribute="top" secondItem="Ro2-Mq-igm" secondAttribute="bottom" constant="15" id="uYx-qn-JYD"/>
                             <constraint firstItem="bKW-nq-Exi" firstAttribute="leading" secondItem="031-BX-DWl" secondAttribute="leading" constant="15" id="vAt-Ua-NkD"/>
-                            <constraint firstItem="Ro2-Mq-igm" firstAttribute="top" secondItem="bKW-nq-Exi" secondAttribute="bottom" constant="20" id="vq2-Ia-Kxs"/>
                             <constraint firstAttribute="trailing" secondItem="bKW-nq-Exi" secondAttribute="trailing" constant="10" id="yIQ-P3-wZ7"/>
                             <constraint firstItem="gSM-Lr-YqK" firstAttribute="leading" secondItem="031-BX-DWl" secondAttribute="leading" constant="10" id="znp-Vr-F5u"/>
                         </constraints>
@@ -195,8 +228,12 @@
             <connections>
                 <outlet property="bookmarkImage" destination="mQe-5Z-1v3" id="12w-le-XKd"/>
                 <outlet property="descriptionLable" destination="bKW-nq-Exi" id="6Zd-Ok-bDy"/>
+                <outlet property="designation" destination="y5d-Pc-i68" id="I13-o8-R4E"/>
                 <outlet property="discussion" destination="Ro2-Mq-igm" id="ZRT-x9-8pP"/>
+                <outlet property="likeCount" destination="Ro2-Mq-igm" id="edN-Q4-VA4"/>
                 <outlet property="likeImage" destination="pZu-6r-Hvd" id="9mp-ah-IhY"/>
+                <outlet property="personName" destination="D6J-HL-LVY" id="CTn-Ln-Ptf"/>
+                <outlet property="pesonImage" destination="ZrT-co-GMv" id="awg-C1-EaW"/>
                 <outlet property="postImage" destination="RW1-P1-HWm" id="KnX-FN-WGg"/>
                 <outlet property="replyTF" destination="dVA-75-ueb" id="jeR-AI-PSf"/>
                 <outlet property="saveBtn" destination="Xes-C7-jQV" id="dUO-gl-vnk"/>
@@ -211,6 +248,7 @@
         <image name="loginBg" width="6240" height="3014"/>
         <image name="mark" width="64" height="64"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="share" width="64" height="64"/>
     </resources>
 </document>

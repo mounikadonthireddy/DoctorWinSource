@@ -34,7 +34,7 @@ struct RegisterViewModel {
                             
                             UserDefaults.standard.setValue("\(data.username_status!)", forKey: "username_status")
                             UserDefaults.standard.setValue("\(data.username!)", forKey: "username")
-                            UserDefaults.standard.setValue(registerRequest.phone_number, forKey: "mobileNum")
+                            UserDefaults.standard.setValue(registerRequest.phoneNumber, forKey: "mobileNum")
                             self.delegate?.didReceiveRegsiterResponse(wilNavigateTo: false, error: nil)
                         }
                         
