@@ -21,7 +21,7 @@ class RegisterViewController: ViewController {
     @IBOutlet weak  var mobileNumTF: UITextField!
     @IBOutlet weak  var emailTF: UITextField!
     @IBOutlet weak  var specialityTF: DropDown!
-    @IBOutlet weak  var locationTF: DropDown!
+    @IBOutlet weak  var locationTF: UITextField!
     @IBOutlet weak  var qualificationTF: DropDown!
 
     @IBOutlet weak var userNameTF: UITextField!
@@ -29,12 +29,9 @@ class RegisterViewController: ViewController {
     var mobileNum: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        outlineTF.label.text = "Phone number"
-//        outlineTF.placeholder = "555-555-5555"
-//        outlineTF.leadingAssistiveLabel.text = "This is helper text"
-//        outlineTF.sizeToFit()
-//
+        self.setupUI()
+    }
+    func setupUI() {
         self.MobileTFView.setCornerRadiusWithBorderColor(radius: 10, color: UIColor.blue, borderWidth: 1)
         self.nameTFView.setCornerRadiusWithBorderColor(radius: 10, color: UIColor.blue, borderWidth: 1)
         self.emailTFView.setCornerRadiusWithBorderColor(radius: 10, color: UIColor.blue, borderWidth: 1)
@@ -50,8 +47,6 @@ class RegisterViewController: ViewController {
         self.nextButton.btn_setCornerRadius(radius: self.nextButton.frame.height/2)
         self.loginButton.btn_setCornerRadius(radius: self.loginButton.frame.height/2)
 
-        self.navigationItem.title = "Register"
-        // Do any additional setup after loading the view.
     }
     @IBAction func backClicked(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
