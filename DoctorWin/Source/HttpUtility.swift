@@ -15,8 +15,21 @@ enum RequestError: Error {
     case serverError(error: NSError)
 }
 
+enum HTTPMethod: String {
+    case get = "GET"
+    case post = "POST"
+    case put = "PUT"
+    case patch = "PATCH"
+    case delete = "DELETE"
+    
+}
+
 
 struct HttpUtility {
+//    let methodName: HTTPMethod
+//    init(methodName: HTTPMethod) {
+//        self.methodName = methodName
+//    }
     
     func getApiData<T:Decodable>(urlString: String, resultType: T.Type, completion:@escaping(Result<T, RequestError>) -> Void) {
         

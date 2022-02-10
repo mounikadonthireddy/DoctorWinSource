@@ -23,13 +23,14 @@ class RegisterViewController: ViewController {
     @IBOutlet weak  var specialityTF: DropDown!
     @IBOutlet weak  var locationTF: UITextField!
     @IBOutlet weak  var qualificationTF: DropDown!
-
     @IBOutlet weak var userNameTF: UITextField!
     private var registerViewModel = RegisterViewModel()
     var mobileNum: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
+        self.downloadQualificationResource()
+        self.downloadSpeacilityResource()
     }
     func setupUI() {
         self.MobileTFView.setCornerRadiusWithBorderColor(radius: 10, color: UIColor.blue, borderWidth: 1)
@@ -38,7 +39,9 @@ class RegisterViewController: ViewController {
         self.specialityTFView.setCornerRadiusWithBorderColor(radius: 10, color: UIColor.blue, borderWidth: 1)
         self.qualificationTFView.setCornerRadiusWithBorderColor(radius: 10, color: UIColor.blue, borderWidth: 1)
         self.locationTFView.setCornerRadiusWithBorderColor(radius: 10, color: UIColor.blue, borderWidth: 1)
-        
+        self.specialityTF.placeholder  = "Select Speciality"
+        self.qualificationTF.placeholder  = "Select Highest Qualification"
+
         registerViewModel.delegate = self
         if mobileNum != "" {
             mobileNumTF.text = mobileNum
@@ -47,6 +50,31 @@ class RegisterViewController: ViewController {
         self.nextButton.btn_setCornerRadius(radius: self.nextButton.frame.height/2)
         self.loginButton.btn_setCornerRadius(radius: self.loginButton.frame.height/2)
 
+    }
+    func downloadQualificationResource() {
+        self.showLoader()
+        let resouce = DropDownResource()
+        resouce.getQualificationData { result in
+            DispatchQueue.main.async {
+                self.dismiss()
+            }
+            self.qualificationTF.optionArray = result.map { data in
+                return data.qualification
+            }
+       
+        }
+    }
+    func downloadSpeacilityResource() {
+        self.showLoader()
+        let resouce = DropDownResource()
+        resouce.getSpecilityData { result in
+            DispatchQueue.main.async {
+                self.dismiss()
+            }
+            self.specialityTF.optionArray = result.map { data in
+                return data.department
+            }
+        }
     }
     @IBAction func backClicked(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)

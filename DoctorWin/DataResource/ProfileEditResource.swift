@@ -258,6 +258,7 @@ struct ProfileEditDropDownModel: Codable {
     let gender: [String]
     let language: [String]
 }
+
 struct ProfessionalDropDownModel: Codable {
     let ug_course: [String]
     let pg_course: [String]

@@ -40,4 +40,20 @@ struct LoginResource {
             debugPrint(error)
         }
     }
+    
+    func resendOtp(request: LoginRequest, completion :  @escaping(Result<LoginResponse, RequestError>) -> Void) {
+        let loginUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.resendOtp
+        let httpUtility = HttpUtility()
+        do {
+            
+            let loginPostBody = try JSONEncoder().encode(request)
+            httpUtility.postMethod(urlString: loginUrlStr, requestBody: loginPostBody, resultType: LoginResponse.self) { (result) in
+                completion(result)
+               
+        }
+        }
+        catch let error {
+            debugPrint(error)
+        }
+    }
 }

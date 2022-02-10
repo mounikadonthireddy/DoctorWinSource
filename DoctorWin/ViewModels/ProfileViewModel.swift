@@ -12,8 +12,7 @@ protocol ProfileEditViewModelDelegate {
 
 }
 
-struct ProfileEditViewModel
-{
+struct ProfileEditViewModel {
     var delegate : ProfileEditViewModelDelegate?
     func getLanguageAndGenderDropDownData(userID: String) {
         let resource = ProfileEditResource()

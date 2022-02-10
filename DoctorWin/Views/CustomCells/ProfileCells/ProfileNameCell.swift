@@ -28,7 +28,7 @@ class ProfileNameCell: UITableViewCell {
     }
     func cellConfigureWith(data: ProfileDataModel) {
         self.profileName.text = data.profileName ?? "XXXXX"
-        self.designation.text = (data.speciality ?? "XXXXX") + (data.currentLocation ?? "XXXX")
+        self.designation.text = (data.speciality ?? "XXXXX") + " At "  + (data.currentLocation ?? "XXXX")
         self.speciality.text = data.qualification ?? "XXXXX"
         
         if let urlString = data.profileImage {

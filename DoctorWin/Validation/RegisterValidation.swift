@@ -14,9 +14,18 @@ struct RegisterValidation {
         } else if registerRequest.phoneNumber.count <  10 {
             return ValidationResult(success: false, error: "User Mobile Number is Not Valid")
 
-        }  else if isValidEmail(registerRequest.email) {
+        } else if registerRequest.name.count <  3 {
+            return ValidationResult(success: false, error: "Please enter your full name")
+        }
+        else if !isValidEmail(registerRequest.email) {
             return ValidationResult(success: false, error: "Plese enter a valid  Email address")
 
+        } else if registerRequest.speciality.count ==  0 {
+            return ValidationResult(success: false, error: "Please Select Speciality")
+        } else if registerRequest.qualification.count ==  0 {
+            return ValidationResult(success: false, error: "Please Select Highest Qualification")
+        } else if registerRequest.currentLocation.count <  3 {
+            return ValidationResult(success: false, error: "Please enter your current location")
         }
         return ValidationResult(success: true, error: nil)
     }

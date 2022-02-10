@@ -244,6 +244,7 @@
 		BFCB16BA2799919A005E3FEB /* MyPollsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCB16B92799919A005E3FEB /* MyPollsViewController.swift */; };
 		BFCB16BC279991DD005E3FEB /* MyStoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCB16BB279991DD005E3FEB /* MyStoriesViewController.swift */; };
 		BFCB16BE279993AC005E3FEB /* PollsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCB16BD279993AC005E3FEB /* PollsViewModel.swift */; };
+		BFCB174027B4172A005E3FEB /* DropDownResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCB173F27B4172A005E3FEB /* DropDownResource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -511,6 +512,7 @@
 		BFCB16B92799919A005E3FEB /* MyPollsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPollsViewController.swift; sourceTree = "<group>"; };
 		BFCB16BB279991DD005E3FEB /* MyStoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStoriesViewController.swift; sourceTree = "<group>"; };
 		BFCB16BD279993AC005E3FEB /* PollsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollsViewModel.swift; sourceTree = "<group>"; };
+		BFCB173F27B4172A005E3FEB /* DropDownResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownResource.swift; sourceTree = "<group>"; };
 		CFDC4F24275C623FA5230FA3 /* Pods-DoctorWin-DoctorWinUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorWin-DoctorWinUITests.release.xcconfig"; path = "Target Support Files/Pods-DoctorWin-DoctorWinUITests/Pods-DoctorWin-DoctorWinUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E9F70AFB71164BEA0D30A370 /* Pods-DoctorWinTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorWinTests.debug.xcconfig"; path = "Target Support Files/Pods-DoctorWinTests/Pods-DoctorWinTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -676,6 +678,7 @@
 				43D38BED275D022A004B42E0 /* JobApplyResource.swift */,
 				431052FC275A099A006BC13A /* ProfileEditResource.swift */,
 				43F971E2275BC2E000733478 /* PollResource.swift */,
+				BFCB173F27B4172A005E3FEB /* DropDownResource.swift */,
 			);
 			path = DataResource;
 			sourceTree = "<group>";
@@ -1437,6 +1440,7 @@
 				43B28450273CE1BA00E8CED8 /* AddMainViewController.swift in Sources */,
 				43A6A97E2732520600400F72 /* AddExperienceCell.swift in Sources */,
 				BFCB16BE279993AC005E3FEB /* PollsViewModel.swift in Sources */,
+				BFCB174027B4172A005E3FEB /* DropDownResource.swift in Sources */,
 				43AF9F8D2729D5140020CCF3 /* PredictorViewController.swift in Sources */,
 				8FF9AD0227731525002F4700 /* NewsJobResource.swift in Sources */,
 				43AF8FC727358C8500CC69EF /* HttpUtility.swift in Sources */,

@@ -30,10 +30,9 @@ struct RegisterViewModel {
                     switch result {
                     case .success(let data):
                         
-                        if data.status {
+                        if data.message == "Otp sented Successful" {
                             
-                            UserDefaults.standard.setValue("\(data.username_status!)", forKey: "username_status")
-                            UserDefaults.standard.setValue("\(data.username!)", forKey: "username")
+                            UserDefaults.standard.setValue("\(registerRequest.name)", forKey: "username")
                             UserDefaults.standard.setValue(registerRequest.phoneNumber, forKey: "mobileNum")
                             self.delegate?.didReceiveRegsiterResponse(wilNavigateTo: false, error: nil)
                         }

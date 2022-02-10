@@ -25,7 +25,7 @@ struct ApiEndpoints
 
     static let registration = ""
     static let otp = "auth/otp"
-    static let resendOtp = "auth/resend/otp/"
+//    static let resendOtp = "auth/resend/otp/"
 
     static let stories = "banner/job/"
     static let bannerPromotons = "banner/promotional/"
@@ -136,6 +136,10 @@ struct ApiEndpoints
     static let questions = "comment/question/post/"
  static let complaintLike = "job/like/"
     static let complaintFollow = "auth/follow/"
+    static let getQualification = "job/search/higher/qualifiction"
+    static let getSpeacilty = "job/department/"
+    static let resendOtp = "resend/otp"
+
 
 }
 
