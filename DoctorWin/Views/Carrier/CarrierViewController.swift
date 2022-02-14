@@ -20,11 +20,10 @@ class CarrierViewController: ViewController {
     let itemSpacing = CGFloat(10)
     let itemHeight = CGFloat(265)
     @IBOutlet weak var collectionViewHeight: NSLayoutConstraint!
-
+    var topJobsViewModel = TopJobsViewModel()
     
     var itemWidth = CGFloat(0)
     var currentItem = 0
-    var topJobsViewModel = TopJobsViewModel()
     var categoryJobsViewModel = JobCategoryViewModel()
 
     override func viewWillAppear(_ animated: Bool) {

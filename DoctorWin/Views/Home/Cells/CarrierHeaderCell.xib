@@ -42,7 +42,7 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="scq-it-55x">
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="scq-it-55x">
                         <rect key="frame" x="345" y="15" width="30" height="30"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="30" id="AJG-Rw-Lh3"/>
@@ -52,30 +52,39 @@
                         <state key="normal" image="menu"/>
                     </button>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IYn-yX-wXX">
-                        <rect key="frame" x="20" y="75" width="355" height="200"/>
+                        <rect key="frame" x="20" y="75" width="355" height="210"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Department" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKu-Z5-ULe">
-                                <rect key="frame" x="10" y="10" width="63.5" height="14.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speciality" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKu-Z5-ULe">
+                                <rect key="frame" x="10" y="15" width="51.5" height="14.5"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                 <color key="textColor" red="0.50980392159999999" green="0.57254901960000004" blue="0.70588235290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Cardiology" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B7a-I2-2bZ">
-                                <rect key="frame" x="10" y="34.5" width="335" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Speciality" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B7a-I2-2bZ" customClass="DropDown" customModule="iOSDropDown">
+                                <rect key="frame" x="10" y="39.5" width="335" height="34"/>
                                 <color key="backgroundColor" systemColor="tertiarySystemFillColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="r6p-Ie-NKd"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSearchEnable" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="17"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="arrowColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="yDE-Ju-YF6">
-                                <rect key="frame" x="10" y="78.5" width="335" height="50"/>
+                                <rect key="frame" x="10" y="83.5" width="335" height="50"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gFq-ys-BVf">
                                         <rect key="frame" x="0.0" y="1" width="167" height="48"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Department" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cff-4J-VP1">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Designation" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cff-4J-VP1">
                                                 <rect key="frame" x="5" y="5" width="162" height="15"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="15" id="thH-HF-z3f"/>
@@ -84,12 +93,19 @@
                                                 <color key="textColor" red="0.50980392159999999" green="0.57254901960000004" blue="0.70588235290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Professor" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Roe-8t-LGk">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Select Designation" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mF0-ds-Ixq" customClass="DropDown" customModule="iOSDropDown">
                                                 <rect key="frame" x="5" y="20" width="162" height="28"/>
-                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
-                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="arrowSize">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="arrowColor">
+                                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -110,16 +126,22 @@
                                                 <color key="textColor" red="0.50980392159999999" green="0.57254901960000004" blue="0.70588235290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hyderbad" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jT0-g7-PDf">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Select Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uan-Mv-mAL" customClass="DropDown" customModule="iOSDropDown">
                                                 <rect key="frame" x="10" y="20" width="157" height="28"/>
-                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
-                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="arrowSize">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="arrowColor">
+                                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="jT0-g7-PDf" firstAttribute="leading" secondItem="zA4-E0-sGd" secondAttribute="leading" constant="10" id="7fg-tp-3La"/>
                                             <constraint firstItem="lfn-vV-llh" firstAttribute="leading" secondItem="zA4-E0-sGd" secondAttribute="leading" constant="10" id="V4a-fp-484"/>
                                             <constraint firstItem="lfn-vV-llh" firstAttribute="top" secondItem="zA4-E0-sGd" secondAttribute="top" constant="5" id="g0Z-uq-eKf"/>
                                         </constraints>
@@ -133,8 +155,8 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYB-1a-l7n">
-                                <rect key="frame" x="15" y="143.5" width="325" height="40"/>
-                                <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                <rect key="frame" x="15" y="148.5" width="325" height="40"/>
+                                <color key="backgroundColor" red="0.90980392156862744" green="0.91764705882352937" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="KpH-qj-4Ju"/>
                                 </constraints>
@@ -143,6 +165,9 @@
                                 <state key="normal" title="Search Jobs">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="searchClicked:" destination="Kn3-pX-XFa" eventType="touchUpInside" id="9O2-QV-89n"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -155,8 +180,8 @@
                             <constraint firstAttribute="trailing" secondItem="B7a-I2-2bZ" secondAttribute="trailing" constant="10" id="ad9-0I-p6w"/>
                             <constraint firstItem="yDE-Ju-YF6" firstAttribute="leading" secondItem="IYn-yX-wXX" secondAttribute="leading" constant="10" id="fol-uq-bVr"/>
                             <constraint firstItem="B7a-I2-2bZ" firstAttribute="top" secondItem="fKu-Z5-ULe" secondAttribute="bottom" constant="10" id="l6L-8i-juH"/>
-                            <constraint firstItem="fKu-Z5-ULe" firstAttribute="top" secondItem="IYn-yX-wXX" secondAttribute="top" constant="10" id="oZo-wa-iIa"/>
-                            <constraint firstAttribute="height" constant="200" id="wki-0C-T35"/>
+                            <constraint firstItem="fKu-Z5-ULe" firstAttribute="top" secondItem="IYn-yX-wXX" secondAttribute="top" constant="15" id="oZo-wa-iIa"/>
+                            <constraint firstAttribute="height" constant="210" id="wki-0C-T35"/>
                             <constraint firstItem="aYB-1a-l7n" firstAttribute="top" secondItem="yDE-Ju-YF6" secondAttribute="bottom" constant="15" id="yeb-N2-wgb"/>
                             <constraint firstItem="yDE-Ju-YF6" firstAttribute="top" secondItem="B7a-I2-2bZ" secondAttribute="bottom" constant="10" id="zmm-Dz-WPC"/>
                         </constraints>
@@ -180,6 +205,10 @@
             <viewLayoutGuide key="safeArea" id="5fh-U5-vV7"/>
             <connections>
                 <outlet property="bgView" destination="IYn-yX-wXX" id="lKF-Tg-Uyy"/>
+                <outlet property="designationTF" destination="mF0-ds-Ixq" id="a3B-yM-w5U"/>
+                <outlet property="locationTF" destination="uan-Mv-mAL" id="HVB-87-fPT"/>
+                <outlet property="search" destination="aYB-1a-l7n" id="AS1-Ua-WAe"/>
+                <outlet property="specialityTF" destination="B7a-I2-2bZ" id="MJp-3E-Xnm"/>
             </connections>
             <point key="canvasLocation" x="190.57971014492756" y="188.50446428571428"/>
         </tableViewCell>
@@ -191,9 +220,6 @@
         </systemColor>
         <systemColor name="tertiarySystemFillColor">
             <color red="0.46274509803921571" green="0.46274509803921571" blue="0.50196078431372548" alpha="0.12" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="tertiarySystemGroupedBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

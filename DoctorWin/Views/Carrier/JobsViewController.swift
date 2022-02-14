@@ -15,7 +15,7 @@ class JobsViewController: UIViewController {
     @IBOutlet weak var departmentTF: DropDown!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var stackViewHeight: NSLayoutConstraint!
-    var jobType: JobType = .none
+    var jobType: String = ""
     var categoryID: Int = 0
     var jobsArray :[JobsDataModel] = []
     var jobsVM = JobsViewModel()
@@ -27,7 +27,7 @@ class JobsViewController: UIViewController {
         jobsVM.delegate = self
         parse1()
         print(jobType)
-        self.backBtn.setTitle("  \(jobType.rawValue)", for: .normal)
+        self.backBtn.setTitle("  \(jobType)", for: .normal)
         handleSearch()
         // Do any additional setup after loading the view.
     }

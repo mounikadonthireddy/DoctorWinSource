@@ -239,6 +239,11 @@
 		BF431C9D278403180057AF9F /* CreateFirstCaseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF431C9C278403180057AF9F /* CreateFirstCaseView.xib */; };
 		BF431CA0278442D00057AF9F /* DummyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF431C9E278442D00057AF9F /* DummyCell.swift */; };
 		BF431CA1278442D00057AF9F /* DummyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF431C9F278442D00057AF9F /* DummyCell.xib */; };
+		BFA90E1727B4E036009F9784 /* MySelfCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA90E1527B4E036009F9784 /* MySelfCell.swift */; };
+		BFA90E1827B4E036009F9784 /* MySelfCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFA90E1627B4E036009F9784 /* MySelfCell.xib */; };
+		BFA90E1B27B4E97B009F9784 /* ProfileImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA90E1927B4E97A009F9784 /* ProfileImageCell.swift */; };
+		BFA90E1C27B4E97B009F9784 /* ProfileImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFA90E1A27B4E97A009F9784 /* ProfileImageCell.xib */; };
+		BFA90E1E27B53F5F009F9784 /* NewsCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA90E1D27B53F5F009F9784 /* NewsCategoryViewController.swift */; };
 		BFCB16B627997832005E3FEB /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCB16B527997832005E3FEB /* CustomSegmentedControl.swift */; };
 		BFCB16B8279990C3005E3FEB /* MyArticalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCB16B7279990C3005E3FEB /* MyArticalViewController.swift */; };
 		BFCB16BA2799919A005E3FEB /* MyPollsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCB16B92799919A005E3FEB /* MyPollsViewController.swift */; };
@@ -507,6 +512,11 @@
 		BF431C9C278403180057AF9F /* CreateFirstCaseView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateFirstCaseView.xib; sourceTree = "<group>"; };
 		BF431C9E278442D00057AF9F /* DummyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyCell.swift; sourceTree = "<group>"; };
 		BF431C9F278442D00057AF9F /* DummyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DummyCell.xib; sourceTree = "<group>"; };
+		BFA90E1527B4E036009F9784 /* MySelfCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySelfCell.swift; sourceTree = "<group>"; };
+		BFA90E1627B4E036009F9784 /* MySelfCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MySelfCell.xib; sourceTree = "<group>"; };
+		BFA90E1927B4E97A009F9784 /* ProfileImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageCell.swift; sourceTree = "<group>"; };
+		BFA90E1A27B4E97A009F9784 /* ProfileImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileImageCell.xib; sourceTree = "<group>"; };
+		BFA90E1D27B53F5F009F9784 /* NewsCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCategoryViewController.swift; sourceTree = "<group>"; };
 		BFCB16B527997832005E3FEB /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
 		BFCB16B7279990C3005E3FEB /* MyArticalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyArticalViewController.swift; sourceTree = "<group>"; };
 		BFCB16B92799919A005E3FEB /* MyPollsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPollsViewController.swift; sourceTree = "<group>"; };
@@ -807,6 +817,7 @@
 		43B52E4B273BE737004EF637 /* News */ = {
 			isa = PBXGroup;
 			children = (
+				BFA90E1D27B53F5F009F9784 /* NewsCategoryViewController.swift */,
 				439297C22722D72A001891B8 /* NewsViewController.swift */,
 				439297CA2722FCED001891B8 /* NewsDetailsViewController.swift */,
 				BF431C9E278442D00057AF9F /* DummyCell.swift */,
@@ -1012,6 +1023,10 @@
 				BF0DD946278D393C0053747A /* ProfileNameCell.swift */,
 				BF0DD947278D393C0053747A /* ProfileNameCell.xib */,
 				43A6A97127324EA000400F72 /* ProfileEditCell.xib */,
+				BFA90E1527B4E036009F9784 /* MySelfCell.swift */,
+				BFA90E1627B4E036009F9784 /* MySelfCell.xib */,
+				BFA90E1927B4E97A009F9784 /* ProfileImageCell.swift */,
+				BFA90E1A27B4E97A009F9784 /* ProfileImageCell.xib */,
 			);
 			path = ProfileCells;
 			sourceTree = "<group>";
@@ -1139,6 +1154,7 @@
 				BF431CA1278442D00057AF9F /* DummyCell.xib in Resources */,
 				43B2E8CB275F2ADF0022CD16 /* ArticalCell.xib in Resources */,
 				43B52E38273BCA5B004EF637 /* PostQuestionHeader.xib in Resources */,
+				BFA90E1C27B4E97B009F9784 /* ProfileImageCell.xib in Resources */,
 				43B975B52725B63000CDF2F1 /* JobHeadCell.xib in Resources */,
 				BF0DD945278D33EC0053747A /* ProfileDashboardCell.xib in Resources */,
 				439297CF2723199B001891B8 /* CarrierCell.xib in Resources */,
@@ -1169,6 +1185,7 @@
 				439DC46E273FB28800DAD6D5 /* Roboto-Medium.ttf in Resources */,
 				439923CB272BD8A70085E067 /* JobTableCell.xib in Resources */,
 				439923C1272BCC0E0085E067 /* Jobs.json in Resources */,
+				BFA90E1827B4E036009F9784 /* MySelfCell.xib in Resources */,
 				BF0DD970278D92EF0053747A /* CarrierHeaderCell.xib in Resources */,
 				43A6A98F27329E5800400F72 /* PollTableViewCell.xib in Resources */,
 				43A6A97727324F2E00400F72 /* ProfilePersonalEditCell.xib in Resources */,
@@ -1385,6 +1402,7 @@
 				8FF9AD00277314B7002F4700 /* NewsViewModel.swift in Sources */,
 				43B03AA5272F99B200A4337B /* AddArticalViewController.swift in Sources */,
 				43B03AA7272F99CB00A4337B /* AddStoryViewController.swift in Sources */,
+				BFA90E1B27B4E97B009F9784 /* ProfileImageCell.swift in Sources */,
 				43B23206273AAA2C00038F8A /* AppliedJobCell.swift in Sources */,
 				435FB5682750BD100040C406 /* JobsResource.swift in Sources */,
 				439AA1F7273632A200D09E26 /* LoginVCExtension.swift in Sources */,
@@ -1426,6 +1444,7 @@
 				43B52E48273BE52B004EF637 /* HomeDetailsTableView.swift in Sources */,
 				BF0DD963278D6CA40053747A /* QuickJobTVCell.swift in Sources */,
 				43B52E3E273BD024004EF637 /* PostQuestionViewController.swift in Sources */,
+				BFA90E1727B4E036009F9784 /* MySelfCell.swift in Sources */,
 				BF0DD96B278D8C930053747A /* RecentSearchCVCell.swift in Sources */,
 				43B975A727259FE400CDF2F1 /* ApplyJobViewController.swift in Sources */,
 				BF0DD944278D33EC0053747A /* ProfileDashboardCell.swift in Sources */,
@@ -1487,6 +1506,7 @@
 				43B975A027258A0000CDF2F1 /* HomeTableCell.swift in Sources */,
 				439297D227231EDE001891B8 /* InfoCell.swift in Sources */,
 				4392978B2722D628001891B8 /* SceneDelegate.swift in Sources */,
+				BFA90E1E27B53F5F009F9784 /* NewsCategoryViewController.swift in Sources */,
 				431052F92759E48B006BC13A /* FilterViewController.swift in Sources */,
 				4347EF442746589100E634E9 /* HomeViewModel.swift in Sources */,
 				439297BF2722D718001891B8 /* HomeViewController.swift in Sources */,

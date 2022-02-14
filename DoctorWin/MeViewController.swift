@@ -84,7 +84,8 @@ extension MeViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.section {
         case 0:
             let cell: ProfileNameCell = tableView.dequeueReusableCell(withIdentifier: "ProfileNameCell", for: indexPath) as! ProfileNameCell
-            
+            cell.editBtn.addTarget(self, action: #selector(editClicked(button:)), for: .touchUpInside)
+
             cell.cellConfigureWith(data: profileDataModel)
             
             return cell
@@ -107,20 +108,23 @@ extension MeViewController: UITableViewDelegate, UITableViewDataSource {
         case 2:
             let cell: ProfileSummaryCell = tableView.dequeueReusableCell(withIdentifier: "ProfileSummaryCell", for: indexPath) as! ProfileSummaryCell
             cell.cellConfigureWith(data: profileDataModel)
-            
+            cell.editBtn.addTarget(self, action: #selector(editClicked(button:)), for: .touchUpInside)
+
             
             return cell
             
         case 3:
             let cell: ProfileBasicDetailsCell = tableView.dequeueReusableCell(withIdentifier: "ProfileBasicDetailsCell", for: indexPath) as! ProfileBasicDetailsCell
             cell.cellConfigureWith(data: profileDataModel)
-            
+            cell.professionalEdit.addTarget(self, action: #selector(editClicked(button:)), for: .touchUpInside)
+
             
             return cell
         case 4:
             let cell: ProfessionalDetailsCell = tableView.dequeueReusableCell(withIdentifier: "ProfessionalDetailsCell", for: indexPath) as! ProfessionalDetailsCell
             cell.cellConfigureWith(data: profileDataModel)
-            
+            cell.professionalEdit.addTarget(self, action: #selector(editClicked(button:)), for: .touchUpInside)
+
             
             return cell
             
@@ -136,13 +140,15 @@ extension MeViewController: UITableViewDelegate, UITableViewDataSource {
             cell.edit.tag = indexPath.row
             cell.delete.tag = indexPath.row
             cell.delete.addTarget(self, action: #selector(deleteClicked(button:)), for: .touchUpInside)
-            
+            cell.edit.addTarget(self, action: #selector(editClicked(button:)), for: .touchUpInside)
+
             return cell
             
         case 7:
             let cell: ProfileSkillsCell = tableView.dequeueReusableCell(withIdentifier: "ProfileSkillsCell", for: indexPath) as! ProfileSkillsCell
             cell.cellConfigureWith(data: profileDataModel)
-            
+            cell.edit.addTarget(self, action: #selector(editClicked(button:)), for: .touchUpInside)
+
             return cell
             
             

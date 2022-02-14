@@ -335,6 +335,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="bgView" destination="vPk-dM-gjC" id="nZB-lD-lcE"/>
+                <outlet property="bookMarkImage" destination="o13-Dn-1qY" id="xHF-uy-jgz"/>
                 <outlet property="experience" destination="s9V-ET-Ssl" id="F2D-9j-cFb"/>
                 <outlet property="hospitalImage" destination="G2d-GI-vgV" id="fKS-A6-clQ"/>
                 <outlet property="hospitalName" destination="ppQ-oo-fcJ" id="BZi-zE-4ke"/>

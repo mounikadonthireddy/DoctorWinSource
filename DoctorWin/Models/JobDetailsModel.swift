@@ -15,7 +15,7 @@ struct JobDetailsModel : Codable {
     let location: String?
     let designation: String?
     let date: String?
-    let salary: Int?
+    let salary: String?
     let salaryType: String?
     let vacancy : Int?
     let skills: String?

@@ -49,13 +49,15 @@ class EditSkillCell: UITableViewCell {
         }
     }
     func configureCellWithEdit(data: ProfileDataModel, section: Int) {
-        if section == 0 {
+        if section == 2 {
             titleLabel.text = "About Me"
             detailsTF.text = data.aboutMe
+            detailsTF.placeholder = "Write something about you"
             saveBtn.tag = 0
         } else {
             titleLabel.text = "Skills"
             detailsTF.text = data.skill
+            detailsTF.placeholder = "Write down your skills"
             saveBtn.tag = 1
         }
     }

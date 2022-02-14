@@ -33,7 +33,7 @@
                                 <color key="backgroundColor" red="0.99215686274509807" green="0.92941176470588238" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="1FB-lg-Y8B"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="Vxc-gJ-7pt"/>
+                                    <constraint firstAttribute="width" constant="80" id="Vxc-gJ-7pt"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="13"/>
                                 <color key="textColor" red="0.50980392159999999" green="0.57254901960000004" blue="0.70588235290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -49,7 +49,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17d ago" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P5E-KC-ovR">
-                                <rect key="frame" x="131.5" y="15" width="43.5" height="25"/>
+                                <rect key="frame" x="95" y="15" width="80" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="aq9-JA-9NJ"/>
                                 </constraints>
@@ -57,8 +57,8 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hyderabad" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1zg-7N-zWe">
-                                <rect key="frame" x="121.5" y="50" width="53.5" height="13"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hyderabad" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1zg-7N-zWe">
+                                <rect key="frame" x="91.5" y="50" width="53.5" height="13"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="53.5" id="DMz-hD-wbq"/>
                                 </constraints>
@@ -71,11 +71,12 @@
                         <constraints>
                             <constraint firstItem="9aZ-4g-o5S" firstAttribute="leading" secondItem="PQQ-3t-Xiy" secondAttribute="leading" constant="5" id="6th-ws-iV1"/>
                             <constraint firstItem="P5E-KC-ovR" firstAttribute="top" secondItem="PQQ-3t-Xiy" secondAttribute="top" constant="15" id="8qA-IT-oXM"/>
+                            <constraint firstItem="P5E-KC-ovR" firstAttribute="leading" secondItem="9aZ-4g-o5S" secondAttribute="trailing" constant="10" id="DFC-Ap-GKW"/>
                             <constraint firstAttribute="width" constant="180" id="EZ5-01-ygO"/>
                             <constraint firstItem="9aZ-4g-o5S" firstAttribute="top" secondItem="PQQ-3t-Xiy" secondAttribute="top" constant="15" id="FlD-Qa-SSW"/>
                             <constraint firstItem="vas-VV-w26" firstAttribute="top" secondItem="9aZ-4g-o5S" secondAttribute="bottom" constant="10" id="GsY-Jq-akY"/>
                             <constraint firstItem="vas-VV-w26" firstAttribute="leading" secondItem="PQQ-3t-Xiy" secondAttribute="leading" constant="10" id="Jaa-Ea-Yq1"/>
-                            <constraint firstAttribute="trailing" secondItem="1zg-7N-zWe" secondAttribute="trailing" constant="5" id="dMR-Bn-g6G"/>
+                            <constraint firstItem="1zg-7N-zWe" firstAttribute="leading" secondItem="vas-VV-w26" secondAttribute="trailing" constant="5" id="ZXh-FR-H5l"/>
                             <constraint firstAttribute="trailing" secondItem="P5E-KC-ovR" secondAttribute="trailing" constant="5" id="f78-NU-X7z"/>
                             <constraint firstItem="1zg-7N-zWe" firstAttribute="top" secondItem="P5E-KC-ovR" secondAttribute="bottom" constant="10" id="vSG-b7-IZs"/>
                         </constraints>
@@ -93,6 +94,8 @@
             <size key="customSize" width="366" height="135"/>
             <connections>
                 <outlet property="bgView" destination="PQQ-3t-Xiy" id="LaM-6Z-Jea"/>
+                <outlet property="disignation" destination="vas-VV-w26" id="AVd-CC-Luu"/>
+                <outlet property="location" destination="1zg-7N-zWe" id="gSf-jY-eZ0"/>
                 <outlet property="nameLable" destination="9aZ-4g-o5S" id="vvD-hA-gB9"/>
                 <outlet property="postedDate" destination="P5E-KC-ovR" id="gKM-gb-Tw9"/>
             </connections>

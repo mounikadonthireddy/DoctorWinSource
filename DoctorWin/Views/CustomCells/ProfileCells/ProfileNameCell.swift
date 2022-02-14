@@ -13,7 +13,8 @@ class ProfileNameCell: UITableViewCell {
     @IBOutlet weak var profileName: UILabel!
     @IBOutlet weak var designation: UILabel!
     @IBOutlet weak var speciality: UILabel!
-    
+    @IBOutlet weak var editBtn: UIButton!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

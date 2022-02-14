@@ -11,6 +11,6 @@ struct JobCategoryDataModel: Codable {
     let title : String?
     let image : String?
     let id : Int?
-
+    let about: String?
 
 }

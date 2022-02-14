@@ -20,10 +20,10 @@ class AppliedJobViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if !showBack {
-            backView.isHidden = true
-            backViewHeight.constant = 0
-        }
+//        if !showBack {
+//            backView.isHidden = true
+//            backViewHeight.constant = 0
+//        }
         customJobVM.delegate = self
         appliedJobTableView.register(UINib.init(nibName: "AppliedJobCell", bundle: nil), forCellReuseIdentifier: "AppliedJobCell")
         // Do any additional setup after loading the view.
@@ -51,7 +51,11 @@ extension AppliedJobViewController : UITableViewDelegate, UITableViewDataSource 
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        jobScreenSelectionDelegate?.didSelectScreen(selectedType: JobTypeScreenSelection.jobDetails(withModel: appliedJobArray[indexPath.row]))
+//        jobScreenSelectionDelegate?.didSelectScreen(selectedType: JobTypeScreenSelection.jobDetails(withModel: appliedJobArray[indexPath.row]))
+        let str = UIStoryboard(name: "Home", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "JobDetailsViewController") as! JobDetailsViewController
+        nextVC.detailsModel = appliedJobArray[indexPath.row]
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
 }

@@ -83,14 +83,14 @@ class PollTableViewCell: UITableViewCell {
         if let value1 = homeModel.option1Value {
             if value1 > 0 {
                 option1Ration = option1Ration.setMultiplier(multiplier: CGFloat(value1)/100)
-                option1.backgroundColor = UIColor(rgb: 0x4986CC)
+                option1.backgroundColor = UIColor(rgb: 0xBBDEFB)
             } else {
                 option1.backgroundColor = UIColor.white
             }
         }
         if let value2 = homeModel.option2Value {
             if value2 > 0 {
-                option2.backgroundColor = UIColor(rgb: 0x4986CC)
+                option2.backgroundColor = UIColor(rgb: 0xBBDEFB)
                 option2Ration = option2Ration.setMultiplier(multiplier: CGFloat(value2)/100)
                 
             } else {
@@ -99,7 +99,7 @@ class PollTableViewCell: UITableViewCell {
         }
         if let value3 = homeModel.option3Value {
             if value3 > 0 {
-                option3.backgroundColor =  UIColor(rgb: 0x4986CC)
+                option3.backgroundColor =  UIColor(rgb: 0xBBDEFB)
 
                 option3Ration = option3Ration.setMultiplier(multiplier: CGFloat(value3)/100)
             } else {
@@ -109,7 +109,7 @@ class PollTableViewCell: UITableViewCell {
         if let value4 = homeModel.option4Value {
             
             if value4 > 0 {
-                option4.backgroundColor = UIColor(rgb: 0x4986CC)
+                option4.backgroundColor = UIColor(rgb: 0xBBDEFB)
                 option4Ration = option4Ration.setMultiplier(multiplier: CGFloat(value4)/100)
             } else {
                 option4.backgroundColor = UIColor.white

@@ -8,13 +8,13 @@
 import Foundation
 struct JobsDataModel : Codable {
     let companyName : String?
-    let experince : Int?
+    let experince : String?
     let id : Int?
     let image: String?
     let location: String?
     let designation: String?
     let date: String?
-    let salary: Int?
+    let salary: String?
     let salaryType: String?
     let vacancy : Int?
     let skills: String?

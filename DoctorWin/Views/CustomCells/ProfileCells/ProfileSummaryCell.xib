@@ -62,20 +62,57 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tYm-sx-qoR">
-                                <rect key="frame" x="10" y="56.5" width="297" height="15"/>
+                                <rect key="frame" x="10" y="56.5" width="297" height="14.5"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                 <color key="textColor" red="0.50980392159999999" green="0.57254901960000004" blue="0.70588235290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Ndn-zG-qR9">
+                                <rect key="frame" x="250" y="10" width="60" height="30"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="edit" translatesAutoresizingMaskIntoConstraints="NO" id="WMo-ku-DjF">
+                                        <rect key="frame" x="0.0" y="7.5" width="15" height="15"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="15" id="2dj-e4-ATi"/>
+                                            <constraint firstAttribute="width" constant="15" id="OvR-iL-z3P"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZxP-a3-cDA">
+                                        <rect key="frame" x="20" y="5.5" width="40" height="19"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                        <color key="textColor" red="0.84705882349999995" green="0.36862745099999999" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="WMo-ku-DjF" firstAttribute="centerY" secondItem="Ndn-zG-qR9" secondAttribute="centerY" id="PKr-O8-es1"/>
+                                    <constraint firstAttribute="height" constant="30" id="PqO-eu-lcO"/>
+                                    <constraint firstItem="WMo-ku-DjF" firstAttribute="leading" secondItem="Ndn-zG-qR9" secondAttribute="leading" id="ao0-D3-wxZ"/>
+                                    <constraint firstAttribute="width" constant="60" id="mbE-xr-U8S"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i9W-vN-HD9">
+                                <rect key="frame" x="243" y="10" width="67" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="67" id="Mzc-rs-Grb"/>
+                                    <constraint firstAttribute="height" constant="31" id="uid-5Z-mfT"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="tYm-sx-qoR" firstAttribute="top" secondItem="VA7-Kh-cj5" secondAttribute="bottom" constant="15" id="2c1-LI-DWY"/>
                             <constraint firstItem="VA7-Kh-cj5" firstAttribute="top" secondItem="zNg-Zj-o4F" secondAttribute="top" constant="20" id="3Gh-Eu-bmj"/>
                             <constraint firstAttribute="height" constant="90" id="6pk-5E-hwQ"/>
+                            <constraint firstAttribute="trailing" secondItem="i9W-vN-HD9" secondAttribute="trailing" constant="7" id="MMr-8J-vrw"/>
                             <constraint firstItem="VA7-Kh-cj5" firstAttribute="leading" secondItem="zNg-Zj-o4F" secondAttribute="leading" constant="10" id="Rff-fa-bHo"/>
+                            <constraint firstAttribute="trailing" secondItem="Ndn-zG-qR9" secondAttribute="trailing" constant="7" id="XqV-PA-E8r"/>
                             <constraint firstAttribute="trailing" secondItem="tYm-sx-qoR" secondAttribute="trailing" constant="10" id="ocU-gk-vJj"/>
+                            <constraint firstItem="Ndn-zG-qR9" firstAttribute="top" secondItem="zNg-Zj-o4F" secondAttribute="top" constant="10" id="uX7-sq-yYB"/>
                             <constraint firstItem="tYm-sx-qoR" firstAttribute="leading" secondItem="zNg-Zj-o4F" secondAttribute="leading" constant="10" id="uid-3E-Htd"/>
+                            <constraint firstItem="i9W-vN-HD9" firstAttribute="top" secondItem="zNg-Zj-o4F" secondAttribute="top" constant="10" id="yif-xG-ARM"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resume create based on your below information" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zwP-1R-mYX">
@@ -108,6 +145,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="editBtn" destination="i9W-vN-HD9" id="gvx-eB-cW2"/>
                 <outlet property="previewBtn" destination="dkj-SW-mbN" id="rOI-kf-DUD"/>
                 <outlet property="previewView" destination="zNg-Zj-o4F" id="iHt-Dg-dRR"/>
                 <outlet property="profileSummary" destination="tYm-sx-qoR" id="myR-lb-bp5"/>
@@ -117,5 +155,6 @@
     </objects>
     <resources>
         <image name="doc.text" catalog="system" width="115" height="128"/>
+        <image name="edit" width="16" height="16"/>
     </resources>
 </document>

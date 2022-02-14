@@ -23,7 +23,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Experience" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="91p-Zq-IT6">
-                        <rect key="frame" x="10" y="10" width="223" height="22"/>
+                        <rect key="frame" x="30" y="10" width="203" height="22"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="22" id="sCq-J2-wzW"/>
                         </constraints>
@@ -35,7 +35,7 @@
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="91p-Zq-IT6" secondAttribute="trailing" constant="60" id="5y1-jc-fnh"/>
                     <constraint firstAttribute="bottom" secondItem="91p-Zq-IT6" secondAttribute="bottom" constant="10" id="Ddz-rU-cuA"/>
-                    <constraint firstItem="91p-Zq-IT6" firstAttribute="leading" secondItem="KBJ-XS-WTY" secondAttribute="leading" constant="10" id="bWX-sG-0a3"/>
+                    <constraint firstItem="91p-Zq-IT6" firstAttribute="leading" secondItem="KBJ-XS-WTY" secondAttribute="leading" constant="30" id="bWX-sG-0a3"/>
                     <constraint firstItem="91p-Zq-IT6" firstAttribute="top" secondItem="KBJ-XS-WTY" secondAttribute="top" constant="10" id="lOr-ZN-gK8"/>
                 </constraints>
             </tableViewCellContentView>

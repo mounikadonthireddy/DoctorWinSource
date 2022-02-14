@@ -7,11 +7,15 @@
 
 import UIKit
 
+protocol QuickJobCellSelectionDelegate: class {
+    func quickCellSelecte(jobType: String, categoryID: Int)
+}
 class QuickJobTVCell: UITableViewCell {
 
     var jobsArray : [JobCategoryDataModel] = []
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionViewLayout: UICollectionViewFlowLayout!
+    weak var selectionDelegate: QuickJobCellSelectionDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -52,21 +56,21 @@ extension QuickJobTVCell : UICollectionViewDelegate, UICollectionViewDataSource 
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        let yourWidth = 60
-        return CGSize(width: yourWidth, height: 80)
+        let yourWidth = 160
+        return CGSize(width: yourWidth, height: 130)
 
     }
     func collectionView(_ collectionView: UICollectionView,
                             layout collectionViewLayout: UICollectionViewLayout,
                             insetForSectionAt section: Int) -> UIEdgeInsets {
-            return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0) //.zero
+            return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5) //.zero
         }
 
         func collectionView(_ collectionView: UICollectionView,
                             layout collectionViewLayout: UICollectionViewLayout,
                             minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
           
-            return 0
+            return 5
         }
 
         func collectionView(_ collectionView: UICollectionView,
@@ -75,6 +79,10 @@ extension QuickJobTVCell : UICollectionViewDelegate, UICollectionViewDataSource 
            
             return 0
         }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectionDelegate?.quickCellSelecte(jobType: jobsArray[indexPath.row].title ?? "", categoryID: jobsArray[indexPath.row].id ?? 0)
+    
+    }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1

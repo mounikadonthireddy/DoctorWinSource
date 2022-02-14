@@ -26,7 +26,7 @@ class ProfileSkillsCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func cellConfigureWith(data:ProfileDataModel) {
-        descriptionName.text = data.aboutMe ??  "Write about your skills"
+        descriptionName.text = data.skill ??  "Write about your skills"
     }
     
 }

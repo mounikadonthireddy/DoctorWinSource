@@ -18,6 +18,7 @@ class CarrierSubCell: UITableViewCell {
     @IBOutlet weak var hospitalName: UILabel!
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var save: UIButton!
+    @IBOutlet weak var bookMarkImage: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -74,6 +75,9 @@ class CarrierSubCell: UITableViewCell {
         if let date = data.date {
        let days = calculateDaysfrom(date: date)
             self.postedDate.text = "\(days)d ago"
+        }
+        if data.bookmarkStatus ?? false {
+            self.bookMarkImage.image = UIImage(named: "fstar")
         }
     }
     

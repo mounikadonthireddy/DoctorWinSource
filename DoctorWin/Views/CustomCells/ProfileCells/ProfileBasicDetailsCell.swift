@@ -14,8 +14,6 @@ class ProfileBasicDetailsCell: UITableViewCell {
     @IBOutlet weak var emailID: UILabel!
     @IBOutlet weak var gender: UILabel!
     @IBOutlet weak var dob: UILabel!
-    @IBOutlet weak var location: UILabel!
-    @IBOutlet weak var language: UILabel!
     @IBOutlet weak var professionalEdit: UIButton!
     @IBOutlet weak var basicView: UIImageView!
 
@@ -32,15 +30,10 @@ class ProfileBasicDetailsCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func cellConfigureWith(data: ProfileDataModel) {
-
-        self.contactNumber.text = data.phoneNumber  
+        self.contactNumber.text = data.phoneNumber
         self.emailID.text = data.email
         self.gender.text = data.gender ?? "XXXXXXX"
         self.dob.text = data.dob ?? "XXXXXXX"
-        self.location.text = data.location ?? "XXXXXXX"
-        self.language.text = data.language ?? "XXXXXXX"
-        
-        
     }
     
 }

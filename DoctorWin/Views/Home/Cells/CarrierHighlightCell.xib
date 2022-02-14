@@ -77,11 +77,18 @@
                                             <constraint firstAttribute="width" constant="30" id="wIR-i8-H2c"/>
                                         </constraints>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XmT-fx-pPp">
+                                        <rect key="frame" x="0.0" y="0.0" width="108.5" height="180"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="XmT-fx-pPp" firstAttribute="top" secondItem="8N1-WB-nvr" secondAttribute="top" id="2PD-KY-99Q"/>
+                                    <constraint firstItem="XmT-fx-pPp" firstAttribute="leading" secondItem="8N1-WB-nvr" secondAttribute="leading" id="80O-hn-GGE"/>
                                     <constraint firstAttribute="trailing" secondItem="MMA-D4-JqY" secondAttribute="trailing" id="L4o-Tv-Yog"/>
                                     <constraint firstAttribute="trailing" secondItem="kVt-D3-m9n" secondAttribute="trailing" constant="10" id="MSZ-7A-IOo"/>
+                                    <constraint firstAttribute="trailing" secondItem="XmT-fx-pPp" secondAttribute="trailing" id="UaY-CL-US2"/>
                                     <constraint firstItem="MMA-D4-JqY" firstAttribute="top" secondItem="8N1-WB-nvr" secondAttribute="top" constant="20" id="Wit-RR-b4T"/>
                                     <constraint firstItem="MhR-x7-aWB" firstAttribute="top" secondItem="kVt-D3-m9n" secondAttribute="bottom" constant="25" id="XZt-e6-DWp"/>
                                     <constraint firstItem="BdP-GY-jeJ" firstAttribute="top" secondItem="MMA-D4-JqY" secondAttribute="bottom" constant="5" id="hLB-c6-kxm"/>
@@ -89,6 +96,7 @@
                                     <constraint firstItem="MMA-D4-JqY" firstAttribute="leading" secondItem="8N1-WB-nvr" secondAttribute="leading" id="idT-51-zrY"/>
                                     <constraint firstItem="BdP-GY-jeJ" firstAttribute="centerX" secondItem="8N1-WB-nvr" secondAttribute="centerX" id="jF2-Eu-TV3"/>
                                     <constraint firstItem="kVt-D3-m9n" firstAttribute="leading" secondItem="8N1-WB-nvr" secondAttribute="leading" constant="10" id="ke2-lO-4cZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="XmT-fx-pPp" secondAttribute="bottom" id="teC-bU-Zja"/>
                                     <constraint firstItem="MhR-x7-aWB" firstAttribute="centerX" secondItem="MMA-D4-JqY" secondAttribute="centerX" id="uY1-Gk-bj6"/>
                                 </constraints>
                             </view>
@@ -128,16 +136,24 @@
                                             <constraint firstAttribute="height" constant="30" id="sib-fy-0ea"/>
                                         </constraints>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tZf-VN-nPE">
+                                        <rect key="frame" x="0.0" y="0.0" width="109" height="180"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="7F1-7H-Jgk" secondAttribute="trailing" id="2wR-FY-Re6"/>
                                     <constraint firstItem="7F1-7H-Jgk" firstAttribute="top" secondItem="TMW-G5-04l" secondAttribute="top" constant="20" id="3bW-PO-sRc"/>
                                     <constraint firstItem="E4o-oM-8gv" firstAttribute="top" secondItem="jg8-Bm-up1" secondAttribute="bottom" constant="25" id="787-JR-9gO"/>
+                                    <constraint firstAttribute="trailing" secondItem="tZf-VN-nPE" secondAttribute="trailing" id="IFg-hS-g7R"/>
+                                    <constraint firstItem="tZf-VN-nPE" firstAttribute="top" secondItem="TMW-G5-04l" secondAttribute="top" id="Ivl-mw-aYV"/>
                                     <constraint firstItem="jg8-Bm-up1" firstAttribute="top" secondItem="g9q-ZE-HFE" secondAttribute="bottom" constant="15" id="MUF-F9-sYr"/>
                                     <constraint firstItem="g9q-ZE-HFE" firstAttribute="centerX" secondItem="TMW-G5-04l" secondAttribute="centerX" id="OtP-io-UQb"/>
                                     <constraint firstItem="jg8-Bm-up1" firstAttribute="leading" secondItem="TMW-G5-04l" secondAttribute="leadingMargin" constant="10" id="RX9-Pr-dLb"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="jg8-Bm-up1" secondAttribute="trailing" constant="10" id="SBB-9b-T7E"/>
+                                    <constraint firstAttribute="bottom" secondItem="tZf-VN-nPE" secondAttribute="bottom" id="fyS-1s-r8n"/>
+                                    <constraint firstItem="tZf-VN-nPE" firstAttribute="leading" secondItem="TMW-G5-04l" secondAttribute="leading" id="ppE-J4-kLM"/>
                                     <constraint firstItem="7F1-7H-Jgk" firstAttribute="leading" secondItem="TMW-G5-04l" secondAttribute="leading" id="wUC-qd-xWM"/>
                                     <constraint firstItem="g9q-ZE-HFE" firstAttribute="top" secondItem="7F1-7H-Jgk" secondAttribute="bottom" constant="5" id="z7i-vV-CcT"/>
                                     <constraint firstItem="E4o-oM-8gv" firstAttribute="centerX" secondItem="7F1-7H-Jgk" secondAttribute="centerX" id="zPl-Ea-cHw"/>
@@ -179,18 +195,26 @@
                                             <constraint firstAttribute="width" constant="30" id="yhJ-qa-fOa"/>
                                         </constraints>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bbx-W7-6qQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="108.5" height="180"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="Apd-4q-Wih" firstAttribute="centerX" secondItem="tM8-y8-Rlm" secondAttribute="centerX" id="8CQ-iE-8OC"/>
                                     <constraint firstItem="qNe-5f-zb3" firstAttribute="top" secondItem="tM8-y8-Rlm" secondAttribute="bottom" constant="5" id="SQ1-hf-5Gl"/>
+                                    <constraint firstItem="Bbx-W7-6qQ" firstAttribute="top" secondItem="omh-hq-vdn" secondAttribute="top" id="XHT-xa-LdV"/>
                                     <constraint firstItem="nZH-fu-ftp" firstAttribute="top" secondItem="qNe-5f-zb3" secondAttribute="bottom" constant="15" id="aP9-oF-t5n"/>
+                                    <constraint firstAttribute="bottom" secondItem="Bbx-W7-6qQ" secondAttribute="bottom" id="dbO-ea-N80"/>
                                     <constraint firstAttribute="trailing" secondItem="nZH-fu-ftp" secondAttribute="trailing" constant="10" id="hTp-2s-lzJ"/>
                                     <constraint firstItem="Apd-4q-Wih" firstAttribute="top" secondItem="nZH-fu-ftp" secondAttribute="bottom" constant="25" id="hxW-Bp-aYp"/>
                                     <constraint firstItem="tM8-y8-Rlm" firstAttribute="top" secondItem="omh-hq-vdn" secondAttribute="top" constant="20" id="jEq-uK-sIp"/>
+                                    <constraint firstAttribute="trailing" secondItem="Bbx-W7-6qQ" secondAttribute="trailing" id="jXj-2A-q0F"/>
                                     <constraint firstItem="tM8-y8-Rlm" firstAttribute="leading" secondItem="omh-hq-vdn" secondAttribute="leading" id="kLv-dr-Q19"/>
                                     <constraint firstItem="qNe-5f-zb3" firstAttribute="centerX" secondItem="omh-hq-vdn" secondAttribute="centerX" id="oDz-OE-m8q"/>
                                     <constraint firstAttribute="trailing" secondItem="tM8-y8-Rlm" secondAttribute="trailing" id="uOX-H7-pNA"/>
+                                    <constraint firstItem="Bbx-W7-6qQ" firstAttribute="leading" secondItem="omh-hq-vdn" secondAttribute="leading" id="xjj-CH-oXB"/>
                                     <constraint firstItem="nZH-fu-ftp" firstAttribute="leading" secondItem="omh-hq-vdn" secondAttribute="leading" constant="10" id="xor-xd-f6U"/>
                                 </constraints>
                             </view>
@@ -215,9 +239,14 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="appliedBtn" destination="Bbx-W7-6qQ" id="6UY-V3-IUe"/>
+                <outlet property="appliedLbl" destination="nZH-fu-ftp" id="eRy-vi-OpU"/>
                 <outlet property="appliedView" destination="omh-hq-vdn" id="GcV-Zc-sSo"/>
                 <outlet property="resumeView" destination="8N1-WB-nvr" id="xl2-y5-sfW"/>
+                <outlet property="savedBtn" destination="tZf-VN-nPE" id="YHD-A9-buj"/>
+                <outlet property="savedLbl" destination="jg8-Bm-up1" id="nBA-Kx-olO"/>
                 <outlet property="savedView" destination="TMW-G5-04l" id="xY4-xi-1N2"/>
+                <outlet property="uploadBtn" destination="XmT-fx-pPp" id="jyl-On-xYP"/>
             </connections>
             <point key="canvasLocation" x="169.56521739130437" y="176.45089285714286"/>
         </tableViewCell>

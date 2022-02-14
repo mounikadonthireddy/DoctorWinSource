@@ -12,7 +12,7 @@ class NewsViewController: ViewController {
     @IBOutlet weak var newsTableView: UITableView!
     @IBOutlet weak var newsCollectionView: UICollectionView!
     @IBOutlet weak var collectionViewLayout: UICollectionViewFlowLayout!
-    var newsTypeArray:[NewsDataModel] = []
+    var newsTypeArray:[NewsCategoryModel] = []
     
     var newsVM = NewsViewModel()
     
@@ -45,6 +45,7 @@ class NewsViewController: ViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
         self.parse()
+        self.getNewsCategory()
         tabBarController?.tabBar.isHidden = false
         self.newsCollectionView.reloadData()
     }
@@ -54,6 +55,10 @@ class NewsViewController: ViewController {
     func parse() {
         self.showLoader()
         newsVM.getNews(userID: User.shared.userID)
+    }
+    func getNewsCategory() {
+        self.showLoader()
+        newsVM.getNewsCategory()
     }
 }
 
@@ -76,26 +81,39 @@ extension NewsViewController : UITableViewDelegate, UITableViewDataSource {
     
 }
 extension NewsViewController: NewsViewModelDelegate {
+    func didReceiveNewsCategory(response: [NewsCategoryModel]?, error: String?) {
+        self.dismiss()
+        if (error != nil) {
+            
+        } else {
+            self.newsTypeArray = response ?? []
+            self.newsCollectionView.reloadData()
+        }
+    }
+    
     func didReceiveNews(response: [NewsDataModel]?, error: String?) {
         self.dismiss()
         if (error != nil) {
             
         } else {
             self.newsArray = response ?? []
-            self.newsTypeArray = response ?? []
             self.newsTableView.reloadData()
-            self.newsCollectionView.reloadData()
         }
     }
 }
 extension NewsViewController : UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return newsTypeArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: NewTypeCell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewTypeCell", for: indexPath) as! NewTypeCell
-    
+        
+        if let urlString = newsTypeArray[indexPath.row].image {
+            let finalUrlString = ApiEndpoints.baseImageURL + urlString
+            
+            cell.newsImage.sd_setImage(with: URL(string: finalUrlString), placeholderImage: UIImage(named: "loginBg"))
+        }
         return cell
         
     }
@@ -107,13 +125,13 @@ extension NewsViewController : UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0) //.zero
+        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10) //.zero
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -124,5 +142,10 @@ extension NewsViewController : UICollectionViewDelegate, UICollectionViewDataSou
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "NewsCategoryViewController") as! NewsCategoryViewController
+       // nextVC.newsDetailsData = newsArray[indexPath.row]
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }

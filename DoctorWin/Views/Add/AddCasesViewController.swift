@@ -25,28 +25,47 @@ class AddCasesViewController: UIViewController {
     @IBOutlet weak var chiefComplaint: MDCOutlinedTextField!
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var patientStackHeight: NSLayoutConstraint!
+    @IBOutlet weak var chiefStackHeight: NSLayoutConstraint!
+    @IBOutlet weak var investigationStackHeight: NSLayoutConstraint!
+    @IBOutlet weak var probableStackHeight: NSLayoutConstraint!
+    @IBOutlet weak var examinationStackHeight: NSLayoutConstraint!
+    @IBOutlet weak var patientStackView: UIStackView!
+    @IBOutlet weak var investigationStackView: UIStackView!
+    @IBOutlet weak var examinationStackView: UIStackView!
+
     var imageFileName: String = ""
     var imagePicker: ImagePicker!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
+        patientStackHeight.constant = 0
+        chiefStackHeight.constant = 0
+        investigationStackHeight.constant = 0
+        probableStackHeight.constant = 0
+        examinationStackHeight.constant = 0
+        patientStackView.isHidden = true
+        chiefComplaint.isHidden = true
+        investigationStackView.isHidden = true
+        probableDiagnosis.isHidden = true
+        
 
-        presentIllness.label.text = "Present Illness"
-        pastIllness.label.text = "Past Illness"
-        drugs.label.text = "Drugs"
-        personal.label.text = "Personal"
-        family.label.text = "Family"
-        physicalExamination.label.text = "Physical Examination"
-        systemExamination.label.text = "System Examination"
-        localExamination.label.text = "Local Examination"
-        
-        vitus.label.text = "Vitus"
-        labFinding.label.text = "Lab Finding"
-        imaging.label.text = "Imaging"
-        chiefComplaint.label.text = "Chief Complaint"
-        
-        probableDiagnosis.label.text = "Probable Diagnosis"
-        
+//        presentIllness.label.text = "Present Illness"
+//        pastIllness.label.text = "Past Illness"
+//        drugs.label.text = "Drugs"
+//        personal.label.text = "Personal"
+//        family.label.text = "Family"
+//        physicalExamination.label.text = "Physical Examination"
+//        systemExamination.label.text = "System Examination"
+//        localExamination.label.text = "Local Examination"
+//
+//        vitus.label.text = "Vitus"
+//        labFinding.label.text = "Lab Finding"
+//        imaging.label.text = "Imaging"
+//        chiefComplaint.label.text = "Chief Complaint"
+//
+//        probableDiagnosis.label.text = "Probable Diagnosis"
+//
         //        presentIllness.placeholder = "555-555-5555"
         //        presentIllness.leadingAssistiveLabel.text = "This is helper text"
         //        presentIllness.sizeToFit()
@@ -74,6 +93,7 @@ class AddCasesViewController: UIViewController {
         self.imagePicker.present(from: sender)
         
     }
+    
 }
 
 extension AddCasesViewController: UITextFieldDelegate {

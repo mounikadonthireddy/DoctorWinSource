@@ -140,7 +140,7 @@ extension JobsMainViewController : JobScreenSelectionDelegate {
             
         
         let nextVC = str.instantiateViewController(withIdentifier: "JobsViewController") as! JobsViewController
-            nextVC.jobType = type
+            nextVC.jobType = "type"
             nextVC.categoryID = id
         self.navigationController?.pushViewController(nextVC, animated: true)
             

@@ -23,7 +23,7 @@ class NewsDetailsViewController: UIViewController {
         
         if let data = newsDetailsData {
             self.postTitle.text = data.artical_title
-            self.postedPersonName.text = data.profile_name
+            self.postedPersonName.text = data.username
             self.postDescription.text = data.artical_discription
             
             if let urlString = data.artical_image {

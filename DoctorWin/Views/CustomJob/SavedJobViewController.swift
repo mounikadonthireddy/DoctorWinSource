@@ -26,6 +26,9 @@ class SavedJobViewController: UIViewController {
     func parse1() {
         customJobVM.getSavedJobs(userID: User.shared.userID)
     }
+    @IBAction func backClicked(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
 
 }
 

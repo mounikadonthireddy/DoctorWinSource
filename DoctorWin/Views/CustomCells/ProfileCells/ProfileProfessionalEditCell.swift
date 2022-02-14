@@ -53,7 +53,7 @@ class ProfileProfessionalEditCell: UITableViewCell {
         self.postGraduationTF.text = data.postGraduation
         self.postGraduationInstititeTF.text = data.postGraduationInstitute
         self.graduationInstititeTF.text = data.underGraduationInstitute
-        self.instititeTF.text = data.currentInstitute
+        self.instititeTF.text = data.currentInstitute ?? "XXXXX"
         self.currentWorkingTF.text = data.currentDepartment
         
     }

@@ -11,6 +11,11 @@ class CarrierHighlightCell: UITableViewCell {
     @IBOutlet weak var resumeView: UIView!
     @IBOutlet weak var savedView: UIView!
     @IBOutlet weak var appliedView: UIView!
+    @IBOutlet weak var uploadBtn: UIButton!
+    @IBOutlet weak var savedBtn: UIButton!
+    @IBOutlet weak var appliedBtn: UIButton!
+    @IBOutlet weak var appliedLbl: UILabel!
+    @IBOutlet weak var savedLbl: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,5 +33,11 @@ class CarrierHighlightCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    func configureCell(with data: JobsCountModel) {
+        appliedLbl.text = "\(data.apply_job) Jobs Applied"
+        savedLbl.text = "\(data.save_jobs) Jobs Availabe"
+
+    }
+
     
 }

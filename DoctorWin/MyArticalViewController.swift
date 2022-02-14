@@ -79,6 +79,10 @@ extension MyArticalViewController : UITableViewDelegate, UITableViewDataSource {
     
 }
 extension MyArticalViewController: NewsViewModelDelegate {
+    func didReceiveNewsCategory(response: [NewsCategoryModel]?, error: String?) {
+        //
+    }
+    
     func didReceiveNews(response: [NewsDataModel]?, error: String?) {
         self.dismiss()
         if (error != nil) {

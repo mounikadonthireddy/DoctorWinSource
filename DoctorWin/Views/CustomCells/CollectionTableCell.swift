@@ -6,11 +6,15 @@
 //
 
 import UIKit
+protocol RecommendedJobSelectionDelegate: class {
+    func recommendedJobSelection(data:JobsDataModel)
+}
 
 class CollectionTableCell: UITableViewCell {
     var jobsArray : [JobsDataModel] = []
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionViewLayout: UICollectionViewFlowLayout!
+    weak var selectionDelegate: RecommendedJobSelectionDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -73,7 +77,9 @@ extension CollectionTableCell : UICollectionViewDelegate, UICollectionViewDataSo
            
             return 0
         }
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectionDelegate?.recommendedJobSelection(data: jobsArray[indexPath.row])
+    }
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }

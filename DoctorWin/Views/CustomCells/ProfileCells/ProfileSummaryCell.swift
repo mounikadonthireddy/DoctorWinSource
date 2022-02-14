@@ -11,6 +11,7 @@ class ProfileSummaryCell: UITableViewCell {
     @IBOutlet weak var previewBtn: UIButton!
     @IBOutlet weak var previewView: UIView!
     @IBOutlet weak var profileSummary: UILabel!
+    @IBOutlet weak var editBtn: UIButton!
 
     override func awakeFromNib() {
         super.awakeFromNib()

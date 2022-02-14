@@ -1,71 +1,59 @@
 //
-//  MyStoriesViewController.swift
+//  NewsCategoryViewController.swift
 //  DoctorWin
 //
-//  Created by Donthireddy Mounika on 20/01/22.
+//  Created by Donthireddy Mounika on 10/02/22.
 //
 
 import UIKit
 
-class MyStoriesViewController: ViewController {
-    
+class NewsCategoryViewController: ViewController {
+
     var newsArray:[NewsDataModel] = []
     @IBOutlet weak var newsTableView: UITableView!
-    @IBOutlet weak var interfaceSegmented: CustomSegmentedControl!{
-        didSet{
-            interfaceSegmented.setButtonTitles(buttonTitles: ["My Articles","Bookmark Articles", "Likes Articles"])
-            interfaceSegmented.selectorViewColor = .black
-            interfaceSegmented.selectorTextColor = .black
-        }
-    }
     var newsVM = NewsViewModel()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         newsTableView.register(UINib(nibName: "NewsCell", bundle: nil), forCellReuseIdentifier: "NewsCell")
-
+        
         self.newsTableView.delegate = self
         self.newsTableView.dataSource = self
-        self.navigationItem.title = "News & Stories"
         self.navigationController?.isNavigationBarHidden = true
         newsVM.delegate = self
-        interfaceSegmented.delegate = self
         // Do any additional setup after loading the view.
-       
+        
     }
-   
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        //        newsCollectionView.collectionViewLayout.invalidateLayout()
+       // newsCollectionView.frame.size = size
+    }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
-        self.loadMyNews()
-        tabBarController?.tabBar.isHidden = true
+        self.parse()
+        tabBarController?.tabBar.isHidden = false
     }
     override func viewWillDisappear(_ animated: Bool) {
-       // tabBarController?.tabBar.isHidden = true
+        // tabBarController?.tabBar.isHidden = true
     }
-    func loadMyNews() {
-        newsVM.getMyNews(userID: User.shared.userID)
+    func parse() {
+        self.showLoader()
+        newsVM.getNews(userID: User.shared.userID)
     }
-    func loadBookmarkNews() {
-        newsVM.getBookmarkNews(userID: User.shared.userID)
-    }
-    func loadLikedNews() {
-        newsVM.getLikedNews(userID: User.shared.userID)
-    }
-    
-   
-    @IBAction func backClicked(_ sender: UIButton) {
+    @IBAction func backClikced(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
 }
 
-extension MyStoriesViewController : UITableViewDelegate, UITableViewDataSource {
+extension NewsCategoryViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return newsArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: NewsCell
-            = tableView.dequeueReusableCell(withIdentifier: "NewsCell") as! NewsCell
+        = tableView.dequeueReusableCell(withIdentifier: "NewsCell") as! NewsCell
         cell.configureCell(with: newsArray[indexPath.row])
         return cell
     }
@@ -73,12 +61,10 @@ extension MyStoriesViewController : UITableViewDelegate, UITableViewDataSource {
         let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "NewsDetailsViewController") as! NewsDetailsViewController
         nextVC.newsDetailsData = newsArray[indexPath.row]
         self.navigationController?.pushViewController(nextVC, animated: true)
-        
     }
     
-    
 }
-extension MyStoriesViewController: NewsViewModelDelegate {
+extension NewsCategoryViewController: NewsViewModelDelegate {
     func didReceiveNewsCategory(response: [NewsCategoryModel]?, error: String?) {
         //
     }
@@ -88,26 +74,8 @@ extension MyStoriesViewController: NewsViewModelDelegate {
         if (error != nil) {
             
         } else {
-        self.newsArray = response ?? []
-        self.newsTableView.reloadData()
+            self.newsArray = response ?? []
+            self.newsTableView.reloadData()
         }
     }
-    
-    
-}
-extension MyStoriesViewController: CustomSegmentedControlDelegate {
-    func change(to index: Int) {
-        print(index)
-        if index == 0 {
-            self.loadMyNews()
-        } else if index == 1 {
-            self.loadBookmarkNews()
-        } else {
-            self.loadLikedNews()
-        }
-        
-        self.showLoader()
-    }
-    
-    
 }

@@ -113,17 +113,27 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7F-SQ-CIf">
+                                <rect key="frame" x="287" y="20" width="67" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="Ipo-lg-cpY"/>
+                                    <constraint firstAttribute="width" constant="67" id="hpQ-4H-kcw"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Edk-A7-ptq" secondAttribute="trailing" constant="8" id="8eh-zZ-IJ5"/>
                             <constraint firstItem="q5D-Em-CKf" firstAttribute="top" secondItem="c52-QC-7Yq" secondAttribute="bottom" constant="4" id="8fN-O3-9jw"/>
+                            <constraint firstItem="p7F-SQ-CIf" firstAttribute="top" secondItem="uIs-l8-8Ov" secondAttribute="top" constant="20" id="Afm-BF-yA5"/>
                             <constraint firstAttribute="bottom" secondItem="q5D-Em-CKf" secondAttribute="bottom" constant="19" id="B4y-5w-1qr"/>
                             <constraint firstItem="Sp5-lR-nHF" firstAttribute="leading" secondItem="uIs-l8-8Ov" secondAttribute="leading" constant="15" id="CvZ-pP-zKA"/>
                             <constraint firstAttribute="trailing" secondItem="q5D-Em-CKf" secondAttribute="trailing" constant="8" id="LAM-V1-I50"/>
                             <constraint firstAttribute="height" constant="100" id="LzF-kC-5Uy"/>
                             <constraint firstItem="c52-QC-7Yq" firstAttribute="top" secondItem="nxn-Up-BBt" secondAttribute="bottom" constant="1" id="TJq-pH-m2S"/>
                             <constraint firstItem="c52-QC-7Yq" firstAttribute="leading" secondItem="Sp5-lR-nHF" secondAttribute="trailing" constant="15" id="XXP-Nj-iW0"/>
+                            <constraint firstAttribute="trailing" secondItem="p7F-SQ-CIf" secondAttribute="trailing" constant="1" id="ZXS-LJ-dWZ"/>
                             <constraint firstItem="nxn-Up-BBt" firstAttribute="leading" secondItem="Sp5-lR-nHF" secondAttribute="trailing" constant="15" id="ZZV-FW-Jy6"/>
                             <constraint firstItem="nxn-Up-BBt" firstAttribute="top" secondItem="uIs-l8-8Ov" secondAttribute="top" constant="20" id="dUN-UQ-Gdj"/>
                             <constraint firstItem="Edk-A7-ptq" firstAttribute="top" secondItem="uIs-l8-8Ov" secondAttribute="top" constant="20" id="fGX-lO-Spp"/>
@@ -150,6 +160,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="designation" destination="q5D-Em-CKf" id="Kca-RR-gDI"/>
+                <outlet property="editBtn" destination="p7F-SQ-CIf" id="1ir-qQ-gQ4"/>
                 <outlet property="profileImage" destination="Sp5-lR-nHF" id="Ghk-kv-Zpe"/>
                 <outlet property="profileName" destination="nxn-Up-BBt" id="QDE-e6-HXm"/>
                 <outlet property="profileNameView" destination="uIs-l8-8Ov" id="FFh-Zn-XE1"/>

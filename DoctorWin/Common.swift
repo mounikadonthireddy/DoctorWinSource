@@ -138,7 +138,11 @@ struct ApiEndpoints
     static let complaintFollow = "auth/follow/"
     static let getQualification = "job/search/higher/qualifiction"
     static let getSpeacilty = "job/department/"
-    static let resendOtp = "resend/otp"
+    static let resendOtp = "auth/resend/otp/"
+    static let newsCategory = "admin/page/post"
+    static let getDesignation = "job/designations/"
+    static let recentSearch = "job/search/recent"
+    static let jobsCount = "custom/user/"
 
 
 }

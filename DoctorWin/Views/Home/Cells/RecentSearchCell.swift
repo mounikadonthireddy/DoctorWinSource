@@ -8,7 +8,7 @@
 import UIKit
 
 class RecentSearchCell: UITableViewCell {
-    var jobsArray : [JobCategoryDataModel] = []
+    var searchArray : [RecentSearchModel] = []
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionViewLayout: UICollectionViewFlowLayout!
     
@@ -30,22 +30,20 @@ class RecentSearchCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    func configureCell(with dataArray: [JobCategoryDataModel]) {
-        jobsArray = dataArray
+    func configureCell(with dataArray: [RecentSearchModel]) {
+        searchArray = dataArray
         collectionView.reloadData()
 
     }
 }
 extension RecentSearchCell : UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return searchArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: RecentSearchCVCell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecentSearchCVCell", for: indexPath) as! RecentSearchCVCell
-        
-            //  cell.configureCell(with: jobsArray[indexPath.row])
-
+        cell.cellConfigureWith(data: searchArray[indexPath.row])
         return cell
         
     }

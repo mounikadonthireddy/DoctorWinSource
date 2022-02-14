@@ -31,7 +31,7 @@ class NewsCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func configureCell(with dataModel: NewsDataModel) {
-        self.postedPersonName.text = dataModel.profile_name
+        self.postedPersonName.text = dataModel.username
         self.postTitle.text = dataModel.artical_title
         if let urlString = dataModel.artical_image {
             let finalUrlString = "http://3.132.212.116:8000" + urlString
