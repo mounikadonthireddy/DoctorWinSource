@@ -68,91 +68,101 @@ struct HttpUtility {
     
     func postApiData<T:Decodable>(requestUrl: URL, requestBody: Data, resultType: T.Type, completionHandler:@escaping(_ result: T)-> Void) {
         
-        var urlRequest = URLRequest(url: requestUrl)
-        urlRequest.httpMethod = "POST"
-        urlRequest.httpBody = requestBody
+        APIHelperClass().callWebserviceToMakeRequest(requestUrl: requestUrl, requestBody: requestBody, resultType: resultType, httpMethod: HTTPMethod.post, completionHandler: completionHandler)
         
-        urlRequest.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "content-type")
-        urlRequest.addValue("application/json", forHTTPHeaderField: "accept-type")
-        
-        
-        URLSession.shared.dataTask(with: urlRequest) { (data, httpUrlResponse, error) in
-            
-            if(data != nil && data?.count != 0)  {
-                do {
-                    let decodedApps = try JSONDecoder().decode(T.self, from: data!)
-                    
-                    
-                    print(decodedApps)
-                }
-                catch let decodingError {
-                    debugPrint(decodingError)
-                }
-            }
-        }.resume()
+//        var urlRequest = URLRequest(url: requestUrl)
+//        urlRequest.httpMethod = "POST"
+//        urlRequest.httpBody = requestBody
+//
+//        urlRequest.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "content-type")
+//        urlRequest.addValue("application/json", forHTTPHeaderField: "accept-type")
+//
+//
+//        URLSession.shared.dataTask(with: urlRequest) { (data, httpUrlResponse, error) in
+//
+//            if(data != nil && data?.count != 0)  {
+//                do {
+//                    let decodedApps = try JSONDecoder().decode(T.self, from: data!)
+//
+//
+//                    print(decodedApps)
+//                }
+//                catch let decodingError {
+//                    debugPrint(decodingError)
+//                }
+//            }
+//        }.resume()
     }
     func putMethod<T:Decodable>(requestUrl: URL, requestBody: Data, resultType: T.Type, completionHandler:@escaping(_ result: T)-> Void) {
         
-        var request = URLRequest(url: requestUrl)
-        request.httpMethod = "PUT"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpBody = requestBody
-        URLSession.shared.dataTask(with: request) { (data, httpUrlResponse, error) in
-            
-            if(data != nil && data?.count != 0)  {
-                do {
-                    let decodedApps = try JSONDecoder().decode(T.self, from: data!)
-                    
-                    completionHandler(decodedApps)
-                    print(decodedApps)
-                }
-                catch let decodingError {
-                    debugPrint(decodingError)
-                }
-            }
-        }.resume()
+        APIHelperClass().callWebserviceToMakeRequest(requestUrl: requestUrl, requestBody: requestBody, resultType: resultType, httpMethod: HTTPMethod.put, completionHandler: completionHandler)
+
+        
+//        var request = URLRequest(url: requestUrl)
+//        request.httpMethod = "PUT"
+//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+//        request.httpBody = requestBody
+//        URLSession.shared.dataTask(with: request) { (data, httpUrlResponse, error) in
+//
+//            if(data != nil && data?.count != 0)  {
+//                do {
+//                    let decodedApps = try JSONDecoder().decode(T.self, from: data!)
+//
+//                    completionHandler(decodedApps)
+//                    print(decodedApps)
+//                }
+//                catch let decodingError {
+//                    debugPrint(decodingError)
+//                }
+//            }
+//        }.resume()
     }
     func patchMethod<T:Decodable>(requestUrl: URL, requestBody: Data, resultType: T.Type, completionHandler:@escaping(_ result: T)-> Void) {
         
-        var request = URLRequest(url: requestUrl)
-        request.httpMethod = "PATCH"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpBody = requestBody
-        URLSession.shared.dataTask(with: request) { (data, httpUrlResponse, error) in
-            
-            if(data != nil && data?.count != 0)  {
-                do {
-                    let decodedApps = try JSONDecoder().decode(T.self, from: data!)
-                    
-                    completionHandler(decodedApps)
-                    print(decodedApps)
-                }
-                catch let decodingError {
-                    debugPrint(decodingError)
-                }
-            }
-        }.resume()
+        APIHelperClass().callWebserviceToMakeRequest(requestUrl: requestUrl, requestBody: requestBody, resultType: resultType, httpMethod: HTTPMethod.patch, completionHandler: completionHandler)
+
+//        var request = URLRequest(url: requestUrl)
+//        request.httpMethod = "PATCH"
+//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+//        request.httpBody = requestBody
+//        URLSession.shared.dataTask(with: request) { (data, httpUrlResponse, error) in
+//
+//            if(data != nil && data?.count != 0)  {
+//                do {
+//                    let decodedApps = try JSONDecoder().decode(T.self, from: data!)
+//
+//                    completionHandler(decodedApps)
+//                    print(decodedApps)
+//                }
+//                catch let decodingError {
+//                    debugPrint(decodingError)
+//                }
+//            }
+//        }.resume()
     }
     func deleteMethod<T:Decodable>(requestUrl: URL, requestBody: Data, resultType: T.Type, completionHandler:@escaping(_ result: T)-> Void) {
         
-        var request = URLRequest(url: requestUrl)
-        request.httpMethod = "DELETE"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpBody = requestBody
-        URLSession.shared.dataTask(with: request) { (data, httpUrlResponse, error) in
-            
-            if(data != nil && data?.count != 0)  {
-                do {
-                    let decodedApps = try JSONDecoder().decode(T.self, from: data!)
-                    
-                    completionHandler(decodedApps)
-                    print(decodedApps)
-                }
-                catch let decodingError {
-                    debugPrint(decodingError)
-                }
-            }
-        }.resume()
+        APIHelperClass().callWebserviceToMakeRequest(requestUrl: requestUrl, requestBody: requestBody, resultType: resultType, httpMethod: HTTPMethod.delete, completionHandler: completionHandler)
+
+        
+//        var request = URLRequest(url: requestUrl)
+//        request.httpMethod = "DELETE"
+//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+//        request.httpBody = requestBody
+//        URLSession.shared.dataTask(with: request) { (data, httpUrlResponse, error) in
+//
+//            if(data != nil && data?.count != 0)  {
+//                do {
+//                    let decodedApps = try JSONDecoder().decode(T.self, from: data!)
+//
+//                    completionHandler(decodedApps)
+//                    print(decodedApps)
+//                }
+//                catch let decodingError {
+//                    debugPrint(decodingError)
+//                }
+//            }
+//        }.resume()
     }
     func postMethod<T:Decodable>(urlString: String, requestBody: Data, resultType: T.Type, completion: @escaping(Result<T, RequestError>)-> Void) {
         guard let url = URL(string: urlString) else {

@@ -41,6 +41,21 @@ struct JobsViewModel {
 
   }
       }
+    func getSearchJobData(userID: String, query: String) {
+          let jobResource = JobsResource()
+          jobResource.getSearchJobData(userID: userID , query: query) { response in
+              DispatchQueue.main.async {
+                switch response {
+                case .success(let data):
+                    self.delegate?.didReceiveJobsResponse(response: data, error: nil)
+                    
+                case .failure(let error):
+                    self.delegate?.didReceiveJobsResponse(response: nil, error: error)
+                }
+              }
+
+  }
+      }
     func getAllJobData(userID: String) {
           let jobResource = JobsResource()
           jobResource.getJobAllData(userID: userID ) { response in

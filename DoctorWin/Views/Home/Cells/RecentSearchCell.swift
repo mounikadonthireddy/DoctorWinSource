@@ -11,7 +11,8 @@ class RecentSearchCell: UITableViewCell {
     var searchArray : [RecentSearchModel] = []
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionViewLayout: UICollectionViewFlowLayout!
-    
+    weak var deleagte:SearchJobDelegate?
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -74,6 +75,11 @@ extension RecentSearchCell : UICollectionViewDelegate, UICollectionViewDataSourc
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let data = searchArray[indexPath.row].search
+        let finalString = "location=" + data.location + "&designation=" + data.disignation + "&department=" + data.department
+        deleagte?.SearchJobDelegate(query: finalString, jobType: data.location)
     }
     
     

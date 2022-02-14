@@ -8,6 +8,10 @@
 import UIKit
 import iOSDropDown
 
+protocol SearchJobDelegate: class {
+    func SearchJobDelegate(query: String, jobType: String)
+}
+
 class CarrierHeaderCell: UITableViewCell {
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var specialityTF: DropDown!
@@ -17,6 +21,7 @@ class CarrierHeaderCell: UITableViewCell {
     var location = "location="
     var designation = "designation="
     var department = "department="
+    weak var deleagte:SearchJobDelegate?
 
     
     override func awakeFromNib() {
@@ -41,7 +46,7 @@ class CarrierHeaderCell: UITableViewCell {
     }
     @IBAction func searchClicked(_ sender: UIButton) {
         let finalString = location + "&" + department + "&" + designation
-        print(finalString)
+        deleagte?.SearchJobDelegate(query: finalString, jobType: department + location)
     }
     
 }

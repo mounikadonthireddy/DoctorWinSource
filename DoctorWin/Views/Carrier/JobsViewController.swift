@@ -19,38 +19,36 @@ class JobsViewController: UIViewController {
     var categoryID: Int = 0
     var jobsArray :[JobsDataModel] = []
     var jobsVM = JobsViewModel()
-    
+    var query: Bool = false
+    var queryString = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         jobTableView.register(UINib.init(nibName: "CarrierSubCell", bundle: nil), forCellReuseIdentifier: "CarrierSubCell")
         jobsVM.delegate = self
+        if query {
+            getSearchJobs()
+        } else {
         parse1()
-        print(jobType)
+        }
+      
         self.backBtn.setTitle("  \(jobType)", for: .normal)
         handleSearch()
-        // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.tabBar.isHidden = true
     }
     func handleSearch() {
         stackViewHeight.constant = 0
-        //        switch jobType {
-        //        case .specilities:
-        //            locationTF.removeFromSuperview()
-        //
-        //        case .academics, .teleJobs, .freelancer:
-        //            stackViewHeight.constant = 0
-        //            stackView.isHidden = true
-        //        default: break
-        //
-        //        }
     }
     
     func parse1() {
         
         jobsVM.getJobDataBasedOnCategory(userID: User.shared.userID, categoryID: categoryID)
+    }
+    func getSearchJobs() {
+        
+        jobsVM.getSearchJobData(userID: User.shared.userID, query: queryString)
     }
 
     @IBAction func backClicked(_ sender: Any){

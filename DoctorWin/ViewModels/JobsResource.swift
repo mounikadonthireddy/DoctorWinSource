@@ -73,6 +73,38 @@ struct JobsResource {
             }
         }
     }
+    func getSearchJobData(userID: String,query: String, completion : @escaping (_ result: ResponseResult<[JobsDataModel]>) -> Void) {
+            
+            let jobCategeoryUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.searchJobs  + "?user_id=\(userID)&" + query
+            
+            let httpUtility = HttpUtility()
+            do {
+                
+                
+                httpUtility.getApiData(urlString: jobCategeoryUrlStr, resultType: [JobsDataModel].self) { result in
+                    
+                    switch result {
+                       case .success(let data):
+                        completion(.success(data))
+                        
+                       case .failure(let requestError):
+                           switch requestError {
+                           case .invalidUrl:
+                            completion(.failure("Please try Again After SomeTime"))
+                           
+                           case .internalServerError:
+                            print("Error: Unknown")
+                         
+                           case .decodingError:
+                            print("Error: Unknown")
+                           case .serverError(error: let error):
+                            print("Error: Unknown")
+                           }
+                }
+                
+            }
+        }
+    }
         func getJobAllData(userID: String, completion : @escaping (_ result: ResponseResult<[JobsDataModel]>) -> Void) {
                 
                 let jobCategeoryUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getNewJobs +  "?user_id=\(userID)"

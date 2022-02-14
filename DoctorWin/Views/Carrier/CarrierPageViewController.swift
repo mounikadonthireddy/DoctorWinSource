@@ -147,6 +147,7 @@ extension CarrierPageViewController: UITableViewDelegate, UITableViewDataSource 
                 return data.position
             }
             cell.search.addTarget(self, action: #selector(searchClicked(button:)), for: .touchUpInside)
+            cell.deleagte = self
             
             
             return cell
@@ -154,7 +155,7 @@ extension CarrierPageViewController: UITableViewDelegate, UITableViewDataSource 
             let cell: RecentSearchCell
             = tableView.dequeueReusableCell(withIdentifier: "RecentSearchCell") as! RecentSearchCell
             cell.configureCell(with: recentSearchArray)
-            
+            cell.deleagte = self
             return cell
         }
         else if indexPath.section == 2 {
@@ -303,4 +304,15 @@ extension CarrierPageViewController: TopJobsViewModelDelegate {
     }
     
     
+}
+
+extension CarrierPageViewController: SearchJobDelegate {
+    func SearchJobDelegate(query: String, jobType: String) {
+        let str = UIStoryboard(name: "Home", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "JobsViewController") as! JobsViewController
+        nextVC.jobType = jobType
+        nextVC.query = true
+        nextVC.queryString = query
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
 }

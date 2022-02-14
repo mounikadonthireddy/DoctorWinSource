@@ -143,6 +143,7 @@ struct ApiEndpoints
     static let getDesignation = "job/designations/"
     static let recentSearch = "job/search/recent"
     static let jobsCount = "custom/user/"
+    static let searchJobs = "job/search/"
 
 
 }

@@ -244,6 +244,7 @@
 		BFA90E1B27B4E97B009F9784 /* ProfileImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA90E1927B4E97A009F9784 /* ProfileImageCell.swift */; };
 		BFA90E1C27B4E97B009F9784 /* ProfileImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFA90E1A27B4E97A009F9784 /* ProfileImageCell.xib */; };
 		BFA90E1E27B53F5F009F9784 /* NewsCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA90E1D27B53F5F009F9784 /* NewsCategoryViewController.swift */; };
+		BFA90E2027BA7036009F9784 /* APIHelperClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA90E1F27BA7036009F9784 /* APIHelperClass.swift */; };
 		BFCB16B627997832005E3FEB /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCB16B527997832005E3FEB /* CustomSegmentedControl.swift */; };
 		BFCB16B8279990C3005E3FEB /* MyArticalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCB16B7279990C3005E3FEB /* MyArticalViewController.swift */; };
 		BFCB16BA2799919A005E3FEB /* MyPollsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCB16B92799919A005E3FEB /* MyPollsViewController.swift */; };
@@ -517,6 +518,7 @@
 		BFA90E1927B4E97A009F9784 /* ProfileImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageCell.swift; sourceTree = "<group>"; };
 		BFA90E1A27B4E97A009F9784 /* ProfileImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileImageCell.xib; sourceTree = "<group>"; };
 		BFA90E1D27B53F5F009F9784 /* NewsCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCategoryViewController.swift; sourceTree = "<group>"; };
+		BFA90E1F27BA7036009F9784 /* APIHelperClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelperClass.swift; sourceTree = "<group>"; };
 		BFCB16B527997832005E3FEB /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
 		BFCB16B7279990C3005E3FEB /* MyArticalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyArticalViewController.swift; sourceTree = "<group>"; };
 		BFCB16B92799919A005E3FEB /* MyPollsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPollsViewController.swift; sourceTree = "<group>"; };
@@ -697,6 +699,7 @@
 			isa = PBXGroup;
 			children = (
 				43AF8FC627358C8500CC69EF /* HttpUtility.swift */,
+				BFA90E1F27BA7036009F9784 /* APIHelperClass.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -1450,6 +1453,7 @@
 				BF0DD944278D33EC0053747A /* ProfileDashboardCell.swift in Sources */,
 				BF0DD940278D24270053747A /* ProfileSummaryCell.swift in Sources */,
 				43C1BFA2272C150D008877AA /* TopJobsDataModel.swift in Sources */,
+				BFA90E2027BA7036009F9784 /* APIHelperClass.swift in Sources */,
 				439923C3272BCC2C0085E067 /* JobsDataModel.swift in Sources */,
 				BF431C8E2782EC6F0057AF9F /* ExperinceTitleCell.swift in Sources */,
 				43B03A95272E4B2D00A4337B /* JobDetailsViewController.swift in Sources */,
