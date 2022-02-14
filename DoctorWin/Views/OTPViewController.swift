@@ -123,8 +123,10 @@ extension OTPViewController: UITextFieldDelegate {
 extension OTPViewController: OTPViewModelDelegate {
     func didReceiveLoginResponse(wilNavigateTo: Bool, error: String?) {
         if wilNavigateTo {
-            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "RegisterDetailsViewController") as! RegisterDetailsViewController
-            self.navigationController?.pushViewController(nextVC, animated: true)
+            let str = UIStoryboard(name: "Home", bundle: nil)
+            let nextViewController = str.instantiateViewController(withIdentifier: "tabbar")
+            nextViewController.navigationController?.isNavigationBarHidden = true
+            self.navigationController?.pushViewController(nextViewController, animated: true)
         }
     }
 }
