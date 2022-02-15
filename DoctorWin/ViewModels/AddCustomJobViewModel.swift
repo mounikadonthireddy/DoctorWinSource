@@ -21,12 +21,11 @@ func postQuestion(request: CreateCustomJobModel, userID: String){
     resource.addCustomJobRequest(request: request, userId: userID) { response in
         
         DispatchQueue.main.async {
-           switch response {
-           case .success(let _):
+            if response.status == "true" {
                self.delegate?.didPostCustomJob(status: true, error: nil)
-               
-           case .failure(let error):
-               self.delegate?.didPostCustomJob(status: false, error: error)
+            } else {
+          
+               self.delegate?.didPostCustomJob(status: false, error: "error")
            }
        
        }

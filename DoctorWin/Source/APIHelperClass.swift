@@ -8,12 +8,13 @@
 import Foundation
 
 struct APIHelperClass {
-    func callWebserviceToMakeRequest<T:Decodable>(requestUrl: URL, requestBody: Data, resultType: T.Type, httpMethod:HTTPMethod,  completionHandler:@escaping(_ result: T)-> Void) {
+    func callWebserviceToMakeRequest<T:Decodable>(requestUrl: URL, requestBody: Data?, resultType: T.Type, httpMethod:HTTPMethod,  completionHandler:@escaping(_ result: T)-> Void) {
         
         var urlRequest = URLRequest(url: requestUrl)
         urlRequest.httpMethod = httpMethod.rawValue
-        urlRequest.httpBody = requestBody
-        
+        if httpMethod != .get {
+            urlRequest.httpBody = requestBody!
+        }
         urlRequest.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "content-type")
         urlRequest.addValue("application/json", forHTTPHeaderField: "accept-type")
         
@@ -24,7 +25,7 @@ struct APIHelperClass {
                 do {
                     let decodedApps = try JSONDecoder().decode(T.self, from: data!)
                     
-                    
+                    completionHandler(decodedApps)
                     print(decodedApps)
                 }
                 catch let decodingError {

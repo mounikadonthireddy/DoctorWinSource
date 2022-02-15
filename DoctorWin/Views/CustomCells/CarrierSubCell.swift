@@ -45,9 +45,9 @@ class CarrierSubCell: UITableViewCell {
         resource.saveJob(request: request) { result in
             DispatchQueue.main.async {
                 if result != nil && result == "true" {
-                    self.save.setImage(UIImage(named: "fstar"), for: .normal)
+                    self.bookMarkImage.image = UIImage(named: "fstar")
                 } else {
-                    self.save.setImage(UIImage(named: "star"), for: .normal)
+                    self.bookMarkImage.image = UIImage(named: "star")
                 }
             }
            

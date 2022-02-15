@@ -154,7 +154,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
     }
     @objc func postClicked(button: UIButton) {
-        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "CarrierPageViewController") as! CarrierPageViewController
+        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "CreateCaseViewController") as! CreateCaseViewController
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

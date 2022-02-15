@@ -58,6 +58,7 @@ class PollTableViewCell: UITableViewCell {
         view4.setCornerRadiusWithBorderColor(radius: 5, color: UIColor.lightGray, borderWidth: 1)
         self.personImage.setCornerRadiusWithBorderColor(radius: 20, color: UIColor.lightGray, borderWidth: 0.2)
         
+        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -79,7 +80,9 @@ class PollTableViewCell: UITableViewCell {
         option2Percent.text = "\(homeModel.option2Value!)%  "
         option3Percent.text = "\(homeModel.option3Value!)%  "
         option4Percent.text = "\(homeModel.option4Value!)%  "
-        
+        wishlistBtn.tag = homeModel.id ?? 0
+        saveBtn.tag = homeModel.id ?? 0
+        self.followBtn.tag = homeModel.poll_user ?? 0
         if let value1 = homeModel.option1Value {
             if value1 > 0 {
                 option1Ration = option1Ration.setMultiplier(multiplier: CGFloat(value1)/100)
@@ -142,7 +145,54 @@ class PollTableViewCell: UITableViewCell {
             self.personImage.sd_setImage(with: URL(string: finalUrlString), placeholderImage: UIImage(named: "loginBg"))
         }
     }
-    
+    @IBAction func likeClicked(_ sender: UIButton) {
+        
+        let request = PollLikeRequest(poll_id:"\(sender.tag)", user_id: User.shared.userID)
+        
+        let resource = HomeResource()
+        resource.likePoll(request: request) { result in
+            DispatchQueue.main.async {
+                if  result.poll_like_status == "true" {
+                    self.likeImage.image = UIImage(named: "fheart")
+                } else {
+                    self.likeImage.image = UIImage(named: "heart")
+                }
+                self.likeLabel.text = "\(result.like_count) Likes"
+
+            }
+            
+        }
+        
+    }
+    @IBAction  func followClicked(_ sender: UIButton) {
+        let request = ComplaintFollowRequest(follow_id: "\(sender.tag)", user_id: User.shared.userID)
+        let resource = HomeResource()
+        resource.followComplaint(request: request) { result in
+            DispatchQueue.main.async {
+                if result != nil && result == "true" {
+                    self.followBtn.setTitle("Following", for: .normal)
+                } else {
+                    self.followBtn.setTitle("Follow", for: .normal)
+                }
+            }
+            
+        }
+    }
+    @IBAction  func saveClicked(_ sender: UIButton) {
+        let request = PollLikeRequest(poll_id:"\(sender.tag)", user_id: User.shared.userID)
+        
+        let resource = HomeResource()
+        resource.savePoll(request: request) { result in
+            DispatchQueue.main.async {
+                if result != nil && result == "true" {
+                    self.bookmarkImage.image = UIImage(named: "fmark")
+                } else {
+                    self.bookmarkImage.image = UIImage(named: "mark")
+                }
+            }
+            
+        }
+    }
 }
 extension NSLayoutConstraint {
     /**

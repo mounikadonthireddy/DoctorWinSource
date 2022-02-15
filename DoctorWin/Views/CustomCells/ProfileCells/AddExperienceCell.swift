@@ -88,15 +88,13 @@ class AddExperienceCell: UITableViewCell {
         editResource.addExperience(userID: User.shared.userID, profileReq: addModel) { response in
             
             DispatchQueue.main.async {
-                switch response {
-                case .success(let data):
+             
+             
                     
-                    if data.status == "true" {
+                    if response.status == "true" {
                         self.profileDelegate?.didProfileUpdated(status: true, error: nil)
                     }
-                case .failure(_):
-                    break
-                }
+               
                 
             }
         }

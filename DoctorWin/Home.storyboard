@@ -4055,6 +4055,36 @@
             </objects>
             <point key="canvasLocation" x="27892.753623188408" y="-368.47826086956525"/>
         </scene>
+        <!--CreateCaseViewController-->
+        <scene sceneID="4J4-03-cna">
+            <objects>
+                <viewController storyboardIdentifier="CreateCaseViewController" title="CreateCaseViewController" id="zDe-ae-zDW" customClass="CreateCaseViewController" customModule="DoctorWin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BYF-0G-92g">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ad2-hs-BLe">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Lss-H8-OGs"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ad2-hs-BLe" firstAttribute="leading" secondItem="Lss-H8-OGs" secondAttribute="leading" id="29F-MT-SCQ"/>
+                            <constraint firstItem="ad2-hs-BLe" firstAttribute="top" secondItem="Lss-H8-OGs" secondAttribute="top" id="Red-5R-I3v"/>
+                            <constraint firstItem="Lss-H8-OGs" firstAttribute="bottom" secondItem="ad2-hs-BLe" secondAttribute="bottom" id="jaW-mH-c1E"/>
+                            <constraint firstItem="Lss-H8-OGs" firstAttribute="trailing" secondItem="ad2-hs-BLe" secondAttribute="trailing" id="ozw-U6-eSE"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="ad2-hs-BLe" id="EBN-Kw-EwG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dQ2-dk-xZM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3820" y="72"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="7gH-Nc-DpP">
             <objects>

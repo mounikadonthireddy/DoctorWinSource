@@ -28,10 +28,13 @@ struct LoginViewModel {
                 
                 //return the response we get from loginResource
                 DispatchQueue.main.async {
-                    switch result {
-                    case .success(let data):
+                
+                    
+//                    switch result {
+//
+//                    case .success(let data):
                         
-                        if data.status {
+                        if result.status {
                             
                            // UserDefaults.standard.setValue("\(data.username_status!)", forKey: "username_status")
                            // UserDefaults.standard.setValue("\(data.username!)", forKey: "username")
@@ -39,17 +42,17 @@ struct LoginViewModel {
                             self.delegate?.didReceiveLoginResponse(wilNavigateTo: false, error: nil)
                         }
                         
-                        if data.required_field ?? false {
+                        else if result.required_field ?? false {
                             self.delegate?.didReceiveLoginResponse(wilNavigateTo: true, error: "register")
                             
-                        }
-                        
-                        
-                    case .failure( _):
+                        } else {
+                            
+           
                         self.delegate?.didReceiveLoginResponse(wilNavigateTo: false, error: "Please Try again after sometime")
-                    }
-                }
-            }
+                        }
+                       
+                        }}
+           
         } else {
             DispatchQueue.main.async {
                 self.delegate?.didValidated(status: false, error: validationResult.error ?? "")

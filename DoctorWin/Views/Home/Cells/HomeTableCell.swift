@@ -183,6 +183,18 @@ struct ComplaintLikeRequest: Codable {
     let complaint_id: String
     let user_id: String
 }
+struct PollLikeRequest: Codable {
+    let poll_id: String
+    let user_id: String
+}
+struct ArticalLikeRequest: Codable {
+    let art_id: String
+    let user_id: String
+}
+struct NewsLikeRequest: Codable {
+    let user_id: String
+    let artical_id: String
+}
 struct ComplaintFollowResponse: Codable {
     let follow: String
 }

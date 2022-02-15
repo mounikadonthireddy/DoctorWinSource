@@ -27,23 +27,23 @@ struct RegisterViewModel {
             registerResource.registerUser(registerRequest: registerRequest) { (result) in
 
                 DispatchQueue.main.async {
-                    switch result {
-                    case .success(let data):
+                
+                 
                         
-                        if data.message == "Otp sented Successful" {
+                        if result.message == "Otp sented Successful" {
                             
                             UserDefaults.standard.setValue("\(registerRequest.name)", forKey: "username")
                             UserDefaults.standard.setValue(registerRequest.phoneNumber, forKey: "mobileNum")
                             self.delegate?.didReceiveRegsiterResponse(wilNavigateTo: false, error: nil)
                         }
                         
-                        if data.required_field ?? false {
+                       else  if result.required_field ?? false {
                             self.delegate?.didReceiveRegsiterResponse(wilNavigateTo: true, error: "register")
                             
-                        }
+                       } else {
                         
                         
-                    case .failure( _):
+                   
                         self.delegate?.didReceiveRegsiterResponse(wilNavigateTo: false, error: "Please Try again after sometim")
                     }
                 }

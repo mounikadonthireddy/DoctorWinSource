@@ -7,36 +7,19 @@
 
 import Foundation
 class AddCustomJobResource {
-func addCustomJobRequest(request: CreateCustomJobModel,userId: String, completion  : @escaping (_ result: ResponseResult<ResponseModel>) -> Void) {
+func addCustomJobRequest(request: CreateCustomJobModel,userId: String, completion  : @escaping (_ result: ResponseModel) -> Void) {
     let urlStr = ApiEndpoints.baseUrl + ApiEndpoints.customJobs + "?user_id=\(userId)"
+    let homeUrl = URL(string: urlStr)!
+
     let httpUtility = HttpUtility()
     do {
         
         let postBody = try JSONEncoder().encode(request)
 
-        httpUtility.postMethod(urlString: urlStr, requestBody: postBody, resultType: ResponseModel.self) { (result) in
+        httpUtility.postMethod(requestUrl: homeUrl, requestBody: postBody, resultType: ResponseModel.self) { (result) in
 
-            switch result {
-               case .success(let data):
-                completion(.success(data))
-                
-               case .failure(let requestError):
-                   switch requestError {
-                   case .invalidUrl:
-                    completion(.failure("Please try Again After SomeTime"))
-                   
-                   case .internalServerError:
-                    completion(.failure("Please try Again After SomeTime"))
-
-                   
-                   case .decodingError:
-                    completion(.failure("Please try Again After SomeTime"))
-
-                   case .serverError(error: let error):
-                    completion(.failure("Please try Again After SomeTime"))
-
-                   }
-               }
+            completion(result)
+          
         }
     } catch let error {
         print("error is \(error)")

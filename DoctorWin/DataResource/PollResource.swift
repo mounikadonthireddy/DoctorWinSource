@@ -17,7 +17,7 @@ struct PollResource {
             
 
             let loginPostBody = try JSONEncoder().encode(request)
-            httpUtility.postMethod(urlString: loginUrlStr, requestBody: loginPostBody, resultType: BoolResponseModel.self) { (loginApiResponse) in
+            httpUtility.postMethod(requestUrl: loginUrl, requestBody: loginPostBody, resultType: BoolResponseModel.self) { (loginApiResponse) in
 
 //                _ = completion(loginApiResponse)
            }

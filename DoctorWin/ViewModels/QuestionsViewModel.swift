@@ -38,13 +38,15 @@ struct QuestionsViewModel {
                 
                 //return the response we get from loginResource
                  DispatchQueue.main.async {
-                    switch response {
-                    case .success(let data):
-                        self.delegate?.didPostedQuestion(status: true, error: nil)
-                        
-                    case .failure(let error):
-                        self.delegate?.didPostedQuestion(status: false, error: error)
-                    }
+                     if response.status == "true" {
+                         self.delegate?.didPostedQuestion(status: true, error: nil)
+
+                     } else {
+                         self.delegate?.didPostedQuestion(status: false, error: "error")
+
+                     }
+    
+                   
                 
                 }
             }

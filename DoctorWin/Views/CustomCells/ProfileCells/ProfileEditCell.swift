@@ -120,6 +120,14 @@ struct JobApplyResponse: Codable {
 struct ComplaintLikeResponse: Codable {
     let like_status: String
 }
+struct PollLikeResponse: Codable {
+    let poll_like_status: String
+    let like_count: Int
+}
+struct ArticalLikeResponse: Codable {
+    let like_status: String
+    let like_count: Int
+}
 struct PostReplyResponse: Codable {
     let message : String?
     let status : String?

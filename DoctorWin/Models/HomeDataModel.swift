@@ -60,6 +60,7 @@ struct HomeDataModel: Codable {
     let profileName: String?
     let speciality: String?
     let location: String?
+    let poll_user: Int?
 
 
     enum CodingKeys: String, CodingKey {
@@ -115,6 +116,7 @@ struct HomeDataModel: Codable {
         case profileName = "ProfileName"
         case speciality = "speciality"
         case location = "location"
+        case poll_user = "poll_user"
     }
     
 }

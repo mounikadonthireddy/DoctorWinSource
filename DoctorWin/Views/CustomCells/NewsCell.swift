@@ -15,7 +15,8 @@ class NewsCell: UITableViewCell {
     @IBOutlet weak var postedDate: UILabel!
     @IBOutlet weak var wishlistBtn: UIButton!
     @IBOutlet weak var bookmarkBtn: UIButton!
-    
+    @IBOutlet weak var wishlist: UIImageView!
+    @IBOutlet weak var bookmark: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -54,6 +55,8 @@ class NewsCell: UITableViewCell {
                 self.postedDate.text = "\(days) days ago"
             }
         }
+        wishlistBtn.tag = dataModel.userid
+        bookmarkBtn.tag = dataModel.userid
     }
     
     func calculateDaysfrom(date: String) -> Int {
@@ -64,6 +67,41 @@ class NewsCell: UITableViewCell {
         _ = Set<Calendar.Component>([ .day])
         let differenceOfDate =  Calendar.current.dateComponents([.day], from: formatedStartDate!, to: currentDate).day!
         return differenceOfDate
+    }
+    
+    @IBAction func likeClicked(_ sender: UIButton) {
+        
+        let request = NewsLikeRequest(user_id: User.shared.userID, artical_id:"\(sender.tag)")
+        
+        let resource = HomeResource()
+        resource.likeNews(request: request) { result in
+            DispatchQueue.main.async {
+                if  result.like_status == "true" {
+                    self.wishlist.image = UIImage(named: "fheart")
+                } else {
+                    self.wishlist.image = UIImage(named: "heart")
+                }
+
+            }
+            
+        }
+        
+    }
+
+    @IBAction  func saveClicked(_ sender: UIButton) {
+        let request = ArticalLikeRequest(art_id:"\(sender.tag)", user_id: User.shared.userID)
+
+        let resource = HomeResource()
+        resource.saveArtical(request: request) { result in
+            DispatchQueue.main.async {
+                if result != nil && result == "true" {
+                    self.bookmark.image = UIImage(named: "fstar")
+                } else {
+                    self.bookmark.image = UIImage(named: "star")
+                }
+            }
+            
+        }
     }
 }
 

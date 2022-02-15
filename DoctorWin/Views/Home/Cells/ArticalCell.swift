@@ -64,8 +64,44 @@ class ArticalCell: UITableViewCell {
             likeImage.image = UIImage(named: "fheart")
             
         }
+        wishlistBtn.tag = homeModel.id ?? 0
+        saveBtn.tag = homeModel.id ?? 0
     }
-    
+    @IBAction func likeClicked(_ sender: UIButton) {
+        
+        let request = ArticalLikeRequest(art_id:"\(sender.tag)", user_id: User.shared.userID)
+        
+        let resource = HomeResource()
+        resource.likeArtical(request: request) { result in
+            DispatchQueue.main.async {
+                if  result.like_status == "true" {
+                    self.likeImage.image = UIImage(named: "fheart")
+                } else {
+                    self.likeImage.image = UIImage(named: "heart")
+                }
+                self.likeCount.text = "\(result.like_count) Likes"
+
+            }
+            
+        }
+        
+    }
+
+    @IBAction  func saveClicked(_ sender: UIButton) {
+        let request = ArticalLikeRequest(art_id:"\(sender.tag)", user_id: User.shared.userID)
+
+        let resource = HomeResource()
+        resource.saveArtical(request: request) { result in
+            DispatchQueue.main.async {
+                if result != nil && result == "true" {
+                    self.bookmarkImage.image = UIImage(named: "fmark")
+                } else {
+                    self.bookmarkImage.image = UIImage(named: "mark")
+                }
+            }
+            
+        }
+    }
     
 }
 

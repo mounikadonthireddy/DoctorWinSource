@@ -245,6 +245,11 @@
 		BFA90E1C27B4E97B009F9784 /* ProfileImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFA90E1A27B4E97A009F9784 /* ProfileImageCell.xib */; };
 		BFA90E1E27B53F5F009F9784 /* NewsCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA90E1D27B53F5F009F9784 /* NewsCategoryViewController.swift */; };
 		BFA90E2027BA7036009F9784 /* APIHelperClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA90E1F27BA7036009F9784 /* APIHelperClass.swift */; };
+		BFA90E2327BB50F9009F9784 /* AddCaseTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA90E2127BB50F9009F9784 /* AddCaseTextCell.swift */; };
+		BFA90E2427BB50F9009F9784 /* AddCaseTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFA90E2227BB50F9009F9784 /* AddCaseTextCell.xib */; };
+		BFA90E2627BB5163009F9784 /* CreateCaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA90E2527BB5163009F9784 /* CreateCaseViewController.swift */; };
+		BFA90E2827BB5346009F9784 /* AddCasesTitleHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA90E2727BB5346009F9784 /* AddCasesTitleHeader.swift */; };
+		BFA90E2A27BB5380009F9784 /* AddCasesTitleHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFA90E2927BB5380009F9784 /* AddCasesTitleHeader.xib */; };
 		BFCB16B627997832005E3FEB /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCB16B527997832005E3FEB /* CustomSegmentedControl.swift */; };
 		BFCB16B8279990C3005E3FEB /* MyArticalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCB16B7279990C3005E3FEB /* MyArticalViewController.swift */; };
 		BFCB16BA2799919A005E3FEB /* MyPollsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCB16B92799919A005E3FEB /* MyPollsViewController.swift */; };
@@ -519,6 +524,11 @@
 		BFA90E1A27B4E97A009F9784 /* ProfileImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileImageCell.xib; sourceTree = "<group>"; };
 		BFA90E1D27B53F5F009F9784 /* NewsCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCategoryViewController.swift; sourceTree = "<group>"; };
 		BFA90E1F27BA7036009F9784 /* APIHelperClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelperClass.swift; sourceTree = "<group>"; };
+		BFA90E2127BB50F9009F9784 /* AddCaseTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCaseTextCell.swift; sourceTree = "<group>"; };
+		BFA90E2227BB50F9009F9784 /* AddCaseTextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCaseTextCell.xib; sourceTree = "<group>"; };
+		BFA90E2527BB5163009F9784 /* CreateCaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCaseViewController.swift; sourceTree = "<group>"; };
+		BFA90E2727BB5346009F9784 /* AddCasesTitleHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCasesTitleHeader.swift; sourceTree = "<group>"; };
+		BFA90E2927BB5380009F9784 /* AddCasesTitleHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCasesTitleHeader.xib; sourceTree = "<group>"; };
 		BFCB16B527997832005E3FEB /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
 		BFCB16B7279990C3005E3FEB /* MyArticalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyArticalViewController.swift; sourceTree = "<group>"; };
 		BFCB16B92799919A005E3FEB /* MyPollsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPollsViewController.swift; sourceTree = "<group>"; };
@@ -798,6 +808,7 @@
 				43B03AA4272F99B200A4337B /* AddArticalViewController.swift */,
 				43B03AA6272F99CB00A4337B /* AddStoryViewController.swift */,
 				43B03AA8272F99E100A4337B /* AddCasesViewController.swift */,
+				BFA90E2527BB5163009F9784 /* CreateCaseViewController.swift */,
 				43B2844F273CE1BA00E8CED8 /* AddMainViewController.swift */,
 			);
 			path = Add;
@@ -962,6 +973,10 @@
 				43A6A98D27329E5800400F72 /* PollTableViewCell.xib */,
 				43A6A99027329F1C00400F72 /* CasesTableViewCell.swift */,
 				43A6A99127329F1C00400F72 /* CasesTableViewCell.xib */,
+				BFA90E2127BB50F9009F9784 /* AddCaseTextCell.swift */,
+				BFA90E2227BB50F9009F9784 /* AddCaseTextCell.xib */,
+				BFA90E2727BB5346009F9784 /* AddCasesTitleHeader.swift */,
+				BFA90E2927BB5380009F9784 /* AddCasesTitleHeader.xib */,
 				43AF8FAA2733D54500CC69EF /* RegisterCell.swift */,
 				43AF8FAB2733D54500CC69EF /* RegisterCell.xib */,
 				439AA1F82737F2F400D09E26 /* CourseNameCell.swift */,
@@ -1166,12 +1181,14 @@
 				439275D02727CE8400E91E33 /* StoryCell.xib in Resources */,
 				439AA1FF2739267900D09E26 /* CaseEditCell.xib in Resources */,
 				BF431C8F2782EC6F0057AF9F /* ExperinceTitleCell.xib in Resources */,
+				BFA90E2427BB50F9009F9784 /* AddCaseTextCell.xib in Resources */,
 				BF0DD960278D5DAC0053747A /* CollectionTableCell.xib in Resources */,
 				43A6A98727329D0200400F72 /* AddSkillsCell.xib in Resources */,
 				BF0DD949278D393C0053747A /* ProfileNameCell.xib in Resources */,
 				43B975AF2725B19B00CDF2F1 /* JobInformationCell.xib in Resources */,
 				43A280A6272AD82A001B88A1 /* News.json in Resources */,
 				BF0DD95B278D5B9C0053747A /* RecommandedJobCell.xib in Resources */,
+				BFA90E2A27BB5380009F9784 /* AddCasesTitleHeader.xib in Resources */,
 				43A6A97F2732520600400F72 /* AddExperienceCell.xib in Resources */,
 				439297D327231EDE001891B8 /* InfoCell.xib in Resources */,
 				43B03A9D272EAF6300A4337B /* CommentsCell.xib in Resources */,
@@ -1404,6 +1421,7 @@
 				43AF8FAC2733D54500CC69EF /* RegisterCell.swift in Sources */,
 				8FF9AD00277314B7002F4700 /* NewsViewModel.swift in Sources */,
 				43B03AA5272F99B200A4337B /* AddArticalViewController.swift in Sources */,
+				BFA90E2827BB5346009F9784 /* AddCasesTitleHeader.swift in Sources */,
 				43B03AA7272F99CB00A4337B /* AddStoryViewController.swift in Sources */,
 				BFA90E1B27B4E97B009F9784 /* ProfileImageCell.swift in Sources */,
 				43B23206273AAA2C00038F8A /* AppliedJobCell.swift in Sources */,
@@ -1424,6 +1442,7 @@
 				43AF9F8F2729D51E0020CCF3 /* CollegeViewController.swift in Sources */,
 				43953E90273E9DF70027CE80 /* RecommendedCollectionView.swift in Sources */,
 				43B03A98272EA94E00A4337B /* HomeDetailsCell.swift in Sources */,
+				BFA90E2627BB5163009F9784 /* CreateCaseViewController.swift in Sources */,
 				43AF8FC527358C7E00CC69EF /* LoginResource.swift in Sources */,
 				43A6A97227324EA000400F72 /* ProfileEditCell.swift in Sources */,
 				439275CF2727CE8400E91E33 /* StoryCell.swift in Sources */,
@@ -1494,6 +1513,7 @@
 				43A2809E272A751B001B88A1 /* CollegeDataModel.swift in Sources */,
 				43F57E4D275614A7001120C8 /* RegisterValidation.swift in Sources */,
 				435FB56A27510FAE0040C406 /* JobCategoryViewModel.swift in Sources */,
+				BFA90E2327BB50F9009F9784 /* AddCaseTextCell.swift in Sources */,
 				43AF9F8B2729D46A0020CCF3 /* JobsMainViewController.swift in Sources */,
 				439AA1FA2737F2F400D09E26 /* CourseNameCell.swift in Sources */,
 				43B03A9F272EB08600A4337B /* HomeDetailsViewController.swift in Sources */,

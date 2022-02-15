@@ -166,14 +166,14 @@ struct ProfileEditResource {
             debugPrint(error)
         }
     }
-    func addExperience(userID: String,profileReq: AddExperienceModel,  completion: @escaping(Result<ResponseModel, RequestError>)-> Void) {
+    func addExperience(userID: String,profileReq: AddExperienceModel,  completion: @escaping(ResponseModel)-> Void) {
         
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.addExperience + "?user_id=\(userID)"
         let homeUrl = URL(string: homeUrlStr)!
         let httpUtility = HttpUtility()
         do {
             let postBody = try JSONEncoder().encode(profileReq)
-            httpUtility.postMethod(urlString: homeUrlStr, requestBody: postBody, resultType: ResponseModel.self) {
+            httpUtility.postMethod(requestUrl: homeUrl, requestBody: postBody, resultType: ResponseModel.self) {
                 response in
                 _ = completion(response)
             }

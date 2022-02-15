@@ -15,6 +15,7 @@ struct NewsDataModel: Codable {
     let created_date: String?
     let like_status: Bool?
     let bookmark_status: Bool?
+    let userid: Int
 }
 struct PollsDataModel: Codable {
     let artical_title: String?

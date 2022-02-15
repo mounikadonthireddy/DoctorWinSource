@@ -91,17 +91,23 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="1wb-ts-Rpi">
                                 <rect key="frame" x="287" y="276.5" width="120" height="34"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lxv-cD-HVe">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="apK-v9-IUD">
                                         <rect key="frame" x="0.0" y="0.0" width="39.5" height="34"/>
                                         <color key="tintColor" systemColor="labelColor"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="apK-v9-IUD">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lxv-cD-HVe">
                                         <rect key="frame" x="40.5" y="0.0" width="39" height="34"/>
                                         <color key="tintColor" systemColor="labelColor"/>
+                                        <connections>
+                                            <action selector="saveClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="xlv-9R-cU3"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bP8-7u-hXb">
                                         <rect key="frame" x="80.5" y="0.0" width="39.5" height="34"/>
                                         <color key="tintColor" systemColor="labelColor"/>
+                                        <connections>
+                                            <action selector="likeClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="j0E-M6-lGT"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -150,12 +156,14 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="bookmark" destination="WGC-Ce-bIp" id="01b-5B-yGV"/>
                 <outlet property="bookmarkBtn" destination="lxv-cD-HVe" id="Qc6-or-fV5"/>
                 <outlet property="postImageView" destination="jNj-MA-fKL" id="nyV-t0-9uL"/>
                 <outlet property="postTitle" destination="ngJ-UP-U1m" id="W9Y-Ec-f6V"/>
                 <outlet property="postedDate" destination="KJ0-o3-EVQ" id="dHZ-Ad-xsk"/>
                 <outlet property="postedPersonName" destination="i9F-Hi-9KZ" id="o0x-Gp-To8"/>
                 <outlet property="shadowView" destination="B43-hU-cQf" id="zwL-7j-vVu"/>
+                <outlet property="wishlist" destination="1xP-E0-mJ0" id="Tyy-tF-JHs"/>
                 <outlet property="wishlistBtn" destination="bP8-7u-hXb" id="J8c-mY-0MQ"/>
             </connections>
             <point key="canvasLocation" x="103.62318840579711" y="188.83928571428569"/>

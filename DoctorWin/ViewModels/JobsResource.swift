@@ -140,31 +140,34 @@ struct JobsResource {
     func saveJob(request: JobApplyRequest, completion : @escaping  (_ result: String?) -> Void) {
         
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.createBookMarkJobs + "?user_id=\(request.user_id)&job_id=\(request.job_id)"
+        let homeUrl = URL(string: homeUrlStr)!
+
         let httpUtility = HttpUtility()
         do {
             let postBody = try JSONEncoder().encode(request)
 
-            httpUtility.postMethod(urlString: homeUrlStr, requestBody: postBody, resultType: SaveResponse.self) {
+            httpUtility.postMethod(requestUrl: homeUrl, requestBody: postBody, resultType: SaveResponse.self) {
                 result in
-                switch result {
-                   case .success(let data):
-                    completion(data.bookmark_status)
+//
+//                switch result {
+//                   case .success(let data):
+                completion(result.bookmark_status)
                     
-                   case .failure(let requestError):
-                       switch requestError {
-                       case .invalidUrl:
-                        completion(nil)
-                       
-                       case .internalServerError:
-                        print("Error: Unknown")
-                     
-                       case .decodingError:
-                        print("Error: Unknown")
-                       case .serverError(error: let error):
-                        print("Error: Unknown")
-                       }
+//                   case .failure(let requestError):
+//                       switch requestError {
+//                       case .invalidUrl:
+//                        completion(nil)
+//
+//                       case .internalServerError:
+//                        print("Error: Unknown")
+//
+//                       case .decodingError:
+//                        print("Error: Unknown")
+//                       case .serverError(error: let error):
+//                        print("Error: Unknown")
+//                       }
             }
-            }
+//            }
             
         } catch let error {
             debugPrint(error)
@@ -172,30 +175,32 @@ struct JobsResource {
     }
     func applyJob(request: JobApplyRequest, completion : @escaping  (_ result: Bool?) -> Void) {
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.appliedJobs + "?user_id=\(request.user_id)&job_id=\(request.job_id)"
+        let homeUrl = URL(string: homeUrlStr)!
+
         let httpUtility = HttpUtility()
         do {
             let postBody = try JSONEncoder().encode(request)
 
-            httpUtility.postMethod(urlString: homeUrlStr, requestBody: postBody, resultType: JobApplyResponse.self) {
+            httpUtility.postMethod(requestUrl: homeUrl, requestBody: postBody, resultType: JobApplyResponse.self) {
                 result in
-                switch result {
-                   case .success(let data):
-                    completion(data.apply_status)
+//                switch result {
+//                   case .success(let data):
+                    completion(result.apply_status)
                     
-                   case .failure(let requestError):
-                       switch requestError {
-                       case .invalidUrl:
-                        completion(nil)
-                       
-                       case .internalServerError:
-                        print("Error: Unknown")
-                     
-                       case .decodingError:
-                        print("Error: Unknown")
-                       case .serverError(error: let error):
-                        print("Error: Unknown")
-                       }
-            }
+//                   case .failure(let requestError):
+//                       switch requestError {
+//                       case .invalidUrl:
+//                        completion(nil)
+//
+//                       case .internalServerError:
+//                        print("Error: Unknown")
+//
+//                       case .decodingError:
+//                        print("Error: Unknown")
+//                       case .serverError(error: let error):
+//                        print("Error: Unknown")
+//                       }
+            //}
             }
             
         } catch let error {
