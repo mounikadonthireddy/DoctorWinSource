@@ -63,7 +63,7 @@ class HomeViewController: UIViewController, ExpandableLabelDelegate {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
         tabBarController?.tabBar.isHidden = false
-        tabBarController?.tabBar.frame = CGRect(x: 0, y: 0, width: 220, height: 100)
+      //  tabBarController?.tabBar.frame = CGRect(x: 0, y: 0, width: 220, height: 100)
         self.parse()
     }
     

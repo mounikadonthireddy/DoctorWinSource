@@ -47,7 +47,7 @@ class JobDetailsViewController: ViewController {
         resource.applyJob(request: request) { result in
             DispatchQueue.main.async {
                 self.dismiss()
-                if result == true {
+                if result.status  {
                 self.applyBtn.setTitle("Applied", for: .normal)
                     self.applyBtn.isUserInteractionEnabled = false
             }

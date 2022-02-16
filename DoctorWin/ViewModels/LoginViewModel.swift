@@ -22,37 +22,26 @@ struct LoginViewModel {
         if(validationResult.success) {
             //use loginResource to call login API
             self.delegate?.didValidated(status: true, error: nil)
-
+            
             let loginResource = LoginResource()
             loginResource.loginUser(loginRequest: loginRequest) { (result) in
                 
                 //return the response we get from loginResource
                 DispatchQueue.main.async {
-                
                     
-//                    switch result {
-//
-//                    case .success(let data):
+                    if result.status {
+                        UserDefaults.standard.setValue(loginRequest.phoneNumber, forKey: "mobileNum")
+                        self.delegate?.didReceiveLoginResponse(wilNavigateTo: false, error: nil)
+                    } else if result.status == false && result.Verified == false {
+                        self.delegate?.didReceiveLoginResponse(wilNavigateTo: true, error: "register")
                         
-                        if result.status {
-                            
-                           // UserDefaults.standard.setValue("\(data.username_status!)", forKey: "username_status")
-                           // UserDefaults.standard.setValue("\(data.username!)", forKey: "username")
-                            UserDefaults.standard.setValue(loginRequest.phoneNumber, forKey: "mobileNum")
-                            self.delegate?.didReceiveLoginResponse(wilNavigateTo: false, error: nil)
-                        }
-                        
-                        else if result.required_field ?? false {
-                            self.delegate?.didReceiveLoginResponse(wilNavigateTo: true, error: "register")
-                            
-                        } else {
-                            
-           
+                    } else {
                         self.delegate?.didReceiveLoginResponse(wilNavigateTo: false, error: "Please Try again after sometime")
-                        }
-                       
-                        }}
-           
+                        
+                    }
+                }
+            }
+            
         } else {
             DispatchQueue.main.async {
                 self.delegate?.didValidated(status: false, error: validationResult.error ?? "")

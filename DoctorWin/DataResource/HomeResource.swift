@@ -99,7 +99,7 @@ completion(result)
         }
     }
     
-    func likeComplaint(request: ComplaintLikeRequest, completion : @escaping  (_ result: String?) -> Void) {
+    func likeComplaint(request: ComplaintLikeRequest, completion : @escaping  (_ result: StatusResponseModel) -> Void) {
         
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.likeJobs + "?user_id=\(request.user_id)&complaint_id=\(request.complaint_id)"
         let homeUrl = URL(string: homeUrlStr)!
@@ -108,9 +108,9 @@ completion(result)
         do {
             let postBody = try JSONEncoder().encode(request)
 
-            httpUtility.postMethod(requestUrl: homeUrl, requestBody: postBody, resultType: ComplaintLikeResponse.self) {
+            httpUtility.postMethod(requestUrl: homeUrl, requestBody: postBody, resultType: StatusResponseModel.self) {
                 result in
-                completion(result.like_status)
+                completion(result)
                
             }
             
@@ -119,7 +119,7 @@ completion(result)
         }
     }
     
-    func likePoll(request: PollLikeRequest, completion : @escaping  (_ result: PollLikeResponse) -> Void) {
+    func likePoll(request: PollLikeRequest, completion : @escaping  (_ result: StatusResponseModel) -> Void) {
         
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.likeJobs + "?user_id=\(request.user_id)&poll_id=\(request.poll_id)"
         let homeUrl = URL(string: homeUrlStr)!
@@ -128,7 +128,7 @@ completion(result)
         do {
             let postBody = try JSONEncoder().encode(request)
 
-            httpUtility.postMethod(requestUrl: homeUrl, requestBody: postBody, resultType: PollLikeResponse.self) {
+            httpUtility.postMethod(requestUrl: homeUrl, requestBody: postBody, resultType: StatusResponseModel.self) {
                 result in
                 completion(result)
                
@@ -138,7 +138,7 @@ completion(result)
             debugPrint(error)
         }
     }
-    func likeArtical(request: ArticalLikeRequest, completion : @escaping  (_ result: ArticalLikeResponse) -> Void) {
+    func likeArtical(request: ArticalLikeRequest, completion : @escaping  (_ result: StatusResponseModel) -> Void) {
         
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.likeJobs + "?user_id=\(request.user_id)&art_id=\(request.art_id)"
         let homeUrl = URL(string: homeUrlStr)!
@@ -147,7 +147,7 @@ completion(result)
         do {
             let postBody = try JSONEncoder().encode(request)
 
-            httpUtility.postMethod(requestUrl: homeUrl, requestBody: postBody, resultType: ArticalLikeResponse.self) {
+            httpUtility.postMethod(requestUrl: homeUrl, requestBody: postBody, resultType: StatusResponseModel.self) {
                 result in
                 completion(result)
                
@@ -157,7 +157,7 @@ completion(result)
             debugPrint(error)
         }
     }
-    func likeNews(request: NewsLikeRequest, completion : @escaping  (_ result: ArticalLikeResponse) -> Void) {
+    func likeNews(request: NewsLikeRequest, completion : @escaping  (_ result: StatusResponseModel) -> Void) {
         
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.likeJobs + "?user_id=\(request.user_id)&artical_id=\(request.artical_id)"
         let homeUrl = URL(string: homeUrlStr)!
@@ -166,7 +166,7 @@ completion(result)
         do {
             let postBody = try JSONEncoder().encode(request)
 
-            httpUtility.postMethod(requestUrl: homeUrl, requestBody: postBody, resultType: ArticalLikeResponse.self) {
+            httpUtility.postMethod(requestUrl: homeUrl, requestBody: postBody, resultType: StatusResponseModel.self) {
                 result in
                 completion(result)
                
@@ -176,7 +176,7 @@ completion(result)
             debugPrint(error)
         }
     }
-    func saveComplaint(request: ComplaintLikeRequest, completion : @escaping  (_ result: String?) -> Void) {
+    func saveComplaint(request: ComplaintLikeRequest, completion : @escaping  (_ result: StatusResponseModel) -> Void) {
         
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.savedJobs + "?user_id=\(request.user_id)&complaint_id=\(request.complaint_id)"
         let homeUrl = URL(string: homeUrlStr)!
@@ -185,10 +185,10 @@ completion(result)
         do {
             let postBody = try JSONEncoder().encode(request)
 
-            helper.callWebserviceToMakeRequest(requestUrl: homeUrl, requestBody: postBody, resultType: SaveResponse.self, httpMethod: HTTPMethod.post) {
+            helper.callWebserviceToMakeRequest(requestUrl: homeUrl, requestBody: postBody, resultType: StatusResponseModel.self, httpMethod: HTTPMethod.post) {
                 result in
                 
-                completion(result.bookmark_status)
+                completion(result)
                
             }
             
@@ -197,7 +197,7 @@ completion(result)
         }
     }
     
-    func savePoll(request: PollLikeRequest, completion : @escaping  (_ result: String?) -> Void) {
+    func savePoll(request: PollLikeRequest, completion : @escaping  (_ result: StatusResponseModel) -> Void) {
         
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.savedJobs + "?user_id=\(request.user_id)&poll_id=\(request.poll_id)"
         let homeUrl = URL(string: homeUrlStr)!
@@ -206,10 +206,10 @@ completion(result)
         do {
             let postBody = try JSONEncoder().encode(request)
 
-            helper.callWebserviceToMakeRequest(requestUrl: homeUrl, requestBody: postBody, resultType: SaveResponse.self, httpMethod: HTTPMethod.post) {
+            helper.callWebserviceToMakeRequest(requestUrl: homeUrl, requestBody: postBody, resultType: StatusResponseModel.self, httpMethod: HTTPMethod.post) {
                 result in
                 
-                completion(result.bookmark_status)
+                completion(result)
                
             }
             
@@ -217,7 +217,7 @@ completion(result)
             debugPrint(error)
         }
     }
-    func saveArtical(request: ArticalLikeRequest, completion : @escaping  (_ result: String?) -> Void) {
+    func saveArtical(request: ArticalLikeRequest, completion : @escaping  (_ result: StatusResponseModel) -> Void) {
         
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.savedJobs + "?user_id=\(request.user_id)&art_id=\(request.art_id)"
         let homeUrl = URL(string: homeUrlStr)!
@@ -226,10 +226,10 @@ completion(result)
         do {
             let postBody = try JSONEncoder().encode(request)
 
-            helper.callWebserviceToMakeRequest(requestUrl: homeUrl, requestBody: postBody, resultType: SaveResponse.self, httpMethod: HTTPMethod.post) {
+            helper.callWebserviceToMakeRequest(requestUrl: homeUrl, requestBody: postBody, resultType: StatusResponseModel.self, httpMethod: HTTPMethod.post) {
                 result in
                 
-                completion(result.bookmark_status)
+                completion(result)
                
             }
             

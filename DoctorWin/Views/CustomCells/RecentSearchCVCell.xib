@@ -42,7 +42,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Asst. Professor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vas-VV-w26">
                                 <rect key="frame" x="10" y="50" width="76.5" height="13"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="76.5" id="YFJ-kS-3nQ"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" id="YFJ-kS-3nQ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="11"/>
                                 <color key="textColor" red="0.42745098040000001" green="0.43137254899999999" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

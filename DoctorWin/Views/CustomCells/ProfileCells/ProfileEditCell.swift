@@ -124,10 +124,10 @@ struct PollLikeResponse: Codable {
     let poll_like_status: String
     let like_count: Int
 }
-struct ArticalLikeResponse: Codable {
-    let like_status: String
-    let like_count: Int
-}
+//struct ArticalLikeResponse: Codable {
+//    let like_status: String
+//    let like_count: Int
+//}
 struct PostReplyResponse: Codable {
     let message : String?
     let status : String?
@@ -137,4 +137,9 @@ struct PostReplyResponse: Codable {
 struct ProfileUpdateResponseModel: Codable {
     let status: String?
     let message: String?
+}
+
+struct StatusResponseModel: Codable {
+    let status : Bool
+    let like_count: Int?
 }

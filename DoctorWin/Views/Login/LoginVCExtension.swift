@@ -57,4 +57,7 @@ extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return textField.resignFirstResponder()
     }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        mobileNumTF.resignFirstResponder()
+    }
 }

@@ -42,7 +42,7 @@ class JobsCollectionCell: UICollectionViewCell {
         let resource = JobsResource()
         resource.saveJob(request: request) { result in
             DispatchQueue.main.async {
-                if result != nil && result == "true" {
+                if  result.status {
                     self.save.setImage(UIImage(named: "fstar"), for: .normal)
                 } else {
                     self.save.setImage(UIImage(named: "star"), for: .normal)

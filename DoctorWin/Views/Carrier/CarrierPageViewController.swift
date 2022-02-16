@@ -49,7 +49,11 @@ class CarrierPageViewController: ViewController {
         loadRecommendedJobs()
         getCustomJobsCount()
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
+        tabBarController?.tabBar.isHidden = false
+
+    }
     func parse1() {
         jobsVM.getAllJobData(userID: User.shared.userID)
     }

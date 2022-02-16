@@ -137,7 +137,7 @@ class PollTableViewCell: UITableViewCell {
             
         }
         if homeModel.bookmarkStatus ?? false {
-            bookmarkImage.image = UIImage(named: "bookmark")
+            bookmarkImage.image = UIImage(named: "fmark")
         }
         if let urlString = homeModel.caseProfileImage {
             let finalUrlString = "http://3.132.212.116:8000" + urlString
@@ -152,12 +152,12 @@ class PollTableViewCell: UITableViewCell {
         let resource = HomeResource()
         resource.likePoll(request: request) { result in
             DispatchQueue.main.async {
-                if  result.poll_like_status == "true" {
+                if  result.status  {
                     self.likeImage.image = UIImage(named: "fheart")
                 } else {
                     self.likeImage.image = UIImage(named: "heart")
                 }
-                self.likeLabel.text = "\(result.like_count) Likes"
+                self.likeLabel.text = "\(result.like_count!) Likes"
 
             }
             
@@ -184,7 +184,7 @@ class PollTableViewCell: UITableViewCell {
         let resource = HomeResource()
         resource.savePoll(request: request) { result in
             DispatchQueue.main.async {
-                if result != nil && result == "true" {
+                if result.status  {
                     self.bookmarkImage.image = UIImage(named: "fmark")
                 } else {
                     self.bookmarkImage.image = UIImage(named: "mark")

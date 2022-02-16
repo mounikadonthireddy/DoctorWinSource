@@ -14,8 +14,11 @@ struct APIHelperClass {
         urlRequest.httpMethod = httpMethod.rawValue
         if httpMethod != .get {
             urlRequest.httpBody = requestBody!
-        }
+            urlRequest.addValue("application/json", forHTTPHeaderField: "content-type")
+
+        } else {
         urlRequest.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "content-type")
+        }
         urlRequest.addValue("application/json", forHTTPHeaderField: "accept-type")
         
         

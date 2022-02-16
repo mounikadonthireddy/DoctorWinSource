@@ -55,7 +55,7 @@ class ArticalCell: UITableViewCell {
         }
         
         if homeModel.bookmarkStatus ?? false {
-            bookmarkImage.image = UIImage(named: "bookmark")
+            bookmarkImage.image = UIImage(named: "fmark")
         }
         if homeModel.follow != "False" {
             //            self.followBtn.setTitle("Following", for: .normal)
@@ -74,12 +74,12 @@ class ArticalCell: UITableViewCell {
         let resource = HomeResource()
         resource.likeArtical(request: request) { result in
             DispatchQueue.main.async {
-                if  result.like_status == "true" {
+                if  result.status {
                     self.likeImage.image = UIImage(named: "fheart")
                 } else {
                     self.likeImage.image = UIImage(named: "heart")
                 }
-                self.likeCount.text = "\(result.like_count) Likes"
+                self.likeCount.text = "\(result.like_count!) Likes"
 
             }
             
@@ -93,7 +93,7 @@ class ArticalCell: UITableViewCell {
         let resource = HomeResource()
         resource.saveArtical(request: request) { result in
             DispatchQueue.main.async {
-                if result != nil && result == "true" {
+                if result.status  {
                     self.bookmarkImage.image = UIImage(named: "fmark")
                 } else {
                     self.bookmarkImage.image = UIImage(named: "mark")

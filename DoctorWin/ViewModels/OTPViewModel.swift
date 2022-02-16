@@ -10,8 +10,7 @@ protocol OTPViewModelDelegate {
     func didReceiveLoginResponse(wilNavigateTo: Bool, error: String?)
 }
 
-struct OTPViewModel
-{
+struct OTPViewModel {
     var delegate : OTPViewModelDelegate?
     
     func validateOTP(request: OTPRequest) {
@@ -19,17 +18,17 @@ struct OTPViewModel
         let loginResource = LoginResource()
         loginResource.validateOtp(request: request) { (result) in
             DispatchQueue.main.async {
-           if result.status {
-               User.shared.userID = "\(result.userdetail!)"
-               UserDefaults.standard.setValue("\(result.userdetail!)", forKey: "user_id")
+                if result.status ?? false {
+               User.shared.userID = "\(result.user_id!)"
+               UserDefaults.standard.setValue("\(result.user_id!)", forKey: "user_id")
                UserDefaults.standard.setValue(result.phone_number, forKey: "mobileNum")
                self.delegate?.didReceiveLoginResponse(wilNavigateTo: true, error: nil)
             }
-           else if result.required_field ?? false {
-                self.delegate?.didReceiveLoginResponse(wilNavigateTo: false, error: "register")
-                
+           else if result.message != nil {
+               self.delegate?.didReceiveLoginResponse(wilNavigateTo: false, error: "Please Enter")
+
            } else {
-               self.delegate?.didReceiveLoginResponse(wilNavigateTo: false, error: "Please Try again after sometim")
+               self.delegate?.didReceiveLoginResponse(wilNavigateTo: false, error: "Please Try again after sometime")
 
            }
             }

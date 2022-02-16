@@ -76,7 +76,7 @@ class NewsCell: UITableViewCell {
         let resource = HomeResource()
         resource.likeNews(request: request) { result in
             DispatchQueue.main.async {
-                if  result.like_status == "true" {
+                if  result.status {
                     self.wishlist.image = UIImage(named: "fheart")
                 } else {
                     self.wishlist.image = UIImage(named: "heart")
@@ -94,7 +94,7 @@ class NewsCell: UITableViewCell {
         let resource = HomeResource()
         resource.saveArtical(request: request) { result in
             DispatchQueue.main.async {
-                if result != nil && result == "true" {
+                if result.status  {
                     self.bookmark.image = UIImage(named: "fstar")
                 } else {
                     self.bookmark.image = UIImage(named: "star")

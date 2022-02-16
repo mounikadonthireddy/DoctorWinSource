@@ -15,15 +15,30 @@ import Foundation
 //}
 
 struct LoginResponse : Decodable {
-    let messaage: String?
-    let status: Bool
-    let otp: Int?
-    let user_status: Bool?
-    let userdetail: Int?
-    let required_field: Bool?
     let message: String?
-    let phone_number: String?
-    let username : String?
-    let username_status: Bool?
+    let status: Bool
+    let Verified: Bool
 }
                                                         
+struct OTPResponse: Codable {
+    let phone_number : String?
+    let profile_name: String?
+    let user_id: Int?
+    let status: Bool?
+    let message: String?
+
+//    let username_status: String
+//    let username: String
+    
+//    "id": 183,
+//       "phone_number": "6304763236",
+//       "profile_name": "Mounika",
+//       "current_job_location": "Hyderabad",
+//       "speciality": "Dentistry",
+//       "hightest_qualification": "D.ortho",
+//       "status": true,
+//       "userdetail": 206,
+//       "user_id": 206,
+//       "email": "test@gmail.com",
+//       "username": "Mounika@job27563"
+}

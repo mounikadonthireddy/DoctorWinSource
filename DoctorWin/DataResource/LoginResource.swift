@@ -27,15 +27,15 @@ struct LoginResource {
             debugPrint(error)
         }
     }
-    func validateOtp(request: OTPRequest, completion :  @escaping(LoginResponse) -> Void) {
+    func validateOtp(request: OTPRequest, completion :  @escaping(OTPResponse) -> Void) {
         let loginUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.otp
         let homeUrl = URL(string: loginUrlStr)!
 
-        let httpUtility = HttpUtility()
+        let httpUtility = APIHelperClass()
         do {
             
             let loginPostBody = try JSONEncoder().encode(request)
-            httpUtility.postMethod(requestUrl: homeUrl, requestBody: loginPostBody, resultType: LoginResponse.self) { (result) in
+            httpUtility.callWebserviceToMakeRequest(requestUrl: homeUrl, requestBody: loginPostBody, resultType: OTPResponse.self, httpMethod: HTTPMethod.post) { (result) in
                 completion(result)
                
         }

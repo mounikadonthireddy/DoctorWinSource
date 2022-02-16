@@ -89,7 +89,7 @@ class HomeTableCell: UITableViewCell {
         let resource = HomeResource()
         resource.likeComplaint(request: request) { result in
             DispatchQueue.main.async {
-                if result != nil && result == "true" {
+                if result.status  {
                     self.likeImage.image = UIImage(named: "fheart")
                 } else {
                     self.likeImage.image = UIImage(named: "heart")
@@ -119,7 +119,7 @@ class HomeTableCell: UITableViewCell {
         let resource = HomeResource()
         resource.saveComplaint(request: request) { result in
             DispatchQueue.main.async {
-                if result != nil && result == "true" {
+                if result.status  {
                     self.bookmarkImage.image = UIImage(named: "fmark")
                 } else {
                     self.bookmarkImage.image = UIImage(named: "mark")

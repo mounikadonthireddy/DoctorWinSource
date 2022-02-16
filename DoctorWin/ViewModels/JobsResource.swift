@@ -137,7 +137,7 @@ struct JobsResource {
                 }
             }
     }
-    func saveJob(request: JobApplyRequest, completion : @escaping  (_ result: String?) -> Void) {
+    func saveJob(request: JobApplyRequest, completion : @escaping  (_ result: StatusResponseModel) -> Void) {
         
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.createBookMarkJobs + "?user_id=\(request.user_id)&job_id=\(request.job_id)"
         let homeUrl = URL(string: homeUrlStr)!
@@ -146,34 +146,18 @@ struct JobsResource {
         do {
             let postBody = try JSONEncoder().encode(request)
 
-            httpUtility.postMethod(requestUrl: homeUrl, requestBody: postBody, resultType: SaveResponse.self) {
+            httpUtility.postMethod(requestUrl: homeUrl, requestBody: postBody, resultType: StatusResponseModel.self) {
                 result in
-//
-//                switch result {
-//                   case .success(let data):
-                completion(result.bookmark_status)
+
+                completion(result)
                     
-//                   case .failure(let requestError):
-//                       switch requestError {
-//                       case .invalidUrl:
-//                        completion(nil)
-//
-//                       case .internalServerError:
-//                        print("Error: Unknown")
-//
-//                       case .decodingError:
-//                        print("Error: Unknown")
-//                       case .serverError(error: let error):
-//                        print("Error: Unknown")
-//                       }
             }
-//            }
             
         } catch let error {
             debugPrint(error)
         }
     }
-    func applyJob(request: JobApplyRequest, completion : @escaping  (_ result: Bool?) -> Void) {
+    func applyJob(request: JobApplyRequest, completion : @escaping  (_ result: StatusResponseModel) -> Void) {
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.appliedJobs + "?user_id=\(request.user_id)&job_id=\(request.job_id)"
         let homeUrl = URL(string: homeUrlStr)!
 
@@ -181,26 +165,11 @@ struct JobsResource {
         do {
             let postBody = try JSONEncoder().encode(request)
 
-            httpUtility.postMethod(requestUrl: homeUrl, requestBody: postBody, resultType: JobApplyResponse.self) {
+            httpUtility.postMethod(requestUrl: homeUrl, requestBody: postBody, resultType: StatusResponseModel.self) {
                 result in
-//                switch result {
-//                   case .success(let data):
-                    completion(result.apply_status)
-                    
-//                   case .failure(let requestError):
-//                       switch requestError {
-//                       case .invalidUrl:
-//                        completion(nil)
-//
-//                       case .internalServerError:
-//                        print("Error: Unknown")
-//
-//                       case .decodingError:
-//                        print("Error: Unknown")
-//                       case .serverError(error: let error):
-//                        print("Error: Unknown")
-//                       }
-            //}
+
+                    completion(result)
+    
             }
             
         } catch let error {

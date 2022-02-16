@@ -37,8 +37,23 @@ class OTPViewController: UIViewController {
         //updateOTPCount()
         Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateOTPCount), userInfo: nil, repeats: true)
 
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
     }
-    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
     @IBAction func verifyClicked(_ sender: Any) {
         guard let number = UserDefaults.standard.value(forKey: "mobileNum")  else { return }
         
@@ -118,6 +133,12 @@ extension OTPViewController: UITextFieldDelegate {
         }
         
         return true
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        otpTF1.resignFirstResponder()
+        otpTF2.resignFirstResponder()
+        otpTF3.resignFirstResponder()
+        otpTF4.resignFirstResponder()
     }
 }
 extension OTPViewController: OTPViewModelDelegate {
