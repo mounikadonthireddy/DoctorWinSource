@@ -237,6 +237,26 @@ completion(result)
             debugPrint(error)
         }
     }
+    func saveNews(request: NewsLikeRequest, completion : @escaping  (_ result: StatusResponseModel) -> Void) {
+        
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.savedJobs + "?user_id=\(request.user_id)&artical_id=\(request.artical_id)"
+        let homeUrl = URL(string: homeUrlStr)!
+
+        let helper = APIHelperClass()
+        do {
+            let postBody = try JSONEncoder().encode(request)
+
+            helper.callWebserviceToMakeRequest(requestUrl: homeUrl, requestBody: postBody, resultType: StatusResponseModel.self, httpMethod: HTTPMethod.post) {
+                result in
+                
+                completion(result)
+               
+            }
+            
+        } catch let error {
+            debugPrint(error)
+        }
+    }
     func replyComplaint(request: PostReplyRequest, completion : @escaping  (_ result: PostReplyResponse) -> Void) {
         
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getComplaintComment + "?user_id=\(request.profile)"

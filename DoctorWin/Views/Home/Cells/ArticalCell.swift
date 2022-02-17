@@ -67,6 +67,37 @@ class ArticalCell: UITableViewCell {
         wishlistBtn.tag = homeModel.id ?? 0
         saveBtn.tag = homeModel.id ?? 0
     }
+    func configureDataWith(homeModel: ArticalsDataModel) {
+        
+        self.titleLable.text = homeModel.artical_title
+        self.personName.text = "Dr." + (homeModel.profile_name ?? "")
+        self.designation.text = (homeModel.speciality ?? "") + " " + (homeModel.current_job_location ?? "")
+        
+        if let count = homeModel.like_count {
+        self.likeCount.text = "\(count)" + "Likes"
+        }
+        if let urlString = homeModel.mediafile {
+            let finalUrlString = ApiEndpoints.baseImageURL + urlString
+            self.postImage.sd_setImage(with: URL(string: finalUrlString), placeholderImage: UIImage(named: "loginBg"))
+        }
+        if homeModel.profile_image != "no image" {
+            if let urlString = homeModel.profile_image {
+                let finalUrlString = ApiEndpoints.baseImageURL + urlString
+                self.pesonImage.sd_setImage(with: URL(string: finalUrlString), placeholderImage: UIImage(named: "loginBg"))
+            }
+        }
+        
+        if homeModel.bookmark_status ?? false {
+            bookmarkImage.image = UIImage(named: "fmark")
+        }
+     
+        if homeModel.like_status ?? false {
+            likeImage.image = UIImage(named: "fheart")
+            
+        }
+        wishlistBtn.tag = homeModel.id ?? 0
+        saveBtn.tag = homeModel.id ?? 0
+    }
     @IBAction func likeClicked(_ sender: UIButton) {
         
         let request = ArticalLikeRequest(art_id:"\(sender.tag)", user_id: User.shared.userID)

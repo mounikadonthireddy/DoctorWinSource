@@ -19,7 +19,7 @@ struct PollResource {
             let loginPostBody = try JSONEncoder().encode(request)
             httpUtility.postMethod(requestUrl: loginUrl, requestBody: loginPostBody, resultType: BoolResponseModel.self) { (loginApiResponse) in
 
-//                _ = completion(loginApiResponse)
+                _ = completion(loginApiResponse)
            }
         }
         catch let error {
@@ -31,6 +31,53 @@ struct PollResource {
         let httpUtility = HttpUtility()
         do {
             httpUtility.getApiData(urlString: urlStr, resultType: [PollsDataModel].self) { result in
+                
+                switch result {
+                   case .success(let data):
+                    completion(.success(data))
+                    
+                   case .failure(let requestError):
+                       switch requestError {
+                       case .invalidUrl:
+                        completion(.failure("Please try Again After SomeTime"))
+                       
+                       case .internalServerError:
+                        print("Error: Unknown")
+                       
+                       case .decodingError:
+                        print("Error: Unknown")
+                       case .serverError(error: let error):
+                        print("Error: Unknown")
+                       }
+                   }
+            }
+        }
+    }
+}
+struct ArticalResource {
+    func addArticalData(request: AddPollRequestModel, completion : @escaping (_ result: BoolResponseModel?) -> Void) {
+        
+        let loginUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.addPoll
+        let loginUrl = URL(string: loginUrlStr)!
+        let httpUtility = HttpUtility()
+        do {
+            
+
+            let loginPostBody = try JSONEncoder().encode(request)
+            httpUtility.postMethod(requestUrl: loginUrl, requestBody: loginPostBody, resultType: BoolResponseModel.self) { (loginApiResponse) in
+
+//                _ = completion(loginApiResponse)
+           }
+        }
+        catch let error {
+            debugPrint(error)
+        }
+    }
+    func getArticalData(userID: String, urlStr:String,completion : @escaping (_ result: ResponseResult<[ArticalsDataModel]>) -> Void) {
+        
+        let httpUtility = HttpUtility()
+        do {
+            httpUtility.getApiData(urlString: urlStr, resultType: [ArticalsDataModel].self) { result in
                 
                 switch result {
                    case .success(let data):

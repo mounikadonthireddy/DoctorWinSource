@@ -81,6 +81,10 @@ extension NewsViewController : UITableViewDelegate, UITableViewDataSource {
     
 }
 extension NewsViewController: NewsViewModelDelegate {
+    func didReceivePageNews(response: [NewscategoryDataModel]?, error: String?) {
+        
+    }
+    
     func didReceiveNewsCategory(response: [NewsCategoryModel]?, error: String?) {
         self.dismiss()
         if (error != nil) {
@@ -145,7 +149,7 @@ extension NewsViewController : UICollectionViewDelegate, UICollectionViewDataSou
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "NewsCategoryViewController") as! NewsCategoryViewController
-       // nextVC.newsDetailsData = newsArray[indexPath.row]
+        nextVC.pageId = newsTypeArray[indexPath.row].id
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }

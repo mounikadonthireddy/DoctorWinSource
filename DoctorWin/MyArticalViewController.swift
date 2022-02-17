@@ -7,9 +7,11 @@
 
 import UIKit
 
-class MyArticalViewController: ViewController {
+class MyArticalViewController: ViewController, ExpandableLabelDelegate {
+  
+    var states : Array<Bool>!
 
-    var newsArray:[NewsDataModel] = []
+    var newsArray:[ArticalsDataModel] = []
     @IBOutlet weak var newsTableView: UITableView!
     @IBOutlet weak var interfaceSegmented: CustomSegmentedControl!{
         didSet{
@@ -18,11 +20,11 @@ class MyArticalViewController: ViewController {
             interfaceSegmented.selectorTextColor = .black
         }
     }
-    var newsVM = NewsViewModel()
+    var newsVM = ArticalViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        newsTableView.register(UINib(nibName: "NewsCell", bundle: nil), forCellReuseIdentifier: "NewsCell")
+        newsTableView.register(UINib(nibName: "ArticalCell", bundle: nil), forCellReuseIdentifier: "ArticalCell")
 
         self.newsTableView.delegate = self
         self.newsTableView.dataSource = self
@@ -64,32 +66,41 @@ extension MyArticalViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: NewsCell
-            = tableView.dequeueReusableCell(withIdentifier: "NewsCell") as! NewsCell
-        cell.configureCell(with: newsArray[indexPath.row])
+        let cell: ArticalCell
+            = tableView.dequeueReusableCell(withIdentifier: "ArticalCell") as! ArticalCell
+        cell.configureDataWith(homeModel: newsArray[indexPath.row])
+        cell.descriptionLable.delegate = self
+        
+        cell.descriptionLable.setLessLinkWith(lessLink: "Close", attributes: [.foregroundColor:UIColor.red], position: .left)
+        
+        cell.layoutIfNeeded()
+        
+        cell.descriptionLable.shouldCollapse = true
+        cell.descriptionLable.textReplacementType = .word
+        cell.descriptionLable.numberOfLines = 5
+        cell.descriptionLable.collapsed = states[indexPath.row]
+        cell.descriptionLable.text = newsArray[indexPath.row].artical_discription
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "NewsDetailsViewController") as! NewsDetailsViewController
-        nextVC.newsDetailsData = newsArray[indexPath.row]
-        self.navigationController?.pushViewController(nextVC, animated: true)
+//        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "NewsDetailsViewController") as! NewsDetailsViewController
+//        nextVC.newsDetailsData = newsArray[indexPath.row]
+//        self.navigationController?.pushViewController(nextVC, animated: true)
         
     }
     
     
 }
-extension MyArticalViewController: NewsViewModelDelegate {
-    func didReceiveNewsCategory(response: [NewsCategoryModel]?, error: String?) {
-        //
-    }
-    
-    func didReceiveNews(response: [NewsDataModel]?, error: String?) {
+extension MyArticalViewController: ArticalViewModelDelegate {
+    func didReceiveArtical(response: [ArticalsDataModel]?, error: String?) {
         self.dismiss()
         if (error != nil) {
             
         } else {
         self.newsArray = response ?? []
         self.newsTableView.reloadData()
+            states = [Bool](repeating: true, count: newsArray.count)
+
         }
     }
     
@@ -108,6 +119,34 @@ extension MyArticalViewController: CustomSegmentedControlDelegate {
         
         self.showLoader()
     }
+    @objc   func willExpandLabel(_ label: ExpandableLabel) {
+        newsTableView.beginUpdates()
+    }
     
+    @objc  func didExpandLabel(_ label: ExpandableLabel) {
+        let point = label.convert(CGPoint.zero, to: newsTableView)
+        if let indexPath = newsTableView.indexPathForRow(at: point) as IndexPath? {
+            states[indexPath.row] = false
+            DispatchQueue.main.async { [weak self] in
+                self?.newsTableView.scrollToRow(at: indexPath, at: .top, animated: true)
+            }
+        }
+        newsTableView.endUpdates()
+    }
+    
+    @objc func willCollapseLabel(_ label: ExpandableLabel) {
+        newsTableView.beginUpdates()
+    }
+    
+    @objc  func didCollapseLabel(_ label: ExpandableLabel) {
+        let point = label.convert(CGPoint.zero, to: newsTableView)
+        if let indexPath = newsTableView.indexPathForRow(at: point) as IndexPath? {
+            states[indexPath.row] = true
+            DispatchQueue.main.async { [weak self] in
+                self?.newsTableView.scrollToRow(at: indexPath, at: .top, animated: true)
+            }
+        }
+        newsTableView.endUpdates()
+    }
     
 }

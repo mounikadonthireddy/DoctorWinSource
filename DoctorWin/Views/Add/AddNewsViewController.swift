@@ -122,6 +122,8 @@ class AddNewsViewController: ViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(AddNewsViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         // Do any additional setup after loading the view.
+        descriptionTV.textColor = UIColor.lightGray
+
     }
     
     
@@ -139,14 +141,17 @@ class AddNewsViewController: ViewController {
             showAlertView(message: "Please Enter News Description")
 
         } else {
+            
+            
             let param = ["artical_title": newTitleTF.text!, "artical_discription": descriptionTV.text!] as [String : Any]
             self.showLoader()
-            let url = "http://3.132.212.116:8000/api/news/artical/post?user_id=110"
+            let url = "http://3.132.212.116:8000/api/news/artical/post?user_id=\(User.shared.userID)"
             HttpUtility().profileUpload(img: self.imageView.image!, url: url, imageName: self.imageFileName, imageUploadName: "artical_image", param: param) { res in
                 DispatchQueue.main.async {
                     self.dismiss()
                     print(res)
                     self.showAlertView(message: "News Posted Successfully")
+                    
                 }
                 
             }
@@ -158,6 +163,17 @@ class AddNewsViewController: ViewController {
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: Constants.OkAlertTitle, style: .default, handler: nil))
         self.present(alert, animated: true)
+        
+        let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+                
+                let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+                    
+                    
+                }
+                
+                alertController.addAction(OKAction)
+                
+                self.present(alertController, animated: true, completion:nil)
     }
     
     
@@ -175,6 +191,19 @@ extension AddNewsViewController: UITextFieldDelegate, UITextViewDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return textField.resignFirstResponder()
     }
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Add News Description"
+            textView.textColor = UIColor.lightGray
+        }
+    }
+
     func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
         return textView.resignFirstResponder()
     }

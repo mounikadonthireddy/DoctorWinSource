@@ -16,6 +16,8 @@ class NewsDetailsViewController: UIViewController {
     @IBOutlet weak var wishlistBtn: UIButton!
     @IBOutlet weak var bookmarkBtn: UIButton!
     var newsDetailsData: NewsDataModel?
+    var newsDetailsData1: NewscategoryDataModel?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "News & Stories"
@@ -35,6 +37,23 @@ class NewsDetailsViewController: UIViewController {
                 self.wishlistBtn.setImage(UIImage(named: "fheart"), for: .normal)
             }
             if data.bookmark_status ?? false {
+                self.bookmarkBtn.setImage(UIImage(named: "fbookmark"), for: .normal)
+            }
+        }
+        if let data1 = newsDetailsData1 {
+            self.postTitle.text = data1.title
+            self.postedPersonName.text = data1.username
+            self.postDescription.text = data1.news
+            
+            if let urlString = data1.image {
+                let finalUrlString = ApiEndpoints.baseImageURL + urlString
+                self.postImageView.sd_setImage(with: URL(string: finalUrlString), placeholderImage: UIImage(named: "loginBg"))
+                
+            }
+            if data1.like_status ?? false {
+                self.wishlistBtn.setImage(UIImage(named: "fheart"), for: .normal)
+            }
+            if data1.bookmark_status ?? false {
                 self.bookmarkBtn.setImage(UIImage(named: "fbookmark"), for: .normal)
             }
         }

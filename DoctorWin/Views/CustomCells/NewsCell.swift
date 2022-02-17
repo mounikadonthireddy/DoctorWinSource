@@ -40,10 +40,10 @@ class NewsCell: UITableViewCell {
             self.postImageView.sd_setImage(with: URL(string: finalUrlString), placeholderImage: UIImage(named: "loginBg"))
         }
         if dataModel.like_status ?? false {
-            self.wishlistBtn.setImage(UIImage(named: "fheart"), for: .normal)
+            self.wishlist.image = UIImage(named: "fheart")
         }
         if dataModel.bookmark_status ?? false {
-            self.bookmarkBtn.setImage(UIImage(named: "fbookmark"), for: .normal)
+            self.bookmark.image = UIImage(named: "fstar")
         }
         
         if let date = dataModel.created_date {
@@ -55,8 +55,35 @@ class NewsCell: UITableViewCell {
                 self.postedDate.text = "\(days) days ago"
             }
         }
-        wishlistBtn.tag = dataModel.userid
-        bookmarkBtn.tag = dataModel.userid
+        wishlistBtn.tag = dataModel.id
+        bookmarkBtn.tag = dataModel.id
+    }
+    func configureCell(with dataModel: NewscategoryDataModel) {
+        self.postedPersonName.text = dataModel.username
+        self.postTitle.text = dataModel.title
+        if let urlString = dataModel.image {
+            let finalUrlString = "http://3.132.212.116:8000" + urlString
+            
+            self.postImageView.sd_setImage(with: URL(string: finalUrlString), placeholderImage: UIImage(named: "loginBg"))
+        }
+        if dataModel.like_status ?? false {
+            self.wishlist.image = UIImage(named: "fheart")
+        }
+        if dataModel.bookmark_status ?? false {
+            self.bookmark.image = UIImage(named: "fstar")
+        }
+        
+        if let date = dataModel.created_date {
+            let days = calculateDaysfrom(date: date)
+            if days == 1 {
+                self.postedDate.text = "\(days) day ago"
+            }
+            else {
+                self.postedDate.text = "\(days) days ago"
+            }
+        }
+        wishlistBtn.tag = dataModel.id
+        bookmarkBtn.tag = dataModel.id
     }
     
     func calculateDaysfrom(date: String) -> Int {
@@ -89,10 +116,10 @@ class NewsCell: UITableViewCell {
     }
 
     @IBAction  func saveClicked(_ sender: UIButton) {
-        let request = ArticalLikeRequest(art_id:"\(sender.tag)", user_id: User.shared.userID)
+        let request = NewsLikeRequest(user_id: User.shared.userID, artical_id: "\(sender.tag)")
 
         let resource = HomeResource()
-        resource.saveArtical(request: request) { result in
+        resource.saveNews(request: request) { result in
             DispatchQueue.main.async {
                 if result.status  {
                     self.bookmark.image = UIImage(named: "fstar")

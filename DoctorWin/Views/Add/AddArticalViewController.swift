@@ -25,6 +25,7 @@ class AddArticalViewController: ViewController {
 //        
 //        NotificationCenter.default.addObserver(self, selector: #selector(AddNewsViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         // Do any additional setup after loading the view.
+        descriptionTV.textColor = UIColor.lightGray 
     }
     
     
@@ -44,7 +45,7 @@ class AddArticalViewController: ViewController {
         } else {
             let param = ["artical_title": newTitleTF.text!, "artical_discription": descriptionTV.text!, "user": User.shared.userID] as [String : Any]
             self.showLoader()
-            let url = "http://3.132.212.116:8000/api/news/artical/"
+            let url = "http://3.132.212.116:8000/api/ios/artical?user_id=\(User.shared.userID)"
             HttpUtility().profileUpload(img: self.imageView.image!, url: url, imageName: self.imageFileName, imageUploadName: "mediafile", param: param) { res in
                 DispatchQueue.main.async {
                     self.dismiss()
@@ -88,6 +89,19 @@ extension AddArticalViewController: UITextFieldDelegate, UITextViewDelegate {
         }
         return true
     }
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Add Article Description"
+            textView.textColor = UIColor.lightGray
+        }
+    }
+
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             if view.frame.origin.y == 0 {

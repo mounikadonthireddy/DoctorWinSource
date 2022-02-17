@@ -66,7 +66,7 @@ extension MyPollsViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: PollTableViewCell
             = tableView.dequeueReusableCell(withIdentifier: "PollTableViewCell") as! PollTableViewCell
-       // cell.configureCell(with: newsArray[indexPath.row])
+        cell.configureData(homeModel: newsArray[indexPath.row])
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

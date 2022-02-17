@@ -145,6 +145,81 @@ class PollTableViewCell: UITableViewCell {
             self.personImage.sd_setImage(with: URL(string: finalUrlString), placeholderImage: UIImage(named: "loginBg"))
         }
     }
+    func configureData(homeModel: PollsDataModel) {
+        self.designation.text = homeModel.speciality
+        self.postedPersonName.text = homeModel.username
+        self.titleLable.text = homeModel.poll_title
+        let days = Date().offsetFrom(dateStr: homeModel.created_date)
+        self.postedDate.text = "Poll : \(days) ago"
+        option1Text.text = homeModel.option1
+        option2Text.text = homeModel.option2
+        option3Text.text = homeModel.option3
+        option4Text.text = homeModel.option4
+        option1Percent.text = "\(homeModel.A)%  "
+        option2Percent.text = "\(homeModel.B)%  "
+        option3Percent.text = "\(homeModel.C)%  "
+        option4Percent.text = "\(homeModel.D)%  "
+        wishlistBtn.tag = homeModel.id
+        saveBtn.tag = homeModel.id
+        self.followBtn.tag = homeModel.poll_user ?? 0
+        if homeModel.A > 0 {
+            option1Ration = option1Ration.setMultiplier(multiplier: CGFloat(homeModel.A)/100)
+                option1.backgroundColor = UIColor(rgb: 0xBBDEFB)
+            } else {
+                option1.backgroundColor = UIColor.white
+            }
+        
+        if homeModel.B > 0 {
+                option2.backgroundColor = UIColor(rgb: 0xBBDEFB)
+            option2Ration = option2Ration.setMultiplier(multiplier: CGFloat(homeModel.B)/100)
+                
+            } else {
+                option2.backgroundColor = UIColor.white
+            }
+ 
+        if homeModel.C > 0 {
+                option3.backgroundColor =  UIColor(rgb: 0xBBDEFB)
+
+            option3Ration = option3Ration.setMultiplier(multiplier: CGFloat(homeModel.C)/100)
+            } else {
+                option3.backgroundColor = UIColor.white
+            }
+        
+            
+        if homeModel.D > 0 {
+                option4.backgroundColor = UIColor(rgb: 0xBBDEFB)
+            option4Ration = option4Ration.setMultiplier(multiplier: CGFloat(homeModel.D)/100)
+            } else {
+                option4.backgroundColor = UIColor.white
+            
+        }
+//        if let value = homeModel.discussion {
+//            self.discussion.text = "\(String(describing: value)) Discussions"
+//
+//        }
+        if let likes = homeModel.like_count {
+            self.likeLabel.text = "\(likes) Likes"
+        }
+        if let votes = homeModel.vote {
+            self.votesLabel.text = "\(votes) Votes"
+        }
+        
+        if homeModel.follow != "False" {
+            self.followBtn.setTitle("Following", for: .normal)
+        }
+        if homeModel.like_status {
+            likeImage.image = UIImage(named: "fheart")
+            
+        }
+        if homeModel.bookmark_status ?? false  {
+            bookmarkImage.image = UIImage(named: "fmark")
+        }
+        if let urlString = homeModel.profile_image {
+            let finalUrlString = "http://3.132.212.116:8000" + urlString
+            
+            self.personImage.sd_setImage(with: URL(string: finalUrlString), placeholderImage: UIImage(named: "loginBg"))
+        }
+    }
     @IBAction func likeClicked(_ sender: UIButton) {
         
         let request = PollLikeRequest(poll_id:"\(sender.tag)", user_id: User.shared.userID)

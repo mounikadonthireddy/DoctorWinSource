@@ -79,6 +79,10 @@ extension MyNewsViewController : UITableViewDelegate, UITableViewDataSource {
     
 }
 extension MyNewsViewController: NewsViewModelDelegate {
+    func didReceivePageNews(response: [NewscategoryDataModel]?, error: String?) {
+        
+    }
+    
     func didReceiveNewsCategory(response: [NewsCategoryModel]?, error: String?) {
         //
     }

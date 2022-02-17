@@ -9,6 +9,7 @@ import Foundation
 protocol NewsViewModelDelegate {
     func didReceiveNews(response: [NewsDataModel]?, error: String?)
     func didReceiveNewsCategory(response: [NewsCategoryModel]?, error: String?)
+    func didReceivePageNews(response: [NewscategoryDataModel]?, error: String?)
 
 }
 
@@ -25,6 +26,22 @@ struct NewsViewModel {
                     
                 case .failure(let error):
                     self.delegate?.didReceiveNews(response: nil, error: error)
+                }
+                
+            }
+        }
+    }
+    func getNews(userID: String, pageId: Int) {
+        let homeResource = NewsJobResource()
+
+        homeResource.getNewsCategoryData(userID: userID,pageId: pageId) { response in
+            DispatchQueue.main.async {
+                switch response {
+                case .success(let data):
+                    self.delegate?.didReceivePageNews(response: data, error: nil)
+                    
+                case .failure(let error):
+                    self.delegate?.didReceivePageNews(response: nil, error: error)
                 }
                 
             }
@@ -81,6 +98,7 @@ struct NewsViewModel {
             }
         }
     }
+   
     func getNewsCategory() {
         let homeResource = NewsJobResource()
         homeResource.getNewsCategory() { response in
