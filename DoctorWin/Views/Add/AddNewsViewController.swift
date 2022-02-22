@@ -109,6 +109,10 @@ class AddNewsViewController: ViewController {
     @IBOutlet weak var newTitleTF: UITextField!
     @IBOutlet weak var descriptionTV: UITextView!
     @IBOutlet weak var postBtn: UIButton!
+    @IBOutlet weak var backView: UIView!
+    @IBOutlet weak var backViewHeight: NSLayoutConstraint!
+    var showBack:Bool = false
+
     var imageFileName: String = ""
     var fileType: String = ""
     var imagePicker: ImagePicker!
@@ -123,10 +127,15 @@ class AddNewsViewController: ViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(AddNewsViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         // Do any additional setup after loading the view.
         descriptionTV.textColor = UIColor.lightGray
-
+        if !showBack {
+                   backView.isHidden = true
+                   backViewHeight.constant = 0
+               }
     }
     
-    
+    @IBAction func backClicked(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
     @IBAction func addImageClicked(_ sender: UIButton) {
         self.imagePicker.present(from: sender)
         

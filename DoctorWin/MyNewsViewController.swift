@@ -31,12 +31,11 @@ class MyNewsViewController: ViewController {
         newsVM.delegate = self
         interfaceSegmented.delegate = self
         // Do any additional setup after loading the view.
-       
+        self.loadMyNews()
     }
    
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
-        self.loadMyNews()
         tabBarController?.tabBar.isHidden = true
     }
     override func viewWillDisappear(_ animated: Bool) {

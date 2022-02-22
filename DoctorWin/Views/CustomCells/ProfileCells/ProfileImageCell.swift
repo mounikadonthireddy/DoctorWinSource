@@ -31,4 +31,14 @@ class ProfileImageCell: UITableViewCell {
     @IBAction func addImageClicked(_ sender: UIButton) {
         
     }
+    func cellConfigureWith(data: ProfileDataModel) {
+        
+        
+        if let urlString = data.profileImage {
+            let finalUrlString = ApiEndpoints.baseImageURL + urlString
+            
+            self.profileImage.sd_setImage(with: URL(string: finalUrlString), placeholderImage: UIImage(named: "loginBg"))
+        }
+    }
+    
 }

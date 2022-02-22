@@ -116,7 +116,7 @@ struct HttpUtility {
         
         let url = URL(string: url)
         let request = NSMutableURLRequest(url: url!)
-        request.httpMethod="POST"
+        request.httpMethod="PATCH"
         
         
         let boundary = generateBoundaryString()

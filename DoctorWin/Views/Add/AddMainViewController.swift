@@ -13,7 +13,7 @@ class AddMainViewController: UIViewController {
     @IBOutlet weak var nextTitle: UILabel!
     
     var views : [UIView]!
-    let titleArray = ["Cases", "News", "Poll", "Article", "Story"]
+    let titleArray = ["Cases", "News", "Poll", "Article"]
     
     /// Instantiate ViewControllers Here With Lazy Keyword
     // MARK: AddCasesViewController
@@ -48,14 +48,8 @@ class AddMainViewController: UIViewController {
         var viewController = storyboard?.instantiateViewController(withIdentifier: "AddArticalViewController") as! AddArticalViewController
         return viewController
     }()
-    // MARK: AddStoryViewController
     
-    lazy var vc5: AddStoryViewController = {
-        
-        var viewController = storyboard?.instantiateViewController(withIdentifier: "AddStoryViewController") as! AddStoryViewController
-        return viewController
-    }()
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -65,7 +59,6 @@ class AddMainViewController: UIViewController {
         views.append(vc2.view)
         views.append(vc3.view)
         views.append(vc4.view)
-        views.append(vc5.view)
         
         for v in views {
             v.frame = containerView.bounds

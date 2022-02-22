@@ -12,7 +12,6 @@ class ProfileDashboardCell: UITableViewCell {
     @IBOutlet weak var appliedCountLbl: UILabel!
     @IBOutlet weak var newsCountLbl: UILabel!
     @IBOutlet weak var articalsCountLbl: UILabel!
-    @IBOutlet weak var storiesCountLbl: UILabel!
     @IBOutlet weak var pollsCountLbl: UILabel!
     @IBOutlet weak var followCountLbl: UILabel!
     @IBOutlet weak var followingCountLbl: UILabel!
@@ -21,7 +20,6 @@ class ProfileDashboardCell: UITableViewCell {
     @IBOutlet weak var appliedCountBtn: UIButton!
     @IBOutlet weak var newsCountBtn: UIButton!
     @IBOutlet weak var articalsCountBtn: UIButton!
-    @IBOutlet weak var storiesCountBtn: UIButton!
     @IBOutlet weak var pollsCountBtn: UIButton!
     @IBOutlet weak var followCountBtn: UIButton!
     @IBOutlet weak var followingCountBtn: UIButton!
@@ -41,7 +39,6 @@ class ProfileDashboardCell: UITableViewCell {
         self.appliedCountLbl.text = "\(data.appliedJobs ?? 0)"
         self.newsCountLbl.text = "\(data.newslikeCount)"
         self.articalsCountLbl.text = "\(data.articalsCount)"
-        self.storiesCountLbl.text = "\(data.storiesCount)"
         self.pollsCountLbl.text = "\(data.pollsCount)"
         self.followCountLbl.text = "\(data.follow ?? 0)"
         self.followingCountLbl.text = "\(data.following ?? 0)"

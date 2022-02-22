@@ -24,6 +24,23 @@ struct ProfileEditResource {
             debugPrint(error)
         }
     }
+    func editSelfdataPersonalInfoData(userID: String,profileReq: SelfDataEditModel,  completion : @escaping (_ result: StatusResponseModel?) -> Void) {
+        
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.personalEdit + "?user_id=\(userID)"
+        let homeUrl = URL(string: homeUrlStr)!
+        let httpUtility = HttpUtility()
+        do {
+            let postBody = try JSONEncoder().encode(profileReq)
+
+            httpUtility.putMethod(requestUrl: homeUrl, requestBody: postBody, resultType: StatusResponseModel.self) {
+                response in
+                _ = completion(response)
+            }
+            
+        } catch let error {
+            debugPrint(error)
+        }
+    }
     func getProfileData(userID: String, completion : @escaping (_ result: ResponseResult<ProfileDataModel>) -> Void) {
         
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.profileEdit + "?user_id=\(userID)"
@@ -89,7 +106,7 @@ struct ProfileEditResource {
         do {
             let postBody = try JSONEncoder().encode(profileReq)
 
-            httpUtility.putMethod(requestUrl: homeUrl, requestBody: postBody, resultType: ProfessionalResponseModel.self) {
+            httpUtility.patchMethod(requestUrl: homeUrl, requestBody: postBody, resultType: ProfessionalResponseModel.self) {
                 response in
                 _ = completion(response)
             }
@@ -106,7 +123,7 @@ struct ProfileEditResource {
         do {
             let postBody = try JSONEncoder().encode(profileReq)
 
-            httpUtility.putMethod(requestUrl: homeUrl, requestBody: postBody, resultType: ProfessionalResponseModel.self) {
+            httpUtility.patchMethod(requestUrl: homeUrl, requestBody: postBody, resultType: ProfessionalResponseModel.self) {
                 response in
                 _ = completion(response)
             }
@@ -157,7 +174,7 @@ struct ProfileEditResource {
         do {
             let postBody = try JSONEncoder().encode(profileReq)
 
-            httpUtility.putMethod(requestUrl: homeUrl, requestBody: postBody, resultType: ProfessionalResponseModel.self) {
+            httpUtility.patchMethod(requestUrl: homeUrl, requestBody: postBody, resultType: ProfessionalResponseModel.self) {
                 response in
                 _ = completion(response)
             }

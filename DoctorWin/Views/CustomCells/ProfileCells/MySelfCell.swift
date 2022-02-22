@@ -13,6 +13,7 @@ class MySelfCell: UITableViewCell {
     @IBOutlet weak var qualificationTF: DropDown!
     @IBOutlet weak var specilityTF: DropDown!
     @IBOutlet weak var save: UIButton!
+    var profileDelegate: ProfileUpdateDeleegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,13 +30,27 @@ class MySelfCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    @IBAction func saveClicked(_ sender: UIButton) {
+    @IBAction func saveClicked(_ sender: Any){
+
+        let personalInfoRequest = SelfDataEditModel(highest_qualification: self.qualificationTF.text ?? "", current_job_location: locationTF.text ?? "", speciality: specilityTF.text ?? "", profile_name: nameTF.text ?? "")
+        
+        let resource = ProfileEditResource()
+        resource.editSelfdataPersonalInfoData(userID: User.shared.userID, profileReq: personalInfoRequest) { data in
+            DispatchQueue.main.async {
+            
+            if data?.status == true {
+                self.profileDelegate?.didProfileUpdated(status: true, error: nil)
+            }
+            }
+        }
         
     }
+
     func configurePersonalEditCell(data: ProfileDataModel) {
         self.nameTF.text = data.profileName
         self.locationTF.text = data.currentLocation
         self.specilityTF.text = data.speciality
         self.qualificationTF.text = data.qualification
     }
+    
 }

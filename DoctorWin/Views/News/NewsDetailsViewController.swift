@@ -12,7 +12,7 @@ class NewsDetailsViewController: UIViewController {
     @IBOutlet weak var postTitle: UILabel!
     @IBOutlet weak var postedPersonName: UILabel!
     @IBOutlet weak var postDate: UILabel!
-    @IBOutlet weak var postDescription: UILabel!
+    @IBOutlet weak var postDescription: UITextView!
     @IBOutlet weak var wishlistBtn: UIButton!
     @IBOutlet weak var bookmarkBtn: UIButton!
     var newsDetailsData: NewsDataModel?

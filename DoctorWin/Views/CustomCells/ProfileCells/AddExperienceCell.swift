@@ -77,7 +77,7 @@ class AddExperienceCell: UITableViewCell {
     @IBAction func saveClicked(_ sender: Any) {
         var todate = ""
         if toDate.text == "Present" {
-            todate = fromDate.text ?? ""
+            todate = getCurrentShortDate()
         } else {
             todate = toDate.text ?? ""
         }
@@ -88,18 +88,22 @@ class AddExperienceCell: UITableViewCell {
         editResource.addExperience(userID: User.shared.userID, profileReq: addModel) { response in
             
             DispatchQueue.main.async {
-             
-             
-                    
-                    if response.status == "true" {
-                        self.profileDelegate?.didProfileUpdated(status: true, error: nil)
-                    }
-               
+                if response.status == "true" {
+                    self.profileDelegate?.didProfileUpdated(status: true, error: nil)
+                }
+                
                 
             }
         }
     }
-    
+    func getCurrentShortDate() -> String {
+        let todaysDate = NSDate()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-DD"
+        let DateInFormat = dateFormatter.string(from: todaysDate as Date)
+        
+        return DateInFormat
+    }
     
 }
 extension AddExperienceCell: UITextFieldDelegate {
@@ -115,3 +119,4 @@ struct AddExperienceModel: Codable {
     let start_date: String
     let end_date: String
 }
+

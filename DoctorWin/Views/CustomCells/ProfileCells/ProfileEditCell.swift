@@ -110,6 +110,13 @@ struct PersonalInfoEditModel1: Codable {
     let profile_name: String
     
 }
+struct SelfDataEditModel: Codable {
+    let highest_qualification: String
+    let current_job_location: String
+    let speciality: String
+    let profile_name: String
+    
+}
 struct SaveResponse: Codable {
     let bookmark_status : String
 }

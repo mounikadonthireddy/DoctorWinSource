@@ -20,7 +20,7 @@ class MyCasesViewController: UIViewController {
         self.tableView.dataSource = self
         homeVM.delegate = self
         tabBarController?.tabBar.isHidden = false
-        
+        self.loadMyCases()
         // Do any additional setup after loading the view.
     }
     
@@ -28,9 +28,7 @@ class MyCasesViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
         tabBarController?.tabBar.isHidden = false
-        tabBarController?.tabBar.frame = CGRect(x: 0, y: 0, width: 220, height: 100)
-        self.showLoader()
-        self.loadMyCases()
+        tabBarController?.tabBar.frame = CGRect(x: 0, y: 0, width: 220, height: 100)     
     }
     
     override func viewWillDisappear(_ animated: Bool) {

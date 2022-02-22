@@ -96,7 +96,6 @@ extension MeViewController: UITableViewDelegate, UITableViewDataSource {
             cell.appliedCountBtn.addTarget(self, action: #selector(appliedClicked(button:)), for: .touchUpInside)
             cell.newsCountBtn.addTarget(self, action: #selector(newsClicked(button:)), for: .touchUpInside)
             cell.articalsCountBtn.addTarget(self, action: #selector(articalsClicked(button:)), for: .touchUpInside)
-            cell.storiesCountBtn.addTarget(self, action: #selector(storiesClicked(button:)), for: .touchUpInside)
             cell.pollsCountBtn.addTarget(self, action: #selector(pollsClicked(button:)), for: .touchUpInside)
             cell.followCountBtn.addTarget(self, action: #selector(followClicked(button:)), for: .touchUpInside)
             cell.followingCountBtn.addTarget(self, action: #selector(followClicked(button:)), for: .touchUpInside)
@@ -140,7 +139,7 @@ extension MeViewController: UITableViewDelegate, UITableViewDataSource {
             cell.edit.tag = indexPath.row
             cell.delete.tag = indexPath.row
             cell.delete.addTarget(self, action: #selector(deleteClicked(button:)), for: .touchUpInside)
-            cell.edit.addTarget(self, action: #selector(editClicked(button:)), for: .touchUpInside)
+          //  cell.edit.addTarget(self, action: #selector(editClicked(button:)), for: .touchUpInside)
 
             return cell
             
@@ -181,10 +180,7 @@ extension MeViewController: UITableViewDelegate, UITableViewDataSource {
         let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "MyNewsViewController") as! MyNewsViewController
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
-    @objc func storiesClicked(button: UIButton) {
-        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "MyStoriesViewController") as! MyStoriesViewController
-        self.navigationController?.pushViewController(nextVC, animated: true)
-    }
+   
     @objc func articalsClicked(button: UIButton) {
         let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "MyArticalViewController") as! MyArticalViewController
         self.navigationController?.pushViewController(nextVC, animated: true)

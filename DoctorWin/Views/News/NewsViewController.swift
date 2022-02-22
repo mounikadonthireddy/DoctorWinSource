@@ -13,13 +13,15 @@ class NewsViewController: ViewController {
     @IBOutlet weak var newsCollectionView: UICollectionView!
     @IBOutlet weak var collectionViewLayout: UICollectionViewFlowLayout!
     var newsTypeArray:[NewsCategoryModel] = []
-    
+    @IBOutlet weak var plusBtn: UIButton!
+
     var newsVM = NewsViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         newsTableView.register(UINib(nibName: "NewsCell", bundle: nil), forCellReuseIdentifier: "NewsCell")
-        
+        plusBtn.setCornerRadius(radius: Float(plusBtn.frame.width)/2)
+
         self.newsTableView.delegate = self
         self.newsTableView.dataSource = self
         self.navigationController?.isNavigationBarHidden = true
@@ -60,6 +62,14 @@ class NewsViewController: ViewController {
         self.showLoader()
         newsVM.getNewsCategory()
     }
+    
+    @IBAction func plusClikced(_ sender: Any) {
+        let str = UIStoryboard(name: "Home", bundle: nil)
+        
+        let nextVC = str.instantiateViewController(withIdentifier: "AddNewsViewController") as! AddNewsViewController
+        nextVC.showBack = true
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
 }
 
 extension NewsViewController : UITableViewDelegate, UITableViewDataSource {
@@ -78,6 +88,7 @@ extension NewsViewController : UITableViewDelegate, UITableViewDataSource {
         nextVC.newsDetailsData = newsArray[indexPath.row]
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
+    
     
 }
 extension NewsViewController: NewsViewModelDelegate {

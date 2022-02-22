@@ -7,15 +7,22 @@
 
 import UIKit
 
-class EditMeViewController: UIViewController {
+class EditMeViewController: ViewController {
     @IBOutlet weak var profileTableView: UITableView!
     var profileDataModel : ProfileDataModel!
     var personalDropDownData : ProfileEditDropDownModel!
     var professionalData : ProfessionalDropDownModel!
     var personalEditVM = ProfileEditViewModel()
+    var spealityArray: [SpeciltyModel] = []
+    var qualificationArray: [QualificationModel] = []
+    @IBOutlet weak var imageView : UIImageView!
+    var imageFileName: String = ""
+    var fileType: String = ""
+    var imagePicker: ImagePicker!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.imagePicker = ImagePicker(presentationController: self, delegate: self)
+
         profileTableView.register(UINib(nibName: "MySelfCell", bundle: nil), forCellReuseIdentifier: "MySelfCell")
         profileTableView.register(UINib(nibName: "ProfileImageCell", bundle: nil), forCellReuseIdentifier: "ProfileImageCell")
         
@@ -34,6 +41,25 @@ class EditMeViewController: UIViewController {
         
         loadLanguageDropGenderData()
         loadProfessionalDropDownData()
+        downloadQualificationResource()
+        downloadSpeacilityResource()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+    }
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,6 +76,29 @@ class EditMeViewController: UIViewController {
     func loadProfessionalDropDownData() {
         
         personalEditVM.getProfessionalDropDownData(userID: User.shared.userID)
+    }
+    func downloadQualificationResource() {
+        self.showLoader()
+        let resouce = DropDownResource()
+        resouce.getQualificationData { result in
+            DispatchQueue.main.async {
+                self.dismiss()
+                self.qualificationArray = result
+                self.profileTableView.reloadData()
+            }
+        }
+    }
+    func downloadSpeacilityResource() {
+        self.showLoader()
+        let resouce = DropDownResource()
+        resouce.getSpecilityData { result in
+            DispatchQueue.main.async {
+                self.dismiss()
+                self.spealityArray = result
+                self.profileTableView.reloadData()
+            }
+
+        }
     }
     @IBAction func backClikced(_ sender: Any){
         self.navigationController?.popViewController(animated: true)
@@ -70,15 +119,32 @@ extension EditMeViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             let cell: ProfileImageCell = tableView.dequeueReusableCell(withIdentifier: "ProfileImageCell", for: indexPath) as! ProfileImageCell
             // cell.configurePersonalEditCell(data: profileDataModel)
-            
+            cell.saveBtn.addTarget(self, action: #selector(imageUpload(button:)), for: .touchUpInside)
+            cell.addImage.addTarget(self, action: #selector(selectImage(button:)), for: .touchUpInside)
+            if self.imageView.image != nil {
+                cell.profileImage.image =  self.imageView.image
+            }
+            cell.cellConfigureWith(data: profileDataModel)
             return cell
         case 1:
             let cell: MySelfCell = tableView.dequeueReusableCell(withIdentifier: "MySelfCell", for: indexPath) as! MySelfCell
+            cell.locationTF.delegate = self
+            cell.nameTF.delegate = self
             cell.configurePersonalEditCell(data: profileDataModel)
-            
+            cell.profileDelegate = self
+            cell.specilityTF.optionArray = spealityArray.map({ data in
+                return data.department
+            })
+            cell.qualificationTF.optionArray = qualificationArray.map({ data in
+                return data.qualification
+            })
             return cell
         case 3:
             let cell: ProfileEditCell = tableView.dequeueReusableCell(withIdentifier: "ProfileEditCell", for: indexPath) as! ProfileEditCell
+            cell.genderTF.delegate = self
+            cell.emailIDTF.delegate = self
+            cell.dobTF.delegate = self
+            cell.contactNumTF.delegate = self
             if personalDropDownData != nil {
                 cell.languageArray = personalDropDownData.language
                 cell.genderArray = personalDropDownData.gender
@@ -96,7 +162,7 @@ extension EditMeViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.configureDataForDropDown(data: professionalData)
             }
             cell.profileDelegate = self
-            
+            cell.instititeTF.delegate = self
             return cell
             
         case 5:
@@ -109,6 +175,7 @@ extension EditMeViewController: UITableViewDelegate, UITableViewDataSource {
             let cell: EditSkillCell = tableView.dequeueReusableCell(withIdentifier: "EditSkillCell", for: indexPath) as! EditSkillCell
             cell.configureCellWithEdit(data: profileDataModel, section: indexPath.section)
             cell.profileDelegate = self
+            cell.detailsTF.delegate = self
             return cell
             
             
@@ -121,6 +188,24 @@ extension EditMeViewController: UITableViewDelegate, UITableViewDataSource {
     @objc func editClicked(button: Any) {
         let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "EditMeViewController") as! EditMeViewController
         self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+    @objc func selectImage(button: UIButton) {
+        self.imagePicker.present(from: button)
+    }
+    @objc func imageUpload(button: Any) {
+        let param = [:] as [String : Any]
+        self.showLoader()
+        let url = ApiEndpoints.baseUrl + ApiEndpoints.profileEdit + "?user_id=\(User.shared.userID)"
+
+        HttpUtility().profileUpload(img: self.imageView.image!, url: url, imageName: self.imageFileName, imageUploadName: "profileImage", param: param) { res in
+            DispatchQueue.main.async {
+                self.dismiss()
+                print(res)
+               // self.showAlertView(message: "News Posted Successfully")
+                
+            }
+            
+        }
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
@@ -161,5 +246,20 @@ extension EditMeViewController: ProfileUpdateDeleegate {
         self.present(alert, animated: true)
     }
     
+    
+}
+extension EditMeViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return textField.resignFirstResponder()
+    }
+}
+
+extension EditMeViewController: ImagePickerDelegate {
+    func didSelect(image: UIImage?, fileName: String?, fileType: String?) {
+        self.imageView.image = image
+        self.imageFileName = fileName ?? ""
+        self.fileType = fileType ?? ""
+        self.profileTableView.reloadData()
+    }
     
 }

@@ -20,11 +20,6 @@ class AddArticalViewController: ViewController {
         super.viewDidLoad()
         imageView.setCornerRadiusWithBorderColor(radius: 0, color: UIColor.lightGray, borderWidth: 1)
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
-        
-//        NotificationCenter.default.addObserver(self, selector: #selector(AddNewsViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-//        
-//        NotificationCenter.default.addObserver(self, selector: #selector(AddNewsViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-        // Do any additional setup after loading the view.
         descriptionTV.textColor = UIColor.lightGray 
     }
     
