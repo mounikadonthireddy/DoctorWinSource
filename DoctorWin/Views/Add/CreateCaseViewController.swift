@@ -19,6 +19,7 @@ class CreateCaseViewController: UIViewController {
 
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.tableView.backgroundColor = UIColor.clear
         self.generateModelForTitles()
         
     }
@@ -40,7 +41,7 @@ extension CreateCaseViewController: UITableViewDelegate,UITableViewDataSource {
         return casesArray.count
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return casesArray[section].innerData.count
+        return casesArray[section].open ? casesArray[section].innerData.count : 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -53,7 +54,11 @@ extension CreateCaseViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: AddCasesTitleHeader.identifier) as? AddCasesTitleHeader {
             headerView.title.text = casesArray[section].title
+            headerView.addBtn.setTitle(casesArray[section].addTitle, for: .normal)
+            headerView.addBtn.addTarget(self, action: #selector(addClicked(sender:)), for: .touchUpInside)
+            headerView.titleImage.image = UIImage(named: casesArray[section].image)
 
+            headerView.addBtn.tag = section
             return headerView
         }
         
@@ -64,15 +69,15 @@ extension CreateCaseViewController: UITableViewDelegate,UITableViewDataSource {
         return 40
     }
     func generateModelForTitles() {
-        let first = CreateCaseModel(title: "Cheif Compaint", image: "", innerData: [ "Cheif Compaint"])
+        let first = CreateCaseModel(title: "Cheif Compaint", image: "chief", open: false, addTitle: "+ Add", innerData: [ "Cheif Compaint"])
         
-        let second = CreateCaseModel(title: "Patient History", image: "", innerData:["Present Illness", "Past Illness", "Drugs", "Personal", "Family"])
+        let second = CreateCaseModel(title: "Patient History", image: "globe", open: false, addTitle: "+ Add", innerData:["Present Illness", "Past Illness", "Drugs", "Personal", "Family"])
         
-        let third = CreateCaseModel(title: "Patient Examination", image: "", innerData: [ "Physical Examination", "System Examination", "Local Examination"])
+        let third = CreateCaseModel(title: "Patient Examination", image: "exam", open: false, addTitle: "+ Add", innerData: [ "Physical Examination", "System Examination", "Local Examination"])
         
-        let four = CreateCaseModel(title: "Investigation", image: "", innerData: [ "Vitus", "Lab Finding", "Imaging"])
+        let four = CreateCaseModel(title: "Investigation", image: "investigation", open: false, addTitle: "+ Add", innerData: [ "Vitus", "Lab Finding", "Imaging"])
 
-        let five = CreateCaseModel(title: "Probable Diagnosis", image: "", innerData: [ "Probable Diagnosis"])
+        let five = CreateCaseModel(title: "Probable Diagnosis", image: "chief", open: false, addTitle: "+ Add", innerData: [ "Probable Diagnosis"])
 
         casesArray.append(first)
         casesArray.append(second)
@@ -82,14 +87,25 @@ extension CreateCaseViewController: UITableViewDelegate,UITableViewDataSource {
 
         
     }
-    
+    @objc func addClicked(sender: UIButton) {
+        if sender.titleLabel?.text == "Hide" {
+            casesArray[sender.tag].open = false
+            casesArray[sender.tag].addTitle = "+ Add"
+        } else {
+            casesArray[sender.tag].open = true
+            casesArray[sender.tag].addTitle = "Hide"
+            
+        }
+        tableView.reloadData()
+    }
 }
 
 struct CreateCaseModel {
     let title: String
     let image: String
+    var open: Bool
+    var addTitle: String
     let innerData:[String]
-    
 }
 
 

@@ -185,33 +185,39 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
     }
     @objc   func willExpandLabel(_ label: ExpandableLabel) {
-        tableView.beginUpdates()
+       // tableView.beginUpdates()
     }
     
     @objc  func didExpandLabel(_ label: ExpandableLabel) {
         let point = label.convert(CGPoint.zero, to: tableView)
         if let indexPath = tableView.indexPathForRow(at: point) as IndexPath? {
-            states[indexPath.row] = false
-            DispatchQueue.main.async { [weak self] in
-                self?.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
-            }
+            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "ArticalDetailsViewController") as! ArticalDetailsViewController
+            nextVC.articalDetails = homedataArry[indexPath.row]
+            self.navigationController?.pushViewController(nextVC, animated: true)
         }
-        tableView.endUpdates()
+        
+//        if let indexPath = tableView.indexPathForRow(at: point) as IndexPath? {
+//            states[indexPath.row] = false
+//            DispatchQueue.main.async { [weak self] in
+//                self?.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+//            }
+//        }
+//        tableView.endUpdates()
     }
     
     @objc func willCollapseLabel(_ label: ExpandableLabel) {
-        tableView.beginUpdates()
+       // tableView.beginUpdates()
     }
     
     @objc  func didCollapseLabel(_ label: ExpandableLabel) {
-        let point = label.convert(CGPoint.zero, to: tableView)
-        if let indexPath = tableView.indexPathForRow(at: point) as IndexPath? {
-            states[indexPath.row] = true
-            DispatchQueue.main.async { [weak self] in
-                self?.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
-            }
-        }
-        tableView.endUpdates()
+//        let point = label.convert(CGPoint.zero, to: tableView)
+//        if let indexPath = tableView.indexPathForRow(at: point) as IndexPath? {
+//            states[indexPath.row] = true
+//            DispatchQueue.main.async { [weak self] in
+//                self?.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+//            }
+//        }
+//        tableView.endUpdates()
     }
 }
 

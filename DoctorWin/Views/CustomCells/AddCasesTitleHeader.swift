@@ -9,6 +9,8 @@ import UIKit
 
 class AddCasesTitleHeader: UITableViewHeaderFooterView {
     @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var addBtn: UIButton!
+    @IBOutlet weak var titleImage: UIImageView!
 
     static var nib: UINib {
         return UINib(nibName: identifier, bundle: nil)

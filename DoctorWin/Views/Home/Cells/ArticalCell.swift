@@ -26,6 +26,7 @@ class ArticalCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        pesonImage.setCornerRadius(radius: Float(self.pesonImage.frame.height)/2)
         
     }
     
@@ -95,8 +96,8 @@ class ArticalCell: UITableViewCell {
             likeImage.image = UIImage(named: "fheart")
             
         }
-        wishlistBtn.tag = homeModel.id ?? 0
-        saveBtn.tag = homeModel.id ?? 0
+        wishlistBtn.tag = homeModel.id
+        saveBtn.tag = homeModel.id 
     }
     @IBAction func likeClicked(_ sender: UIButton) {
         
