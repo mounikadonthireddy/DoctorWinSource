@@ -45,7 +45,10 @@ class PollTableViewCell: UITableViewCell {
     @IBOutlet weak var likeImage: UIImageView!
     @IBOutlet weak var bookmarkImage: UIImageView!
     @IBOutlet weak var designation: UILabel!
-
+    @IBOutlet weak var option1Btn: UIButton!
+    @IBOutlet weak var option2Btn: UIButton!
+    @IBOutlet weak var option3Btn: UIButton!
+    @IBOutlet weak var option4Btn: UIButton!
     override func awakeFromNib() {
         
         super.awakeFromNib()
@@ -103,7 +106,7 @@ class PollTableViewCell: UITableViewCell {
         if let value3 = homeModel.option3Value {
             if value3 > 0 {
                 option3.backgroundColor =  UIColor(rgb: 0xBBDEFB)
-
+                
                 option3Ration = option3Ration.setMultiplier(multiplier: CGFloat(value3)/100)
             } else {
                 option3.backgroundColor = UIColor.white
@@ -161,42 +164,42 @@ class PollTableViewCell: UITableViewCell {
         option4Percent.text = "\(homeModel.D)%  "
         wishlistBtn.tag = homeModel.id
         saveBtn.tag = homeModel.id
-        self.followBtn.tag = homeModel.poll_user ?? 0
+        self.followBtn.tag = homeModel.poll_user
         if homeModel.A > 0 {
             option1Ration = option1Ration.setMultiplier(multiplier: CGFloat(homeModel.A)/100)
-                option1.backgroundColor = UIColor(rgb: 0xBBDEFB)
-            } else {
-                option1.backgroundColor = UIColor.white
-            }
+            option1.backgroundColor = UIColor(rgb: 0xBBDEFB)
+        } else {
+            option1.backgroundColor = UIColor.white
+        }
         
         if homeModel.B > 0 {
-                option2.backgroundColor = UIColor(rgb: 0xBBDEFB)
+            option2.backgroundColor = UIColor(rgb: 0xBBDEFB)
             option2Ration = option2Ration.setMultiplier(multiplier: CGFloat(homeModel.B)/100)
-                
-            } else {
-                option2.backgroundColor = UIColor.white
-            }
- 
-        if homeModel.C > 0 {
-                option3.backgroundColor =  UIColor(rgb: 0xBBDEFB)
-
-            option3Ration = option3Ration.setMultiplier(multiplier: CGFloat(homeModel.C)/100)
-            } else {
-                option3.backgroundColor = UIColor.white
-            }
-        
             
+        } else {
+            option2.backgroundColor = UIColor.white
+        }
+        
+        if homeModel.C > 0 {
+            option3.backgroundColor =  UIColor(rgb: 0xBBDEFB)
+            
+            option3Ration = option3Ration.setMultiplier(multiplier: CGFloat(homeModel.C)/100)
+        } else {
+            option3.backgroundColor = UIColor.white
+        }
+        
+        
         if homeModel.D > 0 {
-                option4.backgroundColor = UIColor(rgb: 0xBBDEFB)
+            option4.backgroundColor = UIColor(rgb: 0xBBDEFB)
             option4Ration = option4Ration.setMultiplier(multiplier: CGFloat(homeModel.D)/100)
-            } else {
-                option4.backgroundColor = UIColor.white
+        } else {
+            option4.backgroundColor = UIColor.white
             
         }
-//        if let value = homeModel.discussion {
-//            self.discussion.text = "\(String(describing: value)) Discussions"
-//
-//        }
+        //        if let value = homeModel.discussion {
+        //            self.discussion.text = "\(String(describing: value)) Discussions"
+        //
+        //        }
         if let likes = homeModel.like_count {
             self.likeLabel.text = "\(likes) Likes"
         }
@@ -233,7 +236,7 @@ class PollTableViewCell: UITableViewCell {
                     self.likeImage.image = UIImage(named: "heart")
                 }
                 self.likeLabel.text = "\(result.like_count!) Likes"
-
+                
             }
             
         }
@@ -298,19 +301,19 @@ extension NSLayoutConstraint {
     }
 }
 extension UIColor {
-   convenience init(red: Int, green: Int, blue: Int) {
-       assert(red >= 0 && red <= 255, "Invalid red component")
-       assert(green >= 0 && green <= 255, "Invalid green component")
-       assert(blue >= 0 && blue <= 255, "Invalid blue component")
-
-       self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
-   }
-
-   convenience init(rgb: Int) {
-       self.init(
-           red: (rgb >> 16) & 0xFF,
-           green: (rgb >> 8) & 0xFF,
-           blue: rgb & 0xFF
-       )
-   }
+    convenience init(red: Int, green: Int, blue: Int) {
+        assert(red >= 0 && red <= 255, "Invalid red component")
+        assert(green >= 0 && green <= 255, "Invalid green component")
+        assert(blue >= 0 && blue <= 255, "Invalid blue component")
+        
+        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
+    }
+    
+    convenience init(rgb: Int) {
+        self.init(
+            red: (rgb >> 16) & 0xFF,
+            green: (rgb >> 8) & 0xFF,
+            blue: rgb & 0xFF
+        )
+    }
 }

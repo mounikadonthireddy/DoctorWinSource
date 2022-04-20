@@ -72,8 +72,8 @@ class HomeViewController: UIViewController, ExpandableLabelDelegate {
     }
     
     func parse() {
-        self.showLoader()
-        self.homeVM.getNewsPollArticleComplaintDataFromAPI(userID: User.shared.userID)
+//        self.showLoader()
+//        self.homeVM.getNewsPollArticleComplaintDataFromAPI(userID: User.shared.userID)
         
     }
     

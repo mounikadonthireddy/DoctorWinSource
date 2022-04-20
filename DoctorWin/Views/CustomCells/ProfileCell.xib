@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="ProfileCell" reuseIdentifier="ProfileCell" id="gTV-IL-0wX" customClass="ProfileCell" customModule="DoctorWin" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="288" height="93"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="288" height="93"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hgx-b7-h0a">
+                        <rect key="frame" x="10" y="5" width="268" height="83"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="book" translatesAutoresizingMaskIntoConstraints="NO" id="Yca-ue-dIa">
+                                <rect key="frame" x="15" y="15" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="EFi-ej-cza"/>
+                                    <constraint firstAttribute="height" constant="35" id="MQ0-kK-v4H"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bookmarks" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0tC-fM-67N">
+                                <rect key="frame" x="15" y="65" width="76.5" height="18"/>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Yca-ue-dIa" firstAttribute="top" secondItem="Hgx-b7-h0a" secondAttribute="top" constant="15" id="Px1-cx-IWY"/>
+                            <constraint firstItem="Yca-ue-dIa" firstAttribute="leading" secondItem="Hgx-b7-h0a" secondAttribute="leading" constant="15" id="Xdk-9a-w00"/>
+                            <constraint firstItem="0tC-fM-67N" firstAttribute="top" secondItem="Yca-ue-dIa" secondAttribute="bottom" constant="15" id="cf1-bC-h1g"/>
+                            <constraint firstItem="0tC-fM-67N" firstAttribute="leading" secondItem="Hgx-b7-h0a" secondAttribute="leading" constant="15" id="f5M-kt-FJq"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Hgx-b7-h0a" secondAttribute="trailing" constant="10" id="1ce-wc-O50"/>
+                <constraint firstItem="Hgx-b7-h0a" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="EJA-Be-diN"/>
+                <constraint firstAttribute="bottom" secondItem="Hgx-b7-h0a" secondAttribute="bottom" constant="5" id="QMq-NE-qju"/>
+                <constraint firstItem="Hgx-b7-h0a" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="bEh-II-Sqx"/>
+            </constraints>
+            <size key="customSize" width="288" height="93"/>
+            <connections>
+                <outlet property="bgView" destination="Hgx-b7-h0a" id="wTL-ae-bql"/>
+                <outlet property="iconImage" destination="Yca-ue-dIa" id="A8e-aE-fQX"/>
+                <outlet property="iconTitle" destination="0tC-fM-67N" id="zzt-TQ-P10"/>
+            </connections>
+            <point key="canvasLocation" x="169.56521739130437" y="84.040178571428569"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="book" width="64" height="64"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

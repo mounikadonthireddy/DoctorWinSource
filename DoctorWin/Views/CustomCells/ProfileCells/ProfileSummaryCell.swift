@@ -8,7 +8,6 @@
 import UIKit
 
 class ProfileSummaryCell: UITableViewCell {
-    @IBOutlet weak var previewBtn: UIButton!
     @IBOutlet weak var previewView: UIView!
     @IBOutlet weak var profileSummary: UILabel!
     @IBOutlet weak var editBtn: UIButton!
@@ -16,8 +15,8 @@ class ProfileSummaryCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        previewBtn.setCornerRadius(radius: Float(previewBtn.frame.height)/2)
-        previewView.setCornerRadiusWithBorderColor(radius: 10, color: UIColor(rgb: 0xE6E6E6), borderWidth: 0.5)
+        editBtn.setCornerRadius(radius: 15)
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

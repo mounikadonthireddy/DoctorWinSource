@@ -23,7 +23,7 @@ class MeViewController: ViewController {
         
         profileTableView.contentInset = UIEdgeInsets.zero
         
-        profileTableView.register(UINib(nibName: "ProfileDashboardCell", bundle: nil), forCellReuseIdentifier: "ProfileDashboardCell")
+      //  profileTableView.register(UINib(nibName: "ProfileDashboardCell", bundle: nil), forCellReuseIdentifier: "ProfileDashboardCell")
         
         profileTableView.register(UINib(nibName: "AddSkillsCell", bundle: nil), forCellReuseIdentifier: "AddSkillsCell")
         profileTableView.register(UINib(nibName: "ExperienceCell", bundle: nil), forCellReuseIdentifier: "ExperienceCell")
@@ -67,11 +67,11 @@ class MeViewController: ViewController {
 
 extension MeViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 8
+        return 7
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if profileDataModel != nil {
-            if section == 6 {
+            if section == 5 {
                 return experienceArray.count
             }
             return 1
@@ -90,21 +90,21 @@ extension MeViewController: UITableViewDelegate, UITableViewDataSource {
             
             return cell
             
+//        case 1:
+//            let cell: ProfileDashboardCell = tableView.dequeueReusableCell(withIdentifier: "ProfileDashboardCell", for: indexPath) as! ProfileDashboardCell
+//            cell.casesCountBtn.addTarget(self, action: #selector(casesClicked(button:)), for: .touchUpInside)
+//            cell.appliedCountBtn.addTarget(self, action: #selector(appliedClicked(button:)), for: .touchUpInside)
+//            cell.newsCountBtn.addTarget(self, action: #selector(newsClicked(button:)), for: .touchUpInside)
+//            cell.articalsCountBtn.addTarget(self, action: #selector(articalsClicked(button:)), for: .touchUpInside)
+//            cell.pollsCountBtn.addTarget(self, action: #selector(pollsClicked(button:)), for: .touchUpInside)
+//            cell.followCountBtn.addTarget(self, action: #selector(followClicked(button:)), for: .touchUpInside)
+//            cell.followingCountBtn.addTarget(self, action: #selector(followClicked(button:)), for: .touchUpInside)
+//
+//            cell.cellConfigureWith(data: profileDataModel)
+//
+//            return cell
+            
         case 1:
-            let cell: ProfileDashboardCell = tableView.dequeueReusableCell(withIdentifier: "ProfileDashboardCell", for: indexPath) as! ProfileDashboardCell
-            cell.casesCountBtn.addTarget(self, action: #selector(casesClicked(button:)), for: .touchUpInside)
-            cell.appliedCountBtn.addTarget(self, action: #selector(appliedClicked(button:)), for: .touchUpInside)
-            cell.newsCountBtn.addTarget(self, action: #selector(newsClicked(button:)), for: .touchUpInside)
-            cell.articalsCountBtn.addTarget(self, action: #selector(articalsClicked(button:)), for: .touchUpInside)
-            cell.pollsCountBtn.addTarget(self, action: #selector(pollsClicked(button:)), for: .touchUpInside)
-            cell.followCountBtn.addTarget(self, action: #selector(followClicked(button:)), for: .touchUpInside)
-            cell.followingCountBtn.addTarget(self, action: #selector(followClicked(button:)), for: .touchUpInside)
-            
-            cell.cellConfigureWith(data: profileDataModel)
-            
-            return cell
-            
-        case 2:
             let cell: ProfileSummaryCell = tableView.dequeueReusableCell(withIdentifier: "ProfileSummaryCell", for: indexPath) as! ProfileSummaryCell
             cell.cellConfigureWith(data: profileDataModel)
             cell.editBtn.addTarget(self, action: #selector(editClicked(button:)), for: .touchUpInside)
@@ -112,14 +112,14 @@ extension MeViewController: UITableViewDelegate, UITableViewDataSource {
             
             return cell
             
-        case 3:
+        case 2:
             let cell: ProfileBasicDetailsCell = tableView.dequeueReusableCell(withIdentifier: "ProfileBasicDetailsCell", for: indexPath) as! ProfileBasicDetailsCell
             cell.cellConfigureWith(data: profileDataModel)
             cell.professionalEdit.addTarget(self, action: #selector(editClicked(button:)), for: .touchUpInside)
 
             
             return cell
-        case 4:
+        case 3:
             let cell: ProfessionalDetailsCell = tableView.dequeueReusableCell(withIdentifier: "ProfessionalDetailsCell", for: indexPath) as! ProfessionalDetailsCell
             cell.cellConfigureWith(data: profileDataModel)
             cell.professionalEdit.addTarget(self, action: #selector(editClicked(button:)), for: .touchUpInside)
@@ -127,12 +127,12 @@ extension MeViewController: UITableViewDelegate, UITableViewDataSource {
             
             return cell
             
-        case 5:
+        case 4:
             let cell: ExperinceTitleCell = tableView.dequeueReusableCell(withIdentifier: "ExperinceTitleCell", for: indexPath) as! ExperinceTitleCell
             
             return cell
             
-        case 6:
+        case 5:
             let cell: ExperienceCell = tableView.dequeueReusableCell(withIdentifier: "ExperienceCell", for: indexPath) as! ExperienceCell
             cell.configureCell(data: experienceArray[indexPath.row])
             cell.edit.addTarget(self, action: #selector(expEditClicked(button:)), for: .touchUpInside)
@@ -143,7 +143,7 @@ extension MeViewController: UITableViewDelegate, UITableViewDataSource {
 
             return cell
             
-        case 7:
+        case 6:
             let cell: ProfileSkillsCell = tableView.dequeueReusableCell(withIdentifier: "ProfileSkillsCell", for: indexPath) as! ProfileSkillsCell
             cell.cellConfigureWith(data: profileDataModel)
             cell.edit.addTarget(self, action: #selector(editClicked(button:)), for: .touchUpInside)

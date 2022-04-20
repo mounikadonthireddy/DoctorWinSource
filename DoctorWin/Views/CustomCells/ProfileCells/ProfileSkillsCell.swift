@@ -17,7 +17,8 @@ class ProfileSkillsCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         skillsView.setCornerRadiusWithBorderColor(radius: 10, color: UIColor(rgb: 0xE6E6E6), borderWidth: 0.5)
-        
+        edit.setCornerRadius(radius: 15)
+
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

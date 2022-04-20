@@ -8,7 +8,7 @@
 import UIKit
 
 class ProfileNameCell: UITableViewCell {
-    @IBOutlet weak var profileNameView: UIView!
+    @IBOutlet weak var profileNameView: UIImageView!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var profileName: UILabel!
     @IBOutlet weak var designation: UILabel!
@@ -20,6 +20,7 @@ class ProfileNameCell: UITableViewCell {
         // Initialization code
         profileNameView.setCornerRadiusWithBorderColor(radius: 10, color: UIColor(rgb: 0xE6E6E6), borderWidth: 0.5)
         profileImage.setCornerRadius(radius: Float(profileImage.frame.width)/2)
+        editBtn.setCornerRadius(radius: 15)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

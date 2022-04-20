@@ -1,5 +1,5 @@
 //
-//  ProfileViewController.swift
+//  ProfileDetailsViewController.swift
 //  DoctorWin
 //
 //  Created by Donthireddy Mounika on 11/01/22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileViewController: ViewController {
+class ProfileDetailsViewController: ViewController {
 
     @IBOutlet weak var profileTableView: UITableView!
     var profileDataModel : ProfileDataModel!
@@ -57,7 +57,7 @@ class ProfileViewController: ViewController {
     }
 }
 
-extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
+extension ProfileDetailsViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 7
     }
@@ -194,7 +194,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
 }
-extension ProfileViewController: ProfileViewModelDelegate {
+extension ProfileDetailsViewController: ProfileViewModelDelegate {
     func didReciveProfileExperienceData(response: [ExperienceModel]?, error: String?) {
         self.dismiss()
         experienceArray = response ?? []

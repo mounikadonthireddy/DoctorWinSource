@@ -311,6 +311,16 @@ extension CarrierPageViewController: TopJobsViewModelDelegate {
 }
 
 extension CarrierPageViewController: SearchJobDelegate {
+    func textFeildSelection(type: String) {
+        let str = UIStoryboard(name: "Home", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "DataViewController") as! DataViewController
+        nextVC.inputArray =  speacilityArray.map{ data in
+            return data.department
+        }
+      
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
     func SearchJobDelegate(query: String, jobType: String) {
         let str = UIStoryboard(name: "Home", bundle: nil)
         let nextVC = str.instantiateViewController(withIdentifier: "JobsViewController") as! JobsViewController

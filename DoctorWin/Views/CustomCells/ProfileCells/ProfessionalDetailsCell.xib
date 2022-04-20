@@ -199,15 +199,16 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dOu-10-K3F">
-                        <rect key="frame" x="239" y="17" width="50" height="31"/>
+                        <rect key="frame" x="222" y="17" width="67" height="31"/>
+                        <color key="backgroundColor" red="0.85882352939999995" green="0.89019607840000003" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="31" id="MBq-Hl-hM7"/>
-                            <constraint firstAttribute="width" constant="50" id="jOg-dg-L5s"/>
+                            <constraint firstAttribute="width" constant="67" id="jOg-dg-L5s"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
                         <color key="tintColor" systemColor="labelColor"/>
-                        <state key="normal" title="+ Add">
-                            <color key="titleColor" red="0.84705882349999995" green="0.36862745099999999" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <state key="normal" title="Add">
+                            <color key="titleColor" red="0.18823529410000001" green="0.30980392159999998" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
                 </subviews>

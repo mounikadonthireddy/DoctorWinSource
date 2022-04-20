@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NetworkCell" rowHeight="135" id="KGk-i7-Jjw" customClass="NetworkCell" customModule="DoctorWin" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="339" height="135"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="339" height="135"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Zmh-Tg-hmP">
+                        <rect key="frame" x="90" y="15" width="249" height="70"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DR. ANMADcd" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eUH-hI-BrW">
+                                <rect key="frame" x="0.0" y="0.0" width="249" height="16.5"/>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MBBS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCk-De-6ha">
+                                <rect key="frame" x="0.0" y="26.5" width="249" height="17"/>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
+                                <color key="textColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Consultanat at Yashoda Hospitals" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xeC-U0-o02">
+                                <rect key="frame" x="0.0" y="53.5" width="249" height="16.5"/>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
+                                <color key="textColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="70" id="jWk-8p-Di9"/>
+                        </constraints>
+                    </stackView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="collegeBg" translatesAutoresizingMaskIntoConstraints="NO" id="iPw-Cf-9zO">
+                        <rect key="frame" x="15" y="21" width="59" height="58"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="58" id="TLb-Xd-wkF"/>
+                            <constraint firstAttribute="width" constant="59" id="uoP-oz-GJn"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z1f-nm-NYw">
+                        <rect key="frame" x="80" y="95" width="94" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="94" id="za7-87-imB"/>
+                        </constraints>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" title="Follow  +"/>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="z1f-nm-NYw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="80" id="BN8-qv-Xjj"/>
+                    <constraint firstItem="Zmh-Tg-hmP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="90" id="FwT-Rw-8Kk"/>
+                    <constraint firstItem="iPw-Cf-9zO" firstAttribute="centerY" secondItem="Zmh-Tg-hmP" secondAttribute="centerY" id="Hez-dQ-qvp"/>
+                    <constraint firstAttribute="bottom" secondItem="z1f-nm-NYw" secondAttribute="bottom" constant="8" id="MO1-ce-CXj"/>
+                    <constraint firstItem="iPw-Cf-9zO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="YBh-vh-glV"/>
+                    <constraint firstItem="z1f-nm-NYw" firstAttribute="top" secondItem="Zmh-Tg-hmP" secondAttribute="bottom" constant="10" id="g7f-3E-JS7"/>
+                    <constraint firstItem="Zmh-Tg-hmP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="gnj-13-Ftw"/>
+                    <constraint firstAttribute="trailing" secondItem="Zmh-Tg-hmP" secondAttribute="trailing" id="zq4-vD-T0T"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="followBtn" destination="z1f-nm-NYw" id="Uj8-af-w0F"/>
+                <outlet property="location" destination="xeC-U0-o02" id="JwW-Wn-ch3"/>
+                <outlet property="name" destination="eUH-hI-BrW" id="T2o-LK-eNe"/>
+                <outlet property="personImage" destination="iPw-Cf-9zO" id="AZ8-CD-Seu"/>
+                <outlet property="qualification" destination="aCk-De-6ha" id="KoF-xA-56l"/>
+            </connections>
+            <point key="canvasLocation" x="148.55072463768118" y="114.17410714285714"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="collegeBg" width="720" height="415"/>
+    </resources>
+</document>

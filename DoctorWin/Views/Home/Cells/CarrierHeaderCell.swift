@@ -10,6 +10,7 @@ import iOSDropDown
 
 protocol SearchJobDelegate: class {
     func SearchJobDelegate(query: String, jobType: String)
+    func textFeildSelection(type: String)
 }
 
 class CarrierHeaderCell: UITableViewCell {
@@ -48,5 +49,7 @@ class CarrierHeaderCell: UITableViewCell {
         let finalString = location + "&" + department + "&" + designation
         deleagte?.SearchJobDelegate(query: finalString, jobType: department + location)
     }
-    
+    @IBAction func btnClicked(_ sender: UIButton) {
+        deleagte?.textFeildSelection(type: "specialityTF")
+    }
 }

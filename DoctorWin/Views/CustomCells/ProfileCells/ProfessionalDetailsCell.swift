@@ -22,6 +22,7 @@ class ProfessionalDetailsCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         basicView.setCornerRadiusWithBorderColor(radius: 10, color: UIColor(rgb: 0xE6E6E6), borderWidth: 0.5)
+        professionalEdit.setCornerRadius(radius: 15)
 
         // Initialization code
     }
