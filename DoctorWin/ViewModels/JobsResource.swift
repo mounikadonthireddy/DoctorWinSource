@@ -107,7 +107,7 @@ struct JobsResource {
     }
         func getJobAllData(userID: String, completion : @escaping (_ result: ResponseResult<[JobsDataModel]>) -> Void) {
                 
-                let jobCategeoryUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getNewJobs +  "?user_id=\(userID)"
+                let jobCategeoryUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getNewJobs +  "?user_id=\(userID)&page=1"
                 
                 let httpUtility = HttpUtility()
                 do {

@@ -1,13 +1,14 @@
 //
-//  HomeDetailsViewController.swift
+//  CaseDetailsViewController.swift
 //  DoctorWin
 //
-//  Created by N517325 on 31/10/21.
+//  Created by Donthireddy Mounika on 20/04/22.
 //
 
 import UIKit
 
-class HomeDetailsViewController: UIViewController {
+class CaseDetailsViewController: UIViewController {
+
     @IBOutlet weak var HomeDetailsTableView: UITableView!
     var detailsModel : HomeDataModel!
     override func viewDidLoad() {
@@ -38,7 +39,7 @@ class HomeDetailsViewController: UIViewController {
     */
 
 }
-extension HomeDetailsViewController : UITableViewDelegate, UITableViewDataSource {
+extension CaseDetailsViewController : UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -46,7 +47,8 @@ extension HomeDetailsViewController : UITableViewDelegate, UITableViewDataSource
         if section == 0 {
             return 1
         } else {
-            return detailsModel.commentsArray?.count ?? 0
+//            return detailsModel.commentsArray?.count ?? 0
+            return 0
         }
      
     }
@@ -60,7 +62,7 @@ extension HomeDetailsViewController : UITableViewDelegate, UITableViewDataSource
         } else {
             let cell: CommentsCell
                 = tableView.dequeueReusableCell(withIdentifier: "CommentsCell") as! CommentsCell
-            cell.configureCellWith(data: detailsModel.commentsArray![indexPath.row])
+//            cell.configureCellWith(data: detailsModel.commentsArray![indexPath.row])
             return cell
         }
     }

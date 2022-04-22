@@ -87,13 +87,13 @@ extension MyCasesViewController: UITableViewDelegate, UITableViewDataSource {
     }
  
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if homedataArry[indexPath.row].complaintStatus {
+        //if homedataArry[indexPath.row].complaintStatus {
         
-        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "HomeDetailsViewController") as! HomeDetailsViewController
-        nextVC.detailsModel = homedataArry[indexPath.row]
-            
-        self.navigationController?.pushViewController(nextVC, animated: true)
-        }
+//        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "HomeDetailsViewController") as! HomeDetailsViewController
+//        nextVC.detailsModel = homedataArry[indexPath.row]
+//            
+//        self.navigationController?.pushViewController(nextVC, animated: true)
+        //}
     }
     @objc func followClicked(button: UIButton) {
         
@@ -101,14 +101,14 @@ extension MyCasesViewController: UITableViewDelegate, UITableViewDataSource {
         
     }
     @objc func wishlistClicked(button: UIButton) {
-        if   let data = homedataArry[button.tag].complaintId {
-            homeVM.saveToWishlist(userID: User.shared.userID, categeroyID: "\(data)")
-        }
+//        if   let data = homedataArry[button.tag].complaintId {
+//            homeVM.saveToWishlist(userID: User.shared.userID, categeroyID: "\(data)")
+//        }
     }
     @objc func saveClicked(button: UIButton) {
-        if   let data = homedataArry[button.tag].complaintId {
-            homeVM.saveToBookMark(userID: User.shared.userID, categeroyID: "\(data)")
-        }
+//        if   let data = homedataArry[button.tag].complaintId {
+//            homeVM.saveToBookMark(userID: User.shared.userID, categeroyID: "\(data)")
+//        }
     }
     @objc func replyBtnClicked(button: UIButton) {
         

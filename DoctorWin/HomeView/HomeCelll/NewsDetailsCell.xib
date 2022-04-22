@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="NewsDetailsCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsDetailsCell" rowHeight="605" id="AFf-un-7Zw" customClass="NewsDetailsCell" customModule="DoctorWin" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="469" height="599"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AFf-un-7Zw" id="RLA-Gz-mya">
+                <rect key="frame" x="0.0" y="0.0" width="469" height="599"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zAK-v7-qej">
+                        <rect key="frame" x="0.0" y="0.0" width="469" height="599"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginBg" translatesAutoresizingMaskIntoConstraints="NO" id="dPC-lm-nz7">
+                                <rect key="frame" x="0.0" y="80" width="469" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="7fb-vg-BgE"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Very Nice" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nLb-YD-2hs">
+                                <rect key="frame" x="15" y="345" width="439" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="31" id="A0X-kZ-kh5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1XI-bV-nEI">
+                                <rect key="frame" x="15" y="386" width="444" height="203"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="53" id="LvS-hf-62R"/>
+                                </constraints>
+                                <string key="text">OS has built-in support for adding shadows to UIView components. All you need to do in order to add a shadow to a UIView object is to set the shadow properties of the view’s layer. </string>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="7rL-7x-6KB">
+                                <rect key="frame" x="20" y="21.5" width="40" height="37"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="CG1-4g-TlQ"/>
+                                    <constraint firstAttribute="width" constant="40" id="nkd-XA-Rl5"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S1Q-Qe-CwE">
+                                <rect key="frame" x="70" y="21" width="394" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="h9d-hn-d4X"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
+                                <color key="textColor" red="0.1843137255" green="0.50196078430000002" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Posted date is 2021-09-29" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QtV-nz-hQX">
+                                <rect key="frame" x="70" y="45" width="154.5" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="5b9-Kq-zHT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="13"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="QtV-nz-hQX" firstAttribute="leading" secondItem="7rL-7x-6KB" secondAttribute="trailing" constant="10" id="BvY-zf-pYt"/>
+                            <constraint firstItem="dPC-lm-nz7" firstAttribute="leading" secondItem="zAK-v7-qej" secondAttribute="leading" id="DbH-Cs-sLa"/>
+                            <constraint firstItem="S1Q-Qe-CwE" firstAttribute="leading" secondItem="7rL-7x-6KB" secondAttribute="trailing" constant="10" id="GcA-q6-3KE"/>
+                            <constraint firstAttribute="bottom" secondItem="1XI-bV-nEI" secondAttribute="bottom" constant="10" id="GsY-B2-PYp"/>
+                            <constraint firstItem="nLb-YD-2hs" firstAttribute="top" secondItem="dPC-lm-nz7" secondAttribute="bottom" constant="15" id="J3N-aj-qz1"/>
+                            <constraint firstItem="7rL-7x-6KB" firstAttribute="top" secondItem="zAK-v7-qej" secondAttribute="top" constant="20" id="Szl-un-Fl1"/>
+                            <constraint firstAttribute="trailing" secondItem="dPC-lm-nz7" secondAttribute="trailing" id="VHd-c8-o4O"/>
+                            <constraint firstAttribute="trailing" secondItem="nLb-YD-2hs" secondAttribute="trailing" constant="15" id="Wd1-C0-mBb"/>
+                            <constraint firstItem="dPC-lm-nz7" firstAttribute="top" secondItem="zAK-v7-qej" secondAttribute="top" constant="80" id="cIu-Cn-ZWd"/>
+                            <constraint firstItem="1XI-bV-nEI" firstAttribute="leading" secondItem="zAK-v7-qej" secondAttribute="leading" constant="15" id="ch8-xv-5kk"/>
+                            <constraint firstAttribute="trailing" secondItem="1XI-bV-nEI" secondAttribute="trailing" constant="10" id="gZs-Uh-NlX"/>
+                            <constraint firstItem="7rL-7x-6KB" firstAttribute="leading" secondItem="zAK-v7-qej" secondAttribute="leading" constant="20" id="one-KQ-zl2"/>
+                            <constraint firstItem="QtV-nz-hQX" firstAttribute="top" secondItem="S1Q-Qe-CwE" secondAttribute="bottom" constant="3" id="rfE-Ul-pWI"/>
+                            <constraint firstItem="nLb-YD-2hs" firstAttribute="leading" secondItem="zAK-v7-qej" secondAttribute="leading" constant="15" id="uH8-AH-7R1"/>
+                            <constraint firstAttribute="trailing" secondItem="S1Q-Qe-CwE" secondAttribute="trailing" constant="5" id="vae-hl-A8g"/>
+                            <constraint firstItem="1XI-bV-nEI" firstAttribute="top" secondItem="nLb-YD-2hs" secondAttribute="bottom" constant="10" id="x2h-L7-2iP"/>
+                            <constraint firstItem="dPC-lm-nz7" firstAttribute="top" secondItem="QtV-nz-hQX" secondAttribute="bottom" constant="20" id="ynM-Mo-fWy"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="0.83529411760000005" green="0.85098039219999999" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstItem="zAK-v7-qej" firstAttribute="top" secondItem="RLA-Gz-mya" secondAttribute="top" id="JIK-r1-tnh"/>
+                    <constraint firstAttribute="bottom" secondItem="zAK-v7-qej" secondAttribute="bottom" id="Zf3-Uv-e3y"/>
+                    <constraint firstAttribute="trailing" secondItem="zAK-v7-qej" secondAttribute="trailing" id="v6Q-WA-RrD"/>
+                    <constraint firstItem="zAK-v7-qej" firstAttribute="leading" secondItem="RLA-Gz-mya" secondAttribute="leading" id="xlp-aN-aoT"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="b7l-K7-TNe"/>
+            <connections>
+                <outlet property="descriptionLable" destination="1XI-bV-nEI" id="YHa-ja-JxY"/>
+                <outlet property="designation" destination="QtV-nz-hQX" id="n2R-ik-ubW"/>
+                <outlet property="personName" destination="S1Q-Qe-CwE" id="zwI-vq-0dv"/>
+                <outlet property="pesonImage" destination="7rL-7x-6KB" id="Olw-uG-dYC"/>
+                <outlet property="postImage" destination="dPC-lm-nz7" id="rrn-W4-WO4"/>
+                <outlet property="titleLable" destination="nLb-YD-2hs" id="BiR-vC-cQd"/>
+            </connections>
+            <point key="canvasLocation" x="1010.8695652173914" y="167.07589285714286"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="loginBg" width="6240" height="3014"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+    </resources>
+</document>

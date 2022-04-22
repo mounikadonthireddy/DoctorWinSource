@@ -70,83 +70,83 @@ class PollTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func configureData(homeModel: HomeDataModel) {
-        self.designation.text = homeModel.speciality
-        self.postedPersonName.text = homeModel.profileName
-        self.titleLable.text = homeModel.pollTitle
-        let days = Date().offsetFrom(dateStr: homeModel.postedData)
-        self.postedDate.text = "Poll : \(days) ago"
-        option1Text.text = homeModel.option1
-        option2Text.text = homeModel.option2
-        option3Text.text = homeModel.option3
-        option4Text.text = homeModel.option4
-        option1Percent.text = "\(homeModel.option1Value!)%  "
-        option2Percent.text = "\(homeModel.option2Value!)%  "
-        option3Percent.text = "\(homeModel.option3Value!)%  "
-        option4Percent.text = "\(homeModel.option4Value!)%  "
-        wishlistBtn.tag = homeModel.id ?? 0
-        saveBtn.tag = homeModel.id ?? 0
-        self.followBtn.tag = homeModel.poll_user ?? 0
-        if let value1 = homeModel.option1Value {
-            if value1 > 0 {
-                option1Ration = option1Ration.setMultiplier(multiplier: CGFloat(value1)/100)
-                option1.backgroundColor = UIColor(rgb: 0xBBDEFB)
-            } else {
-                option1.backgroundColor = UIColor.white
-            }
-        }
-        if let value2 = homeModel.option2Value {
-            if value2 > 0 {
-                option2.backgroundColor = UIColor(rgb: 0xBBDEFB)
-                option2Ration = option2Ration.setMultiplier(multiplier: CGFloat(value2)/100)
-                
-            } else {
-                option2.backgroundColor = UIColor.white
-            }
-        }
-        if let value3 = homeModel.option3Value {
-            if value3 > 0 {
-                option3.backgroundColor =  UIColor(rgb: 0xBBDEFB)
-                
-                option3Ration = option3Ration.setMultiplier(multiplier: CGFloat(value3)/100)
-            } else {
-                option3.backgroundColor = UIColor.white
-            }
-        }
-        if let value4 = homeModel.option4Value {
-            
-            if value4 > 0 {
-                option4.backgroundColor = UIColor(rgb: 0xBBDEFB)
-                option4Ration = option4Ration.setMultiplier(multiplier: CGFloat(value4)/100)
-            } else {
-                option4.backgroundColor = UIColor.white
-            }
-        }
-        if let value = homeModel.discussion {
-            self.discussion.text = "\(String(describing: value)) Discussions"
-            
-        }
-        if let likes = homeModel.likes {
-            self.likeLabel.text = "\(likes) Likes"
-        }
-        if let votes = homeModel.votes {
-            self.votesLabel.text = "\(votes) Votes"
-        }
-        
-        if homeModel.follow != "False" {
-            self.followBtn.setTitle("Following", for: .normal)
-        }
-        if homeModel.likeStatus ?? false {
-            likeImage.image = UIImage(named: "fheart")
-            
-        }
-        if homeModel.bookmarkStatus ?? false {
-            bookmarkImage.image = UIImage(named: "fmark")
-        }
-        if let urlString = homeModel.caseProfileImage {
-            let finalUrlString = "http://3.132.212.116:8000" + urlString
-            
-            self.personImage.sd_setImage(with: URL(string: finalUrlString), placeholderImage: UIImage(named: "loginBg"))
-        }
+//        self.designation.text = homeModel.speciality
+//        self.postedPersonName.text = homeModel.profileName
+//        self.titleLable.text = homeModel.pollTitle
+//        let days = Date().offsetFrom(dateStr: homeModel.postedData ?? "")
+//        self.postedDate.text = "Poll : \(days) ago"
+//        option1Text.text = homeModel.option1
+//        option2Text.text = homeModel.option2
+//        option3Text.text = homeModel.option3
+//        option4Text.text = homeModel.option4
+//        option1Percent.text = "\(homeModel.option1Value!)%  "
+//        option2Percent.text = "\(homeModel.option2Value!)%  "
+//        option3Percent.text = "\(homeModel.option3Value!)%  "
+//        option4Percent.text = "\(homeModel.option4Value!)%  "
+//        wishlistBtn.tag = homeModel.id ?? 0
+//        saveBtn.tag = homeModel.id ?? 0
+//        self.followBtn.tag = homeModel.poll_user ?? 0
+//        if let value1 = homeModel.option1Value {
+//            if value1 > 0 {
+//                option1Ration = option1Ration.setMultiplier(multiplier: CGFloat(value1)/100)
+//                option1.backgroundColor = UIColor(rgb: 0xBBDEFB)
+//            } else {
+//                option1.backgroundColor = UIColor.white
+//            }
+//        }
+//        if let value2 = homeModel.option2Value {
+//            if value2 > 0 {
+//                option2.backgroundColor = UIColor(rgb: 0xBBDEFB)
+//                option2Ration = option2Ration.setMultiplier(multiplier: CGFloat(value2)/100)
+//                
+//            } else {
+//                option2.backgroundColor = UIColor.white
+//            }
+//        }
+//        if let value3 = homeModel.option3Value {
+//            if value3 > 0 {
+//                option3.backgroundColor =  UIColor(rgb: 0xBBDEFB)
+//                
+//                option3Ration = option3Ration.setMultiplier(multiplier: CGFloat(value3)/100)
+//            } else {
+//                option3.backgroundColor = UIColor.white
+//            }
+//        }
+//        if let value4 = homeModel.option4Value {
+//            
+//            if value4 > 0 {
+//                option4.backgroundColor = UIColor(rgb: 0xBBDEFB)
+//                option4Ration = option4Ration.setMultiplier(multiplier: CGFloat(value4)/100)
+//            } else {
+//                option4.backgroundColor = UIColor.white
+//            }
+//        }
+//        if let value = homeModel.discussion {
+//            self.discussion.text = "\(String(describing: value)) Discussions"
+//            
+//        }
+//        if let likes = homeModel.likes {
+//            self.likeLabel.text = "\(likes) Likes"
+//        }
+//        if let votes = homeModel.votes {
+//            self.votesLabel.text = "\(votes) Votes"
+//        }
+//        
+//        if homeModel.follow != "False" {
+//            self.followBtn.setTitle("Following", for: .normal)
+//        }
+//        if homeModel.likeStatus ?? false {
+//            likeImage.image = UIImage(named: "fheart")
+//            
+//        }
+//        if homeModel.bookmarkStatus ?? false {
+//            bookmarkImage.image = UIImage(named: "fmark")
+//        }
+//        if let urlString = homeModel.caseProfileImage {
+//            let finalUrlString = "http://3.132.212.116:8000" + urlString
+//            
+//            self.personImage.sd_setImage(with: URL(string: finalUrlString), placeholderImage: UIImage(named: "loginBg"))
+//        }
     }
     func configureData(homeModel: PollsDataModel) {
         self.designation.text = homeModel.speciality

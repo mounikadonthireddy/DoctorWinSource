@@ -19,13 +19,14 @@ class HomeViewController: UIViewController, ExpandableLabelDelegate {
         
         plusBtn.setCornerRadius(radius: Float(plusBtn.frame.width)/2)
         questionBtn.setCornerRadius(radius: Float(questionBtn.frame.height)/2)
-        tableView.register(UINib(nibName: "HomeTableCell", bundle: nil), forCellReuseIdentifier: "HomeTableCell")
-        tableView.register(UINib(nibName: "PollTableViewCell", bundle: nil), forCellReuseIdentifier: "PollTableViewCell")
+        tableView.register(UINib(nibName: "CaseCell", bundle: nil), forCellReuseIdentifier: "CaseCell")
+
         tableView.register(UINib(nibName: "ArticalCell", bundle: nil), forCellReuseIdentifier: "ArticalCell")
-        
-        
-        
-        tableView.register(CreateFirstCaseView.nib, forHeaderFooterViewReuseIdentifier: CreateFirstCaseView.identifier)
+
+        tableView.register(UINib(nibName: "NewsCell", bundle: nil), forCellReuseIdentifier: "NewsCell")
+        tableView.register(UINib(nibName: "ExamCell", bundle: nil), forCellReuseIdentifier: "ExamCell")
+
+        tableView.register(HomeTableHeader.nib, forHeaderFooterViewReuseIdentifier: HomeTableHeader.identifier)
         
         
         self.tableView.delegate = self
@@ -55,7 +56,7 @@ class HomeViewController: UIViewController, ExpandableLabelDelegate {
             }
             UIApplication.shared.statusBarStyle = .lightContent
         }
-        
+        self.parse()
         // Do any additional setup after loading the view.
     }
     
@@ -64,7 +65,7 @@ class HomeViewController: UIViewController, ExpandableLabelDelegate {
         self.navigationController?.isNavigationBarHidden = true
         tabBarController?.tabBar.isHidden = false
       //  tabBarController?.tabBar.frame = CGRect(x: 0, y: 0, width: 220, height: 100)
-        self.parse()
+       
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -72,8 +73,8 @@ class HomeViewController: UIViewController, ExpandableLabelDelegate {
     }
     
     func parse() {
-//        self.showLoader()
-//        self.homeVM.getNewsPollArticleComplaintDataFromAPI(userID: User.shared.userID)
+  self.showLoader()
+        self.homeVM.getNewsPollArticleComplaintDataFromAPI(userID: User.shared.userID)
         
     }
     
@@ -102,34 +103,53 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if homedataArry[indexPath.row].pollStatus ?? false {
-            let cell: PollTableViewCell
-            = tableView.dequeueReusableCell(withIdentifier: "PollTableViewCell") as! PollTableViewCell
+        
+        if homedataArry[indexPath.row].newsStatus ?? false {
+            let cell: NewsCell
+            = tableView.dequeueReusableCell(withIdentifier: "NewsCell") as! NewsCell
+            cell.delegate = self
             cell.configureData(homeModel: homedataArry[indexPath.row])
-            
+            cell.descriptionLable.delegate = self
+
+            cell.descriptionLable.setLessLinkWith(lessLink: "Close", attributes: [.foregroundColor:UIColor.red], position: .left)
+
+            cell.layoutIfNeeded()
+
+            cell.descriptionLable.shouldCollapse = true
+            cell.descriptionLable.textReplacementType = .word
+            cell.descriptionLable.numberOfLines = 5
+            cell.descriptionLable.collapsed = states[indexPath.row]
+            cell.descriptionLable.text = homedataArry[indexPath.row].discription
             return cell
-        }  else if homedataArry[indexPath.row].artStatus ?? false {
-            
+
+        } else if homedataArry[indexPath.row].articalStatus ?? false {
             
             let cell: ArticalCell
             = tableView.dequeueReusableCell(withIdentifier: "ArticalCell") as! ArticalCell
             cell.configureData(homeModel: homedataArry[indexPath.row])
             cell.descriptionLable.delegate = self
-            
+
             cell.descriptionLable.setLessLinkWith(lessLink: "Close", attributes: [.foregroundColor:UIColor.red], position: .left)
-            
+
             cell.layoutIfNeeded()
-            
+
             cell.descriptionLable.shouldCollapse = true
             cell.descriptionLable.textReplacementType = .word
             cell.descriptionLable.numberOfLines = 5
             cell.descriptionLable.collapsed = states[indexPath.row]
-            cell.descriptionLable.text = homedataArry[indexPath.row].articalDiscription
+            cell.descriptionLable.text = homedataArry[indexPath.row].discription
+            return cell
+        } else if homedataArry[indexPath.row].complaintStatus ?? false {
+            let cell: CaseCell
+            = tableView.dequeueReusableCell(withIdentifier: "CaseCell") as! CaseCell
+            cell.delegate = self
+            cell.configureData(homeModel: homedataArry[indexPath.row])
+            
             return cell
         } else {
-            let cell: HomeTableCell
-            = tableView.dequeueReusableCell(withIdentifier: "HomeTableCell") as! HomeTableCell
-            cell.delegate = self
+    
+            let cell: ExamCell
+            = tableView.dequeueReusableCell(withIdentifier: "ExamCell") as! ExamCell
             cell.configureData(homeModel: homedataArry[indexPath.row])
             
             return cell
@@ -140,11 +160,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         return 10
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 150
+        return 400
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: CreateFirstCaseView.identifier) as? CreateFirstCaseView {
-            headerView.postBtn.addTarget(self, action: #selector(postClicked(button:)), for: .touchUpInside)
+        if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: HomeTableHeader.identifier) as? HomeTableHeader {
+//            headerView.postBtn.addTarget(self, action: #selector(postClicked(button:)), for: .touchUpInside)
             //            headerView.configureCollectionView()
             //
             return headerView
@@ -158,11 +178,21 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if homedataArry[indexPath.row].complaintStatus {
-            
-            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "HomeDetailsViewController") as! HomeDetailsViewController
+        if homedataArry[indexPath.row].complaintStatus ?? false {
+            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "CaseDetailsViewController") as! CaseDetailsViewController
             nextVC.detailsModel = homedataArry[indexPath.row]
-            
+            self.navigationController?.pushViewController(nextVC, animated: true)
+        } else if homedataArry[indexPath.row].newsStatus ?? false {
+            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "NewsDetailsViewController") as! NewsDetailsViewController
+            nextVC.newsDetails = homedataArry[indexPath.row]
+            self.navigationController?.pushViewController(nextVC, animated: true)
+        } else if homedataArry[indexPath.row].articalStatus ?? false {
+            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "ArticalDetailsViewController") as! ArticalDetailsViewController
+            nextVC.articalDetails = homedataArry[indexPath.row]
+            self.navigationController?.pushViewController(nextVC, animated: true)
+        } else {
+            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "ExamDetailsViewController") as! ExamDetailsViewController
+            //nextVC.detailsModel = homedataArry[indexPath.row]
             self.navigationController?.pushViewController(nextVC, animated: true)
         }
     }
@@ -172,14 +202,14 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
     }
     @objc func wishlistClicked(button: UIButton) {
-        if   let data = homedataArry[button.tag].complaintId {
-            homeVM.saveToWishlist(userID: User.shared.userID, categeroyID: "\(data)")
-        }
+//        if   let data = homedataArry[button.tag].complaintId {
+//            homeVM.saveToWishlist(userID: User.shared.userID, categeroyID: "\(data)")
+//        }
     }
     @objc func saveClicked(button: UIButton) {
-        if   let data = homedataArry[button.tag].complaintId {
-            homeVM.saveToBookMark(userID: User.shared.userID, categeroyID: "\(data)")
-        }
+//        if   let data = homedataArry[button.tag].complaintId {
+//            homeVM.saveToBookMark(userID: User.shared.userID, categeroyID: "\(data)")
+//        }
     }
     @objc func replyBtnClicked(button: UIButton) {
         

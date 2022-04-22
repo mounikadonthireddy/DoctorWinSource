@@ -39,7 +39,8 @@ extension HomeDetailsTableView : UITableViewDelegate, UITableViewDataSource {
         if section == 0 {
             return 1
         } else {
-            return detailsModel.commentsArray?.count ?? 0
+           // return detailsModel.commentsArray?.count ?? 0
+            return 0
         }
      
     }
@@ -53,7 +54,7 @@ extension HomeDetailsTableView : UITableViewDelegate, UITableViewDataSource {
         } else {
             let cell: CommentsCell
                 = tableView.dequeueReusableCell(withIdentifier: "CommentsCell") as! CommentsCell
-            cell.configureCellWith(data: detailsModel.commentsArray![indexPath.row])
+//            cell.configureCellWith(data: detailsModel.commentsArray![indexPath.row])
             return cell
         }
     }

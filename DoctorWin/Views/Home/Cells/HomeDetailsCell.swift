@@ -42,35 +42,35 @@ class HomeDetailsCell: UITableViewCell {
     }
    
     func configureCellWith(data: HomeDataModel) {
-        
-        personName.text = data.caseName
-        postedDate.text = data.postedData
-        postTitle.text = data.title
-        postDescription.text = data.complaint
-        presentIllness.text = data.presentIllness
-        pastIllness.text = data.pastIllness
-        drugsIllness.text = data.drugIllness
-        personalIllness.text = data.personalIllness
-        familyIllness.text = data.familyIllness
-        physicalExamination.text = data.physicalExamination
-        systemExamination.text = data.systemExamination
-        localExamination.text = data.localExamination
-        labInvestigation.text = data.labInvestigation
-        vitalInvestigation.text = data.vitusInvestigation
-        ImageInvestigation.text = data.imageInvestigation
-        diagnosiscResult.text = data.diagnosResult
-        
-        if let urlString = data.postedImage {
-            let finalUrlString = "http://3.132.212.116:8000" + urlString
-            
-            self.postImage.sd_setImage(with: URL(string: finalUrlString), placeholderImage: UIImage(named: "loginBg"))
-        }
-        
-        if let urlString = data.caseProfileImage {
-            let finalUrlString = "http://3.132.212.116:8000" + urlString
-            
-            self.postImage.sd_setImage(with: URL(string: finalUrlString), placeholderImage: UIImage(named: "loginBg"))
-        }
+//
+//        personName.text = data.caseName
+//        postedDate.text = data.postedData
+//        postTitle.text = data.title
+//        postDescription.text = data.complaint
+//        presentIllness.text = data.presentIllness
+//        pastIllness.text = data.pastIllness
+//        drugsIllness.text = data.drugIllness
+//        personalIllness.text = data.personalIllness
+//        familyIllness.text = data.familyIllness
+//        physicalExamination.text = data.physicalExamination
+//        systemExamination.text = data.systemExamination
+//        localExamination.text = data.localExamination
+//        labInvestigation.text = data.labInvestigation
+//        vitalInvestigation.text = data.vitusInvestigation
+//        ImageInvestigation.text = data.imageInvestigation
+//        diagnosiscResult.text = data.diagnosResult
+//
+//        if let urlString = data.postedImage {
+//            let finalUrlString = "http://3.132.212.116:8000" + urlString
+//
+//            self.postImage.sd_setImage(with: URL(string: finalUrlString), placeholderImage: UIImage(named: "loginBg"))
+//        }
+//
+//        if let urlString = data.caseProfileImage {
+//            let finalUrlString = "http://3.132.212.116:8000" + urlString
+//
+//            self.postImage.sd_setImage(with: URL(string: finalUrlString), placeholderImage: UIImage(named: "loginBg"))
+//        }
     }
     
     

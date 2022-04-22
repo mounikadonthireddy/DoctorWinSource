@@ -1,19 +1,18 @@
 //
-//  CaseCell.swift
+//  NewsCell.swift
 //  DoctorWin
 //
-//  Created by Donthireddy Mounika on 20/04/22.
+//  Created by N517325 on 22/10/21.
 //
 
 import UIKit
 
-class CaseCell: UITableViewCell {
-
+class NewsCell: UITableViewCell {
     @IBOutlet weak var postedPersonName: UILabel!
     @IBOutlet weak var designation: UILabel!
     @IBOutlet weak var discussion: UILabel!
     @IBOutlet weak var titleLable: UILabel!
-    @IBOutlet weak var descriptionLable: UILabel!
+    @IBOutlet weak var descriptionLable: ExpandableLabel!
     @IBOutlet weak var postImage: UIImageView!
     @IBOutlet weak var followBtn: UIButton!
     @IBOutlet weak var wishlistBtn: UIButton!
@@ -40,33 +39,31 @@ class CaseCell: UITableViewCell {
     }
     func configureData(homeModel: HomeDataModel) {
         
-        self.postedPersonName.text = "DR. " + (homeModel.profileName ?? "")
+        self.postedPersonName.text = (homeModel.profileName ?? "")
         self.titleLable.text =  homeModel.title
         self.designation.text = homeModel.speciality
 
         
         if let value = homeModel.discussion {
-            self.discussion.text = "\(String(describing: value)) Discussions"
+            self.discussion.text = "\(String(describing: value))"
             
         }
-        self.followBtn.tag = homeModel.complaintId ?? 0
+//        self.followBtn.tag = homeModel.complaintId ?? 0
         if let urlString = homeModel.postedImage {
-            let finalUrlString = ApiEndpoints.baseImageURL + urlString
-            
-            self.postImage.sd_setImage(with: URL(string: finalUrlString), placeholderImage: UIImage(named: "loginBg"))
+            self.postImage.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "loginBg"))
         }
-        self.descriptionLable.text = homeModel.complaint
+//        self.descriptionLable.text = homeModel.discription
         if homeModel.bookmarkStatus ?? false {
             bookmarkImage.image = UIImage(named: "fmark")
         }
-        if homeModel.follow != "False" {
-            self.followBtn.setTitle("Following", for: .normal)
-        }
+//        if homeModel.follow != "False" {
+//            self.followBtn.setTitle("Following", for: .normal)
+//        }
         if homeModel.likeStatus ?? false {
             likeImage.image = UIImage(named: "fheart")
             
         }
-        if let urlString = homeModel.caseProfileImage {
+        if let urlString = homeModel.profileImage {
             let finalUrlString = "http://3.132.212.116:8000" + urlString
             
             self.personImage.sd_setImage(with: URL(string: finalUrlString), placeholderImage: UIImage(named: "loginBg"))
@@ -142,5 +139,32 @@ class CaseCell: UITableViewCell {
                 
             }
         }
+    }
+}
+
+extension UIView {
+    
+    // OUTPUT 1
+    func dropShadow(scale: Bool = true) {
+        layer.masksToBounds = false
+        layer.shadowColor = UIColor.lightGray.cgColor
+        layer.shadowOpacity = 0.5
+        layer.shadowOffset = .zero
+        layer.shadowRadius = 1
+        layer.shouldRasterize = true
+        layer.rasterizationScale = scale ? UIScreen.main.scale : 1
+    }
+    
+    // OUTPUT 2
+    func dropShadow(color: UIColor, opacity: Float = 0.5, offSet: CGSize, radius: CGFloat = 1, scale: Bool = true) {
+        layer.masksToBounds = false
+        layer.shadowColor = color.cgColor
+        layer.shadowOpacity = opacity
+        layer.shadowOffset = .zero
+        layer.shadowRadius = radius
+        
+        layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
+        layer.shouldRasterize = true
+        layer.rasterizationScale = scale ? UIScreen.main.scale : 1
     }
 }

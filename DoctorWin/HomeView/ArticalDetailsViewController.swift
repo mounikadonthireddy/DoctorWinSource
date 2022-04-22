@@ -15,6 +15,7 @@ class ArticalDetailsViewController: UIViewController {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "ArticalDetailsCell", bundle: nil), forCellReuseIdentifier: "ArticalDetailsCell")
 
+        
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {

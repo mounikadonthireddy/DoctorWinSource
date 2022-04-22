@@ -1,13 +1,13 @@
 //
-//  ArticalDetailsCell.swift
+//  NewsDetailsCell.swift
 //  DoctorWin
 //
-//  Created by Donthireddy Mounika on 23/02/22.
+//  Created by Donthireddy Mounika on 22/04/22.
 //
 
 import UIKit
 
-class ArticalDetailsCell: UITableViewCell {
+class NewsDetailsCell: UITableViewCell {
     
     @IBOutlet weak var titleLable: UILabel!
     @IBOutlet weak var descriptionLable: UILabel!
@@ -30,25 +30,22 @@ class ArticalDetailsCell: UITableViewCell {
     }
     func configureData(homeModel: HomeDataModel) {
         
-        self.titleLable.text = homeModel.articalTitle
-        self.descriptionLable.text = homeModel.articalDiscription
+        self.titleLable.text = homeModel.title
+        self.descriptionLable.text = homeModel.discription
+        self.personName.text =  (homeModel.profileName ?? "")
+        self.designation.text = (homeModel.speciality ?? "") + " " + "| News"
+        
+       
+        if let urlString = homeModel.postedImage {
+            self.postImage.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "loginBg"))
 
-        self.personName.text = "Dr." + (homeModel.profileName ?? "")
-        self.designation.text = (homeModel.speciality ?? "") + " " + (homeModel.location ?? "")
-        
-        
-        if let urlString = homeModel.articalImage {
-            let finalUrlString = ApiEndpoints.baseImageURL + urlString
-            self.postImage.sd_setImage(with: URL(string: finalUrlString), placeholderImage: UIImage(named: "loginBg"))
-        }
-        if homeModel.caseProfileImage != "no image" {
-            if let urlString = homeModel.caseProfileImage {
-                let finalUrlString = ApiEndpoints.baseImageURL + urlString
-                self.pesonImage.sd_setImage(with: URL(string: finalUrlString), placeholderImage: UIImage(named: "loginBg"))
+            }
+        if homeModel.profileImage != "no image" {
+            if let urlString = homeModel.profileImage {
+                self.pesonImage.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "loginBg"))
             }
         }
-        
-        
+            
     }
     func configureDataWith(homeModel: ArticalsDataModel) {
         

@@ -65,12 +65,12 @@ extension MyNewsViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: NewsCell
             = tableView.dequeueReusableCell(withIdentifier: "NewsCell") as! NewsCell
-        cell.configureCell(with: newsArray[indexPath.row])
+     //   cell.configureCell(with: newsArray[indexPath.row])
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "NewsDetailsViewController") as! NewsDetailsViewController
-        nextVC.newsDetailsData = newsArray[indexPath.row]
+//        nextVC.newsDetailsData = newsArray[indexPath.row]
         self.navigationController?.pushViewController(nextVC, animated: true)
         
     }
