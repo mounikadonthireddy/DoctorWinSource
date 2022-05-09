@@ -93,7 +93,7 @@ class NewsCell: UITableViewCell {
         let resource = HomeResource()
         resource.followComplaint(request: request) { result in
             DispatchQueue.main.async {
-                if result != nil && result == "true" {
+                if result != nil && result == true {
                     self.followBtn.setTitle("Following", for: .normal)
                 } else {
                     self.followBtn.setTitle("Follow", for: .normal)

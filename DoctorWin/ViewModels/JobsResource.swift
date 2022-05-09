@@ -73,7 +73,7 @@ struct JobsResource {
             }
         }
     }
-    func getSearchJobData(userID: String,query: String, completion : @escaping (_ result: ResponseResult<[JobsDataModel]>) -> Void) {
+    func getSearchJobData(userID: String,query: String, completion : @escaping (_ result: ResponseResult<[CarrierModel]>) -> Void) {
             
             let jobCategeoryUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.searchJobs  + "?user_id=\(userID)&" + query
             
@@ -81,7 +81,7 @@ struct JobsResource {
             do {
                 
                 
-                httpUtility.getApiData(urlString: jobCategeoryUrlStr, resultType: [JobsDataModel].self) { result in
+                httpUtility.getApiData(urlString: jobCategeoryUrlStr, resultType: [CarrierModel].self) { result in
                     
                     switch result {
                        case .success(let data):
@@ -105,7 +105,7 @@ struct JobsResource {
             }
         }
     }
-        func getJobAllData(userID: String, completion : @escaping (_ result: ResponseResult<[JobsDataModel]>) -> Void) {
+        func getJobAllData(userID: String, completion : @escaping (_ result: ResponseResult<[CarrierModel]>) -> Void) {
                 
                 let jobCategeoryUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getNewJobs +  "?user_id=\(userID)&page=1"
                 
@@ -113,7 +113,7 @@ struct JobsResource {
                 do {
                     
                     
-                    httpUtility.getApiData(urlString: jobCategeoryUrlStr, resultType: [JobsDataModel].self) { result in
+                    httpUtility.getApiData(urlString: "http://3.132.212.116:8000/api/new/job/?page=1&user_id=46", resultType: [CarrierModel].self) { result in
                         
                         switch result {
                            case .success(let data):

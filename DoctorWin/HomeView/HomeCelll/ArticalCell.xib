@@ -115,7 +115,7 @@
                                     <constraint firstAttribute="width" constant="250" id="xAA-IV-0DX"/>
                                 </constraints>
                             </stackView>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FhC-zu-gbM">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FhC-zu-gbM">
                                 <rect key="frame" x="408" y="18" width="45" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="RtZ-QZ-OuZ"/>

@@ -52,6 +52,7 @@ extension ProfileViewController : UICollectionViewDelegate, UICollectionViewData
         let cell: ProfileCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileCell", for: indexPath) as! ProfileCell
 
         cell.iconTitle.text = names[indexPath.item]
+        cell.iconImage.image = UIImage(named: names[indexPath.item])
        // cell.name.backgroundColor = UIColor.white
 //        cell.backgroundColor = UIColor.white
         return cell
@@ -127,7 +128,7 @@ extension ProfileViewController : UICollectionViewDelegate, UICollectionViewData
         switch indexPath.row {
             
         case 0:
-            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "NetworkViewController") as! NetworkViewController
+            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "CarrierTabViewController") as! CarrierTabViewController
             self.navigationController?.pushViewController(nextVC, animated: true)
         case 1:
             let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "MeViewController") as! MeViewController

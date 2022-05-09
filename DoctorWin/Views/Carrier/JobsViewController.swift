@@ -84,6 +84,10 @@ extension JobsViewController : UITableViewDelegate, UITableViewDataSource {
     
 }
 extension JobsViewController: JobsViewModelDelegate {
+    func didReceiveCarrierResponse(response: [CarrierModel]?, error: String?) {
+        
+    }
+    
     func didReceiveJobsResponse(response: [JobsDataModel]?, error: String?) {
         if error == nil {
             jobsArray = response ?? []

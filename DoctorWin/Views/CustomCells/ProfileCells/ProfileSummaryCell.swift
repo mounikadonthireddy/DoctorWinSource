@@ -15,7 +15,7 @@ class ProfileSummaryCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        editBtn.setCornerRadius(radius: 15)
+     //   editBtn.setCornerRadius(radius: 15)
 
     }
 

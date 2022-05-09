@@ -20,6 +20,8 @@ class ExamCell: UITableViewCell {
     @IBOutlet weak var option2Btn: UIButton!
     @IBOutlet weak var option3Btn: UIButton!
     @IBOutlet weak var option4Btn: UIButton!
+    @IBOutlet weak var explainBtn: UIButton!
+
     override func awakeFromNib() {
         
         super.awakeFromNib()
@@ -49,7 +51,41 @@ class ExamCell: UITableViewCell {
         self.option3Btn.setTitle("   C.\(homeModel.option3 ?? "")", for: .normal)
         self.option4Btn.setTitle("   D.\(homeModel.option4 ?? "")", for: .normal)
 
-
+        if homeModel.selectedOption != nil {
+        switch homeModel.correctAnswer  {
+            
+        case "A":
+            self.option1Btn.backgroundColor = UIColor(rgb: 0x008000)
+        case "B":
+            self.option2Btn.backgroundColor = UIColor(rgb: 0x008000)
+        case "C":
+            self.option3Btn.backgroundColor = UIColor(rgb: 0x008000)
+        case "D":
+            self.option4Btn.backgroundColor = UIColor(rgb: 0x008000)
+        case .none:
+            break
+        
+        case .some(_):
+            break
+        }
+        
+        switch homeModel.selectedOption  {
+            
+        case "A":
+            self.option1Btn.backgroundColor = UIColor(rgb: 0xD50000)
+        case "B":
+            self.option2Btn.backgroundColor = UIColor(rgb: 0xD50000)
+        case "C":
+            self.option3Btn.backgroundColor = UIColor(rgb: 0xD50000)
+        case "D":
+            self.option4Btn.backgroundColor = UIColor(rgb: 0xD50000)
+        case .none:
+            break
+        
+        case .some(_):
+            break
+        }
+        }
 
 //        if homeModel.follow != "False" {
 //            self.followBtn.setTitle("Following", for: .normal)
@@ -101,7 +137,7 @@ class ExamCell: UITableViewCell {
         let resource = HomeResource()
         resource.followComplaint(request: request) { result in
             DispatchQueue.main.async {
-                if result != nil && result == "true" {
+                if result != nil && result == true {
                     self.followBtn.setTitle("Following", for: .normal)
                 } else {
                     self.followBtn.setTitle("Follow", for: .normal)

@@ -151,6 +151,19 @@ struct ApiEndpoints
     static let jobsCount = "custom/user/"
     static let searchJobs = "job/search/"
 
+    
+    //Network
+    static let getNetworkConnections = "test/connection"
+    static let getFollow = "auth/follow"
+    static let getFollowing = "auth/following"
+    static let getRequest = "auth/request"
+    
+    //Requested User
+    
+    static let userCases = "user/case"
+    static let userNews = "user/news"
+    static let userArtical = "user/artical"
+    static let userDetails = "job/profile"
 
 }
 

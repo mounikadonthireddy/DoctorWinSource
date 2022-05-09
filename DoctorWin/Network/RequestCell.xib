@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RequestCell" rowHeight="114" id="Xoc-0e-In9" customClass="RequestCell" customModule="DoctorWin" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="343" height="114"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="Xoc-0e-In9" id="WWh-O9-RL6">
+                <rect key="frame" x="0.0" y="0.0" width="343" height="114"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="SRe-lY-2mG">
+                        <rect key="frame" x="84" y="15" width="259" height="40"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DR. ANMADcd" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Awd-dY-Yp3">
+                                <rect key="frame" x="0.0" y="0.0" width="259" height="17.5"/>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MBBS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m6W-fa-CcP">
+                                <rect key="frame" x="0.0" y="22.5" width="259" height="17.5"/>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
+                                <color key="textColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="Gtx-Hl-5ny"/>
+                        </constraints>
+                    </stackView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="collegeBg" translatesAutoresizingMaskIntoConstraints="NO" id="e5E-Tk-duq">
+                        <rect key="frame" x="15" y="6" width="59" height="58"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="58" id="bep-4f-Jad"/>
+                            <constraint firstAttribute="width" constant="59" id="wx1-iw-I4U"/>
+                        </constraints>
+                    </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="bUq-uW-uVs">
+                        <rect key="frame" x="84" y="55" width="192" height="37"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ytq-su-Brq">
+                                <rect key="frame" x="0.0" y="0.0" width="96" height="37"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Decline">
+                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PCc-gR-JHZ">
+                                <rect key="frame" x="96.5" y="0.0" width="95.5" height="37"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Follow Back"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="37" id="OUe-2z-T5l"/>
+                            <constraint firstAttribute="width" constant="192" id="dJS-k6-6Hz"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="bUq-uW-uVs" firstAttribute="leading" secondItem="e5E-Tk-duq" secondAttribute="trailing" constant="10" id="3hr-1h-TAE"/>
+                    <constraint firstItem="SRe-lY-2mG" firstAttribute="top" secondItem="WWh-O9-RL6" secondAttribute="top" constant="15" id="BDQ-Cx-edy"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="bUq-uW-uVs" secondAttribute="bottom" constant="1" id="BJL-Du-EkL"/>
+                    <constraint firstItem="bUq-uW-uVs" firstAttribute="top" secondItem="SRe-lY-2mG" secondAttribute="bottom" id="DRY-Wa-Yr2"/>
+                    <constraint firstItem="e5E-Tk-duq" firstAttribute="leading" secondItem="WWh-O9-RL6" secondAttribute="leading" constant="15" id="S7f-Ul-06Z"/>
+                    <constraint firstAttribute="trailing" secondItem="SRe-lY-2mG" secondAttribute="trailing" id="YR5-RN-iA1"/>
+                    <constraint firstItem="e5E-Tk-duq" firstAttribute="centerY" secondItem="SRe-lY-2mG" secondAttribute="centerY" id="hPM-Ec-TPs"/>
+                    <constraint firstItem="SRe-lY-2mG" firstAttribute="leading" secondItem="WWh-O9-RL6" secondAttribute="leading" constant="84" id="nHs-CN-IOd"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="I6B-nQ-K5n"/>
+            <connections>
+                <outlet property="declineBtn" destination="ytq-su-Brq" id="njg-Ub-LPK"/>
+                <outlet property="followBtn" destination="PCc-gR-JHZ" id="3i0-OE-db6"/>
+                <outlet property="name" destination="Awd-dY-Yp3" id="FxD-fO-8pg"/>
+                <outlet property="personImage" destination="e5E-Tk-duq" id="u6r-xR-z1e"/>
+                <outlet property="qualification" destination="m6W-fa-CcP" id="RRM-De-xMr"/>
+            </connections>
+            <point key="canvasLocation" x="145.6521739130435" y="69.642857142857139"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="collegeBg" width="720" height="415"/>
+    </resources>
+</document>

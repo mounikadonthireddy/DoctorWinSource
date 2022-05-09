@@ -29,8 +29,8 @@ struct ProfileDataModel : Codable {
     let language : String?
     let aboutMe: String?
     let skill : String?
-    let storiesCount: Int
-    let pollsCount: Int
+    let storiesCount: Int?
+    let pollsCount: Int?
     let newslikeCount: Int
     let articalsCount : Int
     let casesCount: Int

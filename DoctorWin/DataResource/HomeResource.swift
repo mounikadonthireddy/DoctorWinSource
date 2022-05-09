@@ -13,8 +13,7 @@ enum ResponseResult<Value> {
 
 struct HomeResource {
     func getHomeData(userID: String, completion : @escaping (_ result: ResponseResult<[HomeDataModel]>) -> Void) {
-        let userId = 1
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getPollComplaint + "?user_id=\(userId)&page=1"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getPollComplaint + "?user_id=\(userID)&page=1"
         let httpUtility = HttpUtility()
         do {
             httpUtility.getApiData(urlString: homeUrlStr, resultType: [HomeDataModel].self) { result in
@@ -78,7 +77,7 @@ completion(result)
             print("error is \(error)")
         }
     }
-    func followComplaint(request: ComplaintFollowRequest, completion : @escaping  (_ result: String?) -> Void) {
+    func followComplaint(request: ComplaintFollowRequest, completion : @escaping  (_ result: Bool?) -> Void) {
         
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.complaintFollow + "?user_id=\(request.user_id)&follow_id=\(request.follow_id)"
         let homeUrl = URL(string: homeUrlStr)!

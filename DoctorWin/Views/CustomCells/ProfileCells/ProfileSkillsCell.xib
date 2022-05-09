@@ -27,36 +27,36 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z9f-bH-kxQ">
-                        <rect key="frame" x="20" y="10" width="302" height="84"/>
+                        <rect key="frame" x="0.0" y="0.0" width="342" height="114"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skills" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jc3-kD-8R0">
-                                <rect key="frame" x="10" y="10" width="45" height="25"/>
+                                <rect key="frame" x="10" y="10" width="53" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="Dqa-s1-7Gs"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="19"/>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="22"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MwF-pa-xQs">
-                                <rect key="frame" x="10" y="45" width="282" height="29"/>
+                                <rect key="frame" x="10" y="45" width="322" height="59"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15.5" id="YMC-ye-88e"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
-                                <color key="textColor" red="0.50980392159999999" green="0.57254901960000004" blue="0.70588235290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3N0-su-Ftj">
-                                <rect key="frame" x="230" y="7" width="67" height="31"/>
-                                <color key="backgroundColor" red="0.85882352939999995" green="0.89019607840000003" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="217" y="7" width="120" height="31"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="O00-aT-KLa"/>
-                                    <constraint firstAttribute="width" constant="67" id="WGf-OC-b1j"/>
+                                    <constraint firstAttribute="width" constant="120" id="WGf-OC-b1j"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Add">
+                                <state key="normal" title="+ Add Details">
                                     <color key="titleColor" red="0.18823529410000001" green="0.30980392159999998" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
@@ -76,10 +76,10 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Z9f-bH-kxQ" firstAttribute="top" secondItem="r1P-j3-6dL" secondAttribute="top" constant="10" id="GIM-VL-bjL"/>
-                    <constraint firstAttribute="trailing" secondItem="Z9f-bH-kxQ" secondAttribute="trailing" constant="20" id="KeC-D8-inr"/>
-                    <constraint firstItem="Z9f-bH-kxQ" firstAttribute="leading" secondItem="r1P-j3-6dL" secondAttribute="leading" constant="20" id="dx7-vs-hQL"/>
-                    <constraint firstAttribute="bottom" secondItem="Z9f-bH-kxQ" secondAttribute="bottom" constant="20" id="mnw-M8-qCW"/>
+                    <constraint firstItem="Z9f-bH-kxQ" firstAttribute="top" secondItem="r1P-j3-6dL" secondAttribute="top" id="GIM-VL-bjL"/>
+                    <constraint firstAttribute="trailing" secondItem="Z9f-bH-kxQ" secondAttribute="trailing" id="KeC-D8-inr"/>
+                    <constraint firstItem="Z9f-bH-kxQ" firstAttribute="leading" secondItem="r1P-j3-6dL" secondAttribute="leading" id="dx7-vs-hQL"/>
+                    <constraint firstAttribute="bottom" secondItem="Z9f-bH-kxQ" secondAttribute="bottom" id="mnw-M8-qCW"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="MKj-O7-7uF"/>

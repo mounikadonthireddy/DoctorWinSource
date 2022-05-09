@@ -8,22 +8,30 @@
 import UIKit
 
 class CarrierTabViewController: ViewController {
-    
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var collectionViewLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var tableView: UITableView!
-    var allJobsArray :[JobsDataModel] = []
+    var carrierJobArray :[CarrierModel] = []
     var categoryJobsViewModel = JobCategoryViewModel()
     var jobsVM = JobsViewModel()
-    var recommendJobsArray: [JobsDataModel] = []
-    
+    var quickSearchArray:[JobCategoryDataModel] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.contentInsetAdjustmentBehavior = .never
+        categoryJobsViewModel.delegate = self
+        self.collectionView.delegate = self
+        self.collectionView.dataSource = self
+        self.collectionView.backgroundColor = UIColor.white
         
-        
+        collectionViewLayout.scrollDirection = .horizontal
+        collectionViewLayout.minimumLineSpacing = 0
+        collectionViewLayout.minimumInteritemSpacing = 0
+        collectionViewLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
         tableView.register(UINib.init(nibName: "CarrierJobCell", bundle: nil), forCellReuseIdentifier: "CarrierJobCell")
         
-        
+        collectionView.register(UINib.init(nibName: "CarrierCategoryCell", bundle: nil), forCellWithReuseIdentifier: "CarrierCategoryCell")
+
         tableView.register(TitleView.nib, forHeaderFooterViewReuseIdentifier: TitleView.identifier)
         
         jobsVM.delegate = self
@@ -36,7 +44,9 @@ class CarrierTabViewController: ViewController {
         tabBarController?.tabBar.isHidden = false
         
     }
+    
     func parse1() {
+        self.showLoader()
         jobsVM.getAllJobData(userID: User.shared.userID)
     }
     func parse() {
@@ -44,14 +54,11 @@ class CarrierTabViewController: ViewController {
         categoryJobsViewModel.getTopRecommendedJobs(userID: User.shared.userID)
     }
     
-    
-    
-    
 }
 extension CarrierTabViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return allJobsArray.count
+        return carrierJobArray.count
         
     }
     
@@ -60,14 +67,11 @@ extension CarrierTabViewController: UITableViewDelegate, UITableViewDataSource {
         
         let cell: CarrierJobCell
         = tableView.dequeueReusableCell(withIdentifier: "CarrierJobCell") as! CarrierJobCell
-        //            cell.configureCell(with: recentSearchArray)
+        cell.configureCell(with: carrierJobArray[indexPath.row])
         return cell
         
         
     }
-    
-    
-    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let str = UIStoryboard(name: "Home", bundle: nil)
@@ -78,20 +82,33 @@ extension CarrierTabViewController: UITableViewDelegate, UITableViewDataSource {
         }
         if indexPath.section == 5 {
             let nextVC = str.instantiateViewController(withIdentifier: "JobDetailsViewController") as! JobDetailsViewController
-            nextVC.detailsModel = allJobsArray[indexPath.row]
+       //     nextVC.detailsModel = allJobsArray[indexPath.row]
             self.navigationController?.pushViewController(nextVC, animated: true)
         }
     }
     
     
 }
+extension CarrierTabViewController: JobCategoryViewModelDelegate {
+    func didReceiveTopJobs(response: [JobCategoryDataModel]?, error: String?) {
+        self.dismiss()
+        quickSearchArray = response ?? []
+        collectionView.reloadData()
+    }
+    
+    
+}
 extension CarrierTabViewController: JobsViewModelDelegate {
-    func didReceiveJobsResponse(response: [JobsDataModel]?, error: String?) {
+    func didReceiveCarrierResponse(response: [CarrierModel]?, error: String?) {
         self.dismiss()
         if error == nil {
-            allJobsArray = response ?? []
+            carrierJobArray = response ?? []
             tableView.reloadData()
         }
+    }
+    
+    func didReceiveJobsResponse(response: [JobsDataModel]?, error: String?) {
+        self.dismiss()
     }
     
     
@@ -117,24 +134,47 @@ extension CarrierTabViewController: RecommendedJobSelectionDelegate {
     }
 }
 
-//extension CarrierTabViewController: SearchJobDelegate {
-//    func textFeildSelection(type: String) {
-//        let str = UIStoryboard(name: "Home", bundle: nil)
-//        let nextVC = str.instantiateViewController(withIdentifier: "DataViewController") as! DataViewController
-//        nextVC.inputArray =  speacilityArray.map{ data in
-//            return data.department
-//        }
-//
-//        self.navigationController?.pushViewController(nextVC, animated: true)
-//    }
-//
-//    func SearchJobDelegate(query: String, jobType: String) {
-//        let str = UIStoryboard(name: "Home", bundle: nil)
-//        let nextVC = str.instantiateViewController(withIdentifier: "JobsViewController") as! JobsViewController
-//        nextVC.jobType = jobType
-//        nextVC.query = true
-//        nextVC.queryString = query
-//        self.navigationController?.pushViewController(nextVC, animated: true)
-//    }
-//}
 
+
+extension CarrierTabViewController : UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return quickSearchArray.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: CarrierCategoryCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CarrierCategoryCell", for: indexPath) as! CarrierCategoryCell
+        cell.configureCell(with: quickSearchArray[indexPath.row])
+        return cell
+        
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let yourWidth = 160
+        return CGSize(width: yourWidth, height: 100)
+    }
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0) //.zero
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        
+        return 0
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    
+}

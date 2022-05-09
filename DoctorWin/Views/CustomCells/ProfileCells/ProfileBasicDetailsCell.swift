@@ -20,8 +20,8 @@ class ProfileBasicDetailsCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        basicView.setCornerRadiusWithBorderColor(radius: 10, color: UIColor(rgb: 0xE6E6E6), borderWidth: 0.5)
-        professionalEdit.setCornerRadius(radius: 15)
+//        basicView.setCornerRadiusWithBorderColor(radius: 10, color: UIColor(rgb: 0xE6E6E6), borderWidth: 0.5)
+//        professionalEdit.setCornerRadius(radius: 15)
 
     }
 

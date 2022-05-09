@@ -45,9 +45,9 @@ class HomeViewController: UIViewController, ExpandableLabelDelegate {
         }
         if #available(iOS 13, *)
         {
-            let statusBar = UIView(frame: (UIApplication.shared.keyWindow?.windowScene?.statusBarManager?.statusBarFrame)!)
-            statusBar.backgroundColor = #colorLiteral(red: 0.0862745098, green: 0.1098039216, blue: 0.3137254902, alpha: 1)
-            UIApplication.shared.keyWindow?.addSubview(statusBar)
+//            let statusBar = UIView(frame: (UIApplication.shared.keyWindow?.windowScene?.statusBarManager?.statusBarFrame))
+//            statusBar.backgroundColor = #colorLiteral(red: 0.0862745098, green: 0.1098039216, blue: 0.3137254902, alpha: 1)
+//            UIApplication.shared.keyWindow?.addSubview(statusBar)
         } else {
             // ADD THE STATUS BAR AND SET A CUSTOM COLOR
             let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
@@ -151,7 +151,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             let cell: ExamCell
             = tableView.dequeueReusableCell(withIdentifier: "ExamCell") as! ExamCell
             cell.configureData(homeModel: homedataArry[indexPath.row])
-            
+            cell.explainBtn.addTarget(self, action: #selector(explainClicked(button:)), for: .touchUpInside)
+            cell.explainBtn.tag = indexPath.row
             return cell
         }
         
@@ -173,8 +174,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         return nil
         
     }
-    @objc func postClicked(button: UIButton) {
-        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "CreateCaseViewController") as! CreateCaseViewController
+    @objc func explainClicked(button: UIButton) {
+        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "ExamDetailsViewController") as! ExamDetailsViewController
+        nextVC.examData = homedataArry[button.tag]
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

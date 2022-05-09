@@ -27,5 +27,12 @@ class NetworkCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+    func cellConfigureWithConnectionData(data: NetworkModel) {
+        self.name.text = data.ProfileName ?? ""
+        self.qualification.text = data.hightest_qualification ?? ""
+        self.location.text = data.speciality ?? ""
+        if let urlString = data.ProfileImage {
+         self.personImage.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "loginBg"))
+        }
+    }
 }

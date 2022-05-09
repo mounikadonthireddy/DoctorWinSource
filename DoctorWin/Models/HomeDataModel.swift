@@ -37,6 +37,8 @@ struct HomeDataModel: Codable {
     let correctAnswer: String?
     let exam: String?
     let discription: String?
+    let selectedOption: String?
+    
     enum CodingKeys: String, CodingKey {
         case id = "id"
         case title = "title"
@@ -66,6 +68,7 @@ struct HomeDataModel: Codable {
         case correctAnswer = "correct_answer"
         case exam
         case discription
+        case selectedOption = "selected_option"
     }
     
 }

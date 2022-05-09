@@ -9,7 +9,7 @@ import UIKit
 import MaterialComponents.MaterialTextControls_OutlinedTextAreas
 import MaterialComponents.MaterialTextControls_OutlinedTextFields
 class AddCasesViewController: UIViewController {
-    @IBOutlet weak var caseTitle: UITextField!
+    @IBOutlet weak var caseTitle: UITextView!
     @IBOutlet weak var presentIllness: MDCOutlinedTextField!
     @IBOutlet weak var pastIllness: MDCOutlinedTextField!
     @IBOutlet weak var drugs: MDCOutlinedTextField!
@@ -23,32 +23,32 @@ class AddCasesViewController: UIViewController {
     @IBOutlet weak var imaging: MDCOutlinedTextField!
     @IBOutlet weak var probableDiagnosis: MDCOutlinedTextField!
     @IBOutlet weak var chiefComplaint: MDCOutlinedTextField!
-    @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var patientStackHeight: NSLayoutConstraint!
-    @IBOutlet weak var chiefStackHeight: NSLayoutConstraint!
-    @IBOutlet weak var investigationStackHeight: NSLayoutConstraint!
-    @IBOutlet weak var probableStackHeight: NSLayoutConstraint!
-    @IBOutlet weak var examinationStackHeight: NSLayoutConstraint!
-    @IBOutlet weak var patientStackView: UIStackView!
-    @IBOutlet weak var investigationStackView: UIStackView!
-    @IBOutlet weak var examinationStackView: UIStackView!
+    @IBOutlet weak var patientViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var chiefViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var investigationViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var probableViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var examinationViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var patientView: UIView!
+    @IBOutlet weak var investigationView: UIView!
+    @IBOutlet weak var examinationView: UIView!
+    @IBOutlet weak var probableView: UIView!
 
     var imageFileName: String = ""
     var imagePicker: ImagePicker!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
-        patientStackHeight.constant = 0
-        chiefStackHeight.constant = 0
-        investigationStackHeight.constant = 0
-        probableStackHeight.constant = 0
-        examinationStackHeight.constant = 0
-        patientStackView.isHidden = true
-        chiefComplaint.isHidden = true
-        investigationStackView.isHidden = true
-        probableDiagnosis.isHidden = true
-        
+//        patientViewHeight.constant = 0
+//        chiefViewHeight.constant = 0
+//        investigationViewHeight.constant = 0
+//        probableViewHeight.constant = 0
+//        examinationViewHeight.constant = 0
+//        patientView.isHidden = true
+//        chiefComplaint.isHidden = true
+//        investigationView.isHidden = true
+//        probableDiagnosis.isHidden = true
+//        examinationView.isHidden = true
 
 //        presentIllness.label.text = "Present Illness"
 //        pastIllness.label.text = "Past Illness"

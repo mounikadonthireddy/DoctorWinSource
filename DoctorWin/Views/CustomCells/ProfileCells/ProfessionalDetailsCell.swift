@@ -17,12 +17,12 @@ class ProfessionalDetailsCell: UITableViewCell {
     @IBOutlet weak var postGraduationInstitute: UILabel!
     @IBOutlet weak var graduationInstitute: UILabel!
     @IBOutlet weak var professionalEdit: UIButton!
-    @IBOutlet weak var basicView: UIImageView!
+//    @IBOutlet weak var basicView: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        basicView.setCornerRadiusWithBorderColor(radius: 10, color: UIColor(rgb: 0xE6E6E6), borderWidth: 0.5)
-        professionalEdit.setCornerRadius(radius: 15)
+//        basicView.setCornerRadiusWithBorderColor(radius: 10, color: UIColor(rgb: 0xE6E6E6), borderWidth: 0.5)
+//        professionalEdit.setCornerRadius(radius: 15)
 
         // Initialization code
     }

@@ -8,6 +8,8 @@
 import Foundation
 protocol JobsViewModelDelegate {
     func didReceiveJobsResponse(response: [JobsDataModel]?, error: String?)
+    func didReceiveCarrierResponse(response: [CarrierModel]?, error: String?)
+
 }
 
 struct JobsViewModel {
@@ -45,13 +47,13 @@ struct JobsViewModel {
           let jobResource = JobsResource()
           jobResource.getSearchJobData(userID: userID , query: query) { response in
               DispatchQueue.main.async {
-                switch response {
-                case .success(let data):
-                    self.delegate?.didReceiveJobsResponse(response: data, error: nil)
-                    
-                case .failure(let error):
-                    self.delegate?.didReceiveJobsResponse(response: nil, error: error)
-                }
+//                switch response {
+////                case .success(let data):
+//////                    self.delegate?.didReceiveJobsResponse(response: data, error: nil)
+////
+////                case .failure(let error):
+//////                    self.delegate?.didReceiveJobsResponse(response: nil, error: error)
+//                }
               }
 
   }
@@ -62,10 +64,10 @@ struct JobsViewModel {
               DispatchQueue.main.async {
                 switch response {
                 case .success(let data):
-                    self.delegate?.didReceiveJobsResponse(response: data, error: nil)
+                    self.delegate?.didReceiveCarrierResponse(response: data, error: nil)
                     
                 case .failure(let error):
-                    self.delegate?.didReceiveJobsResponse(response: nil, error: error)
+                    self.delegate?.didReceiveCarrierResponse(response: nil, error: error)
                 }
               }
 
