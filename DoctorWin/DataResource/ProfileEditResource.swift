@@ -41,12 +41,11 @@ struct ProfileEditResource {
             debugPrint(error)
         }
     }
-    func getProfileData(userID: String, completion : @escaping (_ result: ResponseResult<ProfileDataModel>) -> Void) {
+    func getProfileData(url: String, completion : @escaping (_ result: ResponseResult<ProfileDataModel>) -> Void) {
         
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.profileEdit + "?user_id=\(userID)"
         let httpUtility = HttpUtility()
         do {
-            httpUtility.getApiData(urlString: homeUrlStr, resultType: ProfileDataModel.self) { result in
+            httpUtility.getApiData(urlString: url, resultType: ProfileDataModel.self) { result in
                 
                 switch result {
                    case .success(let data):

@@ -68,8 +68,43 @@ class NewsCell: UITableViewCell {
             
             self.personImage.sd_setImage(with: URL(string: finalUrlString), placeholderImage: UIImage(named: "loginBg"))
         }
-        wishlistBtn.tag = homeModel.id ?? 0
-        saveBtn.tag = homeModel.id ?? 0
+        wishlistBtn.tag = homeModel.id
+        saveBtn.tag = homeModel.id
+        // replyBtn.tag = homeModel.id ?? 0
+    }
+    func configureData(homeModel: NewsModel) {
+        
+        self.postedPersonName.text = (homeModel.ProfileName ?? "")
+        self.titleLable.text =  homeModel.title
+        self.designation.text = homeModel.speciality
+
+        
+        if let value = homeModel.discussions {
+            self.discussion.text = "\(String(describing: value))"
+            
+        }
+//        self.followBtn.tag = homeModel.complaintId ?? 0
+        if let urlString = homeModel.image {
+            self.postImage.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "loginBg"))
+        }
+//        self.descriptionLable.text = homeModel.discription
+        if homeModel.bookmark_status {
+            bookmarkImage.image = UIImage(named: "fmark")
+        }
+//        if homeModel.follow != "False" {
+//            self.followBtn.setTitle("Following", for: .normal)
+//        }
+        if homeModel.like_status {
+            likeImage.image = UIImage(named: "fheart")
+            
+        }
+        if let urlString = homeModel.ProfileImage {
+            let finalUrlString = "http://3.132.212.116:8000" + urlString
+            
+            self.personImage.sd_setImage(with: URL(string: finalUrlString), placeholderImage: UIImage(named: "loginBg"))
+        }
+        wishlistBtn.tag = homeModel.id
+        saveBtn.tag = homeModel.id
         // replyBtn.tag = homeModel.id ?? 0
     }
     @IBAction func likeClicked(_ sender: UIButton) {

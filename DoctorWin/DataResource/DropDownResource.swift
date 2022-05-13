@@ -6,7 +6,10 @@
 //
 
 import Foundation
-
+struct ProfessionModel: Codable {
+    let position: String
+    let id: Int
+}
 struct QualificationModel: Codable {
     let qualification: String
     let id: Int
@@ -22,6 +25,33 @@ struct DropDownResource {
         let httpUtility = HttpUtility()
         do {
             httpUtility.getApiData(urlString: profileUrlStr, resultType: [QualificationModel].self) { result in
+                
+                switch result {
+                   case .success(let data):
+                    completion(data)
+                    
+                   case .failure(let requestError):
+                       switch requestError {
+                       case .invalidUrl:
+//                        completion(.failure("Please try Again After SomeTime"))
+                       break
+                       case .internalServerError:
+                        print("Error: Unknown")
+                       
+                       case .decodingError:
+                        print("Error: Unknown")
+                       case .serverError(error: let error):
+                        print("Error: Unknown")
+                       }
+                   }
+            }
+        }
+    }
+    func getProfessionalData(completion : @escaping (_ result: [ProfessionModel]) -> Void) {
+        let profileUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getProfession
+        let httpUtility = HttpUtility()
+        do {
+            httpUtility.getApiData(urlString: profileUrlStr, resultType: [ProfessionModel].self) { result in
                 
                 switch result {
                    case .success(let data):

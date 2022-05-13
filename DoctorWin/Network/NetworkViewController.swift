@@ -92,6 +92,7 @@ class NetworkViewController: ViewController {
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             let str = UIStoryboard(name: "Home", bundle: nil)
             let nextVC = str.instantiateViewController(withIdentifier: "UserDetailsViewController") as! UserDetailsViewController
+            nextVC.RequestUserID = "\(connectionsArray[indexPath.row].userid ?? 0)"
             self.navigationController?.pushViewController(nextVC, animated: true)
         }
     }

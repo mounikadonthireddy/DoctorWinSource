@@ -8,6 +8,11 @@
 import UIKit
 
 class HomeTableHeader: UITableViewHeaderFooterView {
+    @IBOutlet weak var products: UIButton!
+    @IBOutlet weak var education: UIButton!
+    @IBOutlet weak var news: UIButton!
+    @IBOutlet weak var job: UIButton!
+    @IBOutlet weak var connect: UIButton!
 
     static var nib: UINib {
         return UINib(nibName: identifier, bundle: nil)

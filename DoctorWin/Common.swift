@@ -163,7 +163,10 @@ struct ApiEndpoints
     static let userCases = "user/case"
     static let userNews = "user/news"
     static let userArtical = "user/artical"
-    static let userDetails = "job/profile"
+    static let userDetails = "job/profile/"
+    
+    //connect
+    static let getProfession = "connect/dating/profession"
 
 }
 

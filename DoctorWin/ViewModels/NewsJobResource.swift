@@ -92,6 +92,33 @@ struct NewsJobResource {
             }
         }
     }
+    func getMyNewsData1(urlString: String, completion : @escaping (_ result: ResponseResult<[NewsModel]>) -> Void) {
+     
+        let httpUtility = HttpUtility()
+        do {
+            httpUtility.getApiData(urlString: urlString, resultType: [NewsModel].self) { result in
+                
+                switch result {
+                   case .success(let data):
+                    completion(.success(data))
+                    
+                   case .failure(let requestError):
+                       switch requestError {
+                       case .invalidUrl:
+                        completion(.failure("Please try Again After SomeTime"))
+                       
+                       case .internalServerError:
+                        print("Error: Unknown")
+                       
+                       case .decodingError:
+                        print("Error: Unknown")
+                       case .serverError(error: let error):
+                        print("Error: Unknown")
+                       }
+                   }
+            }
+        }
+    }
     func getMyNewsData(urlString: String, completion : @escaping (_ result: ResponseResult<[NewsDataModel]>) -> Void) {
      
         let httpUtility = HttpUtility()

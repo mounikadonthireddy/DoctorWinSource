@@ -52,7 +52,9 @@ struct ProfileViewModel {
 
     func getProfileData(userID: String) {
         let resource = ProfileEditResource()
-        resource.getProfileData(userID: userID) { response in
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.profileEdit + "?user_id=\(userID)"
+
+        resource.getProfileData(url: homeUrlStr) { response in
             DispatchQueue.main.async {
                 switch response {
                 case .success(let data):

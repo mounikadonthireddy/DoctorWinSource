@@ -71,3 +71,16 @@ struct ArticalsDataModel: Codable {
     let profile_image: String?
     let id: Int
 }
+struct NewsModel: Codable {
+    let ProfileName: String?
+    let current_job_location: String?
+    let speciality: String?
+    let hightest_qualification: String?
+    let ProfileImage: String?
+    let title: String?
+    let image: String?
+    let discussions: Int?
+    let bookmark_status: Bool
+    let like_status: Bool
+    let id: Int
+}

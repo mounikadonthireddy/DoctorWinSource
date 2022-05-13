@@ -10,24 +10,23 @@ import UIKit
 class UserDetailsViewController: ViewController {
     
     @IBOutlet weak var profileTableView: UITableView!
-    var profileDataModel : ProfileDataModel!
-    var profileVM = ProfileViewModel()
-    var experienceArray: [ExperienceModel] = []
+    var profileVM = UserDetailsViewModel()
+    var userDetailsModel : ProfileDataModel?
+    var newsArray: [NewsModel] = []
+    var articelArray: [ArticalsDataModel] = []
+    var casesArray: [HomeDataModel] = []
+    var RequestUserID = ""
+    var selectionType = -1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         profileTableView.register(UINib(nibName: "ProfileHeadCell", bundle: nil), forCellReuseIdentifier: "ProfileHeadCell")
         
         self.profileTableView.register(UINib(nibName: "UserHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "UserHeaderView")
-
-
+        profileTableView.register(UINib(nibName: "CaseCell", bundle: nil), forCellReuseIdentifier: "CaseCell")
+        profileTableView.register(UINib(nibName: "NewsCell", bundle: nil), forCellReuseIdentifier: "NewsCell")
         
-//        profileTableView.register(UINib(nibName: "InfoCell", bundle: nil), forCellReuseIdentifier: "InfoCell")
-//        profileTableView.register(UINib(nibName: "AddSkillsCell", bundle: nil), forCellReuseIdentifier: "AddSkillsCell")
-//        profileTableView.register(UINib(nibName: "ExperienceCell", bundle: nil), forCellReuseIdentifier: "ExperienceCell")
-//        
-//        profileTableView.register(UINib(nibName: "ExperienceAddCell", bundle: nil), forCellReuseIdentifier: "ExperienceAddCell")
-//        profileTableView.register(UINib(nibName: "ExperinceTitleCell", bundle: nil), forCellReuseIdentifier: "ExperinceTitleCell")
-//        
+        profileTableView.register(UINib(nibName: "ArticalCell", bundle: nil), forCellReuseIdentifier: "ArticalCell")
         
         self.navigationController?.isNavigationBarHidden = true
         profileTableView.contentInset = UIEdgeInsets(top: -10, left: 0, bottom: 0, right: 0)
@@ -37,17 +36,30 @@ class UserDetailsViewController: ViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        parse()
+        loadUserDetails()
+        loadUserPostedNews()
+        loadUserPostedCases()
+        loadUserPostedCases()
         tabBarController?.tabBar.isHidden = false
     }
-    func parse() {
+    func loadUserDetails() {
         self.showLoader()
-        profileVM.getProfileData(userID: User.shared.userID)
+        profileVM.getProfileData(userID: User.shared.userID, requestId: RequestUserID)
         
     }
-    func loadExperince() {
+    func loadUserPostedNews() {
         self.showLoader()
-        profileVM.getProfileExperienceData(userID: User.shared.userID)
+        profileVM.getUserPostedNews(userID: RequestUserID)
+        
+    }
+    func loadUserPostedCases() {
+        self.showLoader()
+        profileVM.getUserPostedCases(userID: RequestUserID)
+        
+    }
+    func loadUserPostedArticles() {
+        self.showLoader()
+        profileVM.getUserPostedArticles(userID: RequestUserID)
         
     }
     override func viewWillDisappear(_ animated: Bool) {
@@ -60,65 +72,45 @@ extension UserDetailsViewController: UITableViewDelegate, UITableViewDataSource 
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        if profileDataModel != nil {
-//            if section == 4 {
-//                return experienceArray.count
-//            }
-            return 0
-//        }
-//        return 0
-//
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.section {
+        switch selectionType {
         case 0:
-            let cell: ProfileHeadCell = tableView.dequeueReusableCell(withIdentifier: "ProfileHeadCell", for: indexPath) as! ProfileHeadCell
-            cell.cellConfigureWith(data: profileDataModel, section: indexPath.section)
-            cell.followingBtn.addTarget(self, action: #selector(followClicked(button:)), for: .touchUpInside)
-            cell.followersBtn.addTarget(self, action: #selector(followClicked(button:)), for: .touchUpInside)
-            cell.logoutBtn.addTarget(self, action: #selector(logoutClicked(button:)), for: .touchUpInside)
-
-            cell.casesBtn.addTarget(self, action: #selector(casesClicked(button:)), for: .touchUpInside)
-            cell.newsBtn.addTarget(self, action: #selector(newsClicked(button:)), for: .touchUpInside)
-            cell.appliedBtn.addTarget(self, action: #selector(appliedClicked(button:)), for: .touchUpInside)
-
-
-            return cell
+        return newsArray.count
+        case 1:
+            return casesArray.count
         case 2:
-            let cell: InfoCell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath) as! InfoCell
-            cell.cellConfigureWith(data: profileDataModel, section: indexPath.section)
-            cell.personalEdit.addTarget(self, action: #selector(editClicked(button:)), for: .touchUpInside)
-            cell.professionalEdit.addTarget(self, action: #selector(editClicked(button:)), for: .touchUpInside)
-            
-            return cell
-            
-        case 4:
-            let cell: ExperienceCell = tableView.dequeueReusableCell(withIdentifier: "ExperienceCell", for: indexPath) as! ExperienceCell
-            cell.configureCell(data: experienceArray[indexPath.row])
-            cell.edit.addTarget(self, action: #selector(expEditClicked(button:)), for: .touchUpInside)
-            cell.edit.tag = indexPath.row
-            cell.delete.tag = indexPath.row
-            cell.delete.addTarget(self, action: #selector(deleteClicked(button:)), for: .touchUpInside)
-            
-            return cell
+            return newsArray.count
         case 3:
-            let cell: ExperinceTitleCell = tableView.dequeueReusableCell(withIdentifier: "ExperinceTitleCell", for: indexPath) as! ExperinceTitleCell
-            
-            return cell
-        case 5:
-            let cell: ExperienceAddCell = tableView.dequeueReusableCell(withIdentifier: "ExperienceAddCell", for: indexPath) as! ExperienceAddCell
-            //            cell.cellConfigureWith(section: indexPath.section, data: profileDataModel)
-            //            cell.edit.addTarget(self, action: #selector(editClicked(button:)), for: .touchUpInside)
-            
-            return cell
-        case 1,6:
-            let cell: AddSkillsCell = tableView.dequeueReusableCell(withIdentifier: "AddSkillsCell", for: indexPath) as! AddSkillsCell
-            cell.cellConfigureWith(section: indexPath.section, data: profileDataModel)
-            cell.edit.addTarget(self, action: #selector(editClicked(button:)), for: .touchUpInside)
-            
+            return articelArray.count
+        default:
+            return 0
+    }
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch selectionType {
+        case 0:
+            let cell: NewsCell
+                = tableView.dequeueReusableCell(withIdentifier: "NewsCell") as! NewsCell
+            cell.configureData(homeModel: newsArray[indexPath.row])
             return cell
             
+        case 1:
+            let cell: CaseCell
+                = tableView.dequeueReusableCell(withIdentifier: "CaseCell") as! CaseCell
+           // cell.configureData(homeModel: newsArray[indexPath.row])
+            return cell
+            
+        case 2:
+            let cell: NewsCell
+                = tableView.dequeueReusableCell(withIdentifier: "NewsCell") as! NewsCell
+            cell.configureData(homeModel: newsArray[indexPath.row])
+            return cell
+            
+        case 3:
+            let cell: ArticalCell
+                = tableView.dequeueReusableCell(withIdentifier: "ArticalCell") as! ArticalCell
+         //   cell.configureData(homeModel: newsArray[indexPath.row])
+            return cell
             
         default:
             
@@ -126,92 +118,114 @@ extension UserDetailsViewController: UITableViewDelegate, UITableViewDataSource 
             
         }
     }
-    @objc func editClicked(button: Any) {
-        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "EditMeViewController") as! EditMeViewController
-        nextVC.profileDataModel = profileDataModel
-        self.navigationController?.pushViewController(nextVC, animated: true)
-    }
-    @objc func logoutClicked(button: Any) {
-        let str = UIStoryboard(name: "Main", bundle: nil)
-        let nextVC = str.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-        self.navigationController?.pushViewController(nextVC, animated: true)
-    }
-    @objc func expEditClicked(button: UIButton) {
-        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "ExperienceViewController") as! ExperienceViewController
-        nextVC.expModel = experienceArray[button.tag]
-        self.navigationController?.pushViewController(nextVC, animated: true)
-    }
-    @objc func casesClicked(button: UIButton) {
-        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "MyCasesViewController") as! MyCasesViewController
-        self.navigationController?.pushViewController(nextVC, animated: true)
-    }
-    @objc func newsClicked(button: UIButton) {
-        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "MyNewsViewController") as! MyNewsViewController
-        self.navigationController?.pushViewController(nextVC, animated: true)
-    }
-    @objc func appliedClicked(button: UIButton) {
-        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "AppliedJobViewController") as! AppliedJobViewController
-//        nextVC.expModel = experienceArray[button.tag]
-        nextVC.showBack = true
-        self.navigationController?.pushViewController(nextVC, animated: true)
-    }
-    @objc func followClicked(button: UIButton) {
-        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "FollowViewController") as! FollowViewController
-//        nextVC.expModel = experienceArray[button.tag]
-        self.navigationController?.pushViewController(nextVC, animated: true)
-    }
-    @objc func deleteClicked(button: UIButton) {
-        self.showLoader()
-        let req = DeleteExpModel(exp_id: experienceArray[button.tag].id, user_id: Int(User.shared.userID)!)
-        profileVM.deleteExp(userID: User.shared.userID, expID: experienceArray[button.tag].id, request: req) { result in
-            DispatchQueue.main.async {
-                self.dismiss()
-                if result?.status ?? false {
-                let alert = UIAlertController(title: nil, message: "Deleted Successfully", preferredStyle: .alert)
-                
-                alert.addAction(UIAlertAction(title: Constants.OkAlertTitle, style: .default, handler: nil))
-                
-                self.present(alert, animated: true)
-                    self.loadExperince()
-            }
-            }
-        }
-        
-    }
+    
+    
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-       
+        
         return 400
-
+        
     }
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "UserHeaderView") as? UserHeaderView {
-          
-
+            if let userDetails = userDetailsModel {
+                headerView.configureView(data: userDetails)
+            }
+            headerView.followBtn.addTarget(self, action: #selector(followClicked(button:)), for: .touchUpInside)
+            headerView.viewBtn.addTarget(self, action: #selector(viewClicked(button:)), for: .touchUpInside)
+            headerView.socialBtn.addTarget(self, action: #selector(socialClicked(button:)), for: .touchUpInside)
+            headerView.casesBtn.addTarget(self, action: #selector(casesClicked(button:)), for: .touchUpInside)
+            headerView.newsBtn.addTarget(self, action: #selector(newsClicked(button:)), for: .touchUpInside)
+            headerView.articlesBtn.addTarget(self, action: #selector(articlesClicked(button:)), for: .touchUpInside)
+            headerView.followCountBtn.addTarget(self, action: #selector(followCountClicked(button:)), for: .touchUpInside)
+            headerView.followingCountBtn.addTarget(self, action: #selector(followingCountClicked(button:)), for: .touchUpInside)
+            headerView.interfaceSegmented.delegate = self
             return headerView
         }
         
         return nil
         
     }
-}
-extension UserDetailsViewController: ProfileViewModelDelegate {
-    func didReciveProfileExperienceData(response: [ExperienceModel]?, error: String?) {
-        self.dismiss()
-        experienceArray = response ?? []
-        profileTableView.reloadData()
+    @objc func casesClicked(button: UIButton) {
+        self.selectionType = 1
+        self.loadUserPostedCases()
     }
-    
-    
+    @objc func newsClicked(button: UIButton) {
+        self.loadUserPostedNews()
+        self.selectionType = 2
+    }
+    @objc func articlesClicked(button: UIButton) {
+        self.selectionType = 3
+        self.loadUserPostedArticles()
+    }
+    @objc func socialClicked(button: UIButton) {
+        self.selectionType = 0
+        self.loadUserPostedArticles()
+    }
+    @objc func viewClicked(button: UIButton) {
+        
+    }
+    @objc func followingCountClicked(button: UIButton) {
+        
+    }
+    @objc func followCountClicked(button: UIButton) {
+        
+    }
+    @objc func followClicked(button: UIButton) {
+        
+    }
+}
+extension UserDetailsViewController: UserDetailsViewModelDelegate {
     func didReciveProfileData(response: ProfileDataModel?, error: String?) {
         self.dismiss()
-        profileDataModel = response
-        profileTableView.reloadData()
-        self.loadExperince()
+        if response != nil {
+            userDetailsModel = response!
+            profileTableView.reloadData()
+        }
     }
     
+    func didReceivePostedNews(response: [NewsModel]?, error: String?) {
+        self.dismiss()
+        if error == nil {
+            newsArray = response ?? []
+            profileTableView.reloadData()
+        }
+    }
+    
+    func didReceivePostedCases(response: [HomeDataModel]?, error: String?) {
+        self.dismiss()
+        if error == nil {
+            casesArray = response ?? []
+            profileTableView.reloadData()
+
+        }
+    }
+    
+    func didReceivePostedArticles(response: [ArticalsDataModel]?, error: String?) {
+        self.dismiss()
+        if error == nil {
+            articelArray = response ?? []
+            profileTableView.reloadData()
+
+        }
+    }
     
 }
 
+extension UserDetailsViewController : CustomSegmentedControlDelegate {
+    func change(to index: Int) {
+        print(index)
+        if index == 0 {
+//            self.los()
+        } else if index == 1 {
+//            self.loadBookmarkNews()
+        } else {
+//            self.loadLikedNews()
+        }
+        
+       
+    }
+}

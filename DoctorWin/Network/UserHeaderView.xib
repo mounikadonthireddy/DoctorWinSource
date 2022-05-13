@@ -125,6 +125,13 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WKL-jz-fvN" customClass="CustomSegmentedControl" customModule="DoctorWin" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="415" width="320" height="40"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="iFm-tA-cQH"/>
+                    </constraints>
+                </view>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="IDB-JS-Z4J">
                     <rect key="frame" x="10" y="359" width="300" height="40"/>
                     <subviews>
@@ -173,11 +180,13 @@
                 <constraint firstItem="Yxu-Mx-EcE" firstAttribute="top" secondItem="i40-8k-XyG" secondAttribute="bottom" constant="10" id="5LY-nK-cFt"/>
                 <constraint firstItem="IDB-JS-Z4J" firstAttribute="leading" secondItem="sef-v0-Cr4" secondAttribute="leading" constant="10" id="ChV-Cu-vjl"/>
                 <constraint firstItem="KQG-e9-o6g" firstAttribute="centerX" secondItem="MCO-fC-Z0Z" secondAttribute="centerX" id="F4d-FI-vMd"/>
+                <constraint firstItem="WKL-jz-fvN" firstAttribute="top" secondItem="GkC-Ih-ZGo" secondAttribute="bottom" constant="10" id="HCJ-He-e7W"/>
                 <constraint firstItem="3mg-cW-udW" firstAttribute="top" secondItem="sef-v0-Cr4" secondAttribute="top" constant="80" id="Oe5-vi-d4T"/>
                 <constraint firstItem="GkC-Ih-ZGo" firstAttribute="top" secondItem="IDB-JS-Z4J" secondAttribute="bottom" constant="5" id="PqU-hg-CVJ"/>
                 <constraint firstItem="OVn-KA-BCI" firstAttribute="centerX" secondItem="MCO-fC-Z0Z" secondAttribute="centerX" id="RWJ-Fh-V1x"/>
                 <constraint firstAttribute="trailing" secondItem="Kcq-Bp-5gc" secondAttribute="trailing" id="RzY-87-p9q"/>
                 <constraint firstItem="KQG-e9-o6g" firstAttribute="top" secondItem="Yxu-Mx-EcE" secondAttribute="bottom" constant="11" id="UAQ-L3-FWY"/>
+                <constraint firstItem="WKL-jz-fvN" firstAttribute="leading" secondItem="sef-v0-Cr4" secondAttribute="leading" id="Vzt-M1-Dkf"/>
                 <constraint firstItem="i40-8k-XyG" firstAttribute="top" secondItem="W1B-Mx-fB4" secondAttribute="bottom" id="Wlj-dA-VPh"/>
                 <constraint firstItem="sef-v0-Cr4" firstAttribute="trailing" secondItem="GkC-Ih-ZGo" secondAttribute="trailing" id="Y2o-LR-CP4"/>
                 <constraint firstItem="GkC-Ih-ZGo" firstAttribute="leading" secondItem="sef-v0-Cr4" secondAttribute="leading" id="bXS-Od-ScA"/>
@@ -189,8 +198,23 @@
                 <constraint firstItem="OVn-KA-BCI" firstAttribute="top" secondItem="KQG-e9-o6g" secondAttribute="bottom" constant="15" id="m75-aP-ygA"/>
                 <constraint firstItem="i40-8k-XyG" firstAttribute="centerX" secondItem="MCO-fC-Z0Z" secondAttribute="centerX" id="mdu-ph-cGp"/>
                 <constraint firstItem="IDB-JS-Z4J" firstAttribute="top" secondItem="OVn-KA-BCI" secondAttribute="bottom" constant="20" id="pk6-Kb-Whk"/>
+                <constraint firstItem="sef-v0-Cr4" firstAttribute="trailing" secondItem="WKL-jz-fvN" secondAttribute="trailing" id="wIi-8L-kkx"/>
                 <constraint firstItem="3mg-cW-udW" firstAttribute="centerX" secondItem="MCO-fC-Z0Z" secondAttribute="centerX" id="xvf-QM-fOS"/>
             </constraints>
+            <connections>
+                <outlet property="articlesBtn" destination="5HB-K8-kIZ" id="xf2-IE-JMm"/>
+                <outlet property="casesBtn" destination="LD5-VM-HU4" id="J6B-9I-Pst"/>
+                <outlet property="followBtn" destination="ofM-8O-bai" id="6de-U0-stD"/>
+                <outlet property="followCountBtn" destination="6j5-cV-h2D" id="g2S-w8-Zjs"/>
+                <outlet property="followingCountBtn" destination="atR-m7-S8h" id="RiU-Fk-f5R"/>
+                <outlet property="interfaceSegmented" destination="WKL-jz-fvN" id="OgL-Ww-Ct3"/>
+                <outlet property="nameLbl" destination="W1B-Mx-fB4" id="zCZ-sj-fmq"/>
+                <outlet property="newsBtn" destination="9AQ-rY-ImF" id="X4c-e5-I3K"/>
+                <outlet property="qualificationLbl" destination="Yxu-Mx-EcE" id="1Co-Kj-ugx"/>
+                <outlet property="socialBtn" destination="OfP-It-rBw" id="YYr-LQ-umf"/>
+                <outlet property="specialityLbl" destination="i40-8k-XyG" id="7sO-lF-oSj"/>
+                <outlet property="viewBtn" destination="K2c-n2-DtX" id="zNx-HG-mzd"/>
+            </connections>
             <point key="canvasLocation" x="-75" y="301"/>
         </view>
     </objects>

@@ -165,14 +165,34 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: HomeTableHeader.identifier) as? HomeTableHeader {
-//            headerView.postBtn.addTarget(self, action: #selector(postClicked(button:)), for: .touchUpInside)
-            //            headerView.configureCollectionView()
-            //
+            headerView.news.addTarget(self, action: #selector(newsClicked(button:)), for: .touchUpInside)
+            headerView.job.addTarget(self, action: #selector(jobClicked(button:)), for: .touchUpInside)
+            headerView.connect.addTarget(self, action: #selector(connectClicked(button:)), for: .touchUpInside)
+            headerView.products.addTarget(self, action: #selector(productsClicked(button:)), for: .touchUpInside)
+            headerView.education.addTarget(self, action: #selector(educationClicked(button:)), for: .touchUpInside)
+
             return headerView
         }
         
         return nil
         
+    }
+    @objc func newsClicked(button: UIButton) {
+        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "MyNewsViewController") as! MyNewsViewController
+        self.navigationController?.pushViewController(nextVC, animated: true)
+        
+    }
+    @objc func educationClicked(button: UIButton) {
+    }
+    @objc func productsClicked(button: UIButton) {
+        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "ShopViewController") as! ShopViewController
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+    @objc func connectClicked(button: UIButton) {
+    }
+    @objc func jobClicked(button: UIButton) {
+        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "CarrierViewController") as! CarrierViewController
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
     @objc func explainClicked(button: UIButton) {
         let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "ExamDetailsViewController") as! ExamDetailsViewController

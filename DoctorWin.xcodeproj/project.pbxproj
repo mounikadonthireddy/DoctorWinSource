@@ -299,6 +299,11 @@
 		BFC3EEF62828D7FC000A1582 /* UserHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC3EEF52828D7FC000A1582 /* UserHeaderView.swift */; };
 		BFC3EEF82828D805000A1582 /* UserHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFC3EEF72828D805000A1582 /* UserHeaderView.xib */; };
 		BFC3EEFA2828F780000A1582 /* UserDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC3EEF92828F780000A1582 /* UserDetailsViewModel.swift */; };
+		BFC3EEFD282E2BBC000A1582 /* ConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC3EEFC282E2BBC000A1582 /* ConnectViewController.swift */; };
+		BFC3EF00282E2C04000A1582 /* ConnectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC3EEFE282E2C04000A1582 /* ConnectCell.swift */; };
+		BFC3EF01282E2C04000A1582 /* ConnectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFC3EEFF282E2C04000A1582 /* ConnectCell.xib */; };
+		BFC3EF04282E4E83000A1582 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC3EF02282E4E83000A1582 /* ImageCell.swift */; };
+		BFC3EF05282E4E83000A1582 /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFC3EF03282E4E83000A1582 /* ImageCell.xib */; };
 		BFCB16B627997832005E3FEB /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCB16B527997832005E3FEB /* CustomSegmentedControl.swift */; };
 		BFCB16B8279990C3005E3FEB /* MyArticalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCB16B7279990C3005E3FEB /* MyArticalViewController.swift */; };
 		BFCB16BA2799919A005E3FEB /* MyPollsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCB16B92799919A005E3FEB /* MyPollsViewController.swift */; };
@@ -630,6 +635,11 @@
 		BFC3EEF52828D7FC000A1582 /* UserHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHeaderView.swift; sourceTree = "<group>"; };
 		BFC3EEF72828D805000A1582 /* UserHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserHeaderView.xib; sourceTree = "<group>"; };
 		BFC3EEF92828F780000A1582 /* UserDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewModel.swift; sourceTree = "<group>"; };
+		BFC3EEFC282E2BBC000A1582 /* ConnectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectViewController.swift; sourceTree = "<group>"; };
+		BFC3EEFE282E2C04000A1582 /* ConnectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectCell.swift; sourceTree = "<group>"; };
+		BFC3EEFF282E2C04000A1582 /* ConnectCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConnectCell.xib; sourceTree = "<group>"; };
+		BFC3EF02282E4E83000A1582 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		BFC3EF03282E4E83000A1582 /* ImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
 		BFCB16B527997832005E3FEB /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
 		BFCB16B7279990C3005E3FEB /* MyArticalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyArticalViewController.swift; sourceTree = "<group>"; };
 		BFCB16B92799919A005E3FEB /* MyPollsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPollsViewController.swift; sourceTree = "<group>"; };
@@ -918,7 +928,7 @@
 				43B03AA8272F99E100A4337B /* AddCasesViewController.swift */,
 				BFA90E2527BB5163009F9784 /* CreateCaseViewController.swift */,
 				43B2844F273CE1BA00E8CED8 /* AddMainViewController.swift */,
-				BFC3EEE52824AA80000A1582 /* SocialViewController.swift */,
+				BFC3EEFB282E2B9C000A1582 /* Social */,
 			);
 			path = Add;
 			sourceTree = "<group>";
@@ -1245,6 +1255,19 @@
 			path = Shop;
 			sourceTree = "<group>";
 		};
+		BFC3EEFB282E2B9C000A1582 /* Social */ = {
+			isa = PBXGroup;
+			children = (
+				BFC3EEE52824AA80000A1582 /* SocialViewController.swift */,
+				BFC3EEFC282E2BBC000A1582 /* ConnectViewController.swift */,
+				BFC3EEFE282E2C04000A1582 /* ConnectCell.swift */,
+				BFC3EEFF282E2C04000A1582 /* ConnectCell.xib */,
+				BFC3EF02282E4E83000A1582 /* ImageCell.swift */,
+				BFC3EF03282E4E83000A1582 /* ImageCell.xib */,
+			);
+			path = Social;
+			sourceTree = "<group>";
+		};
 		E5A4093318F988623876636C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1414,6 +1437,7 @@
 				439923CB272BD8A70085E067 /* JobTableCell.xib in Resources */,
 				439923C1272BCC0E0085E067 /* Jobs.json in Resources */,
 				BFA90E1827B4E036009F9784 /* MySelfCell.xib in Resources */,
+				BFC3EF05282E4E83000A1582 /* ImageCell.xib in Resources */,
 				BF0DD970278D92EF0053747A /* CarrierHeaderCell.xib in Resources */,
 				BF170F8228101AC7001B3109 /* CarrierJobCell.xib in Resources */,
 				43A6A98F27329E5800400F72 /* PollTableViewCell.xib in Resources */,
@@ -1426,6 +1450,7 @@
 				43B975AB2725B18A00CDF2F1 /* JobRequirementCell.xib in Resources */,
 				BF431C812782D57E0057AF9F /* FollowCell.xib in Resources */,
 				43A6A98B27329D3700400F72 /* ProfileAddSkillCell.xib in Resources */,
+				BFC3EF01282E2C04000A1582 /* ConnectCell.xib in Resources */,
 				BF0DD953278D46C50053747A /* ProfessionalDetailsCell.xib in Resources */,
 				BFD5FF2D2812EECE003CE888 /* NewsDetailsCell.xib in Resources */,
 				439297902722D628001891B8 /* Main.storyboard in Resources */,
@@ -1598,6 +1623,7 @@
 				43F57E4F27561572001120C8 /* RegisterViewModel.swift in Sources */,
 				43AF8FB827358BF300CC69EF /* LoginViewModel.swift in Sources */,
 				BF431C9B2784030D0057AF9F /* CreateFirstCaseView.swift in Sources */,
+				BFC3EF00282E2C04000A1582 /* ConnectCell.swift in Sources */,
 				BF0DD97C2795714F0053747A /* ExpandableLabel.swift in Sources */,
 				43D38BEE275D022A004B42E0 /* JobApplyResource.swift in Sources */,
 				BF170F59280D9AEE001B3109 /* NetworkTableHeader.swift in Sources */,
@@ -1705,6 +1731,7 @@
 				BF0DD944278D33EC0053747A /* ProfileDashboardCell.swift in Sources */,
 				BF0DD940278D24270053747A /* ProfileSummaryCell.swift in Sources */,
 				43C1BFA2272C150D008877AA /* TopJobsDataModel.swift in Sources */,
+				BFC3EEFD282E2BBC000A1582 /* ConnectViewController.swift in Sources */,
 				BFA90E2027BA7036009F9784 /* APIHelperClass.swift in Sources */,
 				439923C3272BCC2C0085E067 /* JobsDataModel.swift in Sources */,
 				BF431C8E2782EC6F0057AF9F /* ExperinceTitleCell.swift in Sources */,
@@ -1722,6 +1749,7 @@
 				BF170F4F280D34CA001B3109 /* ProfileViewHeader.swift in Sources */,
 				BFC3EEFA2828F780000A1582 /* UserDetailsViewModel.swift in Sources */,
 				BFCB174027B4172A005E3FEB /* DropDownResource.swift in Sources */,
+				BFC3EF04282E4E83000A1582 /* ImageCell.swift in Sources */,
 				43AF9F8D2729D5140020CCF3 /* PredictorViewController.swift in Sources */,
 				8FF9AD0227731525002F4700 /* NewsJobResource.swift in Sources */,
 				43AF8FC727358C8500CC69EF /* HttpUtility.swift in Sources */,
