@@ -75,16 +75,9 @@ extension CarrierTabViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let str = UIStoryboard(name: "Home", bundle: nil)
-        if indexPath.section == 2 {
-            let nextVC = str.instantiateViewController(withIdentifier: "JobsViewController") as! JobsViewController
-            // nextVC.detailsModel = allJobsArray[indexPath.row]
+            let nextVC = str.instantiateViewController(withIdentifier: "CarrierJobDetailsViewController") as! CarrierJobDetailsViewController
+            nextVC.jobId = carrierJobArray[indexPath.row].id
             self.navigationController?.pushViewController(nextVC, animated: true)
-        }
-        if indexPath.section == 5 {
-            let nextVC = str.instantiateViewController(withIdentifier: "JobDetailsViewController") as! JobDetailsViewController
-       //     nextVC.detailsModel = allJobsArray[indexPath.row]
-            self.navigationController?.pushViewController(nextVC, animated: true)
-        }
     }
     
     

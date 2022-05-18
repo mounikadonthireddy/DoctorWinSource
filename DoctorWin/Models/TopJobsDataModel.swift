@@ -93,3 +93,51 @@ struct CarrierModel: Codable {
 struct EligibilityModel: Codable {
     let name: String
 }
+
+
+struct HospitalDetailsModel: Codable {
+    let name: String?
+    let typeofhospital: String?
+    let city, state: String?
+    let location: String?
+    let no_of_OT: String?
+    let no_of_sepeciality: String?
+    let no_of_bed: String?
+    let daily_OPD: String?
+    let icu, nicuc, picu: Int?
+    let hospitalBanner: [Hospitalbanner]?
+    let hospitalhighlight: [Hospitalhighlight]?
+    let hospitalspeciality: [Hospitalspeciality]?
+    
+}
+struct Hospitalbanner: Codable {
+    let id: Int?
+    let image: String?
+    
+}
+struct Hospitalhighlight: Codable {
+    let id: Int?
+    let title: String?
+    let image: String?
+}
+
+struct Hospitalspeciality: Codable {
+    let id: Int?
+    let title: String?
+    let image: String?
+}
+
+struct CarrierJobDetailsModel: Codable {
+    let gender: String?
+    let designation: String?
+    let Speciality: String?
+    let name: String?
+    let location: String?
+    let accommodation: String?
+    let job_type: String?
+    let discription: String?
+    let apply_status: Bool?
+    let experince: String?
+    let salary, monthly_or_anual: String?
+
+}

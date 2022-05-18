@@ -128,7 +128,7 @@ extension ProfileViewController : UICollectionViewDelegate, UICollectionViewData
         switch indexPath.row {
             
         case 0:
-            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "CarrierTabViewController") as! CarrierTabViewController
+            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "BookmarksViewController") as! BookmarksViewController
             self.navigationController?.pushViewController(nextVC, animated: true)
         case 1:
             let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "ConnectViewController") as! ConnectViewController
