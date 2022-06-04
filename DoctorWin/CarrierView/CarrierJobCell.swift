@@ -81,7 +81,7 @@ class CarrierJobCell: UITableViewCell {
         }
         self.courseArray = data.eligibility
         self.courseCollectionView.reloadData()
-        if data.bookmark ?? false {
+        if data.bookmark {
             self.bookMarkImage.image = UIImage(named: "fstar")
         }
     }

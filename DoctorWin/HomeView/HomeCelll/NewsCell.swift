@@ -38,17 +38,13 @@ class NewsCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func configureData(homeModel: HomeDataModel) {
-        
         self.postedPersonName.text = (homeModel.profileName ?? "")
         self.titleLable.text =  homeModel.title
         self.designation.text = homeModel.speciality
-
-        
         if let value = homeModel.discussion {
             self.discussion.text = "\(String(describing: value))"
-            
         }
-//        self.followBtn.tag = homeModel.complaintId ?? 0
+        self.followBtn.tag = homeModel.id
         if let urlString = homeModel.postedImage {
             self.postImage.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "loginBg"))
         }
@@ -56,9 +52,9 @@ class NewsCell: UITableViewCell {
         if homeModel.bookmarkStatus ?? false {
             bookmarkImage.image = UIImage(named: "fmark")
         }
-//        if homeModel.follow != "False" {
-//            self.followBtn.setTitle("Following", for: .normal)
-//        }
+        if homeModel.follow  {
+            self.followBtn.setTitle("Following", for: .normal)
+        }
         if homeModel.likeStatus ?? false {
             likeImage.image = UIImage(named: "fheart")
             
@@ -73,35 +69,27 @@ class NewsCell: UITableViewCell {
         // replyBtn.tag = homeModel.id ?? 0
     }
     func configureData(homeModel: NewsModel) {
-        
         self.postedPersonName.text = (homeModel.ProfileName ?? "")
         self.titleLable.text =  homeModel.title
         self.designation.text = homeModel.speciality
-
-        
         if let value = homeModel.discussions {
             self.discussion.text = "\(String(describing: value))"
-            
         }
-//        self.followBtn.tag = homeModel.complaintId ?? 0
+        self.followBtn.tag = homeModel.id
         if let urlString = homeModel.image {
             self.postImage.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "loginBg"))
         }
-//        self.descriptionLable.text = homeModel.discription
+
         if homeModel.bookmark_status {
             bookmarkImage.image = UIImage(named: "fmark")
         }
-//        if homeModel.follow != "False" {
-//            self.followBtn.setTitle("Following", for: .normal)
-//        }
+       
         if homeModel.like_status {
             likeImage.image = UIImage(named: "fheart")
             
         }
         if let urlString = homeModel.ProfileImage {
-            let finalUrlString = "http://3.132.212.116:8000" + urlString
-            
-            self.personImage.sd_setImage(with: URL(string: finalUrlString), placeholderImage: UIImage(named: "loginBg"))
+           self.personImage.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "loginBg"))
         }
         wishlistBtn.tag = homeModel.id
         saveBtn.tag = homeModel.id

@@ -275,11 +275,11 @@ completion(result)
         }
     }
     
-    func getBookmarkCases(urlString: String, completion : @escaping (_ result: ResponseResult<[HomeDataModel]>) -> Void) {
+    func getBookmarkCases(urlString: String, completion : @escaping (_ result: ResponseResult<[CasesDataModel]>) -> Void) {
         
         let httpUtility = HttpUtility()
         do {
-            httpUtility.getApiData(urlString: urlString, resultType: [HomeDataModel].self) { result in
+            httpUtility.getApiData(urlString: urlString, resultType: [CasesDataModel].self) { result in
                 
                 switch result {
                    case .success(let data):

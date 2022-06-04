@@ -81,23 +81,7 @@ struct NewsViewModel {
             }
         }
     }
-    func getBookmarkNews(userID: String) {
-        let homeResource = NewsJobResource()
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.bookmarkNews + "?user_id=\(userID)"
-
-        homeResource.getMyNewsData(urlString: homeUrlStr) { response in
-            DispatchQueue.main.async {
-                switch response {
-                case .success(let data):
-                    self.delegate?.didReceiveNews(response: data, error: nil)
-                    
-                case .failure(let error):
-                    self.delegate?.didReceiveNews(response: nil, error: error)
-                }
-                
-            }
-        }
-    }
+    
    
     func getNewsCategory() {
         let homeResource = NewsJobResource()

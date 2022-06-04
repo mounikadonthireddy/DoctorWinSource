@@ -44,7 +44,7 @@ class MyCasesViewController: UIViewController {
         homeVM.getAllCases(userID: User.shared.userID)
     }
     func loadBookmarkCases() {
-        homeVM.getBookmarkCases(userID: User.shared.userID)
+       // homeVM.getBookmarkCases(userID: User.shared.userID)
     }
     func loadLikedCases() {
         homeVM.getLikedCases(userID: User.shared.userID)

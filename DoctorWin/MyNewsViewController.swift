@@ -45,7 +45,7 @@ class MyNewsViewController: ViewController {
         newsVM.getMyNews(userID: User.shared.userID)
     }
     func loadBookmarkNews() {
-        newsVM.getBookmarkNews(userID: User.shared.userID)
+       // newsVM.getBookmarkNews(userID: User.shared.userID)
     }
     func loadLikedNews() {
         newsVM.getLikedNews(userID: User.shared.userID)

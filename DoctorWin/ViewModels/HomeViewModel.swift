@@ -76,39 +76,23 @@ struct HomeViewModel {
         
     }
     
-    func getBookmarkCases(userID: String) {
-        let homeResource = HomeResource()
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.bookmarkCases + "?user_id=\(userID)"
-
-        homeResource.getBookmarkCases(urlString: homeUrlStr) { response in
-            DispatchQueue.main.async {
-                switch response {
-                case .success(let data):
-                    self.delegate?.didReciveHomeData(response: data, error: nil)
-
-                case .failure(let error):
-                    self.delegate?.didReciveHomeData(response: nil, error: error)
-                }
-                
-            }
-        }
-    }
+   
     func getAllCases(userID: String) {
-        let homeResource = HomeResource()
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.postedCases + "?user_id=\(userID)"
-
-        homeResource.getBookmarkCases(urlString: homeUrlStr) { response in
-            DispatchQueue.main.async {
-                switch response {
-                case .success(let data):
-                    self.delegate?.didReciveHomeData(response: data, error: nil)
-
-                case .failure(let error):
-                    self.delegate?.didReciveHomeData(response: nil, error: error)
-                }
-                
-            }
-        }
+//        let homeResource = HomeResource()
+//        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.postedCases + "?user_id=\(userID)"
+//
+//        homeResource.getBookmarkCases(urlString: homeUrlStr) { response in
+//            DispatchQueue.main.async {
+////                switch response {
+////                case .success(let data):
+////                    self.delegate?.didReciveHomeData(response: data, error: nil)
+////
+////                case .failure(let error):
+////                    self.delegate?.didReciveHomeData(response: nil, error: error)
+////                }
+////
+//            }
+//        }
     }
     func getLikedCases(userID: String) {
         let homeResource = HomeResource()
@@ -116,13 +100,13 @@ struct HomeViewModel {
 
         homeResource.getBookmarkCases(urlString: homeUrlStr) { response in
             DispatchQueue.main.async {
-                switch response {
-                case .success(let data):
-                    self.delegate?.didReciveHomeData(response: data, error: nil)
+//                switch response {
+              //  case .success(let data):
+                   // self.delegate?.didReciveHomeData(response: data, error: nil)//
 
-                case .failure(let error):
-                    self.delegate?.didReciveHomeData(response: nil, error: error)
-                }
+             //   case .failure(let error):
+                   // self.delegate?.didReciveHomeData(response: nil, error: error)
+              //  }
                 
             }
         }

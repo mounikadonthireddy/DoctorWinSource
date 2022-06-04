@@ -63,6 +63,34 @@ struct CustomJobResource {
             }
         }
     }
+    func getBookmarkedJobData(userID: String, completion : @escaping (_ result: ResponseResult<[CarrierModel]>) -> Void) {
+        let savedJobUrl = ApiEndpoints.baseUrl + ApiEndpoints.savedJobs + "?user_id=\(userID)"
+        let httpUtility = HttpUtility()
+        do {
+            httpUtility.getApiData(urlString: savedJobUrl, resultType: [CarrierModel].self) {result in
+                
+                switch result {
+                case .success(let data):
+                    completion(.success(data))
+                    
+                case .failure(let requestError):
+                    switch requestError {
+                    case .invalidUrl:
+                        completion(.failure("Please try Again After SomeTime"))
+
+                    case .internalServerError:
+                        print("Error: Unknown")
+                   
+                    case .decodingError:
+                        print("Error: Unknown")
+                    case .serverError(error: let error):
+                        print(error)
+                    }
+                }
+                
+            }
+        }
+    }
     func getAppliedJobData(userID: String, completion : @escaping (_ result: ResponseResult<[JobsDataModel]>) -> Void) {
         let appliedJobUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.appliedJobs + "?user_id=\(userID)"
         let httpUtility = HttpUtility()

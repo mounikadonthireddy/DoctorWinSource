@@ -10,7 +10,7 @@ import Foundation
 protocol UserDetailsViewModelDelegate {
 //    func didReceiveFollowDataResponse(response: [FollowModel]?, error: String?)
     func didReceivePostedNews(response: [NewsModel]?, error: String?)
-    func didReceivePostedCases(response: [HomeDataModel]?, error: String?)
+    func didReceivePostedCases(response: [CasesDataModel]?, error: String?)
     func didReceivePostedArticles(response: [ArticalsDataModel]?, error: String?)
     func didReciveProfileData(response: ProfileDataModel?, error: String?)
 

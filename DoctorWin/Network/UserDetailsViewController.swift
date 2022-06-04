@@ -14,7 +14,7 @@ class UserDetailsViewController: ViewController {
     var userDetailsModel : ProfileDataModel?
     var newsArray: [NewsModel] = []
     var articelArray: [ArticalsDataModel] = []
-    var casesArray: [HomeDataModel] = []
+    var casesArray: [CasesDataModel] = []
     var RequestUserID = ""
     var selectionType = -1
     
@@ -195,7 +195,7 @@ extension UserDetailsViewController: UserDetailsViewModelDelegate {
         }
     }
     
-    func didReceivePostedCases(response: [HomeDataModel]?, error: String?) {
+    func didReceivePostedCases(response: [CasesDataModel]?, error: String?) {
         self.dismiss()
         if error == nil {
             casesArray = response ?? []

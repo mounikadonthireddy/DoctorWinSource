@@ -38,6 +38,7 @@ struct HomeDataModel: Codable {
     let exam: String?
     let discription: String?
     let selectedOption: String?
+    let follow: Bool
     
     enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -69,6 +70,7 @@ struct HomeDataModel: Codable {
         case exam
         case discription
         case selectedOption = "selected_option"
+        case follow
     }
     
 }

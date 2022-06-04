@@ -82,4 +82,22 @@ struct NewsModel: Codable {
     let bookmark_status: Bool
     let like_status: Bool
     let id: Int
+    let discription: String
+    let like_count: Int?
+}
+struct CasesDataModel: Codable {
+    let ProfileName: String?
+    let current_job_location: String?
+    let speciality: String?
+    let hightest_qualification: String?
+    let ProfileImage: String?
+    let title: String?
+    let image: String?
+    let discussions: Int?
+    let bookmark_status: Bool
+    let like_status: Bool
+    let id: Int
+    let follow: Bool
+    let chief_complaint: String?
+    let like_count: Int
 }

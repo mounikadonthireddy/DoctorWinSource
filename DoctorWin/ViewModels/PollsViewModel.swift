@@ -105,38 +105,4 @@ struct ArticalViewModel {
             }
         }
     }
-    func getBookmarkNews(userID: String) {
-        let homeResource = ArticalResource()
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.bookmarkArtical + "?user_id=\(userID)"
-
-        homeResource.getArticalData(userID: userID, urlStr: homeUrlStr) { response in
-            DispatchQueue.main.async {
-                switch response {
-                case .success(let data):
-                    self.delegate?.didReceiveArtical(response: data, error: nil)
-                    
-                case .failure(let error):
-                    self.delegate?.didReceiveArtical(response: nil, error: error)
-                }
-                
-            }
-        }
-    }
-    func getBookmarkArticles(userID: String) {
-        let homeResource = ArticalResource()
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.bookmarkArtical + "?user_id=\(userID)"
-
-        homeResource.getArticalData(userID: userID, urlStr: homeUrlStr) { response in
-            DispatchQueue.main.async {
-                switch response {
-                case .success(let data):
-                    self.delegate?.didReceiveArtical(response: data, error: nil)
-                    
-                case .failure(let error):
-                    self.delegate?.didReceiveArtical(response: nil, error: error)
-                }
-                
-            }
-        }
-    }
 }

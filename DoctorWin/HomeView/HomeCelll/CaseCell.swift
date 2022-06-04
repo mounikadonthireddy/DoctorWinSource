@@ -8,7 +8,7 @@
 import UIKit
 
 class CaseCell: UITableViewCell {
-
+    
     @IBOutlet weak var postedPersonName: UILabel!
     @IBOutlet weak var designation: UILabel!
     @IBOutlet weak var discussion: UILabel!
@@ -40,12 +40,9 @@ class CaseCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func configureData(homeModel: HomeDataModel) {
-        
         self.postedPersonName.text = (homeModel.profileName ?? "")
         self.titleLable.text =  homeModel.title ?? ""
         self.designation.text = homeModel.speciality ?? ""
-
-        
         if let value = homeModel.discussion {
             self.discussion.text = "\(String(describing: value))"
         }
@@ -62,19 +59,52 @@ class CaseCell: UITableViewCell {
         if homeModel.bookmarkStatus ?? false {
             bookmarkImage.image = UIImage(named: "fmark")
         }
-//        if homeModel.follow != "False" {
-//            self.followBtn.setTitle("Following", for: .normal)
-//        }
+        if homeModel.follow  {
+            self.followBtn.setTitle("Following", for: .normal)
+        }
         if homeModel.likeStatus ?? false {
             likeImage.image = UIImage(named: "fheart")
             
         }
         if let urlString = homeModel.profileImage {
-         self.personImage.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "loginBg"))
+            self.personImage.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "loginBg"))
         }
         wishlistBtn.tag = homeModel.id
         saveBtn.tag = homeModel.id
-//        replyBtn.tag = homeModel.id
+        //        replyBtn.tag = homeModel.id
+    }
+    func configureDataWith(homeModel: CasesDataModel) {
+        self.postedPersonName.text = (homeModel.ProfileName ?? "")
+        self.titleLable.text =  homeModel.title ?? ""
+        self.designation.text = homeModel.speciality ?? ""
+        if let value = homeModel.discussions {
+            self.discussion.text = "\(String(describing: value))"
+        }
+        self.likeLable.text = "\(String(describing: homeModel.like_count))"
+        
+        self.followBtn.tag = homeModel.id
+        if let urlString = homeModel.image {
+            let finalUrlString =  urlString
+            
+            self.postImage.sd_setImage(with: URL(string: finalUrlString), placeholderImage: UIImage(named: "loginBg"))
+        }
+        self.descriptionLable.text = homeModel.chief_complaint
+        if homeModel.bookmark_status {
+            bookmarkImage.image = UIImage(named: "fmark")
+        }
+        if homeModel.follow  {
+            self.followBtn.setTitle("Following", for: .normal)
+        }
+        if homeModel.like_status {
+            likeImage.image = UIImage(named: "fheart")
+            
+        }
+        if let urlString = homeModel.ProfileImage {
+            self.personImage.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "loginBg"))
+        }
+        wishlistBtn.tag = homeModel.id
+        saveBtn.tag = homeModel.id
+        //        replyBtn.tag = homeModel.id
     }
     @IBAction func likeClicked(_ sender: UIButton) {
         let request = ComplaintLikeRequest(complaint_id:"\(sender.tag)", user_id: User.shared.userID)
