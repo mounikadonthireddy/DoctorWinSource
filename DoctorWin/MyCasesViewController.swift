@@ -136,23 +136,7 @@ extension MyCasesViewController: CellActionDelegate {
 
 
 extension MyCasesViewController : HomeViewModelDelegate {
-    func didAddedToWishlist(status: Bool?, error: String?) {
-        print(status)
-    }
-    
-    func didAddedToFollow(status: Bool, error: String?) {
-        
-    }
-    
-    func didAddedToSave(status: Bool, error: String?) {
-        
-    }
-    
-    func didReplySent(status: Bool, error: String?) {
-        
-    }
-    
-    func didReceiveLoginResponse(response: [HomeDataModel]?, error: String?) {
+    func didReciveHomeData(response: [HomeDataModel]?, error: String?) {
         self.dismiss()
         if (error != nil) {
             
@@ -161,6 +145,7 @@ extension MyCasesViewController : HomeViewModelDelegate {
         self.tableView.reloadData()
         }
     }
+
     func showLoader() {
         let alert = UIAlertController(title: nil, message: "Loading...", preferredStyle: .alert)
         

@@ -7,8 +7,7 @@
 
 import Foundation
 
-protocol HomeViewModelDelegate {
-    func didReceiveLoginResponse(response: [HomeDataModel]?, error: String?)
+protocol DataSavageProtocol {
     func didAddedToWishlist(status:Bool?, error: String?)
     func didAddedToFollow(status:Bool, error: String?)
     func didAddedToSave(status:Bool, error: String?)
@@ -16,18 +15,23 @@ protocol HomeViewModelDelegate {
 
 }
 
+protocol HomeViewModelDelegate {
+    func didReciveHomeData(response: [HomeDataModel]?, error: String?)
+}
+
 struct HomeViewModel {
     var delegate : HomeViewModelDelegate?
+    var savedelegate : DataSavageProtocol?
     func getNewsPollArticleComplaintDataFromAPI(userID: String) {
         let homeResource = HomeResource()
         homeResource.getHomeData(userID: userID) { response in
             DispatchQueue.main.async {
                 switch response {
                 case .success(let data):
-                    self.delegate?.didReceiveLoginResponse(response: data, error: nil)
+                    self.delegate?.didReciveHomeData(response: data, error: nil)
                     
                 case .failure(let error):
-                    self.delegate?.didReceiveLoginResponse(response: nil, error: error)
+                    self.delegate?.didReciveHomeData(response: nil, error: error)
                 }
             
             }
@@ -41,9 +45,9 @@ struct HomeViewModel {
         homeResource.saveComplaintToWishslist(userID: userID, complaintID: categeroyID, reqModel: model) { response in
             DispatchQueue.main.async {
                 if response.status == "true" {
-                    self.delegate?.didReplySent(status: true, error: nil)
+                    self.savedelegate?.didReplySent(status: true, error: nil)
                 } else {
-                    self.delegate?.didReplySent(status: false, error: "error")
+                    self.savedelegate?.didReplySent(status: false, error: "error")
                 }
             
             }
@@ -63,7 +67,7 @@ struct HomeViewModel {
 //                    self.delegate?.didAddedToWishlist(status: response, error: nil)
                 } else {
              
-                    self.delegate?.didAddedToWishlist(status: nil, error: nil)
+                    self.savedelegate?.didAddedToWishlist(status: nil, error: nil)
                 }
             
             }
@@ -80,10 +84,10 @@ struct HomeViewModel {
             DispatchQueue.main.async {
                 switch response {
                 case .success(let data):
-                    self.delegate?.didReceiveLoginResponse(response: data, error: nil)
+                    self.delegate?.didReciveHomeData(response: data, error: nil)
 
                 case .failure(let error):
-                    self.delegate?.didReceiveLoginResponse(response: nil, error: error)
+                    self.delegate?.didReciveHomeData(response: nil, error: error)
                 }
                 
             }
@@ -97,10 +101,10 @@ struct HomeViewModel {
             DispatchQueue.main.async {
                 switch response {
                 case .success(let data):
-                    self.delegate?.didReceiveLoginResponse(response: data, error: nil)
+                    self.delegate?.didReciveHomeData(response: data, error: nil)
 
                 case .failure(let error):
-                    self.delegate?.didReceiveLoginResponse(response: nil, error: error)
+                    self.delegate?.didReciveHomeData(response: nil, error: error)
                 }
                 
             }
@@ -114,10 +118,10 @@ struct HomeViewModel {
             DispatchQueue.main.async {
                 switch response {
                 case .success(let data):
-                    self.delegate?.didReceiveLoginResponse(response: data, error: nil)
+                    self.delegate?.didReciveHomeData(response: data, error: nil)
 
                 case .failure(let error):
-                    self.delegate?.didReceiveLoginResponse(response: nil, error: error)
+                    self.delegate?.didReciveHomeData(response: nil, error: error)
                 }
                 
             }

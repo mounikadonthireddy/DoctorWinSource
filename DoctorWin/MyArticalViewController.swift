@@ -78,7 +78,7 @@ extension MyArticalViewController : UITableViewDelegate, UITableViewDataSource {
         cell.descriptionLable.textReplacementType = .word
         cell.descriptionLable.numberOfLines = 5
         cell.descriptionLable.collapsed = states[indexPath.row]
-        cell.descriptionLable.text = newsArray[indexPath.row].artical_discription
+        cell.descriptionLable.text = newsArray[indexPath.row].discription
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -8,11 +8,16 @@
 import UIKit
 
 class BookmarksViewController: ViewController {
+   
+    var states : Array<Bool>!
+    var homeVM = HomeViewModel()
+    var selectedIndex = -1
+    var jobsArray : [JobsViewModel] = []
     var newsArray:[NewsDataModel] = []
     var articlesArray:[ArticalsDataModel] = []
-    var states : Array<Bool>!
-    var homedataArry: [HomeDataModel] = []
-    var homeVM = HomeViewModel()
+    var casesArray: [HomeDataModel] = []
+    var classifieldArray: [HomeDataModel] = []
+    
 
     @IBOutlet weak var bookmarksTableView: UITableView!
     @IBOutlet weak var interfaceSegmented: CustomSegmentedControl!{
@@ -28,20 +33,32 @@ class BookmarksViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        interfaceSegmented.delegate = self
         articlesVM.delegate = self
         newsVM.delegate = self
-//        homeVM.delegate = self
+        bookmarksTableView.register(UINib(nibName: "CaseCell", bundle: nil), forCellReuseIdentifier: "CaseCell")
+        bookmarksTableView.register(UINib.init(nibName: "CarrierJobCell", bundle: nil), forCellReuseIdentifier: "CarrierJobCell")
+
+        bookmarksTableView.register(UINib(nibName: "ArticalCell", bundle: nil), forCellReuseIdentifier: "ArticalCell")
+
+        bookmarksTableView.register(UINib(nibName: "NewsCell", bundle: nil), forCellReuseIdentifier: "NewsCell")
+    homeVM.delegate = self
         // Do any additional setup after loading the view.
+//        loadBookmarkNews()
+//        loadBookmarkArticles()
     }
     
     func loadBookmarkNews() {
         newsVM.getBookmarkNews(userID: User.shared.userID)
     }
     func loadBookmarkArticles() {
-        articlesVM.getBookmarkNews(userID: User.shared.userID)
+        articlesVM.getBookmarkArticles(userID: User.shared.userID)
     }
     func loadBookmarkCases() {
         homeVM.getBookmarkCases(userID: User.shared.userID)
+    }
+    @IBAction func backClicked(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
     /*
     // MARK: - Navigation
@@ -56,14 +73,59 @@ class BookmarksViewController: ViewController {
 }
 extension BookmarksViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return newsArray.count
+        switch selectedIndex {
+        case 0:
+            return jobsArray.count
+        case 1:
+            return casesArray.count
+        case 2:
+            return articlesArray.count
+        case 3:
+            return newsArray.count
+        case 4:
+            return classifieldArray.count
+        default:
+            return 0
+        }
+
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: NewsCell
-            = tableView.dequeueReusableCell(withIdentifier: "NewsCell") as! NewsCell
-     //   cell.configureCell(with: newsArray[indexPath.row])
-        return cell
+        switch selectedIndex {
+        case 0:
+            let cell: CarrierJobCell
+                = tableView.dequeueReusableCell(withIdentifier: "CarrierJobCell") as! CarrierJobCell
+         //   cell.configureCell(with: newsArray[indexPath.row])
+            return cell
+            
+        case 1:
+            let cell: CaseCell
+                = tableView.dequeueReusableCell(withIdentifier: "CaseCell") as! CaseCell
+         //   cell.configureCell(with: newsArray[indexPath.row])
+            return cell
+            
+        case 2:
+            let cell: ArticalCell
+                = tableView.dequeueReusableCell(withIdentifier: "ArticalCell") as! ArticalCell
+            cell.configureDataWith(homeModel: articlesArray[indexPath.row])
+            return cell
+            
+        case 3:
+            let cell: NewsCell
+                = tableView.dequeueReusableCell(withIdentifier: "NewsCell") as! NewsCell
+         //   cell.configureCell(with: newsArray[indexPath.row])
+            return cell
+            
+        case 4:
+            let cell: NewsCell
+                = tableView.dequeueReusableCell(withIdentifier: "NewsCell") as! NewsCell
+         //   cell.configureCell(with: newsArray[indexPath.row])
+            return cell
+            
+        default:
+            return UITableViewCell()
+        }
+        
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "NewsDetailsViewController") as! NewsDetailsViewController
@@ -76,10 +138,11 @@ extension BookmarksViewController : UITableViewDelegate, UITableViewDataSource {
 }
 extension BookmarksViewController: NewsViewModelDelegate {
     func didReceivePageNews(response: [NewscategoryDataModel]?, error: String?) {
-        
+        self.dismiss()
     }
     
     func didReceiveNewsCategory(response: [NewsCategoryModel]?, error: String?) {
+        self.dismiss()
         //
     }
     
@@ -98,12 +161,17 @@ extension BookmarksViewController: NewsViewModelDelegate {
 extension BookmarksViewController: CustomSegmentedControlDelegate {
     func change(to index: Int) {
         print(index)
+        selectedIndex = index
         if index == 0 {
             //self.loadMyNews()
         } else if index == 1 {
-           //} self.loadBookmarkNews()
+            self.loadBookmarkCases()
+        } else if index == 2 {
+            self.loadBookmarkArticles()
+        } else if index == 3 {
+            self.loadBookmarkNews()
         } else {
-           // self.loadLikedNews()
+            //self.loadLikedNews()
         }
         
         self.showLoader()
@@ -124,14 +192,11 @@ extension BookmarksViewController: ArticalViewModelDelegate {
 
         }
     }
-    
-    func didReceiveLoginResponse(response: [HomeDataModel]?, error: String?) {
-        self.dismiss()
-        if (error != nil) {
-            
-        } else {
-        self.homedataArry = response ?? []
-        self.bookmarksTableView.reloadData()
-        }
 }
+extension BookmarksViewController: HomeViewModelDelegate  {
+    func didReciveHomeData(response: [HomeDataModel]?, error: String?) {
+        self.dismiss()
+    }
+    
+    
 }

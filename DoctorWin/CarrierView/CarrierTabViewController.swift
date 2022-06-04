@@ -168,6 +168,13 @@ extension CarrierTabViewController : UICollectionViewDelegate, UICollectionViewD
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let str = UIStoryboard(name: "Home", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "JobsViewController") as! JobsViewController
+        nextVC.jobType = quickSearchArray[indexPath.row].title ?? ""
+        nextVC.categoryID = quickSearchArray[indexPath.row].id ?? 0
+
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
     
 }

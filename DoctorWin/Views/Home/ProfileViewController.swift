@@ -7,13 +7,14 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController,UICollectionViewDelegateFlowLayout {
+class ProfileViewController: ViewController,UICollectionViewDelegateFlowLayout {
     @IBOutlet weak var profileCollectionView: UICollectionView!
     @IBOutlet weak var collectionViewLayout: UICollectionViewFlowLayout!
     let collectionViewHeaderFooterReuseIdentifier = "ProfileViewFooter"
     let collectionViewHeaderHeaderReuseIdentifier = "ProfileViewHeader"
 var names = ["Bookmarks", "Connect", "Cases", "News", "Resume", "Applied Jobs", "My Orders", "My Learning", "Social", "Events", "Article", "MCQs"]
-    
+    var profileDataModel : ProfileDataModel!
+    var profileVM = ProfileViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
       //  let cellSize = CGSize(width:480 , height:480)
@@ -22,7 +23,7 @@ var names = ["Bookmarks", "Connect", "Cases", "News", "Resume", "Applied Jobs", 
         self.profileCollectionView.delegate = self
         self.profileCollectionView.dataSource = self
         self.profileCollectionView.backgroundColor = UIColor.systemGroupedBackground
-        
+        profileVM.delegate = self
         collectionViewLayout.scrollDirection = .vertical
         collectionViewLayout.minimumLineSpacing = 0
         collectionViewLayout.minimumInteritemSpacing = 0
@@ -30,10 +31,15 @@ var names = ["Bookmarks", "Connect", "Cases", "News", "Resume", "Applied Jobs", 
         profileCollectionView.register(UINib(nibName: collectionViewHeaderFooterReuseIdentifier, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: collectionViewHeaderFooterReuseIdentifier)
         profileCollectionView.register(UINib(nibName: collectionViewHeaderHeaderReuseIdentifier, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: collectionViewHeaderHeaderReuseIdentifier)
 
-
+parse()
         //collectionViewLayout.itemSize = cellSize
 
         // Do any additional setup after loading the view.
+    }
+    func parse() {
+        self.showLoader()
+        profileVM.getProfileData(userID: User.shared.userID)
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
@@ -102,10 +108,14 @@ extension ProfileViewController : UICollectionViewDelegate, UICollectionViewData
         switch kind {
 
         case UICollectionView.elementKindSectionHeader:
-            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: collectionViewHeaderHeaderReuseIdentifier, for: indexPath)
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: collectionViewHeaderHeaderReuseIdentifier, for: indexPath) as? ProfileViewHeader
 
+            if  profileDataModel != nil  {
+                headerView?.configureView(data: profileDataModel)
+                
+            }
            // headerView.backgroundColor = UIColor.blue
-            return headerView
+            return headerView!
 
         case UICollectionView.elementKindSectionFooter:
             let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: collectionViewHeaderFooterReuseIdentifier, for: indexPath)
@@ -163,4 +173,19 @@ extension ProfileViewController : UICollectionViewDelegate, UICollectionViewData
 struct ProfileModel {
     let name: String
     let imageName: String
+}
+extension ProfileViewController: ProfileViewModelDelegate {
+   
+    func didReciveProfileExperienceData(response: [ExperienceModel]?, error: String?) {
+       
+    }
+    
+    
+    func didReciveProfileData(response: ProfileDataModel?, error: String?) {
+        self.dismiss()
+        profileDataModel = response
+        profileCollectionView.reloadData()
+    }
+    
+    
 }

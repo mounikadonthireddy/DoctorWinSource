@@ -57,18 +57,17 @@ struct NewsCategoryModel: Codable {
     let id: Int
 }
 struct ArticalsDataModel: Codable {
-    let artical_title: String?
-    let mediafile: String?
-    let artical_discription: String?
-    let profile_name: String?
-    let profileImage: String?
+    let title: String?
+    let discription: String?
+    let ProfileName: String?
+    let image: String?
     let created_date: String?
     let like_status: Bool?
     let bookmark_status: Bool?
     let speciality: String?
     let like_count: Int?
     let current_job_location: String?
-    let profile_image: String?
+    let ProfileImage: String?
     let id: Int
 }
 struct NewsModel: Codable {

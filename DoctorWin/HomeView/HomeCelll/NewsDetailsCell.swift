@@ -49,21 +49,21 @@ class NewsDetailsCell: UITableViewCell {
     }
     func configureDataWith(homeModel: ArticalsDataModel) {
         
-        self.titleLable.text = homeModel.artical_title
-        self.personName.text = "Dr." + (homeModel.profile_name ?? "")
-        self.designation.text = (homeModel.speciality ?? "") + " " + (homeModel.current_job_location ?? "")
-        
-        
-        if let urlString = homeModel.mediafile {
-            let finalUrlString = ApiEndpoints.baseImageURL + urlString
-            self.postImage.sd_setImage(with: URL(string: finalUrlString), placeholderImage: UIImage(named: "loginBg"))
-        }
-        if homeModel.profile_image != "no image" {
-            if let urlString = homeModel.profile_image {
-                let finalUrlString = ApiEndpoints.baseImageURL + urlString
-                self.pesonImage.sd_setImage(with: URL(string: finalUrlString), placeholderImage: UIImage(named: "loginBg"))
-            }
-        }
+//        self.titleLable.text = homeModel.artical_title
+//        self.personName.text = "Dr." + (homeModel.profile_name ?? "")
+//        self.designation.text = (homeModel.speciality ?? "") + " " + (homeModel.current_job_location ?? "")
+//        
+//        
+//        if let urlString = homeModel.mediafile {
+//            let finalUrlString = ApiEndpoints.baseImageURL + urlString
+//            self.postImage.sd_setImage(with: URL(string: finalUrlString), placeholderImage: UIImage(named: "loginBg"))
+//        }
+//        if homeModel.profile_image != "no image" {
+//            if let urlString = homeModel.profile_image {
+//                let finalUrlString = ApiEndpoints.baseImageURL + urlString
+//                self.pesonImage.sd_setImage(with: URL(string: finalUrlString), placeholderImage: UIImage(named: "loginBg"))
+//            }
+//        }
         
         
     }

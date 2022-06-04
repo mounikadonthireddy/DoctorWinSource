@@ -17,8 +17,8 @@ struct Constants {
 struct ApiEndpoints
 {
     static let baseImageURL = "http://3.132.212.116:8000"
-    static let baseUrl = "http://18.222.219.27:8000/api/"
-    static let baseUrl1 = "http://18.222.219.27:8000/api/"
+    static let baseUrl = "http://3.136.112.232:8000/api/"
+    static let baseUrl1 = "http://3.136.112.232:8000/api/"
 
     static let login = "auth/registration"
     static let logout = "auth/logout/"
