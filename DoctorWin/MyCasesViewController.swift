@@ -7,20 +7,21 @@
 
 import UIKit
 
-class MyCasesViewController: UIViewController {
+class MyCasesViewController: ViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    var homedataArry: [HomeDataModel] = []
-    var homeVM = HomeViewModel()
+    var casesArry: [CasesDataModel] = []
+    var casesVM = CasesViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(UINib(nibName: "HomeTableCell", bundle: nil), forCellReuseIdentifier: "HomeTableCell")
+        tableView.register(UINib(nibName: "CaseCell", bundle: nil), forCellReuseIdentifier: "CaseCell")
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        homeVM.delegate = self
+     
         tabBarController?.tabBar.isHidden = false
-        self.loadMyCases()
+        self.loadMyCases(index: 0)
+        casesVM.delegate = self
         // Do any additional setup after loading the view.
     }
     
@@ -35,31 +36,13 @@ class MyCasesViewController: UIViewController {
 //        tabBarController?.tabBar.isHidden = true
     }
     
-    func parse() {
-        self.showLoader()
-        self.homeVM.getNewsPollArticleComplaintDataFromAPI(userID: User.shared.userID)
-        
-    }
-    func loadMyCases() {
-        homeVM.getAllCases(userID: User.shared.userID)
-    }
-    func loadBookmarkCases() {
-       // homeVM.getBookmarkCases(userID: User.shared.userID)
-    }
-    func loadLikedCases() {
-        homeVM.getLikedCases(userID: User.shared.userID)
-    }
+    func loadMyCases(index: Int) {
+       // self.showLoader()
+        self.casesVM.getCases(userID: User.shared.userID, index: index)
+    }   
     
     @IBAction func segmentClicked(_ sender: UISegmentedControl) {
-        if sender.selectedSegmentIndex == 0 {
-            self.loadMyCases()
-        } else if sender.selectedSegmentIndex == 1 {
-            self.loadBookmarkCases()
-        } else {
-            self.loadLikedCases()
-        }
-        
-        self.showLoader()
+        self.loadMyCases(index: sender.selectedSegmentIndex)
     }
     @IBAction func backClicked(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
@@ -69,18 +52,15 @@ class MyCasesViewController: UIViewController {
 
 extension MyCasesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return homedataArry.count
+        return casesArry.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
-        let cell: HomeTableCell
-            = tableView.dequeueReusableCell(withIdentifier: "HomeTableCell") as! HomeTableCell
-            cell.delegate = self
-        cell.configureData(homeModel: homedataArry[indexPath.row])
-        
+        let cell: CaseCell
+            = tableView.dequeueReusableCell(withIdentifier: "CaseCell") as! CaseCell
+        cell.configureDataWith(homeModel: casesArry[indexPath.row])
         return cell
-        
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0
@@ -135,33 +115,17 @@ extension MyCasesViewController: CellActionDelegate {
 }
 
 
-extension MyCasesViewController : HomeViewModelDelegate {
-    func didReciveHomeData(response: [HomeDataModel]?, error: String?) {
+
+extension MyCasesViewController: CasesBookMarkDelegate {
+    func didReceiveBookmakedCases(response: [CasesDataModel]?, error: String?) {
         self.dismiss()
         if (error != nil) {
             
         } else {
-        self.homedataArry = response ?? []
+        self.casesArry = response ?? []
         self.tableView.reloadData()
         }
     }
-
-    func showLoader() {
-        let alert = UIAlertController(title: nil, message: "Loading...", preferredStyle: .alert)
-        
-        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
-        loadingIndicator.hidesWhenStopped = true
-        loadingIndicator.style = UIActivityIndicatorView.Style.medium
-        loadingIndicator.startAnimating()
-        
-        alert.view.addSubview(loadingIndicator)
-        DispatchQueue.main.async { [weak self] in
-            self?.present(alert, animated: true, completion: nil)
-        }
-    }
-    func dismiss() {
-        dismiss(animated: false, completion: nil)
-    }
+    
     
 }
-

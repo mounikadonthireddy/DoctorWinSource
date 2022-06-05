@@ -112,6 +112,8 @@ extension ProfileViewController : UICollectionViewDelegate, UICollectionViewData
 
             if  profileDataModel != nil  {
                 headerView?.configureView(data: profileDataModel)
+                headerView?.viewBtn.addTarget(self, action: #selector(viewClicked(button:)), for: .touchUpInside)
+
                 
             }
            // headerView.backgroundColor = UIColor.blue
@@ -166,6 +168,10 @@ extension ProfileViewController : UICollectionViewDelegate, UICollectionViewData
            break
             
         }
+    }
+    @objc func viewClicked(button: Any) {
+        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "MeViewController") as! MeViewController
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }
 

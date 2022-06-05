@@ -7,9 +7,9 @@
 
 import UIKit
 
-class MyNewsViewController: ViewController {
-
-    var newsArray:[NewsDataModel] = []
+class MyNewsViewController: ViewController,ExpandableLabelDelegate {
+    var states : Array<Bool>!
+    var newsArray:[NewsModel] = []
     @IBOutlet weak var newsTableView: UITableView!
     @IBOutlet weak var interfaceSegmented: CustomSegmentedControl!{
         didSet{
@@ -18,7 +18,7 @@ class MyNewsViewController: ViewController {
             interfaceSegmented.selectorTextColor = .black
         }
     }
-    var newsVM = NewsViewModel()
+    var newsVM = NewsDataViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +31,7 @@ class MyNewsViewController: ViewController {
         newsVM.delegate = self
         interfaceSegmented.delegate = self
         // Do any additional setup after loading the view.
-        self.loadMyNews()
+        self.loadMyNews(index: 0)
     }
    
     override func viewWillAppear(_ animated: Bool) {
@@ -41,16 +41,11 @@ class MyNewsViewController: ViewController {
     override func viewWillDisappear(_ animated: Bool) {
        // tabBarController?.tabBar.isHidden = true
     }
-    func loadMyNews() {
-        newsVM.getMyNews(userID: User.shared.userID)
-    }
-    func loadBookmarkNews() {
-       // newsVM.getBookmarkNews(userID: User.shared.userID)
-    }
-    func loadLikedNews() {
-        newsVM.getLikedNews(userID: User.shared.userID)
-    }
     
+    func loadMyNews(index: Int) {
+        self.showLoader()
+        self.newsVM.getNews(userID: User.shared.userID, index: index)
+    }
    
     @IBAction func backClicked(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
@@ -65,7 +60,15 @@ extension MyNewsViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: NewsCell
             = tableView.dequeueReusableCell(withIdentifier: "NewsCell") as! NewsCell
-     //   cell.configureCell(with: newsArray[indexPath.row])
+        cell.configureData(homeModel: newsArray[indexPath.row])
+        cell.descriptionLable.delegate = self
+        cell.descriptionLable.setLessLinkWith(lessLink: "Close", attributes: [.foregroundColor:UIColor.red], position: .left)
+        cell.layoutIfNeeded()
+        cell.descriptionLable.shouldCollapse = true
+        cell.descriptionLable.textReplacementType = .word
+        cell.descriptionLable.numberOfLines = 5
+        cell.descriptionLable.collapsed = states[indexPath.row]
+        cell.descriptionLable.text = newsArray[indexPath.row].discription
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -75,41 +78,60 @@ extension MyNewsViewController : UITableViewDelegate, UITableViewDataSource {
         
     }
     
+    @objc   func willExpandLabel(_ label: ExpandableLabel) {
+       // tableView.beginUpdates()
+    }
+    
+    @objc  func didExpandLabel(_ label: ExpandableLabel) {
+     let point = label.convert(CGPoint.zero, to: newsTableView)
+//        if let indexPath = bookmarksTableView.indexPathForRow(at: point) as IndexPath? {
+//            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "ArticalDetailsViewController") as! ArticalDetailsViewController
+//            //nextVC.articalDetails = articlesArray[indexPath.row]
+//            self.navigationController?.pushViewController(nextVC, animated: true)
+//        }
+        
+        if let indexPath = newsTableView.indexPathForRow(at: point) as IndexPath? {
+            states[indexPath.row] = false
+            DispatchQueue.main.async { [weak self] in
+                self?.newsTableView.scrollToRow(at: indexPath, at: .top, animated: true)
+            }
+        }
+        newsTableView.endUpdates()
+    }
+    
+    @objc func willCollapseLabel(_ label: ExpandableLabel) {
+        newsTableView.beginUpdates()
+    }
+    
+    @objc  func didCollapseLabel(_ label: ExpandableLabel) {
+        let point = label.convert(CGPoint.zero, to: newsTableView)
+        if let indexPath = newsTableView.indexPathForRow(at: point) as IndexPath? {
+            states[indexPath.row] = true
+            DispatchQueue.main.async { [weak self] in
+                self?.newsTableView.scrollToRow(at: indexPath, at: .top, animated: true)
+            }
+        }
+        newsTableView.endUpdates()
+    }
+}
+
+extension MyNewsViewController: CustomSegmentedControlDelegate {
+    func change(to index: Int) {
+        self.newsVM.getNews(userID: User.shared.userID, index: index)
+    }
+    
     
 }
-extension MyNewsViewController: NewsViewModelDelegate {
-    func didReceivePageNews(response: [NewscategoryDataModel]?, error: String?) {
-        
-    }
-    
-    func didReceiveNewsCategory(response: [NewsCategoryModel]?, error: String?) {
-        //
-    }
-    
-    func didReceiveNews(response: [NewsDataModel]?, error: String?) {
+extension MyNewsViewController: NewsBookMarkDelegate {
+    func didReceiveBookmakedNews(response: [NewsModel]?, error: String?) {
         self.dismiss()
         if (error != nil) {
             
         } else {
         self.newsArray = response ?? []
+        states = [Bool](repeating: true, count: newsArray.count)
         self.newsTableView.reloadData()
         }
-    }
-    
-    
-}
-extension MyNewsViewController: CustomSegmentedControlDelegate {
-    func change(to index: Int) {
-        print(index)
-        if index == 0 {
-            self.loadMyNews()
-        } else if index == 1 {
-            self.loadBookmarkNews()
-        } else {
-            self.loadLikedNews()
-        }
-        
-        self.showLoader()
     }
     
     

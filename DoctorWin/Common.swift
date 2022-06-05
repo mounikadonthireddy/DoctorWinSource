@@ -93,7 +93,7 @@ struct ApiEndpoints
     static let likedNews = "user/news/likes"
     static let bookmarkArtical = "user/artical/bookmarks"
     static let likedArtical = "user/artical/likes"
-    static let postedArtical = "ios/artical"
+    static let postedArtical = "user/artical"
     static let postedPoll = "user/poll"
     static let pollLike = "user/poll/likes"
     static let pollBookmark = "user/poll/bookmarks"

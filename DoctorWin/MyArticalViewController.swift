@@ -8,9 +8,7 @@
 import UIKit
 
 class MyArticalViewController: ViewController, ExpandableLabelDelegate {
-  
     var states : Array<Bool>!
-
     var newsArray:[ArticalsDataModel] = []
     @IBOutlet weak var newsTableView: UITableView!
     @IBOutlet weak var interfaceSegmented: CustomSegmentedControl!{
@@ -20,40 +18,34 @@ class MyArticalViewController: ViewController, ExpandableLabelDelegate {
             interfaceSegmented.selectorTextColor = .black
         }
     }
-    var newsVM = ArticalViewModel()
-
+    var articleVM = ArticlesDataViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         newsTableView.register(UINib(nibName: "ArticalCell", bundle: nil), forCellReuseIdentifier: "ArticalCell")
-
+        
         self.newsTableView.delegate = self
         self.newsTableView.dataSource = self
         self.navigationItem.title = "News & Stories"
         self.navigationController?.isNavigationBarHidden = true
-        newsVM.delegate = self
+        articleVM.delegate = self
         interfaceSegmented.delegate = self
         // Do any additional setup after loading the view.
-        self.loadMyNews()
+        self.loadMyArticles(index: 1)
     }
-   
+    func loadMyArticles(index: Int) {
+        self.showLoader()
+        self.articleVM.getArticles(userID: User.shared.userID, index: index)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
         tabBarController?.tabBar.isHidden = true
     }
     override func viewWillDisappear(_ animated: Bool) {
-       // tabBarController?.tabBar.isHidden = true
-    }
-    func loadMyNews() {
-        newsVM.getMyNews(userID: User.shared.userID)
-    }
-    func loadBookmarkNews() {
-       // newsVM.getBookmarkNews(userID: User.shared.userID)
-    }
-    func loadLikedNews() {
-        newsVM.getLikedNews(userID: User.shared.userID)
+        // tabBarController?.tabBar.isHidden = true
     }
     
-   
     @IBAction func backClicked(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -66,7 +58,7 @@ extension MyArticalViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ArticalCell
-            = tableView.dequeueReusableCell(withIdentifier: "ArticalCell") as! ArticalCell
+        = tableView.dequeueReusableCell(withIdentifier: "ArticalCell") as! ArticalCell
         cell.configureDataWith(homeModel: newsArray[indexPath.row])
         cell.descriptionLable.delegate = self
         
@@ -82,9 +74,9 @@ extension MyArticalViewController : UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "NewsDetailsViewController") as! NewsDetailsViewController
-//        nextVC.newsDetailsData = newsArray[indexPath.row]
-//        self.navigationController?.pushViewController(nextVC, animated: true)
+        //        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "NewsDetailsViewController") as! NewsDetailsViewController
+        //        nextVC.newsDetailsData = newsArray[indexPath.row]
+        //        self.navigationController?.pushViewController(nextVC, animated: true)
         
     }
     
@@ -96,10 +88,10 @@ extension MyArticalViewController: ArticalViewModelDelegate {
         if (error != nil) {
             
         } else {
-        self.newsArray = response ?? []
-        self.newsTableView.reloadData()
+            self.newsArray = response ?? []
+            self.newsTableView.reloadData()
             states = [Bool](repeating: true, count: newsArray.count)
-
+            
         }
     }
     
@@ -107,16 +99,7 @@ extension MyArticalViewController: ArticalViewModelDelegate {
 }
 extension MyArticalViewController: CustomSegmentedControlDelegate {
     func change(to index: Int) {
-        print(index)
-        if index == 0 {
-            self.loadMyNews()
-        } else if index == 1 {
-            self.loadBookmarkNews()
-        } else {
-            self.loadLikedNews()
-        }
-        
-        self.showLoader()
+        self.loadMyArticles(index: index)
     }
     @objc   func willExpandLabel(_ label: ExpandableLabel) {
         newsTableView.beginUpdates()
@@ -147,5 +130,19 @@ extension MyArticalViewController: CustomSegmentedControlDelegate {
         }
         newsTableView.endUpdates()
     }
+    
+}
+extension MyArticalViewController: ArticleBookMarkDelegate {
+    func didReceiveBookmakedArticles(response: [ArticalsDataModel]?, error: String?) {
+        self.dismiss()
+        if (error != nil) {
+            
+        } else {
+            self.newsArray = response ?? []
+            states = [Bool](repeating: true, count: newsArray.count)
+            self.newsTableView.reloadData()
+        }
+    }
+    
     
 }
