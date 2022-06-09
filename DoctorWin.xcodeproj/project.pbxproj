@@ -324,6 +324,9 @@
 		BFD5FF2F2813048E003CE888 /* CarrierTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5FF2E2813048D003CE888 /* CarrierTabViewController.swift */; };
 		DCB7D1E1284B536200F3CFDE /* BookMarkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB7D1E0284B536200F3CFDE /* BookMarkViewModel.swift */; };
 		DCB7D1E3284B635800F3CFDE /* LikedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB7D1E2284B635800F3CFDE /* LikedViewModel.swift */; };
+		DCB7D1E5284C7EB700F3CFDE /* ImageDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB7D1E4284C7EB700F3CFDE /* ImageDetailsViewController.swift */; };
+		DCD9880628521ABB00ECCCE7 /* AppliedJobViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD9880528521ABB00ECCCE7 /* AppliedJobViewModel.swift */; };
+		DCD98808285221E900ECCCE7 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCD98807285221E900ECCCE7 /* Details.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -672,6 +675,9 @@
 		CFDC4F24275C623FA5230FA3 /* Pods-DoctorWin-DoctorWinUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorWin-DoctorWinUITests.release.xcconfig"; path = "Target Support Files/Pods-DoctorWin-DoctorWinUITests/Pods-DoctorWin-DoctorWinUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DCB7D1E0284B536200F3CFDE /* BookMarkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarkViewModel.swift; sourceTree = "<group>"; };
 		DCB7D1E2284B635800F3CFDE /* LikedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedViewModel.swift; sourceTree = "<group>"; };
+		DCB7D1E4284C7EB700F3CFDE /* ImageDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailsViewController.swift; sourceTree = "<group>"; };
+		DCD9880528521ABB00ECCCE7 /* AppliedJobViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppliedJobViewModel.swift; sourceTree = "<group>"; };
+		DCD98807285221E900ECCCE7 /* Details.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Details.storyboard; sourceTree = "<group>"; };
 		E9F70AFB71164BEA0D30A370 /* Pods-DoctorWinTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorWinTests.debug.xcconfig"; path = "Target Support Files/Pods-DoctorWinTests/Pods-DoctorWinTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -748,6 +754,7 @@
 				4392978E2722D628001891B8 /* Main.storyboard */,
 				439297BC2722D6BA001891B8 /* Home.storyboard */,
 				BFC3EEE22824A979000A1582 /* Add.storyboard */,
+				DCD98807285221E900ECCCE7 /* Details.storyboard */,
 				439297912722D629001891B8 /* Assets.xcassets */,
 				439297932722D629001891B8 /* LaunchScreen.storyboard */,
 				439297962722D629001891B8 /* Info.plist */,
@@ -1089,6 +1096,7 @@
 				BF30C7D4277AEE240047E277 /* SearchJobCell.swift */,
 				BF30C7D5277AEE240047E277 /* SearchJobCell.xib */,
 				43B23204273AAA2C00038F8A /* AppliedJobCell.swift */,
+				DCD9880528521ABB00ECCCE7 /* AppliedJobViewModel.swift */,
 				43B23205273AAA2C00038F8A /* AppliedJobCell.xib */,
 				43B975A82725B18A00CDF2F1 /* JobRequirementCell.swift */,
 				43B975A92725B18A00CDF2F1 /* JobRequirementCell.xib */,
@@ -1226,6 +1234,7 @@
 				BF1588B027C6087D000B8979 /* ArticalDetailsViewController.swift */,
 				BF170F6E280FD67F001B3109 /* CaseDetailsViewController.swift */,
 				BF170F70280FD726001B3109 /* ExamDetailsViewController.swift */,
+				DCB7D1E4284C7EB700F3CFDE /* ImageDetailsViewController.swift */,
 				BF170F72280FE970001B3109 /* HomeTableHeader.swift */,
 				BF170F74280FE980001B3109 /* HomeTableHeader.xib */,
 				BF170F65280FCF2C001B3109 /* HomeCelll */,
@@ -1428,6 +1437,7 @@
 				BFA90E1C27B4E97B009F9784 /* ProfileImageCell.xib in Resources */,
 				43B975B52725B63000CDF2F1 /* JobHeadCell.xib in Resources */,
 				BF0DD945278D33EC0053747A /* ProfileDashboardCell.xib in Resources */,
+				DCD98808285221E900ECCCE7 /* Details.storyboard in Resources */,
 				439297CF2723199B001891B8 /* CarrierCell.xib in Resources */,
 				BFC3EEE128242568000A1582 /* HospitalDetailsCell.xib in Resources */,
 				BF170F4A28084825001B3109 /* ProfileCell.xib in Resources */,
@@ -1736,6 +1746,7 @@
 				43AF9F8F2729D51E0020CCF3 /* CollegeViewController.swift in Sources */,
 				BFC3EEF62828D7FC000A1582 /* UserHeaderView.swift in Sources */,
 				43953E90273E9DF70027CE80 /* RecommendedCollectionView.swift in Sources */,
+				DCD9880628521ABB00ECCCE7 /* AppliedJobViewModel.swift in Sources */,
 				43B03A98272EA94E00A4337B /* HomeDetailsCell.swift in Sources */,
 				BFA90E2627BB5163009F9784 /* CreateCaseViewController.swift in Sources */,
 				43AF8FC527358C7E00CC69EF /* LoginResource.swift in Sources */,
@@ -1833,6 +1844,7 @@
 				BFC3EEEC282523D6000A1582 /* FollowingViewController.swift in Sources */,
 				43AF9F8B2729D46A0020CCF3 /* JobsMainViewController.swift in Sources */,
 				BFC3EF092834C71C000A1582 /* CarrierJobDetailsViewController.swift in Sources */,
+				DCB7D1E5284C7EB700F3CFDE /* ImageDetailsViewController.swift in Sources */,
 				439AA1FA2737F2F400D09E26 /* CourseNameCell.swift in Sources */,
 				43B23201273AA66500038F8A /* SavedJobViewController.swift in Sources */,
 				439275D62727F22100E91E33 /* HomeTableViewHeader.swift in Sources */,

@@ -110,7 +110,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             cell.delegate = self
             cell.configureData(homeModel: homedataArry[indexPath.row])
             cell.descriptionLable.delegate = self
-
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapImageView(_:)))
+            cell.postImage?.addGestureRecognizer(tapGestureRecognizer)
+            cell.postImage.tag = indexPath.row
             cell.descriptionLable.setLessLinkWith(lessLink: "Close", attributes: [.foregroundColor:UIColor.red], position: .left)
 
             cell.layoutIfNeeded()
@@ -128,7 +130,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             = tableView.dequeueReusableCell(withIdentifier: "ArticalCell") as! ArticalCell
             cell.configureData(homeModel: homedataArry[indexPath.row])
             cell.descriptionLable.delegate = self
-
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapImageView(_:)))
+            cell.postImage.tag = indexPath.row
+            cell.postImage?.addGestureRecognizer(tapGestureRecognizer)
             cell.descriptionLable.setLessLinkWith(lessLink: "Close", attributes: [.foregroundColor:UIColor.red], position: .left)
 
             cell.layoutIfNeeded()
@@ -144,7 +148,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             = tableView.dequeueReusableCell(withIdentifier: "CaseCell") as! CaseCell
             cell.delegate = self
             cell.configureData(homeModel: homedataArry[indexPath.row])
-            
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapImageView(_:)))
+            cell.postImage.tag = indexPath.row
+            cell.postImage?.addGestureRecognizer(tapGestureRecognizer)
             return cell
         } else {
     
@@ -152,6 +158,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             = tableView.dequeueReusableCell(withIdentifier: "ExamCell") as! ExamCell
             cell.configureData(homeModel: homedataArry[indexPath.row])
             cell.explainBtn.addTarget(self, action: #selector(explainClicked(button:)), for: .touchUpInside)
+            
             cell.explainBtn.tag = indexPath.row
             return cell
         }
@@ -178,8 +185,19 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
     }
     @objc func newsClicked(button: UIButton) {
-        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "MyNewsViewController") as! MyNewsViewController
+        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "NewsViewController") as! NewsViewController
         self.navigationController?.pushViewController(nextVC, animated: true)
+        
+    }
+    @objc private func didTapImageView(_ sender: UITapGestureRecognizer) {
+       
+        
+        let str = UIStoryboard(name: "Details", bundle: nil)
+            let nextVC = str.instantiateViewController(withIdentifier: "ImageDetailsViewController") as! ImageDetailsViewController
+        if let image = homedataArry[sender.view?.tag ?? 0].postedImage {
+            nextVC.selectedImageUrl = image
+        }
+            self.navigationController?.pushViewController(nextVC, animated: true)
         
     }
     @objc func educationClicked(button: UIButton) {
@@ -191,7 +209,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     @objc func connectClicked(button: UIButton) {
     }
     @objc func jobClicked(button: UIButton) {
-        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "CarrierViewController") as! CarrierViewController
+        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "CarrierTabViewController") as! CarrierTabViewController
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     @objc func explainClicked(button: UIButton) {

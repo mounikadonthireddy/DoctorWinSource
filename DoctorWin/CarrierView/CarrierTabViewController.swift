@@ -100,7 +100,7 @@ extension CarrierTabViewController: JobsViewModelDelegate {
         }
     }
     
-    func didReceiveJobsResponse(response: [JobsDataModel]?, error: String?) {
+    func didReceiveJobsResponse(response: [CarrierModel]?, error: String?) {
         self.dismiss()
     }
     

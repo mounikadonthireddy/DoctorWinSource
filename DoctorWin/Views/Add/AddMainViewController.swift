@@ -19,8 +19,8 @@ class AddMainViewController: UIViewController {
     // MARK: AddCasesViewController
     lazy var vc1: AddCasesViewController = {
         
-        
-        var viewController = storyboard?.instantiateViewController(withIdentifier: "AddCasesViewController") as! AddCasesViewController
+        let str = UIStoryboard(name: "Add", bundle: nil)
+        var viewController = str.instantiateViewController(withIdentifier: "AddCasesViewController") as! AddCasesViewController
         
         return viewController
     }()
@@ -28,8 +28,8 @@ class AddMainViewController: UIViewController {
     // MARK: AddNewsViewController
     
     lazy var vc2: AddNewsViewController = {
-        
-        var viewController = storyboard?.instantiateViewController(withIdentifier: "AddNewsViewController") as! AddNewsViewController
+        let str = UIStoryboard(name: "Add", bundle: nil)
+        var viewController = str.instantiateViewController(withIdentifier: "AddNewsViewController") as! AddNewsViewController
         
         return viewController
     }()
@@ -37,15 +37,15 @@ class AddMainViewController: UIViewController {
     // MARK: AddPollViewController
     
     lazy var vc3: AddPollViewController = {
-        
-        var viewController = storyboard?.instantiateViewController(withIdentifier: "AddPollViewController") as! AddPollViewController
+        let str = UIStoryboard(name: "Add", bundle: nil)
+        var viewController = str.instantiateViewController(withIdentifier: "AddPollViewController") as! AddPollViewController
         return viewController
     }()
     // MARK: AddArticalViewController
     
     lazy var vc4: AddArticalViewController = {
-        
-        var viewController = storyboard?.instantiateViewController(withIdentifier: "AddArticalViewController") as! AddArticalViewController
+        let str = UIStoryboard(name: "Add", bundle: nil)
+        var viewController = str.instantiateViewController(withIdentifier: "AddArticalViewController") as! AddArticalViewController
         return viewController
     }()
     

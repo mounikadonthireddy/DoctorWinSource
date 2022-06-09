@@ -17,14 +17,14 @@ class JobsViewController: UIViewController {
     @IBOutlet weak var stackViewHeight: NSLayoutConstraint!
     var jobType: String = ""
     var categoryID: Int = 0
-    var jobsArray :[JobsDataModel] = []
+    var jobsArray :[CarrierModel] = []
     var jobsVM = JobsViewModel()
     var query: Bool = false
     var queryString = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        jobTableView.register(UINib.init(nibName: "CarrierSubCell", bundle: nil), forCellReuseIdentifier: "CarrierSubCell")
+        jobTableView.register(UINib.init(nibName: "CarrierJobCell", bundle: nil), forCellReuseIdentifier: "CarrierJobCell")
         jobsVM.delegate = self
         if query {
             getSearchJobs()
@@ -67,20 +67,18 @@ extension JobsViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: CarrierSubCell = tableView.dequeueReusableCell(withIdentifier: "CarrierSubCell") as! CarrierSubCell
+        let cell: CarrierJobCell
+        = tableView.dequeueReusableCell(withIdentifier: "CarrierJobCell") as! CarrierJobCell
         cell.configureCell(with: jobsArray[indexPath.row])
-        
-        
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let str = UIStoryboard(name: "Home", bundle: nil)
-        let nextVC = str.instantiateViewController(withIdentifier: "JobDetailsViewController") as! JobDetailsViewController
-        nextVC.detailsModel = jobsArray[indexPath.row]
-        self.navigationController?.pushViewController(nextVC, animated: true)
-        
+            let nextVC = str.instantiateViewController(withIdentifier: "CarrierJobDetailsViewController") as! CarrierJobDetailsViewController
+            nextVC.jobId = jobsArray[indexPath.row].id
+            self.navigationController?.pushViewController(nextVC, animated: true)
+
     }
-    
     
 }
 extension JobsViewController: JobsViewModelDelegate {
@@ -88,7 +86,7 @@ extension JobsViewController: JobsViewModelDelegate {
         
     }
     
-    func didReceiveJobsResponse(response: [JobsDataModel]?, error: String?) {
+    func didReceiveJobsResponse(response: [CarrierModel]?, error: String?) {
         if error == nil {
             jobsArray = response ?? []
             jobTableView.reloadData()

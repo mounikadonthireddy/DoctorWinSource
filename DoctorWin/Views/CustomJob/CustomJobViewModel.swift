@@ -33,18 +33,18 @@ struct CustomJobViewModel {
         }
     }
     func getAppliedJobs(userID: String) {
-        let resource = CustomJobResource()
-        resource.getAppliedJobData(userID: userID) { response in
-            DispatchQueue.main.async {
-                switch response {
-                case .success(let data):
-                    self.delegate?.didReceiveCustomJobs(response: data, error: nil)
-                    
-                case .failure(let error):
-                    self.delegate?.didReceiveCustomJobs(response: nil, error: error)
-                }
-            }
-        }
+//        let resource = CustomJobResource()
+//        resource.getAppliedJobData(userID: userID) { response in
+//            DispatchQueue.main.async {
+//                switch response {
+//                case .success(let data):
+//                    self.delegate?.didReceiveCustomJobs(response: data, error: nil)
+//                    
+//                case .failure(let error):
+//                    self.delegate?.didReceiveCustomJobs(response: nil, error: error)
+//                }
+//            }
+//        }
     }
     func getSavedJobs(userID: String) {
         let resource = CustomJobResource()
@@ -75,3 +75,4 @@ struct CustomJobViewModel {
         }
     }
 }
+

@@ -139,9 +139,7 @@ extension MeViewController: UITableViewDelegate, UITableViewDataSource {
             cell.edit.tag = indexPath.row
             cell.delete.tag = indexPath.row
             cell.delete.addTarget(self, action: #selector(deleteClicked(button:)), for: .touchUpInside)
-          //  cell.edit.addTarget(self, action: #selector(editClicked(button:)), for: .touchUpInside)
-
-            return cell
+       return cell
             
         case 6:
             let cell: ProfileSkillsCell = tableView.dequeueReusableCell(withIdentifier: "ProfileSkillsCell", for: indexPath) as! ProfileSkillsCell

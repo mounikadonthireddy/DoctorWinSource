@@ -7,7 +7,7 @@
 
 import Foundation
 protocol JobsViewModelDelegate {
-    func didReceiveJobsResponse(response: [JobsDataModel]?, error: String?)
+    func didReceiveJobsResponse(response: [CarrierModel]?, error: String?)
     func didReceiveCarrierResponse(response: [CarrierModel]?, error: String?)
 
 }
@@ -17,15 +17,15 @@ struct JobsViewModel {
     func getNewsPollArticleComplaintDataFromAPI(userID: String) {
         let homeResource = JobsResource()
         homeResource.getJobData(userID: userID) { response in
-            DispatchQueue.main.async {
-                switch response {
-                case .success(let data):
-                    self.delegate?.didReceiveJobsResponse(response: data, error: nil)
-                    
-                case .failure(let error):
-                    self.delegate?.didReceiveJobsResponse(response: nil, error: error)
-                }
-            }
+//            DispatchQueue.main.async {
+////                switch response {
+////                case .success(let data):
+////                    self.delegate?.didReceiveJobsResponse(response: data, error: nil)
+////
+////                case .failure(let error):
+////                    self.delegate?.didReceiveJobsResponse(response: nil, error: error)
+////                }
+//            }
         }
     }
     func getJobDataBasedOnCategory(userID: String, categoryID: Int) {

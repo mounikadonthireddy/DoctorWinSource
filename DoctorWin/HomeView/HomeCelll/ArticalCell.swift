@@ -16,14 +16,14 @@ class ArticalCell: UITableViewCell {
     @IBOutlet weak var postImage: UIImageView!
     @IBOutlet weak var wishlistBtn: UIButton!
     @IBOutlet weak var saveBtn: UIButton!
-    @IBOutlet weak var replyTF: UITextField!
+   // @IBOutlet weak var replyTF: UITextField!
     @IBOutlet weak var likeImage: UIImageView!
     @IBOutlet weak var bookmarkImage: UIImageView!
     @IBOutlet weak var personName: UILabel!
     @IBOutlet weak var designation: UILabel!
     @IBOutlet weak var pesonImage: UIImageView!
     @IBOutlet weak var likeCount: UILabel!
-    @IBOutlet weak var imageHeiht: NSLayoutConstraint!
+   // @IBOutlet weak var imageHeiht: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -52,7 +52,7 @@ class ArticalCell: UITableViewCell {
             let ratio = Int(size?.width ?? 100) / Int(size?.height ?? 100)
             if ratio != 0 {
             let newHeight = Int(postImage.frame.width) / ratio
-            imageHeiht.constant = CGFloat(newHeight)
+         //   imageHeiht.constant = CGFloat(newHeight)
             self.layoutIfNeeded()
             }
             

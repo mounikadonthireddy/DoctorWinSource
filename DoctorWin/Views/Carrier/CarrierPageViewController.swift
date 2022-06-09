@@ -262,6 +262,10 @@ extension CarrierPageViewController: UITableViewDelegate, UITableViewDataSource 
     }
 }
 extension CarrierPageViewController: JobsViewModelDelegate {
+    func didReceiveJobsResponse(response: [CarrierModel]?, error: String?) {
+        
+    }
+    
     func didReceiveCarrierResponse(response: [CarrierModel]?, error: String?) {
         
     }

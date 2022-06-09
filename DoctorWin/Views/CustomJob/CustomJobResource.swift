@@ -91,11 +91,11 @@ struct CustomJobResource {
             }
         }
     }
-    func getAppliedJobData(userID: String, completion : @escaping (_ result: ResponseResult<[JobsDataModel]>) -> Void) {
+    func getAppliedJobData(userID: String, completion : @escaping (_ result: ResponseResult<[CarrierModel]>) -> Void) {
         let appliedJobUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.appliedJobs + "?user_id=\(userID)"
         let httpUtility = HttpUtility()
         do {
-            httpUtility.getApiData(urlString: appliedJobUrlStr, resultType: [JobsDataModel].self) { result in
+            httpUtility.getApiData(urlString: appliedJobUrlStr, resultType: [CarrierModel].self) { result in
                 
                 switch result {
                 case .success(let data):

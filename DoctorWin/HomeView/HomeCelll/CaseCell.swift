@@ -20,7 +20,7 @@ class CaseCell: UITableViewCell {
     @IBOutlet weak var wishlistBtn: UIButton!
     @IBOutlet weak var saveBtn: UIButton!
     // @IBOutlet weak var replyBtn: UIButton!
-    @IBOutlet weak var replyTF: UITextField!
+//    @IBOutlet weak var replyTF: UITextField!
     weak var delegate: CellActionDelegate?
     @IBOutlet weak var personImage: UIImageView!
     @IBOutlet weak var likeImage: UIImageView!
@@ -155,23 +155,23 @@ class CaseCell: UITableViewCell {
         
     }
     @IBAction func replyClicked(_ sender: UIButton) {
-        replyTF.resignFirstResponder()
-        if replyTF.text != "" {
-            let request = PostReplyRequest(case_id:"\(sender.tag)", profile: User.shared.userID, comment: replyTF.text!)
-            
-            let resource = HomeResource()
-            resource.replyComplaint(request: request) { result in
-                DispatchQueue.main.async {
-                    if result.status == "true" {
-                        if let value = result.discussion {
-                            self.discussion.text = "\(String(describing: value)) Discussions"
-                            self.replyTF.text = ""
-                        }
-                    }
-                    
-                }
-                
-            }
-        }
+//        replyTF.resignFirstResponder()
+//        if replyTF.text != "" {
+//            let request = PostReplyRequest(case_id:"\(sender.tag)", profile: User.shared.userID, comment: replyTF.text!)
+//
+//            let resource = HomeResource()
+//            resource.replyComplaint(request: request) { result in
+//                DispatchQueue.main.async {
+//                    if result.status == "true" {
+//                        if let value = result.discussion {
+//                            self.discussion.text = "\(String(describing: value)) Discussions"
+//                            self.replyTF.text = ""
+//                        }
+//                    }
+//
+//                }
+//
+//            }
+//        }
     }
 }
