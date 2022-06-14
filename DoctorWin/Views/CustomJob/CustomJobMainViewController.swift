@@ -64,8 +64,8 @@ class CustomJobMainViewController: UIViewController {
     // MARK: GRAPH ViewController
     
     lazy var vc3: AppliedJobViewController = {
-        
-        var viewController = storyboard?.instantiateViewController(withIdentifier: "AppliedJobViewController") as! AppliedJobViewController
+        let str = UIStoryboard(name: "Job", bundle: nil)
+        var viewController = str.instantiateViewController(withIdentifier: "AppliedJobViewController") as! AppliedJobViewController
         viewController.jobScreenSelectionDelegate = self
 
         return viewController

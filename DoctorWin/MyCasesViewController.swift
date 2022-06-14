@@ -10,18 +10,25 @@ import UIKit
 class MyCasesViewController: ViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var interfaceSegmented: CustomSegmentedControl!{
+        didSet{
+            interfaceSegmented.setButtonTitles(buttonTitles: ["All Cases","My Cases"])
+            interfaceSegmented.selectorViewColor = .black
+            interfaceSegmented.selectorTextColor = .black
+        }
+    }
     var casesArry: [CasesDataModel] = []
     var casesVM = CasesViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.register(UINib(nibName: "CaseCell", bundle: nil), forCellReuseIdentifier: "CaseCell")
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-     
+    
+        interfaceSegmented.delegate = self
         tabBarController?.tabBar.isHidden = false
         self.loadMyCases(index: 0)
         casesVM.delegate = self
+        
         // Do any additional setup after loading the view.
     }
     
@@ -37,12 +44,8 @@ class MyCasesViewController: ViewController {
     }
     
     func loadMyCases(index: Int) {
-       // self.showLoader()
+        self.showLoader()
         self.casesVM.getCases(userID: User.shared.userID, index: index)
-    }   
-    
-    @IBAction func segmentClicked(_ sender: UISegmentedControl) {
-        self.loadMyCases(index: sender.selectedSegmentIndex)
     }
     @IBAction func backClicked(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
@@ -125,6 +128,14 @@ extension MyCasesViewController: CasesBookMarkDelegate {
         self.casesArry = response ?? []
         self.tableView.reloadData()
         }
+    }
+    
+    
+}
+extension MyCasesViewController: CustomSegmentedControlDelegate {
+    func change(to index: Int) {
+        self.showLoader()
+        self.casesVM.getCases(userID: User.shared.userID, index: index)
     }
     
     

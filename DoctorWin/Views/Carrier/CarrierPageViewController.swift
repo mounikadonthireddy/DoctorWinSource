@@ -253,7 +253,7 @@ extension CarrierPageViewController: UITableViewDelegate, UITableViewDataSource 
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     @objc func appliedClicked(button: UIButton) {
-        let str = UIStoryboard(name: "Home", bundle: nil)
+        let str = UIStoryboard(name: "Job", bundle: nil)
         let nextVC = str.instantiateViewController(withIdentifier: "AppliedJobViewController") as! AppliedJobViewController
         self.navigationController?.pushViewController(nextVC, animated: true)
     }

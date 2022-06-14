@@ -39,36 +39,36 @@ class AddCasesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
-//        patientViewHeight.constant = 0
-//        chiefViewHeight.constant = 0
-//        investigationViewHeight.constant = 0
-//        probableViewHeight.constant = 0
-//        examinationViewHeight.constant = 0
-//        patientView.isHidden = true
-//        chiefComplaint.isHidden = true
-//        investigationView.isHidden = true
-//        probableDiagnosis.isHidden = true
-//        examinationView.isHidden = true
+        patientViewHeight.constant = 0
+        chiefViewHeight.constant = 0
+        investigationViewHeight.constant = 0
+        probableViewHeight.constant = 0
+        examinationViewHeight.constant = 0
+        patientView.isHidden = true
+        chiefComplaint.isHidden = true
+        investigationView.isHidden = true
+        probableDiagnosis.isHidden = true
+        examinationView.isHidden = true
 
-//        presentIllness.label.text = "Present Illness"
-//        pastIllness.label.text = "Past Illness"
-//        drugs.label.text = "Drugs"
-//        personal.label.text = "Personal"
-//        family.label.text = "Family"
-//        physicalExamination.label.text = "Physical Examination"
-//        systemExamination.label.text = "System Examination"
-//        localExamination.label.text = "Local Examination"
-//
-//        vitus.label.text = "Vitus"
-//        labFinding.label.text = "Lab Finding"
-//        imaging.label.text = "Imaging"
-//        chiefComplaint.label.text = "Chief Complaint"
-//
-//        probableDiagnosis.label.text = "Probable Diagnosis"
-//
-        //        presentIllness.placeholder = "555-555-5555"
-        //        presentIllness.leadingAssistiveLabel.text = "This is helper text"
-        //        presentIllness.sizeToFit()
+        presentIllness.label.text = "Present Illness"
+        pastIllness.label.text = "Past Illness"
+        drugs.label.text = "Drugs"
+        personal.label.text = "Personal"
+        family.label.text = "Family"
+        physicalExamination.label.text = "Physical Examination"
+        systemExamination.label.text = "System Examination"
+        localExamination.label.text = "Local Examination"
+
+        vitus.label.text = "Vitus"
+        labFinding.label.text = "Lab Finding"
+        imaging.label.text = "Imaging"
+        chiefComplaint.label.text = "Chief Complaint"
+
+        probableDiagnosis.label.text = "Probable Diagnosis"
+
+                presentIllness.placeholder = "555-555-5555"
+                presentIllness.leadingAssistiveLabel.text = "This is helper text"
+                presentIllness.sizeToFit()
         
     }
     

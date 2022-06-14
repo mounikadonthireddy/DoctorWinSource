@@ -12,8 +12,8 @@ enum ResponseResult<Value> {
 }
 
 struct HomeResource {
-    func getHomeData(userID: String, completion : @escaping (_ result: ResponseResult<[HomeDataModel]>) -> Void) {
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getPollComplaint + "?user_id=\(userID)&page=1"
+    func getHomeData(userID: String, pageNum: Int, completion : @escaping (_ result: ResponseResult<[HomeDataModel]>) -> Void) {
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getPollComplaint + "?user_id=\(userID)&page=\(pageNum)"
         let httpUtility = HttpUtility()
         do {
             httpUtility.getApiData(urlString: homeUrlStr, resultType: [HomeDataModel].self) { result in

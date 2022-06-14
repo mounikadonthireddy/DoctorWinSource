@@ -141,14 +141,16 @@ extension ProfileViewController : UICollectionViewDelegate, UICollectionViewData
         switch indexPath.row {
             
         case 0:
-            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "BookmarksViewController") as! BookmarksViewController
+            let str = UIStoryboard(name: "Me", bundle: nil)
+            let nextVC = str.instantiateViewController(withIdentifier: "BookmarksViewController") as! BookmarksViewController
             self.navigationController?.pushViewController(nextVC, animated: true)
         case 1:
-            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "ConnectViewController") as! ConnectViewController
+            let str = UIStoryboard(name: "Network", bundle: nil)
+            let nextVC = str.instantiateViewController(withIdentifier: "ConnectViewController") as! ConnectViewController
             self.navigationController?.pushViewController(nextVC, animated: true)
-            
         case 2:
-            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "MyCasesViewController") as! MyCasesViewController
+            let str = UIStoryboard(name: "Me", bundle: nil)
+            let nextVC = str.instantiateViewController(withIdentifier: "MyCasesViewController") as! MyCasesViewController
             self.navigationController?.pushViewController(nextVC, animated: true)
             
         case 3:
@@ -156,7 +158,8 @@ extension ProfileViewController : UICollectionViewDelegate, UICollectionViewData
             self.navigationController?.pushViewController(nextVC, animated: true)
             
         case 5:
-            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "AppliedJobViewController") as! AppliedJobViewController
+            let str = UIStoryboard(name: "Job", bundle: nil)
+            let nextVC = str.instantiateViewController(withIdentifier: "AppliedJobViewController") as! AppliedJobViewController
             self.navigationController?.pushViewController(nextVC, animated: true)
             
         case 10:
@@ -175,12 +178,14 @@ extension ProfileViewController : UICollectionViewDelegate, UICollectionViewData
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     @objc func followClicked(button: Any) {
-        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "FollowViewController") as! FollowViewController
+        let str = UIStoryboard(name: "Network", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "FollowViewController") as! FollowViewController
         self.navigationController?.pushViewController(nextVC, animated: true)
         
     }
     @objc func followingClicked(button: Any) {
-        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "FollowingViewController") as! FollowingViewController
+        let str = UIStoryboard(name: "Network", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "FollowingViewController") as! FollowingViewController
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }

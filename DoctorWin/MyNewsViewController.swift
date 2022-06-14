@@ -13,7 +13,7 @@ class MyNewsViewController: ViewController,ExpandableLabelDelegate {
     @IBOutlet weak var newsTableView: UITableView!
     @IBOutlet weak var interfaceSegmented: CustomSegmentedControl!{
         didSet{
-            interfaceSegmented.setButtonTitles(buttonTitles: ["My News","Bookmark News", "Likes News"])
+            interfaceSegmented.setButtonTitles(buttonTitles: ["Home","My News", "About"])
             interfaceSegmented.selectorViewColor = .black
             interfaceSegmented.selectorTextColor = .black
         }

@@ -10,10 +10,13 @@ import UIKit
 class HomeViewController: UIViewController, ExpandableLabelDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var questionBtn: UIButton!
+    @IBOutlet weak var plusBtn: UIButton!
     var homedataArry: [HomeDataModel] = []
     var homeVM = HomeViewModel()
-    @IBOutlet weak var plusBtn: UIButton!
+    var loadingData = true
+    var pageNumber = 1
     var states : Array<Bool>!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,7 +59,7 @@ class HomeViewController: UIViewController, ExpandableLabelDelegate {
             }
             UIApplication.shared.statusBarStyle = .lightContent
         }
-        self.parse()
+        self.loadHomeData(pageNum: pageNumber)
         // Do any additional setup after loading the view.
     }
     
@@ -72,9 +75,9 @@ class HomeViewController: UIViewController, ExpandableLabelDelegate {
         //        tabBarController?.tabBar.isHidden = true
     }
     
-    func parse() {
-  self.showLoader()
-        self.homeVM.getNewsPollArticleComplaintDataFromAPI(userID: User.shared.userID)
+    func loadHomeData(pageNum: Int) {
+        self.showLoader()
+        self.homeVM.getNewsPollArticleComplaintDataFromAPI(userID: User.shared.userID, pageNum: pageNum)
         
     }
     
@@ -164,6 +167,15 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
     }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let lastElement = homedataArry.count - 1
+        if !loadingData && indexPath.row == lastElement {
+            self.showLoader()
+            loadingData = true
+            pageNumber += 1
+            self.loadHomeData(pageNum: pageNumber)
+        }
+    }
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 10
     }
@@ -185,13 +197,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
     }
     @objc func newsClicked(button: UIButton) {
-        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "NewsViewController") as! NewsViewController
+        let str = UIStoryboard(name: "Me", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "MyNewsViewController") as! MyNewsViewController
         self.navigationController?.pushViewController(nextVC, animated: true)
         
     }
     @objc private func didTapImageView(_ sender: UITapGestureRecognizer) {
-       
-        
         let str = UIStoryboard(name: "Details", bundle: nil)
             let nextVC = str.instantiateViewController(withIdentifier: "ImageDetailsViewController") as! ImageDetailsViewController
         if let image = homedataArry[sender.view?.tag ?? 0].postedImage {
@@ -315,10 +326,11 @@ extension HomeViewController: CellActionDelegate {
 extension HomeViewController : HomeViewModelDelegate {
     func didReciveHomeData(response: [HomeDataModel]?, error: String?) {
         self.dismiss()
+        loadingData = false
         if (error != nil) {
             
         } else {
-            self.homedataArry = response ?? []
+            self.homedataArry = homedataArry + (response ?? [])
             self.tableView.reloadData()
             states = [Bool](repeating: true, count: homedataArry.count)
         }

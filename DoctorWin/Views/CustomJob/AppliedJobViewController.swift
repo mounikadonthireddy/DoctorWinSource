@@ -30,6 +30,10 @@ class AppliedJobViewController: ViewController {
         parse1()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
     func parse1() {
         self.showLoader()
         customJobVM.getAppliedJobs(userID: User.shared.userID)

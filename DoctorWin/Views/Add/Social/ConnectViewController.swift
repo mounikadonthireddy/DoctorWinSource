@@ -72,10 +72,17 @@ extension ConnectViewController: UITableViewDelegate, UITableViewDataSource {
         cell.qualificationTF.optionArray = qualificationArray.map({ data in
             return data.qualification
         })
+        cell.genderTF.optionArray = ["Male", "Female"]
         
      //   cell.cellConfigureWithConnectionData(data: connectionsArray[indexPath.row])
-        
+      cell.interest.addTarget(self, action: #selector(interstClicked(button:)), for: .touchUpInside)
         return cell
+    }
+    
+    @objc func interstClicked(button: UIButton) {
+        let str = UIStoryboard(name: "Network", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "InterstViewController") as! InterstViewController
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
     

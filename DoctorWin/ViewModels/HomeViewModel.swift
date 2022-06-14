@@ -22,9 +22,9 @@ protocol HomeViewModelDelegate {
 struct HomeViewModel {
     var delegate : HomeViewModelDelegate?
     var savedelegate : DataSavageProtocol?
-    func getNewsPollArticleComplaintDataFromAPI(userID: String) {
+    func getNewsPollArticleComplaintDataFromAPI(userID: String, pageNum: Int) {
         let homeResource = HomeResource()
-        homeResource.getHomeData(userID: userID) { response in
+        homeResource.getHomeData(userID: userID, pageNum: pageNum) { response in
             DispatchQueue.main.async {
                 switch response {
                 case .success(let data):

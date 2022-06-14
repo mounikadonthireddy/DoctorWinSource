@@ -144,7 +144,8 @@ extension ProfileDetailsViewController: UITableViewDelegate, UITableViewDataSour
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     @objc func casesClicked(button: UIButton) {
-        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "MyCasesViewController") as! MyCasesViewController
+        let str = UIStoryboard(name: "Me", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "MyCasesViewController") as! MyCasesViewController
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     @objc func newsClicked(button: UIButton) {
@@ -152,14 +153,15 @@ extension ProfileDetailsViewController: UITableViewDelegate, UITableViewDataSour
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     @objc func appliedClicked(button: UIButton) {
-        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "AppliedJobViewController") as! AppliedJobViewController
+        let str = UIStoryboard(name: "Job", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "AppliedJobViewController") as! AppliedJobViewController
 //        nextVC.expModel = experienceArray[button.tag]
         nextVC.showBack = true
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     @objc func followClicked(button: UIButton) {
-        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "FollowViewController") as! FollowViewController
-//        nextVC.expModel = experienceArray[button.tag]
+        let str = UIStoryboard(name: "Network", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "FollowViewController") as! FollowViewController
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     @objc func deleteClicked(button: UIButton) {

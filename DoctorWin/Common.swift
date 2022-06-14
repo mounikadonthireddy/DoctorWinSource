@@ -172,7 +172,7 @@ struct ApiEndpoints
     
     static let jobDetails = "new/job"
     static let hospitalDetails = "new/job/hospital/details"
-
+    static let getInterest = "connect/dating/interest"
 }
 
 class User {

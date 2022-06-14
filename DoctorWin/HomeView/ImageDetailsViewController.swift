@@ -23,7 +23,9 @@ class ImageDetailsViewController: UIViewController {
        
     }
     
-
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = true
+    }
     /*
     // MARK: - Navigation
 

@@ -16,15 +16,14 @@ struct CasesViewModel {
         var endPoint = ""
         switch index {
         case 0:
-            endPoint = ApiEndpoints.postedCases
+            endPoint = ApiEndpoints.postedCases + "?userid=\(userID)"
         case 1:
-            endPoint = ApiEndpoints.bookmarkCases
-        case 2:
-            endPoint = ApiEndpoints.likedCases
+            endPoint = ApiEndpoints.postedCases + "?user_id=\(userID)"
+    
         default:
             endPoint = ""
         }
-        let homeUrlStr = ApiEndpoints.baseUrl + endPoint + "?user_id=\(userID)"
+        let homeUrlStr = ApiEndpoints.baseUrl + endPoint 
 
         homeResource.getBookmarkCases(urlString: homeUrlStr) { response in
             DispatchQueue.main.async {
@@ -50,15 +49,15 @@ struct NewsDataViewModel {
         var endPoint = ""
         switch index {
         case 0:
-            endPoint = ApiEndpoints.postedNews
+            endPoint = ApiEndpoints.postedNews + "?userid=\(userID)"
         case 1:
-            endPoint = ApiEndpoints.bookmarkNews
+            endPoint = ApiEndpoints.postedNews + "?user_id=\(userID)"
         case 2:
-            endPoint = ApiEndpoints.likedNews
+            endPoint = ApiEndpoints.likedNews + "?user_id=\(userID)"
         default:
             endPoint = ""
         }
-        let homeUrlStr = ApiEndpoints.baseUrl + endPoint + "?user_id=\(userID)"
+        let homeUrlStr = ApiEndpoints.baseUrl + endPoint 
 
         homeResource.getMyNewsData1(urlString: homeUrlStr) { response in
               DispatchQueue.main.async {

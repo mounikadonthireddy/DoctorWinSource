@@ -15,7 +15,7 @@ class CourseNameCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        self.name.setCornerRadiusWithBorderColor(radius: 10, color: UIColor.secondaryLabel, borderWidth: 1)
+      
     }
 
 }

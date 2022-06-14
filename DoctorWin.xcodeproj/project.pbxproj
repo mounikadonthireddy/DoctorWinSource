@@ -322,6 +322,14 @@
 		BFD5FF2C2812EECE003CE888 /* NewsDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5FF2A2812EECE003CE888 /* NewsDetailsCell.swift */; };
 		BFD5FF2D2812EECE003CE888 /* NewsDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFD5FF2B2812EECE003CE888 /* NewsDetailsCell.xib */; };
 		BFD5FF2F2813048E003CE888 /* CarrierTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5FF2E2813048D003CE888 /* CarrierTabViewController.swift */; };
+		DC4AEF1E2853813D00D6D4A3 /* Me.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC4AEF1D2853813D00D6D4A3 /* Me.storyboard */; };
+		DC4AEF20285381C100D6D4A3 /* Network.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC4AEF1F285381C100D6D4A3 /* Network.storyboard */; };
+		DC4AEF222853847C00D6D4A3 /* Shop.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC4AEF212853847C00D6D4A3 /* Shop.storyboard */; };
+		DC4AEF24285384BD00D6D4A3 /* Job.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC4AEF23285384BD00D6D4A3 /* Job.storyboard */; };
+		DC6B8A472853318A00F89D57 /* Tab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC6B8A462853318A00F89D57 /* Tab.storyboard */; };
+		DC8D9ACD28572C0F009533DC /* InterstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D9ACC28572C0F009533DC /* InterstViewController.swift */; };
+		DC8D9ACF28578769009533DC /* InterestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D9ACE28578769009533DC /* InterestViewModel.swift */; };
+		DC8D9AD1285787EE009533DC /* ConnectResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D9AD0285787EE009533DC /* ConnectResource.swift */; };
 		DCB7D1E1284B536200F3CFDE /* BookMarkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB7D1E0284B536200F3CFDE /* BookMarkViewModel.swift */; };
 		DCB7D1E3284B635800F3CFDE /* LikedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB7D1E2284B635800F3CFDE /* LikedViewModel.swift */; };
 		DCB7D1E5284C7EB700F3CFDE /* ImageDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB7D1E4284C7EB700F3CFDE /* ImageDetailsViewController.swift */; };
@@ -673,6 +681,14 @@
 		BFD5FF2B2812EECE003CE888 /* NewsDetailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsDetailsCell.xib; sourceTree = "<group>"; };
 		BFD5FF2E2813048D003CE888 /* CarrierTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrierTabViewController.swift; sourceTree = "<group>"; };
 		CFDC4F24275C623FA5230FA3 /* Pods-DoctorWin-DoctorWinUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorWin-DoctorWinUITests.release.xcconfig"; path = "Target Support Files/Pods-DoctorWin-DoctorWinUITests/Pods-DoctorWin-DoctorWinUITests.release.xcconfig"; sourceTree = "<group>"; };
+		DC4AEF1D2853813D00D6D4A3 /* Me.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Me.storyboard; sourceTree = "<group>"; };
+		DC4AEF1F285381C100D6D4A3 /* Network.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Network.storyboard; sourceTree = "<group>"; };
+		DC4AEF212853847C00D6D4A3 /* Shop.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Shop.storyboard; sourceTree = "<group>"; };
+		DC4AEF23285384BD00D6D4A3 /* Job.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Job.storyboard; sourceTree = "<group>"; };
+		DC6B8A462853318A00F89D57 /* Tab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tab.storyboard; sourceTree = "<group>"; };
+		DC8D9ACC28572C0F009533DC /* InterstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterstViewController.swift; sourceTree = "<group>"; };
+		DC8D9ACE28578769009533DC /* InterestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestViewModel.swift; sourceTree = "<group>"; };
+		DC8D9AD0285787EE009533DC /* ConnectResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectResource.swift; sourceTree = "<group>"; };
 		DCB7D1E0284B536200F3CFDE /* BookMarkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarkViewModel.swift; sourceTree = "<group>"; };
 		DCB7D1E2284B635800F3CFDE /* LikedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedViewModel.swift; sourceTree = "<group>"; };
 		DCB7D1E4284C7EB700F3CFDE /* ImageDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailsViewController.swift; sourceTree = "<group>"; };
@@ -819,6 +835,8 @@
 				BF30C7DA277B34820047E277 /* AddCustomJobResource.swift */,
 				DCB7D1E0284B536200F3CFDE /* BookMarkViewModel.swift */,
 				DCB7D1E2284B635800F3CFDE /* LikedViewModel.swift */,
+				DC8D9ACE28578769009533DC /* InterestViewModel.swift */,
+				DC8D9AD0285787EE009533DC /* ConnectResource.swift */,
 				43AF8FC227358C1F00CC69EF /* LoginModel */,
 			);
 			path = ViewModels;
@@ -1019,6 +1037,11 @@
 				BF0DD94A278D3CCF0053747A /* ProfileDetailsViewController.swift */,
 				BF431C902782FAF20057AF9F /* ExperienceViewController.swift */,
 				BF431C9227831BB30057AF9F /* MyNewsViewController.swift */,
+				DC6B8A462853318A00F89D57 /* Tab.storyboard */,
+				DC4AEF1D2853813D00D6D4A3 /* Me.storyboard */,
+				DC4AEF1F285381C100D6D4A3 /* Network.storyboard */,
+				DC4AEF212853847C00D6D4A3 /* Shop.storyboard */,
+				DC4AEF23285384BD00D6D4A3 /* Job.storyboard */,
 				BFCB16B7279990C3005E3FEB /* MyArticalViewController.swift */,
 				BF431C94278328FD0057AF9F /* MyCasesViewController.swift */,
 				BFCB16BB279991DD005E3FEB /* MyStoriesViewController.swift */,
@@ -1302,6 +1325,7 @@
 			children = (
 				BFC3EEE52824AA80000A1582 /* SocialViewController.swift */,
 				BFC3EEFC282E2BBC000A1582 /* ConnectViewController.swift */,
+				DC8D9ACC28572C0F009533DC /* InterstViewController.swift */,
 				BFC3EEFE282E2C04000A1582 /* ConnectCell.swift */,
 				BFC3EEFF282E2C04000A1582 /* ConnectCell.xib */,
 				BFC3EF02282E4E83000A1582 /* ImageCell.swift */,
@@ -1444,6 +1468,7 @@
 				43A280A2272A81C1001B88A1 /* CollegeDetailsCell.xib in Resources */,
 				BF0DD93D278C931C0053747A /* TitleView.xib in Resources */,
 				BFB3A66C28352C10008D0C72 /* CarrierCategoryCell.xib in Resources */,
+				DC4AEF222853847C00D6D4A3 /* Shop.storyboard in Resources */,
 				BF1588B527C608B8000B8979 /* ArticalDetailsCell.xib in Resources */,
 				439275D02727CE8400E91E33 /* StoryCell.xib in Resources */,
 				439AA1FF2739267900D09E26 /* CaseEditCell.xib in Resources */,
@@ -1456,6 +1481,8 @@
 				BF170F86281119ED001B3109 /* JobDetailsCell.xib in Resources */,
 				BFC3EEDD2823DEB6000A1582 /* ShopCell.xib in Resources */,
 				43B975AF2725B19B00CDF2F1 /* JobInformationCell.xib in Resources */,
+				DC4AEF20285381C100D6D4A3 /* Network.storyboard in Resources */,
+				DC4AEF24285384BD00D6D4A3 /* Job.storyboard in Resources */,
 				BFB3A66828352A02008D0C72 /* SpecialityCell.xib in Resources */,
 				43A280A6272AD82A001B88A1 /* News.json in Resources */,
 				BF0DD95B278D5B9C0053747A /* RecommandedJobCell.xib in Resources */,
@@ -1502,6 +1529,7 @@
 				439297902722D628001891B8 /* Main.storyboard in Resources */,
 				439275D82727F22B00E91E33 /* HomeTableViewHeader.xib in Resources */,
 				BF431C8B2782E9720057AF9F /* ExperienceAddCell.xib in Resources */,
+				DC6B8A472853318A00F89D57 /* Tab.storyboard in Resources */,
 				BF0DD937278C88190053747A /* CarrierHighlightCell.xib in Resources */,
 				43D04BD32742892600414771 /* EditSkillCell.xib in Resources */,
 				BF0DD96C278D8C930053747A /* RecentSearchCVCell.xib in Resources */,
@@ -1513,6 +1541,7 @@
 				431052FB2759EA55006BC13A /* Filter.json in Resources */,
 				BF0DD94F278D42530053747A /* ProfileBasicDetailsCell.xib in Resources */,
 				439DC470273FB63800DAD6D5 /* Custom.json in Resources */,
+				DC4AEF1E2853813D00D6D4A3 /* Me.storyboard in Resources */,
 				439923C7272BD0A70085E067 /* Topjobs.json in Resources */,
 				BF0DD964278D6CA40053747A /* QuickJobTVCell.xib in Resources */,
 				43B03A93272D1D6100A4337B /* Profile.json in Resources */,
@@ -1707,6 +1736,7 @@
 				435FB56C27510FE40040C406 /* JobCategoryResource.swift in Sources */,
 				43A280A1272A81C1001B88A1 /* CollegeDetailsCell.swift in Sources */,
 				43A6A97627324F2E00400F72 /* ProfilePersonalEditCell.swift in Sources */,
+				DC8D9ACF28578769009533DC /* InterestViewModel.swift in Sources */,
 				BFB3A66B28352C10008D0C72 /* CarrierCategoryCell.swift in Sources */,
 				BFC3EED72823DE98000A1582 /* ShopViewController.swift in Sources */,
 				4392978D2722D628001891B8 /* ViewController.swift in Sources */,
@@ -1726,6 +1756,7 @@
 				435FB5682750BD100040C406 /* JobsResource.swift in Sources */,
 				439AA1F7273632A200D09E26 /* LoginVCExtension.swift in Sources */,
 				BF170F62280FCE49001B3109 /* CaseCell.swift in Sources */,
+				DC8D9AD1285787EE009533DC /* ConnectResource.swift in Sources */,
 				BF0DD96F278D92EF0053747A /* CarrierHeaderCell.swift in Sources */,
 				BFB3A66F28353A1F008D0C72 /* HospitalHighligtCell.swift in Sources */,
 				BFB3A66728352A02008D0C72 /* SpecialityCell.swift in Sources */,
@@ -1733,6 +1764,7 @@
 				BFC3EEE028242568000A1582 /* HospitalDetailsCell.swift in Sources */,
 				43B231FB273AA38600038F8A /* SearchJobsViewController.swift in Sources */,
 				43B975B12725B20000CDF2F1 /* JobInformationCell.swift in Sources */,
+				DC8D9ACD28572C0F009533DC /* InterstViewController.swift in Sources */,
 				BFCB16BC279991DD005E3FEB /* MyStoriesViewController.swift in Sources */,
 				43B5CBCD2726779900DFEC71 /* JobsCell.swift in Sources */,
 				43A6A99227329F1C00400F72 /* CasesTableViewCell.swift in Sources */,

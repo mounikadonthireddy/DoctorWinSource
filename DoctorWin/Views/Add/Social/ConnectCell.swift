@@ -16,7 +16,7 @@ class ConnectCell: UITableViewCell {
     @IBOutlet weak var qualificationTF: DropDown!
     @IBOutlet weak var professionTF: DropDown!
     @IBOutlet weak var dobTF: UITextField!
-    @IBOutlet weak var genderTF: UITextField!
+    @IBOutlet weak var genderTF: DropDown!
     @IBOutlet weak var interest: UIButton!
     @IBOutlet weak var courseCollectionView: UICollectionView!
     @IBOutlet weak var collectionViewLayout: UICollectionViewFlowLayout!
@@ -41,6 +41,7 @@ class ConnectCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+   // func configureCell(data: )
     
 }
 extension ConnectCell : UICollectionViewDelegate, UICollectionViewDataSource {

@@ -9,7 +9,7 @@ import Foundation
 struct NewsJobResource {
     func getNewsData(userID: String, completion : @escaping (_ result: ResponseResult<[NewsDataModel]>) -> Void) {
         
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getArtical + "?user_id=\(userID)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.userNews + "?userid=\(userID)"
         let httpUtility = HttpUtility()
         do {
             httpUtility.getApiData(urlString: homeUrlStr, resultType: [NewsDataModel].self) { result in

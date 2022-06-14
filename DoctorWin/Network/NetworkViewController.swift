@@ -60,12 +60,12 @@ class NetworkViewController: ViewController {
         }
         
         @objc func followClicked(button: UIButton) {
-            let str = UIStoryboard(name: "Home", bundle: nil)
+            let str = UIStoryboard(name: "Network", bundle: nil)
             let nextVC = str.instantiateViewController(withIdentifier: "FollowViewController") as! FollowViewController
             self.navigationController?.pushViewController(nextVC, animated: true)
         }
         @objc func followingClicked(button: UIButton) {
-            let str = UIStoryboard(name: "Home", bundle: nil)
+            let str = UIStoryboard(name: "Network", bundle: nil)
             let nextVC = str.instantiateViewController(withIdentifier: "FollowingViewController") as! FollowingViewController
             self.navigationController?.pushViewController(nextVC, animated: true)
         }
@@ -73,7 +73,7 @@ class NetworkViewController: ViewController {
             
         }
         @objc func requestClicked(button: UIButton) {
-            let str = UIStoryboard(name: "Home", bundle: nil)
+            let str = UIStoryboard(name: "Network", bundle: nil)
             let nextVC = str.instantiateViewController(withIdentifier: "RequestViewController") as! RequestViewController
             self.navigationController?.pushViewController(nextVC, animated: true)            
         }
