@@ -7,20 +7,28 @@
 
 import UIKit
 
-class CaseDetailsViewController: UIViewController {
+class CaseDetailsViewController: ViewController {
 
     @IBOutlet weak var HomeDetailsTableView: UITableView!
     var detailsModel : HomeDataModel!
+    var viewModel = DetailsViewModel()
+    var caseId = 0
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        HomeDetailsTableView.register(UINib(nibName: "HomeDetailsCell", bundle: nil), forCellReuseIdentifier: "HomeDetailsCell")
+        viewModel.delegate = self
+        
+        HomeDetailsTableView.register(UINib(nibName: "CaseDetailsCell", bundle: nil), forCellReuseIdentifier: "CaseDetailsCell")
         HomeDetailsTableView.register(UINib(nibName: "CommentsCell", bundle: nil), forCellReuseIdentifier: "CommentsCell")
 
         tabBarController?.tabBar.isHidden = true
         self.HomeDetailsTableView.delegate = self
         self.HomeDetailsTableView.dataSource = self
         // Do any additional setup after loading the view.
+        self.loadCaseDetails()
+    }
+    func loadCaseDetails() {
+        self.showLoader()
+        viewModel.getCaseDetails(userID: User.shared.userID, caseId: "\(caseId)")
     }
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.tabBar.isHidden = true
@@ -55,9 +63,9 @@ extension CaseDetailsViewController : UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-        let cell: HomeDetailsCell
-            = tableView.dequeueReusableCell(withIdentifier: "HomeDetailsCell") as! HomeDetailsCell
-        cell.configureCellWith(data: detailsModel)
+        let cell: CaseDetailsCell
+            = tableView.dequeueReusableCell(withIdentifier: "CaseDetailsCell") as! CaseDetailsCell
+      //  cell.configureCellWith(data: detailsModel)
         return cell
         } else {
             let cell: CommentsCell
@@ -68,5 +76,11 @@ extension CaseDetailsViewController : UITableViewDelegate, UITableViewDataSource
     }
    
     
+    
+}
+extension CaseDetailsViewController: CaseDetailsDelegate {
+    func didReciveCaseDetails(response: CaseDetails?, error: String?) {
+        self.dismiss()
+    }
     
 }

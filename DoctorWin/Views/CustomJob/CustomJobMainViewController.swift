@@ -44,8 +44,8 @@ class CustomJobMainViewController: UIViewController {
     // MARK: Order ViewController
     lazy var vc1: CustomJobViewController = {
         
-        
-        var viewController = storyboard?.instantiateViewController(withIdentifier: "CustomJobViewController") as! CustomJobViewController
+        let str = UIStoryboard(name: "Job", bundle: nil)
+        var viewController = str.instantiateViewController(withIdentifier: "CustomJobViewController") as! CustomJobViewController
         viewController.jobScreenSelectionDelegate = self
         
         return viewController
@@ -54,8 +54,8 @@ class CustomJobMainViewController: UIViewController {
     // MARK: MARKET ViewController
     
     lazy var vc2: SavedJobViewController = {
-        
-        var viewController = storyboard?.instantiateViewController(withIdentifier: "SavedJobViewController") as! SavedJobViewController
+        let str = UIStoryboard(name: "Job", bundle: nil)
+        var viewController = str.instantiateViewController(withIdentifier: "SavedJobViewController") as! SavedJobViewController
         viewController.jobScreenSelectionDelegate = self
 
         return viewController
@@ -121,7 +121,7 @@ extension CustomJobMainViewController: CustomJobScreenSelectionDelegate {
             self.navigationController?.pushViewController(nextVC, animated: true)
 
         case .customJobCreate:
-            let str = UIStoryboard(name: "Home", bundle: nil)
+            let str = UIStoryboard(name: "Job", bundle: nil)
             let nextVC = str.instantiateViewController(withIdentifier: "CreateCustomJobViewController") as! CreateCustomJobViewController
             self.navigationController?.pushViewController(nextVC, animated: true)
         default:

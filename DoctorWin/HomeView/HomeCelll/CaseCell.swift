@@ -25,7 +25,7 @@ class CaseCell: UITableViewCell {
     @IBOutlet weak var personImage: UIImageView!
     @IBOutlet weak var likeImage: UIImageView!
     @IBOutlet weak var bookmarkImage: UIImageView!
-    
+    @IBOutlet weak var imageHeiht: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -51,9 +51,15 @@ class CaseCell: UITableViewCell {
         }
         self.followBtn.tag = homeModel.userId ?? 0
         if let urlString = homeModel.postedImage {
-            let finalUrlString =  urlString
-            
-            self.postImage.sd_setImage(with: URL(string: finalUrlString), placeholderImage: UIImage(named: "loginBg"))
+            self.postImage.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "loginBg"))
+//                self.layoutIfNeeded()
+//                let data = ImageDiamenstions().imageDimenssions(url: urlString)
+//            if data != 0 {
+//            let newHeight = postImage.frame.width / CGFloat(data)
+//                imageHeiht.constant = newHeight
+//               self.layoutIfNeeded()
+//            }
+                
         }
         self.descriptionLable.text = homeModel.chiefComplaint
         if homeModel.bookmarkStatus ?? false {

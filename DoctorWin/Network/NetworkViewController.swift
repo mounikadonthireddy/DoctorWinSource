@@ -21,6 +21,9 @@ class NetworkViewController: ViewController {
         networkVM.delegate = self
         self.loadConnections()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = false
+    }
     
     func loadConnections() {
         self.showLoader()
@@ -90,7 +93,7 @@ class NetworkViewController: ViewController {
             }
         }
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            let str = UIStoryboard(name: "Home", bundle: nil)
+            let str = UIStoryboard(name: "Details", bundle: nil)
             let nextVC = str.instantiateViewController(withIdentifier: "UserDetailsViewController") as! UserDetailsViewController
             nextVC.RequestUserID = "\(connectionsArray[indexPath.row].userid ?? 0)"
             self.navigationController?.pushViewController(nextVC, animated: true)

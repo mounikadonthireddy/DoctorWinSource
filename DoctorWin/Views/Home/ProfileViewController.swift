@@ -154,7 +154,8 @@ extension ProfileViewController : UICollectionViewDelegate, UICollectionViewData
             self.navigationController?.pushViewController(nextVC, animated: true)
             
         case 3:
-            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "MyNewsViewController") as! MyNewsViewController
+            let str = UIStoryboard(name: "Me", bundle: nil)
+            let nextVC = str.instantiateViewController(withIdentifier: "MyNewsViewController") as! MyNewsViewController
             self.navigationController?.pushViewController(nextVC, animated: true)
             
         case 5:
@@ -163,7 +164,8 @@ extension ProfileViewController : UICollectionViewDelegate, UICollectionViewData
             self.navigationController?.pushViewController(nextVC, animated: true)
             
         case 10:
-            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "MyArticalViewController") as! MyArticalViewController
+            let str = UIStoryboard(name: "Me", bundle: nil)
+            let nextVC = str.instantiateViewController(withIdentifier: "MyArticalViewController") as! MyArticalViewController
             self.navigationController?.pushViewController(nextVC, animated: true)
             
             
@@ -174,7 +176,8 @@ extension ProfileViewController : UICollectionViewDelegate, UICollectionViewData
         }
     }
     @objc func viewClicked(button: Any) {
-        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "MeViewController") as! MeViewController
+        let str = UIStoryboard(name: "Me", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "MeViewController") as! MeViewController
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     @objc func followClicked(button: Any) {

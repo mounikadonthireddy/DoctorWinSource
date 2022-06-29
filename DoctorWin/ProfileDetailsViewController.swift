@@ -129,7 +129,8 @@ extension ProfileDetailsViewController: UITableViewDelegate, UITableViewDataSour
         }
     }
     @objc func editClicked(button: Any) {
-        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "EditMeViewController") as! EditMeViewController
+        let str = UIStoryboard(name: "Me", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "EditMeViewController") as! EditMeViewController
         nextVC.profileDataModel = profileDataModel
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
@@ -139,7 +140,8 @@ extension ProfileDetailsViewController: UITableViewDelegate, UITableViewDataSour
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     @objc func expEditClicked(button: UIButton) {
-        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "ExperienceViewController") as! ExperienceViewController
+        let str = UIStoryboard(name: "Me", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "ExperienceViewController") as! ExperienceViewController
         nextVC.expModel = experienceArray[button.tag]
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
@@ -149,7 +151,8 @@ extension ProfileDetailsViewController: UITableViewDelegate, UITableViewDataSour
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     @objc func newsClicked(button: UIButton) {
-        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "MyNewsViewController") as! MyNewsViewController
+        let str = UIStoryboard(name: "Job", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "MyNewsViewController") as! MyNewsViewController
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     @objc func appliedClicked(button: UIButton) {

@@ -56,6 +56,7 @@ struct HomeViewModel {
           
         
     }
+    
     func saveToBookMark(userID: String, categeroyID: String) {
        
         let homeResource = HomeResource()
@@ -115,4 +116,32 @@ struct HomeViewModel {
 struct ComplaintLikeModel: Codable {
     let user_id : String
     let complaint_id: String
+}
+
+protocol CaseDetailsDelegate {
+    func didReciveCaseDetails(response: CaseDetails?, error: String?)
+}
+struct DetailsViewModel {
+    var delegate: CaseDetailsDelegate?
+    func getCaseDetails(userID: String, caseId: String) {
+       
+        let homeResource = HomeResource()
+
+        homeResource.getCaseDetails(userID: userID, complaintID: caseId) { response in
+            DispatchQueue.main.async {
+                switch response {
+                case .success(let data):
+                    self.delegate?.didReciveCaseDetails(response: data, error: nil)
+                    
+                case .failure(let error):
+                    self.delegate?.didReciveCaseDetails(response: nil, error: error)
+                }
+            
+            }
+            
+            
+        }
+          
+        
+    }
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -115,103 +115,56 @@
                         <constraint firstAttribute="height" constant="80" id="J0b-pr-jaq"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GkC-Ih-ZGo">
-                    <rect key="frame" x="0.0" y="404" width="320" height="1"/>
-                    <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="1" id="geb-QH-9Ql"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WKL-jz-fvN" customClass="CustomSegmentedControl" customModule="DoctorWin" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="415" width="320" height="40"/>
+                    <rect key="frame" x="0.0" y="349" width="320" height="40"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="iFm-tA-cQH"/>
                     </constraints>
                 </view>
-                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="IDB-JS-Z4J">
-                    <rect key="frame" x="10" y="359" width="300" height="40"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OfP-It-rBw">
-                            <rect key="frame" x="0.0" y="0.0" width="67.5" height="40"/>
-                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
-                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                            <state key="normal" title="Social">
-                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </state>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LD5-VM-HU4">
-                            <rect key="frame" x="77.5" y="0.0" width="67.5" height="40"/>
-                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
-                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                            <state key="normal" title="Cases">
-                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </state>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9AQ-rY-ImF">
-                            <rect key="frame" x="155" y="0.0" width="67.5" height="40"/>
-                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
-                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                            <state key="normal" title="News">
-                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </state>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5HB-K8-kIZ">
-                            <rect key="frame" x="232.5" y="0.0" width="67.5" height="40"/>
-                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
-                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                            <state key="normal" title="Articles">
-                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </state>
-                        </button>
-                    </subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IAU-dO-4Nt">
+                    <rect key="frame" x="10" y="15" width="35" height="35"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="zIN-8G-FwU"/>
+                        <constraint firstAttribute="height" constant="35" id="5AQ-oo-XMi"/>
+                        <constraint firstAttribute="width" constant="35" id="qYe-tg-qrA"/>
                     </constraints>
-                </stackView>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" image="arrow.backward" catalog="system"/>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="sef-v0-Cr4"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="Kcq-Bp-5gc" firstAttribute="top" secondItem="sef-v0-Cr4" secondAttribute="top" id="0W9-dy-XId"/>
+                <constraint firstItem="IAU-dO-4Nt" firstAttribute="top" secondItem="sef-v0-Cr4" secondAttribute="top" constant="15" id="4NV-74-Rts"/>
                 <constraint firstItem="Yxu-Mx-EcE" firstAttribute="top" secondItem="i40-8k-XyG" secondAttribute="bottom" constant="10" id="5LY-nK-cFt"/>
-                <constraint firstItem="IDB-JS-Z4J" firstAttribute="leading" secondItem="sef-v0-Cr4" secondAttribute="leading" constant="10" id="ChV-Cu-vjl"/>
                 <constraint firstItem="KQG-e9-o6g" firstAttribute="centerX" secondItem="MCO-fC-Z0Z" secondAttribute="centerX" id="F4d-FI-vMd"/>
-                <constraint firstItem="WKL-jz-fvN" firstAttribute="top" secondItem="GkC-Ih-ZGo" secondAttribute="bottom" constant="10" id="HCJ-He-e7W"/>
                 <constraint firstItem="3mg-cW-udW" firstAttribute="top" secondItem="sef-v0-Cr4" secondAttribute="top" constant="80" id="Oe5-vi-d4T"/>
-                <constraint firstItem="GkC-Ih-ZGo" firstAttribute="top" secondItem="IDB-JS-Z4J" secondAttribute="bottom" constant="5" id="PqU-hg-CVJ"/>
                 <constraint firstItem="OVn-KA-BCI" firstAttribute="centerX" secondItem="MCO-fC-Z0Z" secondAttribute="centerX" id="RWJ-Fh-V1x"/>
                 <constraint firstAttribute="trailing" secondItem="Kcq-Bp-5gc" secondAttribute="trailing" id="RzY-87-p9q"/>
                 <constraint firstItem="KQG-e9-o6g" firstAttribute="top" secondItem="Yxu-Mx-EcE" secondAttribute="bottom" constant="11" id="UAQ-L3-FWY"/>
                 <constraint firstItem="WKL-jz-fvN" firstAttribute="leading" secondItem="sef-v0-Cr4" secondAttribute="leading" id="Vzt-M1-Dkf"/>
                 <constraint firstItem="i40-8k-XyG" firstAttribute="top" secondItem="W1B-Mx-fB4" secondAttribute="bottom" id="Wlj-dA-VPh"/>
-                <constraint firstItem="sef-v0-Cr4" firstAttribute="trailing" secondItem="GkC-Ih-ZGo" secondAttribute="trailing" id="Y2o-LR-CP4"/>
-                <constraint firstItem="GkC-Ih-ZGo" firstAttribute="leading" secondItem="sef-v0-Cr4" secondAttribute="leading" id="bXS-Od-ScA"/>
                 <constraint firstItem="W1B-Mx-fB4" firstAttribute="centerX" secondItem="MCO-fC-Z0Z" secondAttribute="centerX" id="dlq-oe-asL"/>
+                <constraint firstItem="WKL-jz-fvN" firstAttribute="top" secondItem="OVn-KA-BCI" secondAttribute="bottom" constant="10" id="eCe-zX-zcY"/>
                 <constraint firstItem="Yxu-Mx-EcE" firstAttribute="centerX" secondItem="MCO-fC-Z0Z" secondAttribute="centerX" id="f1m-yn-y6w"/>
-                <constraint firstItem="sef-v0-Cr4" firstAttribute="trailing" secondItem="IDB-JS-Z4J" secondAttribute="trailing" constant="10" id="haW-nJ-DHQ"/>
+                <constraint firstItem="IAU-dO-4Nt" firstAttribute="leading" secondItem="sef-v0-Cr4" secondAttribute="leading" constant="10" id="gmz-pA-4yl"/>
                 <constraint firstItem="Kcq-Bp-5gc" firstAttribute="leading" secondItem="sef-v0-Cr4" secondAttribute="leading" id="huS-7C-7eJ"/>
                 <constraint firstItem="W1B-Mx-fB4" firstAttribute="top" secondItem="3mg-cW-udW" secondAttribute="bottom" constant="10" id="ijI-e4-d1X"/>
                 <constraint firstItem="OVn-KA-BCI" firstAttribute="top" secondItem="KQG-e9-o6g" secondAttribute="bottom" constant="15" id="m75-aP-ygA"/>
                 <constraint firstItem="i40-8k-XyG" firstAttribute="centerX" secondItem="MCO-fC-Z0Z" secondAttribute="centerX" id="mdu-ph-cGp"/>
-                <constraint firstItem="IDB-JS-Z4J" firstAttribute="top" secondItem="OVn-KA-BCI" secondAttribute="bottom" constant="20" id="pk6-Kb-Whk"/>
                 <constraint firstItem="sef-v0-Cr4" firstAttribute="trailing" secondItem="WKL-jz-fvN" secondAttribute="trailing" id="wIi-8L-kkx"/>
                 <constraint firstItem="3mg-cW-udW" firstAttribute="centerX" secondItem="MCO-fC-Z0Z" secondAttribute="centerX" id="xvf-QM-fOS"/>
             </constraints>
             <connections>
-                <outlet property="articlesBtn" destination="5HB-K8-kIZ" id="xf2-IE-JMm"/>
-                <outlet property="casesBtn" destination="LD5-VM-HU4" id="J6B-9I-Pst"/>
+                <outlet property="backBtn" destination="IAU-dO-4Nt" id="RMe-fD-1DU"/>
                 <outlet property="followBtn" destination="ofM-8O-bai" id="6de-U0-stD"/>
                 <outlet property="followCountBtn" destination="6j5-cV-h2D" id="g2S-w8-Zjs"/>
                 <outlet property="followingCountBtn" destination="atR-m7-S8h" id="RiU-Fk-f5R"/>
                 <outlet property="interfaceSegmented" destination="WKL-jz-fvN" id="OgL-Ww-Ct3"/>
                 <outlet property="nameLbl" destination="W1B-Mx-fB4" id="zCZ-sj-fmq"/>
-                <outlet property="newsBtn" destination="9AQ-rY-ImF" id="X4c-e5-I3K"/>
                 <outlet property="qualificationLbl" destination="Yxu-Mx-EcE" id="1Co-Kj-ugx"/>
-                <outlet property="socialBtn" destination="OfP-It-rBw" id="YYr-LQ-umf"/>
                 <outlet property="specialityLbl" destination="i40-8k-XyG" id="7sO-lF-oSj"/>
                 <outlet property="viewBtn" destination="K2c-n2-DtX" id="zNx-HG-mzd"/>
             </connections>
@@ -219,6 +172,7 @@
         </view>
     </objects>
     <resources>
+        <image name="arrow.backward" catalog="system" width="128" height="98"/>
         <image name="collegeBg" width="720" height="415"/>
         <image name="loginBg" width="6240" height="3014"/>
         <systemColor name="labelColor">

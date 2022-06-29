@@ -18,22 +18,23 @@ class OTPViewController: UIViewController {
     var otpVM =  OTPViewModel ()
     var count = 60
     var resendTimer = Timer()
+    var mobileNumber = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        otpTF1.setCornerRadius(radius: 10)
-        otpTF2.setCornerRadius(radius: 10)
-        otpTF3.setCornerRadius(radius: 10)
-        otpTF4.setCornerRadius(radius: 10)
+        otpTF1.setCornerRadiusWithBorderColor(radius: 11, color: UIColor(rgb: 0x062D88), borderWidth: 1)
+        otpTF2.setCornerRadiusWithBorderColor(radius: 11, color: UIColor(rgb: 0x062D88), borderWidth: 1)
+        otpTF3.setCornerRadiusWithBorderColor(radius: 11, color: UIColor(rgb: 0x062D88), borderWidth: 1)
+        otpTF4.setCornerRadiusWithBorderColor(radius: 11, color: UIColor(rgb: 0x062D88), borderWidth: 1)
         otpVM.delegate = self
         
         verifyBtn.setCornerRadius(radius: 10)
         self.navigationItem.title = "OTP"
         self.navigationItem.backBarButtonItem?.title = ""
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        if let number = UserDefaults.standard.value(forKey: "mobileNum") {
-            mobileNum.text = "OTP sent via \(number)"
-        }
+       
+            mobileNum.text = "OTP sent via \(mobileNumber)"
+       
         //updateOTPCount()
         Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateOTPCount), userInfo: nil, repeats: true)
 

@@ -522,6 +522,9 @@
                                                         <state key="normal" image="edit">
                                                             <color key="titleColor" red="0.96205824610000001" green="0.39117330309999998" blue="0.22638723250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="chiefClicked:" destination="NIz-uj-yvQ" eventType="touchUpInside" id="zRw-Ln-wNN"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -532,7 +535,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Htq-eC-uWO">
                                                 <rect key="frame" x="25" y="404" width="369" height="60"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="  write your chief complaint.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ufE-el-tAz" customClass="MDCOutlinedTextField">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="  write your chief complaint.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ufE-el-tAz">
                                                         <rect key="frame" x="35" y="8" width="334" height="44"/>
                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
@@ -575,6 +578,9 @@
                                                         <state key="normal" title="+  Add">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="historyClicked:" destination="NIz-uj-yvQ" eventType="touchUpInside" id="rFB-t2-r5b"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -588,7 +594,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rEA-s8-iMx">
                                                         <rect key="frame" x="35" y="15" width="334" height="265"/>
                                                         <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Present Illness" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g3i-kB-Y7S" customClass="MDCOutlinedTextField">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Present Illness" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g3i-kB-Y7S">
                                                                 <rect key="frame" x="0.0" y="0.0" width="334" height="45"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="45" id="QF4-Wa-XDz"/>
@@ -596,22 +602,22 @@
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                             </textField>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Past Illness" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7gG-po-Apq" customClass="MDCOutlinedTextField">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Past Illness" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7gG-po-Apq">
                                                                 <rect key="frame" x="0.0" y="55" width="334" height="45"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                             </textField>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Drugs" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r4K-XS-ljd" customClass="MDCOutlinedTextField">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Drugs" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r4K-XS-ljd">
                                                                 <rect key="frame" x="0.0" y="110" width="334" height="45"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                             </textField>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Personal" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wz1-n3-k71" customClass="MDCOutlinedTextField">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Personal" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wz1-n3-k71">
                                                                 <rect key="frame" x="0.0" y="165" width="334" height="45"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                             </textField>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Family" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B10-II-yx1" customClass="MDCOutlinedTextField">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Family" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B10-II-yx1">
                                                                 <rect key="frame" x="0.0" y="220" width="334" height="45"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
@@ -658,6 +664,9 @@
                                                         <state key="normal" title="+  Add">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="examinationClicked:" destination="NIz-uj-yvQ" eventType="touchUpInside" id="VUw-yH-QV9"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -671,17 +680,17 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Bf1-1S-Cg9">
                                                         <rect key="frame" x="35" y="15" width="329" height="156"/>
                                                         <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Physical Examination" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c6A-Pm-oD6" customClass="MDCOutlinedTextField">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Physical Examination" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c6A-Pm-oD6">
                                                                 <rect key="frame" x="0.0" y="0.0" width="329" height="45"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                             </textField>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="System Examination" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VAQ-tI-Wkg" customClass="MDCOutlinedTextField">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="System Examination" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VAQ-tI-Wkg">
                                                                 <rect key="frame" x="0.0" y="55" width="329" height="45.5"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                             </textField>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Local Examination" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HII-RW-cAu" customClass="MDCOutlinedTextField">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Local Examination" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HII-RW-cAu">
                                                                 <rect key="frame" x="0.0" y="110.5" width="329" height="45.5"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
@@ -728,6 +737,9 @@
                                                         <state key="normal" title="+  Add">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="investigationClicked:" destination="NIz-uj-yvQ" eventType="touchUpInside" id="vmV-Pt-lDs"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -763,6 +775,9 @@
                                                         <state key="normal" image="edit">
                                                             <color key="titleColor" red="0.96205824610000001" green="0.39117330309999998" blue="0.22638723250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="diagnosticsClicked:" destination="NIz-uj-yvQ" eventType="touchUpInside" id="j4P-94-Dov"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -776,17 +791,17 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="HC6-JH-7n0">
                                                         <rect key="frame" x="35" y="15" width="329" height="155"/>
                                                         <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Vitus" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="59t-kr-n6o" customClass="MDCOutlinedTextField">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Vitus" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="59t-kr-n6o">
                                                                 <rect key="frame" x="0.0" y="0.0" width="329" height="45"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                             </textField>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Lab Finding" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cjU-Cj-LF8" customClass="MDCOutlinedTextField">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Lab Finding" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cjU-Cj-LF8">
                                                                 <rect key="frame" x="0.0" y="55" width="329" height="45"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                             </textField>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Imaging" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vpo-b8-Lha" customClass="MDCOutlinedTextField">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Imaging" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vpo-b8-Lha">
                                                                 <rect key="frame" x="0.0" y="110" width="329" height="45"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
@@ -808,7 +823,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xOj-Gh-0ZI">
                                                 <rect key="frame" x="25" y="1364" width="364" height="60"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="  write your chief complaint.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KRX-j3-koq" customClass="MDCOutlinedTextField">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="  write your chief complaint.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KRX-j3-koq">
                                                         <rect key="frame" x="35" y="20" width="329" height="44"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="44" id="Km0-CB-kbR"/>
@@ -826,7 +841,7 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="Dre-qR-jAw" firstAttribute="leading" secondItem="pHp-G1-pYZ" secondAttribute="leading" constant="20" id="15E-ev-DKL"/>
                                             <constraint firstAttribute="trailing" secondItem="v8d-nP-DFl" secondAttribute="trailing" constant="20" id="1ih-1M-Bpl"/>
@@ -910,13 +925,16 @@
                         <outlet property="chiefComplaint" destination="ufE-el-tAz" id="1n0-pp-0oc"/>
                         <outlet property="chiefViewHeight" destination="krV-ER-hlA" id="7bT-kZ-LBM"/>
                         <outlet property="drugs" destination="r4K-XS-ljd" id="2qQ-jK-INu"/>
+                        <outlet property="examAdd" destination="8K8-UC-mI2" id="fQb-xy-NpR"/>
                         <outlet property="examinationView" destination="Beb-ZU-Zd5" id="J9h-0S-T6i"/>
                         <outlet property="examinationViewHeight" destination="a59-iV-qfF" id="eHa-Rg-RFB"/>
                         <outlet property="family" destination="B10-II-yx1" id="X7P-FV-S1r"/>
+                        <outlet property="historyAdd" destination="N8R-i7-oPm" id="vcw-JU-TBt"/>
                         <outlet property="imageView" destination="43x-Wh-HDc" id="gKS-jd-RAt"/>
                         <outlet property="imaging" destination="Vpo-b8-Lha" id="P5h-3z-Bq9"/>
                         <outlet property="investigationView" destination="dJz-z1-cZW" id="Am8-HJ-9J2"/>
                         <outlet property="investigationViewHeight" destination="L9o-X2-dp0" id="oCJ-2j-bKt"/>
+                        <outlet property="invigstAdd" destination="ctd-aj-YSF" id="7hb-wA-5kG"/>
                         <outlet property="labFinding" destination="cjU-Cj-LF8" id="jgw-xU-1Nj"/>
                         <outlet property="localExamination" destination="HII-RW-cAu" id="f79-3V-RfB"/>
                         <outlet property="pastIllness" destination="7gG-po-Apq" id="kkw-t2-Oqr"/>
@@ -928,6 +946,8 @@
                         <outlet property="probableDiagnosis" destination="KRX-j3-koq" id="Pry-Yj-p9F"/>
                         <outlet property="probableView" destination="xOj-Gh-0ZI" id="dZ2-ba-UD8"/>
                         <outlet property="probableViewHeight" destination="X48-qK-qTu" id="MxR-74-lcn"/>
+                        <outlet property="scrollView" destination="FdZ-aK-41h" id="7tl-aX-aBc"/>
+                        <outlet property="scrollViewHeight" destination="ShU-GO-esD" id="qbb-Yz-RFr"/>
                         <outlet property="systemExamination" destination="VAQ-tI-Wkg" id="E2n-n1-gME"/>
                         <outlet property="vitus" destination="59t-kr-n6o" id="lLq-Co-Hds"/>
                     </connections>
@@ -1248,6 +1268,102 @@
             </objects>
             <point key="canvasLocation" x="26602.89855072464" y="-326.11607142857139"/>
         </scene>
+        <!--CreateCaseViewController-->
+        <scene sceneID="cTw-Eo-syU">
+            <objects>
+                <viewController storyboardIdentifier="CreateCaseViewController" title="CreateCaseViewController" id="xpK-uT-KrD" customClass="CreateCaseViewController" customModule="DoctorWin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vOY-9k-xcT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Gw-tM-rt8">
+                                <rect key="frame" x="30" y="209" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="1lO-Lg-ALV"/>
+                                    <constraint firstAttribute="width" constant="40" id="ox6-7w-BJy"/>
+                                </constraints>
+                                <color key="tintColor" red="0.0" green="0.98106676339999999" blue="0.57369142770000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="folder.fill" catalog="system"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Happy to share Knowledge !" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XtS-8B-IbE">
+                                <rect key="frame" x="20" y="94" width="374" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="mmK-Gt-WL0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi Anil Kumar," textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZyY-Ek-udw">
+                                <rect key="frame" x="10" y="59" width="394" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="YNL-Yp-D8M"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hTI-YX-b8h">
+                                <rect key="frame" x="20" y="817" width="374" height="45"/>
+                                <color key="backgroundColor" red="0.28627450980000002" green="0.52549019610000003" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="EQk-Dm-8YE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
+                                <state key="normal" title="POST">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Write your case title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9mH-26-wKP">
+                                <rect key="frame" x="20" y="149" width="374" height="40"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="W80-5h-SXW"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="uY5-Oi-hDj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="IuR-oh-EPF">
+                                <rect key="frame" x="0.0" y="259" width="414" height="558"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9de-in-oAx">
+                                <rect key="frame" x="334" y="17" width="80" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="9Mg-8d-5AA"/>
+                        <color key="backgroundColor" red="0.94509803921568625" green="0.94901960784313721" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="9Mg-8d-5AA" firstAttribute="trailing" secondItem="ZyY-Ek-udw" secondAttribute="trailing" constant="10" id="5KT-rm-WUd"/>
+                            <constraint firstItem="9Mg-8d-5AA" firstAttribute="trailing" secondItem="hTI-YX-b8h" secondAttribute="trailing" constant="20" id="7Ka-cc-O0Z"/>
+                            <constraint firstItem="9Mg-8d-5AA" firstAttribute="bottom" secondItem="hTI-YX-b8h" secondAttribute="bottom" id="9VH-zx-XBi"/>
+                            <constraint firstItem="hTI-YX-b8h" firstAttribute="leading" secondItem="9Mg-8d-5AA" secondAttribute="leading" constant="20" id="F0x-bx-B5i"/>
+                            <constraint firstItem="9Mg-8d-5AA" firstAttribute="trailing" secondItem="XtS-8B-IbE" secondAttribute="trailing" constant="20" id="Ioe-Id-wWJ"/>
+                            <constraint firstItem="XtS-8B-IbE" firstAttribute="leading" secondItem="9Mg-8d-5AA" secondAttribute="leading" constant="20" id="Itz-vq-kp1"/>
+                            <constraint firstItem="9Mg-8d-5AA" firstAttribute="trailing" secondItem="IuR-oh-EPF" secondAttribute="trailing" id="Mkr-K0-eCz"/>
+                            <constraint firstItem="IuR-oh-EPF" firstAttribute="top" secondItem="4Gw-tM-rt8" secondAttribute="bottom" constant="10" id="R7R-fr-RjP"/>
+                            <constraint firstItem="ZyY-Ek-udw" firstAttribute="leading" secondItem="9Mg-8d-5AA" secondAttribute="leading" constant="10" id="UlC-GM-dZs"/>
+                            <constraint firstItem="9mH-26-wKP" firstAttribute="top" secondItem="XtS-8B-IbE" secondAttribute="bottom" constant="25" id="WEs-iV-kr9"/>
+                            <constraint firstItem="XtS-8B-IbE" firstAttribute="top" secondItem="ZyY-Ek-udw" secondAttribute="bottom" constant="10" id="YPN-yg-OsM"/>
+                            <constraint firstItem="IuR-oh-EPF" firstAttribute="leading" secondItem="9Mg-8d-5AA" secondAttribute="leading" id="a2e-MT-mZG"/>
+                            <constraint firstItem="9mH-26-wKP" firstAttribute="leading" secondItem="9Mg-8d-5AA" secondAttribute="leading" constant="20" id="ekn-RK-kc2"/>
+                            <constraint firstItem="9Mg-8d-5AA" firstAttribute="trailing" secondItem="9mH-26-wKP" secondAttribute="trailing" constant="20" id="fkS-c4-Ww4"/>
+                            <constraint firstItem="hTI-YX-b8h" firstAttribute="top" secondItem="IuR-oh-EPF" secondAttribute="bottom" id="teB-br-eNI"/>
+                            <constraint firstItem="4Gw-tM-rt8" firstAttribute="leading" secondItem="9Mg-8d-5AA" secondAttribute="leading" constant="30" id="v3k-1i-oHx"/>
+                            <constraint firstItem="4Gw-tM-rt8" firstAttribute="top" secondItem="9mH-26-wKP" secondAttribute="bottom" constant="20" id="vJi-lZ-O5s"/>
+                            <constraint firstItem="ZyY-Ek-udw" firstAttribute="top" secondItem="9Mg-8d-5AA" secondAttribute="top" constant="15" id="vgQ-mU-HGr"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="IuR-oh-EPF" id="uuQ-tv-e78"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Plt-EJ-YF2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="29101.44927536232" y="577.98913043478262"/>
+        </scene>
     </scenes>
     <resources>
         <image name="arrowtriangle.down.fill" catalog="system" width="128" height="124"/>
@@ -1256,6 +1372,7 @@
         <image name="creditcard" catalog="system" width="128" height="88"/>
         <image name="doc" catalog="system" width="115" height="128"/>
         <image name="edit" width="16" height="16"/>
+        <image name="folder.fill" catalog="system" width="128" height="97"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="shop" width="355" height="313"/>
         <systemColor name="labelColor">

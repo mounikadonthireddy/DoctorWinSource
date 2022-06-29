@@ -83,7 +83,7 @@ class HomeViewController: UIViewController, ExpandableLabelDelegate {
     
    
     @IBAction func postQuestionClicked(_ sender: Any) {
-        let str = UIStoryboard(name: "Home", bundle: nil)
+        let str = UIStoryboard(name: "Details", bundle: nil)
         
         let nextVC = str.instantiateViewController(withIdentifier: "PostQuestionViewController") as! PostQuestionViewController
         
@@ -208,16 +208,22 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         if let image = homedataArry[sender.view?.tag ?? 0].postedImage {
             nextVC.selectedImageUrl = image
         }
+        nextVC.data = homedataArry[sender.view?.tag ?? 0].discription ?? ""
             self.navigationController?.pushViewController(nextVC, animated: true)
         
     }
     @objc func educationClicked(button: UIButton) {
     }
     @objc func productsClicked(button: UIButton) {
-        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "ShopViewController") as! ShopViewController
+        let str = UIStoryboard(name: "Shop", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "ShopViewController") as! ShopViewController
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     @objc func connectClicked(button: UIButton) {
+        let str = UIStoryboard(name: "Network", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "ConnectViewController") as! ConnectViewController
+
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
     @objc func jobClicked(button: UIButton) {
         let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "CarrierTabViewController") as! CarrierTabViewController
@@ -230,15 +236,18 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if homedataArry[indexPath.row].complaintStatus ?? false {
-            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "CaseDetailsViewController") as! CaseDetailsViewController
+            let str = UIStoryboard(name: "Details", bundle: nil)
+            let nextVC = str.instantiateViewController(withIdentifier: "CaseDetailsViewController") as! CaseDetailsViewController
             nextVC.detailsModel = homedataArry[indexPath.row]
             self.navigationController?.pushViewController(nextVC, animated: true)
         } else if homedataArry[indexPath.row].newsStatus ?? false {
-            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "NewsDetailsViewController") as! NewsDetailsViewController
+            let str = UIStoryboard(name: "Details", bundle: nil)
+            let nextVC = str.instantiateViewController(withIdentifier: "NewsDetailsViewController") as! NewsDetailsViewController
             nextVC.newsDetails = homedataArry[indexPath.row]
             self.navigationController?.pushViewController(nextVC, animated: true)
         } else if homedataArry[indexPath.row].articalStatus ?? false {
-            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "ArticalDetailsViewController") as! ArticalDetailsViewController
+            let str = UIStoryboard(name: "Details", bundle: nil)
+            let nextVC = str.instantiateViewController(withIdentifier: "ArticalDetailsViewController") as! ArticalDetailsViewController
             nextVC.articalDetails = homedataArry[indexPath.row]
             self.navigationController?.pushViewController(nextVC, animated: true)
         } else {
@@ -272,7 +281,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     @objc  func didExpandLabel(_ label: ExpandableLabel) {
         let point = label.convert(CGPoint.zero, to: tableView)
         if let indexPath = tableView.indexPathForRow(at: point) as IndexPath? {
-            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "ArticalDetailsViewController") as! ArticalDetailsViewController
+            let str = UIStoryboard(name: "Details", bundle: nil)
+            let nextVC = str.instantiateViewController(withIdentifier: "ArticalDetailsViewController") as! ArticalDetailsViewController
             nextVC.articalDetails = homedataArry[indexPath.row]
             self.navigationController?.pushViewController(nextVC, animated: true)
         }
@@ -328,6 +338,9 @@ extension HomeViewController : HomeViewModelDelegate {
         self.dismiss()
         loadingData = false
         if (error != nil) {
+            let alert = UIAlertController(title: "Error", message: error!, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
             
         } else {
             self.homedataArry = homedataArry + (response ?? [])

@@ -56,7 +56,10 @@ struct HttpUtility {
             } else if (responseData != nil && responseData?.count != 0) {
                 completion(.failure(.internalServerError))
             }
-            
+            else if (error as? URLError)?.code == .timedOut {
+                print("*****************")
+                print("timeout")
+            }
             
             
         }.resume()

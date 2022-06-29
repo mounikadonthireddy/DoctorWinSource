@@ -109,7 +109,7 @@ class JobsMainViewController: UIViewController {
         
     }
     @IBAction func searchClicked(_ sender: UIButton) {
-        let str = UIStoryboard(name: "Home", bundle: nil)
+        let str = UIStoryboard(name: "Job", bundle: nil)
         let nextVC = str.instantiateViewController(withIdentifier: "SearchJobsViewController") as! SearchJobsViewController
         self.navigationController?.pushViewController(nextVC, animated: true)
         

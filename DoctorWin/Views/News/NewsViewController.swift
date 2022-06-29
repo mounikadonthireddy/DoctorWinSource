@@ -64,7 +64,7 @@ class NewsViewController: ViewController {
     }
     
     @IBAction func plusClikced(_ sender: Any) {
-        let str = UIStoryboard(name: "Home", bundle: nil)
+        let str = UIStoryboard(name: "Add", bundle: nil)
         
         let nextVC = str.instantiateViewController(withIdentifier: "AddNewsViewController") as! AddNewsViewController
         nextVC.showBack = true
@@ -84,7 +84,8 @@ extension NewsViewController : UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "NewsDetailsViewController") as! NewsDetailsViewController
+        let str = UIStoryboard(name: "Details", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "NewsDetailsViewController") as! NewsDetailsViewController
 //        nextVC.newsDetailsData = newsArray[indexPath.row]
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
@@ -159,7 +160,8 @@ extension NewsViewController : UICollectionViewDelegate, UICollectionViewDataSou
         return 1
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "NewsCategoryViewController") as! NewsCategoryViewController
+        let str = UIStoryboard(name: "Details", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "NewsCategoryViewController") as! NewsCategoryViewController
         nextVC.pageId = newsTypeArray[indexPath.row].id
         self.navigationController?.pushViewController(nextVC, animated: true)
     }

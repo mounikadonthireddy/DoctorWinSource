@@ -20,11 +20,11 @@ class NewsDetailsViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
 //        self.navigationController?.isNavigationBarHidden = true
-//        tabBarController?.tabBar.isHidden = true
+       tabBarController?.tabBar.isHidden = true
         
     }
     
-    @IBAction func backClicked(_ sender: Any) {
+   @objc  func backClicked(button: Any) {
         self.navigationController?.popViewController(animated: true)
     }
     /*        self.navigationController?.popViewController(animated: true)
@@ -51,6 +51,7 @@ extension NewsDetailsViewController: UITableViewDelegate, UITableViewDataSource 
         if let data  = newsDetails {
             cell.configureData(homeModel: data)
         }
+        cell.backBtn.addTarget(self, action: #selector(backClicked(button:)), for: .touchUpInside)
             return cell
     }
 }

@@ -269,6 +269,7 @@
                 <outlet property="designation" destination="NYr-u8-8Fd" id="uo3-BB-Dhr"/>
                 <outlet property="discussion" destination="Oih-1d-g2l" id="TtH-Wc-EYV"/>
                 <outlet property="followBtn" destination="fBP-Dd-bG9" id="r39-bm-UEM"/>
+                <outlet property="imageHeiht" destination="DHG-8Q-pEq" id="od8-SD-Uxv"/>
                 <outlet property="likeImage" destination="wKM-bY-uu0" id="pb1-SA-hYP"/>
                 <outlet property="likeLable" destination="t8I-W5-d94" id="xDT-Op-R0O"/>
                 <outlet property="personImage" destination="QoL-FK-7T3" id="xim-Mj-E1o"/>

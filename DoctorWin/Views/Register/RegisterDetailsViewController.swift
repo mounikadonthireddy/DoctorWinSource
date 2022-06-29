@@ -71,7 +71,7 @@ class RegisterDetailsViewController: UIViewController {
         self.uploadPersonalData()
     }
     @IBAction func addExpClicked(_ sender: Any) {
-        let str = UIStoryboard(name: "Home", bundle: nil)
+        let str = UIStoryboard(name: "Me", bundle: nil)
         let nextVC = str.instantiateViewController(withIdentifier: "ExperienceViewController") as! ExperienceViewController
         self.navigationController?.pushViewController(nextVC, animated: true)
     }

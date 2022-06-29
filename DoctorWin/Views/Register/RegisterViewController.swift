@@ -17,7 +17,7 @@ class RegisterViewController: ViewController {
     @IBOutlet weak var qualificationTFView: UIView!
     @IBOutlet weak var locationTFView: UIView!
     @IBOutlet weak var nextButton: UIButton!
-    @IBOutlet weak var loginButton: UIButton!
+
     @IBOutlet weak  var mobileNumTF: UITextField!
     @IBOutlet weak  var emailTF: UITextField!
     @IBOutlet weak  var specialityTF: DropDown!
@@ -33,12 +33,12 @@ class RegisterViewController: ViewController {
         self.downloadSpeacilityResource()
     }
     func setupUI() {
-        self.MobileTFView.setCornerRadiusWithBorderColor(radius: 10, color: UIColor.blue, borderWidth: 1)
-        self.nameTFView.setCornerRadiusWithBorderColor(radius: 10, color: UIColor.blue, borderWidth: 1)
-        self.emailTFView.setCornerRadiusWithBorderColor(radius: 10, color: UIColor.blue, borderWidth: 1)
-        self.specialityTFView.setCornerRadiusWithBorderColor(radius: 10, color: UIColor.blue, borderWidth: 1)
-        self.qualificationTFView.setCornerRadiusWithBorderColor(radius: 10, color: UIColor.blue, borderWidth: 1)
-        self.locationTFView.setCornerRadiusWithBorderColor(radius: 10, color: UIColor.blue, borderWidth: 1)
+        self.MobileTFView.setCornerRadiusWithBorderColor(radius: 10, color: UIColor(rgb: 0x062D88), borderWidth: 1)
+        self.nameTFView.setCornerRadiusWithBorderColor(radius: 10, color: UIColor(rgb: 0x062D88), borderWidth: 1)
+        self.emailTFView.setCornerRadiusWithBorderColor(radius: 10, color: UIColor(rgb: 0x062D88), borderWidth: 1)
+        self.specialityTFView.setCornerRadiusWithBorderColor(radius: 10, color: UIColor(rgb: 0x062D88), borderWidth: 1)
+        self.qualificationTFView.setCornerRadiusWithBorderColor(radius: 10, color: UIColor(rgb: 0x062D88), borderWidth: 1)
+        self.locationTFView.setCornerRadiusWithBorderColor(radius: 10, color: UIColor(rgb: 0x062D88), borderWidth: 1)
         self.specialityTF.placeholder  = "Select Speciality"
         self.qualificationTF.placeholder  = "Select Highest Qualification"
 
@@ -48,8 +48,7 @@ class RegisterViewController: ViewController {
         }
         
         self.nextButton.btn_setCornerRadius(radius: self.nextButton.frame.height/2)
-        self.loginButton.btn_setCornerRadius(radius: self.loginButton.frame.height/2)
-
+     
     }
     func downloadQualificationResource() {
         self.showLoader()
@@ -119,6 +118,7 @@ extension RegisterViewController: RegisterViewModelDelegate {
     func didReceiveRegsiterResponse(wilNavigateTo: Bool, error: String?) {
         self.dismiss()
         let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "OTPViewController") as! OTPViewController
+        nextVC.mobileNumber = self.mobileNumTF.text ?? ""
         self.navigationController?.pushViewController(nextVC, animated: true)
     } 
 }

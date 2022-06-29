@@ -133,7 +133,8 @@ extension BookmarksViewController : UITableViewDelegate, UITableViewDataSource {
         
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "NewsDetailsViewController") as! NewsDetailsViewController
+        let str = UIStoryboard(name: "Details", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "NewsDetailsViewController") as! NewsDetailsViewController
 //        nextVC.newsDetailsData = newsArray[indexPath.row]
         self.navigationController?.pushViewController(nextVC, animated: true)
         
@@ -145,7 +146,8 @@ extension BookmarksViewController : UITableViewDelegate, UITableViewDataSource {
     @objc  func didExpandLabel(_ label: ExpandableLabel) {
         let point = label.convert(CGPoint.zero, to: bookmarksTableView)
         if let indexPath = bookmarksTableView.indexPathForRow(at: point) as IndexPath? {
-            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "ArticalDetailsViewController") as! ArticalDetailsViewController
+            let str = UIStoryboard(name: "Details", bundle: nil)
+            let nextVC = str.instantiateViewController(withIdentifier: "ArticalDetailsViewController") as! ArticalDetailsViewController
             //nextVC.articalDetails = articlesArray[indexPath.row]
             self.navigationController?.pushViewController(nextVC, animated: true)
         }

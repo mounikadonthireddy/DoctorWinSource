@@ -58,7 +58,8 @@ extension NewsCategoryViewController : UITableViewDelegate, UITableViewDataSourc
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "NewsDetailsViewController") as! NewsDetailsViewController
+        let str = UIStoryboard(name: "Details", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "NewsDetailsViewController") as! NewsDetailsViewController
 //        nextVC.newsDetailsData1 = newsArray[indexPath.row]
         self.navigationController?.pushViewController(nextVC, animated: true)
     }

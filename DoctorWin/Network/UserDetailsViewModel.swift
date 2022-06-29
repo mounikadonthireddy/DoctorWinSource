@@ -71,7 +71,7 @@ struct UserDetailsViewModel {
     
     func getUserPostedNews(userID: String) {
         let homeResource = NewsJobResource()
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.userCases + "?user_id=\(userID)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.postedNews + "?user_id=\(userID)"
 
         homeResource.getMyNewsData1(urlString: homeUrlStr) { response in
             DispatchQueue.main.async {

@@ -43,12 +43,14 @@
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tKq-pH-t6n">
                         <rect key="frame" x="10" y="22" width="32" height="32"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="32" id="7ty-jF-MWr"/>
                             <constraint firstAttribute="width" constant="32" id="y3m-zD-Eqb"/>
                         </constraints>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                        <state key="normal" image="back"/>
+                        <state key="normal" image="arrow.backward" catalog="system"/>
                     </button>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginBg" translatesAutoresizingMaskIntoConstraints="NO" id="Sp5-lR-nHF">
                         <rect key="frame" x="152.66666666666666" y="96" width="100" height="100"/>
@@ -204,6 +206,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="backBtn" destination="tKq-pH-t6n" id="cqd-7I-DeY"/>
                 <outlet property="designation" destination="q5D-Em-CKf" id="Kca-RR-gDI"/>
                 <outlet property="editBtn" destination="p7F-SQ-CIf" id="1ir-qQ-gQ4"/>
                 <outlet property="location" destination="slB-V1-yhX" id="DFt-Dm-1uw"/>
@@ -216,7 +219,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="back" width="32" height="32"/>
+        <image name="arrow.backward" catalog="system" width="128" height="98"/>
         <image name="loginBg" width="6240" height="3014"/>
         <image name="logout" width="512" height="512"/>
     </resources>

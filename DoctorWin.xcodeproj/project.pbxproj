@@ -330,6 +330,16 @@
 		DC8D9ACD28572C0F009533DC /* InterstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D9ACC28572C0F009533DC /* InterstViewController.swift */; };
 		DC8D9ACF28578769009533DC /* InterestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D9ACE28578769009533DC /* InterestViewModel.swift */; };
 		DC8D9AD1285787EE009533DC /* ConnectResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D9AD0285787EE009533DC /* ConnectResource.swift */; };
+		DC9539B5285C5B4800FBD8D0 /* CommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9539B4285C5B4800FBD8D0 /* CommentModel.swift */; };
+		DC9539B7285C5B6E00FBD8D0 /* NewscategoryDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9539B6285C5B6E00FBD8D0 /* NewscategoryDataModel.swift */; };
+		DC9539B9285C5B8200FBD8D0 /* PollsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9539B8285C5B8200FBD8D0 /* PollsDataModel.swift */; };
+		DC9539BB285C5B9600FBD8D0 /* NewsCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9539BA285C5B9600FBD8D0 /* NewsCategoryModel.swift */; };
+		DC9539BD285C5BA800FBD8D0 /* ArticalsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9539BC285C5BA800FBD8D0 /* ArticalsDataModel.swift */; };
+		DC9539BF285C5BB800FBD8D0 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9539BE285C5BB800FBD8D0 /* NewsModel.swift */; };
+		DC9539C1285C5BCA00FBD8D0 /* CasesDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9539C0285C5BCA00FBD8D0 /* CasesDataModel.swift */; };
+		DC9539C3285C5BF600FBD8D0 /* CarrierJobDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9539C2285C5BF600FBD8D0 /* CarrierJobDetailsModel.swift */; };
+		DC9539C5285C5C1100FBD8D0 /* HospitalDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9539C4285C5C1100FBD8D0 /* HospitalDetailsModel.swift */; };
+		DC9539C7285C5C2300FBD8D0 /* CarrierModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9539C6285C5C2300FBD8D0 /* CarrierModel.swift */; };
 		DCB7D1E1284B536200F3CFDE /* BookMarkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB7D1E0284B536200F3CFDE /* BookMarkViewModel.swift */; };
 		DCB7D1E3284B635800F3CFDE /* LikedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB7D1E2284B635800F3CFDE /* LikedViewModel.swift */; };
 		DCB7D1E5284C7EB700F3CFDE /* ImageDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB7D1E4284C7EB700F3CFDE /* ImageDetailsViewController.swift */; };
@@ -689,6 +699,16 @@
 		DC8D9ACC28572C0F009533DC /* InterstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterstViewController.swift; sourceTree = "<group>"; };
 		DC8D9ACE28578769009533DC /* InterestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestViewModel.swift; sourceTree = "<group>"; };
 		DC8D9AD0285787EE009533DC /* ConnectResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectResource.swift; sourceTree = "<group>"; };
+		DC9539B4285C5B4800FBD8D0 /* CommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentModel.swift; sourceTree = "<group>"; };
+		DC9539B6285C5B6E00FBD8D0 /* NewscategoryDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewscategoryDataModel.swift; sourceTree = "<group>"; };
+		DC9539B8285C5B8200FBD8D0 /* PollsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollsDataModel.swift; sourceTree = "<group>"; };
+		DC9539BA285C5B9600FBD8D0 /* NewsCategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCategoryModel.swift; sourceTree = "<group>"; };
+		DC9539BC285C5BA800FBD8D0 /* ArticalsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticalsDataModel.swift; sourceTree = "<group>"; };
+		DC9539BE285C5BB800FBD8D0 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
+		DC9539C0285C5BCA00FBD8D0 /* CasesDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CasesDataModel.swift; sourceTree = "<group>"; };
+		DC9539C2285C5BF600FBD8D0 /* CarrierJobDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrierJobDetailsModel.swift; sourceTree = "<group>"; };
+		DC9539C4285C5C1100FBD8D0 /* HospitalDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalDetailsModel.swift; sourceTree = "<group>"; };
+		DC9539C6285C5C2300FBD8D0 /* CarrierModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrierModel.swift; sourceTree = "<group>"; };
 		DCB7D1E0284B536200F3CFDE /* BookMarkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarkViewModel.swift; sourceTree = "<group>"; };
 		DCB7D1E2284B635800F3CFDE /* LikedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedViewModel.swift; sourceTree = "<group>"; };
 		DCB7D1E4284C7EB700F3CFDE /* ImageDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailsViewController.swift; sourceTree = "<group>"; };
@@ -767,10 +787,6 @@
 				BF170F57280D9AAF001B3109 /* Network */,
 				43B52E50273BE7FC004EF637 /* Views */,
 				43B52E51273BE853004EF637 /* Helpers */,
-				4392978E2722D628001891B8 /* Main.storyboard */,
-				439297BC2722D6BA001891B8 /* Home.storyboard */,
-				BFC3EEE22824A979000A1582 /* Add.storyboard */,
-				DCD98807285221E900ECCCE7 /* Details.storyboard */,
 				439297912722D629001891B8 /* Assets.xcassets */,
 				439297932722D629001891B8 /* LaunchScreen.storyboard */,
 				439297962722D629001891B8 /* Info.plist */,
@@ -906,10 +922,20 @@
 			isa = PBXGroup;
 			children = (
 				43AF9F86272975260020CCF3 /* HomeDataModel.swift */,
+				DC9539B4285C5B4800FBD8D0 /* CommentModel.swift */,
 				43A2809D272A751B001B88A1 /* CollegeDataModel.swift */,
 				43A280A7272AD85C001B88A1 /* NewsDataModel.swift */,
+				DC9539C0285C5BCA00FBD8D0 /* CasesDataModel.swift */,
+				DC9539BE285C5BB800FBD8D0 /* NewsModel.swift */,
+				DC9539BC285C5BA800FBD8D0 /* ArticalsDataModel.swift */,
+				DC9539BA285C5B9600FBD8D0 /* NewsCategoryModel.swift */,
+				DC9539B8285C5B8200FBD8D0 /* PollsDataModel.swift */,
+				DC9539B6285C5B6E00FBD8D0 /* NewscategoryDataModel.swift */,
 				439923C2272BCC2C0085E067 /* JobsDataModel.swift */,
 				43C1BFA1272C150D008877AA /* TopJobsDataModel.swift */,
+				DC9539C6285C5C2300FBD8D0 /* CarrierModel.swift */,
+				DC9539C4285C5C1100FBD8D0 /* HospitalDetailsModel.swift */,
+				DC9539C2285C5BF600FBD8D0 /* CarrierJobDetailsModel.swift */,
 				43B03A8C272D070700A4337B /* ProfileDataModel.swift */,
 				43B03AAE2730104A00A4337B /* JobDetailsModel.swift */,
 				439DC471273FB67A00DAD6D5 /* CustomJobModel.swift */,
@@ -1037,11 +1063,7 @@
 				BF0DD94A278D3CCF0053747A /* ProfileDetailsViewController.swift */,
 				BF431C902782FAF20057AF9F /* ExperienceViewController.swift */,
 				BF431C9227831BB30057AF9F /* MyNewsViewController.swift */,
-				DC6B8A462853318A00F89D57 /* Tab.storyboard */,
-				DC4AEF1D2853813D00D6D4A3 /* Me.storyboard */,
-				DC4AEF1F285381C100D6D4A3 /* Network.storyboard */,
-				DC4AEF212853847C00D6D4A3 /* Shop.storyboard */,
-				DC4AEF23285384BD00D6D4A3 /* Job.storyboard */,
+				DCC7469A285C7D4C00B33A2D /* StoryBoards */,
 				BFCB16B7279990C3005E3FEB /* MyArticalViewController.swift */,
 				BF431C94278328FD0057AF9F /* MyCasesViewController.swift */,
 				BFCB16BB279991DD005E3FEB /* MyStoriesViewController.swift */,
@@ -1332,6 +1354,22 @@
 				BFC3EF03282E4E83000A1582 /* ImageCell.xib */,
 			);
 			path = Social;
+			sourceTree = "<group>";
+		};
+		DCC7469A285C7D4C00B33A2D /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				439297BC2722D6BA001891B8 /* Home.storyboard */,
+				4392978E2722D628001891B8 /* Main.storyboard */,
+				DC4AEF23285384BD00D6D4A3 /* Job.storyboard */,
+				DC4AEF212853847C00D6D4A3 /* Shop.storyboard */,
+				DC4AEF1F285381C100D6D4A3 /* Network.storyboard */,
+				BFC3EEE22824A979000A1582 /* Add.storyboard */,
+				DC4AEF1D2853813D00D6D4A3 /* Me.storyboard */,
+				DC6B8A462853318A00F89D57 /* Tab.storyboard */,
+				DCD98807285221E900ECCCE7 /* Details.storyboard */,
+			);
+			path = StoryBoards;
 			sourceTree = "<group>";
 		};
 		E5A4093318F988623876636C /* Frameworks */ = {
@@ -1691,6 +1729,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFC3EF07282E72B2000A1582 /* BookmarksViewController.swift in Sources */,
+				DC9539C3285C5BF600FBD8D0 /* CarrierJobDetailsModel.swift in Sources */,
 				43AF8FA92733BD0900CC69EF /* OTPViewController.swift in Sources */,
 				43B2E8CF275F450C0022CD16 /* QuestionsResource.swift in Sources */,
 				43F971E5275BC53100733478 /* PollViewModel.swift in Sources */,
@@ -1726,6 +1765,7 @@
 				43B03AAF2730104A00A4337B /* JobDetailsModel.swift in Sources */,
 				439297BA2722D639001891B8 /* LoginViewController.swift in Sources */,
 				439297BB2722D639001891B8 /* RegisterViewController.swift in Sources */,
+				DC9539B7285C5B6E00FBD8D0 /* NewscategoryDataModel.swift in Sources */,
 				BF170F6F280FD67F001B3109 /* CaseDetailsViewController.swift in Sources */,
 				4347EF462746594800E634E9 /* HomeResource.swift in Sources */,
 				BF170F53280D34E2001B3109 /* ProfileViewFooter.swift in Sources */,
@@ -1748,6 +1788,7 @@
 				BF0DD956278D4C820053747A /* ProfileSkillsCell.swift in Sources */,
 				43AF8FAC2733D54500CC69EF /* RegisterCell.swift in Sources */,
 				8FF9AD00277314B7002F4700 /* NewsViewModel.swift in Sources */,
+				DC9539B5285C5B4800FBD8D0 /* CommentModel.swift in Sources */,
 				43B03AA5272F99B200A4337B /* AddArticalViewController.swift in Sources */,
 				BFA90E2827BB5346009F9784 /* AddCasesTitleHeader.swift in Sources */,
 				43B03AA7272F99CB00A4337B /* AddStoryViewController.swift in Sources */,
@@ -1804,6 +1845,7 @@
 				43AF9F892729D4390020CCF3 /* CustomSegmentedContrl.swift in Sources */,
 				43A6A98A27329D3700400F72 /* ProfileAddSkillCell.swift in Sources */,
 				BFC3EEE82824E95E000A1582 /* NetworkViewModel.swift in Sources */,
+				DC9539BD285C5BA800FBD8D0 /* ArticalsDataModel.swift in Sources */,
 				43B52E48273BE52B004EF637 /* HomeDetailsTableView.swift in Sources */,
 				BF0DD963278D6CA40053747A /* QuickJobTVCell.swift in Sources */,
 				43B52E3E273BD024004EF637 /* PostQuestionViewController.swift in Sources */,
@@ -1823,8 +1865,10 @@
 				BF170F85281119ED001B3109 /* JobDetailsCell.swift in Sources */,
 				43B03A95272E4B2D00A4337B /* JobDetailsViewController.swift in Sources */,
 				43B23203273AA67100038F8A /* AppliedJobViewController.swift in Sources */,
+				DC9539C1285C5BCA00FBD8D0 /* CasesDataModel.swift in Sources */,
 				439923CF272BD8D30085E067 /* JobsCollectionCell.swift in Sources */,
 				BF0DD952278D46C50053747A /* ProfessionalDetailsCell.swift in Sources */,
+				DC9539B9285C5B8200FBD8D0 /* PollsDataModel.swift in Sources */,
 				43B28450273CE1BA00E8CED8 /* AddMainViewController.swift in Sources */,
 				BF170F71280FD726001B3109 /* ExamDetailsViewController.swift in Sources */,
 				43A6A97E2732520600400F72 /* AddExperienceCell.swift in Sources */,
@@ -1856,11 +1900,13 @@
 				BF1588B727C65A37000B8979 /* DataViewController.swift in Sources */,
 				43F971E3275BC2E000733478 /* PollResource.swift in Sources */,
 				439297892722D628001891B8 /* AppDelegate.swift in Sources */,
+				DC9539C7285C5C2300FBD8D0 /* CarrierModel.swift in Sources */,
 				BFCB16B627997832005E3FEB /* CustomSegmentedControl.swift in Sources */,
 				BF0DD95A278D5B9C0053747A /* RecommandedJobCell.swift in Sources */,
 				43B03AA1272F98CA00A4337B /* AddNewsViewController.swift in Sources */,
 				439297CB2722FCED001891B8 /* NewsDetailsViewController.swift in Sources */,
 				43953E8C273E9C050027CE80 /* CarrierTableView.swift in Sources */,
+				DC9539BB285C5B9600FBD8D0 /* NewsCategoryModel.swift in Sources */,
 				43AF8FC027358C0700CC69EF /* ValidationResult.swift in Sources */,
 				43F971E1275B5E8800733478 /* ProfileViewModel.swift in Sources */,
 				43AF8FB32733D96F00CC69EF /* PaddingTextFeild.swift in Sources */,
@@ -1878,6 +1924,7 @@
 				BFC3EF092834C71C000A1582 /* CarrierJobDetailsViewController.swift in Sources */,
 				DCB7D1E5284C7EB700F3CFDE /* ImageDetailsViewController.swift in Sources */,
 				439AA1FA2737F2F400D09E26 /* CourseNameCell.swift in Sources */,
+				DC9539C5285C5C1100FBD8D0 /* HospitalDetailsModel.swift in Sources */,
 				43B23201273AA66500038F8A /* SavedJobViewController.swift in Sources */,
 				439275D62727F22100E91E33 /* HomeTableViewHeader.swift in Sources */,
 				BF170F56280D9A94001B3109 /* NetworkViewController.swift in Sources */,
@@ -1887,6 +1934,7 @@
 				43AF8FBF27358C0700CC69EF /* LoginValidation.swift in Sources */,
 				BF30C7DB277B34820047E277 /* AddCustomJobResource.swift in Sources */,
 				43F57E51275615F9001120C8 /* RegisterResource.swift in Sources */,
+				DC9539BF285C5BB800FBD8D0 /* NewsModel.swift in Sources */,
 				BF431C98278352820057AF9F /* NewTypeCell.swift in Sources */,
 				43D04BCF27426C8E00414771 /* EditMeViewController.swift in Sources */,
 				BFB3A6622834F021008D0C72 /* CarrierJobDetailHeaderView.swift in Sources */,

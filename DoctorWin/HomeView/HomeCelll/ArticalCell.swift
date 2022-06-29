@@ -23,7 +23,7 @@ class ArticalCell: UITableViewCell {
     @IBOutlet weak var designation: UILabel!
     @IBOutlet weak var pesonImage: UIImageView!
     @IBOutlet weak var likeCount: UILabel!
-   // @IBOutlet weak var imageHeiht: NSLayoutConstraint!
+   @IBOutlet weak var imageHeiht: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -48,16 +48,14 @@ class ArticalCell: UITableViewCell {
         }
         if let urlString = homeModel.postedImage {
             self.postImage.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "loginBg"))
-            let size = self.sizeOfImageAt(url: URL(string: urlString)!)
-            let ratio = Int(size?.width ?? 100) / Int(size?.height ?? 100)
-            if ratio != 0 {
-            let newHeight = Int(postImage.frame.width) / ratio
-         //   imageHeiht.constant = CGFloat(newHeight)
-            self.layoutIfNeeded()
-            }
-            
+//                self.layoutIfNeeded()
+//                let data = ImageDiamenstions().imageDimenssions(url: urlString)
+//                let newHeight = postImage.frame.width / CGFloat(data)
+//                imageHeiht.constant = newHeight
+//               self.layoutIfNeeded()
+                
         }
-       
+        
         if homeModel.profileImage != "no image" {
             if let urlString = homeModel.profileImage {
                 self.pesonImage.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "loginBg"))

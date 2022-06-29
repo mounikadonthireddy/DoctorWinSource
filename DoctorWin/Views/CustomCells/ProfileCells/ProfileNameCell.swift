@@ -15,12 +15,13 @@ class ProfileNameCell: UITableViewCell {
     @IBOutlet weak var speciality: UILabel!
     @IBOutlet weak var location: UILabel!
     @IBOutlet weak var editBtn: UIButton!
-
+    @IBOutlet weak var backBtn: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
 //        profileNameView.setCornerRadiusWithBorderColor(radius: 10, color: UIColor(rgb: 0xE6E6E6), borderWidth: 0.5)
         profileImage.setCornerRadius(radius: Float(profileImage.frame.width)/2)
+        backBtn.setCornerRadius(radius: Float(backBtn.frame.width)/2)
 //        editBtn.setCornerRadius(radius: 15)
     }
     

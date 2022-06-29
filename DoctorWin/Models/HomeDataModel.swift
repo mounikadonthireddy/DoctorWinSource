@@ -75,8 +75,3 @@ struct HomeDataModel: Codable {
     
 }
 
-struct CommentModel: Codable {
-    let comment_id : Int?
-    let comment, ProfileImage, ProfileName : String
-    
-}

@@ -35,6 +35,9 @@ struct APIHelperClass {
                     debugPrint(decodingError)
                 }
             }
+            else if (error as? URLError)?.code == .timedOut {
+                // Handle session timeout
+            }
         }.resume()
     }
 }

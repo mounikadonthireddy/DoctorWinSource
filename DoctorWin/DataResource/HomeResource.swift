@@ -19,58 +19,80 @@ struct HomeResource {
             httpUtility.getApiData(urlString: homeUrlStr, resultType: [HomeDataModel].self) { result in
                 
                 switch result {
-                   case .success(let data):
+                case .success(let data):
                     completion(.success(data))
                     
-                   case .failure(let requestError):
-                       switch requestError {
-                       case .invalidUrl:
-                        completion(.failure("Please try Again After SomeTime"))
-                       
-                       case .internalServerError:
-                        print("Error: Unknown")
-                       
-                       case .decodingError:
-                        print("Error: Unknown")
-                       case .serverError(error: let error):
-                        print("Error: Unknown")
-                       }
-                   }
+                case .failure( _):
+                    completion(.failure("Please try Again After SomeTime"))
+                    
+                }
             }
         }
+        
     }
     func saveComplaintToWishslist(userID: String,complaintID: String, reqModel: ComplaintLikeModel ,completion : @escaping (_ result: ResponseModel) -> Void) {
         
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.jobLike + "?user_id=\(userID)&complaint_id=\(complaintID)"
         let homeUrl = URL(string: homeUrlStr)!
-
+        
         let httpUtility = HttpUtility()
         do {
             
             let postBody = try JSONEncoder().encode(reqModel)
-
+            
             httpUtility.postMethod(requestUrl: homeUrl, requestBody: postBody, resultType: ResponseModel.self) { (result) in
-
-completion(result)
-
+                
+                completion(result)
+                
             }
         } catch let error {
             print("error is \(error)")
+        }
+    }
+    func getCaseDetails(userID: String,complaintID: String ,completion : @escaping (_ result: ResponseResult<CaseDetails>) -> Void) {
+        
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getComplaint + "?user_id=\(userID)&complaint_id=\(complaintID)"
+        let homeUrl = URL(string: homeUrlStr)!
+        
+        let httpUtility = HttpUtility()
+        do {
+            
+            httpUtility.getApiData(urlString: homeUrlStr, resultType: CaseDetails.self) { result in
+                
+                switch result {
+                case .success(let data):
+                    completion(.success(data))
+                    
+                case .failure(let requestError):
+                    switch requestError {
+                    case .invalidUrl:
+                        completion(.failure("Please try Again After SomeTime"))
+                        
+                    case .internalServerError:
+                        print("Error: Unknown")
+                        
+                    case .decodingError:
+                        print("Error: Unknown")
+                    case .serverError(error: let error):
+                        print("Error: Unknown")
+                    }
+                }
+            }
         }
     }
     func saveComplaintToBookmark(userID: String,complaintID: String, reqModel: ComplaintLikeModel ,completion : @escaping (_ result: String?) -> Void) {
         
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.complaintBookmark + "?user_id=\(userID)&complaint_id=\(complaintID)"
         let homeUrl = URL(string: homeUrlStr)!
-
+        
         let httpUtility = HttpUtility()
         do {
             
             let postBody = try JSONEncoder().encode(reqModel)
-
+            
             httpUtility.postMethod(requestUrl: homeUrl, requestBody: postBody, resultType: ComplaintLikeResponse.self) { (result) in
                 completion(result.like_status)
-
+                
                 
             }
         } catch let error {
@@ -81,11 +103,11 @@ completion(result)
         
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.complaintFollow + "?user_id=\(request.user_id)&follow_id=\(request.follow_id)"
         let homeUrl = URL(string: homeUrlStr)!
-
+        
         let httpUtility = HttpUtility()
         do {
             let postBody = try JSONEncoder().encode(request)
-
+            
             httpUtility.postMethod(requestUrl: homeUrl, requestBody: postBody, resultType: ComplaintFollowResponse.self) {
                 result in
                 
@@ -102,15 +124,15 @@ completion(result)
         
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.likeJobs + "?user_id=\(request.user_id)&complaint_id=\(request.complaint_id)"
         let homeUrl = URL(string: homeUrlStr)!
-
+        
         let httpUtility = HttpUtility()
         do {
             let postBody = try JSONEncoder().encode(request)
-
+            
             httpUtility.postMethod(requestUrl: homeUrl, requestBody: postBody, resultType: StatusResponseModel.self) {
                 result in
                 completion(result)
-               
+                
             }
             
         } catch let error {
@@ -122,15 +144,15 @@ completion(result)
         
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.likeJobs + "?user_id=\(request.user_id)&poll_id=\(request.poll_id)"
         let homeUrl = URL(string: homeUrlStr)!
-
+        
         let httpUtility = HttpUtility()
         do {
             let postBody = try JSONEncoder().encode(request)
-
+            
             httpUtility.postMethod(requestUrl: homeUrl, requestBody: postBody, resultType: StatusResponseModel.self) {
                 result in
                 completion(result)
-               
+                
             }
             
         } catch let error {
@@ -141,15 +163,15 @@ completion(result)
         
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.likeJobs + "?user_id=\(request.user_id)&art_id=\(request.art_id)"
         let homeUrl = URL(string: homeUrlStr)!
-
+        
         let httpUtility = HttpUtility()
         do {
             let postBody = try JSONEncoder().encode(request)
-
+            
             httpUtility.postMethod(requestUrl: homeUrl, requestBody: postBody, resultType: StatusResponseModel.self) {
                 result in
                 completion(result)
-               
+                
             }
             
         } catch let error {
@@ -160,15 +182,15 @@ completion(result)
         
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.likeJobs + "?user_id=\(request.user_id)&artical_id=\(request.artical_id)"
         let homeUrl = URL(string: homeUrlStr)!
-
+        
         let httpUtility = HttpUtility()
         do {
             let postBody = try JSONEncoder().encode(request)
-
+            
             httpUtility.postMethod(requestUrl: homeUrl, requestBody: postBody, resultType: StatusResponseModel.self) {
                 result in
                 completion(result)
-               
+                
             }
             
         } catch let error {
@@ -179,16 +201,16 @@ completion(result)
         
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.savedJobs + "?user_id=\(request.user_id)&complaint_id=\(request.complaint_id)"
         let homeUrl = URL(string: homeUrlStr)!
-
+        
         let helper = APIHelperClass()
         do {
             let postBody = try JSONEncoder().encode(request)
-
+            
             helper.callWebserviceToMakeRequest(requestUrl: homeUrl, requestBody: postBody, resultType: StatusResponseModel.self, httpMethod: HTTPMethod.post) {
                 result in
                 
                 completion(result)
-               
+                
             }
             
         } catch let error {
@@ -200,16 +222,16 @@ completion(result)
         
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.savedJobs + "?user_id=\(request.user_id)&poll_id=\(request.poll_id)"
         let homeUrl = URL(string: homeUrlStr)!
-
+        
         let helper = APIHelperClass()
         do {
             let postBody = try JSONEncoder().encode(request)
-
+            
             helper.callWebserviceToMakeRequest(requestUrl: homeUrl, requestBody: postBody, resultType: StatusResponseModel.self, httpMethod: HTTPMethod.post) {
                 result in
                 
                 completion(result)
-               
+                
             }
             
         } catch let error {
@@ -220,16 +242,16 @@ completion(result)
         
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.savedJobs + "?user_id=\(request.user_id)&art_id=\(request.art_id)"
         let homeUrl = URL(string: homeUrlStr)!
-
+        
         let helper = APIHelperClass()
         do {
             let postBody = try JSONEncoder().encode(request)
-
+            
             helper.callWebserviceToMakeRequest(requestUrl: homeUrl, requestBody: postBody, resultType: StatusResponseModel.self, httpMethod: HTTPMethod.post) {
                 result in
                 
                 completion(result)
-               
+                
             }
             
         } catch let error {
@@ -240,16 +262,16 @@ completion(result)
         
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.savedJobs + "?user_id=\(request.user_id)&artical_id=\(request.artical_id)"
         let homeUrl = URL(string: homeUrlStr)!
-
+        
         let helper = APIHelperClass()
         do {
             let postBody = try JSONEncoder().encode(request)
-
+            
             helper.callWebserviceToMakeRequest(requestUrl: homeUrl, requestBody: postBody, resultType: StatusResponseModel.self, httpMethod: HTTPMethod.post) {
                 result in
                 
                 completion(result)
-               
+                
             }
             
         } catch let error {
@@ -260,11 +282,11 @@ completion(result)
         
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getComplaintComment + "?user_id=\(request.profile)"
         let homeUrl = URL(string: homeUrlStr)!
-
+        
         let helper = APIHelperClass()
         do {
             let postBody = try JSONEncoder().encode(request)
-
+            
             helper.callWebserviceToMakeRequest(requestUrl: homeUrl, requestBody: postBody, resultType: PostReplyResponse.self, httpMethod: HTTPMethod.post) {
                 result in
                 completion(result)
@@ -282,24 +304,25 @@ completion(result)
             httpUtility.getApiData(urlString: urlString, resultType: [CasesDataModel].self) { result in
                 
                 switch result {
-                   case .success(let data):
+                case .success(let data):
                     completion(.success(data))
                     
-                   case .failure(let requestError):
-                       switch requestError {
-                       case .invalidUrl:
+                case .failure(let requestError):
+                    switch requestError {
+                    case .invalidUrl:
                         completion(.failure("Please try Again After SomeTime"))
-                       
-                       case .internalServerError:
+                        
+                    case .internalServerError:
                         print("Error: Unknown")
-                       
-                       case .decodingError:
+                        
+                    case .decodingError:
                         print("Error: Unknown")
-                       case .serverError(error: let error):
+                    case .serverError(error: let error):
                         print("Error: Unknown")
-                       }
-                   }
+                    }
+                }
             }
         }
     }
 }
+

@@ -248,7 +248,7 @@ extension CarrierPageViewController: UITableViewDelegate, UITableViewDataSource 
         
     }
     @objc func saveClicked(button: UIButton) {
-        let str = UIStoryboard(name: "Home", bundle: nil)
+        let str = UIStoryboard(name: "Job", bundle: nil)
         let nextVC = str.instantiateViewController(withIdentifier: "SavedJobViewController") as! SavedJobViewController
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
@@ -320,7 +320,7 @@ extension CarrierPageViewController: TopJobsViewModelDelegate {
 
 extension CarrierPageViewController: SearchJobDelegate {
     func textFeildSelection(type: String) {
-        let str = UIStoryboard(name: "Home", bundle: nil)
+        let str = UIStoryboard(name: "Network", bundle: nil)
         let nextVC = str.instantiateViewController(withIdentifier: "DataViewController") as! DataViewController
         nextVC.inputArray =  speacilityArray.map{ data in
             return data.department

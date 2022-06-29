@@ -36,11 +36,11 @@ class UserDetailsViewController: ViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        loadUserDetails()
-        loadUserPostedNews()
-        loadUserPostedCases()
-        loadUserPostedCases()
-        tabBarController?.tabBar.isHidden = false
+      //  loadUserDetails()
+//        loadUserPostedNews()
+//        loadUserPostedCases()
+//        loadUserPostedCases()
+        tabBarController?.tabBar.isHidden = true
     }
     func loadUserDetails() {
         self.showLoader()
@@ -97,7 +97,7 @@ extension UserDetailsViewController: UITableViewDelegate, UITableViewDataSource 
         case 1:
             let cell: CaseCell
                 = tableView.dequeueReusableCell(withIdentifier: "CaseCell") as! CaseCell
-           // cell.configureData(homeModel: newsArray[indexPath.row])
+            cell.configureDataWith(homeModel: casesArray[indexPath.row])
             return cell
             
         case 2:
@@ -109,7 +109,7 @@ extension UserDetailsViewController: UITableViewDelegate, UITableViewDataSource 
         case 3:
             let cell: ArticalCell
                 = tableView.dequeueReusableCell(withIdentifier: "ArticalCell") as! ArticalCell
-         //   cell.configureData(homeModel: newsArray[indexPath.row])
+            cell.configureDataWith(homeModel: articelArray[indexPath.row])
             return cell
             
         default:
@@ -134,12 +134,9 @@ extension UserDetailsViewController: UITableViewDelegate, UITableViewDataSource 
             if let userDetails = userDetailsModel {
                 headerView.configureView(data: userDetails)
             }
+            headerView.backBtn.addTarget(self, action: #selector(backClicked(button:)), for: .touchUpInside)
             headerView.followBtn.addTarget(self, action: #selector(followClicked(button:)), for: .touchUpInside)
             headerView.viewBtn.addTarget(self, action: #selector(viewClicked(button:)), for: .touchUpInside)
-            headerView.socialBtn.addTarget(self, action: #selector(socialClicked(button:)), for: .touchUpInside)
-            headerView.casesBtn.addTarget(self, action: #selector(casesClicked(button:)), for: .touchUpInside)
-            headerView.newsBtn.addTarget(self, action: #selector(newsClicked(button:)), for: .touchUpInside)
-            headerView.articlesBtn.addTarget(self, action: #selector(articlesClicked(button:)), for: .touchUpInside)
             headerView.followCountBtn.addTarget(self, action: #selector(followCountClicked(button:)), for: .touchUpInside)
             headerView.followingCountBtn.addTarget(self, action: #selector(followingCountClicked(button:)), for: .touchUpInside)
             headerView.interfaceSegmented.delegate = self
@@ -149,21 +146,8 @@ extension UserDetailsViewController: UITableViewDelegate, UITableViewDataSource 
         return nil
         
     }
-    @objc func casesClicked(button: UIButton) {
-        self.selectionType = 1
-        self.loadUserPostedCases()
-    }
-    @objc func newsClicked(button: UIButton) {
-        self.loadUserPostedNews()
-        self.selectionType = 2
-    }
-    @objc func articlesClicked(button: UIButton) {
-        self.selectionType = 3
-        self.loadUserPostedArticles()
-    }
-    @objc func socialClicked(button: UIButton) {
-        self.selectionType = 0
-        self.loadUserPostedArticles()
+    @objc func backClicked(button: UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
     @objc func viewClicked(button: UIButton) {
         
@@ -212,20 +196,53 @@ extension UserDetailsViewController: UserDetailsViewModelDelegate {
 
         }
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch selectionType {
+        case 1:
+            let str = UIStoryboard(name: "Details", bundle: nil)
+            let nextVC = str.instantiateViewController(withIdentifier: "CaseDetailsViewController") as! CaseDetailsViewController
+            nextVC.caseId = casesArray[indexPath.row].id ?? 0
+            self.navigationController?.pushViewController(nextVC, animated: true)
+        case 2:
+            let str = UIStoryboard(name: "Details", bundle: nil)
+            let nextVC = str.instantiateViewController(withIdentifier: "NewsDetailsViewController") as! NewsDetailsViewController
+          
+            self.navigationController?.pushViewController(nextVC, animated: true)
+        case 3:
+            let str = UIStoryboard(name: "Details", bundle: nil)
+            let nextVC = str.instantiateViewController(withIdentifier: "ArticalDetailsViewController") as! ArticalDetailsViewController
+           
+            self.navigationController?.pushViewController(nextVC, animated: true)
+        default:
+            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "ExamDetailsViewController") as! ExamDetailsViewController
+            //nextVC.detailsModel = homedataArry[indexPath.row]
+            self.navigationController?.pushViewController(nextVC, animated: true)
+        }
+    }
 }
 
 extension UserDetailsViewController : CustomSegmentedControlDelegate {
     func change(to index: Int) {
         print(index)
-        if index == 0 {
-//            self.los()
-        } else if index == 1 {
-//            self.loadBookmarkNews()
-        } else {
-//            self.loadLikedNews()
+        switch index {
+        case 1:
+            self.selectionType = 1
+            self.loadUserPostedCases()
+            
+        case 2:
+            self.loadUserPostedNews()
+            self.selectionType = 2
+            
+        case 3:
+            self.selectionType = 3
+            self.loadUserPostedArticles()
+            
+        case 0:
+            self.selectionType = 0
+            self.loadUserPostedArticles()
+            
+        default: break
         }
-        
        
     }
 }

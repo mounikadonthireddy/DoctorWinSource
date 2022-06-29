@@ -12,7 +12,9 @@ class ImageDetailsViewController: UIViewController {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var likeCount: UILabel!
     @IBOutlet weak var discussionsCount: UILabel!
+    @IBOutlet weak var detailsLable: UILabel!
    var selectedImageUrl = ""
+    var data = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +22,7 @@ class ImageDetailsViewController: UIViewController {
             image.sd_setImage(with: URL(string: selectedImageUrl))
        
         }
+        self.detailsLable.text = data
        
     }
     

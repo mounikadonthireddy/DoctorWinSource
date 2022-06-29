@@ -259,6 +259,7 @@
                 <outlet property="descriptionLable" destination="1dB-Wf-Dd0" id="A1a-Sa-vCn"/>
                 <outlet property="designation" destination="Ub7-0K-2W7" id="QwO-Gi-OHi"/>
                 <outlet property="discussion" destination="F27-YZ-49F" id="chS-Cs-euz"/>
+                <outlet property="imageHeiht" destination="C6F-22-wDK" id="qgP-fH-e4a"/>
                 <outlet property="likeCount" destination="iuo-eq-tAY" id="55E-hI-a26"/>
                 <outlet property="likeImage" destination="ihL-TA-IH3" id="zKV-ip-fUr"/>
                 <outlet property="personName" destination="FBH-QE-WLM" id="JfZ-6k-qUI"/>

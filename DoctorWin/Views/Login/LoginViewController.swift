@@ -23,7 +23,7 @@ class LoginViewController: ViewController {
         self.loginView.setCornerRadius(radius: 15)
         self.loginButton.btn_setCornerRadius(radius: self.loginButton.frame.height/2)
         
-        self.textFeildView.setCornerRadiusWithBorderColor(radius: 10, color:  UIColor.blue, borderWidth: 1)
+        self.textFeildView.setCornerRadiusWithBorderColor(radius: 10, color:  UIColor(rgb: 0x062D88), borderWidth: 1)
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -58,10 +58,10 @@ class LoginViewController: ViewController {
         loginViewModel.loginUser(loginRequest: request)
         
     }
-    @IBAction func signInClicked(_ sender: Any) {
-        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
-        self.navigationController?.pushViewController(nextVC, animated: true)
-    }
+//    @IBAction func signInClicked(_ sender: Any) {
+//        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
+//        self.navigationController?.pushViewController(nextVC, animated: true)
+//    }
     
 }
 

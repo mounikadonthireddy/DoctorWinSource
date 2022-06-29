@@ -12,14 +12,18 @@ class NewsDetailsCell: UITableViewCell {
     @IBOutlet weak var titleLable: UILabel!
     @IBOutlet weak var descriptionLable: UILabel!
     @IBOutlet weak var postImage: UIImageView!
-    @IBOutlet weak var personName: UILabel!
-    @IBOutlet weak var designation: UILabel!
-    @IBOutlet weak var pesonImage: UIImageView!
-    
+    @IBOutlet weak var likesLable: UILabel!
+    @IBOutlet weak var commentsLable: UILabel!
+    @IBOutlet weak var commentsCountLable: UILabel!
+    @IBOutlet weak var backBtn: UIButton!
+    @IBOutlet weak var uploadBtn: UIButton!
+    @IBOutlet weak var likeBtn: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        pesonImage.setCornerRadius(radius: Float(self.pesonImage.frame.height)/2)
+        likeBtn.setCornerRadius(radius: Float(self.likeBtn.frame.height)/2)
+        uploadBtn.setCornerRadius(radius: Float(self.uploadBtn.frame.height)/2)
+        backBtn.setCornerRadius(radius: Float(self.backBtn.frame.height)/2)
 
     }
     
@@ -32,20 +36,14 @@ class NewsDetailsCell: UITableViewCell {
         
         self.titleLable.text = homeModel.title
         self.descriptionLable.text = homeModel.discription
-        self.personName.text =  (homeModel.profileName ?? "")
-        self.designation.text = (homeModel.speciality ?? "") + " " + "| News"
-        
+            self.likesLable.text = "\(homeModel.likeCount ?? 0) " + "Likes"
+            self.commentsLable.text = "\(homeModel.discussion ?? 0) " + "Comments"
+            self.commentsCountLable.text = "\(homeModel.discussion ?? 0) " + "Comments"
        
         if let urlString = homeModel.postedImage {
             self.postImage.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "loginBg"))
 
             }
-        if homeModel.profileImage != "no image" {
-            if let urlString = homeModel.profileImage {
-                self.pesonImage.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "loginBg"))
-            }
-        }
-            
     }
     func configureDataWith(homeModel: ArticalsDataModel) {
         
