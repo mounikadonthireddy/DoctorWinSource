@@ -173,6 +173,10 @@ struct ApiEndpoints
     static let jobDetails = "new/job"
     static let hospitalDetails = "new/job/hospital/details"
     static let getInterest = "connect/dating/interest"
+    
+    //Shop
+    static let shopData = "shopping/product/image/"
+    static let shopCategory = "shopping/product/category"
 }
 
 class User {

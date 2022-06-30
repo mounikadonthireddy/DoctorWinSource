@@ -55,7 +55,7 @@ class JobsViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     @IBAction func filterClikced(_ sender: Any) {
-        let str = UIStoryboard(name: "Home", bundle: nil)
+        let str = UIStoryboard(name: "Job", bundle: nil)
         let nextVC = str.instantiateViewController(withIdentifier: "FilterViewController") as! FilterViewController
         self.navigationController?.pushViewController(nextVC, animated: true)
     }

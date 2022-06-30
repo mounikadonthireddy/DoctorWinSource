@@ -53,7 +53,7 @@
                 <outlet property="bgView" destination="3aN-6l-zYp" id="zOs-af-Mfo"/>
                 <outlet property="name" destination="Wn8-Un-teI" id="0jg-0g-L51"/>
             </connections>
-            <point key="canvasLocation" x="28.985507246376812" y="70.982142857142847"/>
+            <point key="canvasLocation" x="28.985507246376812" y="70.3125"/>
         </collectionViewCell>
     </objects>
 </document>

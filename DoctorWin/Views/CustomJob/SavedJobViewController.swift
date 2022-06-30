@@ -44,7 +44,7 @@ extension SavedJobViewController : UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let str = UIStoryboard(name: "Home", bundle: nil)
+        let str = UIStoryboard(name: "Details", bundle: nil)
         let nextVC = str.instantiateViewController(withIdentifier: "JobDetailsViewController") as! JobDetailsViewController
         nextVC.detailsModel = savedJobArray[indexPath.row]
         self.navigationController?.pushViewController(nextVC, animated: true)

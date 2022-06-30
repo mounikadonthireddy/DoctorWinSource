@@ -847,6 +847,131 @@
                   </objects>
                   <point key="canvasLocation" x="14994.202898550726" y="-453.26086956521743"/>
               </scene>
+        <scene sceneID="oXD-FG-yUX">
+                    <objects>
+                        <viewController storyboardIdentifier="FilterViewController" id="Aof-8z-Zi0" customClass="FilterViewController" customModule="DoctorWin" customModuleProvider="target" sceneMemberID="viewController">
+                            <view key="view" contentMode="scaleToFill" id="4Du-ea-S7m">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JoZ-e7-6O2">
+                                        <rect key="frame" x="20" y="20" width="45" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="5Ge-xV-BYl"/>
+                                            <constraint firstAttribute="width" constant="45" id="wD6-9M-9XZ"/>
+                                        </constraints>
+                                        <state key="normal" image="back"/>
+                                        <connections>
+                                            <action selector="backClicked:" destination="Aof-8z-Zi0" eventType="touchUpInside" id="AdL-b4-dc5"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="CWD-Qc-ube">
+                                        <rect key="frame" x="10" y="95" width="394" height="45"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cT8-79-Z1N">
+                                                <rect key="frame" x="0.0" y="0.0" width="118" height="45"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                                <state key="normal" title="Department">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="filterClicked:" destination="Aof-8z-Zi0" eventType="touchUpInside" id="lRo-JQ-2DY"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="peO-l6-LX1">
+                                                <rect key="frame" x="138" y="0.0" width="118" height="45"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                                <state key="normal" title="Job Position">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="filterClicked:" destination="Aof-8z-Zi0" eventType="touchUpInside" id="0Th-uZ-0eX"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VK8-QP-ToM">
+                                                <rect key="frame" x="276" y="0.0" width="118" height="45"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                                <state key="normal" title="Location">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="filterClicked:" destination="Aof-8z-Zi0" eventType="touchUpInside" id="jZa-G9-AGL"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="hsP-9y-nyZ"/>
+                                        </constraints>
+                                    </stackView>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2bf-Pt-DwY">
+                                        <rect key="frame" x="20" y="160" width="374" height="526"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Fya-Ym-ObA">
+                                            <size key="itemSize" width="0.0" height="0.0"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="joh-XF-10r">
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="128"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="aSp-5E-mI1">
+                                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="128"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </collectionViewCellContentView>
+                                            </collectionViewCell>
+                                        </cells>
+                                        <connections>
+                                            <outlet property="dataSource" destination="Aof-8z-Zi0" id="RrX-up-0L9"/>
+                                            <outlet property="delegate" destination="Aof-8z-Zi0" id="b9L-iV-VuF"/>
+                                        </connections>
+                                    </collectionView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x6e-5z-tBH">
+                                        <rect key="frame" x="132" y="688" width="150" height="45"/>
+                                        <color key="backgroundColor" red="0.28627450980000002" green="0.52549019610000003" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="1F9-bi-LbY"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="18"/>
+                                        <state key="normal" title="Submit">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="submitClicked:" destination="Aof-8z-Zi0" eventType="touchUpInside" id="bKV-20-BKo"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <viewLayoutGuide key="safeArea" id="zxM-Ae-dC2"/>
+                                <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="zxM-Ae-dC2" firstAttribute="bottom" secondItem="2bf-Pt-DwY" secondAttribute="bottom" constant="50" id="2vw-7q-S9o"/>
+                                    <constraint firstItem="2bf-Pt-DwY" firstAttribute="top" secondItem="CWD-Qc-ube" secondAttribute="bottom" constant="20" id="4El-kd-8nr"/>
+                                    <constraint firstItem="zxM-Ae-dC2" firstAttribute="trailing" secondItem="2bf-Pt-DwY" secondAttribute="trailing" constant="20" id="MNl-GZ-HQT"/>
+                                    <constraint firstItem="CWD-Qc-ube" firstAttribute="top" secondItem="JoZ-e7-6O2" secondAttribute="bottom" constant="30" id="NQn-8j-w0C"/>
+                                    <constraint firstItem="JoZ-e7-6O2" firstAttribute="leading" secondItem="zxM-Ae-dC2" secondAttribute="leading" constant="20" id="UaG-Sb-dlm"/>
+                                    <constraint firstItem="zxM-Ae-dC2" firstAttribute="trailing" secondItem="CWD-Qc-ube" secondAttribute="trailing" constant="10" id="aee-gM-gvj"/>
+                                    <constraint firstItem="2bf-Pt-DwY" firstAttribute="leading" secondItem="zxM-Ae-dC2" secondAttribute="leading" constant="20" id="c7O-sA-V1G"/>
+                                    <constraint firstItem="x6e-5z-tBH" firstAttribute="centerX" secondItem="4Du-ea-S7m" secondAttribute="centerX" id="gLf-U1-hb9"/>
+                                    <constraint firstItem="JoZ-e7-6O2" firstAttribute="top" secondItem="zxM-Ae-dC2" secondAttribute="top" constant="20" id="hmy-TD-7Sb"/>
+                                    <constraint firstItem="x6e-5z-tBH" firstAttribute="top" secondItem="2bf-Pt-DwY" secondAttribute="bottom" constant="2" id="kDM-r1-Ffe"/>
+                                    <constraint firstItem="CWD-Qc-ube" firstAttribute="leading" secondItem="zxM-Ae-dC2" secondAttribute="leading" constant="10" id="kbS-oI-AHj"/>
+                                    <constraint firstItem="zxM-Ae-dC2" firstAttribute="bottom" secondItem="x6e-5z-tBH" secondAttribute="bottom" constant="3" id="uso-5j-Tql"/>
+                                </constraints>
+                            </view>
+                            <connections>
+                                <outlet property="JobPositionBtn" destination="peO-l6-LX1" id="kAr-gY-0Ns"/>
+                                <outlet property="LocationBtn" destination="VK8-QP-ToM" id="ayF-C8-YQ2"/>
+                                <outlet property="collectionView" destination="2bf-Pt-DwY" id="5iA-kl-1d2"/>
+                                <outlet property="collectionViewLayout" destination="Fya-Ym-ObA" id="cuv-MB-0n2"/>
+                                <outlet property="departmentBtn" destination="cT8-79-Z1N" id="exw-Fr-uJk"/>
+                                <outlet property="submitBtn" destination="x6e-5z-tBH" id="gFi-h7-88v"/>
+                            </connections>
+                        </viewController>
+                        <placeholder placeholderIdentifier="IBFirstResponder" id="JQH-wz-MN4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                    </objects>
+                    <point key="canvasLocation" x="27772.463768115944" y="-16.304347826086957"/>
+                </scene>
     </scenes>
     <resources>
         <image name="back" width="32" height="32"/>

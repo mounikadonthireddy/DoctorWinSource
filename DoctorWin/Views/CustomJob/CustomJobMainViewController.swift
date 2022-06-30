@@ -115,7 +115,7 @@ extension CustomJobMainViewController: CustomJobScreenSelectionDelegate {
             segmentControl.setTitle("Saved Jobs(\(value))", forSegmentAt: 1)
             
         case .jobDetails(let data):
-            let str = UIStoryboard(name: "Home", bundle: nil)
+            let str = UIStoryboard(name: "Details", bundle: nil)
             let nextVC = str.instantiateViewController(withIdentifier: "JobDetailsViewController") as! JobDetailsViewController
             nextVC.detailsModel = data
             self.navigationController?.pushViewController(nextVC, animated: true)

@@ -41,7 +41,7 @@ protocol JobScreenSelectionDelegate: class {
 class JobsMainViewController: UIViewController {
     @IBOutlet weak var carrierTableView: CarrierTableView!
     @IBOutlet weak var predictorTableView: CarrierTableView!
-    
+
     @IBOutlet weak var containerView: UIView!
     var views : [UIView]!
     

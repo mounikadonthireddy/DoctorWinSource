@@ -9,9 +9,7 @@ import UIKit
 
 class AddMainViewController: UIViewController {
     @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var currentTitle: UILabel!
-    @IBOutlet weak var nextTitle: UILabel!
-    
+   
     var views : [UIView]!
     let titleArray = ["Cases", "News", "Poll", "Article"]
     
@@ -77,16 +75,9 @@ class AddMainViewController: UIViewController {
    
     @IBAction func segmentClicked(_ sender: UISegmentedControl) {
         containerView.bringSubviewToFront(views[sender.selectedSegmentIndex])
-        self.currentTitle.text = titleArray[sender.selectedSegmentIndex]
-        
-        if sender.selectedSegmentIndex < 0 || sender.selectedSegmentIndex == titleArray.count - 1 {
-            self.nextTitle.isHidden = true
-        } else {
-            self.nextTitle.text = titleArray[sender.selectedSegmentIndex + 1]
-        }
-        
     }
     @IBAction func backClicked(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
 }
+

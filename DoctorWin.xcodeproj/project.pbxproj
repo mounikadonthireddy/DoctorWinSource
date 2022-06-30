@@ -327,6 +327,13 @@
 		DC4AEF222853847C00D6D4A3 /* Shop.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC4AEF212853847C00D6D4A3 /* Shop.storyboard */; };
 		DC4AEF24285384BD00D6D4A3 /* Job.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC4AEF23285384BD00D6D4A3 /* Job.storyboard */; };
 		DC6B8A472853318A00F89D57 /* Tab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC6B8A462853318A00F89D57 /* Tab.storyboard */; };
+		DC8AE243286D815D003376A7 /* ShopCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8AE241286D815D003376A7 /* ShopCategoryCell.swift */; };
+		DC8AE244286D815D003376A7 /* ShopCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC8AE242286D815D003376A7 /* ShopCategoryCell.xib */; };
+		DC8AE246286D9DFB003376A7 /* ShopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8AE245286D9DFB003376A7 /* ShopViewModel.swift */; };
+		DC8AE248286D9E0F003376A7 /* ShopResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8AE247286D9E0F003376A7 /* ShopResource.swift */; };
+		DC8AE24A286D9E33003376A7 /* ShopModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8AE249286D9E33003376A7 /* ShopModel.swift */; };
+		DC8AE24C286E0306003376A7 /* ShopDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8AE24B286E0306003376A7 /* ShopDetailsViewModel.swift */; };
+		DC8AE24E286E0ADB003376A7 /* ShopCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8AE24D286E0ADB003376A7 /* ShopCategoryViewController.swift */; };
 		DC8D9ACD28572C0F009533DC /* InterstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D9ACC28572C0F009533DC /* InterstViewController.swift */; };
 		DC8D9ACF28578769009533DC /* InterestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D9ACE28578769009533DC /* InterestViewModel.swift */; };
 		DC8D9AD1285787EE009533DC /* ConnectResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D9AD0285787EE009533DC /* ConnectResource.swift */; };
@@ -696,6 +703,13 @@
 		DC4AEF212853847C00D6D4A3 /* Shop.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Shop.storyboard; sourceTree = "<group>"; };
 		DC4AEF23285384BD00D6D4A3 /* Job.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Job.storyboard; sourceTree = "<group>"; };
 		DC6B8A462853318A00F89D57 /* Tab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tab.storyboard; sourceTree = "<group>"; };
+		DC8AE241286D815D003376A7 /* ShopCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCategoryCell.swift; sourceTree = "<group>"; };
+		DC8AE242286D815D003376A7 /* ShopCategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopCategoryCell.xib; sourceTree = "<group>"; };
+		DC8AE245286D9DFB003376A7 /* ShopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewModel.swift; sourceTree = "<group>"; };
+		DC8AE247286D9E0F003376A7 /* ShopResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopResource.swift; sourceTree = "<group>"; };
+		DC8AE249286D9E33003376A7 /* ShopModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopModel.swift; sourceTree = "<group>"; };
+		DC8AE24B286E0306003376A7 /* ShopDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDetailsViewModel.swift; sourceTree = "<group>"; };
+		DC8AE24D286E0ADB003376A7 /* ShopCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCategoryViewController.swift; sourceTree = "<group>"; };
 		DC8D9ACC28572C0F009533DC /* InterstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterstViewController.swift; sourceTree = "<group>"; };
 		DC8D9ACE28578769009533DC /* InterestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestViewModel.swift; sourceTree = "<group>"; };
 		DC8D9AD0285787EE009533DC /* ConnectResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectResource.swift; sourceTree = "<group>"; };
@@ -841,6 +855,8 @@
 				435FB56927510FAE0040C406 /* JobCategoryViewModel.swift */,
 				43F971E0275B5E8800733478 /* ProfileViewModel.swift */,
 				435FB5672750BD100040C406 /* JobsResource.swift */,
+				DC8AE245286D9DFB003376A7 /* ShopViewModel.swift */,
+				DC8AE24B286E0306003376A7 /* ShopDetailsViewModel.swift */,
 				BFC3EEE92824EA5E000A1582 /* NetworkResource.swift */,
 				8FF9AD0127731525002F4700 /* NewsJobResource.swift */,
 				435FB56B27510FE40040C406 /* JobCategoryResource.swift */,
@@ -885,6 +901,7 @@
 				4347EF452746594800E634E9 /* HomeResource.swift */,
 				43B2E8CE275F450C0022CD16 /* QuestionsResource.swift */,
 				43D38BED275D022A004B42E0 /* JobApplyResource.swift */,
+				DC8AE247286D9E0F003376A7 /* ShopResource.swift */,
 				431052FC275A099A006BC13A /* ProfileEditResource.swift */,
 				43F971E2275BC2E000733478 /* PollResource.swift */,
 				BFCB173F27B4172A005E3FEB /* DropDownResource.swift */,
@@ -1335,9 +1352,13 @@
 			isa = PBXGroup;
 			children = (
 				BFC3EED62823DE98000A1582 /* ShopViewController.swift */,
+				DC8AE24D286E0ADB003376A7 /* ShopCategoryViewController.swift */,
 				BFC3EED82823DEA6000A1582 /* ShopDetailsViewController.swift */,
+				DC8AE249286D9E33003376A7 /* ShopModel.swift */,
 				BFC3EEDA2823DEB6000A1582 /* ShopCell.swift */,
 				BFC3EEDB2823DEB6000A1582 /* ShopCell.xib */,
+				DC8AE241286D815D003376A7 /* ShopCategoryCell.swift */,
+				DC8AE242286D815D003376A7 /* ShopCategoryCell.xib */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -1583,6 +1604,7 @@
 				439923C7272BD0A70085E067 /* Topjobs.json in Resources */,
 				BF0DD964278D6CA40053747A /* QuickJobTVCell.xib in Resources */,
 				43B03A93272D1D6100A4337B /* Profile.json in Resources */,
+				DC8AE244286D815D003376A7 /* ShopCategoryCell.xib in Resources */,
 				BF170F63280FCE49001B3109 /* CaseCell.xib in Resources */,
 				439DC46B273FB28800DAD6D5 /* Roboto-Light.ttf in Resources */,
 				43A6A97327324EA000400F72 /* ProfileEditCell.xib in Resources */,
@@ -1732,6 +1754,7 @@
 				DC9539C3285C5BF600FBD8D0 /* CarrierJobDetailsModel.swift in Sources */,
 				43AF8FA92733BD0900CC69EF /* OTPViewController.swift in Sources */,
 				43B2E8CF275F450C0022CD16 /* QuestionsResource.swift in Sources */,
+				DC8AE243286D815D003376A7 /* ShopCategoryCell.swift in Sources */,
 				43F971E5275BC53100733478 /* PollViewModel.swift in Sources */,
 				43B231FF273AA65B00038F8A /* CustomJobViewController.swift in Sources */,
 				43A6A98E27329E5800400F72 /* PollTableViewCell.swift in Sources */,
@@ -1747,6 +1770,8 @@
 				435FB5642750BC630040C406 /* JobsViewModel.swift in Sources */,
 				439297C52722D732001891B8 /* MeViewController.swift in Sources */,
 				BF431C8A2782E9720057AF9F /* ExperienceAddCell.swift in Sources */,
+				DC8AE246286D9DFB003376A7 /* ShopViewModel.swift in Sources */,
+				DC8AE24C286E0306003376A7 /* ShopDetailsViewModel.swift in Sources */,
 				BFD5FF2F2813048E003CE888 /* CarrierTabViewController.swift in Sources */,
 				BF431CA0278442D00057AF9F /* DummyCell.swift in Sources */,
 				43B03A9C272EAF6300A4337B /* CommentsCell.swift in Sources */,
@@ -1777,6 +1802,7 @@
 				43A280A1272A81C1001B88A1 /* CollegeDetailsCell.swift in Sources */,
 				43A6A97627324F2E00400F72 /* ProfilePersonalEditCell.swift in Sources */,
 				DC8D9ACF28578769009533DC /* InterestViewModel.swift in Sources */,
+				DC8AE248286D9E0F003376A7 /* ShopResource.swift in Sources */,
 				BFB3A66B28352C10008D0C72 /* CarrierCategoryCell.swift in Sources */,
 				BFC3EED72823DE98000A1582 /* ShopViewController.swift in Sources */,
 				4392978D2722D628001891B8 /* ViewController.swift in Sources */,
@@ -1814,6 +1840,7 @@
 				43AF9F87272975260020CCF3 /* HomeDataModel.swift in Sources */,
 				BF1588B127C6087D000B8979 /* ArticalDetailsViewController.swift in Sources */,
 				BF0DD94E278D42530053747A /* ProfileBasicDetailsCell.swift in Sources */,
+				DC8AE24A286D9E33003376A7 /* ShopModel.swift in Sources */,
 				BFCB16BA2799919A005E3FEB /* MyPollsViewController.swift in Sources */,
 				BF170F4928084825001B3109 /* ProfileCell.swift in Sources */,
 				43AF9F8F2729D51E0020CCF3 /* CollegeViewController.swift in Sources */,
@@ -1891,6 +1918,7 @@
 				43953E8E273E9DC40027CE80 /* JobCategoryCollectionView.swift in Sources */,
 				43D04BD22742892600414771 /* EditSkillCell.swift in Sources */,
 				435FB5622750BC4B0040C406 /* CarrierViewModel.swift in Sources */,
+				DC8AE24E286E0ADB003376A7 /* ShopCategoryViewController.swift in Sources */,
 				DCB7D1E1284B536200F3CFDE /* BookMarkViewModel.swift in Sources */,
 				BF0DD967278D8BF30053747A /* RecentSearchCell.swift in Sources */,
 				43F50BCB2757931F00EC1A80 /* CustomJobResource.swift in Sources */,

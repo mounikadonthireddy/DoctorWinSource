@@ -109,7 +109,7 @@ extension CarrierTabViewController: JobsViewModelDelegate {
 
 extension CarrierTabViewController: QuickJobCellSelectionDelegate {
     func quickCellSelecte(jobType: String, categoryID: Int) {
-        let str = UIStoryboard(name: "Home", bundle: nil)
+        let str = UIStoryboard(name: "Job", bundle: nil)
         let nextVC = str.instantiateViewController(withIdentifier: "JobsViewController") as! JobsViewController
         nextVC.jobType = jobType
         nextVC.categoryID = categoryID
@@ -119,7 +119,7 @@ extension CarrierTabViewController: QuickJobCellSelectionDelegate {
 }
 extension CarrierTabViewController: RecommendedJobSelectionDelegate {
     func recommendedJobSelection(data: JobsDataModel) {
-        let str = UIStoryboard(name: "Home", bundle: nil)
+        let str = UIStoryboard(name: "Details", bundle: nil)
         let nextVC = str.instantiateViewController(withIdentifier: "JobDetailsViewController") as! JobDetailsViewController
         nextVC.detailsModel = data
         self.navigationController?.pushViewController(nextVC, animated: true)
@@ -169,7 +169,7 @@ extension CarrierTabViewController : UICollectionViewDelegate, UICollectionViewD
         return 1
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let str = UIStoryboard(name: "Home", bundle: nil)
+        let str = UIStoryboard(name: "Job", bundle: nil)
         let nextVC = str.instantiateViewController(withIdentifier: "JobsViewController") as! JobsViewController
         nextVC.jobType = quickSearchArray[indexPath.row].title ?? ""
         nextVC.categoryID = quickSearchArray[indexPath.row].id ?? 0

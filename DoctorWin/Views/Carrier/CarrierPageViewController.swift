@@ -232,13 +232,15 @@ extension CarrierPageViewController: UITableViewDelegate, UITableViewDataSource 
         
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let str = UIStoryboard(name: "Home", bundle: nil)
+       
         if indexPath.section == 2 {
+            let str = UIStoryboard(name: "Job", bundle: nil)
             let nextVC = str.instantiateViewController(withIdentifier: "JobsViewController") as! JobsViewController
             // nextVC.detailsModel = allJobsArray[indexPath.row]
             self.navigationController?.pushViewController(nextVC, animated: true)
         }
         if indexPath.section == 5 {
+            let str = UIStoryboard(name: "Details", bundle: nil)
             let nextVC = str.instantiateViewController(withIdentifier: "JobDetailsViewController") as! JobDetailsViewController
             nextVC.detailsModel = allJobsArray[indexPath.row]
             self.navigationController?.pushViewController(nextVC, animated: true)
@@ -291,7 +293,7 @@ extension CarrierPageViewController: JobCategoryViewModelDelegate {
 }
 extension CarrierPageViewController: QuickJobCellSelectionDelegate {
     func quickCellSelecte(jobType: String, categoryID: Int) {
-        let str = UIStoryboard(name: "Home", bundle: nil)
+        let str = UIStoryboard(name: "Job", bundle: nil)
         let nextVC = str.instantiateViewController(withIdentifier: "JobsViewController") as! JobsViewController
         nextVC.jobType = jobType
         nextVC.categoryID = categoryID
@@ -301,7 +303,7 @@ extension CarrierPageViewController: QuickJobCellSelectionDelegate {
 }
 extension CarrierPageViewController: RecommendedJobSelectionDelegate {
     func recommendedJobSelection(data: JobsDataModel) {
-        let str = UIStoryboard(name: "Home", bundle: nil)
+        let str = UIStoryboard(name: "Details", bundle: nil)
         let nextVC = str.instantiateViewController(withIdentifier: "JobDetailsViewController") as! JobDetailsViewController
         nextVC.detailsModel = data
         self.navigationController?.pushViewController(nextVC, animated: true)
@@ -330,7 +332,7 @@ extension CarrierPageViewController: SearchJobDelegate {
     }
     
     func SearchJobDelegate(query: String, jobType: String) {
-        let str = UIStoryboard(name: "Home", bundle: nil)
+        let str = UIStoryboard(name: "Job", bundle: nil)
         let nextVC = str.instantiateViewController(withIdentifier: "JobsViewController") as! JobsViewController
         nextVC.jobType = jobType
         nextVC.query = true

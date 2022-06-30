@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,7 +25,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="185" height="191"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oAQ-Vb-tNM">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="collegeBg" translatesAutoresizingMaskIntoConstraints="NO" id="oAQ-Vb-tNM">
                         <rect key="frame" x="8" y="8" width="169" height="128"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="128" id="4Oe-5U-FtJ"/>
@@ -76,10 +76,16 @@
                 <constraint firstAttribute="trailing" secondItem="Gay-6g-EQB" secondAttribute="trailing" constant="8" id="xMc-xU-w8K"/>
             </constraints>
             <size key="customSize" width="185" height="191"/>
+            <connections>
+                <outlet property="productImage" destination="oAQ-Vb-tNM" id="hsi-BX-sQW"/>
+                <outlet property="productName" destination="y0P-20-POz" id="nLw-a1-eH0"/>
+                <outlet property="productPrice" destination="bT1-Re-h8b" id="RrT-gF-5q7"/>
+            </connections>
             <point key="canvasLocation" x="235.50724637681162" y="124.88839285714285"/>
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="collegeBg" width="720" height="415"/>
         <image name="mark" width="64" height="64"/>
     </resources>
 </document>
