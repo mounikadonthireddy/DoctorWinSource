@@ -23,7 +23,7 @@ class ShopDetailsViewController: ViewController {
     var productVM = ShopDetailsViewModel()
     var timer: Timer?
        var currentImage: UIImage?
-       var currentImageIndex = 0
+       var currentIndex = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,16 +36,18 @@ class ShopDetailsViewController: ViewController {
     }
   
     func startTimer(){
-        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
     }
     
     @objc func timerAction(){
         if imagesArray.count > 0 {
-        currentImageIndex = (currentImageIndex + 1) % imagesArray.count
+            currentIndex = (currentIndex == imagesArray.count - 1) ? 0 : currentIndex + 1
+            let urlString = self.imagesArray[self.currentIndex].image
         
-            self.productImage.image = UIImage(named:self.imagesArray[self.currentImageIndex].image)
+            self.productImage.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "loginBg"))
+           
             self.currentImage = self.productImage.image
-            self.pageControl.currentPage = self.currentImageIndex
+            self.pageControl.currentPage = self.currentIndex
         
     }
     }
