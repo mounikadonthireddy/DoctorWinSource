@@ -326,7 +326,19 @@
 		DC4AEF20285381C100D6D4A3 /* Network.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC4AEF1F285381C100D6D4A3 /* Network.storyboard */; };
 		DC4AEF222853847C00D6D4A3 /* Shop.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC4AEF212853847C00D6D4A3 /* Shop.storyboard */; };
 		DC4AEF24285384BD00D6D4A3 /* Job.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC4AEF23285384BD00D6D4A3 /* Job.storyboard */; };
+		DC55BE002872B9B900B1EE1B /* MCQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC55BDFF2872B9B900B1EE1B /* MCQViewController.swift */; };
+		DC55BE022872BCB700B1EE1B /* MCQViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC55BE012872BCB600B1EE1B /* MCQViewModel.swift */; };
+		DC55BE042872BD0500B1EE1B /* MCQResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC55BE032872BD0500B1EE1B /* MCQResource.swift */; };
+		DC55BE062872F40500B1EE1B /* DatingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC55BE052872F40500B1EE1B /* DatingModel.swift */; };
+		DC55BE082872F42900B1EE1B /* DatingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC55BE072872F42900B1EE1B /* DatingViewModel.swift */; };
+		DC55BE0A2872F47400B1EE1B /* DatingResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC55BE092872F47400B1EE1B /* DatingResource.swift */; };
 		DC6B8A472853318A00F89D57 /* Tab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC6B8A462853318A00F89D57 /* Tab.storyboard */; };
+		DC86698028730ED700CF89A8 /* ShowInterestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8AE24F286E95B1003376A7 /* ShowInterestViewController.swift */; };
+		DC86698328742FAE00CF89A8 /* ShopCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC86698128742FAE00CF89A8 /* ShopCVCell.swift */; };
+		DC86698428742FAE00CF89A8 /* ShopCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC86698228742FAE00CF89A8 /* ShopCVCell.xib */; };
+		DC86698628742FCD00CF89A8 /* ShopWishlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC86698528742FCD00CF89A8 /* ShopWishlistViewController.swift */; };
+		DC8669892874396E00CF89A8 /* ShopWishlistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8669872874396E00CF89A8 /* ShopWishlistCell.swift */; };
+		DC86698A2874396E00CF89A8 /* ShopWishlistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC8669882874396E00CF89A8 /* ShopWishlistCell.xib */; };
 		DC8AE243286D815D003376A7 /* ShopCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8AE241286D815D003376A7 /* ShopCategoryCell.swift */; };
 		DC8AE244286D815D003376A7 /* ShopCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC8AE242286D815D003376A7 /* ShopCategoryCell.xib */; };
 		DC8AE246286D9DFB003376A7 /* ShopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8AE245286D9DFB003376A7 /* ShopViewModel.swift */; };
@@ -334,6 +346,7 @@
 		DC8AE24A286D9E33003376A7 /* ShopModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8AE249286D9E33003376A7 /* ShopModel.swift */; };
 		DC8AE24C286E0306003376A7 /* ShopDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8AE24B286E0306003376A7 /* ShopDetailsViewModel.swift */; };
 		DC8AE24E286E0ADB003376A7 /* ShopCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8AE24D286E0ADB003376A7 /* ShopCategoryViewController.swift */; };
+		DC8AE250286E95B2003376A7 /* ShowInterestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8AE24F286E95B1003376A7 /* ShowInterestViewController.swift */; };
 		DC8D9ACD28572C0F009533DC /* InterstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D9ACC28572C0F009533DC /* InterstViewController.swift */; };
 		DC8D9ACF28578769009533DC /* InterestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D9ACE28578769009533DC /* InterestViewModel.swift */; };
 		DC8D9AD1285787EE009533DC /* ConnectResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D9AD0285787EE009533DC /* ConnectResource.swift */; };
@@ -702,7 +715,18 @@
 		DC4AEF1F285381C100D6D4A3 /* Network.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Network.storyboard; sourceTree = "<group>"; };
 		DC4AEF212853847C00D6D4A3 /* Shop.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Shop.storyboard; sourceTree = "<group>"; };
 		DC4AEF23285384BD00D6D4A3 /* Job.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Job.storyboard; sourceTree = "<group>"; };
+		DC55BDFF2872B9B900B1EE1B /* MCQViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCQViewController.swift; sourceTree = "<group>"; };
+		DC55BE012872BCB600B1EE1B /* MCQViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCQViewModel.swift; sourceTree = "<group>"; };
+		DC55BE032872BD0500B1EE1B /* MCQResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCQResource.swift; sourceTree = "<group>"; };
+		DC55BE052872F40500B1EE1B /* DatingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatingModel.swift; sourceTree = "<group>"; };
+		DC55BE072872F42900B1EE1B /* DatingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatingViewModel.swift; sourceTree = "<group>"; };
+		DC55BE092872F47400B1EE1B /* DatingResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatingResource.swift; sourceTree = "<group>"; };
 		DC6B8A462853318A00F89D57 /* Tab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tab.storyboard; sourceTree = "<group>"; };
+		DC86698128742FAE00CF89A8 /* ShopCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCVCell.swift; sourceTree = "<group>"; };
+		DC86698228742FAE00CF89A8 /* ShopCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopCVCell.xib; sourceTree = "<group>"; };
+		DC86698528742FCD00CF89A8 /* ShopWishlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopWishlistViewController.swift; sourceTree = "<group>"; };
+		DC8669872874396E00CF89A8 /* ShopWishlistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopWishlistCell.swift; sourceTree = "<group>"; };
+		DC8669882874396E00CF89A8 /* ShopWishlistCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopWishlistCell.xib; sourceTree = "<group>"; };
 		DC8AE241286D815D003376A7 /* ShopCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCategoryCell.swift; sourceTree = "<group>"; };
 		DC8AE242286D815D003376A7 /* ShopCategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopCategoryCell.xib; sourceTree = "<group>"; };
 		DC8AE245286D9DFB003376A7 /* ShopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewModel.swift; sourceTree = "<group>"; };
@@ -710,6 +734,7 @@
 		DC8AE249286D9E33003376A7 /* ShopModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopModel.swift; sourceTree = "<group>"; };
 		DC8AE24B286E0306003376A7 /* ShopDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDetailsViewModel.swift; sourceTree = "<group>"; };
 		DC8AE24D286E0ADB003376A7 /* ShopCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCategoryViewController.swift; sourceTree = "<group>"; };
+		DC8AE24F286E95B1003376A7 /* ShowInterestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowInterestViewController.swift; sourceTree = "<group>"; };
 		DC8D9ACC28572C0F009533DC /* InterstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterstViewController.swift; sourceTree = "<group>"; };
 		DC8D9ACE28578769009533DC /* InterestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestViewModel.swift; sourceTree = "<group>"; };
 		DC8D9AD0285787EE009533DC /* ConnectResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectResource.swift; sourceTree = "<group>"; };
@@ -794,6 +819,9 @@
 				43AF9F8227296C7C0020CCF3 /* SampleJson */,
 				4392978A2722D628001891B8 /* SceneDelegate.swift */,
 				4392978C2722D628001891B8 /* ViewController.swift */,
+				DC55BDFF2872B9B900B1EE1B /* MCQViewController.swift */,
+				DC55BE012872BCB600B1EE1B /* MCQViewModel.swift */,
+				DC55BE032872BD0500B1EE1B /* MCQResource.swift */,
 				BF1588B627C65A37000B8979 /* DataViewController.swift */,
 				BFC3EED52823DE87000A1582 /* Shop */,
 				BF170F7628101840001B3109 /* CarrierView */,
@@ -870,6 +898,7 @@
 				DC8D9ACE28578769009533DC /* InterestViewModel.swift */,
 				DC8D9AD0285787EE009533DC /* ConnectResource.swift */,
 				43AF8FC227358C1F00CC69EF /* LoginModel */,
+				DC55BE072872F42900B1EE1B /* DatingViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -902,6 +931,7 @@
 				43B2E8CE275F450C0022CD16 /* QuestionsResource.swift */,
 				43D38BED275D022A004B42E0 /* JobApplyResource.swift */,
 				DC8AE247286D9E0F003376A7 /* ShopResource.swift */,
+				DC55BE092872F47400B1EE1B /* DatingResource.swift */,
 				431052FC275A099A006BC13A /* ProfileEditResource.swift */,
 				43F971E2275BC2E000733478 /* PollResource.swift */,
 				BFCB173F27B4172A005E3FEB /* DropDownResource.swift */,
@@ -956,6 +986,7 @@
 				43B03A8C272D070700A4337B /* ProfileDataModel.swift */,
 				43B03AAE2730104A00A4337B /* JobDetailsModel.swift */,
 				439DC471273FB67A00DAD6D5 /* CustomJobModel.swift */,
+				DC55BE052872F40500B1EE1B /* DatingModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1354,9 +1385,14 @@
 				BFC3EED62823DE98000A1582 /* ShopViewController.swift */,
 				DC8AE24D286E0ADB003376A7 /* ShopCategoryViewController.swift */,
 				BFC3EED82823DEA6000A1582 /* ShopDetailsViewController.swift */,
+				DC86698528742FCD00CF89A8 /* ShopWishlistViewController.swift */,
+				DC8669872874396E00CF89A8 /* ShopWishlistCell.swift */,
+				DC8669882874396E00CF89A8 /* ShopWishlistCell.xib */,
 				DC8AE249286D9E33003376A7 /* ShopModel.swift */,
 				BFC3EEDA2823DEB6000A1582 /* ShopCell.swift */,
 				BFC3EEDB2823DEB6000A1582 /* ShopCell.xib */,
+				DC86698128742FAE00CF89A8 /* ShopCVCell.swift */,
+				DC86698228742FAE00CF89A8 /* ShopCVCell.xib */,
 				DC8AE241286D815D003376A7 /* ShopCategoryCell.swift */,
 				DC8AE242286D815D003376A7 /* ShopCategoryCell.xib */,
 			);
@@ -1369,6 +1405,7 @@
 				BFC3EEE52824AA80000A1582 /* SocialViewController.swift */,
 				BFC3EEFC282E2BBC000A1582 /* ConnectViewController.swift */,
 				DC8D9ACC28572C0F009533DC /* InterstViewController.swift */,
+				DC8AE24F286E95B1003376A7 /* ShowInterestViewController.swift */,
 				BFC3EEFE282E2C04000A1582 /* ConnectCell.swift */,
 				BFC3EEFF282E2C04000A1582 /* ConnectCell.xib */,
 				BFC3EF02282E4E83000A1582 /* ImageCell.swift */,
@@ -1511,6 +1548,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC86698428742FAE00CF89A8 /* ShopCVCell.xib in Resources */,
 				BF431C99278352820057AF9F /* NewTypeCell.xib in Resources */,
 				BF170F5F280DAEFE001B3109 /* NetworkTableHeader.xib in Resources */,
 				43B975A52725978900CDF2F1 /* CarrierSubCell.xib in Resources */,
@@ -1582,6 +1620,7 @@
 				BF431C812782D57E0057AF9F /* FollowCell.xib in Resources */,
 				BFB3A67028353A1F008D0C72 /* HospitalHighligtCell.xib in Resources */,
 				43A6A98B27329D3700400F72 /* ProfileAddSkillCell.xib in Resources */,
+				DC86698A2874396E00CF89A8 /* ShopWishlistCell.xib in Resources */,
 				BFC3EF01282E2C04000A1582 /* ConnectCell.xib in Resources */,
 				BF0DD953278D46C50053747A /* ProfessionalDetailsCell.xib in Resources */,
 				BFD5FF2D2812EECE003CE888 /* NewsDetailsCell.xib in Resources */,
@@ -1785,6 +1824,7 @@
 				43B2E8CA275F2ADF0022CD16 /* ArticalCell.swift in Sources */,
 				BF0DD936278C88190053747A /* CarrierHighlightCell.swift in Sources */,
 				43AF8FCA27358C9900CC69EF /* Common.swift in Sources */,
+				DC86698628742FCD00CF89A8 /* ShopWishlistViewController.swift in Sources */,
 				43B2E8CD275F44B90022CD16 /* QuestionsViewModel.swift in Sources */,
 				43B975AA2725B18A00CDF2F1 /* JobRequirementCell.swift in Sources */,
 				43B03AAF2730104A00A4337B /* JobDetailsModel.swift in Sources */,
@@ -1805,15 +1845,18 @@
 				DC8AE248286D9E0F003376A7 /* ShopResource.swift in Sources */,
 				BFB3A66B28352C10008D0C72 /* CarrierCategoryCell.swift in Sources */,
 				BFC3EED72823DE98000A1582 /* ShopViewController.swift in Sources */,
+				DC8AE250286E95B2003376A7 /* ShowInterestViewController.swift in Sources */,
 				4392978D2722D628001891B8 /* ViewController.swift in Sources */,
 				43B5CBD02726E48400DFEC71 /* JobsViewController.swift in Sources */,
 				43AF8FBB27358BFA00CC69EF /* LoginResponse.swift in Sources */,
+				DC55BE022872BCB700B1EE1B /* MCQViewModel.swift in Sources */,
 				BF431C802782D57E0057AF9F /* FollowCell.swift in Sources */,
 				43F50BC92757931300EC1A80 /* CustomJobViewModel.swift in Sources */,
 				43AF8FB12733D89D00CC69EF /* PaddingLabel.swift in Sources */,
 				BF0DD956278D4C820053747A /* ProfileSkillsCell.swift in Sources */,
 				43AF8FAC2733D54500CC69EF /* RegisterCell.swift in Sources */,
 				8FF9AD00277314B7002F4700 /* NewsViewModel.swift in Sources */,
+				DC55BE062872F40500B1EE1B /* DatingModel.swift in Sources */,
 				DC9539B5285C5B4800FBD8D0 /* CommentModel.swift in Sources */,
 				43B03AA5272F99B200A4337B /* AddArticalViewController.swift in Sources */,
 				BFA90E2827BB5346009F9784 /* AddCasesTitleHeader.swift in Sources */,
@@ -1825,6 +1868,7 @@
 				BF170F62280FCE49001B3109 /* CaseCell.swift in Sources */,
 				DC8D9AD1285787EE009533DC /* ConnectResource.swift in Sources */,
 				BF0DD96F278D92EF0053747A /* CarrierHeaderCell.swift in Sources */,
+				DC55BE002872B9B900B1EE1B /* MCQViewController.swift in Sources */,
 				BFB3A66F28353A1F008D0C72 /* HospitalHighligtCell.swift in Sources */,
 				BFB3A66728352A02008D0C72 /* SpecialityCell.swift in Sources */,
 				439297CE2723199B001891B8 /* CarrierCell.swift in Sources */,
@@ -1881,6 +1925,8 @@
 				43B975A727259FE400CDF2F1 /* ApplyJobViewController.swift in Sources */,
 				BF0DD944278D33EC0053747A /* ProfileDashboardCell.swift in Sources */,
 				BF0DD940278D24270053747A /* ProfileSummaryCell.swift in Sources */,
+				DC8669892874396E00CF89A8 /* ShopWishlistCell.swift in Sources */,
+				DC55BE0A2872F47400B1EE1B /* DatingResource.swift in Sources */,
 				43C1BFA2272C150D008877AA /* TopJobsDataModel.swift in Sources */,
 				BFC3EEFD282E2BBC000A1582 /* ConnectViewController.swift in Sources */,
 				BFA90E2027BA7036009F9784 /* APIHelperClass.swift in Sources */,
@@ -1925,6 +1971,7 @@
 				BF170F6C280FD629001B3109 /* CaseDetailsCell.swift in Sources */,
 				BF0DD94B278D3CCF0053747A /* ProfileDetailsViewController.swift in Sources */,
 				439297C12722D721001891B8 /* CarrierViewController.swift in Sources */,
+				DC55BE082872F42900B1EE1B /* DatingViewModel.swift in Sources */,
 				BF1588B727C65A37000B8979 /* DataViewController.swift in Sources */,
 				43F971E3275BC2E000733478 /* PollResource.swift in Sources */,
 				439297892722D628001891B8 /* AppDelegate.swift in Sources */,
@@ -1944,6 +1991,7 @@
 				43B975B42725B63000CDF2F1 /* JobHeadCell.swift in Sources */,
 				43A2809E272A751B001B88A1 /* CollegeDataModel.swift in Sources */,
 				43F57E4D275614A7001120C8 /* RegisterValidation.swift in Sources */,
+				DC55BE042872BD0500B1EE1B /* MCQResource.swift in Sources */,
 				435FB56A27510FAE0040C406 /* JobCategoryViewModel.swift in Sources */,
 				BFA90E2327BB50F9009F9784 /* AddCaseTextCell.swift in Sources */,
 				BF1588B427C608B8000B8979 /* ArticalDetailsCell.swift in Sources */,
@@ -1969,6 +2017,7 @@
 				43B975A027258A0000CDF2F1 /* HomeTableCell.swift in Sources */,
 				439297D227231EDE001891B8 /* InfoCell.swift in Sources */,
 				4392978B2722D628001891B8 /* SceneDelegate.swift in Sources */,
+				DC86698328742FAE00CF89A8 /* ShopCVCell.swift in Sources */,
 				BFA90E1E27B53F5F009F9784 /* NewsCategoryViewController.swift in Sources */,
 				431052F92759E48B006BC13A /* FilterViewController.swift in Sources */,
 				4347EF442746589100E634E9 /* HomeViewModel.swift in Sources */,
@@ -1985,6 +2034,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC86698028730ED700CF89A8 /* ShowInterestViewController.swift in Sources */,
 				439297A02722D629001891B8 /* DoctorWinTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

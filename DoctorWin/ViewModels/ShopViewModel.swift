@@ -6,6 +6,11 @@
 //
 
 import Foundation
+protocol ShopWishlistDelegate {
+    func didReciveBookmarkShopData(response: [ShopModel]?, error: String?)
+    func didReciveUploadShopData(response: [ShopModel]?, error: String?)
+    func didReciveRecentShopData(response: [ShopModel]?, error: String?)
+}
 
 protocol ShopDelegate {
     func didReciveShopData(response: [ShopModel]?, error: String?)
@@ -14,10 +19,11 @@ protocol ShopDelegate {
 
 struct ShopViewModel {
     var delegate : ShopDelegate?
+    var delegate1: ShopWishlistDelegate?
  
-    func getShopData(userID: String, pageNum: Int) {
+    func getShopData(userID: String, category: String) {
         let homeResource = ShopResource()
-        homeResource.getshopData(userID: userID, pageNum: pageNum) { response in
+        homeResource.getshopData(userID: userID, category: category) { response in
             DispatchQueue.main.async {
                 switch response {
                 case .success(let data):
@@ -47,4 +53,53 @@ struct ShopViewModel {
             
         }
     }
+    func getShopWishlistData(userID: String) {
+        let homeResource = ShopResource()
+        homeResource.getshopData(userID: userID, index: 2) { response in
+            DispatchQueue.main.async {
+                switch response {
+                case .success(let data):
+                    self.delegate1?.didReciveBookmarkShopData(response: data, error: nil)
+                    
+                case .failure(let error):
+                    self.delegate1?.didReciveBookmarkShopData(response: nil, error: error)
+                }
+            
+            }
+            
+        }
+    }
+    func getShopUploadData(userID: String) {
+        let homeResource = ShopResource()
+        homeResource.getshopData(userID: userID, index: 0) { response in
+            DispatchQueue.main.async {
+                switch response {
+                case .success(let data):
+                    self.delegate1?.didReciveUploadShopData(response: data, error: nil)
+                    
+                case .failure(let error):
+                    self.delegate1?.didReciveUploadShopData(response: nil, error: error)
+                }
+            
+            }
+            
+        }
+    }
+    func getShopRecentData(userID: String) {
+        let homeResource = ShopResource()
+        homeResource.getshopData(userID: userID, index: 1) { response in
+            DispatchQueue.main.async {
+                switch response {
+                case .success(let data):
+                    self.delegate1?.didReciveRecentShopData(response: data, error: nil)
+                    
+                case .failure(let error):
+                    self.delegate1?.didReciveRecentShopData(response: nil, error: error)
+                }
+            
+            }
+            
+        }
+    }
 }
+

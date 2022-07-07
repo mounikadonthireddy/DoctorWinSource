@@ -111,10 +111,9 @@ extension CarrierJobCell : UICollectionViewDelegate, UICollectionViewDataSource 
         
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
-        let yourWidth = CGFloat(40)
-        return CGSize(width: yourWidth, height: collectionView.bounds.height)
-
+        let size = (courseArray[indexPath.row].name as NSString).size(withAttributes: nil)
+        return CGSize(width: size.width + 20, height: collectionView.bounds.height)
+     
     }
     func collectionView(_ collectionView: UICollectionView,
                             layout collectionViewLayout: UICollectionViewLayout,

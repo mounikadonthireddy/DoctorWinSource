@@ -13,6 +13,8 @@ class ShopViewController: ViewController {
     var categoryArray : [ShopCategoryModel] = []
     var shopArray : [ShopModel] = []
     @IBOutlet weak var shopCollectionView: UICollectionView!
+    @IBOutlet weak var searchView: UIStackView!
+    @IBOutlet weak var searchTF: UITextField!
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     @IBOutlet weak var shopCVLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var categoryCVLayout: UICollectionViewFlowLayout!
@@ -20,6 +22,7 @@ class ShopViewController: ViewController {
         super.viewDidLoad()
         categoryCollectionView.register(UINib.init(nibName: "ShopCategoryCell", bundle: nil), forCellWithReuseIdentifier: "ShopCategoryCell")
         shopCollectionView.register(UINib.init(nibName: "ShopCell", bundle: nil), forCellWithReuseIdentifier: "ShopCell")
+        searchView.setCornerRadius(radius: Float(searchView.frame.height)/2)
        
         shopCVLayout.scrollDirection = .vertical
         shopCVLayout.minimumLineSpacing = 0
@@ -40,7 +43,7 @@ class ShopViewController: ViewController {
     }
     func loadShopData() {
        showLoader()
-        shopVM.getShopData(userID: User.shared.userID, pageNum: 0)
+        shopVM.getShopData(userID: User.shared.userID, category: "")
     }
     func loadShopCategoryData() {
         showLoader()
@@ -58,7 +61,14 @@ class ShopViewController: ViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    @IBAction func wishlistClicked(_ sender: Any) {
+        let str = UIStoryboard(name: "Shop", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "ShopWishlistViewController") as! ShopWishlistViewController
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+    @IBAction func personClicked(_ sender: Any) {
+        
+    }
 }
 
 extension ShopViewController : UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
@@ -76,8 +86,6 @@ extension ShopViewController : UICollectionViewDelegate, UICollectionViewDataSou
         if collectionView == categoryCollectionView {
             let cell: ShopCategoryCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShopCategoryCell", for: indexPath) as! ShopCategoryCell
             cell.bgView.setCornerRadiusWithBorderColor(radius: 5, color: UIColor.secondaryLabel, borderWidth: 0.5)
-//            cell.bgView.setCornerRadiusWithBorderColor(radius: 0, color: UIColor.clear, borderWidth: 0)
-//            cell.bgView.setCornerRadius(radius: 0)
             cell.configureCell(data: categoryArray[indexPath.row])
             return cell
         } else {
@@ -127,10 +135,10 @@ extension ShopViewController : UICollectionViewDelegate, UICollectionViewDataSou
             self.navigationController?.pushViewController(nextVC, animated: true)
         } else {
             let type = categoryArray[indexPath.row].name
-            let data = shopArray.filter { $0.product_name == type }
+           // let data = shopArray.filter { $0.product_name == type }
             let str = UIStoryboard(name: "Shop", bundle: nil)
             let nextVC = str.instantiateViewController(withIdentifier: "ShopCategoryViewController") as! ShopCategoryViewController
-            nextVC.shopArray = data
+//            nextVC.shopArray = data
             nextVC.categorySelected = type
             self.navigationController?.pushViewController(nextVC, animated: true)
         }

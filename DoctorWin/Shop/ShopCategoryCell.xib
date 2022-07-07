@@ -8,8 +8,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Roboto-Light.ttf">
-            <string>Roboto-Light</string>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
         </array>
     </customFonts>
     <objects>
@@ -26,25 +26,25 @@
                         <rect key="frame" x="1" y="1" width="105" height="33"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H6w-Wm-e2F">
-                                <rect key="frame" x="25" y="5" width="70" height="23"/>
-                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="12"/>
+                                <rect key="frame" x="35" y="5" width="60" height="23"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="lGm-B1-Sig">
-                                <rect key="frame" x="4" y="5.5" width="17" height="22.5"/>
+                                <rect key="frame" x="8" y="5.5" width="19" height="22.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="iAW-5J-ZDi"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="H6w-Wm-e2F" firstAttribute="leading" secondItem="lX1-xB-eiK" secondAttribute="leading" constant="25" id="7Tu-sR-bfE"/>
+                            <constraint firstItem="H6w-Wm-e2F" firstAttribute="leading" secondItem="lX1-xB-eiK" secondAttribute="leading" constant="35" id="7Tu-sR-bfE"/>
                             <constraint firstAttribute="trailing" secondItem="H6w-Wm-e2F" secondAttribute="trailing" constant="10" id="9Vh-mO-KQs"/>
                             <constraint firstAttribute="bottom" secondItem="lGm-B1-Sig" secondAttribute="bottom" constant="4" id="9mk-zn-GTe"/>
-                            <constraint firstItem="lGm-B1-Sig" firstAttribute="leading" secondItem="lX1-xB-eiK" secondAttribute="leading" constant="4" id="Laz-7y-NPN"/>
+                            <constraint firstItem="lGm-B1-Sig" firstAttribute="leading" secondItem="lX1-xB-eiK" secondAttribute="leading" constant="8" id="Laz-7y-NPN"/>
                             <constraint firstItem="lGm-B1-Sig" firstAttribute="top" secondItem="lX1-xB-eiK" secondAttribute="top" constant="4" id="XyE-Y1-7kv"/>
                             <constraint firstAttribute="bottom" secondItem="H6w-Wm-e2F" secondAttribute="bottom" constant="5" id="tvY-YH-9J4"/>
-                            <constraint firstItem="H6w-Wm-e2F" firstAttribute="leading" secondItem="lGm-B1-Sig" secondAttribute="trailing" constant="4" id="uCN-D8-ah3"/>
+                            <constraint firstItem="H6w-Wm-e2F" firstAttribute="leading" secondItem="lGm-B1-Sig" secondAttribute="trailing" constant="8" id="uCN-D8-ah3"/>
                             <constraint firstItem="H6w-Wm-e2F" firstAttribute="top" secondItem="lX1-xB-eiK" secondAttribute="top" constant="5" id="wKk-Ad-8id"/>
                         </constraints>
                     </view>

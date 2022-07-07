@@ -19,7 +19,7 @@ class CarrierCategoryCell: UICollectionViewCell {
     func configureCell(with data: JobCategoryDataModel) {
         self.jobTypeName.text = data.title
         self.bgView.layer.cornerRadius = 10
-        jobTypeImage.setCornerRadius(radius: 35)
+       // jobTypeImage.setCornerRadius(radius: 35)
         if let urlString = data.image {
             self.jobTypeImage.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "loginBg"))
         }

@@ -1,13 +1,13 @@
 //
-//  ShopCell.swift
+//  ShopCVCell.swift
 //  DoctorWin
 //
-//  Created by Donthireddy Mounika on 05/05/22.
+//  Created by AHP on 05/07/2565 BE.
 //
 
 import UIKit
 
-class ShopCell: UICollectionViewCell {
+class ShopCVCell: UICollectionViewCell {
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var productPrice: UILabel!
     @IBOutlet weak var productImage: UIImageView!
@@ -23,5 +23,4 @@ class ShopCell: UICollectionViewCell {
     
         self.productImage.sd_setImage(with: URL(string: data.image), placeholderImage: UIImage(named: "loginBg"))
     }
-
 }

@@ -51,41 +51,8 @@ class ExamCell: UITableViewCell {
         self.option3Btn.setTitle("   C.\(homeModel.option3 ?? "")", for: .normal)
         self.option4Btn.setTitle("   D.\(homeModel.option4 ?? "")", for: .normal)
 
-        if homeModel.selectedOption != nil {
-        switch homeModel.correctAnswer  {
-            
-        case "A":
-            self.option1Btn.backgroundColor = UIColor(rgb: 0x008000)
-        case "B":
-            self.option2Btn.backgroundColor = UIColor(rgb: 0x008000)
-        case "C":
-            self.option3Btn.backgroundColor = UIColor(rgb: 0x008000)
-        case "D":
-            self.option4Btn.backgroundColor = UIColor(rgb: 0x008000)
-        case .none:
-            break
-        
-        case .some(_):
-            break
-        }
-        
-        switch homeModel.selectedOption  {
-            
-        case "A":
-            self.option1Btn.backgroundColor = UIColor(rgb: 0xD50000)
-        case "B":
-            self.option2Btn.backgroundColor = UIColor(rgb: 0xD50000)
-        case "C":
-            self.option3Btn.backgroundColor = UIColor(rgb: 0xD50000)
-        case "D":
-            self.option4Btn.backgroundColor = UIColor(rgb: 0xD50000)
-        case .none:
-            break
-        
-        case .some(_):
-            break
-        }
-        }
+        self.setAnswer(selected: homeModel.selectedOption ?? "", correct: homeModel.correctAnswer ?? "" )
+       
 
 //        if homeModel.follow != "False" {
 //            self.followBtn.setTitle("Following", for: .normal)
@@ -102,35 +69,67 @@ class ExamCell: UITableViewCell {
             self.personImage.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "loginBg"))
         }
     }
-    func configureData(homeModel: PollsDataModel) {
-//        self.designation.text = homeModel.speciality
-//        self.postedPersonName.text = homeModel.username
-//        self.titleLable.text = homeModel.poll_title
-//        let days = Date().offsetFrom(dateStr: homeModel.created_date)
-//
-//        self.followBtn.tag = homeModel.poll_user
-//
-//        //        if let value = homeModel.discussion {
-//        //            self.discussion.text = "\(String(describing: value)) Discussions"
-//        //
-//        //        }
-//
+    func configureData(homeModel: ExamsModel) {
+        self.designation.text = homeModel.subject
+        self.postedPersonName.text = homeModel.exam
+        self.titleLable.text = homeModel.question
+        self.option1Btn.setTitle("   A.\(homeModel.option1 )", for: .normal)
+        self.option2Btn.setTitle("   B.\(homeModel.option2 )", for: .normal)
+        self.option3Btn.setTitle("   C.\(homeModel.option3 )", for: .normal)
+        self.option4Btn.setTitle("   D.\(homeModel.option4 )", for: .normal)
+
+            self.setAnswer(selected: homeModel.selected_option ?? "", correct: homeModel.correct_answer)
+        
+       
 //        if homeModel.follow != "False" {
 //            self.followBtn.setTitle("Following", for: .normal)
 //        }
-////        if homeModel.like_status {
-////            likeImage.image = UIImage(named: "fheart")
-////
-////        }
-////        if homeModel.bookmark_status ?? false  {
-////            bookmarkImage.image = UIImage(named: "fmark")
-////        }
-//        if let urlString = homeModel.profile_image {
-//            let finalUrlString = "http://3.132.212.116:8000" + urlString
+//        if homeModel.likeStatus ?? false {
+//            likeImage.image = UIImage(named: "fheart")
 //
-//            self.personImage.sd_setImage(with: URL(string: finalUrlString), placeholderImage: UIImage(named: "loginBg"))
 //        }
+//        if homeModel.bookmarkStatus ?? false {
+//            bookmarkImage.image = UIImage(named: "fmark")
+//        }
+        if homeModel.profileImage != "no Image" {
+    
+            self.personImage.sd_setImage(with: URL(string: homeModel.profileImage), placeholderImage: UIImage(named: "loginBg"))
+        }
     }
+    
+        func setAnswer(selected: String, correct: String) {
+            if selected != "" {
+        switch correct  {
+        case "A":
+            self.option1Btn.backgroundColor = UIColor(rgb: 0x008000)
+        case "B":
+            self.option2Btn.backgroundColor = UIColor(rgb: 0x008000)
+        case "C":
+            self.option3Btn.backgroundColor = UIColor(rgb: 0x008000)
+        case "D":
+            self.option4Btn.backgroundColor = UIColor(rgb: 0x008000)
+            
+        default:
+            break
+    
+        }
+        
+        switch selected  {
+        case "A":
+            self.option1Btn.backgroundColor = UIColor(rgb: 0xD50000)
+        case "B":
+            self.option2Btn.backgroundColor = UIColor(rgb: 0xD50000)
+        case "C":
+            self.option3Btn.backgroundColor = UIColor(rgb: 0xD50000)
+        case "D":
+            self.option4Btn.backgroundColor = UIColor(rgb: 0xD50000)
+            
+        
+        default:
+            break
+        }
+    }
+        }
     
     @IBAction  func followClicked(_ sender: UIButton) {
         let request = ComplaintFollowRequest(follow_id: "\(sender.tag)", user_id: User.shared.userID)

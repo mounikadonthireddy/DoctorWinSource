@@ -26,6 +26,9 @@ class ConnectViewController: ViewController {
         tabBarController?.tabBar.isHidden = true
         
     }
+    func loadProfileData() {
+        
+    }
     func downloadQualificationResource() {
         self.showLoader()
         let resouce = DropDownResource()

@@ -177,6 +177,16 @@ struct ApiEndpoints
     //Shop
     static let shopData = "shopping/product/image/"
     static let shopCategory = "shopping/product/category"
+    static let shopSale = "shopping/product/upload"
+    static let shopRecent = "shopping/product/view"
+    static let shopBookmark = "shopping/product/bookmark"
+    
+    //MCQ
+    static let mcq = "user/question"
+    static let attemptedMcq = "user/question/attempt"
+    
+    //Dating
+    static let dating = "connect/dating/recommed/profile"
 }
 
 class User {

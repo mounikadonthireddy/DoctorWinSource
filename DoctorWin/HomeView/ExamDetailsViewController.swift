@@ -15,7 +15,7 @@ class ExamDetailsViewController: UIViewController {
     @IBOutlet weak var option4Btn: UIButton!
     @IBOutlet weak var answerLbl: UILabel!
     @IBOutlet weak var explanationLbl: UILabel!
-    var examData: HomeDataModel?
+    var examData: ExamsModel?
     override func viewDidLoad() {
         super.viewDidLoad()
         option1Btn.setCornerRadiusWithBorderColor(radius: 5, color: UIColor.lightGray, borderWidth: 1)
@@ -29,14 +29,14 @@ class ExamDetailsViewController: UIViewController {
         if let data = examData  {
             self.titleLbl.text = data.question
             
-            self.option1Btn.setTitle("   A. \(data.option1 ?? "")", for: .normal)
-            self.option2Btn.setTitle("   B. \(data.option2 ?? "")", for: .normal)
-            self.option3Btn.setTitle("   C. \(data.option3 ?? "")", for: .normal)
-            self.option4Btn.setTitle("   D. \(data.option4 ?? "")", for: .normal)
-            self.answerLbl.text = "Correct Answer is: \(data.correctAnswer ?? "")"
+            self.option1Btn.setTitle("   A. \(data.option1 )", for: .normal)
+            self.option2Btn.setTitle("   B. \(data.option2 )", for: .normal)
+            self.option3Btn.setTitle("   C. \(data.option3 )", for: .normal)
+            self.option4Btn.setTitle("   D. \(data.option4 )", for: .normal)
+            self.answerLbl.text = "Correct Answer is: \(data.correct_answer )"
             self.explanationLbl.text = data.detail
             
-            switch data.correctAnswer  {
+            switch data.correct_answer  {
             case "A":
                 self.option1Btn.backgroundColor = UIColor(rgb: 0x008000)
             case "B":
@@ -45,11 +45,10 @@ class ExamDetailsViewController: UIViewController {
                 self.option3Btn.backgroundColor = UIColor(rgb: 0x008000)
             case "D":
                 self.option4Btn.backgroundColor = UIColor(rgb: 0x008000)
-            case .none:
+            default:
                 break
             
-            case .some(_):
-                break
+           
             }
         }
 

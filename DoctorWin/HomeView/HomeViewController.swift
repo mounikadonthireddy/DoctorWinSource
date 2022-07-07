@@ -221,7 +221,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     @objc func connectClicked(button: UIButton) {
         let str = UIStoryboard(name: "Network", bundle: nil)
-        let nextVC = str.instantiateViewController(withIdentifier: "ConnectViewController") as! ConnectViewController
+        let nextVC = str.instantiateViewController(withIdentifier: "ShowInterestViewController") as! ShowInterestViewController
 
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
@@ -231,7 +231,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     @objc func explainClicked(button: UIButton) {
         let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "ExamDetailsViewController") as! ExamDetailsViewController
-        nextVC.examData = homedataArry[button.tag]
+       // nextVC.examData = homedataArry[button.tag]
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -8,8 +8,38 @@
 import Foundation
 struct ShopResource {
     
-    func getshopData(userID: String, pageNum: Int, completion : @escaping (_ result: ResponseResult<[ShopModel]>) -> Void) {
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.shopData + "?user_id=\(userID)"
+    func getshopData(userID: String, category: String, completion : @escaping (_ result: ResponseResult<[ShopModel]>) -> Void) {
+        var homeUrlStr = ""
+        if category != "" {
+           homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.shopData + "?category_name=\(category)"
+        } else {
+         homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.shopData + "?user_id=\(userID)"
+        }
+        let httpUtility = HttpUtility()
+        do {
+            httpUtility.getApiData(urlString: homeUrlStr, resultType: [ShopModel].self) { result in
+                
+                switch result {
+                case .success(let data):
+                    completion(.success(data))
+                    
+                case .failure( _):
+                    completion(.failure("Please try Again After SomeTime"))
+                    
+                }
+            }
+        }
+        
+    }
+    func getshopData(userID: String, index: Int, completion : @escaping (_ result: ResponseResult<[ShopModel]>) -> Void) {
+        var homeUrlStr = ""
+        if index == 0 {
+           homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.shopSale + "?user_id=\(userID)"
+        } else if index == 1 {
+         homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.shopRecent + "?user_id=\(userID)"
+        } else if index == 2 {
+            homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.shopBookmark + "?user_id=\(userID)"
+           }
         let httpUtility = HttpUtility()
         do {
             httpUtility.getApiData(urlString: homeUrlStr, resultType: [ShopModel].self) { result in

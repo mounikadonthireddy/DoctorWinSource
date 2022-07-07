@@ -7,8 +7,10 @@
 
 import UIKit
 
-class ShopCategoryViewController: UIViewController {
+class ShopCategoryViewController: ViewController {
     var shopArray : [ShopModel] = []
+    var shopVM = ShopViewModel()
+
     @IBOutlet weak var shopCollectionView: UICollectionView!
     @IBOutlet weak var shopCVLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var categoryName: UILabel!
@@ -24,7 +26,13 @@ class ShopCategoryViewController: UIViewController {
         categoryName.text = categorySelected
         
         // Do any additional setup after loading the view.
-        
+        shopVM.delegate = self
+        // Do any additional setup after loading the view.
+        loadShopData()
+    }
+    func loadShopData() {
+       showLoader()
+        shopVM.getShopData(userID: User.shared.userID, category: categorySelected)
     }
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.tabBar.isHidden = true
@@ -98,3 +106,18 @@ extension ShopCategoryViewController : UICollectionViewDelegate, UICollectionVie
     
     
 }
+extension ShopCategoryViewController: ShopDelegate {
+    func didReciveShopData(response: [ShopModel]?, error: String?) {
+        self.dismiss()
+        shopArray = response ?? []
+        shopCollectionView.reloadData()
+    }
+    
+    func didReciveShopCategoryData(response: [ShopCategoryModel]?, error: String?) {
+     
+        
+    }
+    
+    
+}
+
