@@ -41,7 +41,16 @@ class ConnectCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-   // func configureCell(data: )
+    func configureCell(data: ConnectProfileModel) {
+        nameTF.text = data.name
+        bioTF.text = data.intro
+        livingTF.text = data.living
+        qualificationTF.text = data.qualification
+        professionTF.text = data.profession
+        dobTF.text = "\(data.age)"
+        genderTF.text = data.gender
+        
+    }
     
 }
 extension ConnectCell : UICollectionViewDelegate, UICollectionViewDataSource {

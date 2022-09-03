@@ -20,6 +20,7 @@ class ShopViewController: ViewController {
     @IBOutlet weak var categoryCVLayout: UICollectionViewFlowLayout!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         categoryCollectionView.register(UINib.init(nibName: "ShopCategoryCell", bundle: nil), forCellWithReuseIdentifier: "ShopCategoryCell")
         shopCollectionView.register(UINib.init(nibName: "ShopCell", bundle: nil), forCellWithReuseIdentifier: "ShopCell")
         searchView.setCornerRadius(radius: Float(searchView.frame.height)/2)

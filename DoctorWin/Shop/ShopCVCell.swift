@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import SDWebImage
 class ShopCVCell: UICollectionViewCell {
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var productPrice: UILabel!
@@ -21,6 +21,6 @@ class ShopCVCell: UICollectionViewCell {
         productName.text = data.product_name
         productPrice.text = "$" + data.product_price
     
-        self.productImage.sd_setImage(with: URL(string: data.image), placeholderImage: UIImage(named: "loginBg"))
+        self.productImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + data.image), placeholderImage: UIImage(named: "loginBg"))
     }
 }

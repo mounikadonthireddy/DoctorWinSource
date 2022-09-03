@@ -16,8 +16,8 @@ struct Constants {
 
 struct ApiEndpoints
 {
-    static let baseImageURL = "http://3.132.212.116:8000"
-    static let baseUrl = "http://3.136.112.232:8000/api/"
+    static let baseImageURL = "http://34.228.82.176:8000"
+    static let baseUrl = "http://34.228.82.176:8000/api/"
     static let baseUrl1 = "http://3.136.112.232:8000/api/"
 
     static let login = "auth/registration"
@@ -104,7 +104,7 @@ struct ApiEndpoints
     //poll
     static let getPollComment = "news/poll/comment/"
     static let postPollComment = "news/poll/comment/"
-    static let getPollComplaint = "news/poll/complaint/"
+    static let getPollComplaint = "news/test/homepage"
     static let postPollComplaint = "news/poll/complaint/"
     static let postPollPost = "news/poll/post/"
     static let getPollPost = "news/poll/post/"
@@ -167,7 +167,7 @@ struct ApiEndpoints
     
     //connect
     static let getProfession = "connect/dating/profession"
-
+    static let editProfile = "connect/dating/profile/create"
     //Carrier
     
     static let jobDetails = "new/job"

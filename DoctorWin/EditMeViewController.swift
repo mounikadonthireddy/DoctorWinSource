@@ -15,6 +15,7 @@ class EditMeViewController: ViewController {
     var personalEditVM = ProfileEditViewModel()
     var spealityArray: [SpeciltyModel] = []
     var qualificationArray: [QualificationModel] = []
+    var selectedIndex = 0
     @IBOutlet weak var imageView : UIImageView!
     var imageFileName: String = ""
     var fileType: String = ""
@@ -26,10 +27,10 @@ class EditMeViewController: ViewController {
         profileTableView.register(UINib(nibName: "MySelfCell", bundle: nil), forCellReuseIdentifier: "MySelfCell")
         profileTableView.register(UINib(nibName: "ProfileImageCell", bundle: nil), forCellReuseIdentifier: "ProfileImageCell")
         
-        profileTableView.register(UINib(nibName: "ProfileEditCell", bundle: nil), forCellReuseIdentifier: "ProfileEditCell")
+        profileTableView.register(UINib(nibName: "EditPersonalInfoCell", bundle: nil), forCellReuseIdentifier: "EditPersonalInfoCell")
         personalEditVM.delegate = self
         
-        profileTableView.register(UINib(nibName: "ProfileProfessionalEditCell", bundle: nil), forCellReuseIdentifier: "ProfileProfessionalEditCell")
+        profileTableView.register(UINib(nibName: "EditProfessionalDetailsCell", bundle: nil), forCellReuseIdentifier: "EditProfessionalDetailsCell")
         
         profileTableView.register(UINib(nibName: "AddExperienceCell", bundle: nil), forCellReuseIdentifier: "AddExperienceCell")
         
@@ -108,7 +109,7 @@ class EditMeViewController: ViewController {
 
 extension EditMeViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 7
+        return 2
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -127,63 +128,71 @@ extension EditMeViewController: UITableViewDelegate, UITableViewDataSource {
             cell.cellConfigureWith(data: profileDataModel)
             return cell
         case 1:
-            let cell: MySelfCell = tableView.dequeueReusableCell(withIdentifier: "MySelfCell", for: indexPath) as! MySelfCell
-            cell.locationTF.delegate = self
-            cell.nameTF.delegate = self
-            cell.configurePersonalEditCell(data: profileDataModel)
-            cell.profileDelegate = self
-            cell.specilityTF.optionArray = spealityArray.map({ data in
-                return data.department
-            })
-            cell.qualificationTF.optionArray = qualificationArray.map({ data in
-                return data.qualification
-            })
-            return cell
-        case 3:
-            let cell: ProfileEditCell = tableView.dequeueReusableCell(withIdentifier: "ProfileEditCell", for: indexPath) as! ProfileEditCell
-            cell.genderTF.delegate = self
-            cell.emailIDTF.delegate = self
-            cell.dobTF.delegate = self
-            cell.contactNumTF.delegate = self
-            if personalDropDownData != nil {
-                cell.languageArray = personalDropDownData.language
-                cell.genderArray = personalDropDownData.gender
+            switch selectedIndex {
+            case 1:
+                let cell: MySelfCell = tableView.dequeueReusableCell(withIdentifier: "MySelfCell", for: indexPath) as! MySelfCell
+                cell.locationTF.delegate = self
+                cell.nameTF.delegate = self
+                cell.configurePersonalEditCell(data: profileDataModel)
+                cell.profileDelegate = self
+                cell.specilityTF.optionArray = spealityArray.map({ data in
+                    return data.department
+                })
+                cell.qualificationTF.optionArray = qualificationArray.map({ data in
+                    return data.qualification
+                })
+                return cell
+            case 3:
+                let cell: EditPersonalInfoCell = tableView.dequeueReusableCell(withIdentifier: "EditPersonalInfoCell", for: indexPath) as! EditPersonalInfoCell
+                cell.genderTF.delegate = self
+                cell.emailIDTF.delegate = self
+                cell.dobTF.delegate = self
+                cell.contactNumTF.delegate = self
+                if personalDropDownData != nil {
+                    cell.languageArray = personalDropDownData.language
+                    cell.genderArray = personalDropDownData.gender
+                    
+                }
+                cell.profileDelegate = self
+                cell.configurePersonalEditCell(data: profileDataModel)
+                
+                
+                return cell
+            case 4:
+                let cell: EditProfessionalDetailsCell = tableView.dequeueReusableCell(withIdentifier: "EditProfessionalDetailsCell", for: indexPath) as! EditProfessionalDetailsCell
+                cell.configureCellWithProfessionData(data: profileDataModel)
+                if professionalData != nil {
+                    cell.configureDataForDropDown(data: professionalData)
+                }
+                cell.profileDelegate = self
+                cell.instititeTF.delegate = self
+                return cell
+                
+            case 5:
+                let cell: AddExperienceCell = tableView.dequeueReusableCell(withIdentifier: "AddExperienceCell", for: indexPath) as! AddExperienceCell
+                
+                cell.profileDelegate = self
+                return cell
+                
+            case 2,6:
+                let cell: EditSkillCell = tableView.dequeueReusableCell(withIdentifier: "EditSkillCell", for: indexPath) as! EditSkillCell
+                cell.configureCellWithEdit(data: profileDataModel, section: indexPath.section)
+                cell.profileDelegate = self
+                cell.detailsTF.delegate = self
+                return cell
+                
+                
+            default:
+                
+                return UITableViewCell()
                 
             }
-            cell.profileDelegate = self
-            cell.configurePersonalEditCell(data: profileDataModel)
-            
-            
-            return cell
-        case 4:
-            let cell: ProfileProfessionalEditCell = tableView.dequeueReusableCell(withIdentifier: "ProfileProfessionalEditCell", for: indexPath) as! ProfileProfessionalEditCell
-            cell.configureCellWithProfessionData(data: profileDataModel)
-            if professionalData != nil {
-                cell.configureDataForDropDown(data: professionalData)
-            }
-            cell.profileDelegate = self
-            cell.instititeTF.delegate = self
-            return cell
-            
-        case 5:
-            let cell: AddExperienceCell = tableView.dequeueReusableCell(withIdentifier: "AddExperienceCell", for: indexPath) as! AddExperienceCell
-            
-            cell.profileDelegate = self
-            return cell
-            
-        case 2,6:
-            let cell: EditSkillCell = tableView.dequeueReusableCell(withIdentifier: "EditSkillCell", for: indexPath) as! EditSkillCell
-            cell.configureCellWithEdit(data: profileDataModel, section: indexPath.section)
-            cell.profileDelegate = self
-            cell.detailsTF.delegate = self
-            return cell
-            
-            
         default:
             
             return UITableViewCell()
             
-        }
+            }
+            
     }
     @objc func editClicked(button: Any) {
         let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "EditMeViewController") as! EditMeViewController
@@ -216,8 +225,9 @@ extension EditMeViewController: UITableViewDelegate, UITableViewDataSource {
         return 0
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 4 {
-            return 350
+        
+        if indexPath.section == 0 {
+            return 198
         } else {
             return UITableView.automaticDimension
         }
@@ -237,7 +247,7 @@ extension EditMeViewController: ProfileEditViewModelDelegate {
     
     
 }
-extension EditMeViewController: ProfileUpdateDeleegate {
+extension EditMeViewController: ProfileUpdateDelegate {
     func didProfileUpdated(status: Bool, error: String?) {
         let alert = UIAlertController(title: nil, message: "Profile Updated Successfully", preferredStyle: .alert)
         

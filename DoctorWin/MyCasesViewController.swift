@@ -23,11 +23,11 @@ class MyCasesViewController: ViewController {
         super.viewDidLoad()
         
         tableView.register(UINib(nibName: "CaseCell", bundle: nil), forCellReuseIdentifier: "CaseCell")
-    
+        casesVM.delegate = self
         interfaceSegmented.delegate = self
         tabBarController?.tabBar.isHidden = false
         self.loadMyCases(index: 0)
-        casesVM.delegate = self
+       
         
         // Do any additional setup after loading the view.
     }
@@ -35,14 +35,11 @@ class MyCasesViewController: ViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
-        tabBarController?.tabBar.isHidden = false
+        tabBarController?.tabBar.isHidden = true
         tabBarController?.tabBar.frame = CGRect(x: 0, y: 0, width: 220, height: 100)     
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-//        tabBarController?.tabBar.isHidden = true
-    }
-    
+  
     func loadMyCases(index: Int) {
         self.showLoader()
         self.casesVM.getCases(userID: User.shared.userID, index: index)
@@ -134,7 +131,7 @@ extension MyCasesViewController: CasesBookMarkDelegate {
 }
 extension MyCasesViewController: CustomSegmentedControlDelegate {
     func change(to index: Int) {
-        self.showLoader()
+//        self.showLoader()
         self.casesVM.getCases(userID: User.shared.userID, index: index)
     }
     

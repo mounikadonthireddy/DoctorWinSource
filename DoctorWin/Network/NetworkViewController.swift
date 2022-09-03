@@ -8,16 +8,29 @@
 import UIKit
 
 class NetworkViewController: ViewController {
-    
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var collectionViewLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var tableView: UITableView!
     var networkVM = NetworkViewModel()
     var connectionsArray :[NetworkModel] = []
+    @IBOutlet weak var interfaceSegmented: CustomSegmentedControl!{
+        didSet{
+            interfaceSegmented.setButtonTitles(buttonTitles: ["Groups","Pages", "People"])
+            interfaceSegmented.selectorViewColor = .blue
+            interfaceSegmented.selectorTextColor = .blue
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+ 
+        collectionViewLayout.scrollDirection = .horizontal
+        collectionViewLayout.minimumLineSpacing = 0
+        collectionViewLayout.minimumInteritemSpacing = 0
+        collectionViewLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
-        tableView.register(UINib(nibName: "NetworkCell", bundle: nil), forCellReuseIdentifier: "NetworkCell")
+       
+        collectionView.register(UINib.init(nibName: "NetworkCVCell", bundle: nil), forCellWithReuseIdentifier: "NetworkCVCell")
         
-        self.tableView.register(UINib(nibName: "NetworkTableHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "NetworkTableHeader")
         networkVM.delegate = self
         self.loadConnections()
     }
@@ -113,4 +126,51 @@ extension NetworkViewController: NetworkViewModelDelegate {
         }
         self.tableView.reloadData()
     }
+}
+extension NetworkViewController : UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: NetworkCVCell = collectionView.dequeueReusableCell(withReuseIdentifier: "NetworkCVCell", for: indexPath) as! NetworkCVCell
+        //cell.configureCell(with: quickSearchArray[indexPath.row])
+        return cell
+        
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let yourWidth = 150
+        return CGSize(width: yourWidth, height: 110)
+    }
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10) //.zero
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        
+        return 0
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let str = UIStoryboard(name: "Details", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "UserDetailsViewController") as! UserDetailsViewController
+        nextVC.RequestUserID = "\(connectionsArray[indexPath.row].userid ?? 0)"
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
 }

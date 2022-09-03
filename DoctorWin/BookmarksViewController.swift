@@ -13,7 +13,7 @@ class BookmarksViewController: ViewController, ExpandableLabelDelegate {
     var selectedIndex = 0
     var jobsArray : [CarrierModel] = []
     var newsArray:[NewsModel] = []
-    var articlesArray:[ArticalsDataModel] = []
+    
     var casesArray: [CasesDataModel] = []
     var classifieldArray: [HomeDataModel] = []
     @IBOutlet weak var bookmarksTableView: UITableView!
@@ -67,11 +67,10 @@ extension BookmarksViewController : UITableViewDelegate, UITableViewDataSource {
             return jobsArray.count
         case 1:
             return casesArray.count
+        
         case 2:
-            return articlesArray.count
-        case 3:
             return newsArray.count
-        case 4:
+        case 3:
             return classifieldArray.count
         default:
             return 0
@@ -93,32 +92,20 @@ extension BookmarksViewController : UITableViewDelegate, UITableViewDataSource {
             cell.configureDataWith(homeModel: casesArray[indexPath.row])
             return cell
             
-        case 2:
-            let cell: ArticalCell
-                = tableView.dequeueReusableCell(withIdentifier: "ArticalCell") as! ArticalCell
-            cell.configureDataWith(homeModel: articlesArray[indexPath.row])
-            cell.descriptionLable.delegate = self
-            cell.descriptionLable.setLessLinkWith(lessLink: "Close", attributes: [.foregroundColor:UIColor.red], position: .left)
-            cell.layoutIfNeeded()
-            cell.descriptionLable.shouldCollapse = true
-            cell.descriptionLable.textReplacementType = .word
-            cell.descriptionLable.numberOfLines = 5
-            cell.descriptionLable.collapsed = states[indexPath.row]
-            cell.descriptionLable.text = articlesArray[indexPath.row].discription
-            return cell
+        
             
-        case 3:
+        case 2:
             let cell: NewsCell
                 = tableView.dequeueReusableCell(withIdentifier: "NewsCell") as! NewsCell
            cell.configureData(homeModel: newsArray[indexPath.row])
-            cell.descriptionLable.delegate = self
-            cell.descriptionLable.setLessLinkWith(lessLink: "Close", attributes: [.foregroundColor:UIColor.red], position: .left)
-            cell.layoutIfNeeded()
-            cell.descriptionLable.shouldCollapse = true
-            cell.descriptionLable.textReplacementType = .word
-            cell.descriptionLable.numberOfLines = 5
-            cell.descriptionLable.collapsed = states[indexPath.row]
-            cell.descriptionLable.text = newsArray[indexPath.row].discription
+//            cell.descriptionLable.delegate = self
+//            cell.descriptionLable.setLessLinkWith(lessLink: "Close", attributes: [.foregroundColor:UIColor.red], position: .left)
+//            cell.layoutIfNeeded()
+//            cell.descriptionLable.shouldCollapse = true
+//            cell.descriptionLable.textReplacementType = .word
+//            cell.descriptionLable.numberOfLines = 5
+//            cell.descriptionLable.collapsed = states[indexPath.row]
+//            cell.descriptionLable.text = newsArray[indexPath.row].discription
             return cell
             
         case 4:
@@ -146,10 +133,8 @@ extension BookmarksViewController : UITableViewDelegate, UITableViewDataSource {
     @objc  func didExpandLabel(_ label: ExpandableLabel) {
         let point = label.convert(CGPoint.zero, to: bookmarksTableView)
         if let indexPath = bookmarksTableView.indexPathForRow(at: point) as IndexPath? {
-            let str = UIStoryboard(name: "Details", bundle: nil)
-            let nextVC = str.instantiateViewController(withIdentifier: "ArticalDetailsViewController") as! ArticalDetailsViewController
-            //nextVC.articalDetails = articlesArray[indexPath.row]
-            self.navigationController?.pushViewController(nextVC, animated: true)
+           
+           
         }
         
 //        if let indexPath = tableView.indexPathForRow(at: point) as IndexPath? {
@@ -230,17 +215,7 @@ extension BookmarksViewController: BookMarkDelegate {
         }
     }
     
-    func didReceiveBookmakedArticles(response: [ArticalsDataModel]?, error: String?) {
-        self.dismiss()
-        if (error != nil) {
-            
-        } else {
-        self.articlesArray = response ?? []
-        self.bookmarksTableView.reloadData()
-            states = [Bool](repeating: true, count: articlesArray.count)
-
-        }
-    }
+    
     
     func didReceiveBookmakedClassicfield(response: [CarrierModel]?, error: String?) {
         self.dismiss()

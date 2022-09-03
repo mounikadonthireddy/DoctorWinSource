@@ -11,13 +11,6 @@ class MyNewsViewController: ViewController,ExpandableLabelDelegate {
     var states : Array<Bool>!
     var newsArray:[NewsModel] = []
     @IBOutlet weak var newsTableView: UITableView!
-    @IBOutlet weak var interfaceSegmented: CustomSegmentedControl!{
-        didSet{
-            interfaceSegmented.setButtonTitles(buttonTitles: ["Home","My News", "About"])
-            interfaceSegmented.selectorViewColor = .black
-            interfaceSegmented.selectorTextColor = .black
-        }
-    }
     var newsVM = NewsDataViewModel()
 
     override func viewDidLoad() {
@@ -29,7 +22,7 @@ class MyNewsViewController: ViewController,ExpandableLabelDelegate {
         self.navigationItem.title = "News & Stories"
         self.navigationController?.isNavigationBarHidden = true
         newsVM.delegate = self
-        interfaceSegmented.delegate = self
+        
         // Do any additional setup after loading the view.
         self.loadMyNews(index: 0)
     }
@@ -61,14 +54,14 @@ extension MyNewsViewController : UITableViewDelegate, UITableViewDataSource {
         let cell: NewsCell
             = tableView.dequeueReusableCell(withIdentifier: "NewsCell") as! NewsCell
         cell.configureData(homeModel: newsArray[indexPath.row])
-        cell.descriptionLable.delegate = self
-        cell.descriptionLable.setLessLinkWith(lessLink: "Close", attributes: [.foregroundColor:UIColor.red], position: .left)
-        cell.layoutIfNeeded()
-        cell.descriptionLable.shouldCollapse = true
-        cell.descriptionLable.textReplacementType = .word
-        cell.descriptionLable.numberOfLines = 5
-        cell.descriptionLable.collapsed = states[indexPath.row]
-        cell.descriptionLable.text = newsArray[indexPath.row].discription
+//        cell.descriptionLable.delegate = self
+//        cell.descriptionLable.setLessLinkWith(lessLink: "Close", attributes: [.foregroundColor:UIColor.red], position: .left)
+//        cell.layoutIfNeeded()
+//        cell.descriptionLable.shouldCollapse = true
+//        cell.descriptionLable.textReplacementType = .word
+//        cell.descriptionLable.numberOfLines = 5
+//        cell.descriptionLable.collapsed = states[indexPath.row]
+//        cell.descriptionLable.text = newsArray[indexPath.row].discription
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -77,6 +70,9 @@ extension MyNewsViewController : UITableViewDelegate, UITableViewDataSource {
 //        nextVC.newsDetailsData = newsArray[indexPath.row]
         self.navigationController?.pushViewController(nextVC, animated: true)
         
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return view.bounds.height - 80
     }
     
     @objc   func willExpandLabel(_ label: ExpandableLabel) {
@@ -116,13 +112,7 @@ extension MyNewsViewController : UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension MyNewsViewController: CustomSegmentedControlDelegate {
-    func change(to index: Int) {
-        self.newsVM.getNews(userID: User.shared.userID, index: index)
-    }
-    
-    
-}
+
 extension MyNewsViewController: NewsBookMarkDelegate {
     func didReceiveBookmakedNews(response: [NewsModel]?, error: String?) {
         self.dismiss()

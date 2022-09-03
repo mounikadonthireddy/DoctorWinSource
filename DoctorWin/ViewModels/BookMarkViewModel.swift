@@ -17,7 +17,7 @@ protocol NewsBookMarkDelegate {
     func didReceiveBookmakedNews(response: [NewsModel]?, error: String?)
 }
 protocol ArticleBookMarkDelegate {
-    func didReceiveBookmakedArticles(response: [ArticalsDataModel]?, error: String?)
+  
 }
 protocol ClassiFieldBookmarkDelegate {
     func didReceiveBookmakedClassicfield(response: [CarrierModel]?, error: String?)
@@ -60,21 +60,7 @@ struct BookMarkViewModel {
             }
         }
     func getBookmarkArticles(userID: String) {
-        let homeResource = ArticalResource()
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.bookmarkArtical + "?user_id=\(userID)"
-
-        homeResource.getArticalData(userID: userID, urlStr: homeUrlStr) { response in
-            DispatchQueue.main.async {
-                switch response {
-                case .success(let data):
-                    self.delegate?.didReceiveBookmakedArticles(response: data, error: nil)
-                    
-                case .failure(let error):
-                    self.delegate?.didReceiveBookmakedArticles(response: nil, error: error)
-                }
-                
-            }
-        }
+     
     }
     
     func getBookmarkCases(userID: String) {

@@ -32,20 +32,8 @@ class NewsDetailsCell: UITableViewCell {
         
         // Configure the view for the selected state
     }
-    func configureData(homeModel: HomeDataModel) {
-        
-        self.titleLable.text = homeModel.title
-        self.descriptionLable.text = homeModel.discription
-            self.likesLable.text = "\(homeModel.likeCount ?? 0) " + "Likes"
-            self.commentsLable.text = "\(homeModel.discussion ?? 0) " + "Comments"
-            self.commentsCountLable.text = "\(homeModel.discussion ?? 0) " + "Comments"
-       
-        if let urlString = homeModel.postedImage {
-            self.postImage.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "loginBg"))
-
-            }
-    }
-    func configureDataWith(homeModel: ArticalsDataModel) {
+   
+//    func configureDataWith(homeModel: ArticalsDataModel) {
         
 //        self.titleLable.text = homeModel.artical_title
 //        self.personName.text = "Dr." + (homeModel.profile_name ?? "")
@@ -64,7 +52,7 @@ class NewsDetailsCell: UITableViewCell {
 //        }
         
         
-    }
+   // }
     
     
 }

@@ -33,7 +33,7 @@ class ShowInterestViewController: ViewController {
     var imagesArray: [GenderImageModel] = []
     var interestsArray: [ProfileInterestModel] = []
     private var lastContentOffset: CGFloat = 0
-
+    var currentProfileIndex = -1
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
@@ -45,10 +45,10 @@ class ShowInterestViewController: ViewController {
         // Do any additional setup after loading the view.
         interestCV.register(UINib.init(nibName: "CourseNameCell", bundle: nil), forCellWithReuseIdentifier: "CourseNameCell")
         interestCV1.register(UINib.init(nibName: "CourseNameCell", bundle: nil), forCellWithReuseIdentifier: "CourseNameCell")
-    
+        
         self.interestCV.backgroundColor = UIColor.clear
         self.interestCV1.backgroundColor = UIColor.clear
-
+        
         collectionViewLayout.scrollDirection = .vertical
         interestCV.isScrollEnabled = false
         collectionViewLayout.minimumLineSpacing = 0
@@ -67,18 +67,19 @@ class ShowInterestViewController: ViewController {
         viewModel.getDatingProfilesData(userID: User.shared.userID)
         
     }
+    
     func scrollViewDidScroll(scrollView: UIScrollView!) {
-            if (self.lastContentOffset > scrollView.contentOffset.y) {
-                profileName1.isHidden = false
-                interestCV1.isHidden = false
-            }
-            else if (self.lastContentOffset < scrollView.contentOffset.y) {
-               // move down
-            }
-
-            // update the new position
-            self.lastContentOffset = scrollView.contentOffset.y
+        if (self.lastContentOffset > scrollView.contentOffset.y) {
+            profileName1.isHidden = false
+            interestCV1.isHidden = false
         }
+        else if (self.lastContentOffset < scrollView.contentOffset.y) {
+            // move down
+        }
+        
+        // update the new position
+        self.lastContentOffset = scrollView.contentOffset.y
+    }
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = true
     }
@@ -86,15 +87,21 @@ class ShowInterestViewController: ViewController {
         timer = Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
     }
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-       // isScrolling = true1
+        // isScrolling = true1
         profileName1.isHidden = true
         interestCV1.isHidden = true
         
         
     }
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        print("End scrolling")
+        
         if (self.lastContentOffset > scrollView.contentOffset.y) {
+            profileName1.isHidden = false
+            interestCV1.isHidden = false
+        }
+    }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y == 0 {
             profileName1.isHidden = false
             interestCV1.isHidden = false
         }
@@ -124,13 +131,17 @@ class ShowInterestViewController: ViewController {
     }
     @IBAction func editProfileClicked(_ sender: Any) {
         let str = UIStoryboard(name: "Network", bundle: nil)
-        let nextVC = str.instantiateViewController(withIdentifier: "ConnectViewController") as! ConnectViewController
+        let nextVC = str.instantiateViewController(withIdentifier: "EditConnectViewController") as! EditConnectViewController
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     @IBAction func blockClicked(_ sender: Any) {
         
     }
     @IBAction func rejectClicked(_ sender: Any) {
+        if currentProfileIndex < datingArray.count-1 {
+            currentProfileIndex += 1
+            showProfile(index: currentProfileIndex)
+        }
         
     }
     @IBAction func wishlistClicked(_ sender: Any) {
@@ -186,24 +197,28 @@ extension ShowInterestViewController: DatingViewModelDelegate {
         self.dismiss()
         datingArray = response ?? []
         if datingArray.count > 0 {
-            interestsArray = datingArray[0].interest
-            imagesArray = datingArray[0].genderimage
-            interestCV.reloadData()
-            interestCV1.reloadData()
-            profileName.textColor = UIColor.black
-            profileSpeciality.text = datingArray[0].profession
-            profileLocation.text = datingArray[0].living
-            aboutProfile.text = datingArray[0].intro
-           collectionViewHeight.constant = CGFloat(interestsArray.count * 30)
-         //   nameTopConstant.constant =  -collectionViewHeight.constant
-            collectionViewHeight1.constant = CGFloat((interestsArray.count/3) * 30)
-            profileName.text = datingArray[0].name
-            profileName1.text = datingArray[0].name
-           if imagesArray.count > 0 {
-                self.startTimer()
-                pageControl.numberOfPages = imagesArray.count
-              
-            }
+            currentProfileIndex  = 0
+            showProfile(index: 0)
+        }
+    }
+    func showProfile(index: Int) {
+        currentIndex = -1
+        interestsArray = datingArray[index].interest
+        imagesArray = datingArray[index].genderimage
+        interestCV.reloadData()
+        interestCV1.reloadData()
+        profileName.textColor = UIColor.black
+        profileSpeciality.text = datingArray[index].profession
+        profileLocation.text = datingArray[index].living
+        aboutProfile.text = datingArray[index].intro
+        collectionViewHeight.constant = CGFloat((interestsArray.count) * 15)
+        //   nameTopConstant.constant =  -collectionViewHeight.constant
+        collectionViewHeight1.constant = CGFloat((interestsArray.count) * 15)
+        profileName.text = datingArray[index].name
+        profileName1.text = datingArray[index].name
+        if imagesArray.count > 0 {
+            self.startTimer()
+            pageControl.numberOfPages = imagesArray.count
             
         }
         

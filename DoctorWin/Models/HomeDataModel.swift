@@ -8,70 +8,44 @@
 import Foundation
 
 struct HomeDataModel: Codable {
-    
-    let id: Int
-    let title : String?
-    let postedImage: String?
-    let chiefComplaint: String?
-    let complaintStatus: Bool?
-    let userId: Int?
+    let postId:  Int
+    let postTitle: String?
+    let postImage: String?
     let profileName: String?
     let profileImage: String?
     let speciality: String?
-    let location: String?
-    let bookmarkStatus: Bool?
-    let bookmarkCount: Int?
+    let coverImage: String
+    let likeCount : Int?
     let likeStatus: Bool?
-    let likeCount: Int?
-    let discussion: Int?
-    let articalStatus: Bool?
-    let newsStatus: Bool?
-    let questionStatus: Bool?
-    let option1: String?
-    let option2: String?
-    let option3: String?
-    let option4: String?
-    let question: String?
-    let subject: String?
-    let detail: String?
-    let correctAnswer: String?
-    let exam: String?
-    let discription: String?
-    let selectedOption: String?
+    let bookmarkStatus: Bool?
+    let discussionCount: Int?
     let follow: Bool
-    
+    let postUserId: Int?
+    let postedDate: String
+    let isSS_NEET:Bool
+    let isPG_NEET: Bool
+    let isCase: Bool
+    let isSocial: Bool
+    let isQuestion: Bool
     enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case title = "title"
-        case postedImage = "image"
-        case chiefComplaint = "chief_complaint"
-        case complaintStatus = "complaint_status"
-        case userId = "userid"
-        case profileImage = "ProfileImage"
-        case newsStatus = "newsartical"
-        case bookmarkStatus = "bookmark_status"
-        case likeStatus = "like_status"
-        case likeCount = "like_count"
-        case discussion = "discussion"
-        case bookmarkCount = "bookmark_count"
-        case articalStatus = "art_status"
-        case questionStatus = "answer_status"
+        case postId = "id"
+        case postTitle = "social_title"
+        case postImage = "social_image"
         case profileName = "ProfileName"
-        case speciality = "speciality"
-        case location = "location"
-        case option1
-        case option2
-        case option3
-        case option4
-        case question
-        case subject
-        case detail
-        case correctAnswer = "correct_answer"
-        case exam
-        case discription
-        case selectedOption = "selected_option"
+        case profileImage = "ProfileImage"
+        case speciality
+        case coverImage = "cover_image"
+        case likeCount  = "like_count"
+        case likeStatus = "like_status"
+        case bookmarkStatus = "bookmark_status"
+        case discussionCount = "discussion"
         case follow
+        case postUserId = "user"
+        case postedDate = "created_date"
+        case isSS_NEET = "SS_NEET"
+        case isPG_NEET = "PG_NEET"
+        case isCase = "complaint_status"
+        case isSocial = "social"
+        case isQuestion = "quora"
     }
-    
 }
-

@@ -43,15 +43,7 @@ class ExamCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func configureData(homeModel: HomeDataModel) {
-        self.designation.text = homeModel.subject
-        self.postedPersonName.text = homeModel.exam
-        self.titleLable.text = homeModel.question
-        self.option1Btn.setTitle("   A.\(homeModel.option1 ?? "")", for: .normal)
-        self.option2Btn.setTitle("   B.\(homeModel.option2 ?? "")", for: .normal)
-        self.option3Btn.setTitle("   C.\(homeModel.option3 ?? "")", for: .normal)
-        self.option4Btn.setTitle("   D.\(homeModel.option4 ?? "")", for: .normal)
-
-        self.setAnswer(selected: homeModel.selectedOption ?? "", correct: homeModel.correctAnswer ?? "" )
+       
        
 
 //        if homeModel.follow != "False" {
@@ -64,10 +56,7 @@ class ExamCell: UITableViewCell {
 //        if homeModel.bookmarkStatus ?? false {
 //            bookmarkImage.image = UIImage(named: "fmark")
 //        }
-        if let urlString = homeModel.profileImage {
-
-            self.personImage.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "loginBg"))
-        }
+    
     }
     func configureData(homeModel: ExamsModel) {
         self.designation.text = homeModel.subject

@@ -23,12 +23,12 @@ class HomeViewController: UIViewController, ExpandableLabelDelegate {
         plusBtn.setCornerRadius(radius: Float(plusBtn.frame.width)/2)
         questionBtn.setCornerRadius(radius: Float(questionBtn.frame.height)/2)
         tableView.register(UINib(nibName: "CaseCell", bundle: nil), forCellReuseIdentifier: "CaseCell")
-
-        tableView.register(UINib(nibName: "ArticalCell", bundle: nil), forCellReuseIdentifier: "ArticalCell")
-
+        
+        
+        
         tableView.register(UINib(nibName: "NewsCell", bundle: nil), forCellReuseIdentifier: "NewsCell")
         tableView.register(UINib(nibName: "ExamCell", bundle: nil), forCellReuseIdentifier: "ExamCell")
-
+        
         tableView.register(HomeTableHeader.nib, forHeaderFooterViewReuseIdentifier: HomeTableHeader.identifier)
         
         
@@ -48,9 +48,9 @@ class HomeViewController: UIViewController, ExpandableLabelDelegate {
         }
         if #available(iOS 13, *)
         {
-//            let statusBar = UIView(frame: (UIApplication.shared.keyWindow?.windowScene?.statusBarManager?.statusBarFrame))
-//            statusBar.backgroundColor = #colorLiteral(red: 0.0862745098, green: 0.1098039216, blue: 0.3137254902, alpha: 1)
-//            UIApplication.shared.keyWindow?.addSubview(statusBar)
+            //            let statusBar = UIView(frame: (UIApplication.shared.keyWindow?.windowScene?.statusBarManager?.statusBarFrame))
+            //            statusBar.backgroundColor = #colorLiteral(red: 0.0862745098, green: 0.1098039216, blue: 0.3137254902, alpha: 1)
+            //            UIApplication.shared.keyWindow?.addSubview(statusBar)
         } else {
             // ADD THE STATUS BAR AND SET A CUSTOM COLOR
             let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
@@ -67,8 +67,8 @@ class HomeViewController: UIViewController, ExpandableLabelDelegate {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
         tabBarController?.tabBar.isHidden = false
-      //  tabBarController?.tabBar.frame = CGRect(x: 0, y: 0, width: 220, height: 100)
-       
+        //  tabBarController?.tabBar.frame = CGRect(x: 0, y: 0, width: 220, height: 100)
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -81,7 +81,7 @@ class HomeViewController: UIViewController, ExpandableLabelDelegate {
         
     }
     
-   
+    
     @IBAction func postQuestionClicked(_ sender: Any) {
         let str = UIStoryboard(name: "Details", bundle: nil)
         
@@ -107,64 +107,14 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if homedataArry[indexPath.row].newsStatus ?? false {
-            let cell: NewsCell
-            = tableView.dequeueReusableCell(withIdentifier: "NewsCell") as! NewsCell
-            cell.delegate = self
-            cell.configureData(homeModel: homedataArry[indexPath.row])
-            cell.descriptionLable.delegate = self
-            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapImageView(_:)))
-            cell.postImage?.addGestureRecognizer(tapGestureRecognizer)
-            cell.postImage.tag = indexPath.row
-            cell.descriptionLable.setLessLinkWith(lessLink: "Close", attributes: [.foregroundColor:UIColor.red], position: .left)
-
-            cell.layoutIfNeeded()
-
-            cell.descriptionLable.shouldCollapse = true
-            cell.descriptionLable.textReplacementType = .word
-            cell.descriptionLable.numberOfLines = 5
-            cell.descriptionLable.collapsed = states[indexPath.row]
-            cell.descriptionLable.text = homedataArry[indexPath.row].discription
-            return cell
-
-        } else if homedataArry[indexPath.row].articalStatus ?? false {
-            
-            let cell: ArticalCell
-            = tableView.dequeueReusableCell(withIdentifier: "ArticalCell") as! ArticalCell
-            cell.configureData(homeModel: homedataArry[indexPath.row])
-            cell.descriptionLable.delegate = self
-            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapImageView(_:)))
-            cell.postImage.tag = indexPath.row
-            cell.postImage?.addGestureRecognizer(tapGestureRecognizer)
-            cell.descriptionLable.setLessLinkWith(lessLink: "Close", attributes: [.foregroundColor:UIColor.red], position: .left)
-
-            cell.layoutIfNeeded()
-
-            cell.descriptionLable.shouldCollapse = true
-            cell.descriptionLable.textReplacementType = .word
-            cell.descriptionLable.numberOfLines = 5
-            cell.descriptionLable.collapsed = states[indexPath.row]
-            cell.descriptionLable.text = homedataArry[indexPath.row].discription
-            return cell
-        } else if homedataArry[indexPath.row].complaintStatus ?? false {
-            let cell: CaseCell
-            = tableView.dequeueReusableCell(withIdentifier: "CaseCell") as! CaseCell
-            cell.delegate = self
-            cell.configureData(homeModel: homedataArry[indexPath.row])
-            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapImageView(_:)))
-            cell.postImage.tag = indexPath.row
-            cell.postImage?.addGestureRecognizer(tapGestureRecognizer)
-            return cell
-        } else {
-    
-            let cell: ExamCell
-            = tableView.dequeueReusableCell(withIdentifier: "ExamCell") as! ExamCell
-            cell.configureData(homeModel: homedataArry[indexPath.row])
-            cell.explainBtn.addTarget(self, action: #selector(explainClicked(button:)), for: .touchUpInside)
-            
-            cell.explainBtn.tag = indexPath.row
-            return cell
-        }
+        let cell: CaseCell
+        = tableView.dequeueReusableCell(withIdentifier: "CaseCell") as! CaseCell
+        cell.delegate = self
+        cell.configureData(homeModel: homedataArry[indexPath.row])
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapImageView(_:)))
+        cell.postImage.tag = indexPath.row
+        cell.postImage?.addGestureRecognizer(tapGestureRecognizer)
+        return cell
         
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -189,7 +139,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             headerView.connect.addTarget(self, action: #selector(connectClicked(button:)), for: .touchUpInside)
             headerView.products.addTarget(self, action: #selector(productsClicked(button:)), for: .touchUpInside)
             headerView.education.addTarget(self, action: #selector(educationClicked(button:)), for: .touchUpInside)
-
+            
             return headerView
         }
         
@@ -204,12 +154,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     @objc private func didTapImageView(_ sender: UITapGestureRecognizer) {
         let str = UIStoryboard(name: "Details", bundle: nil)
-            let nextVC = str.instantiateViewController(withIdentifier: "ImageDetailsViewController") as! ImageDetailsViewController
-        if let image = homedataArry[sender.view?.tag ?? 0].postedImage {
+        let nextVC = str.instantiateViewController(withIdentifier: "ImageDetailsViewController") as! ImageDetailsViewController
+        if let image = homedataArry[sender.view?.tag ?? 0].postImage {
             nextVC.selectedImageUrl = image
         }
-        nextVC.data = homedataArry[sender.view?.tag ?? 0].discription ?? ""
-            self.navigationController?.pushViewController(nextVC, animated: true)
+        nextVC.data = homedataArry[sender.view?.tag ?? 0].postTitle ?? ""
+        self.navigationController?.pushViewController(nextVC, animated: true)
         
     }
     @objc func educationClicked(button: UIButton) {
@@ -222,7 +172,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     @objc func connectClicked(button: UIButton) {
         let str = UIStoryboard(name: "Network", bundle: nil)
         let nextVC = str.instantiateViewController(withIdentifier: "ShowInterestViewController") as! ShowInterestViewController
-
+        
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     @objc func jobClicked(button: UIButton) {
@@ -231,30 +181,30 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     @objc func explainClicked(button: UIButton) {
         let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "ExamDetailsViewController") as! ExamDetailsViewController
-       // nextVC.examData = homedataArry[button.tag]
+        // nextVC.examData = homedataArry[button.tag]
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if homedataArry[indexPath.row].complaintStatus ?? false {
-            let str = UIStoryboard(name: "Details", bundle: nil)
-            let nextVC = str.instantiateViewController(withIdentifier: "CaseDetailsViewController") as! CaseDetailsViewController
-            nextVC.detailsModel = homedataArry[indexPath.row]
-            self.navigationController?.pushViewController(nextVC, animated: true)
-        } else if homedataArry[indexPath.row].newsStatus ?? false {
-            let str = UIStoryboard(name: "Details", bundle: nil)
-            let nextVC = str.instantiateViewController(withIdentifier: "NewsDetailsViewController") as! NewsDetailsViewController
-            nextVC.newsDetails = homedataArry[indexPath.row]
-            self.navigationController?.pushViewController(nextVC, animated: true)
-        } else if homedataArry[indexPath.row].articalStatus ?? false {
-            let str = UIStoryboard(name: "Details", bundle: nil)
-            let nextVC = str.instantiateViewController(withIdentifier: "ArticalDetailsViewController") as! ArticalDetailsViewController
-            nextVC.articalDetails = homedataArry[indexPath.row]
-            self.navigationController?.pushViewController(nextVC, animated: true)
-        } else {
-            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "ExamDetailsViewController") as! ExamDetailsViewController
-            //nextVC.detailsModel = homedataArry[indexPath.row]
-            self.navigationController?.pushViewController(nextVC, animated: true)
-        }
+        //        if homedataArry[indexPath.row].complaintStatus ?? false {
+        let str = UIStoryboard(name: "Details", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "CaseDetailsViewController") as! CaseDetailsViewController
+        nextVC.detailsModel = homedataArry[indexPath.row]
+        self.navigationController?.pushViewController(nextVC, animated: true)
+        //        } else if homedataArry[indexPath.row].newsStatus ?? false {
+        //            let str = UIStoryboard(name: "Details", bundle: nil)
+        //            let nextVC = str.instantiateViewController(withIdentifier: "NewsDetailsViewController") as! NewsDetailsViewController
+        //            nextVC.newsDetails = homedataArry[indexPath.row]
+        //            self.navigationController?.pushViewController(nextVC, animated: true)
+        //        } else if homedataArry[indexPath.row].articalStatus ?? false {
+        //            let str = UIStoryboard(name: "Details", bundle: nil)
+        //            let nextVC = str.instantiateViewController(withIdentifier: "ArticalDetailsViewController") as! ArticalDetailsViewController
+        //            nextVC.articalDetails = homedataArry[indexPath.row]
+        //            self.navigationController?.pushViewController(nextVC, animated: true)
+        //        } else {
+        //            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "ExamDetailsViewController") as! ExamDetailsViewController
+        //            //nextVC.detailsModel = homedataArry[indexPath.row]
+        //            self.navigationController?.pushViewController(nextVC, animated: true)
+        //        }
     }
     @objc func followClicked(button: UIButton) {
         
@@ -262,53 +212,47 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
     }
     @objc func wishlistClicked(button: UIButton) {
-//        if   let data = homedataArry[button.tag].complaintId {
-//            homeVM.saveToWishlist(userID: User.shared.userID, categeroyID: "\(data)")
-//        }
+        //        if   let data = homedataArry[button.tag].complaintId {
+        //            homeVM.saveToWishlist(userID: User.shared.userID, categeroyID: "\(data)")
+        //        }
     }
     @objc func saveClicked(button: UIButton) {
-//        if   let data = homedataArry[button.tag].complaintId {
-//            homeVM.saveToBookMark(userID: User.shared.userID, categeroyID: "\(data)")
-//        }
+        //        if   let data = homedataArry[button.tag].complaintId {
+        //            homeVM.saveToBookMark(userID: User.shared.userID, categeroyID: "\(data)")
+        //        }
     }
     @objc func replyBtnClicked(button: UIButton) {
         
     }
     @objc   func willExpandLabel(_ label: ExpandableLabel) {
-       // tableView.beginUpdates()
+        // tableView.beginUpdates()
     }
     
     @objc  func didExpandLabel(_ label: ExpandableLabel) {
-        let point = label.convert(CGPoint.zero, to: tableView)
-        if let indexPath = tableView.indexPathForRow(at: point) as IndexPath? {
-            let str = UIStoryboard(name: "Details", bundle: nil)
-            let nextVC = str.instantiateViewController(withIdentifier: "ArticalDetailsViewController") as! ArticalDetailsViewController
-            nextVC.articalDetails = homedataArry[indexPath.row]
-            self.navigationController?.pushViewController(nextVC, animated: true)
-        }
         
-//        if let indexPath = tableView.indexPathForRow(at: point) as IndexPath? {
-//            states[indexPath.row] = false
-//            DispatchQueue.main.async { [weak self] in
-//                self?.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
-//            }
-//        }
-//        tableView.endUpdates()
+        
+        //        if let indexPath = tableView.indexPathForRow(at: point) as IndexPath? {
+        //            states[indexPath.row] = false
+        //            DispatchQueue.main.async { [weak self] in
+        //                self?.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+        //            }
+        //        }
+        //        tableView.endUpdates()
     }
     
     @objc func willCollapseLabel(_ label: ExpandableLabel) {
-       // tableView.beginUpdates()
+        // tableView.beginUpdates()
     }
     
     @objc  func didCollapseLabel(_ label: ExpandableLabel) {
-//        let point = label.convert(CGPoint.zero, to: tableView)
-//        if let indexPath = tableView.indexPathForRow(at: point) as IndexPath? {
-//            states[indexPath.row] = true
-//            DispatchQueue.main.async { [weak self] in
-//                self?.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
-//            }
-//        }
-//        tableView.endUpdates()
+        //        let point = label.convert(CGPoint.zero, to: tableView)
+        //        if let indexPath = tableView.indexPathForRow(at: point) as IndexPath? {
+        //            states[indexPath.row] = true
+        //            DispatchQueue.main.async { [weak self] in
+        //                self?.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+        //            }
+        //        }
+        //        tableView.endUpdates()
     }
 }
 

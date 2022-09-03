@@ -27,7 +27,7 @@ enum JobScreenSelection {
     case customJob
     case savedJob
     case appliedJob
-    case college(withModel : CollegeDataModel)
+   
     case predictor
 
 
@@ -59,14 +59,7 @@ class JobsMainViewController: UIViewController {
     
     // MARK: MARKET ViewController
     
-    lazy var vc2: CollegeViewController = {
-        
-        var viewController = storyboard?.instantiateViewController(withIdentifier: "CollegeViewController") as! CollegeViewController
-        viewController.jobScreenSelectionDelegate = self
-
-        return viewController
-    }()
-    
+  
     // MARK: GRAPH ViewController
     
     lazy var vc3: PredictorViewController = {
@@ -84,7 +77,7 @@ class JobsMainViewController: UIViewController {
         
         views = [UIView]()
         views.append(vc1.view)
-        views.append(vc2.view)
+       
         views.append(vc3.view)
         
         for v in views {
@@ -121,10 +114,10 @@ extension JobsMainViewController : JobScreenSelectionDelegate {
         let str = UIStoryboard(name: "Home", bundle: nil)
 
         switch selectedType {
-        case .college(let data):
-            let nextVC = str.instantiateViewController(withIdentifier: "CollegeDetailsViewController") as! CollegeDetailsViewController
-            nextVC.collegeDataModel = data
-            self.navigationController?.pushViewController(nextVC, animated: true)
+     
+//            let nextVC = str.instantiateViewController(withIdentifier: "CollegeDetailsViewController") as! CollegeDetailsViewController
+//            nextVC.collegeDataModel = data
+//            self.navigationController?.pushViewController(nextVC, animated: true)
             
         case .appliedJob, .customJob, .savedJob:
             let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "CustomJobMainViewController") as! CustomJobMainViewController
@@ -145,9 +138,10 @@ extension JobsMainViewController : JobScreenSelectionDelegate {
         self.navigationController?.pushViewController(nextVC, animated: true)
             
         default:
-            let nextVC = str.instantiateViewController(withIdentifier: "CollegeDetailsViewController") as! CollegeDetailsViewController
-           
-            self.navigationController?.pushViewController(nextVC, animated: true)
+            print("hhb")
+//            let nextVC = str.instantiateViewController(withIdentifier: "CollegeDetailsViewController") as! CollegeDetailsViewController
+//           
+//            self.navigationController?.pushViewController(nextVC, animated: true)
         }
 
     }

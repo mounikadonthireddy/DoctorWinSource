@@ -11,7 +11,7 @@ protocol UserDetailsViewModelDelegate {
 //    func didReceiveFollowDataResponse(response: [FollowModel]?, error: String?)
     func didReceivePostedNews(response: [NewsModel]?, error: String?)
     func didReceivePostedCases(response: [CasesDataModel]?, error: String?)
-    func didReceivePostedArticles(response: [ArticalsDataModel]?, error: String?)
+   
     func didReciveProfileData(response: ProfileDataModel?, error: String?)
 
 }
@@ -86,23 +86,7 @@ struct UserDetailsViewModel {
             }
         }
     }
-    func getUserPostedArticles(userID: String) {
-        let homeResource = ArticalResource()
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.userArtical + "?user_id=\(userID)"
-
-        homeResource.getArticalData(userID: userID, urlStr: homeUrlStr) { response in
-            DispatchQueue.main.async {
-                switch response {
-                case .success(let data):
-                    self.delegate?.didReceivePostedArticles(response: data, error: nil)
-                    
-                case .failure(let error):
-                    self.delegate?.didReceivePostedArticles(response: nil, error: error)
-                }
-                
-            }
-        }
-    }
+    
     func getUserPostedCases(userID: String) {
         let homeResource = HomeResource()
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.userCases + "?user_id=\(userID)"

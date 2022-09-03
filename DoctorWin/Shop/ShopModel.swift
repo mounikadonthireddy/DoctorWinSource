@@ -9,7 +9,7 @@ import Foundation
 
 struct ShopCategoryModel: Codable {
     let name: String
-    let image: String
+    let image: String?
     
 }
 
@@ -26,7 +26,7 @@ struct ProductDetailsModel: Codable {
     let uploadimage: String
     let product_name: String
     let product_condition: String
-    let product_models: String
+    let product_models: String?
     let product_price: String
     let location: String
     let phone: Int

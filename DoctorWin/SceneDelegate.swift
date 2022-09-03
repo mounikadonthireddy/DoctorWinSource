@@ -16,8 +16,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let windowScene = scene as? UIWindowScene {
             if let userId = UserDefaults.standard.value(forKey: "user_id") {
             let window = UIWindow(windowScene: windowScene)
-            let str = UIStoryboard(name: "Home", bundle: nil)
-            let nextViewController = str.instantiateViewController(withIdentifier: "tabbar")
+            let str = UIStoryboard(name: "Tab", bundle: nil)
+            let nextViewController = str.instantiateViewController(withIdentifier: "tabView")
                 
               
 

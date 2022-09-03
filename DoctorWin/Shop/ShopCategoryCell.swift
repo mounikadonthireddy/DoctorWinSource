@@ -17,9 +17,10 @@ class ShopCategoryCell: UICollectionViewCell {
     }
     func configureCell(data: ShopCategoryModel) {
         categoryName.text = data.name
-       
-        self.categoryImage.sd_setImage(with: URL(string: data.image), placeholderImage: UIImage(named: "loginBg"))
+        if let image = data.image {
+        self.categoryImage.sd_setImage(with: URL(string: image), placeholderImage: UIImage(named: "loginBg"))
         
+    }
     }
 
 }

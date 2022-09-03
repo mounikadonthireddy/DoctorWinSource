@@ -13,20 +13,19 @@ class UserDetailsViewController: ViewController {
     var profileVM = UserDetailsViewModel()
     var userDetailsModel : ProfileDataModel?
     var newsArray: [NewsModel] = []
-    var articelArray: [ArticalsDataModel] = []
+   
     var casesArray: [CasesDataModel] = []
     var RequestUserID = ""
     var selectionType = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        profileTableView.register(UINib(nibName: "ProfileHeadCell", bundle: nil), forCellReuseIdentifier: "ProfileHeadCell")
-        
+       
         self.profileTableView.register(UINib(nibName: "UserHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "UserHeaderView")
         profileTableView.register(UINib(nibName: "CaseCell", bundle: nil), forCellReuseIdentifier: "CaseCell")
         profileTableView.register(UINib(nibName: "NewsCell", bundle: nil), forCellReuseIdentifier: "NewsCell")
         
-        profileTableView.register(UINib(nibName: "ArticalCell", bundle: nil), forCellReuseIdentifier: "ArticalCell")
+     
         
         self.navigationController?.isNavigationBarHidden = true
         profileTableView.contentInset = UIEdgeInsets(top: -10, left: 0, bottom: 0, right: 0)
@@ -57,11 +56,7 @@ class UserDetailsViewController: ViewController {
         profileVM.getUserPostedCases(userID: RequestUserID)
         
     }
-    func loadUserPostedArticles() {
-        self.showLoader()
-        profileVM.getUserPostedArticles(userID: RequestUserID)
-        
-    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         //  tabBarController?.tabBar.isHidden = true
     }
@@ -79,8 +74,7 @@ extension UserDetailsViewController: UITableViewDelegate, UITableViewDataSource 
             return casesArray.count
         case 2:
             return newsArray.count
-        case 3:
-            return articelArray.count
+       
         default:
             return 0
     }
@@ -105,12 +99,7 @@ extension UserDetailsViewController: UITableViewDelegate, UITableViewDataSource 
                 = tableView.dequeueReusableCell(withIdentifier: "NewsCell") as! NewsCell
             cell.configureData(homeModel: newsArray[indexPath.row])
             return cell
-            
-        case 3:
-            let cell: ArticalCell
-                = tableView.dequeueReusableCell(withIdentifier: "ArticalCell") as! ArticalCell
-            cell.configureDataWith(homeModel: articelArray[indexPath.row])
-            return cell
+      
             
         default:
             
@@ -186,15 +175,9 @@ extension UserDetailsViewController: UserDetailsViewModelDelegate {
             profileTableView.reloadData()
 
         }
-    }
     
-    func didReceivePostedArticles(response: [ArticalsDataModel]?, error: String?) {
-        self.dismiss()
-        if error == nil {
-            articelArray = response ?? []
-            profileTableView.reloadData()
-
-        }
+    
+    
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch selectionType {
@@ -208,11 +191,7 @@ extension UserDetailsViewController: UserDetailsViewModelDelegate {
             let nextVC = str.instantiateViewController(withIdentifier: "NewsDetailsViewController") as! NewsDetailsViewController
           
             self.navigationController?.pushViewController(nextVC, animated: true)
-        case 3:
-            let str = UIStoryboard(name: "Details", bundle: nil)
-            let nextVC = str.instantiateViewController(withIdentifier: "ArticalDetailsViewController") as! ArticalDetailsViewController
-           
-            self.navigationController?.pushViewController(nextVC, animated: true)
+        
         default:
             let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "ExamDetailsViewController") as! ExamDetailsViewController
             //nextVC.detailsModel = homedataArry[indexPath.row]
@@ -233,13 +212,7 @@ extension UserDetailsViewController : CustomSegmentedControlDelegate {
             self.loadUserPostedNews()
             self.selectionType = 2
             
-        case 3:
-            self.selectionType = 3
-            self.loadUserPostedArticles()
-            
-        case 0:
-            self.selectionType = 0
-            self.loadUserPostedArticles()
+        
             
         default: break
         }

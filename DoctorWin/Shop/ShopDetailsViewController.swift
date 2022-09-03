@@ -11,6 +11,10 @@ class ShopDetailsViewController: ViewController {
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var productPrice: UILabel!
+    @IBOutlet weak var productCondition: UILabel!
+    @IBOutlet weak var productModel: UILabel!
+    @IBOutlet weak var productDescription: UILabel!
+    @IBOutlet weak var productLocation: UILabel!
     @IBOutlet weak var personName: UILabel!
     @IBOutlet weak var personSpeciality: UILabel!
     @IBOutlet weak var personImage: UIImageView!
@@ -30,6 +34,7 @@ class ShopDetailsViewController: ViewController {
         productVM.delegate = self
         self.loadProductDetails()
         uploadBtn.setCornerRadius(radius: Float(uploadBtn.frame.width)/2)
+       personImage.setCornerRadius(radius: Float(personImage.frame.width)/2)
         backBtn.setCornerRadius(radius: Float(backBtn.frame.width)/2)
         // Do any additional setup after loading the view.
         
@@ -44,7 +49,7 @@ class ShopDetailsViewController: ViewController {
             currentIndex = (currentIndex == imagesArray.count - 1) ? 0 : currentIndex + 1
             let urlString = self.imagesArray[self.currentIndex].image
         
-            self.productImage.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "loginBg"))
+            self.productImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
            
             self.currentImage = self.productImage.image
             self.pageControl.currentPage = self.currentIndex
@@ -85,13 +90,17 @@ extension ShopDetailsViewController: ProductDetailsDelegate {
         if let data = response {
             productName.text = data.product_name
             productPrice.text = "$" + data.product_price
+            productLocation.text =  data.location
+            productCondition.text =  data.product_condition
+            productDescription.text =  data.description
+            productModel.text =  data.product_models ?? ""
             pageControl.numberOfPages = data.image.count
             personName.text = data.profile_name
             personSpeciality.text = data.speciality
             imagesArray = data.image
             self.startTimer()
             if let urlString = data.profileImage {
-            self.personImage.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "loginBg"))
+                self.personImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
             }
         }
     }

@@ -49,7 +49,7 @@ extension NewsDetailsViewController: UITableViewDelegate, UITableViewDataSource 
             let cell: NewsDetailsCell
             = tableView.dequeueReusableCell(withIdentifier: "NewsDetailsCell") as! NewsDetailsCell
         if let data  = newsDetails {
-            cell.configureData(homeModel: data)
+           // cell.configureData(homeModel: data)
         }
         cell.backBtn.addTarget(self, action: #selector(backClicked(button:)), for: .touchUpInside)
             return cell

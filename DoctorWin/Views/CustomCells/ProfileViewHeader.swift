@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileViewHeader: UICollectionReusableView {
+class ProfileViewHeader: UITableViewHeaderFooterView {
     @IBOutlet weak var profileName: UILabel!
     @IBOutlet weak var profileQualification: UILabel!
     @IBOutlet weak var profileLocation: UILabel!
@@ -15,9 +15,24 @@ class ProfileViewHeader: UICollectionReusableView {
     @IBOutlet weak var followBtn: UIButton!
     @IBOutlet weak var followingBtn: UIButton!
     @IBOutlet weak var viewBtn: UIButton!
+    @IBOutlet weak var interfaceSegmented: CustomSegmentedControl!{
+        didSet{
+            interfaceSegmented.setButtonTitles(buttonTitles: ["Home","Post", "Cases", "Questions", "Answers"])
+            interfaceSegmented.selectorViewColor = .blue
+            interfaceSegmented.selectorTextColor = .blue
+        }
+    }
+    static var nib: UINib {
+        return UINib(nibName: identifier, bundle: nil)
+    }
+    
+    static var identifier: String {
+        return String(describing: self)
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        interfaceSegmented.delegate = self
         viewBtn.setCornerRadius(radius: 10)
         profileImage.setCornerRadius(radius: Float(profileImage.frame.width)/2)
     }
@@ -35,4 +50,10 @@ class ProfileViewHeader: UICollectionReusableView {
         
     }
     
+}
+extension ProfileViewHeader: CustomSegmentedControlDelegate {
+    
+    func change(to index: Int) {
+        //self.loadMyArticles(index: index)
+    }
 }

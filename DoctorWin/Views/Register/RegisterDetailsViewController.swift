@@ -56,7 +56,7 @@ class RegisterDetailsViewController: UIViewController {
     
     @IBAction func skipClicked(_ sender: Any) {
         let str = UIStoryboard(name: "Home", bundle: nil)
-        let nextViewController = str.instantiateViewController(withIdentifier: "tabbar")
+        let nextViewController = str.instantiateViewController(withIdentifier: "tabView")
         
         nextViewController.navigationController?.isNavigationBarHidden = true
         self.navigationController?.pushViewController(nextViewController, animated: true)
@@ -128,7 +128,7 @@ class RegisterDetailsViewController: UIViewController {
         resource.registerProfileSkill(userID: User.shared.userID, profileReq: editModel) { res in
             DispatchQueue.main.async {
                 let str = UIStoryboard(name: "Home", bundle: nil)
-                let nextViewController = str.instantiateViewController(withIdentifier: "tabbar")
+                let nextViewController = str.instantiateViewController(withIdentifier: "tabView")
                 
                 nextViewController.navigationController?.isNavigationBarHidden = true
                 self.navigationController?.pushViewController(nextViewController, animated: true)

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="196" id="KGk-i7-Jjw" customClass="ProfileImageCell" customModule="DoctorWin" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="322" height="196"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="322" height="196"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="collegeBg" translatesAutoresizingMaskIntoConstraints="NO" id="uCI-mU-6Hb">
+                        <rect key="frame" x="0.0" y="0.0" width="322" height="130"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="130" id="1ox-Gt-iRu"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aNb-xs-ZTa">
+                        <rect key="frame" x="212" y="146" width="100" height="40"/>
+                        <color key="backgroundColor" red="0.28627450980000002" green="0.52549019610000003" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="0ZL-PB-D8E"/>
+                            <constraint firstAttribute="width" constant="100" id="OJc-0c-NgE"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
+                        <color key="tintColor" systemColor="labelColor"/>
+                        <state key="normal" title="Save"/>
+                        <connections>
+                            <action selector="saveBtnClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="8tn-1j-MYc"/>
+                        </connections>
+                    </button>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="aIV-GM-Lcb">
+                        <rect key="frame" x="126" y="86.5" width="70" height="67"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="70" id="POt-d8-90W"/>
+                            <constraint firstAttribute="width" constant="70" id="yNg-re-x24"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7GU-iS-goC">
+                        <rect key="frame" x="166" y="125" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="HNE-58-u0h"/>
+                            <constraint firstAttribute="height" constant="40" id="QCI-ro-fjV"/>
+                        </constraints>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" image="plus.circle.fill" catalog="system"/>
+                        <connections>
+                            <action selector="addImageClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="dcQ-in-7Se"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M7A-pg-bxN">
+                        <rect key="frame" x="272" y="45" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="AoM-RN-mg4"/>
+                            <constraint firstAttribute="width" constant="40" id="gp6-UF-uTl"/>
+                        </constraints>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" image="plus.circle.fill" catalog="system"/>
+                        <connections>
+                            <action selector="addImageClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="owc-xr-7tc"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="uCI-mU-6Hb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="2WY-70-36K"/>
+                    <constraint firstAttribute="bottom" secondItem="aNb-xs-ZTa" secondAttribute="bottom" constant="10" id="4fB-cy-f4R"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="7GU-iS-goC" secondAttribute="bottom" constant="20" id="FYC-vm-27C"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="aIV-GM-Lcb" secondAttribute="bottom" constant="30" id="IvA-AD-6ay"/>
+                    <constraint firstItem="aIV-GM-Lcb" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="ObN-cd-wAa"/>
+                    <constraint firstAttribute="trailing" secondItem="M7A-pg-bxN" secondAttribute="trailing" constant="10" id="Qqw-14-r3E"/>
+                    <constraint firstItem="7GU-iS-goC" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" constant="25" id="X6A-oF-oFR"/>
+                    <constraint firstItem="uCI-mU-6Hb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="XIu-rM-PI3"/>
+                    <constraint firstItem="M7A-pg-bxN" firstAttribute="centerY" secondItem="uCI-mU-6Hb" secondAttribute="centerY" id="lTa-ic-17u"/>
+                    <constraint firstAttribute="trailing" secondItem="uCI-mU-6Hb" secondAttribute="trailing" id="rxp-nJ-zny"/>
+                    <constraint firstAttribute="trailing" secondItem="aNb-xs-ZTa" secondAttribute="trailing" constant="10" id="s9I-Yd-gKp"/>
+                    <constraint firstAttribute="bottom" secondItem="aNb-xs-ZTa" secondAttribute="bottom" constant="10" id="tFg-Gm-685"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="addImage" destination="7GU-iS-goC" id="BqE-eC-9Pv"/>
+                <outlet property="profileImage" destination="aIV-GM-Lcb" id="sok-ID-pKg"/>
+                <outlet property="saveBtn" destination="aNb-xs-ZTa" id="GNW-XA-zqy"/>
+            </connections>
+            <point key="canvasLocation" x="139.13043478260872" y="137.27678571428569"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="collegeBg" width="720" height="415"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

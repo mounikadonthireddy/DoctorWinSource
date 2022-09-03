@@ -70,3 +70,83 @@ struct ProfileDataModel : Codable {
         case qualification = "hightest_qualification"
     }
 }
+struct PersonalInfoEditModel: Codable {
+    let phone_number: String
+    let email: String
+    let gender: String
+    let dob: String
+    let location: String
+    let language: String
+    
+}
+struct ResponseModel: Codable {
+    let status: String?
+    let message: String?
+}
+struct BoolResponseModel: Codable {
+    let status: Bool?
+    let message: String?
+}
+struct ProfessionalResponseModel: Codable {
+    let status: Bool?
+    let message: String?
+}
+struct PersonalInfoEditModel1: Codable {
+    let phone_number: String
+    let email: String
+    let gender: String
+    let dob: String
+    let location: String
+    let language: String
+    let profile_name: String
+    
+}
+struct SelfDataEditModel: Codable {
+    let highest_qualification: String
+    let current_job_location: String
+    let speciality: String
+    let profile_name: String
+    
+}
+struct SaveResponse: Codable {
+    let bookmark_status : String
+}
+struct JobApplyResponse: Codable {
+    let apply_status : Bool
+}
+
+struct ComplaintLikeResponse: Codable {
+    let like_status: String
+}
+struct PollLikeResponse: Codable {
+    let poll_like_status: String
+    let like_count: Int
+}
+//struct ArticalLikeResponse: Codable {
+//    let like_status: String
+//    let like_count: Int
+//}
+struct PostReplyResponse: Codable {
+    let message : String?
+    let status : String?
+    let discussion : Int?
+
+}
+struct ProfileUpdateResponseModel: Codable {
+    let status: String?
+    let message: String?
+}
+
+struct StatusResponseModel: Codable {
+    let status : Bool
+    let like_count: Int?
+}
+struct ProfessionalEditModel: Codable {
+    let current_department: String
+    let current_institute: String
+    let ug: String
+    let ug_institute_name: String
+    let pg: String
+    let pg_institute_name: String
+    
+}

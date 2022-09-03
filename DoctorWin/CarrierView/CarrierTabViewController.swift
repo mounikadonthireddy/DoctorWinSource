@@ -74,9 +74,9 @@ extension CarrierTabViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let str = UIStoryboard(name: "Home", bundle: nil)
+        let str = UIStoryboard(name: "Details", bundle: nil)
             let nextVC = str.instantiateViewController(withIdentifier: "CarrierJobDetailsViewController") as! CarrierJobDetailsViewController
-            nextVC.jobId = carrierJobArray[indexPath.row].id
+        nextVC.detailsModel = carrierJobArray[indexPath.row]
             self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
@@ -142,13 +142,13 @@ extension CarrierTabViewController : UICollectionViewDelegate, UICollectionViewD
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let yourWidth = 160
-        return CGSize(width: yourWidth, height: 100)
+        let yourWidth = 150
+        return CGSize(width: yourWidth, height: 110)
     }
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0) //.zero
+        return UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10) //.zero
     }
     
     func collectionView(_ collectionView: UICollectionView,

@@ -74,35 +74,3 @@ struct NewsDataViewModel {
     }
     
 }
-struct ArticlesDataViewModel {
-    var delegate: ArticleBookMarkDelegate?
-    func getArticles(userID: String, index: Int) {
-        let homeResource = ArticalResource()
-        var endPoint = ""
-        switch index {
-        case 0:
-            endPoint = ApiEndpoints.postedArtical
-        case 1:
-            endPoint = ApiEndpoints.bookmarkArtical
-        case 2:
-            endPoint = ApiEndpoints.likedArtical
-        default:
-            endPoint = ""
-        }
-        let homeUrlStr = ApiEndpoints.baseUrl + endPoint + "?user_id=\(userID)"
-
-        homeResource.getArticalData(userID: userID, urlStr: homeUrlStr) { response in
-            DispatchQueue.main.async {
-                switch response {
-                case .success(let data):
-                    self.delegate?.didReceiveBookmakedArticles(response: data, error: nil)
-                    
-                case .failure(let error):
-                    self.delegate?.didReceiveBookmakedArticles(response: nil, error: error)
-                }
-                
-            }
-        }
-    }
-    
-}

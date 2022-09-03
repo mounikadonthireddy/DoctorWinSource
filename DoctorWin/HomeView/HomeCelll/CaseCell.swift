@@ -13,14 +13,13 @@ class CaseCell: UITableViewCell {
     @IBOutlet weak var designation: UILabel!
     @IBOutlet weak var discussion: UILabel!
     @IBOutlet weak var titleLable: UILabel!
-    @IBOutlet weak var descriptionLable: UILabel!
     @IBOutlet weak var likeLable: UILabel!
     @IBOutlet weak var postImage: UIImageView!
     @IBOutlet weak var followBtn: UIButton!
     @IBOutlet weak var wishlistBtn: UIButton!
     @IBOutlet weak var saveBtn: UIButton!
     // @IBOutlet weak var replyBtn: UIButton!
-//    @IBOutlet weak var replyTF: UITextField!
+    //    @IBOutlet weak var replyTF: UITextField!
     weak var delegate: CellActionDelegate?
     @IBOutlet weak var personImage: UIImageView!
     @IBOutlet weak var likeImage: UIImageView!
@@ -41,27 +40,38 @@ class CaseCell: UITableViewCell {
     }
     func configureData(homeModel: HomeDataModel) {
         self.postedPersonName.text = (homeModel.profileName ?? "")
-        self.titleLable.text =  homeModel.title ?? ""
+        self.titleLable.text =  homeModel.postTitle ?? ""
         self.designation.text = homeModel.speciality ?? ""
-        if let value = homeModel.discussion {
+        if let value = homeModel.discussionCount {
             self.discussion.text = "\(String(describing: value))"
         }
         if let value1 = homeModel.likeCount {
             self.likeLable.text = "\(String(describing: value1))"
         }
-        self.followBtn.tag = homeModel.userId ?? 0
-        if let urlString = homeModel.postedImage {
-            self.postImage.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "loginBg"))
-//                self.layoutIfNeeded()
-//                let data = ImageDiamenstions().imageDimenssions(url: urlString)
-//            if data != 0 {
-//            let newHeight = postImage.frame.width / CGFloat(data)
-//                imageHeiht.constant = newHeight
-//               self.layoutIfNeeded()
-//            }
-                
+        self.followBtn.tag = homeModel.postUserId ?? 0
+        if let urlString = homeModel.postImage {
+            self.postImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
+            let url = URL(string: ApiEndpoints.baseImageURL + urlString)
+            if let imageSource = CGImageSourceCreateWithURL(url! as CFURL, nil) {
+                if let imageProperties = CGImageSourceCopyPropertiesAtIndex(imageSource, 0, nil) as Dictionary? {
+                     let pixelWidth = imageProperties[kCGImagePropertyPixelWidth] as! Int
+                     let pixelHeight = imageProperties[kCGImagePropertyPixelHeight] as! Int
+                     print("the image width is: \(pixelWidth)")
+                     print("the image height is: \(pixelHeight)")
+                    
+                    let ratio = pixelWidth / pixelWidth
+                    if ratio != 0 {
+                    let newHeight = postImage.frame.width / CGFloat(ratio)
+                    imageHeiht.constant = newHeight
+                    self.layoutIfNeeded()
+                    }
+                  }
+              }
+            
+        } else {
+            imageHeiht.constant  = 0
         }
-        self.descriptionLable.text = homeModel.chiefComplaint
+        //  self.descriptionLable.text = homeModel.chiefComplaint
         if homeModel.bookmarkStatus ?? false {
             bookmarkImage.image = UIImage(named: "fmark")
         }
@@ -75,8 +85,8 @@ class CaseCell: UITableViewCell {
         if let urlString = homeModel.profileImage {
             self.personImage.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "loginBg"))
         }
-        wishlistBtn.tag = homeModel.id
-        saveBtn.tag = homeModel.id
+        wishlistBtn.tag = homeModel.postId
+        saveBtn.tag = homeModel.postId
         //        replyBtn.tag = homeModel.id
     }
     func configureDataWith(homeModel: CasesDataModel) {
@@ -94,7 +104,7 @@ class CaseCell: UITableViewCell {
             
             self.postImage.sd_setImage(with: URL(string: finalUrlString), placeholderImage: UIImage(named: "loginBg"))
         }
-        self.descriptionLable.text = homeModel.chief_complaint
+        
         if homeModel.bookmark_status {
             bookmarkImage.image = UIImage(named: "fmark")
         }
@@ -161,23 +171,23 @@ class CaseCell: UITableViewCell {
         
     }
     @IBAction func replyClicked(_ sender: UIButton) {
-//        replyTF.resignFirstResponder()
-//        if replyTF.text != "" {
-//            let request = PostReplyRequest(case_id:"\(sender.tag)", profile: User.shared.userID, comment: replyTF.text!)
-//
-//            let resource = HomeResource()
-//            resource.replyComplaint(request: request) { result in
-//                DispatchQueue.main.async {
-//                    if result.status == "true" {
-//                        if let value = result.discussion {
-//                            self.discussion.text = "\(String(describing: value)) Discussions"
-//                            self.replyTF.text = ""
-//                        }
-//                    }
-//
-//                }
-//
-//            }
-//        }
+        //        replyTF.resignFirstResponder()
+        //        if replyTF.text != "" {
+        //            let request = PostReplyRequest(case_id:"\(sender.tag)", profile: User.shared.userID, comment: replyTF.text!)
+        //
+        //            let resource = HomeResource()
+        //            resource.replyComplaint(request: request) { result in
+        //                DispatchQueue.main.async {
+        //                    if result.status == "true" {
+        //                        if let value = result.discussion {
+        //                            self.discussion.text = "\(String(describing: value)) Discussions"
+        //                            self.replyTF.text = ""
+        //                        }
+        //                    }
+        //
+        //                }
+        //
+        //            }
+        //        }
     }
 }

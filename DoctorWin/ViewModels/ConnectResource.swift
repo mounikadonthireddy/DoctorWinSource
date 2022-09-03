@@ -28,6 +28,34 @@ struct ConnectResource {
                        
                        case .decodingError:
                         print("Error: Unknown")
+                       case .serverError(error: _):
+                        print("Error: Unknown")
+                       }
+                   }
+            }
+        }
+    }
+    func getEditProfile(userID: String, completion : @escaping (_ result: ResponseResult<ConnectProfileModel>) -> Void) {
+        
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.editProfile +  "?userid=\(userID)"
+        let httpUtility = HttpUtility()
+        do {
+            httpUtility.getApiData(urlString: homeUrlStr, resultType: ConnectProfileModel.self) { result in
+                
+                switch result {
+                   case .success(let data):
+                    completion(.success(data))
+                    
+                   case .failure(let requestError):
+                       switch requestError {
+                       case .invalidUrl:
+                        completion(.failure("Please try Again After SomeTime"))
+                       
+                       case .internalServerError:
+                        print("Error: Unknown")
+                       
+                       case .decodingError:
+                        print("Error: Unknown")
                        case .serverError(error: let error):
                         print("Error: Unknown")
                        }

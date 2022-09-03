@@ -18,7 +18,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ShopCell" customModule="DoctorWin" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ShopCell" id="gTV-IL-0wX" customClass="ShopCell" customModule="DoctorWin" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="185" height="191"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -48,6 +48,9 @@
                         </constraints>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                         <state key="normal" image="mark"/>
+                        <connections>
+                            <action selector="saveClicked:" destination="gTV-IL-0wX" eventType="touchUpInside" id="LF9-hi-xZZ"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ 10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bT1-Re-h8b">
                         <rect key="frame" x="10" y="163.5" width="30" height="18"/>
@@ -80,6 +83,7 @@
                 <outlet property="productImage" destination="oAQ-Vb-tNM" id="hsi-BX-sQW"/>
                 <outlet property="productName" destination="y0P-20-POz" id="nLw-a1-eH0"/>
                 <outlet property="productPrice" destination="bT1-Re-h8b" id="RrT-gF-5q7"/>
+                <outlet property="saveBtn" destination="Gay-6g-EQB" id="kxU-OJ-gCC"/>
             </connections>
             <point key="canvasLocation" x="235.50724637681162" y="124.88839285714285"/>
         </collectionViewCell>

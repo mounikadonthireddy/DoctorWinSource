@@ -92,4 +92,24 @@ struct ShopResource {
         }
         
     }
+    func saveProduct(request: ShopSaveRequest, completion : @escaping  (_ result: StatusResponseModel) -> Void) {
+        
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.shopBookmark + "?user_id=\(request.user_id)&productid=\(request.productid)"
+        let homeUrl = URL(string: homeUrlStr)!
+        
+        let helper = APIHelperClass()
+        do {
+            let postBody = try JSONEncoder().encode(request)
+            
+            helper.callWebserviceToMakeRequest(requestUrl: homeUrl, requestBody: postBody, resultType: StatusResponseModel.self, httpMethod: HTTPMethod.post) {
+                result in
+                
+                completion(result)
+                
+            }
+            
+        } catch let error {
+            debugPrint(error)
+        }
+    }
 }

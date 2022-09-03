@@ -53,9 +53,9 @@ class CarrierJobCell: UITableViewCell {
         resource.saveJob(request: request) { result in
             DispatchQueue.main.async {
                 if result.status  {
-                    self.bookMarkImage.image = UIImage(named: "fstar")
+                    self.bookMarkImage.image = UIImage(named: "fmark")
                 } else {
-                    self.bookMarkImage.image = UIImage(named: "star")
+                    self.bookMarkImage.image = UIImage(named: "mark")
                 }
             }
             
@@ -63,16 +63,16 @@ class CarrierJobCell: UITableViewCell {
         
     }
     func configureCell(with data: CarrierModel) {
-        self.hospitalName.text =  data.designation + " in " + data.Speciality
+        self.hospitalName.text =  (data.designation ?? "") + " in " + (data.Speciality ?? "")
         
-        self.specialityName.text = data.name
+        self.specialityName.text = data.name ?? ""
         
-        self.location.text = data.location
-        self.experience.text = "\(data.experince)" + " yrs Experience"
+        self.location.text = data.location_of_job
+        self.experience.text = "\(String(describing: data.experince) )" + " yrs Experience"
         
         
         save.tag = data.id
-        self.salary.text = "\(data.salary) /" + data.monthly_or_anual
+        self.salary.text = "\(data.min_salary ?? "") /" + "\(data.max_salary ?? "") /" + (data.monthly_or_anual ?? "")
         
         
         if let urlString = data.hospital_image {
@@ -82,7 +82,7 @@ class CarrierJobCell: UITableViewCell {
         self.courseArray = data.eligibility
         self.courseCollectionView.reloadData()
         if data.bookmark {
-            self.bookMarkImage.image = UIImage(named: "fstar")
+            self.bookMarkImage.image = UIImage(named: "fmark")
         }
     }
     
@@ -96,7 +96,7 @@ class CarrierJobCell: UITableViewCell {
         return differenceOfDate
     }
 }
-extension CarrierJobCell : UICollectionViewDelegate, UICollectionViewDataSource {
+extension CarrierJobCell : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return courseArray.count
     }
@@ -106,13 +106,13 @@ extension CarrierJobCell : UICollectionViewDelegate, UICollectionViewDataSource 
 
         cell.name.text = courseArray[indexPath.item].name
         cell.name.backgroundColor = UIColor.white
-//        cell.backgroundColor = UIColor.white
+        cell.setCornerRadiusWithBorderColor(radius: 3, color: UIColor.secondaryLabel, borderWidth: 0.5)
         return cell
         
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let size = (courseArray[indexPath.row].name as NSString).size(withAttributes: nil)
-        return CGSize(width: size.width + 20, height: collectionView.bounds.height)
+        return CGSize(width: size.width + 40, height: collectionView.bounds.height)
      
     }
     func collectionView(_ collectionView: UICollectionView,
@@ -125,7 +125,7 @@ extension CarrierJobCell : UICollectionViewDelegate, UICollectionViewDataSource 
                             layout collectionViewLayout: UICollectionViewLayout,
                             minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
           
-            return 0
+            return 5
         }
 
         func collectionView(_ collectionView: UICollectionView,

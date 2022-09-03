@@ -16,8 +16,8 @@ class MeViewController: ViewController {
         super.viewDidLoad()
         profileTableView.register(UINib(nibName: "ProfileNameCell", bundle: nil), forCellReuseIdentifier: "ProfileNameCell")
         profileTableView.register(UINib(nibName: "InfoCell", bundle: nil), forCellReuseIdentifier: "InfoCell")
-        profileTableView.register(UINib(nibName: "ProfileSummaryCell", bundle: nil), forCellReuseIdentifier: "ProfileSummaryCell")
-        profileTableView.register(UINib(nibName: "ProfileBasicDetailsCell", bundle: nil), forCellReuseIdentifier: "ProfileBasicDetailsCell")
+        profileTableView.register(UINib(nibName: "BioCell", bundle: nil), forCellReuseIdentifier: "BioCell")
+        profileTableView.register(UINib(nibName: "PersonalInfoCell", bundle: nil), forCellReuseIdentifier: "PersonalInfoCell")
         
         profileTableView.register(UINib(nibName: "ProfessionalDetailsCell", bundle: nil), forCellReuseIdentifier: "ProfessionalDetailsCell")
         
@@ -28,7 +28,7 @@ class MeViewController: ViewController {
         profileTableView.register(UINib(nibName: "AddSkillsCell", bundle: nil), forCellReuseIdentifier: "AddSkillsCell")
         profileTableView.register(UINib(nibName: "ExperienceCell", bundle: nil), forCellReuseIdentifier: "ExperienceCell")
         
-        profileTableView.register(UINib(nibName: "ExperienceAddCell", bundle: nil), forCellReuseIdentifier: "ExperienceAddCell")
+        
         profileTableView.register(UINib(nibName: "ExperinceTitleCell", bundle: nil), forCellReuseIdentifier: "ExperinceTitleCell")
         profileTableView.register(UINib(nibName: "ProfileSkillsCell", bundle: nil), forCellReuseIdentifier: "ProfileSkillsCell")
         
@@ -87,49 +87,37 @@ extension MeViewController: UITableViewDelegate, UITableViewDataSource {
             cell.editBtn.addTarget(self, action: #selector(editClicked(button:)), for: .touchUpInside)
             cell.backBtn.addTarget(self, action: #selector(backClicked(button:)), for: .touchUpInside)
             cell.cellConfigureWith(data: profileDataModel)
-            
+            cell.editBtn.tag = 1
             return cell
-            
-//        case 1:
-//            let cell: ProfileDashboardCell = tableView.dequeueReusableCell(withIdentifier: "ProfileDashboardCell", for: indexPath) as! ProfileDashboardCell
-//            cell.casesCountBtn.addTarget(self, action: #selector(casesClicked(button:)), for: .touchUpInside)
-//            cell.appliedCountBtn.addTarget(self, action: #selector(appliedClicked(button:)), for: .touchUpInside)
-//            cell.newsCountBtn.addTarget(self, action: #selector(newsClicked(button:)), for: .touchUpInside)
-//            cell.articalsCountBtn.addTarget(self, action: #selector(articalsClicked(button:)), for: .touchUpInside)
-//            cell.pollsCountBtn.addTarget(self, action: #selector(pollsClicked(button:)), for: .touchUpInside)
-//            cell.followCountBtn.addTarget(self, action: #selector(followClicked(button:)), for: .touchUpInside)
-//            cell.followingCountBtn.addTarget(self, action: #selector(followClicked(button:)), for: .touchUpInside)
-//
-//            cell.cellConfigureWith(data: profileDataModel)
-//
-//            return cell
+
             
         case 1:
-            let cell: ProfileSummaryCell = tableView.dequeueReusableCell(withIdentifier: "ProfileSummaryCell", for: indexPath) as! ProfileSummaryCell
+            let cell: BioCell = tableView.dequeueReusableCell(withIdentifier: "BioCell", for: indexPath) as! BioCell
             cell.cellConfigureWith(data: profileDataModel)
             cell.editBtn.addTarget(self, action: #selector(editClicked(button:)), for: .touchUpInside)
-
+            cell.editBtn.tag = 2
             
             return cell
             
         case 2:
-            let cell: ProfileBasicDetailsCell = tableView.dequeueReusableCell(withIdentifier: "ProfileBasicDetailsCell", for: indexPath) as! ProfileBasicDetailsCell
+            let cell: PersonalInfoCell = tableView.dequeueReusableCell(withIdentifier: "PersonalInfoCell", for: indexPath) as! PersonalInfoCell
             cell.cellConfigureWith(data: profileDataModel)
             cell.professionalEdit.addTarget(self, action: #selector(editClicked(button:)), for: .touchUpInside)
-
+            cell.professionalEdit.tag = 3
             
             return cell
         case 3:
             let cell: ProfessionalDetailsCell = tableView.dequeueReusableCell(withIdentifier: "ProfessionalDetailsCell", for: indexPath) as! ProfessionalDetailsCell
             cell.cellConfigureWith(data: profileDataModel)
             cell.professionalEdit.addTarget(self, action: #selector(editClicked(button:)), for: .touchUpInside)
-
+            cell.professionalEdit.tag = 4
             
             return cell
             
         case 4:
             let cell: ExperinceTitleCell = tableView.dequeueReusableCell(withIdentifier: "ExperinceTitleCell", for: indexPath) as! ExperinceTitleCell
-            
+            cell.add.addTarget(self, action: #selector(editClicked(button:)), for: .touchUpInside)
+            cell.add.tag = 5
             return cell
             
         case 5:
@@ -145,7 +133,7 @@ extension MeViewController: UITableViewDelegate, UITableViewDataSource {
             let cell: ProfileSkillsCell = tableView.dequeueReusableCell(withIdentifier: "ProfileSkillsCell", for: indexPath) as! ProfileSkillsCell
             cell.cellConfigureWith(data: profileDataModel)
             cell.edit.addTarget(self, action: #selector(editClicked(button:)), for: .touchUpInside)
-
+            cell.edit.tag = 6
             return cell
             
             
@@ -158,10 +146,11 @@ extension MeViewController: UITableViewDelegate, UITableViewDataSource {
     @objc func backClicked(button: Any) {
         self.navigationController?.popViewController(animated: true)
     }
-    @objc func editClicked(button: Any) {
+    @objc func editClicked(button: UIButton) {
         let str = UIStoryboard(name: "Me", bundle: nil)
         let nextVC = str.instantiateViewController(withIdentifier: "EditMeViewController") as! EditMeViewController
         nextVC.profileDataModel = profileDataModel
+        nextVC.selectedIndex = button.tag
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     @objc func logoutClicked(button: Any) {
@@ -169,6 +158,7 @@ extension MeViewController: UITableViewDelegate, UITableViewDataSource {
         let nextVC = str.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
+    
     @objc func expEditClicked(button: UIButton) {
         let str = UIStoryboard(name: "Me", bundle: nil)
         let nextVC = str.instantiateViewController(withIdentifier: "ExperienceViewController") as! ExperienceViewController
@@ -187,9 +177,7 @@ extension MeViewController: UITableViewDelegate, UITableViewDataSource {
     }
    
     @objc func articalsClicked(button: UIButton) {
-        let str = UIStoryboard(name: "Me", bundle: nil)
-        let nextVC = str.instantiateViewController(withIdentifier: "MyArticalViewController") as! MyArticalViewController
-        self.navigationController?.pushViewController(nextVC, animated: true)
+       
     }
     @objc func pollsClicked(button: UIButton) {
         let str = UIStoryboard(name: "Me", bundle: nil)

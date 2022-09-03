@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="NetworkCVCell" customModule="DoctorWin" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="180" height="212"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="180" height="212"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UCX-Va-RZp">
+                        <rect key="frame" x="0.0" y="0.0" width="180" height="212"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pLi-Ku-HAb">
+                                <rect key="frame" x="0.0" y="0.0" width="180" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="sIB-RV-tQV"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WKs-lL-nKn">
+                                <rect key="frame" x="60" y="30" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="aJc-ZN-s1h"/>
+                                    <constraint firstAttribute="height" constant="60" id="dBN-UK-zx1"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="h5y-NK-1gM">
+                                <rect key="frame" x="0.0" y="100" width="180" height="60"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DR. ANMADcd" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPA-UC-T7I">
+                                        <rect key="frame" x="0.0" y="0.0" width="180" height="13.5"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MBBS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pfU-8w-p9s">
+                                        <rect key="frame" x="0.0" y="23.5" width="180" height="13"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
+                                        <color key="textColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Consultanat at Yashoda Hospitals" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tgV-dF-upp">
+                                        <rect key="frame" x="0.0" y="46.5" width="180" height="13.5"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
+                                        <color key="textColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="2hk-FV-p5L"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="39W-Nn-K9v">
+                                <rect key="frame" x="53" y="173" width="67" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Join"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="WKs-lL-nKn" firstAttribute="centerX" secondItem="pLi-Ku-HAb" secondAttribute="centerX" id="2Ib-Iu-XaN"/>
+                            <constraint firstItem="pLi-Ku-HAb" firstAttribute="top" secondItem="UCX-Va-RZp" secondAttribute="top" id="DCv-ut-GCA"/>
+                            <constraint firstItem="h5y-NK-1gM" firstAttribute="top" secondItem="WKs-lL-nKn" secondAttribute="bottom" constant="10" id="JGa-Bi-ktv"/>
+                            <constraint firstItem="h5y-NK-1gM" firstAttribute="leading" secondItem="UCX-Va-RZp" secondAttribute="leading" id="NfU-t0-aO8"/>
+                            <constraint firstItem="pLi-Ku-HAb" firstAttribute="leading" secondItem="UCX-Va-RZp" secondAttribute="leading" id="UPk-vn-9Hh"/>
+                            <constraint firstItem="WKs-lL-nKn" firstAttribute="top" secondItem="UCX-Va-RZp" secondAttribute="top" constant="30" id="gn7-af-qZQ"/>
+                            <constraint firstAttribute="trailing" secondItem="pLi-Ku-HAb" secondAttribute="trailing" id="jtk-gV-9ue"/>
+                            <constraint firstAttribute="trailing" secondItem="h5y-NK-1gM" secondAttribute="trailing" id="zNI-bK-NeU"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="UCX-Va-RZp" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="5wM-jY-jKR"/>
+                <constraint firstAttribute="trailing" secondItem="UCX-Va-RZp" secondAttribute="trailing" id="DbF-Bh-Ts3"/>
+                <constraint firstItem="UCX-Va-RZp" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="cEK-Ul-xdo"/>
+                <constraint firstAttribute="bottom" secondItem="UCX-Va-RZp" secondAttribute="bottom" id="gru-LO-EbP"/>
+            </constraints>
+            <size key="customSize" width="180" height="212"/>
+            <connections>
+                <outlet property="bgImage" destination="pLi-Ku-HAb" id="yvo-yX-fQ7"/>
+                <outlet property="bgView" destination="UCX-Va-RZp" id="ZEr-I4-ZVB"/>
+                <outlet property="followBtn" destination="39W-Nn-K9v" id="4Wu-D1-JVx"/>
+                <outlet property="location" destination="tgV-dF-upp" id="gOB-45-VNj"/>
+                <outlet property="name" destination="pPA-UC-T7I" id="G1R-ad-k6e"/>
+                <outlet property="personImage" destination="WKs-lL-nKn" id="Wf0-C5-qui"/>
+                <outlet property="qualification" destination="pfU-8w-p9s" id="R58-kU-vOL"/>
+            </connections>
+            <point key="canvasLocation" x="231.8840579710145" y="132.58928571428572"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

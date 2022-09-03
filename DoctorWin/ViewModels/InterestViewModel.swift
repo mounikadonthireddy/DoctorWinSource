@@ -6,10 +6,12 @@
 //
 
 import Foundation
+
 struct InterestModel: Codable {
     let position: String
     let id: Int
 }
+
 
 protocol InterestViewModelDelegate {
     func didInterestData(response: [InterestModel]?, error: String?)

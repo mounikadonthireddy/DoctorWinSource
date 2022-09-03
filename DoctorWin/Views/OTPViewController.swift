@@ -145,8 +145,8 @@ extension OTPViewController: UITextFieldDelegate {
 extension OTPViewController: OTPViewModelDelegate {
     func didReceiveLoginResponse(wilNavigateTo: Bool, error: String?) {
         if wilNavigateTo {
-            let str = UIStoryboard(name: "Home", bundle: nil)
-            let nextViewController = str.instantiateViewController(withIdentifier: "tabbar")
+            let str = UIStoryboard(name: "Tab", bundle: nil)
+            let nextViewController = str.instantiateViewController(withIdentifier: "tabView")
             nextViewController.navigationController?.isNavigationBarHidden = true
             self.navigationController?.pushViewController(nextViewController, animated: true)
         }

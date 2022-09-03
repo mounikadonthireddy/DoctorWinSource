@@ -8,13 +8,15 @@
 import UIKit
 
 class ShopWishlistViewController: ViewController {
-    @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var shopCollectionView: UICollectionView!
+    @IBOutlet weak var shopCVLayout: UICollectionViewFlowLayout!
     var shopVM = ShopViewModel()
     var salesArray: [ShopModel] = []
     var recentArray: [ShopModel] = []
     var bookmarkArray: [ShopModel] = []
     var titleArray  :[ String] = ["Your Sale List", "Recently Viewed", "Bookmarks"]
+    let collectionViewHeaderFooterReuseIdentifier = "ShopWishlistHeaderView"
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
@@ -24,13 +26,20 @@ class ShopWishlistViewController: ViewController {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
         
-        tableView.register(TitleView.nib, forHeaderFooterViewReuseIdentifier: TitleView.identifier)
-        tableView.contentInsetAdjustmentBehavior = .never
-        tableView.register(UINib(nibName: "ShopWishlistCell", bundle: nil), forCellReuseIdentifier: "ShopWishlistCell")
-        
+        shopCollectionView.register(UINib.init(nibName: "ShopCVCell", bundle: nil), forCellWithReuseIdentifier: "ShopCVCell")
+        shopCVLayout.scrollDirection = .vertical
+        shopCVLayout.minimumLineSpacing = 0
+        shopCVLayout.minimumInteritemSpacing = 0
+        shopCVLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        shopCollectionView.register(UINib(nibName: collectionViewHeaderFooterReuseIdentifier, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: collectionViewHeaderFooterReuseIdentifier)
+//        tableView.register(TitleView.nib, forHeaderFooterViewReuseIdentifier: TitleView.identifier)
+//        tableView.contentInsetAdjustmentBehavior = .never
+//        tableView.register(UINib(nibName: "ShopWishlistCell", bundle: nil), forCellReuseIdentifier: "ShopWishlistCell")
+//
         shopVM.delegate1 = self
         self.loadSalesList()
-       
+        self.loadRecentList()
+        self.loadBookmarkList()
        
         // Do any additional setup after loading the view.
     }
@@ -63,20 +72,21 @@ extension ShopWishlistViewController: UITableViewDelegate, UITableViewDataSource
         
         let cell: ShopWishlistCell
         = tableView.dequeueReusableCell(withIdentifier: "ShopWishlistCell") as! ShopWishlistCell
-        if salesArray.count > 0 {
-            cell.salesArray = salesArray
-          //  cell.collectionView.reloadData()
-        }
-        if bookmarkArray.count > 0 {
-            cell.bookmarkArray = bookmarkArray
-           // cell.collectionView.reloadData()
-        }
-        
-        if recentArray.count > 0 {
-            cell.recentArray = recentArray
-            
-        }
-        cell.collectionView.reloadData()
+//        if salesArray.count > 0 {
+//            cell.salesArray = salesArray
+//         print(salesArray)
+//        }
+//        if bookmarkArray.count > 0 {
+//            cell.bookmarkArray = bookmarkArray
+//           print(bookmarkArray)
+//        }
+//
+//        if recentArray.count > 0 {
+//            cell.recentArray = recentArray
+//            print(recentArray)
+//        }
+        cell.cellConfigure(sale: salesArray, recent: recentArray, bookmark: bookmarkArray)
+        //cell.collectionView.reloadData()
         // cell.deleagte = self
         return cell
         
@@ -109,22 +119,111 @@ extension ShopWishlistViewController: ShopWishlistDelegate {
     func didReciveBookmarkShopData(response: [ShopModel]?, error: String?) {
         self.dismiss()
         bookmarkArray = response ?? []
-        self.tableView.reloadData()
+        self.shopCollectionView.reloadData()
     }
     
     func didReciveUploadShopData(response: [ShopModel]?, error: String?) {
         self.dismiss()
         salesArray = response ?? []
-        self.loadRecentList()
-        self.tableView.reloadData()
+        self.shopCollectionView.reloadData()
     }
     
     func didReciveRecentShopData(response: [ShopModel]?, error: String?) {
         self.dismiss()
         recentArray = response ?? []
-        self.tableView.reloadData()
-        self.loadBookmarkList()
+        self.shopCollectionView.reloadData()
+
     }
     
+    
+}
+
+extension ShopWishlistViewController: UICollectionViewDelegate, UICollectionViewDataSource ,UICollectionViewDelegateFlowLayout {
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if section == 0 {
+            return salesArray.count
+        } else if section  == 1 {
+            return recentArray.count
+        } else {
+            return bookmarkArray.count
+        }
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: ShopCVCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShopCVCell", for: indexPath) as! ShopCVCell
+        if indexPath.section == 0 {
+            cell.configureCell(data: salesArray[indexPath.row])
+        } else if indexPath.section  == 1 {
+            cell.configureCell(data: recentArray[indexPath.row])
+        } else {
+            cell.configureCell(data: bookmarkArray[indexPath.row])
+        }
+        return cell
+        
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let yourWidth = collectionView.bounds.width/2 - 10
+        return CGSize(width: yourWidth, height: 195)
+        
+    }
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5) //.zero
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        
+        return 5
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        
+        return 5
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 3
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let str = UIStoryboard(name: "Shop", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "ShopDetailsViewController") as! ShopDetailsViewController
+        if indexPath.section == 0 {
+            nextVC.productId = salesArray[indexPath.row].id
+        } else  if indexPath.section == 0 {
+            nextVC.productId = recentArray[indexPath.row].id
+        } else {
+            nextVC.productId = bookmarkArray[indexPath.row].id
+        }
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+    func collectionView(_ collectionView: UICollectionView,
+                        viewForSupplementaryElementOfKind kind: String,
+                        at indexPath: IndexPath) -> UICollectionReusableView {
+
+        switch kind {
+
+        case UICollectionView.elementKindSectionHeader:
+            let headerView: ShopWishlistHeaderView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: collectionViewHeaderFooterReuseIdentifier, for: indexPath) as! ShopWishlistHeaderView
+                
+            headerView.titleLbl.text = titleArray[indexPath.section]
+            
+            return headerView
+        default:
+            assert(false, "Unexpected element kind")
+        }
+    
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+            return CGSize(width: collectionView.frame.width, height: 60)
+    }
     
 }

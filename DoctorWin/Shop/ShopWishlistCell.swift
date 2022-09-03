@@ -31,7 +31,16 @@ class ShopWishlistCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+    func cellConfigure(sale:[ShopModel], recent:[ShopModel],bookmark:[ShopModel]) {
+        salesArray = sale
+        recentArray = recent
+        bookmarkArray = bookmark
+        collectionView.reloadData()
+        
+        print("sale \(salesArray.count)")
+        print("recent \(recentArray.count)")
+        print("bookmar \(bookmarkArray.count)")
+    }
 }
 extension ShopWishlistCell : UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
