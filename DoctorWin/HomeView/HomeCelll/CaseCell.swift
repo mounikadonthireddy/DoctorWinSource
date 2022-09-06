@@ -52,21 +52,21 @@ class CaseCell: UITableViewCell {
         if let urlString = homeModel.postImage {
             self.postImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
             let url = URL(string: ApiEndpoints.baseImageURL + urlString)
-            if let imageSource = CGImageSourceCreateWithURL(url! as CFURL, nil) {
-                if let imageProperties = CGImageSourceCopyPropertiesAtIndex(imageSource, 0, nil) as Dictionary? {
-                     let pixelWidth = imageProperties[kCGImagePropertyPixelWidth] as! Int
-                     let pixelHeight = imageProperties[kCGImagePropertyPixelHeight] as! Int
-                     print("the image width is: \(pixelWidth)")
-                     print("the image height is: \(pixelHeight)")
-                    
-                    let ratio = pixelWidth / pixelWidth
-                    if ratio != 0 {
-                    let newHeight = postImage.frame.width / CGFloat(ratio)
-                    imageHeiht.constant = newHeight
-                    self.layoutIfNeeded()
-                    }
-                  }
-              }
+//            if let imageSource = CGImageSourceCreateWithURL(url! as CFURL, nil) {
+//                if let imageProperties = CGImageSourceCopyPropertiesAtIndex(imageSource, 0, nil) as Dictionary? {
+//                     let pixelWidth = imageProperties[kCGImagePropertyPixelWidth] as! Int
+//                     let pixelHeight = imageProperties[kCGImagePropertyPixelHeight] as! Int
+//                     print("the image width is: \(pixelWidth)")
+//                     print("the image height is: \(pixelHeight)")
+//
+//                    let ratio = pixelWidth / pixelWidth
+//                    if ratio != 0 {
+//                    let newHeight = postImage.frame.width / CGFloat(ratio)
+//                    imageHeiht.constant = newHeight
+//                    self.layoutIfNeeded()
+                    //}
+                  //}
+              //}
             
         } else {
             imageHeiht.constant  = 0

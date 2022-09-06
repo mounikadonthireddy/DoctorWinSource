@@ -11,23 +11,9 @@ protocol NetworkViewModelDelegate {
     func didReceiveFollowDataResponse(response: [FollowModel]?, error: String?)
 }
 
+
 struct NetworkViewModel {
     var delegate : NetworkViewModelDelegate?
-    func getNetworkDataFromAPI(userID: String) {
-        let homeResource = NetworkResource()
-        homeResource.getNetworkData(userID: userID) { response in
-            DispatchQueue.main.async {
-                switch response {
-                case .success(let data):
-                    self.delegate?.didReceiveNetworkDataResponse(response: data, error: nil)
-                    
-                case .failure(let error):
-                    self.delegate?.didReceiveNetworkDataResponse(response: nil, error: error)
-                }
-            }
-        }
-    }
-    
     func getFollowDataFromAPI(userID: String) {
         let homeResource = NetworkResource()
         homeResource.getFollowData(userID: userID) { response in
@@ -82,4 +68,25 @@ struct NetworkModel: Codable {
     let ProfileImage: String?
     let hightest_qualification: String?
     let speciality: String?
+}
+struct GroupModel: Codable {
+    let id : Int?
+    let name_of_group: String?
+    let description: String?
+    let image: String?
+    let cover_image: String?
+    let number_of_joined: Int?
+}
+struct NetworkGroupModel: Codable {
+    let other_groups: [GroupModel]?
+    let admin_groups: [GroupModel]?
+}
+
+struct PeopleModel: Codable {
+    let userid: Int
+    let ProfileName: String?
+    let ProfileImage: String?
+    let hightest_qualification: String?
+    let speciality: String?
+    let cover_image: String?
 }

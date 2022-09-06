@@ -19,17 +19,33 @@ class NetworkCVCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        followBtn.setCornerRadiusWithBorderColor(radius: 15, color: UIColor.blue, borderWidth: 0.5)
+        followBtn.setCornerRadiusWithBorderColor(radius: 15, color: UIColor.clear, borderWidth: 0.5)
         self.personImage.setCornerRadius(radius: 29)
+        bgView.setCornerRadiusWithBorderColor(radius: 8, color: UIColor.lightGray, borderWidth: 0.5)
     }
 
    
-    func cellConfigureWithConnectionData(data: NetworkModel) {
+  
+    func cellConfigureWithGroupData(data: GroupModel) {
+        self.name.text = data.name_of_group ?? ""
+        self.qualification.text = data.description ?? ""
+        self.location.text = "\(data.number_of_joined ?? 0) " + "Followers"
+        self.setImagesforItems(profileImg: data.image, bgImage: data.cover_image)
+        followBtn.setTitle("Join", for: .normal)
+    }
+    func cellConfigureWithPeopleData(data: PeopleModel) {
         self.name.text = data.ProfileName ?? ""
         self.qualification.text = data.hightest_qualification ?? ""
         self.location.text = data.speciality ?? ""
-        if let urlString = data.ProfileImage {
-         self.personImage.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "loginBg"))
+        self.setImagesforItems(profileImg: data.ProfileImage, bgImage: data.cover_image)
+        followBtn.setTitle("Follow", for: .normal)
+    }
+    func setImagesforItems(profileImg: String?, bgImage: String?) {
+        if let urlString = profileImg {
+            self.personImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
+        }
+        if let urlString = bgImage {
+            self.bgImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
         }
     }
 }

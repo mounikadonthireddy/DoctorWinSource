@@ -282,6 +282,8 @@
 		BFD5FF2C2812EECE003CE888 /* NewsDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5FF2A2812EECE003CE888 /* NewsDetailsCell.swift */; };
 		BFD5FF2D2812EECE003CE888 /* NewsDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFD5FF2B2812EECE003CE888 /* NewsDetailsCell.xib */; };
 		BFD5FF2F2813048E003CE888 /* CarrierTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5FF2E2813048D003CE888 /* CarrierTabViewController.swift */; };
+		DC453E4C28C77EBA00E1B72F /* UserAnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC453E4A28C77EBA00E1B72F /* UserAnswerCell.swift */; };
+		DC453E4D28C77EBA00E1B72F /* UserAnswerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC453E4B28C77EBA00E1B72F /* UserAnswerCell.xib */; };
 		DC4AEF1E2853813D00D6D4A3 /* Me.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC4AEF1D2853813D00D6D4A3 /* Me.storyboard */; };
 		DC4AEF20285381C100D6D4A3 /* Network.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC4AEF1F285381C100D6D4A3 /* Network.storyboard */; };
 		DC4AEF222853847C00D6D4A3 /* Shop.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC4AEF212853847C00D6D4A3 /* Shop.storyboard */; };
@@ -337,6 +339,17 @@
 		DCA0A6E128C31463001DE3F1 /* ShopWishlistHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCA0A6DF28C31462001DE3F1 /* ShopWishlistHeaderView.xib */; };
 		DCA0A6E428C34957001DE3F1 /* NetworkCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA0A6E228C34957001DE3F1 /* NetworkCVCell.swift */; };
 		DCA0A6E528C34957001DE3F1 /* NetworkCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCA0A6E328C34957001DE3F1 /* NetworkCVCell.xib */; };
+		DCA0A6E828C36118001DE3F1 /* NetworkCVHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA0A6E628C36118001DE3F1 /* NetworkCVHeaderView.swift */; };
+		DCA0A6E928C36118001DE3F1 /* NetworkCVHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCA0A6E728C36118001DE3F1 /* NetworkCVHeaderView.xib */; };
+		DCA0A6EC28C3622A001DE3F1 /* NetworkCVHeaderTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA0A6EA28C3622A001DE3F1 /* NetworkCVHeaderTVCell.swift */; };
+		DCA0A6ED28C3622A001DE3F1 /* NetworkCVHeaderTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCA0A6EB28C3622A001DE3F1 /* NetworkCVHeaderTVCell.xib */; };
+		DCA0A6F228C4DCF1001DE3F1 /* QACell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA0A6F028C4DCF0001DE3F1 /* QACell.swift */; };
+		DCA0A6F328C4DCF1001DE3F1 /* QACell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCA0A6F128C4DCF0001DE3F1 /* QACell.xib */; };
+		DCA0A6F628C4DD50001DE3F1 /* AnswersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA0A6F428C4DD50001DE3F1 /* AnswersCell.swift */; };
+		DCA0A6F728C4DD50001DE3F1 /* AnswersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCA0A6F528C4DD50001DE3F1 /* AnswersCell.xib */; };
+		DCA0A6F928C610F8001DE3F1 /* GroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA0A6F828C610F8001DE3F1 /* GroupViewModel.swift */; };
+		DCA0A6FB28C61109001DE3F1 /* PeopleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA0A6FA28C61109001DE3F1 /* PeopleViewModel.swift */; };
+		DCA0A6FD28C757EC001DE3F1 /* UserDetailsResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA0A6FC28C757EC001DE3F1 /* UserDetailsResource.swift */; };
 		DCB7D1E1284B536200F3CFDE /* BookMarkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB7D1E0284B536200F3CFDE /* BookMarkViewModel.swift */; };
 		DCB7D1E3284B635800F3CFDE /* LikedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB7D1E2284B635800F3CFDE /* LikedViewModel.swift */; };
 		DCB7D1E5284C7EB700F3CFDE /* ImageDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB7D1E4284C7EB700F3CFDE /* ImageDetailsViewController.swift */; };
@@ -648,6 +661,8 @@
 		BFD5FF2B2812EECE003CE888 /* NewsDetailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsDetailsCell.xib; sourceTree = "<group>"; };
 		BFD5FF2E2813048D003CE888 /* CarrierTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrierTabViewController.swift; sourceTree = "<group>"; };
 		CFDC4F24275C623FA5230FA3 /* Pods-DoctorWin-DoctorWinUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorWin-DoctorWinUITests.release.xcconfig"; path = "Target Support Files/Pods-DoctorWin-DoctorWinUITests/Pods-DoctorWin-DoctorWinUITests.release.xcconfig"; sourceTree = "<group>"; };
+		DC453E4A28C77EBA00E1B72F /* UserAnswerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAnswerCell.swift; sourceTree = "<group>"; };
+		DC453E4B28C77EBA00E1B72F /* UserAnswerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserAnswerCell.xib; sourceTree = "<group>"; };
 		DC4AEF1D2853813D00D6D4A3 /* Me.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Me.storyboard; sourceTree = "<group>"; };
 		DC4AEF1F285381C100D6D4A3 /* Network.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Network.storyboard; sourceTree = "<group>"; };
 		DC4AEF212853847C00D6D4A3 /* Shop.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Shop.storyboard; sourceTree = "<group>"; };
@@ -702,6 +717,17 @@
 		DCA0A6DF28C31462001DE3F1 /* ShopWishlistHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopWishlistHeaderView.xib; sourceTree = "<group>"; };
 		DCA0A6E228C34957001DE3F1 /* NetworkCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCVCell.swift; sourceTree = "<group>"; };
 		DCA0A6E328C34957001DE3F1 /* NetworkCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NetworkCVCell.xib; sourceTree = "<group>"; };
+		DCA0A6E628C36118001DE3F1 /* NetworkCVHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCVHeaderView.swift; sourceTree = "<group>"; };
+		DCA0A6E728C36118001DE3F1 /* NetworkCVHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NetworkCVHeaderView.xib; sourceTree = "<group>"; };
+		DCA0A6EA28C3622A001DE3F1 /* NetworkCVHeaderTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCVHeaderTVCell.swift; sourceTree = "<group>"; };
+		DCA0A6EB28C3622A001DE3F1 /* NetworkCVHeaderTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NetworkCVHeaderTVCell.xib; sourceTree = "<group>"; };
+		DCA0A6F028C4DCF0001DE3F1 /* QACell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QACell.swift; sourceTree = "<group>"; };
+		DCA0A6F128C4DCF0001DE3F1 /* QACell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QACell.xib; sourceTree = "<group>"; };
+		DCA0A6F428C4DD50001DE3F1 /* AnswersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersCell.swift; sourceTree = "<group>"; };
+		DCA0A6F528C4DD50001DE3F1 /* AnswersCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnswersCell.xib; sourceTree = "<group>"; };
+		DCA0A6F828C610F8001DE3F1 /* GroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewModel.swift; sourceTree = "<group>"; };
+		DCA0A6FA28C61109001DE3F1 /* PeopleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewModel.swift; sourceTree = "<group>"; };
+		DCA0A6FC28C757EC001DE3F1 /* UserDetailsResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsResource.swift; sourceTree = "<group>"; };
 		DCB7D1E0284B536200F3CFDE /* BookMarkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarkViewModel.swift; sourceTree = "<group>"; };
 		DCB7D1E2284B635800F3CFDE /* LikedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedViewModel.swift; sourceTree = "<group>"; };
 		DCB7D1E4284C7EB700F3CFDE /* ImageDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailsViewController.swift; sourceTree = "<group>"; };
@@ -840,6 +866,7 @@
 				DC8AE245286D9DFB003376A7 /* ShopViewModel.swift */,
 				DC8AE24B286E0306003376A7 /* ShopDetailsViewModel.swift */,
 				BFC3EEE92824EA5E000A1582 /* NetworkResource.swift */,
+				DCA0A6FC28C757EC001DE3F1 /* UserDetailsResource.swift */,
 				8FF9AD0127731525002F4700 /* NewsJobResource.swift */,
 				435FB56B27510FE40040C406 /* JobCategoryResource.swift */,
 				43F971E4275BC53100733478 /* PollViewModel.swift */,
@@ -1092,6 +1119,7 @@
 			isa = PBXGroup;
 			children = (
 				43AF8FA82733BD0900CC69EF /* OTPViewController.swift */,
+				DCA0A6EE28C4DCC6001DE3F1 /* Question */,
 				43B52E4F273BE7DF004EF637 /* PostQuestion */,
 				43B5CBCA2726760400DFEC71 /* CustomCells */,
 				43B52E49273BE703004EF637 /* Add */,
@@ -1206,7 +1234,13 @@
 			isa = PBXGroup;
 			children = (
 				BF170F55280D9A94001B3109 /* NetworkViewController.swift */,
+				DCA0A6E628C36118001DE3F1 /* NetworkCVHeaderView.swift */,
+				DCA0A6E728C36118001DE3F1 /* NetworkCVHeaderView.xib */,
+				DCA0A6EA28C3622A001DE3F1 /* NetworkCVHeaderTVCell.swift */,
+				DCA0A6EB28C3622A001DE3F1 /* NetworkCVHeaderTVCell.xib */,
 				BFC3EEE72824E95E000A1582 /* NetworkViewModel.swift */,
+				DCA0A6F828C610F8001DE3F1 /* GroupViewModel.swift */,
+				DCA0A6FA28C61109001DE3F1 /* PeopleViewModel.swift */,
 				BF431C822782DA990057AF9F /* FollowViewController.swift */,
 				BFC3EEEB282523D6000A1582 /* FollowingViewController.swift */,
 				BFC3EEED28252579000A1582 /* RequestViewController.swift */,
@@ -1386,6 +1420,27 @@
 			path = ProfileEditCell;
 			sourceTree = "<group>";
 		};
+		DCA0A6EE28C4DCC6001DE3F1 /* Question */ = {
+			isa = PBXGroup;
+			children = (
+				DCA0A6EF28C4DCCF001DE3F1 /* Cells */,
+			);
+			path = Question;
+			sourceTree = "<group>";
+		};
+		DCA0A6EF28C4DCCF001DE3F1 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				DCA0A6F028C4DCF0001DE3F1 /* QACell.swift */,
+				DCA0A6F128C4DCF0001DE3F1 /* QACell.xib */,
+				DCA0A6F428C4DD50001DE3F1 /* AnswersCell.swift */,
+				DCA0A6F528C4DD50001DE3F1 /* AnswersCell.xib */,
+				DC453E4A28C77EBA00E1B72F /* UserAnswerCell.swift */,
+				DC453E4B28C77EBA00E1B72F /* UserAnswerCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		DCC7469A285C7D4C00B33A2D /* StoryBoards */ = {
 			isa = PBXGroup;
 			children = (
@@ -1521,6 +1576,7 @@
 			files = (
 				DC86698428742FAE00CF89A8 /* ShopCVCell.xib in Resources */,
 				BF431C99278352820057AF9F /* NewTypeCell.xib in Resources */,
+				DC453E4D28C77EBA00E1B72F /* UserAnswerCell.xib in Resources */,
 				BF170F5F280DAEFE001B3109 /* NetworkTableHeader.xib in Resources */,
 				43B975A52725978900CDF2F1 /* CarrierSubCell.xib in Resources */,
 				DC961EAF2876E17C00F24913 /* EditConnectCell.xib in Resources */,
@@ -1548,6 +1604,7 @@
 				DC4AEF20285381C100D6D4A3 /* Network.storyboard in Resources */,
 				DC4AEF24285384BD00D6D4A3 /* Job.storyboard in Resources */,
 				BFB3A66828352A02008D0C72 /* SpecialityCell.xib in Resources */,
+				DCA0A6F328C4DCF1001DE3F1 /* QACell.xib in Resources */,
 				43A280A6272AD82A001B88A1 /* News.json in Resources */,
 				BF0DD95B278D5B9C0053747A /* RecommandedJobCell.xib in Resources */,
 				BFA90E2A27BB5380009F9784 /* AddCasesTitleHeader.xib in Resources */,
@@ -1557,6 +1614,7 @@
 				DCA0A6D328C0FA86001DE3F1 /* BioCell.xib in Resources */,
 				439297D327231EDE001891B8 /* InfoCell.xib in Resources */,
 				DCA0A6DD28C10079001DE3F1 /* EditProfessionalDetailsCell.xib in Resources */,
+				DCA0A6F728C4DD50001DE3F1 /* AnswersCell.xib in Resources */,
 				BFC3EEF2282525E5000A1582 /* RequestCell.xib in Resources */,
 				43B03A9D272EAF6300A4337B /* CommentsCell.xib in Resources */,
 				DCA0A6E128C31463001DE3F1 /* ShopWishlistHeaderView.xib in Resources */,
@@ -1592,10 +1650,12 @@
 				BF0DD953278D46C50053747A /* ProfessionalDetailsCell.xib in Resources */,
 				BFD5FF2D2812EECE003CE888 /* NewsDetailsCell.xib in Resources */,
 				439297902722D628001891B8 /* Main.storyboard in Resources */,
+				DCA0A6E928C36118001DE3F1 /* NetworkCVHeaderView.xib in Resources */,
 				439275D82727F22B00E91E33 /* HomeTableViewHeader.xib in Resources */,
 				DC6B8A472853318A00F89D57 /* Tab.storyboard in Resources */,
 				BF0DD937278C88190053747A /* CarrierHighlightCell.xib in Resources */,
 				43D04BD32742892600414771 /* EditSkillCell.xib in Resources */,
+				DCA0A6ED28C3622A001DE3F1 /* NetworkCVHeaderTVCell.xib in Resources */,
 				DCA0A6E528C34957001DE3F1 /* NetworkCVCell.xib in Resources */,
 				BF0DD96C278D8C930053747A /* RecentSearchCVCell.xib in Resources */,
 				439DC469273FB28800DAD6D5 /* Roboto-Thin.ttf in Resources */,
@@ -1784,6 +1844,7 @@
 				BF0DD936278C88190053747A /* CarrierHighlightCell.swift in Sources */,
 				43AF8FCA27358C9900CC69EF /* Common.swift in Sources */,
 				DC86698628742FCD00CF89A8 /* ShopWishlistViewController.swift in Sources */,
+				DCA0A6F928C610F8001DE3F1 /* GroupViewModel.swift in Sources */,
 				43B2E8CD275F44B90022CD16 /* QuestionsViewModel.swift in Sources */,
 				43B975AA2725B18A00CDF2F1 /* JobRequirementCell.swift in Sources */,
 				43B03AAF2730104A00A4337B /* JobDetailsModel.swift in Sources */,
@@ -1810,6 +1871,8 @@
 				43AF8FBB27358BFA00CC69EF /* LoginResponse.swift in Sources */,
 				DC55BE022872BCB700B1EE1B /* MCQViewModel.swift in Sources */,
 				BF431C802782D57E0057AF9F /* FollowCell.swift in Sources */,
+				DCA0A6F628C4DD50001DE3F1 /* AnswersCell.swift in Sources */,
+				DC453E4C28C77EBA00E1B72F /* UserAnswerCell.swift in Sources */,
 				43F50BC92757931300EC1A80 /* CustomJobViewModel.swift in Sources */,
 				43AF8FB12733D89D00CC69EF /* PaddingLabel.swift in Sources */,
 				BF0DD956278D4C820053747A /* ProfileSkillsCell.swift in Sources */,
@@ -1821,6 +1884,7 @@
 				BFA90E1B27B4E97B009F9784 /* ProfileImageCell.swift in Sources */,
 				43B23206273AAA2C00038F8A /* AppliedJobCell.swift in Sources */,
 				435FB5682750BD100040C406 /* JobsResource.swift in Sources */,
+				DCA0A6FD28C757EC001DE3F1 /* UserDetailsResource.swift in Sources */,
 				439AA1F7273632A200D09E26 /* LoginVCExtension.swift in Sources */,
 				BF170F62280FCE49001B3109 /* CaseCell.swift in Sources */,
 				DC8D9AD1285787EE009533DC /* ConnectResource.swift in Sources */,
@@ -1836,6 +1900,7 @@
 				43B5CBCD2726779900DFEC71 /* JobsCell.swift in Sources */,
 				43A6A99227329F1C00400F72 /* CasesTableViewCell.swift in Sources */,
 				43B52E36273BCA51004EF637 /* PostQuestionHeader.swift in Sources */,
+				DCA0A6FB28C61109001DE3F1 /* PeopleViewModel.swift in Sources */,
 				43AF8FAF2733D5B800CC69EF /* RegisterDetailsViewController.swift in Sources */,
 				43AF9F87272975260020CCF3 /* HomeDataModel.swift in Sources */,
 				DC8AE24A286D9E33003376A7 /* ShopModel.swift in Sources */,
@@ -1887,6 +1952,7 @@
 				BF170F85281119ED001B3109 /* JobDetailsCell.swift in Sources */,
 				43B03A95272E4B2D00A4337B /* JobDetailsViewController.swift in Sources */,
 				43B23203273AA67100038F8A /* AppliedJobViewController.swift in Sources */,
+				DCA0A6F228C4DCF1001DE3F1 /* QACell.swift in Sources */,
 				DC9539C1285C5BCA00FBD8D0 /* CasesDataModel.swift in Sources */,
 				439923CF272BD8D30085E067 /* JobsCollectionCell.swift in Sources */,
 				BF0DD952278D46C50053747A /* ProfessionalDetailsCell.swift in Sources */,
@@ -1895,6 +1961,7 @@
 				BF170F71280FD726001B3109 /* ExamDetailsViewController.swift in Sources */,
 				43A6A97E2732520600400F72 /* AddExperienceCell.swift in Sources */,
 				BFCB16BE279993AC005E3FEB /* PollsViewModel.swift in Sources */,
+				DCA0A6E828C36118001DE3F1 /* NetworkCVHeaderView.swift in Sources */,
 				BF170F4F280D34CA001B3109 /* ProfileViewHeader.swift in Sources */,
 				DCB7D1E3284B635800F3CFDE /* LikedViewModel.swift in Sources */,
 				BFC3EEFA2828F780000A1582 /* UserDetailsViewModel.swift in Sources */,
@@ -1935,6 +2002,7 @@
 				DC961EAB2876D68000F24913 /* EditConnectViewModel.swift in Sources */,
 				DC9539BB285C5B9600FBD8D0 /* NewsCategoryModel.swift in Sources */,
 				43AF8FC027358C0700CC69EF /* ValidationResult.swift in Sources */,
+				DCA0A6EC28C3622A001DE3F1 /* NetworkCVHeaderTVCell.swift in Sources */,
 				43F971E1275B5E8800733478 /* ProfileViewModel.swift in Sources */,
 				43AF8FB32733D96F00CC69EF /* PaddingTextFeild.swift in Sources */,
 				BFC3EEEE28252579000A1582 /* RequestViewController.swift in Sources */,

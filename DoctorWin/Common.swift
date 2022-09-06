@@ -123,6 +123,12 @@ struct ApiEndpoints
     static let editUserPersonalInfo = "user/personal/info/"
     static let getUserProfessionInfo = "user/profession/info/"
     
+    //user details
+    static let getUserPostedPosts  = "user/social/"
+    static let getUserPostedCases  = "complaint/case"
+    static let getUserPostedQuestions  = "ask/question"
+    static let getUserPostedAnswers  = "ask/question/reply/show"
+    
     //complaint
     static let getComplaint = "complaint/"
     static let getComplaintComment = "complaint/comment/"
@@ -153,10 +159,11 @@ struct ApiEndpoints
 
     
     //Network
-    static let getNetworkConnections = "test/connection"
+    static let getNetworkConnections = "group/create"
     static let getFollow = "auth/follow"
     static let getFollowing = "auth/following"
     static let getRequest = "auth/request"
+    static let getPeoples = "test/connection"
     
     //Requested User
     

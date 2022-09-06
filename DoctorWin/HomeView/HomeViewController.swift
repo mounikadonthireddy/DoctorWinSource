@@ -114,6 +114,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapImageView(_:)))
         cell.postImage.tag = indexPath.row
         cell.postImage?.addGestureRecognizer(tapGestureRecognizer)
+        cell.layoutIfNeeded()
         return cell
         
     }
@@ -131,6 +132,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 400
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: HomeTableHeader.identifier) as? HomeTableHeader {

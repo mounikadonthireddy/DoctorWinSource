@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NetworkCVHeaderView" id="U6b-Vx-4bR" customClass="NetworkCVHeaderView" customModule="DoctorWin" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="133"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="csT-4x-5Ug">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="54" id="Nju-DS-d9F"/>
+                    </constraints>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AXz-RQ-98A" customClass="CustomSegmentedControl" customModule="DoctorWin" customModuleProvider="target">
+                    <rect key="frame" x="10" y="79" width="250" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="250" id="YVo-0M-c8e"/>
+                        <constraint firstAttribute="height" constant="45" id="b8P-Us-Mgr"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Riy-8p-c6Y">
+                    <rect key="frame" x="0.0" y="127" width="320" height="1"/>
+                    <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="EiV-5K-dRd"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
+            <constraints>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="bottom" secondItem="AXz-RQ-98A" secondAttribute="bottom" constant="9" id="C92-To-T6j"/>
+                <constraint firstAttribute="trailing" secondItem="Riy-8p-c6Y" secondAttribute="trailing" id="Jsn-Yv-CHa"/>
+                <constraint firstItem="csT-4x-5Ug" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" id="PdM-dc-vgj"/>
+                <constraint firstItem="AXz-RQ-98A" firstAttribute="top" secondItem="csT-4x-5Ug" secondAttribute="bottom" constant="10" id="R0B-Tg-wwl"/>
+                <constraint firstItem="Riy-8p-c6Y" firstAttribute="top" secondItem="AXz-RQ-98A" secondAttribute="bottom" constant="3" id="WYp-Ur-gWP"/>
+                <constraint firstItem="AXz-RQ-98A" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" constant="10" id="Z0S-8b-mjp"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="trailing" secondItem="csT-4x-5Ug" secondAttribute="trailing" id="iJZ-q7-DS4"/>
+                <constraint firstItem="csT-4x-5Ug" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="upW-nf-q6O"/>
+                <constraint firstItem="Riy-8p-c6Y" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="z0l-ts-fqd"/>
+            </constraints>
+            <connections>
+                <outlet property="groupTableHeight" destination="Nju-DS-d9F" id="dzT-sQ-ex7"/>
+                <outlet property="groupTableView" destination="csT-4x-5Ug" id="Nqk-SY-CxS"/>
+                <outlet property="interfaceSegmented" destination="AXz-RQ-98A" id="rPT-WT-v6j"/>
+            </connections>
+            <point key="canvasLocation" x="50.724637681159422" y="108.81696428571428"/>
+        </collectionReusableView>
+    </objects>
+    <resources>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

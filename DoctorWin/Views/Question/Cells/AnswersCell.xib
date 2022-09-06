@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="AnswersCell" customModule="DoctorWin" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="255" height="124"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="255" height="124"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DR.  Mounika" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dEw-FZ-m3J">
+                        <rect key="frame" x="10" y="10" width="235" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="vgW-3E-6cK"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="9ga-0l-div">
+                        <rect key="frame" x="10" y="47.5" width="30" height="27"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" systemColor="labelColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="sTV-8I-NDQ"/>
+                            <constraint firstAttribute="height" constant="30" id="xAA-Xs-Jue"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mounika Donthireddy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdr-Fl-TfB">
+                        <rect key="frame" x="50" y="41" width="195" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="jba-hO-E98"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Childern specialist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3RY-5U-Ixl">
+                        <rect key="frame" x="50" y="59" width="82" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="12" id="rKn-I7-srC"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DR.  Mounika" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hTK-iU-nrC">
+                        <rect key="frame" x="10" y="91" width="235" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="1Uk-25-VPL"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="dEw-FZ-m3J" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="H4A-pE-rTk"/>
+                <constraint firstAttribute="trailing" secondItem="hTK-iU-nrC" secondAttribute="trailing" constant="10" id="SWf-dt-ieS"/>
+                <constraint firstAttribute="trailing" secondItem="hdr-Fl-TfB" secondAttribute="trailing" constant="10" id="VV2-tO-h5M"/>
+                <constraint firstItem="9ga-0l-div" firstAttribute="top" secondItem="dEw-FZ-m3J" secondAttribute="bottom" constant="15" id="Z2P-ml-CBb"/>
+                <constraint firstItem="hdr-Fl-TfB" firstAttribute="top" secondItem="dEw-FZ-m3J" secondAttribute="bottom" constant="10" id="aPZ-fp-ziK"/>
+                <constraint firstItem="9ga-0l-div" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="cTZ-gf-aVN"/>
+                <constraint firstItem="3RY-5U-Ixl" firstAttribute="leading" secondItem="9ga-0l-div" secondAttribute="trailing" constant="10" id="dnu-UP-4Ln"/>
+                <constraint firstAttribute="trailing" secondItem="dEw-FZ-m3J" secondAttribute="trailing" constant="10" id="lE3-bW-5Rf"/>
+                <constraint firstAttribute="bottom" secondItem="hTK-iU-nrC" secondAttribute="bottom" constant="12" id="n8N-n8-bwK"/>
+                <constraint firstItem="3RY-5U-Ixl" firstAttribute="top" secondItem="hdr-Fl-TfB" secondAttribute="bottom" id="qiV-5w-eqS"/>
+                <constraint firstItem="dEw-FZ-m3J" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="tmm-aB-oER"/>
+                <constraint firstItem="hdr-Fl-TfB" firstAttribute="leading" secondItem="9ga-0l-div" secondAttribute="trailing" constant="10" id="uba-TS-csY"/>
+                <constraint firstItem="hTK-iU-nrC" firstAttribute="top" secondItem="9ga-0l-div" secondAttribute="bottom" constant="15" id="uoO-yx-ZOc"/>
+                <constraint firstItem="hTK-iU-nrC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="uyn-Hd-dVE"/>
+            </constraints>
+            <size key="customSize" width="255" height="124"/>
+            <connections>
+                <outlet property="personDesignation" destination="3RY-5U-Ixl" id="oNt-Pu-r7o"/>
+                <outlet property="personImage" destination="9ga-0l-div" id="BHL-JG-WIu"/>
+                <outlet property="personName" destination="hdr-Fl-TfB" id="qRH-CO-cjA"/>
+                <outlet property="questionDes" destination="hTK-iU-nrC" id="O0j-7c-CFZ"/>
+                <outlet property="questionTitle" destination="dEw-FZ-m3J" id="nTB-fg-fXH"/>
+            </connections>
+            <point key="canvasLocation" x="286.23188405797106" y="103.125"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
