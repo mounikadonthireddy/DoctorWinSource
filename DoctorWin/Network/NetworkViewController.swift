@@ -72,9 +72,16 @@ class NetworkViewController: ViewController {
         let resource = HomeResource()
         resource.followComplaint(request: request) { result in
             DispatchQueue.main.async {
-                if result != nil && result == true {
-                    self.loadPeopleConnections()
+                switch result {
+                    
+                case .success(let data):
+                    if data != nil && data == true {
+                        self.loadPeopleConnections()
+                    }
+                case .failure(_):
+                    print("")
                 }
+               
             }
             
         }

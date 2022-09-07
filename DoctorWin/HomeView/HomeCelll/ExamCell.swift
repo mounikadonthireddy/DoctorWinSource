@@ -125,11 +125,19 @@ class ExamCell: UITableViewCell {
         let resource = HomeResource()
         resource.followComplaint(request: request) { result in
             DispatchQueue.main.async {
-                if result != nil && result == true {
-                    self.followBtn.setTitle("Following", for: .normal)
-                } else {
-                    self.followBtn.setTitle("Follow", for: .normal)
+                switch result {
+                    
+                case .success(let data):
+                    if data == true && data != nil  {
+                        self.followBtn.setTitle("Following", for: .normal)
+                    } else {
+                        self.followBtn.setTitle("Follow", for: .normal)
+                    }
+                    
+                case .failure(_):
+                    print("")
                 }
+              
             }
             
         }

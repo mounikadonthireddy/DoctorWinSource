@@ -8,7 +8,7 @@
 import Foundation
 
 struct APIHelperClass {
-    func callWebserviceToMakeRequest<T:Decodable>(requestUrl: URL, requestBody: Data?, resultType: T.Type, httpMethod:HTTPMethod,  completionHandler:@escaping(_ result: T)-> Void) {
+    func callWebserviceToMakeRequest<T:Decodable>(requestUrl: URL, requestBody: Data?, resultType: T.Type, httpMethod:HTTPMethod,  completionHandler:@escaping(Result<T, RequestError>)-> Void) {
         
         var urlRequest = URLRequest(url: requestUrl)
         urlRequest.httpMethod = httpMethod.rawValue
@@ -25,18 +25,20 @@ struct APIHelperClass {
         URLSession.shared.dataTask(with: urlRequest) { (data, httpUrlResponse, error) in
             
             if(data != nil && data?.count != 0)  {
+                let decoder = JSONDecoder()
                 do {
-                    let decodedApps = try JSONDecoder().decode(T.self, from: data!)
-                    
-                    completionHandler(decodedApps)
-                    print(decodedApps)
+                    let result = try decoder.decode(T.self, from: data!)
+                    completionHandler(.success(result))
                 }
-                catch let decodingError {
-                    debugPrint(decodingError)
+                catch let error {
+                    print(error)
+                    completionHandler(.failure(RequestError.decodingError))
                 }
+            } else if (data != nil && data?.count != 0) {
+                completionHandler(.failure(.internalServerError))
             }
             else if (error as? URLError)?.code == .timedOut {
-                // Handle session timeout
+                completionHandler(.failure(.internalServerError))
             }
         }.resume()
     }

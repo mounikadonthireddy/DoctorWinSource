@@ -49,7 +49,7 @@
                             <constraint firstItem="OAY-NV-zfQ" firstAttribute="centerX" secondItem="pkc-8f-3vv" secondAttribute="centerX" id="G9R-fH-VQf"/>
                             <constraint firstItem="OAY-NV-zfQ" firstAttribute="top" secondItem="pkc-8f-3vv" secondAttribute="top" id="JcD-d5-gWl"/>
                             <constraint firstAttribute="height" constant="100" id="Kq5-kf-Qyo"/>
-                            <constraint firstAttribute="bottom" secondItem="xGR-yl-9G1" secondAttribute="bottom" constant="5" id="M1Z-az-gM9"/>
+                            <constraint firstAttribute="bottom" secondItem="xGR-yl-9G1" secondAttribute="bottom" priority="999" constant="5" id="M1Z-az-gM9"/>
                             <constraint firstItem="xGR-yl-9G1" firstAttribute="leading" secondItem="pkc-8f-3vv" secondAttribute="leading" constant="5" id="opH-Wu-4HY"/>
                             <constraint firstAttribute="trailing" secondItem="xGR-yl-9G1" secondAttribute="trailing" constant="5" id="uFi-cz-JiH"/>
                         </constraints>

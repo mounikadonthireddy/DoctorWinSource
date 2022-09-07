@@ -44,11 +44,18 @@ struct HomeViewModel {
         let model = ComplaintLikeModel(user_id: userID, complaint_id: categeroyID)
         homeResource.saveComplaintToWishslist(userID: userID, complaintID: categeroyID, reqModel: model) { response in
             DispatchQueue.main.async {
-                if response.status == "true" {
-                    self.savedelegate?.didReplySent(status: true, error: nil)
-                } else {
-                    self.savedelegate?.didReplySent(status: false, error: "error")
+                switch response {
+                case .success(let data):
+                    if data.status == "true" {
+                        self.savedelegate?.didReplySent(status: true, error: nil)
+                    } else {
+                        self.savedelegate?.didReplySent(status: false, error: "error")
+                    }
+                case .failure(_):
+                    print("")
                 }
+                
+            
             
             }
             

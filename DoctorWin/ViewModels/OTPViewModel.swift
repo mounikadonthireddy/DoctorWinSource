@@ -18,23 +18,30 @@ struct OTPViewModel {
         let loginResource = LoginResource()
         loginResource.validateOtp(request: request) { (result) in
             DispatchQueue.main.async {
-                if result.status ?? false {
-               User.shared.userID = "\(result.user_id!)"
-               UserDefaults.standard.setValue("\(result.user_id!)", forKey: "user_id")
-               UserDefaults.standard.setValue(result.phone_number, forKey: "mobileNum")
-               self.delegate?.didReceiveLoginResponse(wilNavigateTo: true, error: nil)
+                switch result {
+                    
+                case .success(let data ):
+                    
+                    if data.status ?? false {
+                        User.shared.userID = "\(data.user_id!)"
+                        UserDefaults.standard.setValue("\(data.user_id!)", forKey: "user_id")
+                        UserDefaults.standard.setValue(data.phone_number, forKey: "mobileNum")
+                        self.delegate?.didReceiveLoginResponse(wilNavigateTo: true, error: nil)
+                    }
+                    else if data.message != nil {
+                        self.delegate?.didReceiveLoginResponse(wilNavigateTo: false, error: "Please Enter")
+                        
+                    } else {
+                        self.delegate?.didReceiveLoginResponse(wilNavigateTo: false, error: "Please Try again after sometime")
+                        
+                    }
+                case .failure( _):
+                    self.delegate?.didReceiveLoginResponse(wilNavigateTo: false, error: "Please Try again after sometime")
+                }
+                
             }
-           else if result.message != nil {
-               self.delegate?.didReceiveLoginResponse(wilNavigateTo: false, error: "Please Enter")
-
-           } else {
-               self.delegate?.didReceiveLoginResponse(wilNavigateTo: false, error: "Please Try again after sometime")
-
-           }
-            }
-        
         }
+        
     }
     
 }
-

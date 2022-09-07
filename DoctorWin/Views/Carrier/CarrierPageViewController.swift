@@ -52,7 +52,7 @@ class CarrierPageViewController: ViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
         tabBarController?.tabBar.isHidden = false
-
+        
     }
     func parse1() {
         jobsVM.getAllJobData(userID: User.shared.userID)
@@ -66,8 +66,13 @@ class CarrierPageViewController: ViewController {
         DropDownResource().getLocationData { result in
             DispatchQueue.main.async {
                 self.dismiss()
-                self.locationArray = result
+                switch result {
+                case .success(let data):
+                self.locationArray = data
                 self.tableView.reloadData()
+                case .failure(_) :
+                    self.tableView.reloadData()
+                }
             }
             
         }
@@ -81,8 +86,14 @@ class CarrierPageViewController: ViewController {
         DropDownResource().getDesignationData { result in
             DispatchQueue.main.async {
                 self.dismiss()
-                self.designationArray = result
-                self.tableView.reloadData()
+                switch result {
+                case .success(let data):
+                    self.designationArray = data
+                    self.tableView.reloadData()
+                case .failure(_):
+                    self.tableView.reloadData()
+                }
+                
             }
             
         }
@@ -93,8 +104,13 @@ class CarrierPageViewController: ViewController {
         resouce.getSpecilityData { result in
             DispatchQueue.main.async {
                 self.dismiss()
-                self.speacilityArray = result
-                self.tableView.reloadData()
+                switch result {
+                case .success(let data):
+                    self.speacilityArray = data
+                    self.tableView.reloadData()
+                case .failure(_):
+                    self.tableView.reloadData()
+                }
             }
             
         }
@@ -105,11 +121,16 @@ class CarrierPageViewController: ViewController {
         resouce.getRecentSearchData { result in
             DispatchQueue.main.async {
                 self.dismiss()
-                self.recentSearchArray = result
-                self.tableView.reloadData()
-            }
-            
-        }
+                switch result {
+                case .success(let data):
+                    self.recentSearchArray = data
+                    self.tableView.reloadData()
+                case .failure(_):
+                    self.tableView.reloadData()
+                }
+                
+                
+            }}
     }
     func getCustomJobsCount() {
         self.showLoader()
@@ -117,13 +138,17 @@ class CarrierPageViewController: ViewController {
         resouce.getJobsCount { result in
             DispatchQueue.main.async {
                 self.dismiss()
-                self.jobsCount = result
-                self.tableView.reloadData()
+                switch result {
+                case .success(let data):
+                    self.jobsCount = data
+                    self.tableView.reloadData()
+                case .failure(_):
+                    self.tableView.reloadData()
+                }
+                
             }
-            
         }
     }
-    
 }
 extension CarrierPageViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -232,7 +257,7 @@ extension CarrierPageViewController: UITableViewDelegate, UITableViewDataSource 
         
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       
+        
         if indexPath.section == 2 {
             let str = UIStoryboard(name: "Job", bundle: nil)
             let nextVC = str.instantiateViewController(withIdentifier: "JobsViewController") as! JobsViewController
@@ -327,7 +352,7 @@ extension CarrierPageViewController: SearchJobDelegate {
         nextVC.inputArray =  speacilityArray.map{ data in
             return data.department
         }
-      
+        
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     

@@ -7,7 +7,7 @@
 
 import Foundation
 struct RegisterResource {
-    func registerUser(registerRequest: RegisterRequest, completion : @escaping (LoginResponse) -> Void) {
+    func registerUser(registerRequest: RegisterRequest, completion : @escaping (ResponseResult<LoginResponse>) -> Void) {
         let loginUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.login
         let homeUrl = URL(string: loginUrlStr)!
 
@@ -15,7 +15,13 @@ struct RegisterResource {
         do {
             let loginPostBody = try JSONEncoder().encode(registerRequest)
             httpUtility.postMethod(requestUrl: homeUrl, requestBody: loginPostBody, resultType: LoginResponse.self) { (result) in
-                completion(result)
+                switch result {
+                case .success(let data):
+                    completion(.success(data))
+                    
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
         }
         }
         catch let error {

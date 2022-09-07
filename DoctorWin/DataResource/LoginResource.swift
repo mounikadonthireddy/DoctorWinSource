@@ -10,7 +10,7 @@ import Foundation
 
 struct LoginResource {
 
-    func loginUser(loginRequest: LoginRequest, completion :  @escaping(LoginResponse) -> Void) {
+    func loginUser(loginRequest: LoginRequest, completion :  @escaping(ResponseResult<LoginResponse>) -> Void) {
         let loginUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.login
         let homeUrl = URL(string: loginUrlStr)!
 
@@ -19,7 +19,13 @@ struct LoginResource {
             
             let loginPostBody = try JSONEncoder().encode(loginRequest)
             httpUtility.postMethod(requestUrl: homeUrl, requestBody: loginPostBody, resultType: LoginResponse.self) { (result) in
-                completion(result)
+                switch result {
+                case .success(let data):
+                    completion(.success(data))
+                    
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
                
         }
         }
@@ -27,7 +33,7 @@ struct LoginResource {
             debugPrint(error)
         }
     }
-    func validateOtp(request: OTPRequest, completion :  @escaping(OTPResponse) -> Void) {
+    func validateOtp(request: OTPRequest, completion :  @escaping(ResponseResult<OTPResponse>) -> Void) {
         let loginUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.otp
         let homeUrl = URL(string: loginUrlStr)!
 
@@ -36,7 +42,13 @@ struct LoginResource {
             
             let loginPostBody = try JSONEncoder().encode(request)
             httpUtility.callWebserviceToMakeRequest(requestUrl: homeUrl, requestBody: loginPostBody, resultType: OTPResponse.self, httpMethod: HTTPMethod.post) { (result) in
-                completion(result)
+                switch result {
+                case .success(let data):
+                    completion(.success(data))
+                    
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
                
         }
         }
@@ -45,7 +57,7 @@ struct LoginResource {
         }
     }
     
-    func resendOtp(request: LoginRequest, completion :  @escaping(LoginResponse) -> Void) {
+    func resendOtp(request: LoginRequest, completion :  @escaping(ResponseResult<LoginResponse>) -> Void) {
         let loginUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.resendOtp
         let homeUrl = URL(string: loginUrlStr)!
 
@@ -54,7 +66,13 @@ struct LoginResource {
             
             let loginPostBody = try JSONEncoder().encode(request)
             httpUtility.postMethod(requestUrl: homeUrl, requestBody: loginPostBody, resultType: LoginResponse.self) { (result) in
-                completion(result)
+                switch result {
+                case .success(let data):
+                    completion(.success(data))
+                    
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
                
         }
         }

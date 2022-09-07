@@ -18,10 +18,10 @@ class EditSkillCell: UITableViewCell {
         detailsTF.setUnderLine()
         saveBtn.setCornerRadius(radius: Float(saveBtn.frame.height)/2)
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     @IBAction func saveClicked(_ sender: UIButton) {
@@ -31,9 +31,18 @@ class EditSkillCell: UITableViewCell {
             let editModel = EditAboutModel(tell_me_about_youself: detailsTF.text ?? "dfsad")
             resource.editProfileAboutMe(userID: User.shared.userID, profileReq: editModel) { res in
                 DispatchQueue.main.async {
-                if res?.status == true {
-                    self.profileDelegate?.didProfileUpdated(status: true, error: nil)
-                }
+                    switch res {
+                        
+                    case .success(let data):
+                        if data?.status == true {
+                            self.profileDelegate?.didProfileUpdated(status: true, error: nil)
+                        } else {
+                            self.profileDelegate?.didProfileUpdated(status: false, error: nil)
+                        }
+                    case .failure(_):
+                        self.profileDelegate?.didProfileUpdated(status: false, error: nil)
+                    }
+                    
                 }
             }
             
@@ -41,10 +50,18 @@ class EditSkillCell: UITableViewCell {
             let editModel = EditSkillModel(skill: detailsTF.text ?? "sfzxfddgvf")
             resource.editProfileSkill(userID: User.shared.userID, profileReq: editModel){ res in
                 DispatchQueue.main.async {
-                if res?.status == true {
-                    self.profileDelegate?.didProfileUpdated(status: true, error: nil)
+                    switch res {
+                        
+                    case .success(let data):
+                        if data?.status == true {
+                            self.profileDelegate?.didProfileUpdated(status: true, error: nil)
+                        } else {
+                            self.profileDelegate?.didProfileUpdated(status: false, error: nil)
+                        }
+                    case .failure(_):
+                        self.profileDelegate?.didProfileUpdated(status: false, error: nil)
+                    }
                 }
-            }
             }
         }
     }

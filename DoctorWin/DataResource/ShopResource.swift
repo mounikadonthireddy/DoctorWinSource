@@ -92,7 +92,7 @@ struct ShopResource {
         }
         
     }
-    func saveProduct(request: ShopSaveRequest, completion : @escaping  (_ result: StatusResponseModel) -> Void) {
+    func saveProduct(request: ShopSaveRequest, completion : @escaping  (_ result: ResponseResult<StatusResponseModel>) -> Void) {
         
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.shopBookmark + "?user_id=\(request.user_id)&productid=\(request.productid)"
         let homeUrl = URL(string: homeUrlStr)!
@@ -104,7 +104,13 @@ struct ShopResource {
             helper.callWebserviceToMakeRequest(requestUrl: homeUrl, requestBody: postBody, resultType: StatusResponseModel.self, httpMethod: HTTPMethod.post) {
                 result in
                 
-                completion(result)
+                switch result {
+                case .success(let data):
+                    completion(.success(data))
+                    
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
                 
             }
             

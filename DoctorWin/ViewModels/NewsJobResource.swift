@@ -15,23 +15,12 @@ struct NewsJobResource {
             httpUtility.getApiData(urlString: homeUrlStr, resultType: [NewsDataModel].self) { result in
                 
                 switch result {
-                   case .success(let data):
+                case .success(let data):
                     completion(.success(data))
                     
-                   case .failure(let requestError):
-                       switch requestError {
-                       case .invalidUrl:
-                        completion(.failure("Please try Again After SomeTime"))
-                       
-                       case .internalServerError:
-                        print("Error: Unknown")
-                       
-                       case .decodingError:
-                        print("Error: Unknown")
-                       case .serverError(error: let error):
-                        print("Error: Unknown")
-                       }
-                   }
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
             }
         }
     }
@@ -44,23 +33,12 @@ struct NewsJobResource {
             httpUtility.getApiData(urlString: homeUrlStr, resultType: [NewscategoryDataModel].self) { result in
                 
                 switch result {
-                   case .success(let data):
+                case .success(let data):
                     completion(.success(data))
                     
-                   case .failure(let requestError):
-                       switch requestError {
-                       case .invalidUrl:
-                        completion(.failure("Please try Again After SomeTime"))
-                       
-                       case .internalServerError:
-                        print("Error: Unknown")
-                       
-                       case .decodingError:
-                        print("Error: Unknown")
-                       case .serverError(error: let error):
-                        print("Error: Unknown")
-                       }
-                   }
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
             }
         }
     }
@@ -72,77 +50,44 @@ struct NewsJobResource {
             httpUtility.getApiData(urlString: homeUrlStr, resultType: [NewsCategoryModel].self) { result in
                 
                 switch result {
-                   case .success(let data):
+                case .success(let data):
                     completion(.success(data))
                     
-                   case .failure(let requestError):
-                       switch requestError {
-                       case .invalidUrl:
-                        completion(.failure("Please try Again After SomeTime"))
-                       
-                       case .internalServerError:
-                        print("Error: Unknown")
-                       
-                       case .decodingError:
-                        print("Error: Unknown")
-                       case .serverError(error: let error):
-                        print("Error: Unknown")
-                       }
-                   }
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
             }
         }
     }
     func getMyNewsData1(urlString: String, completion : @escaping (_ result: ResponseResult<[NewsModel]>) -> Void) {
-     
+        
         let httpUtility = HttpUtility()
         do {
             httpUtility.getApiData(urlString: urlString, resultType: [NewsModel].self) { result in
                 
                 switch result {
-                   case .success(let data):
+                case .success(let data):
                     completion(.success(data))
                     
-                   case .failure(let requestError):
-                       switch requestError {
-                       case .invalidUrl:
-                        completion(.failure("Please try Again After SomeTime"))
-                       
-                       case .internalServerError:
-                        print("Error: Unknown")
-                       
-                       case .decodingError:
-                        print("Error: Unknown")
-                       case .serverError(error: let error):
-                        print("Error: Unknown")
-                       }
-                   }
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
             }
         }
     }
     func getMyNewsData(urlString: String, completion : @escaping (_ result: ResponseResult<[NewsDataModel]>) -> Void) {
-     
+        
         let httpUtility = HttpUtility()
         do {
             httpUtility.getApiData(urlString: urlString, resultType: [NewsDataModel].self) { result in
                 
                 switch result {
-                   case .success(let data):
+                case .success(let data):
                     completion(.success(data))
                     
-                   case .failure(let requestError):
-                       switch requestError {
-                       case .invalidUrl:
-                        completion(.failure("Please try Again After SomeTime"))
-                       
-                       case .internalServerError:
-                        print("Error: Unknown")
-                       
-                       case .decodingError:
-                        print("Error: Unknown")
-                       case .serverError(error: let error):
-                        print("Error: Unknown")
-                       }
-                   }
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
             }
         }
     }

@@ -28,17 +28,24 @@ struct LoginViewModel {
                 
                 //return the response we get from loginResource
                 DispatchQueue.main.async {
+                    switch result {
+                    case .success(let data):
+                        if data.status {
+                            UserDefaults.standard.setValue(loginRequest.phoneNumber, forKey: "mobileNum")
+                            self.delegate?.didReceiveLoginResponse(wilNavigateTo: false, error: nil)
+                        } else if data.status == false && data.Verified == false {
+                            self.delegate?.didReceiveLoginResponse(wilNavigateTo: true, error: "register")
+                            
+                        } else {
+                            self.delegate?.didReceiveLoginResponse(wilNavigateTo: false, error: "Please Try again after sometime")
+                            
+                        }
                     
-                    if result.status {
-                        UserDefaults.standard.setValue(loginRequest.phoneNumber, forKey: "mobileNum")
-                        self.delegate?.didReceiveLoginResponse(wilNavigateTo: false, error: nil)
-                    } else if result.status == false && result.Verified == false {
-                        self.delegate?.didReceiveLoginResponse(wilNavigateTo: true, error: "register")
-                        
-                    } else {
-                        self.delegate?.didReceiveLoginResponse(wilNavigateTo: false, error: "Please Try again after sometime")
-                        
-                    }
+                case .failure(_):
+                    self.delegate?.didReceiveLoginResponse(wilNavigateTo: false, error: "Please Try again after sometime")
+                }
+                    
+                    
                 }
             }
             

@@ -15,26 +15,12 @@ struct JobApplyResource {
             httpUtility.getApiData(urlString: homeUrlStr, resultType: ResponseModel.self) { result in
                 
                 switch result {
-                   case .success(let data):
+                case .success(let data):
                     completion(.success(data))
                     
-                   case .failure(let requestError):
-                       switch requestError {
-                       case .invalidUrl:
-                        completion(.failure("Please try Again After SomeTime"))
-                       
-                       case .internalServerError:
-                        completion(.failure("Please try Again After SomeTime"))
-
-                       
-                       case .decodingError:
-                        completion(.failure("Please try Again After SomeTime"))
-
-                       case .serverError(error: let error):
-                        completion(.failure("Please try Again After SomeTime"))
-
-                       }
-                   }
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
             }
         }
     }

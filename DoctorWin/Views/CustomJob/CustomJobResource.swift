@@ -17,19 +17,8 @@ struct CustomJobResource {
                 case .success(let data):
                     completion(.success(data))
                     
-                case .failure(let requestError):
-                    switch requestError {
-                    case .invalidUrl:
-                        completion(.failure("Please try Again After SomeTime"))
-                  
-                    case .internalServerError:
-                        print("Error: Unknown")
-                   
-                    case .decodingError:
-                        print("Error: Unknown")
-                    case .serverError(error: let error):
-                        print("Error: Unknown")
-                    }
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
                 }
                 
             }
@@ -45,19 +34,8 @@ struct CustomJobResource {
                 case .success(let data):
                     completion(.success(data))
                     
-                case .failure(let requestError):
-                    switch requestError {
-                    case .invalidUrl:
-                        completion(.failure("Please try Again After SomeTime"))
-
-                    case .internalServerError:
-                        print("Error: Unknown")
-                   
-                    case .decodingError:
-                        print("Error: Unknown")
-                    case .serverError(error: let error):
-                        print(error)
-                    }
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
                 }
                 
             }
@@ -73,19 +51,8 @@ struct CustomJobResource {
                 case .success(let data):
                     completion(.success(data))
                     
-                case .failure(let requestError):
-                    switch requestError {
-                    case .invalidUrl:
-                        completion(.failure("Please try Again After SomeTime"))
-
-                    case .internalServerError:
-                        print("Error: Unknown")
-                   
-                    case .decodingError:
-                        print("Error: Unknown")
-                    case .serverError(error: let error):
-                        print(error)
-                    }
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
                 }
                 
             }
@@ -101,19 +68,8 @@ struct CustomJobResource {
                 case .success(let data):
                     completion(.success(data))
                     
-                case .failure(let requestError):
-                    switch requestError {
-                    case .invalidUrl:
-                        completion(.failure("Please try Again After SomeTime"))
-                    
-                    case .internalServerError:
-                        print("Error: Unknown")
-                   
-                    case .decodingError:
-                        print("Error: Unknown")
-                    case .serverError(error: let error):
-                        print("Error: Unknown")
-                    }
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
                 }
                 
             }

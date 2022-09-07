@@ -61,11 +61,17 @@ class EditPersonalInfoCell: UITableViewCell {
         let resource = ProfileEditResource()
         resource.editProfilePersonalInfoData(userID: User.shared.userID, profileReq: personalInfoRequest) { data in
             DispatchQueue.main.async {
-                
-                if data?.status == "true" {
-                    self.profileDelegate?.didProfileUpdated(status: true, error: nil)
-                   
+                switch data {
+                    
+                case .success(let res):
+                    if res?.status == "true" {
+                        self.profileDelegate?.didProfileUpdated(status: true, error: nil)
+                        
+                    }
+                case .failure(_):
+                    self.profileDelegate?.didProfileUpdated(status: false, error: nil)
                 }
+                
             }
         }
         

@@ -7,34 +7,46 @@
 
 import Foundation
 struct ProfileEditResource {
-    func editProfilePersonalInfoData(userID: String,profileReq: PersonalInfoEditModel1,  completion : @escaping (_ result: ProfileUpdateResponseModel?) -> Void) {
+    func editProfilePersonalInfoData(userID: String,profileReq: PersonalInfoEditModel1,  completion : @escaping (_ result: ResponseResult<ProfileUpdateResponseModel?>) -> Void) {
         
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.personalEdit + "?user_id=\(userID)"
         let homeUrl = URL(string: homeUrlStr)!
         let httpUtility = HttpUtility()
         do {
             let postBody = try JSONEncoder().encode(profileReq)
-
+            
             httpUtility.putMethod(requestUrl: homeUrl, requestBody: postBody, resultType: ProfileUpdateResponseModel.self) {
                 response in
-                _ = completion(response)
+                switch response {
+                case .success(let data):
+                    completion(.success(data))
+                    
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
             }
             
         } catch let error {
             debugPrint(error)
         }
     }
-    func editSelfdataPersonalInfoData(userID: String,profileReq: SelfDataEditModel,  completion : @escaping (_ result: StatusResponseModel?) -> Void) {
+    func editSelfdataPersonalInfoData(userID: String,profileReq: SelfDataEditModel,  completion : @escaping (_ result: ResponseResult<StatusResponseModel?>) -> Void) {
         
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.personalEdit + "?user_id=\(userID)"
         let homeUrl = URL(string: homeUrlStr)!
         let httpUtility = HttpUtility()
         do {
             let postBody = try JSONEncoder().encode(profileReq)
-
+            
             httpUtility.putMethod(requestUrl: homeUrl, requestBody: postBody, resultType: StatusResponseModel.self) {
                 response in
-                _ = completion(response)
+                switch response {
+                case .success(let data):
+                    completion(.success(data))
+                    
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
             }
             
         } catch let error {
@@ -48,23 +60,12 @@ struct ProfileEditResource {
             httpUtility.getApiData(urlString: url, resultType: ProfileDataModel.self) { result in
                 
                 switch result {
-                   case .success(let data):
+                case .success(let data):
                     completion(.success(data))
                     
-                   case .failure(let requestError):
-                       switch requestError {
-                       case .invalidUrl:
-                        completion(.failure("Please try Again After SomeTime"))
-                       
-                       case .internalServerError:
-                        print("Error: Unknown")
-                       
-                       case .decodingError:
-                        print("Error: Unknown")
-                       case .serverError(error: let error):
-                        print("Error: Unknown")
-                       }
-                   }
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
             }
         }
     }
@@ -76,113 +77,132 @@ struct ProfileEditResource {
             httpUtility.getApiData(urlString: homeUrlStr, resultType: [ExperienceModel].self) { result in
                 
                 switch result {
-                   case .success(let data):
+                case .success(let data):
                     completion(.success(data))
                     
-                   case .failure(let requestError):
-                       switch requestError {
-                       case .invalidUrl:
-                        completion(.failure("Please try Again After SomeTime"))
-                       
-                       case .internalServerError:
-                        print("Error: Unknown")
-                       
-                       case .decodingError:
-                        print("Error: Unknown")
-                       case .serverError(error: let error):
-                        print("Error: Unknown")
-                       }
-                   }
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
             }
         }
     }
     
-    func editProfileProfessionalInfoData(userID: String,profileReq: ProfessionalEditModel,  completion : @escaping (_ result: ProfessionalResponseModel?) -> Void) {
+    func editProfileProfessionalInfoData(userID: String,profileReq: ProfessionalEditModel,  completion : @escaping (_ result: ResponseResult<ProfessionalResponseModel?>) -> Void) {
         
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.professionalEdit + "?user_id=\(userID)"
         let homeUrl = URL(string: homeUrlStr)!
         let httpUtility = HttpUtility()
         do {
             let postBody = try JSONEncoder().encode(profileReq)
-
+            
             httpUtility.patchMethod(requestUrl: homeUrl, requestBody: postBody, resultType: ProfessionalResponseModel.self) {
                 response in
-                _ = completion(response)
+                switch response {
+                case .success(let data):
+                    completion(.success(data))
+                    
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
             }
             
         } catch let error {
             debugPrint(error)
         }
     }
-    func editProfileAboutMe(userID: String,profileReq: EditAboutModel,  completion : @escaping (_ result: ProfessionalResponseModel?) -> Void) {
+    func editProfileAboutMe(userID: String,profileReq: EditAboutModel,  completion : @escaping (_ result: ResponseResult<ProfessionalResponseModel?>) -> Void) {
         
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.profileEdit + "?user_id=\(userID)"
         let homeUrl = URL(string: homeUrlStr)!
         let httpUtility = HttpUtility()
         do {
             let postBody = try JSONEncoder().encode(profileReq)
-
+            
             httpUtility.patchMethod(requestUrl: homeUrl, requestBody: postBody, resultType: ProfessionalResponseModel.self) {
                 response in
-                _ = completion(response)
+                switch response {
+                case .success(let data):
+                    completion(.success(data))
+                    
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
             }
             
         } catch let error {
             debugPrint(error)
         }
     }
-    func registerProfileAboutMe(userID: String,profileReq: EditAboutModel,  completion : @escaping (_ result: ProfessionalResponseModel?) -> Void) {
+    func registerProfileAboutMe(userID: String,profileReq: EditAboutModel,  completion : @escaping (_ result: ResponseResult<ProfessionalResponseModel?>) -> Void) {
         
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.profileEdit + "?user_id=\(userID)"
         let homeUrl = URL(string: homeUrlStr)!
         let httpUtility = HttpUtility()
         do {
             let postBody = try JSONEncoder().encode(profileReq)
-
+            
             httpUtility.patchMethod(requestUrl: homeUrl, requestBody: postBody, resultType: ProfessionalResponseModel.self) {
                 response in
-                _ = completion(response)
+                switch response {
+                case .success(let data):
+                    completion(.success(data))
+                    
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
             }
             
         } catch let error {
             debugPrint(error)
         }
     }
-    func registerProfileSkill(userID: String,profileReq: EditSkillModel,  completion : @escaping (_ result: ProfessionalResponseModel?) -> Void) {
+    func registerProfileSkill(userID: String,profileReq: EditSkillModel,  completion : @escaping (_ result: ResponseResult<ProfessionalResponseModel?>) -> Void) {
         
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.profileEdit + "?user_id=\(userID)"
         let homeUrl = URL(string: homeUrlStr)!
         let httpUtility = HttpUtility()
         do {
             let postBody = try JSONEncoder().encode(profileReq)
-
+            
             httpUtility.patchMethod(requestUrl: homeUrl, requestBody: postBody, resultType: ProfessionalResponseModel.self) {
                 response in
-                _ = completion(response)
+                switch response {
+                case .success(let data):
+                    completion(.success(data))
+                    
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
             }
             
         } catch let error {
             debugPrint(error)
         }
     }
-    func editProfileSkill(userID: String,profileReq: EditSkillModel,  completion : @escaping (_ result: ProfessionalResponseModel?) -> Void) {
+    func editProfileSkill(userID: String,profileReq: EditSkillModel,  completion : @escaping (_ result: ResponseResult<ProfessionalResponseModel?>) -> Void) {
         
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.profileEdit + "?user_id=\(userID)"
         let homeUrl = URL(string: homeUrlStr)!
         let httpUtility = HttpUtility()
         do {
             let postBody = try JSONEncoder().encode(profileReq)
-
+            
             httpUtility.patchMethod(requestUrl: homeUrl, requestBody: postBody, resultType: ProfessionalResponseModel.self) {
                 response in
-                _ = completion(response)
+                switch response {
+                case .success(let data):
+                    completion(.success(data))
+                    
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
             }
             
         } catch let error {
             debugPrint(error)
         }
     }
-    func addExperience(userID: String,profileReq: AddExperienceModel,  completion: @escaping(ResponseModel)-> Void) {
+    func addExperience(userID: String,profileReq: AddExperienceModel,  completion: @escaping(ResponseResult<ResponseModel>)-> Void) {
         
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.addExperience + "?user_id=\(userID)"
         let homeUrl = URL(string: homeUrlStr)!
@@ -191,7 +211,13 @@ struct ProfileEditResource {
             let postBody = try JSONEncoder().encode(profileReq)
             httpUtility.postMethod(requestUrl: homeUrl, requestBody: postBody, resultType: ResponseModel.self) {
                 response in
-                _ = completion(response)
+                switch response {
+                case .success(let data):
+                    completion(.success(data))
+                    
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
             }
             
         } catch let error {
@@ -205,23 +231,12 @@ struct ProfileEditResource {
             httpUtility.getApiData(urlString: profileUrlStr, resultType: ProfileEditDropDownModel.self) { result in
                 
                 switch result {
-                   case .success(let data):
+                case .success(let data):
                     completion(.success(data))
                     
-                   case .failure(let requestError):
-                       switch requestError {
-                       case .invalidUrl:
-                        completion(.failure("Please try Again After SomeTime"))
-                       
-                       case .internalServerError:
-                        print("Error: Unknown")
-                       
-                       case .decodingError:
-                        print("Error: Unknown")
-                       case .serverError(error: let error):
-                        print("Error: Unknown")
-                       }
-                   }
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
             }
         }
     }
@@ -231,37 +246,32 @@ struct ProfileEditResource {
         do {
             httpUtility.getApiData(urlString: profileUrlStr, resultType: ProfessionalDropDownModel.self) { result in
                 switch result {
-                   case .success(let data):
+                case .success(let data):
                     completion(.success(data))
                     
-                   case .failure(let requestError):
-                       switch requestError {
-                       case .invalidUrl:
-                        completion(.failure("Please try Again After SomeTime"))
-                       
-                       case .internalServerError:
-                        print("Error: Unknown")
-                       
-                       case .decodingError:
-                        print("Error: Unknown")
-                       case .serverError(error: let error):
-                        print("Error: Unknown")
-                       }
-                   }
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
             }
         }
     }
-    func editExperince(userID: String, expId:Int,profileReq: AddExperienceModel,  completion : @escaping (_ result: ExperienceModel?) -> Void) {
+    func editExperince(userID: String, expId:Int,profileReq: AddExperienceModel,  completion : @escaping (_ result: ResponseResult<ExperienceModel?>) -> Void) {
         
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.addExperience + "?user_id=\(userID)&exp_id=\(expId)"
         let homeUrl = URL(string: homeUrlStr)!
         let httpUtility = HttpUtility()
         do {
             let postBody = try JSONEncoder().encode(profileReq)
-
+            
             httpUtility.putMethod(requestUrl: homeUrl, requestBody: postBody, resultType: ExperienceModel.self) {
                 response in
-                _ = completion(response)
+                switch response {
+                case .success(let data):
+                    completion(.success(data))
+                    
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
             }
             
         } catch let error {

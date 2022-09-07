@@ -8,11 +8,10 @@
 
 import Foundation
 import UIKit
-enum RequestError: Error {
-    case invalidUrl
-    case internalServerError
-    case decodingError
-    case serverError(error: NSError)
+enum RequestError: String,Error {
+    case invalidUrl = "Please Try again After sometime"
+    case internalServerError = "Currently Our Server is down. Please Try again After sometime"
+    case decodingError = "Currently we are facing some issue.Please Try again After sometime"
 }
 
 enum HTTPMethod: String {
@@ -26,24 +25,22 @@ enum HTTPMethod: String {
 
 
 struct HttpUtility {
-
+    
     func getApiData<T:Decodable>(urlString: String, resultType: T.Type, completion:@escaping(Result<T, RequestError>) -> Void) {
         
         guard let url = URL(string: urlString) else {
             completion(.failure(.invalidUrl))
             return
         }
-        
         //send Request
         URLSession.shared.dataTask(with: url) { (responseData, httpUrlResponse, error) in
-            
             if error != nil {
-                completion(.failure(.serverError(error: error! as NSError)))
+                completion(.failure(RequestError.invalidUrl))
             }
             
             if(error == nil && responseData != nil && responseData?.count != 0) {
-                print(responseData?.prettyPrintedJSONString)
-
+                print(responseData?.prettyPrintedJSONString ?? "")
+                
                 let decoder = JSONDecoder()
                 do {
                     let result = try decoder.decode(T.self, from: responseData!)
@@ -51,42 +48,40 @@ struct HttpUtility {
                 }
                 catch let error {
                     print(error)
-                    completion(.failure(.decodingError))
+                    completion(.failure(RequestError.decodingError))
                 }
             } else if (responseData != nil && responseData?.count != 0) {
                 completion(.failure(.internalServerError))
             }
             else if (error as? URLError)?.code == .timedOut {
-                print("*****************")
-                print("timeout")
+                completion(.failure(.internalServerError))
             }
-            
             
         }.resume()
     }
-  
-    func putMethod<T:Decodable>(requestUrl: URL, requestBody: Data, resultType: T.Type, completionHandler:@escaping(_ result: T)-> Void) {
+    
+    func putMethod<T:Decodable>(requestUrl: URL, requestBody: Data, resultType: T.Type, completionHandler:@escaping(Result<T, RequestError>)-> Void) {
         
         APIHelperClass().callWebserviceToMakeRequest(requestUrl: requestUrl, requestBody: requestBody, resultType: resultType, httpMethod: HTTPMethod.put, completionHandler: completionHandler)
-
+        
     }
-    func patchMethod<T:Decodable>(requestUrl: URL, requestBody: Data, resultType: T.Type, completionHandler:@escaping(_ result: T)-> Void) {
+    func patchMethod<T:Decodable>(requestUrl: URL, requestBody: Data, resultType: T.Type, completionHandler:@escaping(Result<T, RequestError>)-> Void) {
         
         APIHelperClass().callWebserviceToMakeRequest(requestUrl: requestUrl, requestBody: requestBody, resultType: resultType, httpMethod: HTTPMethod.patch, completionHandler: completionHandler)
-
+        
     }
-    func deleteMethod<T:Decodable>(requestUrl: URL, requestBody: Data, resultType: T.Type, completionHandler:@escaping(_ result: T)-> Void) {
+    func deleteMethod<T:Decodable>(requestUrl: URL, requestBody: Data, resultType: T.Type, completionHandler:@escaping(Result<T, RequestError>)-> Void) {
         
         APIHelperClass().callWebserviceToMakeRequest(requestUrl: requestUrl, requestBody: requestBody, resultType: resultType, httpMethod: HTTPMethod.delete, completionHandler: completionHandler)
-
+        
     }
-    func postMethod<T:Decodable>(requestUrl: URL, requestBody: Data, resultType: T.Type, completionHandler:@escaping(_ result: T)-> Void) {
+    func postMethod<T:Decodable>(requestUrl: URL, requestBody: Data, resultType: T.Type, completionHandler:@escaping(Result<T, RequestError>)-> Void) {
         
         APIHelperClass().callWebserviceToMakeRequest(requestUrl: requestUrl, requestBody: requestBody, resultType: resultType, httpMethod: HTTPMethod.post, completionHandler: completionHandler)
-
+        
     }
-   
- private   func createBodyWithParameters(parameters: [String: Any]?, imageName: String, filePathKey: String?, imageDataKey: Data, boundary: String) -> Data {
+    
+    private   func createBodyWithParameters(parameters: [String: Any]?, imageName: String, filePathKey: String?, imageDataKey: Data, boundary: String) -> Data {
         let body = NSMutableData()
         if parameters != nil {
             for (key, value) in parameters! {
@@ -95,7 +90,7 @@ struct HttpUtility {
                 body.append("\(value)\r\n".data(using: .utf8)!)
             }
         }
-
+        
         let multipartStr = String(decoding: body, as: UTF8.self) //to view the multipart form string
         print(multipartStr)
         let filename = imageName
@@ -111,7 +106,7 @@ struct HttpUtility {
     }
     
     
-  private  func generateBoundaryString() -> String {
+    private  func generateBoundaryString() -> String {
         return "----------V2ymHFg03ehbqgZCaKO6jy"
     }
     
@@ -148,7 +143,7 @@ struct HttpUtility {
             let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
             print("**** response data = \(responseString!)")
             let decoder = JSONDecoder()
-
+            
             do {
                 let result = try decoder.decode(BoolResponseModel.self, from: data!)
                 completionHandler(result)
@@ -169,7 +164,7 @@ extension Data {
         guard let object = try? JSONSerialization.jsonObject(with: self, options: []),
               let data = try? JSONSerialization.data(withJSONObject: object, options: [.prettyPrinted]),
               let prettyPrintedString = NSString(data: data, encoding: String.Encoding.utf8.rawValue) else { return nil }
-
+        
         return prettyPrintedString
     }
 }

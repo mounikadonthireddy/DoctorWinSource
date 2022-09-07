@@ -57,10 +57,15 @@ class RegisterViewController: ViewController {
             DispatchQueue.main.async {
                 self.dismiss()
             }
-            self.qualificationTF.optionArray = result.map { data in
-                return data.qualification
+            switch result {
+                
+            case .success(let data ):
+                self.qualificationTF.optionArray = data.map { data in
+                    return data.qualification
+                }
+            case .failure(_):
+                print("")
             }
-       
         }
     }
     func downloadSpeacilityResource() {
@@ -70,8 +75,14 @@ class RegisterViewController: ViewController {
             DispatchQueue.main.async {
                 self.dismiss()
             }
-            self.specialityTF.optionArray = result.map { data in
-                return data.department
+            switch result {
+                
+            case .success(let data ):
+                self.specialityTF.optionArray = data.map { data in
+                    return data.department
+                }
+            case .failure(_):
+                print("")
             }
         }
     }

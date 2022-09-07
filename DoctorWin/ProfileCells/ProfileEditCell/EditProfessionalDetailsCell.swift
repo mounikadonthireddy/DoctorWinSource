@@ -17,7 +17,7 @@ class EditProfessionalDetailsCell: UITableViewCell {
     @IBOutlet weak var instititeTF: UITextField!
     @IBOutlet weak var saveBtn: UIButton!
     var profileDelegate: ProfileUpdateDelegate?
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -28,13 +28,13 @@ class EditProfessionalDetailsCell: UITableViewCell {
         instititeTF.setUnderLine()
         graduationInstititeTF.setUnderLine()
         saveBtn.setCornerRadius(radius: Float(saveBtn.frame.height)/2)
-
+        
         
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     @IBAction func saveClicked(_ sender: Any) {
@@ -43,9 +43,15 @@ class EditProfessionalDetailsCell: UITableViewCell {
         let resource = ProfileEditResource()
         resource.editProfileProfessionalInfoData(userID: User.shared.userID, profileReq: editModel) { data in
             DispatchQueue.main.async {
-            if data?.status == true {
-                self.profileDelegate?.didProfileUpdated(status: true, error: nil)
-            }
+                switch data {
+                case .success(let res ):
+                    if res?.status == true {
+                        self.profileDelegate?.didProfileUpdated(status: true, error: nil)
+                    }
+                case .failure(_):
+                    self.profileDelegate?.didProfileUpdated(status: false, error: nil)
+                }
+                
             }
         }
     }

@@ -18,17 +18,8 @@ struct UserDetailsResource {
                 case .success(let data):
                     completion(.success(data))
                     
-                case .failure(let requestError):
-                    switch requestError {
-                    case .invalidUrl:
-                        completion(.failure("Please try Again After SomeTime"))
-                    case .internalServerError:
-                        print("Error: Unknown")
-                    case .decodingError:
-                        print("Error: Unknown")
-                    case .serverError(error: let error):
-                        print("Error: Unknown")
-                    }
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
                 }
                 
             }
@@ -44,17 +35,8 @@ struct UserDetailsResource {
                 case .success(let data):
                     completion(.success(data))
                     
-                case .failure(let requestError):
-                    switch requestError {
-                    case .invalidUrl:
-                        completion(.failure("Please try Again After SomeTime"))
-                    case .internalServerError:
-                        print("Error: Unknown")
-                    case .decodingError:
-                        print("Error: Unknown")
-                    case .serverError(error: let error):
-                        print("Error: Unknown")
-                    }
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
                 }
                 
             }
@@ -62,7 +44,7 @@ struct UserDetailsResource {
     }
     func getUserPostedQuestionsData(urlString: String, completion : @escaping (_ result: ResponseResult<[PostedQuestionModel]>) -> Void) {
         
-     
+        
         let httpUtility = HttpUtility()
         do {
             httpUtility.getApiData(urlString: urlString, resultType: [PostedQuestionModel].self) { result in
@@ -71,24 +53,15 @@ struct UserDetailsResource {
                 case .success(let data):
                     completion(.success(data))
                     
-                case .failure(let requestError):
-                    switch requestError {
-                    case .invalidUrl:
-                        completion(.failure("Please try Again After SomeTime"))
-                    case .internalServerError:
-                        print("Error: Unknown")
-                    case .decodingError:
-                        print("Error: Unknown")
-                    case .serverError(error: let error):
-                        print("Error: Unknown")
-                    }
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
                 }
                 
             }
         }
     }
     func getUserPostedAnswersData(urlString: String, completion : @escaping (_ result: ResponseResult<[AnswersModel]>) -> Void) {
-    
+        
         
         let httpUtility = HttpUtility()
         do {
@@ -98,17 +71,8 @@ struct UserDetailsResource {
                 case .success(let data):
                     completion(.success(data))
                     
-                case .failure(let requestError):
-                    switch requestError {
-                    case .invalidUrl:
-                        completion(.failure("Please try Again After SomeTime"))
-                    case .internalServerError:
-                        print("Error: Unknown")
-                    case .decodingError:
-                        print("Error: Unknown")
-                    case .serverError(error: let error):
-                        print("Error: Unknown")
-                    }
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
                 }
                 
             }
@@ -134,5 +98,12 @@ struct AnswersModel: Codable {
     let like_status: Bool?
     let speciality: String?
     let id: Int
-
+    let posted_ans_image: String?
+    let cover_image: String?
+    
 }
+
+
+
+
+

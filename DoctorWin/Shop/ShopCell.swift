@@ -32,10 +32,16 @@ class ShopCell: UICollectionViewCell {
             let resource = ShopResource()
             resource.saveProduct(request: request) { result in
                 DispatchQueue.main.async {
-                    if result.status  {
-                        self.saveBtn.setImage( UIImage(named: "fmark"), for: .normal)
-                    } else {
-                        self.saveBtn.setImage( UIImage(named: "mark"), for: .normal)
+                    switch result {
+                    case .success( let data):
+                        if data.status {
+                            self.saveBtn.setImage( UIImage(named: "fmark"), for: .normal)
+                        }
+                        else {
+                            self.saveBtn.setImage( UIImage(named: "mark"), for: .normal)
+                        }
+                    case .failure: break
+                       //debug
                     }
                 }
                 

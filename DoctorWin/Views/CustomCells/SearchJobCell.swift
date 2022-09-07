@@ -45,10 +45,16 @@ class SearchJobCell: UITableViewCell {
         let resource = JobsResource()
         resource.saveJob(request: request) { result in
             DispatchQueue.main.async {
-                if result.status  {
-                    self.save.setImage(UIImage(named: "fstar"), for: .normal)
-                } else {
-                    self.save.setImage(UIImage(named: "star"), for: .normal)
+                switch result {
+                case .success( let data):
+                    if data.status {
+                        self.save.setImage( UIImage(named: "fmark"), for: .normal)
+                    }
+                    else {
+                        self.save.setImage( UIImage(named: "mark"), for: .normal)
+                    }
+                case .failure: break
+                   //debug
                 }
             }
            

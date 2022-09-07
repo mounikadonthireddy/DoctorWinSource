@@ -92,7 +92,13 @@ struct ProfileViewModel {
 
             httpUtility.deleteMethod(requestUrl: homeUrl, requestBody: postBody, resultType: ProfessionalResponseModel.self) {
                 response in
-                _ = completion(response)
+                switch response {
+                case .success(let data):
+                    completion(data)
+                    
+                case .failure( _):
+                    completion(nil)
+                }
             }
             
         } catch let error {

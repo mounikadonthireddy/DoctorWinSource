@@ -44,10 +44,16 @@ class CarrierSubCell: UITableViewCell {
         let resource = JobsResource()
         resource.saveJob(request: request) { result in
             DispatchQueue.main.async {
-                if result.status  {
-                    self.bookMarkImage.image = UIImage(named: "fstar")
-                } else {
-                    self.bookMarkImage.image = UIImage(named: "star")
+                switch result {
+                case .success( let data):
+                    if data.status {
+                        self.bookMarkImage.image = UIImage(named: "fmark")
+                    }
+                    else {
+                        self.bookMarkImage.image = UIImage(named: "mark")
+                    }
+                case .failure: break
+                   //debug
                 }
             }
            

@@ -54,7 +54,7 @@
                                         <color key="textColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Consultanat at Yashoda Hospitals" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tgV-dF-upp">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="h" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tgV-dF-upp">
                                         <rect key="frame" x="0.0" y="36.5" width="165" height="13.5"/>
                                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
                                         <color key="textColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -80,10 +80,10 @@
                             <constraint firstItem="WKs-lL-nKn" firstAttribute="centerX" secondItem="pLi-Ku-HAb" secondAttribute="centerX" id="2Ib-Iu-XaN"/>
                             <constraint firstItem="pLi-Ku-HAb" firstAttribute="top" secondItem="UCX-Va-RZp" secondAttribute="top" id="DCv-ut-GCA"/>
                             <constraint firstItem="h5y-NK-1gM" firstAttribute="top" secondItem="WKs-lL-nKn" secondAttribute="bottom" constant="10" id="JGa-Bi-ktv"/>
-                            <constraint firstAttribute="width" constant="165" id="Mdr-gp-cDs"/>
+                            <constraint firstAttribute="width" priority="999" constant="165" id="Mdr-gp-cDs"/>
                             <constraint firstItem="h5y-NK-1gM" firstAttribute="leading" secondItem="UCX-Va-RZp" secondAttribute="leading" id="NfU-t0-aO8"/>
                             <constraint firstItem="39W-Nn-K9v" firstAttribute="centerX" secondItem="pLi-Ku-HAb" secondAttribute="centerX" id="PEn-rI-YDS"/>
-                            <constraint firstAttribute="bottom" secondItem="39W-Nn-K9v" secondAttribute="bottom" constant="10" id="QsB-b1-yUO"/>
+                            <constraint firstAttribute="bottom" secondItem="39W-Nn-K9v" secondAttribute="bottom" priority="999" constant="10" id="QsB-b1-yUO"/>
                             <constraint firstItem="pLi-Ku-HAb" firstAttribute="leading" secondItem="UCX-Va-RZp" secondAttribute="leading" id="UPk-vn-9Hh"/>
                             <constraint firstItem="WKs-lL-nKn" firstAttribute="top" secondItem="UCX-Va-RZp" secondAttribute="top" constant="30" id="gn7-af-qZQ"/>
                             <constraint firstItem="39W-Nn-K9v" firstAttribute="top" secondItem="h5y-NK-1gM" secondAttribute="bottom" constant="10" id="iNt-79-3NB"/>
@@ -98,7 +98,7 @@
                 <constraint firstItem="UCX-Va-RZp" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="5wM-jY-jKR"/>
                 <constraint firstAttribute="trailing" secondItem="UCX-Va-RZp" secondAttribute="trailing" constant="5" id="DbF-Bh-Ts3"/>
                 <constraint firstItem="UCX-Va-RZp" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="cEK-Ul-xdo"/>
-                <constraint firstAttribute="bottom" secondItem="UCX-Va-RZp" secondAttribute="bottom" constant="5" id="gru-LO-EbP"/>
+                <constraint firstAttribute="bottom" secondItem="UCX-Va-RZp" secondAttribute="bottom" priority="999" constant="5" id="gru-LO-EbP"/>
             </constraints>
             <size key="customSize" width="175" height="199"/>
             <connections>

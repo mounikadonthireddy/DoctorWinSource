@@ -128,10 +128,15 @@ class CaseCell: UITableViewCell {
         let resource = HomeResource()
         resource.likeComplaint(request: request) { result in
             DispatchQueue.main.async {
-                if result.status  {
-                    self.likeImage.image = UIImage(named: "fheart")
-                } else {
-                    self.likeImage.image = UIImage(named: "heart")
+                switch result {
+                case .success(let data) :
+                    if data.status  {
+                        self.likeImage.image = UIImage(named: "fheart")
+                    } else {
+                        self.likeImage.image = UIImage(named: "heart")
+                    }
+                case .failure(_):
+                    print("")
                 }
             }
             
@@ -143,11 +148,17 @@ class CaseCell: UITableViewCell {
         let resource = HomeResource()
         resource.followComplaint(request: request) { result in
             DispatchQueue.main.async {
-                if result != nil && result == true {
-                    self.followBtn.setTitle("Following", for: .normal)
-                } else {
-                    self.followBtn.setTitle("Follow", for: .normal)
+                switch result {
+                case .success(let data):
+                    if data != nil && data == true {
+                        self.followBtn.setTitle("Following", for: .normal)
+                    } else {
+                        self.followBtn.setTitle("Follow", for: .normal)
+                    }
+                case .failure(_):
+                    print("")
                 }
+                
             }
             
         }
@@ -158,10 +169,16 @@ class CaseCell: UITableViewCell {
         let resource = HomeResource()
         resource.saveComplaint(request: request) { result in
             DispatchQueue.main.async {
-                if result.status  {
-                    self.bookmarkImage.image = UIImage(named: "fmark")
-                } else {
-                    self.bookmarkImage.image = UIImage(named: "mark")
+                switch result {
+                case .success( let data):
+                    if data.status {
+                        self.bookmarkImage.image = UIImage(named: "fmark")
+                    }
+                    else {
+                        self.bookmarkImage.image = UIImage(named: "mark")
+                    }
+                case .failure: break
+                   //debug
                 }
             }
             

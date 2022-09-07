@@ -230,13 +230,17 @@ class PollTableViewCell: UITableViewCell {
         let resource = HomeResource()
         resource.likePoll(request: request) { result in
             DispatchQueue.main.async {
-                if  result.status  {
+                switch result {
+                case .success(let data):
+                if  data.status  {
                     self.likeImage.image = UIImage(named: "fheart")
                 } else {
                     self.likeImage.image = UIImage(named: "heart")
                 }
-                self.likeLabel.text = "\(result.like_count!) Likes"
-                
+                self.likeLabel.text = "\(data.like_count!) Likes"
+                case .failure(_):
+                    break
+                }
             }
             
         }
@@ -247,14 +251,20 @@ class PollTableViewCell: UITableViewCell {
         let resource = HomeResource()
         resource.followComplaint(request: request) { result in
             DispatchQueue.main.async {
-                if result != nil && result == true {
+                switch result {
+                case .success(let data):
+                    if data != nil && data == true {
                     self.followBtn.setTitle("Following", for: .normal)
                 } else {
                     self.followBtn.setTitle("Follow", for: .normal)
                 }
+                    
+                case .failure(_):
+                    break
+                }
             }
-            
         }
+        
     }
     @IBAction  func saveClicked(_ sender: UIButton) {
         let request = PollLikeRequest(poll_id:"\(sender.tag)", user_id: User.shared.userID)
@@ -262,11 +272,18 @@ class PollTableViewCell: UITableViewCell {
         let resource = HomeResource()
         resource.savePoll(request: request) { result in
             DispatchQueue.main.async {
-                if result.status  {
-                    self.bookmarkImage.image = UIImage(named: "fmark")
-                } else {
-                    self.bookmarkImage.image = UIImage(named: "mark")
+                switch result {
+                case .success(let data):
+                    if data.status  {
+                        self.bookmarkImage.image = UIImage(named: "fmark")
+                    } else {
+                        self.bookmarkImage.image = UIImage(named: "mark")
+                    }
+                    
+                case .failure(_):
+                    break;
                 }
+                
             }
             
         }

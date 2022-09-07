@@ -50,10 +50,17 @@ class CarrierJobDetailsViewController: ViewController {
         resource.applyJob(request: request) { result in
             DispatchQueue.main.async {
                 self.dismiss()
-                if result.status  {
-                    self.applyBtn.setTitle("Applied", for: .normal)
-                    self.applyBtn.isUserInteractionEnabled = false
+                switch result {
+                    
+                case .success(let data):
+                    if data.status  {
+                        self.applyBtn.setTitle("Applied", for: .normal)
+                        self.applyBtn.isUserInteractionEnabled = false
+                    }
+                case .failure(_):
+                    print("")
                 }
+                
             }
         }
         

@@ -659,10 +659,10 @@
             </objects>
             <point key="canvasLocation" x="9320.289855072464" y="-876.5625"/>
         </scene>
-        <!--View Controller-->
+        <!--Questions View Controller-->
         <scene sceneID="t45-ts-GRK">
             <objects>
-                <viewController id="OOz-um-2GT" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QuestionsViewController" id="OOz-um-2GT" customClass="QuestionsViewController" customModule="DoctorWin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u1d-rz-OYQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -777,7 +777,7 @@
                     <navigationItem key="navigationItem" id="AGu-vF-zh2"/>
                     <connections>
                         <outlet property="collectionView" destination="sXv-3F-mag" id="1Cr-Va-EMg"/>
-                        <outlet property="collectionViewLayout" destination="l6y-sg-bk2" id="wao-6d-rf3"/>
+                        <outlet property="shopCVLayout" destination="l6y-sg-bk2" id="oBp-SD-27G"/>
                         <outlet property="tableView" destination="YzQ-vH-atU" id="Knp-N2-HiT"/>
                     </connections>
                 </viewController>

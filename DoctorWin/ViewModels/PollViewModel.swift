@@ -19,7 +19,7 @@ struct PollViewModel {
         
         resource.addPollData(request: pollModel){ result in
             DispatchQueue.main.async {
-                self.delegate?.didRecivePollAddStatus(response: result, error: nil)
+               
             }
         }
         

@@ -302,6 +302,7 @@
 		DC86698628742FCD00CF89A8 /* ShopWishlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC86698528742FCD00CF89A8 /* ShopWishlistViewController.swift */; };
 		DC8669892874396E00CF89A8 /* ShopWishlistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8669872874396E00CF89A8 /* ShopWishlistCell.swift */; };
 		DC86698A2874396E00CF89A8 /* ShopWishlistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC8669882874396E00CF89A8 /* ShopWishlistCell.xib */; };
+		DC885E2828C7A21D00110418 /* QuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC885E2728C7A21D00110418 /* QuestionsViewController.swift */; };
 		DC8AE243286D815D003376A7 /* ShopCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8AE241286D815D003376A7 /* ShopCategoryCell.swift */; };
 		DC8AE244286D815D003376A7 /* ShopCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC8AE242286D815D003376A7 /* ShopCategoryCell.xib */; };
 		DC8AE246286D9DFB003376A7 /* ShopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8AE245286D9DFB003376A7 /* ShopViewModel.swift */; };
@@ -680,6 +681,7 @@
 		DC86698528742FCD00CF89A8 /* ShopWishlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopWishlistViewController.swift; sourceTree = "<group>"; };
 		DC8669872874396E00CF89A8 /* ShopWishlistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopWishlistCell.swift; sourceTree = "<group>"; };
 		DC8669882874396E00CF89A8 /* ShopWishlistCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopWishlistCell.xib; sourceTree = "<group>"; };
+		DC885E2728C7A21D00110418 /* QuestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsViewController.swift; sourceTree = "<group>"; };
 		DC8AE241286D815D003376A7 /* ShopCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCategoryCell.swift; sourceTree = "<group>"; };
 		DC8AE242286D815D003376A7 /* ShopCategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopCategoryCell.xib; sourceTree = "<group>"; };
 		DC8AE245286D9DFB003376A7 /* ShopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewModel.swift; sourceTree = "<group>"; };
@@ -1424,6 +1426,7 @@
 			isa = PBXGroup;
 			children = (
 				DCA0A6EF28C4DCCF001DE3F1 /* Cells */,
+				DC885E2728C7A21D00110418 /* QuestionsViewController.swift */,
 			);
 			path = Question;
 			sourceTree = "<group>";
@@ -2022,6 +2025,7 @@
 				43B23201273AA66500038F8A /* SavedJobViewController.swift in Sources */,
 				439275D62727F22100E91E33 /* HomeTableViewHeader.swift in Sources */,
 				BF170F56280D9A94001B3109 /* NetworkViewController.swift in Sources */,
+				DC885E2828C7A21D00110418 /* QuestionsViewController.swift in Sources */,
 				DCA0A67028C0A7B4001DE3F1 /* EditBioDataController.swift in Sources */,
 				BF0DD948278D393C0053747A /* ProfileNameCell.swift in Sources */,
 				439275D32727D11E00E91E33 /* SelfStoryCell.swift in Sources */,

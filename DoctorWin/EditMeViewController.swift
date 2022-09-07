@@ -84,8 +84,14 @@ class EditMeViewController: ViewController {
         resouce.getQualificationData { result in
             DispatchQueue.main.async {
                 self.dismiss()
-                self.qualificationArray = result
-                self.profileTableView.reloadData()
+                switch result {
+                case .success(let data ):
+                    self.qualificationArray = data
+                    self.profileTableView.reloadData()
+                case .failure(_):
+                    print("")
+                }
+
             }
         }
     }
@@ -95,8 +101,13 @@ class EditMeViewController: ViewController {
         resouce.getSpecilityData { result in
             DispatchQueue.main.async {
                 self.dismiss()
-                self.spealityArray = result
-                self.profileTableView.reloadData()
+                switch result {
+                case .success(let data ):
+                    self.spealityArray = data
+                    self.profileTableView.reloadData()
+                case .failure(_):
+                    print("")
+                }
             }
 
         }

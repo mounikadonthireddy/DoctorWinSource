@@ -20,195 +20,117 @@ struct SpeciltyModel: Codable {
 }
 struct DropDownResource {
     
-    func getQualificationData(completion : @escaping (_ result: [QualificationModel]) -> Void) {
+    func getQualificationData(completion : @escaping (_ result: ResponseResult<[QualificationModel]>) -> Void) {
         let profileUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getQualification
         let httpUtility = HttpUtility()
         do {
             httpUtility.getApiData(urlString: profileUrlStr, resultType: [QualificationModel].self) { result in
                 
                 switch result {
-                   case .success(let data):
-                    completion(data)
-                    
-                   case .failure(let requestError):
-                       switch requestError {
-                       case .invalidUrl:
-//                        completion(.failure("Please try Again After SomeTime"))
-                       break
-                       case .internalServerError:
-                        print("Error: Unknown")
-                       
-                       case .decodingError:
-                        print("Error: Unknown")
-                       case .serverError(error: let error):
-                        print("Error: Unknown")
-                       }
-                   }
+                case .success(let data):
+                    completion(.success(data))
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
             }
         }
     }
-    func getProfessionalData(completion : @escaping (_ result: [ProfessionModel]) -> Void) {
+    func getProfessionalData(completion : @escaping (_ result: ResponseResult<[ProfessionModel]>) -> Void) {
         let profileUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getProfession
         let httpUtility = HttpUtility()
         do {
             httpUtility.getApiData(urlString: profileUrlStr, resultType: [ProfessionModel].self) { result in
                 
                 switch result {
-                   case .success(let data):
-                    completion(data)
+                case .success(let data):
+                    completion(.success(data))
                     
-                   case .failure(let requestError):
-                       switch requestError {
-                       case .invalidUrl:
-//                        completion(.failure("Please try Again After SomeTime"))
-                       break
-                       case .internalServerError:
-                        print("Error: Unknown")
-                       
-                       case .decodingError:
-                        print("Error: Unknown")
-                       case .serverError(error: let error):
-                        print("Error: Unknown")
-                       }
-                   }
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
             }
         }
     }
     
-    func getSpecilityData(completion : @escaping (_ result: [SpeciltyModel]) -> Void) {
+    func getSpecilityData(completion : @escaping (_ result: ResponseResult<[SpeciltyModel]>) -> Void) {
         let profileUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getSpeacilty
         let httpUtility = HttpUtility()
         do {
             httpUtility.getApiData(urlString: profileUrlStr, resultType: [SpeciltyModel].self) { result in
                 
                 switch result {
-                   case .success(let data):
-                    completion(data)
+                case .success(let data):
+                    completion(.success(data))
                     
-                   case .failure(let requestError):
-                       switch requestError {
-                       case .invalidUrl:
-//                        completion(.failure("Please try Again After SomeTime"))
-                       break
-                       case .internalServerError:
-                        print("Error: Unknown")
-                       
-                       case .decodingError:
-                        print("Error: Unknown")
-                       case .serverError(error: let error):
-                        print("Error: Unknown")
-                       }
-                   }
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
             }
         }
     }
-    func getLocationData(completion : @escaping (_ result: [LocationModel]) -> Void) {
+    func getLocationData(completion : @escaping (_ result: ResponseResult<[LocationModel]>) -> Void) {
         let profileUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getJobsLocation
         let httpUtility = HttpUtility()
         do {
             httpUtility.getApiData(urlString: profileUrlStr, resultType: [LocationModel].self) { result in
                 
                 switch result {
-                   case .success(let data):
-                    completion(data)
+                case .success(let data):
+                    completion(.success(data))
                     
-                   case .failure(let requestError):
-                       switch requestError {
-                       case .invalidUrl:
-//                        completion(.failure("Please try Again After SomeTime"))
-                       break
-                       case .internalServerError:
-                        print("Error: Unknown")
-                       
-                       case .decodingError:
-                        print("Error: Unknown")
-                       case .serverError(error: let error):
-                        print("Error: Unknown")
-                       }
-                   }
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
             }
         }
     }
-    func getDesignationData(completion : @escaping (_ result: [DesignationModel]) -> Void) {
+    func getDesignationData(completion : @escaping (_ result: ResponseResult<[DesignationModel]>) -> Void) {
         let profileUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getDesignation
         let httpUtility = HttpUtility()
         do {
             httpUtility.getApiData(urlString: profileUrlStr, resultType: [DesignationModel].self) { result in
                 
                 switch result {
-                   case .success(let data):
-                    completion(data)
+                case .success(let data):
+                    completion(.success(data))
                     
-                   case .failure(let requestError):
-                       switch requestError {
-                       case .invalidUrl:
-//                        completion(.failure("Please try Again After SomeTime"))
-                       break
-                       case .internalServerError:
-                        print("Error: Unknown")
-                       
-                       case .decodingError:
-                        print("Error: Unknown")
-                       case .serverError(error: let error):
-                        print("Error: Unknown")
-                       }
-                   }
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
             }
         }
     }
     //getRecentSearchData
-    func getRecentSearchData(completion : @escaping (_ result: [RecentSearchModel]) -> Void) {
+    func getRecentSearchData(completion : @escaping (_ result: ResponseResult<[RecentSearchModel]>) -> Void) {
         let profileUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.recentSearch + "?user_id=\(User.shared.userID)"
         let httpUtility = HttpUtility()
         do {
             httpUtility.getApiData(urlString: profileUrlStr, resultType: [RecentSearchModel].self) { result in
                 
                 switch result {
-                   case .success(let data):
-                    completion(data)
+                case .success(let data):
+                    completion(.success(data))
                     
-                   case .failure(let requestError):
-                       switch requestError {
-                       case .invalidUrl:
-//                        completion(.failure("Please try Again After SomeTime"))
-                       break
-                       case .internalServerError:
-                        print("Error: Unknown")
-                       
-                       case .decodingError:
-                        print("Error: Unknown")
-                       case .serverError(error: let error):
-                        print("Error: Unknown")
-                       }
-                   }
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
             }
         }
     }
     
-    func getJobsCount(completion : @escaping (_ result: JobsCountModel) -> Void) {
+    func getJobsCount(completion : @escaping (_ result: ResponseResult<JobsCountModel>) -> Void) {
         let profileUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.jobsCount + "?user_id=\(User.shared.userID)"
         let httpUtility = HttpUtility()
         do {
             httpUtility.getApiData(urlString: profileUrlStr, resultType: JobsCountModel.self) { result in
                 
                 switch result {
-                   case .success(let data):
-                    completion(data)
+                case .success(let data):
+                    completion(.success(data))
                     
-                   case .failure(let requestError):
-                       switch requestError {
-                       case .invalidUrl:
-//                        completion(.failure("Please try Again After SomeTime"))
-                       break
-                       case .internalServerError:
-                        print("Error: Unknown")
-                       
-                       case .decodingError:
-                        print("Error: Unknown")
-                       case .serverError(error: let error):
-                        print("Error: Unknown")
-                       }
-                   }
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
             }
         }
     }

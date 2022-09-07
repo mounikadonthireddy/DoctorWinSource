@@ -16,6 +16,17 @@ class AnswersCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        personImage.setCornerRadius(radius: Float(personImage.frame.height)/2)
     }
+    func configureDataWith(homeModel: AnswersModel) {
+        self.personName.text = (homeModel.ProfileName ?? "")
+        self.questionTitle.text =  homeModel.asked_question ?? ""
+        self.personDesignation.text = homeModel.speciality ?? ""
+        self.questionDes.text = homeModel.ans ?? ""
 
+        if let urlString = homeModel.ProfileImage {
+            self.personImage.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "loginBg"))
+        }
+        
+    }
 }

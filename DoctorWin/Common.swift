@@ -156,7 +156,8 @@ struct ApiEndpoints
     static let recentSearch = "job/search/recent"
     static let jobsCount = "custom/user/"
     static let searchJobs = "job/search/"
-
+static let trendingQuestion = "ask/question/popular"
+    static let userPostedQA = "ask/question"
     
     //Network
     static let getNetworkConnections = "group/create"

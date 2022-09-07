@@ -18,158 +18,123 @@ struct JobsResource {
             httpUtility.getApiData(urlString: jobUrlStr, resultType: [JobsDataModel].self) { result in
                 
                 switch result {
-                   case .success(let data):
+                case .success(let data):
                     completion(.success(data))
                     
-                   case .failure(let requestError):
-                       switch requestError {
-                       case .invalidUrl:
-                        completion(.failure("Please try Again After SomeTime"))
-                      
-                       
-                      
-                       case .internalServerError:
-                        print("Error: Unknown")
-                       
-                       case .decodingError:
-                        print("Error: Unknown")
-                       case .serverError(error: let error):
-                        print("Error: Unknown")
-                       }
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
+                
             }
-            
-        }
         }
     }
     func getJobDataBasedOnCategory(userID: String,categoryID: Int, completion : @escaping (_ result: ResponseResult<[CarrierModel]>) -> Void) {
+        
+        let jobCategeoryUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getNewJobs + "?categoryid=\(categoryID)" + "&user_id=\(userID)" + "&page=1"
+        
+        let httpUtility = HttpUtility()
+        do {
             
-            let jobCategeoryUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getNewJobs + "?categoryid=\(categoryID)" + "&user_id=\(userID)" + "&page=1"
             
-            let httpUtility = HttpUtility()
-            do {
+            httpUtility.getApiData(urlString: jobCategeoryUrlStr, resultType: [CarrierModel].self) { result in
                 
-                
-                httpUtility.getApiData(urlString: jobCategeoryUrlStr, resultType: [CarrierModel].self) { result in
+                switch result {
+                case .success(let data):
+                    completion(.success(data))
                     
-                    switch result {
-                       case .success(let data):
-                        completion(.success(data))
-                        
-                       case .failure(let requestError):
-                           switch requestError {
-                           case .invalidUrl:
-                            completion(.failure("Please try Again After SomeTime"))
-                           
-                           case .internalServerError:
-                            print("Error: Unknown")
-                         
-                           case .decodingError:
-                            print("Error: Unknown")
-                           case .serverError(error: let error):
-                            print("Error: Unknown")
-                           }
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
                 }
                 
             }
         }
     }
     func getSearchJobData(userID: String,query: String, completion : @escaping (_ result: ResponseResult<[CarrierModel]>) -> Void) {
+        
+        let jobCategeoryUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.searchJobs  + "?user_id=\(userID)&" + query
+        
+        let httpUtility = HttpUtility()
+        do {
             
-            let jobCategeoryUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.searchJobs  + "?user_id=\(userID)&" + query
             
-            let httpUtility = HttpUtility()
-            do {
+            httpUtility.getApiData(urlString: jobCategeoryUrlStr, resultType: [CarrierModel].self) { result in
                 
-                
-                httpUtility.getApiData(urlString: jobCategeoryUrlStr, resultType: [CarrierModel].self) { result in
-                    
-                    switch result {
-                       case .success(let data):
-                        completion(.success(data))
-                        
-                       case .failure(let requestError):
-                           switch requestError {
-                           case .invalidUrl:
-                            completion(.failure("Please try Again After SomeTime"))
-                           
-                           case .internalServerError:
-                            print("Error: Unknown")
-                         
-                           case .decodingError:
-                            print("Error: Unknown")
-                           case .serverError(error: let error):
-                            print("Error: Unknown")
-                           }
+                switch result {
+                case .success(let data):
+                    completion(.success(data))
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
                 }
                 
             }
         }
     }
-        func getJobAllData(userID: String, completion : @escaping (_ result: ResponseResult<[CarrierModel]>) -> Void) {
+    func getJobAllData(userID: String, completion : @escaping (_ result: ResponseResult<[CarrierModel]>) -> Void) {
+        
+        let jobCategeoryUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getNewJobs +  "?user_id=\(userID)&page=1"
+        
+        let httpUtility = HttpUtility()
+        do {
+            
+            
+            httpUtility.getApiData(urlString: jobCategeoryUrlStr, resultType: [CarrierModel].self) { result in
                 
-                let jobCategeoryUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getNewJobs +  "?user_id=\(userID)&page=1"
-                
-                let httpUtility = HttpUtility()
-                do {
+                switch result {
+                case .success(let data):
+                    completion(.success(data))
                     
-                    
-                    httpUtility.getApiData(urlString: jobCategeoryUrlStr, resultType: [CarrierModel].self) { result in
-                        
-                        switch result {
-                           case .success(let data):
-                            completion(.success(data))
-                            
-                           case .failure(let requestError):
-                               switch requestError {
-                               case .invalidUrl:
-                                completion(.failure("Please try Again After SomeTime"))
-                               
-                               case .internalServerError:
-                                print("Error: Unknown")
-                             
-                               case .decodingError:
-                                print("Error: Unknown")
-                               case .serverError(error: let error):
-                                print("Error: Unknown")
-                               }
-                    }
-                    
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
                 }
+                
             }
+        }
     }
-    func saveJob(request: JobApplyRequest, completion : @escaping  (_ result: StatusResponseModel) -> Void) {
+    func saveJob(request: JobApplyRequest, completion : @escaping  (_ result: ResponseResult<StatusResponseModel>) -> Void) {
         
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.createBookMarkJobs + "?user_id=\(request.user_id)&job_id=\(request.job_id)"
         let homeUrl = URL(string: homeUrlStr)!
-
+        
         let httpUtility = HttpUtility()
         do {
             let postBody = try JSONEncoder().encode(request)
-
+            
             httpUtility.postMethod(requestUrl: homeUrl, requestBody: postBody, resultType: StatusResponseModel.self) {
                 result in
-
-                completion(result)
+                
+                switch result {
+                case .success(let data):
+                    completion(.success(data))
                     
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
+                
             }
             
         } catch let error {
             debugPrint(error)
         }
     }
-    func applyJob(request: JobApplyRequest, completion : @escaping  (_ result: StatusResponseModel) -> Void) {
+    func applyJob(request: JobApplyRequest, completion : @escaping  (_ result: ResponseResult<StatusResponseModel>) -> Void) {
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.appliedJobs + "?user_id=\(request.user_id)&job_id=\(request.job_id)"
         let homeUrl = URL(string: homeUrlStr)!
-
+        
         let httpUtility = HttpUtility()
         do {
             let postBody = try JSONEncoder().encode(request)
-
+            
             httpUtility.postMethod(requestUrl: homeUrl, requestBody: postBody, resultType: StatusResponseModel.self) {
                 result in
-
-                    completion(result)
-    
+                
+                switch result {
+                case .success(let data):
+                    completion(.success(data))
+                    
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
+                
             }
             
         } catch let error {
@@ -177,67 +142,45 @@ struct JobsResource {
         }
     }
     func getJobDetailsData(userID: String,jobId:String, completion : @escaping (_ result: ResponseResult<CarrierJobDetailsModel>) -> Void) {
-            
+        
         let jobCategeoryUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.jobDetails +  "?user_id=\(userID)&jobid=\(jobId)"
-
-            let httpUtility = HttpUtility()
-            do {
+        
+        let httpUtility = HttpUtility()
+        do {
+            
+            
+            httpUtility.getApiData(urlString: jobCategeoryUrlStr, resultType: CarrierJobDetailsModel.self) { result in
                 
-                
-                httpUtility.getApiData(urlString: jobCategeoryUrlStr, resultType: CarrierJobDetailsModel.self) { result in
+                switch result {
+                case .success(let data):
+                    completion(.success(data))
                     
-                    switch result {
-                       case .success(let data):
-                        completion(.success(data))
-                        
-                       case .failure(let requestError):
-                           switch requestError {
-                           case .invalidUrl:
-                            completion(.failure("Please try Again After SomeTime"))
-                           
-                           case .internalServerError:
-                            print("Error: Unknown")
-                         
-                           case .decodingError:
-                            print("Error: Unknown")
-                           case .serverError(error: let error):
-                            print("Error: Unknown")
-                           }
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
                 }
                 
             }
         }
-}
+    }
     func getJobHospitalData(userID: String,jobId: String, completion : @escaping (_ result: ResponseResult<HospitalDetailsModel>) -> Void) {
+        
+        let jobCategeoryUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.hospitalDetails +  "?user_id=\(userID)&jobid=\(jobId)"
+        
+        let httpUtility = HttpUtility()
+        do {
             
-            let jobCategeoryUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.hospitalDetails +  "?user_id=\(userID)&jobid=\(jobId)"
             
-            let httpUtility = HttpUtility()
-            do {
+            httpUtility.getApiData(urlString: jobCategeoryUrlStr, resultType: HospitalDetailsModel.self) { result in
                 
-                
-                httpUtility.getApiData(urlString: jobCategeoryUrlStr, resultType: HospitalDetailsModel.self) { result in
+                switch result {
+                case .success(let data):
+                    completion(.success(data))
                     
-                    switch result {
-                       case .success(let data):
-                        completion(.success(data))
-                        
-                       case .failure(let requestError):
-                           switch requestError {
-                           case .invalidUrl:
-                            completion(.failure("Please try Again After SomeTime"))
-                           
-                           case .internalServerError:
-                            print("Error: Unknown")
-                         
-                           case .decodingError:
-                            print("Error: Unknown")
-                           case .serverError(error: let error):
-                            print("Error: Unknown")
-                           }
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
                 }
                 
             }
         }
-}
+    }
 }

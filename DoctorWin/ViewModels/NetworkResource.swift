@@ -18,27 +18,14 @@ struct NetworkResource {
             httpUtility.getApiData(urlString: jobUrlStr, resultType: NetworkGroupModel.self) { result in
                 
                 switch result {
-                   case .success(let data):
+                case .success(let data):
                     completion(.success(data))
                     
-                   case .failure(let requestError):
-                       switch requestError {
-                       case .invalidUrl:
-                        completion(.failure("Please try Again After SomeTime"))
-                      
-                       
-                      
-                       case .internalServerError:
-                        print("Error: Unknown")
-                       
-                       case .decodingError:
-                        print("Error: Unknown")
-                       case .serverError(error: let error):
-                        print("Error: Unknown")
-                       }
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
+                
             }
-            
-        }
         }
     }
     func getPeopleNetworkData(userID: String, completion : @escaping (_ result: ResponseResult<[PeopleModel]>) -> Void) {
@@ -52,27 +39,13 @@ struct NetworkResource {
             httpUtility.getApiData(urlString: jobUrlStr, resultType: [PeopleModel].self) { result in
                 
                 switch result {
-                   case .success(let data):
+                case .success(let data):
                     completion(.success(data))
-                    
-                   case .failure(let requestError):
-                       switch requestError {
-                       case .invalidUrl:
-                        completion(.failure("Please try Again After SomeTime"))
-                      
-                       
-                      
-                       case .internalServerError:
-                        print("Error: Unknown")
-                       
-                       case .decodingError:
-                        print("Error: Unknown")
-                       case .serverError(error: let error):
-                        print("Error: Unknown")
-                       }
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
+                
             }
-            
-        }
         }
     }
     func getFollowData(userID: String, completion : @escaping (_ result: ResponseResult<[FollowModel]>) -> Void) {
@@ -86,27 +59,14 @@ struct NetworkResource {
             httpUtility.getApiData(urlString: jobUrlStr, resultType: [FollowModel].self) { result in
                 
                 switch result {
-                   case .success(let data):
+                case .success(let data):
                     completion(.success(data))
                     
-                   case .failure(let requestError):
-                       switch requestError {
-                       case .invalidUrl:
-                        completion(.failure("Please try Again After SomeTime"))
-                      
-                       
-                      
-                       case .internalServerError:
-                        print("Error: Unknown")
-                       
-                       case .decodingError:
-                        print("Error: Unknown")
-                       case .serverError(error: let error):
-                        print("Error: Unknown")
-                       }
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
+                
             }
-            
-        }
         }
     }
     func getFollowingData(userID: String, completion : @escaping (_ result: ResponseResult<[FollowModel]>) -> Void) {
@@ -120,27 +80,14 @@ struct NetworkResource {
             httpUtility.getApiData(urlString: jobUrlStr, resultType: [FollowModel].self) { result in
                 
                 switch result {
-                   case .success(let data):
+                case .success(let data):
                     completion(.success(data))
                     
-                   case .failure(let requestError):
-                       switch requestError {
-                       case .invalidUrl:
-                        completion(.failure("Please try Again After SomeTime"))
-                      
-                       
-                      
-                       case .internalServerError:
-                        print("Error: Unknown")
-                       
-                       case .decodingError:
-                        print("Error: Unknown")
-                       case .serverError(error: let error):
-                        print("Error: Unknown")
-                       }
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
+                
             }
-            
-        }
         }
     }
     func getRequestData(userID: String, completion : @escaping (_ result: ResponseResult<[NetworkModel]>) -> Void) {
@@ -154,27 +101,14 @@ struct NetworkResource {
             httpUtility.getApiData(urlString: jobUrlStr, resultType: [NetworkModel].self) { result in
                 
                 switch result {
-                   case .success(let data):
+                case .success(let data):
                     completion(.success(data))
                     
-                   case .failure(let requestError):
-                       switch requestError {
-                       case .invalidUrl:
-                        completion(.failure("Please try Again After SomeTime"))
-                      
-                       
-                      
-                       case .internalServerError:
-                        print("Error: Unknown")
-                       
-                       case .decodingError:
-                        print("Error: Unknown")
-                       case .serverError(error: let error):
-                        print("Error: Unknown")
-                       }
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
+                
             }
-            
-        }
         }
     }
 }

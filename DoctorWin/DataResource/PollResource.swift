@@ -8,19 +8,25 @@
 import Foundation
 
 struct PollResource {
-    func addPollData(request: AddPollRequestModel, completion : @escaping (_ result: BoolResponseModel?) -> Void) {
+    func addPollData(request: AddPollRequestModel, completion : @escaping (_ result: ResponseResult<BoolResponseModel?>) -> Void) {
         
         let loginUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.addPoll
         let loginUrl = URL(string: loginUrlStr)!
         let httpUtility = HttpUtility()
         do {
             
-
+            
             let loginPostBody = try JSONEncoder().encode(request)
             httpUtility.postMethod(requestUrl: loginUrl, requestBody: loginPostBody, resultType: BoolResponseModel.self) { (loginApiResponse) in
-
-                _ = completion(loginApiResponse)
-           }
+                
+                switch loginApiResponse {
+                case .success(let data):
+                    completion(.success(data))
+                    
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
+            }
         }
         catch let error {
             debugPrint(error)
@@ -33,23 +39,12 @@ struct PollResource {
             httpUtility.getApiData(urlString: urlStr, resultType: [PollsDataModel].self) { result in
                 
                 switch result {
-                   case .success(let data):
+                case .success(let data):
                     completion(.success(data))
                     
-                   case .failure(let requestError):
-                       switch requestError {
-                       case .invalidUrl:
-                        completion(.failure("Please try Again After SomeTime"))
-                       
-                       case .internalServerError:
-                        print("Error: Unknown")
-                       
-                       case .decodingError:
-                        print("Error: Unknown")
-                       case .serverError(error: let error):
-                        print("Error: Unknown")
-                       }
-                   }
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
             }
         }
     }
@@ -62,12 +57,12 @@ struct ArticalResource {
         let httpUtility = HttpUtility()
         do {
             
-
+            
             let loginPostBody = try JSONEncoder().encode(request)
             httpUtility.postMethod(requestUrl: loginUrl, requestBody: loginPostBody, resultType: BoolResponseModel.self) { (loginApiResponse) in
-
-//                _ = completion(loginApiResponse)
-           }
+                
+                //                _ = completion(loginApiResponse)
+            }
         }
         catch let error {
             debugPrint(error)

@@ -39,8 +39,15 @@ class EditConnectViewController:  ViewController {
         resouce.getQualificationData { result in
             DispatchQueue.main.async {
                 self.dismiss()
-                self.qualificationArray = result
-                self.tableView.reloadData()
+                switch result {
+                case .success(let data):
+                    self.qualificationArray = data
+                    self.tableView.reloadData()
+                    
+                case .failure(_):
+                    print("")
+                }
+                
             }
         }
     }
@@ -50,8 +57,15 @@ class EditConnectViewController:  ViewController {
         resouce.getProfessionalData { result in
             DispatchQueue.main.async {
                 self.dismiss()
-                self.professionArray = result
-                self.tableView.reloadData()
+                switch result {
+                case .success(let data):
+                    self.professionArray = data
+                    self.tableView.reloadData()
+                    
+                case .failure(_):
+                    print("")
+                }
+            
             }
         }
     }

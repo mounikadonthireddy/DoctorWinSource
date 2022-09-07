@@ -15,23 +15,12 @@ struct ConnectResource {
             httpUtility.getApiData(urlString: homeUrlStr, resultType: [InterestModel].self) { result in
                 
                 switch result {
-                   case .success(let data):
+                case .success(let data):
                     completion(.success(data))
                     
-                   case .failure(let requestError):
-                       switch requestError {
-                       case .invalidUrl:
-                        completion(.failure("Please try Again After SomeTime"))
-                       
-                       case .internalServerError:
-                        print("Error: Unknown")
-                       
-                       case .decodingError:
-                        print("Error: Unknown")
-                       case .serverError(error: _):
-                        print("Error: Unknown")
-                       }
-                   }
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
             }
         }
     }
@@ -43,27 +32,15 @@ struct ConnectResource {
             httpUtility.getApiData(urlString: homeUrlStr, resultType: ConnectProfileModel.self) { result in
                 
                 switch result {
-                   case .success(let data):
+                case .success(let data):
                     completion(.success(data))
-                    
-                   case .failure(let requestError):
-                       switch requestError {
-                       case .invalidUrl:
-                        completion(.failure("Please try Again After SomeTime"))
-                       
-                       case .internalServerError:
-                        print("Error: Unknown")
-                       
-                       case .decodingError:
-                        print("Error: Unknown")
-                       case .serverError(error: let error):
-                        print("Error: Unknown")
-                       }
-                   }
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
             }
         }
     }
-    func submitInterests(request:InterestRequest, completion : @escaping (_ result: BoolResponseModel) -> Void) {
+    func submitInterests(request:InterestRequest, completion : @escaping (_ result: ResponseResult<BoolResponseModel>) -> Void) {
         
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getInterest
         let homeUrl = URL(string: homeUrlStr)!
@@ -75,7 +52,13 @@ struct ConnectResource {
             
             httpUtility.postMethod(requestUrl: homeUrl, requestBody: postBody, resultType: BoolResponseModel.self) { (result) in
                 
-                completion(result)
+                switch result {
+                case .success(let data):
+                    completion(.success(data))
+                    
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
                 
             }
         } catch let error {

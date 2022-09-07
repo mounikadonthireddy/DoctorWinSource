@@ -40,8 +40,12 @@ struct  InterestViewModel {
         let homeResource = ConnectResource()
         homeResource.submitInterests(request: request) { response in
             DispatchQueue.main.async {
-                self.delegate?.submitInterestResponse(res: response, error: nil)
-                
+                switch response {
+                case .success(let data):
+                    self.delegate?.submitInterestResponse(res: data, error: nil)
+                case .failure(_):
+                    self.delegate?.submitInterestResponse(res: nil, error: nil)
+                }
             }
         }
     }
