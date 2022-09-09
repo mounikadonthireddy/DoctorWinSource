@@ -13,7 +13,7 @@ class ImageCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        self.imageBtn.setCornerRadiusWithBorderColor(radius: 35, color: UIColor.blue, borderWidth: 0.5)
+        self.imageBtn.setCornerRadiusWithBorderColor(radius: 5, color: UIColor.lightGray, borderWidth: 0.5)
     }
 
 }

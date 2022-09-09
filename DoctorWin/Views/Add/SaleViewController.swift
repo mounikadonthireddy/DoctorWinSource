@@ -28,7 +28,9 @@ class SaleViewController: ViewController {
         collectionViewLayout.minimumInteritemSpacing = 0
         collectionViewLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
-    
+    @IBAction func backClicked(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
 }
 extension SaleViewController : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -40,8 +42,6 @@ extension SaleViewController : UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell: ImageCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! ImageCell
-           
-           
         return cell
         
     }

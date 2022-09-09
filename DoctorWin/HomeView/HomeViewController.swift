@@ -92,7 +92,7 @@ class HomeViewController: UIViewController, ExpandableLabelDelegate {
     }
     
     @IBAction func plusClikced(_ sender: Any) {
-        let str = UIStoryboard(name: "Tab", bundle: nil)
+        let str = UIStoryboard(name: "Add", bundle: nil)
         
         let nextVC = str.instantiateViewController(withIdentifier: "AddMainViewController") as! AddMainViewController
         

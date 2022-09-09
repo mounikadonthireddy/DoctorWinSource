@@ -303,6 +303,11 @@
 		DC8669892874396E00CF89A8 /* ShopWishlistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8669872874396E00CF89A8 /* ShopWishlistCell.swift */; };
 		DC86698A2874396E00CF89A8 /* ShopWishlistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC8669882874396E00CF89A8 /* ShopWishlistCell.xib */; };
 		DC885E2828C7A21D00110418 /* QuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC885E2728C7A21D00110418 /* QuestionsViewController.swift */; };
+		DC885E2A28C8D82300110418 /* BattleWar.otf in Resources */ = {isa = PBXBuildFile; fileRef = DC885E2928C8D82200110418 /* BattleWar.otf */; };
+		DC885E2C28C8D83700110418 /* BattleWar.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC885E2B28C8D83700110418 /* BattleWar.ttf */; };
+		DC885E2E28C8DD8C00110418 /* AddQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC885E2D28C8DD8C00110418 /* AddQuestionViewController.swift */; };
+		DC885E3028C8EBB800110418 /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC885E2F28C8EBB800110418 /* CreatePostViewController.swift */; };
+		DC885E3128CB46DE00110418 /* QuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC885E2728C7A21D00110418 /* QuestionsViewController.swift */; };
 		DC8AE243286D815D003376A7 /* ShopCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8AE241286D815D003376A7 /* ShopCategoryCell.swift */; };
 		DC8AE244286D815D003376A7 /* ShopCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC8AE242286D815D003376A7 /* ShopCategoryCell.xib */; };
 		DC8AE246286D9DFB003376A7 /* ShopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8AE245286D9DFB003376A7 /* ShopViewModel.swift */; };
@@ -682,6 +687,10 @@
 		DC8669872874396E00CF89A8 /* ShopWishlistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopWishlistCell.swift; sourceTree = "<group>"; };
 		DC8669882874396E00CF89A8 /* ShopWishlistCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopWishlistCell.xib; sourceTree = "<group>"; };
 		DC885E2728C7A21D00110418 /* QuestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsViewController.swift; sourceTree = "<group>"; };
+		DC885E2928C8D82200110418 /* BattleWar.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BattleWar.otf; sourceTree = "<group>"; };
+		DC885E2B28C8D83700110418 /* BattleWar.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BattleWar.ttf; sourceTree = "<group>"; };
+		DC885E2D28C8DD8C00110418 /* AddQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestionViewController.swift; sourceTree = "<group>"; };
+		DC885E2F28C8EBB800110418 /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
 		DC8AE241286D815D003376A7 /* ShopCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCategoryCell.swift; sourceTree = "<group>"; };
 		DC8AE242286D815D003376A7 /* ShopCategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopCategoryCell.xib; sourceTree = "<group>"; };
 		DC8AE245286D9DFB003376A7 /* ShopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewModel.swift; sourceTree = "<group>"; };
@@ -842,8 +851,10 @@
 				439DC466273FB28800DAD6D5 /* LICENSE.txt */,
 				439DC461273FB28800DAD6D5 /* Roboto-Black.ttf */,
 				439DC465273FB28800DAD6D5 /* Roboto-Bold.ttf */,
+				DC885E2928C8D82200110418 /* BattleWar.otf */,
 				439DC464273FB28800DAD6D5 /* Roboto-Light.ttf */,
 				439DC467273FB28800DAD6D5 /* Roboto-Medium.ttf */,
+				DC885E2B28C8D83700110418 /* BattleWar.ttf */,
 				439DC463273FB28800DAD6D5 /* Roboto-Regular.ttf */,
 				439DC462273FB28800DAD6D5 /* Roboto-Thin.ttf */,
 			);
@@ -1030,6 +1041,8 @@
 				43B03AA8272F99E100A4337B /* AddCasesViewController.swift */,
 				BFA90E2527BB5163009F9784 /* CreateCaseViewController.swift */,
 				43B2844F273CE1BA00E8CED8 /* AddMainViewController.swift */,
+				DC885E2D28C8DD8C00110418 /* AddQuestionViewController.swift */,
+				DC885E2F28C8EBB800110418 /* CreatePostViewController.swift */,
 				DC6BCDA2287BE7D4004F143D /* SaleViewController.swift */,
 				BFC3EEFB282E2B9C000A1582 /* Social */,
 			);
@@ -1577,6 +1590,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC885E2A28C8D82300110418 /* BattleWar.otf in Resources */,
 				DC86698428742FAE00CF89A8 /* ShopCVCell.xib in Resources */,
 				BF431C99278352820057AF9F /* NewTypeCell.xib in Resources */,
 				DC453E4D28C77EBA00E1B72F /* UserAnswerCell.xib in Resources */,
@@ -1651,6 +1665,7 @@
 				DC86698A2874396E00CF89A8 /* ShopWishlistCell.xib in Resources */,
 				BFC3EF01282E2C04000A1582 /* ConnectCell.xib in Resources */,
 				BF0DD953278D46C50053747A /* ProfessionalDetailsCell.xib in Resources */,
+				DC885E2C28C8D83700110418 /* BattleWar.ttf in Resources */,
 				BFD5FF2D2812EECE003CE888 /* NewsDetailsCell.xib in Resources */,
 				439297902722D628001891B8 /* Main.storyboard in Resources */,
 				DCA0A6E928C36118001DE3F1 /* NetworkCVHeaderView.xib in Resources */,
@@ -1935,6 +1950,7 @@
 				43B975A42725978900CDF2F1 /* CarrierSubCell.swift in Sources */,
 				43AF9F892729D4390020CCF3 /* CustomSegmentedContrl.swift in Sources */,
 				BFC3EEE82824E95E000A1582 /* NetworkViewModel.swift in Sources */,
+				DC885E2E28C8DD8C00110418 /* AddQuestionViewController.swift in Sources */,
 				43B52E48273BE52B004EF637 /* HomeDetailsTableView.swift in Sources */,
 				BF0DD963278D6CA40053747A /* QuickJobTVCell.swift in Sources */,
 				43B52E3E273BD024004EF637 /* PostQuestionViewController.swift in Sources */,
@@ -1990,6 +2006,7 @@
 				BF0DD967278D8BF30053747A /* RecentSearchCell.swift in Sources */,
 				43F50BCB2757931F00EC1A80 /* CustomJobResource.swift in Sources */,
 				BF170F6C280FD629001B3109 /* CaseDetailsCell.swift in Sources */,
+				DC885E3028C8EBB800110418 /* CreatePostViewController.swift in Sources */,
 				439297C12722D721001891B8 /* CarrierViewController.swift in Sources */,
 				DC55BE082872F42900B1EE1B /* DatingViewModel.swift in Sources */,
 				BF1588B727C65A37000B8979 /* DataViewController.swift in Sources */,
@@ -2056,6 +2073,7 @@
 			files = (
 				DC86698028730ED700CF89A8 /* ShowInterestViewController.swift in Sources */,
 				439297A02722D629001891B8 /* DoctorWinTests.swift in Sources */,
+				DC885E3128CB46DE00110418 /* QuestionsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

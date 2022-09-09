@@ -30,8 +30,8 @@
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="lGm-B1-Sig">
-                                <rect key="frame" x="8" y="5.5" width="19" height="22.5"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person" translatesAutoresizingMaskIntoConstraints="NO" id="lGm-B1-Sig">
+                                <rect key="frame" x="8" y="4" width="19" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="iAW-5J-ZDi"/>
                                 </constraints>
@@ -67,6 +67,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="person" catalog="system" width="128" height="117"/>
+        <image name="person" width="171" height="171"/>
     </resources>
 </document>
