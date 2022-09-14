@@ -75,7 +75,7 @@ class CarrierJobCell: UITableViewCell {
         self.specialityName.text = data.name ?? ""
         
         self.location.text = data.location_of_job
-        self.experience.text = "\(String(describing: data.experince) )" + " yrs Experience"
+        self.experience.text = "\(data.experince ?? "0")" + " yrs Experience"
         
         
         save.tag = data.id

@@ -52,9 +52,9 @@ struct QuestionsViewModel {
             
         }
     }
-    func getMostUserPostedQuestions(userID: String) {
+    func getMostUserPostedQuestions(userID: String, page:Int) {
         let resource = QuestionsResource()
-        resource.getUserPostedQuestionData(userID: userID) { response in
+        resource.getUserPostedQuestionData(userID: userID,page: page) { response in
             DispatchQueue.main.async {
                 switch response {
                 case .success(let data):

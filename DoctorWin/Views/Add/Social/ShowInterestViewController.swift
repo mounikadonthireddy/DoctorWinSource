@@ -111,7 +111,7 @@ class ShowInterestViewController: ViewController {
         
         if imagesArray.count > 0 {
             currentIndex = (currentIndex == imagesArray.count - 1) ? 0 : currentIndex + 1
-            let urlString = self.imagesArray[self.currentIndex].image
+            let urlString = self.imagesArray[self.currentIndex].image ?? ""
             
             self.profileImage.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "loginBg"))
             

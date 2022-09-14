@@ -41,9 +41,9 @@ struct QuestionsResource {
             }
         }
     }
-    func getUserPostedQuestionData(userID: String, completion : @escaping (_ result: ResponseResult<[PostedQuestionModel]>) -> Void) {
+    func getUserPostedQuestionData(userID: String,page:Int, completion : @escaping (_ result: ResponseResult<[PostedQuestionModel]>) -> Void) {
         
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.userPostedQA + "?user_id=\(userID)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.userPostedQA + "?user_id=\(userID)&page=\(page)"
         let httpUtility = HttpUtility()
         do {
             httpUtility.getApiData(urlString: homeUrlStr, resultType: [PostedQuestionModel].self) { result in

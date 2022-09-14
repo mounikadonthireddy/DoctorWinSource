@@ -45,7 +45,7 @@ class NetworkCVCell: UICollectionViewCell {
             self.personImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
         }
         if let urlString = bgImage {
-            self.bgImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
+            self.bgImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "collegeBg"))
         }
     }
 }

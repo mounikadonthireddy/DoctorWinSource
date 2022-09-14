@@ -32,7 +32,7 @@ class ProfileViewHeader: UITableViewHeaderFooterView {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        interfaceSegmented.delegate = self
+       
         viewBtn.setCornerRadius(radius: 10)
         profileImage.setCornerRadius(radius: Float(profileImage.frame.width)/2)
     }
@@ -50,10 +50,4 @@ class ProfileViewHeader: UITableViewHeaderFooterView {
         
     }
     
-}
-extension ProfileViewHeader: CustomSegmentedControlDelegate {
-    
-    func change(to index: Int) {
-        //self.loadMyArticles(index: index)
-    }
 }

@@ -92,7 +92,7 @@ struct NetworkResource {
     }
     func getRequestData(userID: String, completion : @escaping (_ result: ResponseResult<[NetworkModel]>) -> Void) {
         
-        let jobUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getRequest + "?user_id=\(userID)"
+        let jobUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getRequest + "?user_id=\(userID)&page=1"
         
         let httpUtility = HttpUtility()
         do {

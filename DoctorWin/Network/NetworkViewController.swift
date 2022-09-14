@@ -10,6 +10,7 @@ import UIKit
 class NetworkViewController: ViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionViewLayout: UICollectionViewFlowLayout!
+    @IBOutlet weak var topView: UIView!
     var groupVM = GroupViewModel()
     var peopleVM = PeopleViewModel()
     var groupArray :[GroupModel] = []
@@ -20,7 +21,7 @@ class NetworkViewController: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        topView.dropShadow()
         collectionViewLayout.scrollDirection = .vertical
         collectionViewLayout.minimumLineSpacing = 0
         collectionViewLayout.minimumInteritemSpacing = 0
@@ -62,7 +63,7 @@ class NetworkViewController: ViewController {
     @objc func inviteClicked(button: UIButton) {
         
     }
-    @objc func requestClicked(button: UIButton) {
+    func requestClicked() {
         let str = UIStoryboard(name: "Network", bundle: nil)
         let nextVC = str.instantiateViewController(withIdentifier: "RequestViewController") as! RequestViewController
         self.navigationController?.pushViewController(nextVC, animated: true)
@@ -81,7 +82,7 @@ class NetworkViewController: ViewController {
                 case .failure(_):
                     print("")
                 }
-               
+                
             }
             
         }
@@ -136,7 +137,7 @@ extension NetworkViewController : UICollectionViewDelegate, UICollectionViewData
             cell.cellConfigureWithPeopleData(data: peopleArray[indexPath.row])
         }
         
-     
+        
         return cell
         
     }
@@ -150,7 +151,8 @@ extension NetworkViewController : UICollectionViewDelegate, UICollectionViewData
             let headerView: NetworkCVHeaderView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: collectionViewHeaderFooterReuseIdentifier, for: indexPath) as! NetworkCVHeaderView
             headerView.loadGropsData(data: adminGroupArray)
             headerView.interfaceSegmented.delegate = self
-         //   headerView.titleLbl.text = titleArray[indexPath.section]
+            headerView.delegate = self
+            //   headerView.titleLbl.text = titleArray[indexPath.section]
             
             return headerView
         default:
@@ -188,14 +190,22 @@ extension NetworkViewController : UICollectionViewDelegate, UICollectionViewData
         return 1
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let str = UIStoryboard(name: "Details", bundle: nil)
-        let nextVC = str.instantiateViewController(withIdentifier: "UserDetailsViewController") as! UserDetailsViewController
-        nextVC.RequestUserID = "\(groupArray[indexPath.row].id ?? 0)"
-        self.navigationController?.pushViewController(nextVC, animated: true)
+        if selectedIndex == 0 {
+            self.navigateToUserDetails(reqId: "", groupId: "\(groupArray[indexPath.row].group_id ?? "")")
+        } else {
+        self.navigateToUserDetails(reqId: "\(peopleArray[indexPath.row].userid ?? 0)", groupId: "")
+        }
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         
-        return CGSize(width: collectionView.frame.width, height: CGFloat(adminGroupArray.count * 50) + CGFloat(50))
+        return CGSize(width: collectionView.frame.width, height: CGFloat(adminGroupArray.count * 50) + CGFloat(120))
+    }
+    func navigateToUserDetails(reqId: String, groupId: String) {
+        let str = UIStoryboard(name: "Details", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "UserDetailsViewController") as! UserDetailsViewController
+        nextVC.requestUserID = reqId
+        nextVC.groupId = groupId
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
 }
@@ -203,6 +213,18 @@ extension NetworkViewController: CustomSegmentedControlDelegate {
     func change(to index: Int) {
         selectedIndex = index
         self.collectionView.reloadData()
+    }
+    
+    
+}
+extension NetworkViewController: NetworkGroupSelected {
+    func selectedGroup(groupId: String) {
+        if groupId == "request" {
+            self.requestClicked()
+        } else if groupId != "" {
+            self.navigateToUserDetails(reqId: "", groupId: groupId)
+        }
+        print("group Id : \(groupId)")
     }
     
     

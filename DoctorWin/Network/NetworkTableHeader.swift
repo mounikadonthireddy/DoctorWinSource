@@ -9,17 +9,21 @@ import UIKit
 
 class NetworkTableHeader: UITableViewHeaderFooterView {
 
-    @IBOutlet weak var followBtn: UIButton!
-    @IBOutlet weak var followingBtn: UIButton!
     @IBOutlet weak var requestBtn: UIButton!
-    @IBOutlet weak var inviteBtn: UIButton!
 
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
+    override func draw(_ rt: CGRect) {
         // Drawing code
     }
     */
+    static var nib: UINib {
+        return UINib(nibName: identifier, bundle: nil)
+    }
+    
+    static var identifier: String {
+        return String(describing: self)
+    }
 
 }

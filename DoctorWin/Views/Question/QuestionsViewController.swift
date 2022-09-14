@@ -15,6 +15,8 @@ class QuestionsViewController: ViewController {
     var questionsArray: [PostedQuestionModel] = []
     var trendingQuestions:[AnswersModel] = []
     var questionVM = QuestionsViewModel()
+    var pageNumber = 1
+    var loadingData = true
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "QACell", bundle: nil), forCellReuseIdentifier: "QACell")
@@ -25,7 +27,7 @@ class QuestionsViewController: ViewController {
         //        shopCVLayout.minimumInteritemSpacing = 0
         //        shopCVLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         questionVM.delegate1 = self
-        self.loadPostedQuestions()
+        self.loadPostedQuestions(pageNum: pageNumber)
         self.loadPopularQuestions()
         // Do any additional setup after loading the view.
     }
@@ -34,9 +36,9 @@ class QuestionsViewController: ViewController {
         questionVM.getMostPopularQuestions(userID: User.shared.userID)
         
     }
-    func loadPostedQuestions() {
+    func loadPostedQuestions(pageNum: Int) {
         self.showLoader()
-        questionVM.getMostUserPostedQuestions(userID: User.shared.userID)
+        questionVM.getMostUserPostedQuestions(userID: User.shared.userID,page: pageNum)
     }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
@@ -117,7 +119,15 @@ extension QuestionsViewController: UITableViewDelegate, UITableViewDataSource {
         cell.configureWith(data: questionsArray[indexPath.row])
         return cell
     }
-    
+//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        let lastElement = questionsArray.count - 1
+//        if !loadingData && indexPath.row == lastElement {
+//            self.showLoader()
+//            loadingData = true
+//            pageNumber += 1
+//            self.loadPostedQuestions(pageNum: pageNumber)
+//        }
+//    }
     
     
 }
@@ -131,7 +141,8 @@ extension QuestionsViewController: QAViewModelDelegate {
     
     func didReceiveUserQuestionData(response: [PostedQuestionModel]?, error: String?) {
         self.dismiss()
-        questionsArray = response ?? []
+        loadingData = false
+        questionsArray = questionsArray + (response ?? [])
         tableView.reloadData()
     }
     

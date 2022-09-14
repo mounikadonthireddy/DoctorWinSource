@@ -67,6 +67,7 @@ struct ProfileViewModel {
             }
         }
     }
+   
     func getProfileExperienceData(userID: String) {
         let resource = ProfileEditResource()
         resource.getProfileExperienceData(userID: userID) { response in

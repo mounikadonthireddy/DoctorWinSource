@@ -12,18 +12,19 @@ class UserDetailsViewController: ViewController {
     @IBOutlet weak var profileTableView: UITableView!
     var userVM = UserDetailsViewModel()
     var userDetailsModel : ProfileDataModel?
+    var groupModel : GroupProfileModel?
     var newsArray: [NewsModel] = []
     var postsArray:[HomeDataModel] = []
     var casesArray: [CasesDataModel] = []
     var questionsArray : [PostedQuestionModel] = []
     var answersArray: [AnswersModel] = []
-    var RequestUserID = ""
-    var groupId = "DWG10001"
+    var requestUserID = ""
+    var groupId = ""
     var selectionType = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         self.profileTableView.register(UINib(nibName: "UserHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "UserHeaderView")
         profileTableView.register(UINib(nibName: "CaseCell", bundle: nil), forCellReuseIdentifier: "CaseCell")
         profileTableView.register(UINib(nibName: "HomeTableCell", bundle: nil), forCellReuseIdentifier: "HomeTableCell")
@@ -33,13 +34,15 @@ class UserDetailsViewController: ViewController {
         
         profileTableView.register(UINib(nibName: "QACell", bundle: nil), forCellReuseIdentifier: "QACell")
         profileTableView.register(UINib(nibName: "UserAnswerCell", bundle: nil), forCellReuseIdentifier: "UserAnswerCell")
-       
-      
+        
+        
         
         self.navigationController?.isNavigationBarHidden = true
         profileTableView.contentInset = UIEdgeInsets(top: -10, left: 0, bottom: 0, right: 0)
         userVM.delegate = self
+        
         self.loadPostsData()
+        self.loadGroupData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,21 +54,55 @@ class UserDetailsViewController: ViewController {
     func loadHomeData() {
         
     }
+    func loadGroupData() {
+        self.showLoader()
+        if groupId != "" {
+            userVM.getGroupProfileData(userID: User.shared.userID, groupId: groupId)
+        } else if requestUserID != "" {
+            userVM.getProfileData(userID: requestUserID)
+        } else {
+            userVM.getProfileData(userID: User.shared.userID)
+        }
+    }
     func loadPostsData() {
         self.showLoader()
-        userVM.getPostData(userID: User.shared.userID, group_id: groupId)
+        if groupId != "" {
+            userVM.getPostData(userID: User.shared.userID, group_id: groupId)
+        } else if groupId == "" && requestUserID != "" {
+            userVM.getPostData(userID: requestUserID)
+        } else {
+            userVM.getPostData(userID: User.shared.userID)
+        }
     }
     func loadCasesData() {
         self.showLoader()
-        userVM.getCasesData(userID: User.shared.userID, group_id: groupId)
+        if groupId != "" {
+            userVM.getCasesData(userID: User.shared.userID, group_id: groupId)
+        } else if groupId == "" && requestUserID != "" {
+            userVM.getCasesData(userID: requestUserID)
+        } else {
+            userVM.getCasesData(userID: User.shared.userID)
+        }
     }
     func loadQuestionsData() {
         self.showLoader()
-        userVM.getQuestionsData(userID: User.shared.userID, group_id: groupId)
+        if groupId != "" {
+            userVM.getQuestionsData(userID: User.shared.userID, group_id: groupId)
+        } else if groupId == "" && requestUserID != "" {
+            userVM.getQuestionsData(userID: requestUserID)
+        } else {
+            userVM.getQuestionsData(userID: User.shared.userID)
+        }
     }
     func loadAnswersData() {
         self.showLoader()
-        userVM.getAnswersData(userID: User.shared.userID, group_id: groupId)
+        if groupId != "" {
+            userVM.getAnswersData(userID: User.shared.userID, group_id: groupId)
+        } else if groupId == "" && requestUserID != "" {
+            userVM.getAnswersData(userID: User.shared.userID)
+        } else {
+            userVM.getQuestionsData(userID: User.shared.userID)
+        }
     }
     
     
@@ -81,7 +118,7 @@ extension UserDetailsViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch selectionType {
         case -1:
-        return 0
+            return 0
         case 0:
             return postsArray.count
         case 1:
@@ -90,38 +127,38 @@ extension UserDetailsViewController: UITableViewDelegate, UITableViewDataSource 
             return questionsArray.count
         case 3:
             return answersArray.count
-       
+            
         default:
             return 0
+        }
     }
-    }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch selectionType {
-
+            
             
         case 0:
             let cell: CaseCell
-                = tableView.dequeueReusableCell(withIdentifier: "CaseCell") as! CaseCell
+            = tableView.dequeueReusableCell(withIdentifier: "CaseCell") as! CaseCell
             cell.configureData(homeModel: postsArray[indexPath.row])
-        
+            
             return cell
             
         case 1:
             let cell: CaseCell
-                = tableView.dequeueReusableCell(withIdentifier: "CaseCell") as! CaseCell
+            = tableView.dequeueReusableCell(withIdentifier: "CaseCell") as! CaseCell
             cell.configureDataWith(homeModel: casesArray[indexPath.row])
             return cell
-      
+            
         case 2:
             let cell: QACell
-                = tableView.dequeueReusableCell(withIdentifier: "QACell") as! QACell
+            = tableView.dequeueReusableCell(withIdentifier: "QACell") as! QACell
             cell.configureWith(data: questionsArray[indexPath.row])
             return cell
             
         case 3:
             let cell: UserAnswerCell
-                = tableView.dequeueReusableCell(withIdentifier: "UserAnswerCell") as! UserAnswerCell
+            = tableView.dequeueReusableCell(withIdentifier: "UserAnswerCell") as! UserAnswerCell
             cell.configureDataWith(homeModel: answersArray[indexPath.row])
             return cell
             
@@ -135,8 +172,12 @@ extension UserDetailsViewController: UITableViewDelegate, UITableViewDataSource 
     
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        
-        return 355
+        if let details = groupModel {
+            if details.join_status == true {
+                return 420
+            }
+        }
+        return 350
         
     }
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -147,11 +188,15 @@ extension UserDetailsViewController: UITableViewDelegate, UITableViewDataSource 
             if let userDetails = userDetailsModel {
                 headerView.configureView(data: userDetails)
             }
+            if let details = groupModel {
+                headerView.configureView(data: details)
+                
+            }
             headerView.backBtn.addTarget(self, action: #selector(backClicked(button:)), for: .touchUpInside)
             headerView.followBtn.addTarget(self, action: #selector(followClicked(button:)), for: .touchUpInside)
-//            headerView.viewBtn.addTarget(self, action: #selector(viewClicked(button:)), for: .touchUpInside)
-//            headerView.followCountBtn.addTarget(self, action: #selector(followCountClicked(button:)), for: .touchUpInside)
-//            headerView.followingCountBtn.addTarget(self, action: #selector(followingCountClicked(button:)), for: .touchUpInside)
+            headerView.postBtn.addTarget(self, action: #selector(postClicked(button:)), for: .touchUpInside)
+            //            headerView.followCountBtn.addTarget(self, action: #selector(followCountClicked(button:)), for: .touchUpInside)
+            //            headerView.followingCountBtn.addTarget(self, action: #selector(followingCountClicked(button:)), for: .touchUpInside)
             headerView.interfaceSegmented.delegate = self
             return headerView
         }
@@ -162,8 +207,10 @@ extension UserDetailsViewController: UITableViewDelegate, UITableViewDataSource 
     @objc func backClicked(button: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
-    @objc func viewClicked(button: UIButton) {
-        
+    @objc func postClicked(button: UIButton) {
+        let str = UIStoryboard(name: "Add", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "AddMainViewController") as! AddMainViewController
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
     @objc func followingCountClicked(button: UIButton) {
         
@@ -176,6 +223,14 @@ extension UserDetailsViewController: UITableViewDelegate, UITableViewDataSource 
     }
 }
 extension UserDetailsViewController: UserDetailsViewModelDelegate {
+    func didReciveGroupProfileData(response: GroupProfileModel?, error: String?) {
+        self.dismiss()
+        if response != nil {
+            groupModel = response!
+        }
+        self.profileTableView.reloadData()
+    }
+    
     func didRecivePostsData(response: [HomeDataModel]?, error: String?) {
         self.dismiss()
         postsArray = response ?? []
@@ -221,25 +276,21 @@ extension UserDetailsViewController: UserDetailsViewModelDelegate {
         if error == nil {
             casesArray = response ?? []
             profileTableView.reloadData()
-
         }
-    
-    
-    
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch selectionType {
         case 1:
             let str = UIStoryboard(name: "Details", bundle: nil)
             let nextVC = str.instantiateViewController(withIdentifier: "CaseDetailsViewController") as! CaseDetailsViewController
-            nextVC.caseId = casesArray[indexPath.row].id ?? 0
+            nextVC.caseId = casesArray[indexPath.row].id
             self.navigationController?.pushViewController(nextVC, animated: true)
         case 2:
             let str = UIStoryboard(name: "Details", bundle: nil)
             let nextVC = str.instantiateViewController(withIdentifier: "NewsDetailsViewController") as! NewsDetailsViewController
-          
+            
             self.navigationController?.pushViewController(nextVC, animated: true)
-        
+            
         default:
             let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "ExamDetailsViewController") as! ExamDetailsViewController
             //nextVC.detailsModel = homedataArry[indexPath.row]
@@ -251,7 +302,7 @@ extension UserDetailsViewController: UserDetailsViewModelDelegate {
 extension UserDetailsViewController : CustomSegmentedControlDelegate {
     func change(to index: Int) {
         switch index {
-
+            
         case 0:
             self.selectionType = 0
             self.loadPostsData()
@@ -259,7 +310,7 @@ extension UserDetailsViewController : CustomSegmentedControlDelegate {
         case 1:
             self.selectionType = 1
             self.loadCasesData()
-           
+            
         case 2:
             self.selectionType = 2
             self.loadQuestionsData()
@@ -269,6 +320,6 @@ extension UserDetailsViewController : CustomSegmentedControlDelegate {
             
         default: break
         }
-       
+        
     }
 }

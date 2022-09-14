@@ -10,6 +10,7 @@ import UIKit
 class HomeViewController: UIViewController, ExpandableLabelDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var questionBtn: UIButton!
+    @IBOutlet weak var topView: UIView!
     @IBOutlet weak var plusBtn: UIButton!
     var homedataArry: [HomeDataModel] = []
     var homeVM = HomeViewModel()
@@ -23,7 +24,7 @@ class HomeViewController: UIViewController, ExpandableLabelDelegate {
         plusBtn.setCornerRadius(radius: Float(plusBtn.frame.width)/2)
         questionBtn.setCornerRadius(radius: Float(questionBtn.frame.height)/2)
         tableView.register(UINib(nibName: "CaseCell", bundle: nil), forCellReuseIdentifier: "CaseCell")
-        
+        topView.dropShadow()
         
         
         tableView.register(UINib(nibName: "NewsCell", bundle: nil), forCellReuseIdentifier: "NewsCell")

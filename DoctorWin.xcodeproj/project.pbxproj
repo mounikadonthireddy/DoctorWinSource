@@ -308,6 +308,8 @@
 		DC885E2E28C8DD8C00110418 /* AddQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC885E2D28C8DD8C00110418 /* AddQuestionViewController.swift */; };
 		DC885E3028C8EBB800110418 /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC885E2F28C8EBB800110418 /* CreatePostViewController.swift */; };
 		DC885E3128CB46DE00110418 /* QuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC885E2728C7A21D00110418 /* QuestionsViewController.swift */; };
+		DC885E3428D0E59B00110418 /* PersonImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC885E3228D0E59A00110418 /* PersonImageCell.swift */; };
+		DC885E3528D0E59B00110418 /* PersonImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC885E3328D0E59A00110418 /* PersonImageCell.xib */; };
 		DC8AE243286D815D003376A7 /* ShopCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8AE241286D815D003376A7 /* ShopCategoryCell.swift */; };
 		DC8AE244286D815D003376A7 /* ShopCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC8AE242286D815D003376A7 /* ShopCategoryCell.xib */; };
 		DC8AE246286D9DFB003376A7 /* ShopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8AE245286D9DFB003376A7 /* ShopViewModel.swift */; };
@@ -691,6 +693,8 @@
 		DC885E2B28C8D83700110418 /* BattleWar.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BattleWar.ttf; sourceTree = "<group>"; };
 		DC885E2D28C8DD8C00110418 /* AddQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestionViewController.swift; sourceTree = "<group>"; };
 		DC885E2F28C8EBB800110418 /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
+		DC885E3228D0E59A00110418 /* PersonImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonImageCell.swift; sourceTree = "<group>"; };
+		DC885E3328D0E59A00110418 /* PersonImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonImageCell.xib; sourceTree = "<group>"; };
 		DC8AE241286D815D003376A7 /* ShopCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCategoryCell.swift; sourceTree = "<group>"; };
 		DC8AE242286D815D003376A7 /* ShopCategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopCategoryCell.xib; sourceTree = "<group>"; };
 		DC8AE245286D9DFB003376A7 /* ShopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewModel.swift; sourceTree = "<group>"; };
@@ -1271,6 +1275,8 @@
 				DCA0A6E328C34957001DE3F1 /* NetworkCVCell.xib */,
 				BF431C7E2782D57E0057AF9F /* FollowCell.swift */,
 				BF431C7F2782D57E0057AF9F /* FollowCell.xib */,
+				DC885E3228D0E59A00110418 /* PersonImageCell.swift */,
+				DC885E3328D0E59A00110418 /* PersonImageCell.xib */,
 				BFC3EEEF282525E5000A1582 /* RequestCell.swift */,
 				BFC3EEF0282525E5000A1582 /* RequestCell.xib */,
 			);
@@ -1636,6 +1642,7 @@
 				43B03A9D272EAF6300A4337B /* CommentsCell.xib in Resources */,
 				DCA0A6E128C31463001DE3F1 /* ShopWishlistHeaderView.xib in Resources */,
 				43AF9F8427296C8F0020CCF3 /* HomeData.json in Resources */,
+				DC885E3528D0E59B00110418 /* PersonImageCell.xib in Resources */,
 				439297952722D629001891B8 /* LaunchScreen.storyboard in Resources */,
 				43B5CBCE2726779900DFEC71 /* JobsCell.xib in Resources */,
 				BF431C9D278403180057AF9F /* CreateFirstCaseView.xib in Resources */,
@@ -1886,6 +1893,7 @@
 				4392978D2722D628001891B8 /* ViewController.swift in Sources */,
 				43B5CBD02726E48400DFEC71 /* JobsViewController.swift in Sources */,
 				DCA0A6CF28C0F9A4001DE3F1 /* PersonalInfoCell.swift in Sources */,
+				DC885E3428D0E59B00110418 /* PersonImageCell.swift in Sources */,
 				43AF8FBB27358BFA00CC69EF /* LoginResponse.swift in Sources */,
 				DC55BE022872BCB700B1EE1B /* MCQViewModel.swift in Sources */,
 				BF431C802782D57E0057AF9F /* FollowCell.swift in Sources */,

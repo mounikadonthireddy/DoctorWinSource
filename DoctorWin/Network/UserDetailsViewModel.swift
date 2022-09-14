@@ -9,6 +9,7 @@ import Foundation
 
 protocol UserDetailsViewModelDelegate {
     func didReciveProfileData(response: ProfileDataModel?, error: String?)
+    func didReciveGroupProfileData(response: GroupProfileModel?, error: String?)
     func didRecivePostsData(response: [HomeDataModel]?, error: String?)
     func didReciveCasesData(response: [CasesDataModel]?, error: String?)
     func didReciveQuestionsData(response: [PostedQuestionModel]?, error: String?)
@@ -17,14 +18,51 @@ protocol UserDetailsViewModelDelegate {
 
 struct UserDetailsViewModel {
     var delegate : UserDetailsViewModelDelegate?
-    
+    func getProfileData(userID: String) {
+        let resource = ProfileEditResource()
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.profileEdit + "?user_id=\(userID)"
+
+        resource.getProfileData(url: homeUrlStr) { response in
+            DispatchQueue.main.async {
+                switch response {
+                case .success(let data):
+                    self.delegate?.didReciveProfileData(response: data, error: nil)
+
+                case .failure(let error):
+                    self.delegate?.didReciveProfileData(response: nil, error: error)
+                }
+                
+            }
+        }
+    }
+    func getGroupProfileData(userID: String, groupId: String) {
+        let resource = ProfileEditResource()
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getNetworkConnections + "?user_id=\(userID)&group_id=\(groupId)"
+
+        resource.getGroupProfileData(url: homeUrlStr) { response in
+            DispatchQueue.main.async {
+                switch response {
+                case .success(let data):
+                    self.delegate?.didReciveGroupProfileData(response: data, error: nil)
+
+                case .failure(let error):
+                    self.delegate?.didReciveGroupProfileData(response: nil, error: error)
+                }
+                
+            }
+        }
+    }
     func getHomeData(userId: String, group_id: String) {
     
         
     }
-    func getPostData(userID: String, group_id: String) {
+    func getPostData(userID: String, group_id: String? = nil) {
         let homeResource = UserDetailsResource()
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getUserPostedPosts + "?user_id=\(userID)&group_id=\(group_id)"
+        var endUrl  = ""
+        if let groupId = group_id {
+            endUrl  = "&group_id=\(groupId)"
+        }
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getUserPostedPosts + "?user_id=\(userID)&page=1" + "\(endUrl)"
 
         homeResource.getUserPostedPostsData(urlString: homeUrlStr) { response in
             DispatchQueue.main.async {
@@ -39,9 +77,13 @@ struct UserDetailsViewModel {
             }
         }
     }
-    func getCasesData(userID: String, group_id: String) {
+    func getCasesData(userID: String, group_id: String? = nil) {
         let homeResource = UserDetailsResource()
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getUserPostedCases + "?user_id=\(userID)&group_id=\(group_id)"
+        var endUrl  = ""
+        if let groupId = group_id {
+            endUrl  = "&group_id=\(groupId)"
+        }
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getUserPostedCases + "?user_id=\(userID)&page=1" + endUrl
 
         homeResource.getUserPostedCasesData(urlString: homeUrlStr) { response in
             DispatchQueue.main.async {
@@ -56,9 +98,13 @@ struct UserDetailsViewModel {
             }
         }
     }
-    func getQuestionsData(userID: String, group_id: String) {
+    func getQuestionsData(userID: String, group_id: String? = nil) {
         let homeResource = UserDetailsResource()
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getUserPostedQuestions + "?user_id=\(userID)&group_id=\(group_id)"
+        var endUrl  = ""
+        if let groupId = group_id {
+            endUrl  = "&group_id=\(groupId)"
+        }
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getUserPostedQuestions + "?user_id=\(userID)&page=1" + endUrl
 
         homeResource.getUserPostedQuestionsData(urlString: homeUrlStr) { response in
             DispatchQueue.main.async {
@@ -73,9 +119,13 @@ struct UserDetailsViewModel {
             }
         }
     }
-    func getAnswersData(userID: String, group_id: String) {
+    func getAnswersData(userID: String, group_id: String? = nil) {
         let homeResource = UserDetailsResource()
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getUserPostedAnswers + "?selfid=\(userID)&group_id=\(group_id)"
+        var endUrl  = ""
+        if let groupId = group_id {
+            endUrl  = "&group_id=\(groupId)&page=1"
+        }
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getUserPostedAnswers + "?selfid=\(userID)" + endUrl
 
         homeResource.getUserPostedAnswersData(urlString: homeUrlStr) { response in
             DispatchQueue.main.async {
@@ -184,4 +234,15 @@ struct UserDetailsModel: Codable {
     let following: Int?
     let follow: Int?
     let followStatus: Bool?
+}
+struct GroupProfileModel: Codable {
+    let name_of_group: String?
+    let description: String?
+    let image: String?
+    let cover_image: String?
+    let join_status: Bool?
+    let number_of_joined: Int?
+    let group_joined_image: [GenderImageModel]?
+    let profileImage: String?
+    
 }

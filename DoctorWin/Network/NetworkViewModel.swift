@@ -76,6 +76,7 @@ struct GroupModel: Codable {
     let image: String?
     let cover_image: String?
     let number_of_joined: Int?
+    let group_id: String?
 }
 struct NetworkGroupModel: Codable {
     let other_groups: [GroupModel]?
@@ -83,7 +84,7 @@ struct NetworkGroupModel: Codable {
 }
 
 struct PeopleModel: Codable {
-    let userid: Int
+    let userid: Int?
     let ProfileName: String?
     let ProfileImage: String?
     let hightest_qualification: String?

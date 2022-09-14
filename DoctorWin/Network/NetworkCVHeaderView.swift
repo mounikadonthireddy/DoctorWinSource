@@ -7,9 +7,14 @@
 
 import UIKit
 
+protocol NetworkGroupSelected: class {
+    func selectedGroup(groupId:String)
+}
+
 class NetworkCVHeaderView: UICollectionReusableView {
     @IBOutlet weak var groupTableView: UITableView!
     @IBOutlet weak var groupTableHeight: NSLayoutConstraint!
+    var delegate: NetworkGroupSelected?
     var groupArray: [GroupModel]  = []
     @IBOutlet weak var interfaceSegmented: CustomSegmentedControl!{
         didSet{
@@ -24,11 +29,12 @@ class NetworkCVHeaderView: UICollectionReusableView {
         groupTableView.delegate = self
         groupTableView.dataSource = self
         groupTableView.register(UINib(nibName: "NetworkCVHeaderTVCell", bundle: nil), forCellReuseIdentifier: "NetworkCVHeaderTVCell")
+        groupTableView.register(NetworkTableHeader.nib, forHeaderFooterViewReuseIdentifier: NetworkTableHeader.identifier)
+        
     }
     func loadGropsData(data:[GroupModel]) {
         groupArray = data
-        groupTableHeight.constant = CGFloat(groupArray.count * 50)
-        
+        groupTableHeight.constant = CGFloat(groupArray.count * 50) + 55
         groupTableView.reloadData()
         
     }
@@ -46,11 +52,23 @@ extension NetworkCVHeaderView: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
-    
-    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: NetworkTableHeader.identifier) as? NetworkTableHeader {
+            headerView.backgroundColor = UIColor.red
+            headerView.requestBtn.addTarget(self, action: #selector(requestClicked(button:)), for: .touchUpInside)
+            return headerView
+        }
+        return nil
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 55
+    }
+    @objc func requestClicked (button: UIButton) {
+        delegate?.selectedGroup(groupId: "request")
+    }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        delegate?.selectedGroup(groupId: (groupArray[indexPath.row].group_id) ?? "")
     }
 }

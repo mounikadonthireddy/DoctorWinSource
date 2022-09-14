@@ -24,7 +24,7 @@ struct DatingModel: Codable {
 }
 
 struct GenderImageModel: Codable {
-    let image: String
+    let image: String?
 }
 
 struct ProfileInterestModel: Codable {

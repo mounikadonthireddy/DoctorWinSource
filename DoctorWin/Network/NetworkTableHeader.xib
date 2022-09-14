@@ -9,6 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
         <array key="Roboto-Regular.ttf">
             <string>Roboto-Regular</string>
         </array>
@@ -20,142 +23,44 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="DJm-YG-MH0">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="DJm-YG-MH0">
+                    <rect key="frame" x="20" y="627" width="355" height="30"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FRX-n9-6GG">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="48.5"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Network" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kxy-VZ-K7W">
+                            <rect key="frame" x="0.0" y="0.0" width="176.5" height="30"/>
+                            <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="21"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FRX-n9-6GG">
+                            <rect key="frame" x="178.5" y="0.0" width="176.5" height="30"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                             <state key="normal" title="      Requests">
                                 <color key="titleColor" red="0.1019607843" green="0.13725490200000001" blue="0.4941176471" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kbz-SQ-dWz">
-                            <rect key="frame" x="0.0" y="50.5" width="375" height="48.5"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
-                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                            <state key="normal" title="      My Followers">
-                                <color key="titleColor" red="0.1019607843" green="0.13725490200000001" blue="0.4941176471" alpha="1" colorSpace="calibratedRGB"/>
-                            </state>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="weI-xM-l5E">
-                            <rect key="frame" x="0.0" y="101" width="375" height="48.5"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
-                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                            <state key="normal" title="      Following">
-                                <color key="titleColor" red="0.1019607843" green="0.13725490200000001" blue="0.4941176471" alpha="1" colorSpace="calibratedRGB"/>
-                            </state>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JhX-Us-dPa">
-                            <rect key="frame" x="0.0" y="151.5" width="375" height="48.5"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
-                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                            <state key="normal" title="      Invite Friends">
-                                <color key="titleColor" red="0.1019607843" green="0.13725490200000001" blue="0.4941176471" alpha="1" colorSpace="calibratedRGB"/>
-                            </state>
-                        </button>
                     </subviews>
-                    <color key="backgroundColor" red="0.87843137250000003" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="200" id="BEa-uG-0y8"/>
+                        <constraint firstAttribute="height" constant="30" id="BEa-uG-0y8"/>
                     </constraints>
                 </stackView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k4i-0C-It7">
-                    <rect key="frame" x="0.0" y="200" width="375" height="10"/>
-                    <color key="backgroundColor" red="0.87843137250000003" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="10" id="sUV-pB-M46"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YLN-iy-cVf">
-                    <rect key="frame" x="330" y="12.5" width="25" height="24"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="24" id="09J-nm-F52"/>
-                        <constraint firstAttribute="width" constant="25" id="Tz9-Px-6kW"/>
-                    </constraints>
-                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                    <state key="normal" image="greaterthan" catalog="system"/>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I2g-F0-eeR">
-                    <rect key="frame" x="330" y="62.5" width="25" height="25"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="25" id="Bb8-Gi-UTg"/>
-                        <constraint firstAttribute="height" constant="25" id="PVs-Fd-6Si"/>
-                    </constraints>
-                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                    <state key="normal" image="greaterthan" catalog="system"/>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lW2-5h-clS">
-                    <rect key="frame" x="330" y="113" width="25" height="25"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="25" id="57E-TV-Bas"/>
-                        <constraint firstAttribute="height" constant="25" id="ypN-1v-Wrs"/>
-                    </constraints>
-                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                    <state key="normal" image="greaterthan" catalog="system"/>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qzd-rG-3nP">
-                    <rect key="frame" x="330" y="163.5" width="25" height="25"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="25" id="Erh-bO-acG"/>
-                        <constraint firstAttribute="height" constant="25" id="Nkm-Eo-znu"/>
-                    </constraints>
-                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                    <state key="normal" image="greaterthan" catalog="system"/>
-                </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="People you may know" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aw7-9X-ghQ">
-                    <rect key="frame" x="16" y="227" width="135.5" height="21"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="21" id="7L5-r2-ss5"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="I2g-F0-eeR" secondAttribute="trailing" constant="20" id="0Jf-Gk-u7v"/>
-                <constraint firstItem="Aw7-9X-ghQ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="0XZ-iZ-1gs"/>
-                <constraint firstItem="I2g-F0-eeR" firstAttribute="centerY" secondItem="Kbz-SQ-dWz" secondAttribute="centerY" id="1ES-1r-Zgl"/>
-                <constraint firstItem="k4i-0C-It7" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="4Em-bQ-rv4"/>
-                <constraint firstItem="DJm-YG-MH0" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="8r6-Id-Taa"/>
-                <constraint firstItem="qzd-rG-3nP" firstAttribute="centerY" secondItem="JhX-Us-dPa" secondAttribute="centerY" id="9hP-vV-rQz"/>
-                <constraint firstItem="lW2-5h-clS" firstAttribute="centerY" secondItem="weI-xM-l5E" secondAttribute="centerY" id="Liz-R4-Plh"/>
-                <constraint firstItem="Aw7-9X-ghQ" firstAttribute="top" secondItem="k4i-0C-It7" secondAttribute="bottom" constant="17" id="Q0i-kQ-u5v"/>
+                <constraint firstItem="DJm-YG-MH0" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="8r6-Id-Taa"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="DJm-YG-MH0" secondAttribute="bottom" constant="10" id="Qtx-YI-xN3"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="DJm-YG-MH0" secondAttribute="trailing" id="XxE-zI-23v"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="lW2-5h-clS" secondAttribute="trailing" constant="20" id="aDK-v2-Urx"/>
-                <constraint firstItem="k4i-0C-It7" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="aDe-K6-uHz"/>
-                <constraint firstItem="k4i-0C-It7" firstAttribute="top" secondItem="DJm-YG-MH0" secondAttribute="bottom" id="atF-XW-Z17"/>
-                <constraint firstItem="DJm-YG-MH0" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="da4-yX-14Z"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="YLN-iy-cVf" secondAttribute="trailing" constant="20" id="fWC-C1-pNS"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="qzd-rG-3nP" secondAttribute="trailing" constant="20" id="fcS-aQ-UTL"/>
-                <constraint firstItem="YLN-iy-cVf" firstAttribute="centerY" secondItem="FRX-n9-6GG" secondAttribute="centerY" id="qZI-tV-3WG"/>
             </constraints>
             <connections>
-                <outlet property="followBtn" destination="Kbz-SQ-dWz" id="4te-HB-Aae"/>
-                <outlet property="followingBtn" destination="weI-xM-l5E" id="ViQ-4E-BOP"/>
-                <outlet property="inviteBtn" destination="JhX-Us-dPa" id="e99-Hl-BZd"/>
                 <outlet property="requestBtn" destination="FRX-n9-6GG" id="ZWd-4W-USo"/>
             </connections>
-            <point key="canvasLocation" x="-111.2" y="301.79910044977515"/>
+            <point key="canvasLocation" x="57" y="1571"/>
         </view>
     </objects>
     <resources>
-        <image name="greaterthan" catalog="system" width="128" height="111"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -69,6 +69,22 @@ struct ProfileEditResource {
             }
         }
     }
+    func getGroupProfileData(url: String, completion : @escaping (_ result: ResponseResult<GroupProfileModel>) -> Void) {
+        
+        let httpUtility = HttpUtility()
+        do {
+            httpUtility.getApiData(urlString: url, resultType: GroupProfileModel.self) { result in
+                
+                switch result {
+                case .success(let data):
+                    completion(.success(data))
+                    
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
+            }
+        }
+    }
     func getProfileExperienceData(userID: String, completion : @escaping (_ result: ResponseResult<[ExperienceModel]>) -> Void) {
         
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.addExperience + "?user_id=\(userID)"

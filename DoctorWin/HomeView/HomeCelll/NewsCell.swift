@@ -154,7 +154,7 @@ extension UIView {
         layer.shadowColor = UIColor.lightGray.cgColor
         layer.shadowOpacity = 0.5
         layer.shadowOffset = .zero
-        layer.shadowRadius = 1
+        layer.shadowRadius = 4
         layer.shouldRasterize = true
         layer.rasterizationScale = scale ? UIScreen.main.scale : 1
     }
