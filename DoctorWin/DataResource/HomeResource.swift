@@ -13,7 +13,7 @@ enum ResponseResult<Value> {
 
 struct HomeResource {
     func getHomeData(userID: String, pageNum: Int, completion : @escaping (_ result: ResponseResult<[HomeDataModel]>) -> Void) {
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getPollComplaint + "?user_id=\(userID)&page=\(pageNum)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getPollComplaint + "?dworks_id=\(userID)&page=\(pageNum)"
         let httpUtility = HttpUtility()
         do {
             httpUtility.getApiData(urlString: homeUrlStr, resultType: [HomeDataModel].self) { result in
@@ -32,7 +32,7 @@ struct HomeResource {
     }
     func saveComplaintToWishslist(userID: String,complaintID: String, reqModel: ComplaintLikeModel ,completion : @escaping (_ result: ResponseResult<ResponseModel>) -> Void) {
         
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.jobLike + "?user_id=\(userID)&complaint_id=\(complaintID)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.jobLike + ApiEndpoints.userID +  "=\(userID)&complaint_id=\(complaintID)"
         let homeUrl = URL(string: homeUrlStr)!
         
         let httpUtility = HttpUtility()
@@ -58,7 +58,7 @@ struct HomeResource {
     }
     func getCaseDetails(userID: String,complaintID: String ,completion : @escaping (_ result: ResponseResult<CaseDetails>) -> Void) {
         
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getComplaint + "?user_id=\(userID)&complaint_id=\(complaintID)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getComplaint + ApiEndpoints.userID + "=\(userID)&complaint_id=\(complaintID)"
         let httpUtility = HttpUtility()
         do {
             
@@ -78,7 +78,7 @@ struct HomeResource {
     }
     func saveComplaintToBookmark(userID: String,complaintID: String, reqModel: ComplaintLikeModel ,completion : @escaping (_ result: ResponseResult<String?>) -> Void) {
         
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.complaintBookmark + "?user_id=\(userID)&complaint_id=\(complaintID)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.complaintBookmark + ApiEndpoints.userID + "=\(userID)&complaint_id=\(complaintID)"
         let homeUrl = URL(string: homeUrlStr)!
         
         let httpUtility = HttpUtility()
@@ -104,7 +104,7 @@ struct HomeResource {
     }
     func followComplaint(request: ComplaintFollowRequest, completion : @escaping  (_ result: ResponseResult<Bool?>) -> Void) {
         
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.complaintFollow + "?user_id=\(request.user_id)&follow_id=\(request.follow_id)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.complaintFollow + ApiEndpoints.userID + "=\(request.user_id)&follow_id=\(request.follow_id)"
         let homeUrl = URL(string: homeUrlStr)!
         
         let httpUtility = HttpUtility()
@@ -131,7 +131,7 @@ struct HomeResource {
     
     func likeComplaint(request: ComplaintLikeRequest, completion : @escaping  (_ result: ResponseResult<StatusResponseModel>) -> Void) {
         
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.likeJobs + "?user_id=\(request.user_id)&complaint_id=\(request.complaint_id)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.likeJobs + ApiEndpoints.userID +  "=\(request.user_id)&complaint_id=\(request.complaint_id)"
         let homeUrl = URL(string: homeUrlStr)!
         
         let httpUtility = HttpUtility()
@@ -158,7 +158,7 @@ struct HomeResource {
     
     func likePoll(request: PollLikeRequest, completion : @escaping  (_ result: ResponseResult<StatusResponseModel>) -> Void) {
         
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.likeJobs + "?user_id=\(request.user_id)&poll_id=\(request.poll_id)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.likeJobs + ApiEndpoints.userID + "=\(request.user_id)&poll_id=\(request.poll_id)"
         let homeUrl = URL(string: homeUrlStr)!
         
         let httpUtility = HttpUtility()
@@ -184,7 +184,7 @@ struct HomeResource {
     }
     func likeArtical(request: ArticalLikeRequest, completion : @escaping  (_ result: ResponseResult<StatusResponseModel>) -> Void) {
         
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.likeJobs + "?user_id=\(request.user_id)&art_id=\(request.art_id)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.likeJobs + ApiEndpoints.userID + "=\(request.user_id)&art_id=\(request.art_id)"
         let homeUrl = URL(string: homeUrlStr)!
         
         let httpUtility = HttpUtility()
@@ -210,7 +210,7 @@ struct HomeResource {
     }
     func likeNews(request: NewsLikeRequest, completion : @escaping  (_ result: ResponseResult<StatusResponseModel>) -> Void) {
         
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.likeJobs + "?user_id=\(request.user_id)&artical_id=\(request.artical_id)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.likeJobs + ApiEndpoints.userID + "=\(request.user_id)&artical_id=\(request.artical_id)"
         let homeUrl = URL(string: homeUrlStr)!
         
         let httpUtility = HttpUtility()
@@ -236,7 +236,7 @@ struct HomeResource {
     }
     func saveComplaint(request: ComplaintLikeRequest, completion : @escaping  (_ result: ResponseResult<StatusResponseModel>) -> Void) {
         
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.savedJobs + "?user_id=\(request.user_id)&complaint_id=\(request.complaint_id)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.savedJobs + ApiEndpoints.userID + "=\(request.user_id)&complaint_id=\(request.complaint_id)"
         let homeUrl = URL(string: homeUrlStr)!
         
         let helper = APIHelperClass()
@@ -264,7 +264,7 @@ struct HomeResource {
     
     func savePoll(request: PollLikeRequest, completion : @escaping  (_ result: ResponseResult<StatusResponseModel>) -> Void) {
         
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.savedJobs + "?user_id=\(request.user_id)&poll_id=\(request.poll_id)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.savedJobs + ApiEndpoints.userID + "=\(request.user_id)&poll_id=\(request.poll_id)"
         let homeUrl = URL(string: homeUrlStr)!
         
         let helper = APIHelperClass()
@@ -291,7 +291,7 @@ struct HomeResource {
     }
     func saveArtical(request: ArticalLikeRequest, completion : @escaping  (_ result: ResponseResult<StatusResponseModel>) -> Void) {
         
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.savedJobs + "?user_id=\(request.user_id)&art_id=\(request.art_id)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.savedJobs + ApiEndpoints.userID +  "=\(request.user_id)&art_id=\(request.art_id)"
         let homeUrl = URL(string: homeUrlStr)!
         
         let helper = APIHelperClass()
@@ -318,7 +318,7 @@ struct HomeResource {
     }
     func saveNews(request: NewsLikeRequest, completion : @escaping  (_ result: ResponseResult<StatusResponseModel>) -> Void) {
         
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.savedJobs + "?user_id=\(request.user_id)&artical_id=\(request.artical_id)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.savedJobs + ApiEndpoints.userID + "\(request.user_id)&artical_id=\(request.artical_id)"
         let homeUrl = URL(string: homeUrlStr)!
         
         let helper = APIHelperClass()
@@ -345,7 +345,7 @@ struct HomeResource {
     }
     func replyComplaint(request: PostReplyRequest, completion : @escaping  (_ result: ResponseResult<PostReplyResponse>) -> Void) {
         
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getComplaintComment + "?user_id=\(request.profile)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getComplaintComment + ApiEndpoints.userID + "=\(request.profile)"
         let homeUrl = URL(string: homeUrlStr)!
         
         let helper = APIHelperClass()

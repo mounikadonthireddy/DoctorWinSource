@@ -108,7 +108,7 @@ extension EditBioDataController: UITableViewDelegate, UITableViewDataSource {
     @objc func imageUpload(button: Any) {
         let param = [:] as [String : Any]
         self.showLoader()
-        let url = ApiEndpoints.baseUrl + ApiEndpoints.profileEdit + "?user_id=\(User.shared.userID)"
+        let url = ApiEndpoints.baseUrl + ApiEndpoints.profileEdit + ApiEndpoints.userID + "=\(User.shared.userID)"
 
         HttpUtility().profileUpload(img: self.imageView.image!, url: url, imageName: self.imageFileName, imageUploadName: "profileImage", param: param) { res in
             DispatchQueue.main.async {

@@ -19,14 +19,14 @@ struct ApiEndpoints
     static let baseImageURL = "http://34.228.82.176:8000"
     static let baseUrl = "http://34.228.82.176:8000/api/"
     static let baseUrl1 = "http://3.136.112.232:8000/api/"
-
+    static let userID = "?dworks_id"
     static let login = "auth/registration"
     static let logout = "auth/logout/"
-
+    
     static let registration = ""
     static let otp = "auth/otp"
-//    static let resendOtp = "auth/resend/otp/"
-
+    //    static let resendOtp = "auth/resend/otp/"
+    
     static let stories = "banner/job/"
     static let bannerPromotons = "banner/promotional/"
     static let collegeInfo = "college/info/get/"
@@ -37,8 +37,8 @@ struct ApiEndpoints
     static let complaintLikeApi = "comment/answer/like/"
     static let complaintPostApi = "comment/answer/post/"
     static let complaintquestionLike = "comment/question/like/"
-//    static let complaintquestionLike = "comment/question/like/"
-
+    //    static let complaintquestionLike = "comment/question/like/"
+    
     
     //job
     static let getJobs = "job/apply/"
@@ -68,18 +68,18 @@ struct ApiEndpoints
     static let stateJobSearch = "job/search/state/"
     static let stateLocationJobSearch = "job/search/state/location/"
     static let superSpecialistJobSearch = "job/search/super/specialist/"
-
+    
     static let getTopJobs = "job/top/"
     static let customJobs = "custom/user/"
     static let savedJobs = "job/bookmark/"
     static let appliedJobs = "job/apply/"
-
+    
     //new Job
     static let getNewJobs = "new/job/"
     static let applyNewJobs = "new/job/"
     static let postNewJobs = "new/job/"
     static let deleteNewJobs = "new/job/"
-
+    
     //news
     static let getArtical = "news/artical/post/"
     static let getArticalComment = "news/artical/comment/"
@@ -97,7 +97,7 @@ struct ApiEndpoints
     static let postedPoll = "user/poll"
     static let pollLike = "user/poll/likes"
     static let pollBookmark = "user/poll/bookmarks"
-
+    
     static let postedCases = "user/case"
     static let bookmarkCases = "user/case/bookmarks"
     static let likedCases = "user/case/likes"
@@ -132,7 +132,7 @@ struct ApiEndpoints
     //complaint
     static let getComplaint = "complaint/"
     static let getComplaintComment = "complaint/comment/"
-
+    
     static let profileEdit = "job/profile/"
     static let personalEdit = "user/personal/info"
     static let professionalEdit = "job/profile/"
@@ -141,12 +141,12 @@ struct ApiEndpoints
     
     static let addPoll = "news/poll/post/"
     static let addCase = "ios/case"
-
+    
     static let applyJob = "job/apply/"
     static let jobLike = "job/like/"
     static let complaintBookmark = "/job/bookmark/"
     static let questions = "comment/question/post/"
- static let complaintLike = "job/like/"
+    static let complaintLike = "job/like/"
     static let complaintFollow = "auth/follow/"
     static let getQualification = "job/search/higher/qualifiction"
     static let getSpeacilty = "job/department/"
@@ -156,7 +156,7 @@ struct ApiEndpoints
     static let recentSearch = "job/search/recent"
     static let jobsCount = "custom/user/"
     static let searchJobs = "job/search/"
-static let trendingQuestion = "ask/question/popular"
+    static let trendingQuestion = "ask/question/popular"
     static let userPostedQA = "ask/question"
     
     //Network

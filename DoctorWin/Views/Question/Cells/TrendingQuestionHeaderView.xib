@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina3_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="TrendingQuestionHeaderView" reuseIdentifier="TrendingQuestionHeaderView" id="MkQ-Az-Lw9" customClass="TrendingQuestionHeaderView" customModule="DoctorWin" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="315" height="34"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" translatesAutoresizingMaskIntoConstraints="NO" id="VRB-hO-FdR">
+                    <rect key="frame" x="10" y="4.5" width="25" height="25"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="tintColor" systemColor="secondaryLabelColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="25" id="16O-GE-axd"/>
+                        <constraint firstAttribute="height" constant="25" id="V5x-At-cK6"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yAV-qy-UFg">
+                    <rect key="frame" x="0.0" y="33" width="315" height="1"/>
+                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="bYf-Kl-yUO"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trending QnA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8z-o8-czZ">
+                    <rect key="frame" x="45" y="6.5" width="260" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="ahh-u7-YIe"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="Cjz-eC-S8k"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="yAV-qy-UFg" secondAttribute="bottom" id="3dn-yf-brg"/>
+                <constraint firstItem="J8z-o8-czZ" firstAttribute="centerY" secondItem="Cjz-eC-S8k" secondAttribute="centerY" id="56g-Fd-XJd"/>
+                <constraint firstAttribute="trailing" secondItem="yAV-qy-UFg" secondAttribute="trailing" id="CpO-TU-yaP"/>
+                <constraint firstItem="Cjz-eC-S8k" firstAttribute="trailing" secondItem="J8z-o8-czZ" secondAttribute="trailing" constant="10" id="L6q-wn-Nfw"/>
+                <constraint firstItem="Cjz-eC-S8k" firstAttribute="trailing" secondItem="yAV-qy-UFg" secondAttribute="trailing" id="OF1-MV-2ui"/>
+                <constraint firstItem="VRB-hO-FdR" firstAttribute="centerY" secondItem="Cjz-eC-S8k" secondAttribute="centerY" id="R9V-hQ-cQd"/>
+                <constraint firstItem="VRB-hO-FdR" firstAttribute="leading" secondItem="Cjz-eC-S8k" secondAttribute="leading" constant="10" id="dFP-Mg-vxQ"/>
+                <constraint firstItem="yAV-qy-UFg" firstAttribute="leading" secondItem="MkQ-Az-Lw9" secondAttribute="leading" id="dsd-4y-xkz"/>
+                <constraint firstItem="J8z-o8-czZ" firstAttribute="leading" secondItem="VRB-hO-FdR" secondAttribute="trailing" constant="10" id="hXh-1B-MAi"/>
+                <constraint firstItem="yAV-qy-UFg" firstAttribute="leading" secondItem="Cjz-eC-S8k" secondAttribute="leading" id="jAQ-Vr-Vws"/>
+                <constraint firstItem="yAV-qy-UFg" firstAttribute="bottom" secondItem="Cjz-eC-S8k" secondAttribute="bottom" id="r9Q-18-Ufv"/>
+            </constraints>
+            <connections>
+                <outlet property="nameLbl" destination="J8z-o8-czZ" id="ci1-TY-9Uh"/>
+            </connections>
+            <point key="canvasLocation" x="120.9375" y="-57.5"/>
+        </collectionReusableView>
+    </objects>
+    <resources>
+        <image name="photo" width="50" height="50"/>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

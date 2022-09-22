@@ -13,7 +13,7 @@ struct CasesDataModel: Codable {
     let hightest_qualification: String?
     let ProfileImage: String?
     let title: String?
-    let image: String?
+    let image: [GenderImageModel]?
     let discussions: Int?
     let bookmark_status: Bool
     let like_status: Bool

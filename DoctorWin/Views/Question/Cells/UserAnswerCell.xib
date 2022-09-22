@@ -116,7 +116,7 @@
                                         <rect key="frame" x="249.5" y="0.0" width="62.5" height="40"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share" translatesAutoresizingMaskIntoConstraints="NO" id="fH8-9R-EW6">
-                                        <rect key="frame" x="312" y="0.0" width="62.5" height="40"/>
+                                        <rect key="frame" x="312" y="9" width="62.5" height="22"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fmark" translatesAutoresizingMaskIntoConstraints="NO" id="7s1-KY-50e">
                                         <rect key="frame" x="374.5" y="0.0" width="62.5" height="40"/>
@@ -250,7 +250,7 @@
         <image name="heart" width="64" height="64"/>
         <image name="message" width="32" height="32"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
-        <image name="share" width="64" height="64"/>
+        <image name="share" width="22" height="22"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

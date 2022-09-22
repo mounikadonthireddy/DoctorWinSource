@@ -9,7 +9,7 @@ import Foundation
 struct NetworkResource {
     func getNetworkData(userID: String, completion : @escaping (_ result: ResponseResult<NetworkGroupModel>) -> Void) {
         
-        let jobUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getNetworkConnections + "?user_id=\(userID)"
+        let jobUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getNetworkConnections + ApiEndpoints.userID + "=\(userID)"
         
         let httpUtility = HttpUtility()
         do {
@@ -50,7 +50,7 @@ struct NetworkResource {
     }
     func getFollowData(userID: String, completion : @escaping (_ result: ResponseResult<[FollowModel]>) -> Void) {
         
-        let jobUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getFollow + "?user_id=\(userID)"
+        let jobUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getFollow + ApiEndpoints.userID + "=\(userID)"
         
         let httpUtility = HttpUtility()
         do {
@@ -71,7 +71,7 @@ struct NetworkResource {
     }
     func getFollowingData(userID: String, completion : @escaping (_ result: ResponseResult<[FollowModel]>) -> Void) {
         
-        let jobUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getFollowing + "?user_id=\(userID)"
+        let jobUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getFollowing + ApiEndpoints.userID + "=\(userID)"
         
         let httpUtility = HttpUtility()
         do {
@@ -92,7 +92,7 @@ struct NetworkResource {
     }
     func getRequestData(userID: String, completion : @escaping (_ result: ResponseResult<[NetworkModel]>) -> Void) {
         
-        let jobUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getRequest + "?user_id=\(userID)&page=1"
+        let jobUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getRequest + ApiEndpoints.userID + "=\(userID)&page=1"
         
         let httpUtility = HttpUtility()
         do {

@@ -45,7 +45,7 @@ struct BookMarkViewModel {
     }
     func getBookmarkNews(userID: String) {
         let homeResource = NewsJobResource()
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.bookmarkNews + "?user_id=\(userID)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.bookmarkNews + ApiEndpoints.userID + "=\(userID)"
           homeResource.getMyNewsData1(urlString: homeUrlStr) { response in
                 DispatchQueue.main.async {
                     switch response {
@@ -65,7 +65,7 @@ struct BookMarkViewModel {
     
     func getBookmarkCases(userID: String) {
         let homeResource = HomeResource()
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.bookmarkCases + "?user_id=\(userID)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.bookmarkCases + ApiEndpoints.userID + "=\(userID)"
 
         homeResource.getBookmarkCases(urlString: homeUrlStr) { response in
             DispatchQueue.main.async {

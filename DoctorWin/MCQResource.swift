@@ -12,9 +12,9 @@ struct MCQResource {
     func getMCQsData(userID: String,index: Int,  completion : @escaping (_ result: ResponseResult<[ExamsModel]>) -> Void) {
         var homeUrlStr = ""
         if index == 0 {
-            homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.mcq + "?user_id=\(userID)"
+            homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.mcq + ApiEndpoints.userID + "=\(userID)"
         } else if index == 1 {
-         homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.attemptedMcq + "?user_id=\(userID)"
+         homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.attemptedMcq + ApiEndpoints.userID + "=\(userID)"
         }
         let httpUtility = HttpUtility()
         do {

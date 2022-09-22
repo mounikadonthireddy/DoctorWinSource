@@ -20,7 +20,7 @@ struct UserDetailsViewModel {
     var delegate : UserDetailsViewModelDelegate?
     func getProfileData(userID: String) {
         let resource = ProfileEditResource()
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.profileEdit + "?user_id=\(userID)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.profileEdit + ApiEndpoints.userID + "=\(userID)"
 
         resource.getProfileData(url: homeUrlStr) { response in
             DispatchQueue.main.async {
@@ -37,7 +37,7 @@ struct UserDetailsViewModel {
     }
     func getGroupProfileData(userID: String, groupId: String) {
         let resource = ProfileEditResource()
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getNetworkConnections + "?user_id=\(userID)&group_id=\(groupId)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getNetworkConnections + ApiEndpoints.userID + "=\(userID)&group_id=\(groupId)"
 
         resource.getGroupProfileData(url: homeUrlStr) { response in
             DispatchQueue.main.async {
@@ -62,7 +62,7 @@ struct UserDetailsViewModel {
         if let groupId = group_id {
             endUrl  = "&group_id=\(groupId)"
         }
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getUserPostedPosts + "?user_id=\(userID)&page=1" + "\(endUrl)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getUserPostedPosts + ApiEndpoints.userID + "=\(userID)&page=1" + "\(endUrl)"
 
         homeResource.getUserPostedPostsData(urlString: homeUrlStr) { response in
             DispatchQueue.main.async {
@@ -83,7 +83,7 @@ struct UserDetailsViewModel {
         if let groupId = group_id {
             endUrl  = "&group_id=\(groupId)"
         }
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getUserPostedCases + "?user_id=\(userID)&page=1" + endUrl
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getUserPostedCases + ApiEndpoints.userID + "=\(userID)&page=1" + endUrl
 
         homeResource.getUserPostedCasesData(urlString: homeUrlStr) { response in
             DispatchQueue.main.async {
@@ -104,7 +104,7 @@ struct UserDetailsViewModel {
         if let groupId = group_id {
             endUrl  = "&group_id=\(groupId)"
         }
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getUserPostedQuestions + "?user_id=\(userID)&page=1" + endUrl
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getUserPostedQuestions + ApiEndpoints.userID + "=\(userID)&page=1" + endUrl
 
         homeResource.getUserPostedQuestionsData(urlString: homeUrlStr) { response in
             DispatchQueue.main.async {
@@ -171,7 +171,7 @@ struct UserDetailsViewModel {
 //    }
     func getProfileData(userID: String, requestId: String) {
         let resource = ProfileEditResource()
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.userDetails + "?user_id=\(userID)&requested_user_id=\(requestId)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.userDetails + ApiEndpoints.userID + "=\(userID)&requested_user_id=\(requestId)"
 
         resource.getProfileData(url: homeUrlStr) { response in
             DispatchQueue.main.async {

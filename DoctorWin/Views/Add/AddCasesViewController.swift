@@ -158,7 +158,7 @@ class AddCasesViewController: UIViewController {
 //        } else {
                     
         let parm = ["com_title": caseTitle.text! , "chief_complaint": chiefComplaint.text!, "present_illness": presentIllness.text!, "past_illness": pastIllness.text!, "drugs": drugs.text! , "personal": personal.text! , "family": family.text! , "physical_exam": physicalExamination.text! , "system_exam": systemExamination.text! , "local_exam": localExamination.text! , "vitus": vitus.text! , "lab_finding": labFinding.text! , "imaging": imaging.text! , "diagnosis": probableDiagnosis.text! , "complaint_id": User.shared.userID]
-            let url = ApiEndpoints.baseUrl + ApiEndpoints.addCase + "?user_id=\(User.shared.userID)"
+            let url = ApiEndpoints.baseUrl + ApiEndpoints.addCase + ApiEndpoints.userID + "=\(User.shared.userID)"
             
             HttpUtility().profileUpload(img: imageView.image!, url: url, imageName: imageFileName, imageUploadName: "com_image", param: parm) { res in
                 print(res)

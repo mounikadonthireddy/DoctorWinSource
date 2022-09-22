@@ -9,14 +9,14 @@ import Foundation
 
 struct DatingResource {
     
-    func getDatingData(userID: String, completion : @escaping (_ result: ResponseResult<[DatingModel]>) -> Void) {
+    func getDatingData(userID: String, completion : @escaping (_ result: ResponseResult<[MatchesModel]>) -> Void) {
 
-       let   homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.dating + "?userid=1"
+       let   homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.dating + "?userid=20&page=1"
    
         
         let httpUtility = HttpUtility()
         do {
-            httpUtility.getApiData(urlString: homeUrlStr, resultType: [DatingModel].self) { result in
+            httpUtility.getApiData(urlString: homeUrlStr, resultType: [MatchesModel].self) { result in
                 
                 switch result {
                 case .success(let data):

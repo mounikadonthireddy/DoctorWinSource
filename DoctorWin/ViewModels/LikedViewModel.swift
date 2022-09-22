@@ -16,9 +16,9 @@ struct CasesViewModel {
         var endPoint = ""
         switch index {
         case 0:
-            endPoint = ApiEndpoints.postedCases + "?userid=\(userID)"
+            endPoint = ApiEndpoints.postedCases + ApiEndpoints.userID + "=\(userID)"
         case 1:
-            endPoint = ApiEndpoints.postedCases + "?user_id=\(userID)"
+            endPoint = ApiEndpoints.postedCases + ApiEndpoints.userID + "=\(userID)"
     
         default:
             endPoint = ""
@@ -49,11 +49,11 @@ struct NewsDataViewModel {
         var endPoint = ""
         switch index {
         case 0:
-            endPoint = ApiEndpoints.postedNews + "?userid=\(userID)"
+            endPoint = ApiEndpoints.postedNews + ApiEndpoints.userID + "=\(userID)"
         case 1:
-            endPoint = ApiEndpoints.postedNews + "?user_id=\(userID)"
+            endPoint = ApiEndpoints.postedNews + ApiEndpoints.userID + "=\(userID)"
         case 2:
-            endPoint = ApiEndpoints.likedNews + "?user_id=\(userID)"
+            endPoint = ApiEndpoints.likedNews + ApiEndpoints.userID + "=\(userID)"
         default:
             endPoint = ""
         }

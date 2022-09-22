@@ -102,7 +102,7 @@ struct DropDownResource {
     }
     //getRecentSearchData
     func getRecentSearchData(completion : @escaping (_ result: ResponseResult<[RecentSearchModel]>) -> Void) {
-        let profileUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.recentSearch + "?user_id=\(User.shared.userID)"
+        let profileUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.recentSearch + ApiEndpoints.userID + "=\(User.shared.userID)"
         let httpUtility = HttpUtility()
         do {
             httpUtility.getApiData(urlString: profileUrlStr, resultType: [RecentSearchModel].self) { result in
@@ -119,7 +119,7 @@ struct DropDownResource {
     }
     
     func getJobsCount(completion : @escaping (_ result: ResponseResult<JobsCountModel>) -> Void) {
-        let profileUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.jobsCount + "?user_id=\(User.shared.userID)"
+        let profileUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.jobsCount + ApiEndpoints.userID + "=\(User.shared.userID)"
         let httpUtility = HttpUtility()
         do {
             httpUtility.getApiData(urlString: profileUrlStr, resultType: JobsCountModel.self) { result in

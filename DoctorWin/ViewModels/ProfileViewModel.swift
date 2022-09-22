@@ -52,7 +52,7 @@ struct ProfileViewModel {
 
     func getProfileData(userID: String) {
         let resource = ProfileEditResource()
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.profileEdit + "?user_id=\(userID)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.profileEdit + ApiEndpoints.userID + "=\(userID)"
 
         resource.getProfileData(url: homeUrlStr) { response in
             DispatchQueue.main.async {
@@ -85,7 +85,7 @@ struct ProfileViewModel {
     }
     
     func deleteExp(userID: String, expID: Int,request: DeleteExpModel,completion : @escaping (_ result: ProfessionalResponseModel?) -> Void) {
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.addExperience + "?user_id=\(userID)&exp_id=\(expID)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.addExperience + ApiEndpoints.userID + "=\(userID)&exp_id=\(expID)"
         let homeUrl = URL(string: homeUrlStr)!
         let httpUtility = HttpUtility()
         do {

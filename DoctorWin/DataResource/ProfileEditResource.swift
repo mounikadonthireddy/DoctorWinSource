@@ -9,7 +9,7 @@ import Foundation
 struct ProfileEditResource {
     func editProfilePersonalInfoData(userID: String,profileReq: PersonalInfoEditModel1,  completion : @escaping (_ result: ResponseResult<ProfileUpdateResponseModel?>) -> Void) {
         
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.personalEdit + "?user_id=\(userID)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.personalEdit + ApiEndpoints.userID + "=\(userID)"
         let homeUrl = URL(string: homeUrlStr)!
         let httpUtility = HttpUtility()
         do {
@@ -32,7 +32,7 @@ struct ProfileEditResource {
     }
     func editSelfdataPersonalInfoData(userID: String,profileReq: SelfDataEditModel,  completion : @escaping (_ result: ResponseResult<StatusResponseModel?>) -> Void) {
         
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.personalEdit + "?user_id=\(userID)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.personalEdit + ApiEndpoints.userID + "=\(userID)"
         let homeUrl = URL(string: homeUrlStr)!
         let httpUtility = HttpUtility()
         do {
@@ -87,7 +87,7 @@ struct ProfileEditResource {
     }
     func getProfileExperienceData(userID: String, completion : @escaping (_ result: ResponseResult<[ExperienceModel]>) -> Void) {
         
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.addExperience + "?user_id=\(userID)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.addExperience + ApiEndpoints.userID + "=\(userID)"
         let httpUtility = HttpUtility()
         do {
             httpUtility.getApiData(urlString: homeUrlStr, resultType: [ExperienceModel].self) { result in
@@ -105,7 +105,7 @@ struct ProfileEditResource {
     
     func editProfileProfessionalInfoData(userID: String,profileReq: ProfessionalEditModel,  completion : @escaping (_ result: ResponseResult<ProfessionalResponseModel?>) -> Void) {
         
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.professionalEdit + "?user_id=\(userID)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.professionalEdit + ApiEndpoints.userID + "=\(userID)"
         let homeUrl = URL(string: homeUrlStr)!
         let httpUtility = HttpUtility()
         do {
@@ -128,7 +128,7 @@ struct ProfileEditResource {
     }
     func editProfileAboutMe(userID: String,profileReq: EditAboutModel,  completion : @escaping (_ result: ResponseResult<ProfessionalResponseModel?>) -> Void) {
         
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.profileEdit + "?user_id=\(userID)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.profileEdit + ApiEndpoints.userID + "=\(userID)"
         let homeUrl = URL(string: homeUrlStr)!
         let httpUtility = HttpUtility()
         do {
@@ -151,7 +151,7 @@ struct ProfileEditResource {
     }
     func registerProfileAboutMe(userID: String,profileReq: EditAboutModel,  completion : @escaping (_ result: ResponseResult<ProfessionalResponseModel?>) -> Void) {
         
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.profileEdit + "?user_id=\(userID)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.profileEdit + ApiEndpoints.userID + "=\(userID)"
         let homeUrl = URL(string: homeUrlStr)!
         let httpUtility = HttpUtility()
         do {
@@ -174,7 +174,7 @@ struct ProfileEditResource {
     }
     func registerProfileSkill(userID: String,profileReq: EditSkillModel,  completion : @escaping (_ result: ResponseResult<ProfessionalResponseModel?>) -> Void) {
         
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.profileEdit + "?user_id=\(userID)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.profileEdit + ApiEndpoints.userID + "=\(userID)"
         let homeUrl = URL(string: homeUrlStr)!
         let httpUtility = HttpUtility()
         do {
@@ -197,7 +197,7 @@ struct ProfileEditResource {
     }
     func editProfileSkill(userID: String,profileReq: EditSkillModel,  completion : @escaping (_ result: ResponseResult<ProfessionalResponseModel?>) -> Void) {
         
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.profileEdit + "?user_id=\(userID)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.profileEdit + ApiEndpoints.userID + "\(userID)"
         let homeUrl = URL(string: homeUrlStr)!
         let httpUtility = HttpUtility()
         do {
@@ -220,7 +220,7 @@ struct ProfileEditResource {
     }
     func addExperience(userID: String,profileReq: AddExperienceModel,  completion: @escaping(ResponseResult<ResponseModel>)-> Void) {
         
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.addExperience + "?user_id=\(userID)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.addExperience + ApiEndpoints.userID + "=\(userID)"
         let homeUrl = URL(string: homeUrlStr)!
         let httpUtility = HttpUtility()
         do {
@@ -241,7 +241,7 @@ struct ProfileEditResource {
         }
     }
     func getProfileEditDropDownData(userID: String, completion : @escaping (_ result: ResponseResult<ProfileEditDropDownModel>) -> Void) {
-        let profileUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.personalEdit + "?user_id=\(userID)"
+        let profileUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.personalEdit + ApiEndpoints.userID + "=\(userID)"
         let httpUtility = HttpUtility()
         do {
             httpUtility.getApiData(urlString: profileUrlStr, resultType: ProfileEditDropDownModel.self) { result in
@@ -257,7 +257,7 @@ struct ProfileEditResource {
         }
     }
     func getProfessionalEditDropDownData(userID: String, completion : @escaping (_ result: ResponseResult<ProfessionalDropDownModel>) -> Void) {
-        let profileUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.professionalData + "?user_id=\(userID)"
+        let profileUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.professionalData + ApiEndpoints.userID + "=\(userID)"
         let httpUtility = HttpUtility()
         do {
             httpUtility.getApiData(urlString: profileUrlStr, resultType: ProfessionalDropDownModel.self) { result in
@@ -273,7 +273,7 @@ struct ProfileEditResource {
     }
     func editExperince(userID: String, expId:Int,profileReq: AddExperienceModel,  completion : @escaping (_ result: ResponseResult<ExperienceModel?>) -> Void) {
         
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.addExperience + "?user_id=\(userID)&exp_id=\(expId)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.addExperience + ApiEndpoints.userID + "=\(userID)&exp_id=\(expId)"
         let homeUrl = URL(string: homeUrlStr)!
         let httpUtility = HttpUtility()
         do {

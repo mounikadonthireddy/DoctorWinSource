@@ -175,7 +175,7 @@
     </objects>
     <resources>
         <image name="back" width="32" height="32"/>
-        <image name="mark" width="64" height="64"/>
+        <image name="mark" width="19" height="19"/>
         <image name="send" width="24" height="24"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

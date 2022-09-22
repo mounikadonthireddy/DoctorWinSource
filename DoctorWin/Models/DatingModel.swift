@@ -30,3 +30,24 @@ struct GenderImageModel: Codable {
 struct ProfileInterestModel: Codable {
     let interest: String
 }
+struct MatchesModel: Codable {
+    let datingid: String?
+    let name: String?
+    let intro: String?
+    let age: Int?
+    let living: String?
+    let likes: Bool?
+    let block: Bool?
+    let skip_status: Bool?
+    let genderimage: [GenderImageModel]?
+    let interest: [ProfileInterestModel]?
+    let profile: [ProfileCharModel]?
+    let image1: String?
+    let image2:String?
+    let image3:String?
+    
+}
+struct ProfileCharModel: Codable {
+    let value: String?
+    let image: String?
+}

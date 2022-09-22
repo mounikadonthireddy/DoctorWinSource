@@ -15,6 +15,9 @@ class ProfileViewHeader: UITableViewHeaderFooterView {
     @IBOutlet weak var followBtn: UIButton!
     @IBOutlet weak var followingBtn: UIButton!
     @IBOutlet weak var viewBtn: UIButton!
+    @IBOutlet weak var bookmarkBtn: UIButton!
+    @IBOutlet weak var resumeBtn: UIButton!
+    @IBOutlet weak var mcqBtn: UIButton!
     @IBOutlet weak var interfaceSegmented: CustomSegmentedControl!{
         didSet{
             interfaceSegmented.setButtonTitles(buttonTitles: ["Home","Post", "Cases", "Questions", "Answers"])
@@ -37,9 +40,9 @@ class ProfileViewHeader: UITableViewHeaderFooterView {
         profileImage.setCornerRadius(radius: Float(profileImage.frame.width)/2)
     }
     func configureView(data:ProfileDataModel) {
-        profileName.text = data.profileName ?? ""
+        profileName.text = "DR. " + (data.profileName ?? "")
         profileQualification.text = data.qualification ?? ""
-        profileLocation.text  = (data.speciality ?? "") + (data.currentLocation ?? "")
+        profileLocation.text  = (data.speciality ?? "") + " At " + (data.currentLocation ?? "")
         
         followBtn.setTitle("\(data.follow ?? 0) Follow", for: .normal)
         

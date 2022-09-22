@@ -15,7 +15,7 @@ struct PollsViewModel {
 
     func getMyPolls(userID: String) {
         let homeResource = PollResource()
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.postedPoll + "?user_id=\(userID)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.postedPoll + ApiEndpoints.userID + "=\(userID)"
 
         homeResource.getPollData(userID: userID, urlStr: homeUrlStr) { response in
             DispatchQueue.main.async {
@@ -32,7 +32,7 @@ struct PollsViewModel {
     }
     func getLikedPolls(userID: String) {
         let homeResource = PollResource()
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.pollLike + "?user_id=\(userID)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.pollLike + ApiEndpoints.userID + "=\(userID)"
 
         homeResource.getPollData(userID: userID, urlStr: homeUrlStr) { response in
             DispatchQueue.main.async {
@@ -49,7 +49,7 @@ struct PollsViewModel {
     }
     func getBookmarkPolls(userID: String) {
         let homeResource = PollResource()
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.pollBookmark + "?user_id=\(userID)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.pollBookmark + ApiEndpoints.userID + "=\(userID)"
 
         homeResource.getPollData(userID: userID, urlStr: homeUrlStr) { response in
             DispatchQueue.main.async {

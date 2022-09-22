@@ -104,7 +104,7 @@ struct HomeViewModel {
     }
     func getLikedCases(userID: String) {
         let homeResource = HomeResource()
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.likedCases + "?user_id=\(userID)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.likedCases + ApiEndpoints.userID + "=\(userID)"
 
         homeResource.getBookmarkCases(urlString: homeUrlStr) { response in
             DispatchQueue.main.async {

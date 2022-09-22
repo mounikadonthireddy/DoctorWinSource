@@ -8,7 +8,7 @@
 import Foundation
 class AddCustomJobResource {
     func addCustomJobRequest(request: CreateCustomJobModel,userId: String, completion  : @escaping (_ result: ResponseResult<ResponseModel>) -> Void) {
-        let urlStr = ApiEndpoints.baseUrl + ApiEndpoints.customJobs + "?user_id=\(userId)"
+        let urlStr = ApiEndpoints.baseUrl + ApiEndpoints.customJobs + ApiEndpoints.userID + "=\(userId)"
         let homeUrl = URL(string: urlStr)!
         
         let httpUtility = HttpUtility()

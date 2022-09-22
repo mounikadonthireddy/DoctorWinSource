@@ -102,7 +102,7 @@ class CaseCell: UITableViewCell {
         if let urlString = homeModel.image {
             let finalUrlString =  urlString
             
-            self.postImage.sd_setImage(with: URL(string: finalUrlString), placeholderImage: UIImage(named: "loginBg"))
+//            self.postImage.sd_setImage(with: URL(string: finalUrlString), placeholderImage: UIImage(named: "loginBg"))
         }
         
         if homeModel.bookmark_status {

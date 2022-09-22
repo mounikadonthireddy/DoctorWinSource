@@ -38,8 +38,8 @@ class OTPViewController: UIViewController {
         //updateOTPCount()
         Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateOTPCount), userInfo: nil, repeats: true)
 
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
     }
     @objc func keyboardWillShow(notification: NSNotification) {

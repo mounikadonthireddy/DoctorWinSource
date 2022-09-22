@@ -9,7 +9,7 @@ import Foundation
 struct QuestionsResource {
     func getQuestionData(userID: String, completion : @escaping (_ result: ResponseResult<[QuestionModel]>) -> Void) {
         
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.questions + "?user_id=\(userID)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.questions + ApiEndpoints.userID + "=\(userID)"
         let httpUtility = HttpUtility()
         do {
             httpUtility.getApiData(urlString: homeUrlStr, resultType: [QuestionModel].self) { result in
@@ -43,7 +43,7 @@ struct QuestionsResource {
     }
     func getUserPostedQuestionData(userID: String,page:Int, completion : @escaping (_ result: ResponseResult<[PostedQuestionModel]>) -> Void) {
         
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.userPostedQA + "?user_id=\(userID)&page=\(page)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.userPostedQA + ApiEndpoints.userID + "=\(userID)&page=\(page)"
         let httpUtility = HttpUtility()
         do {
             httpUtility.getApiData(urlString: homeUrlStr, resultType: [PostedQuestionModel].self) { result in
@@ -59,7 +59,7 @@ struct QuestionsResource {
         }
     }
     func postQuestion(request: QuestionRequest,userId: String, completion  : @escaping (_ result: ResponseResult<ResponseModel>) -> Void) {
-        let urlStr = ApiEndpoints.baseUrl + ApiEndpoints.questions + "?user_id=\(userId)"
+        let urlStr = ApiEndpoints.baseUrl + ApiEndpoints.questions + ApiEndpoints.userID + "=\(userId)"
         let homeUrl = URL(string: urlStr)!
         
         let httpUtility = HttpUtility()

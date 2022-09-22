@@ -89,7 +89,7 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="collegeBg" width="720" height="415"/>
+        <image name="collegeBg" width="375" height="153"/>
         <image name="mark" width="19" height="19"/>
     </resources>
 </document>

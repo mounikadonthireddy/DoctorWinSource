@@ -11,6 +11,7 @@ class CarrierTabViewController: ViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionViewLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var topView: UIView!
     var carrierJobArray :[CarrierModel] = []
     var categoryJobsViewModel = JobCategoryViewModel()
     var jobsVM = JobsViewModel()
@@ -31,9 +32,9 @@ class CarrierTabViewController: ViewController {
         tableView.register(UINib.init(nibName: "CarrierJobCell", bundle: nil), forCellReuseIdentifier: "CarrierJobCell")
         
         collectionView.register(UINib.init(nibName: "CarrierCategoryCell", bundle: nil), forCellWithReuseIdentifier: "CarrierCategoryCell")
-
-        tableView.register(TitleView.nib, forHeaderFooterViewReuseIdentifier: TitleView.identifier)
         
+        tableView.register(TitleView.nib, forHeaderFooterViewReuseIdentifier: TitleView.identifier)
+        topView.dropShadow()
         jobsVM.delegate = self
         parse()
         parse1()
@@ -53,7 +54,18 @@ class CarrierTabViewController: ViewController {
         self.showLoader()
         categoryJobsViewModel.getTopRecommendedJobs(userID: User.shared.userID)
     }
+    @IBAction func searchClicked(_ sender: UIButton) {
+        let str = UIStoryboard(name: "Job", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "SearchJobsViewController") as! SearchJobsViewController
+        self.navigationController?.pushViewController(nextVC, animated: true)
+        
+    }
     
+    @IBAction func appliedClicked(button: UIButton) {
+        let str = UIStoryboard(name: "Job", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "AppliedJobViewController") as! AppliedJobViewController
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
 }
 extension CarrierTabViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -75,9 +87,9 @@ extension CarrierTabViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let str = UIStoryboard(name: "Details", bundle: nil)
-            let nextVC = str.instantiateViewController(withIdentifier: "CarrierJobDetailsViewController") as! CarrierJobDetailsViewController
+        let nextVC = str.instantiateViewController(withIdentifier: "CarrierJobDetailsViewController") as! CarrierJobDetailsViewController
         nextVC.detailsModel = carrierJobArray[indexPath.row]
-            self.navigationController?.pushViewController(nextVC, animated: true)
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
     
@@ -141,9 +153,8 @@ extension CarrierTabViewController : UICollectionViewDelegate, UICollectionViewD
         
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let yourWidth = 150
-        return CGSize(width: yourWidth, height: 110)
+        let size = ((quickSearchArray[indexPath.row].title ?? "") as NSString).size(withAttributes: nil)
+        return CGSize(width: size.width + 50, height: 110)
     }
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
@@ -173,7 +184,7 @@ extension CarrierTabViewController : UICollectionViewDelegate, UICollectionViewD
         let nextVC = str.instantiateViewController(withIdentifier: "JobsViewController") as! JobsViewController
         nextVC.jobType = quickSearchArray[indexPath.row].title ?? ""
         nextVC.categoryID = quickSearchArray[indexPath.row].id ?? 0
-
+        
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     

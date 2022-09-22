@@ -36,7 +36,7 @@ class ShowInterestViewController: ViewController {
     var currentProfileIndex = -1
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.delegate = self
+      //  viewModel.delegate = self
         self.loadDatingProfiles()
         likeBtn.setCornerRadius(radius: Float(likeBtn.frame.width)/2)
         rejectBtn.setCornerRadius(radius: Float(rejectBtn.frame.width)/2)
@@ -64,7 +64,7 @@ class ShowInterestViewController: ViewController {
     
     func loadDatingProfiles() {
         self.showLoader()
-        viewModel.getDatingProfilesData(userID: User.shared.userID)
+       // viewModel.getDatingProfilesData(userID: User.shared.userID)
         
     }
     
@@ -192,7 +192,7 @@ extension ShowInterestViewController : UICollectionViewDelegate, UICollectionVie
         return 1
     }
 }
-extension ShowInterestViewController: DatingViewModelDelegate {
+extension ShowInterestViewController {
     func didReciveDatingData(response: [DatingModel]?, error: String?) {
         self.dismiss()
         datingArray = response ?? []

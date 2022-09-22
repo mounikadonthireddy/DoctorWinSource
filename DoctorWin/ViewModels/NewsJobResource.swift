@@ -26,7 +26,7 @@ struct NewsJobResource {
     }
     func getNewsCategoryData(userID: String,pageId: Int, completion : @escaping (_ result: ResponseResult<[NewscategoryDataModel]>) -> Void) {
         
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.newsCategory + "?user_id=\(userID)&page_id=\(pageId)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.newsCategory + ApiEndpoints.userID + "=\(userID)&page_id=\(pageId)"
         
         let httpUtility = HttpUtility()
         do {

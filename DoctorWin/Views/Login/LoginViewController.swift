@@ -22,7 +22,7 @@ class LoginViewController: ViewController {
         // Do any additional setup after loading the view.
         self.loginView.setCornerRadius(radius: 15)
         self.loginButton.btn_setCornerRadius(radius: self.loginButton.frame.height/2)
-        
+        mobileNumTF.text = "6304763236"
         self.textFeildView.setCornerRadiusWithBorderColor(radius: 10, color:  UIColor(rgb: 0x062D88), borderWidth: 1)
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)

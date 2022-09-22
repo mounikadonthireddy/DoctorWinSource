@@ -114,7 +114,7 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="loginBg" width="6240" height="3014"/>
+        <image name="loginBg" width="375" height="153"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

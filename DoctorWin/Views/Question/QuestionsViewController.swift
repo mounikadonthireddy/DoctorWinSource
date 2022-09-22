@@ -9,9 +9,7 @@ import UIKit
 
 class QuestionsViewController: ViewController {
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var shopCVLayout: UICollectionViewFlowLayout!
-    @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var topView: UIView!
     var questionsArray: [PostedQuestionModel] = []
     var trendingQuestions:[AnswersModel] = []
     var questionVM = QuestionsViewModel()
@@ -19,13 +17,11 @@ class QuestionsViewController: ViewController {
     var loadingData = true
     override func viewDidLoad() {
         super.viewDidLoad()
+        topView.dropShadow()
         tableView.register(UINib(nibName: "QACell", bundle: nil), forCellReuseIdentifier: "QACell")
-        collectionView.register(UINib.init(nibName: "AnswersCell", bundle: nil), forCellWithReuseIdentifier: "AnswersCell")
-        collectionView.isScrollEnabled = true
-        shopCVLayout.scrollDirection = .horizontal
-        //        shopCVLayout.minimumLineSpacing = 0
-        //        shopCVLayout.minimumInteritemSpacing = 0
-        //        shopCVLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        tableView.register(UINib(nibName: "TrendingTableCell", bundle: nil), forCellReuseIdentifier: "TrendingTableCell")
+        
+        tableView.register(TrendingQuestionHeaderView.nib, forHeaderFooterViewReuseIdentifier: TrendingQuestionHeaderView.identifier)
         questionVM.delegate1 = self
         self.loadPostedQuestions(pageNum: pageNumber)
         self.loadPopularQuestions()
@@ -52,73 +48,48 @@ class QuestionsViewController: ViewController {
      // Pass the selected object to the new view controller.
      }
      */
-    
 }
-extension QuestionsViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource, UIScrollViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return trendingQuestions.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: AnswersCell = collectionView.dequeueReusableCell(withReuseIdentifier: "AnswersCell", for: indexPath) as! AnswersCell
-        cell.configureDataWith(homeModel: trendingQuestions[indexPath.row])
-        
-        return cell
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let yourWidth = self.view.frame.width - 10
-        return CGSize(width: yourWidth, height: self.collectionView.frame.height - 10)
-        
-    }
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5) //.zero
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        
-        return 5
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        
-        return 5
-    }
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        self.collectionView.scrollToNearestVisibleCollectionViewCell()
-    }
-    
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if !decelerate {
-            self.collectionView.scrollToNearestVisibleCollectionViewCell()
-        }
-    }
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let visibleRect = CGRect(origin: self.collectionView.contentOffset, size: self.collectionView.bounds.size)
-        let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
-        if let visibleIndexPath = self.collectionView.indexPathForItem(at: visiblePoint) {
-            self.pageControl.currentPage = visibleIndexPath.row
-        }
-    }
-}
-
 extension QuestionsViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return 1
+        } else {
         return questionsArray.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.section == 0 {
+            let cell: TrendingTableCell
+            = tableView.dequeueReusableCell(withIdentifier: "TrendingTableCell") as! TrendingTableCell
+            cell.configure(data: trendingQuestions)
+            return cell
+        } else {
         let cell: QACell
         = tableView.dequeueReusableCell(withIdentifier: "QACell") as! QACell
         cell.configureWith(data: questionsArray[indexPath.row])
         return cell
+        }
     }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: TrendingQuestionHeaderView.identifier) as? TrendingQuestionHeaderView {
+            if section == 0 {
+                headerView.nameLbl.text  = "Trending QnA"
+            } else {
+                headerView.nameLbl.text  = "Questions for you"
+            }
+          
+            return headerView
+        }
+        return nil
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+    }
+    
 //    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 //        let lastElement = questionsArray.count - 1
 //        if !loadingData && indexPath.row == lastElement {
@@ -135,8 +106,7 @@ extension QuestionsViewController: QAViewModelDelegate {
     func didReceiveTrendingQuestionData(response: [AnswersModel]?, error: String?) {
         self.dismiss()
         trendingQuestions = response ?? []
-        pageControl.numberOfPages = trendingQuestions.count
-        collectionView.reloadData()
+        tableView.reloadData()
     }
     
     func didReceiveUserQuestionData(response: [PostedQuestionModel]?, error: String?) {

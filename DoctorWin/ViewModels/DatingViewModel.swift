@@ -9,7 +9,7 @@ import Foundation
 
 
 protocol DatingViewModelDelegate {
-    func didReciveDatingData(response: [DatingModel]?, error: String?)
+    func didReciveDatingData(response: [MatchesModel]?, error: String?)
 }
 
 struct DatingViewModel {

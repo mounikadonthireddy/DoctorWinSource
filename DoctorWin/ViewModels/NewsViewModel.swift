@@ -49,7 +49,7 @@ struct NewsViewModel {
     }
     func getMyNews(userID: String) {
         let homeResource = NewsJobResource()
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.postedNews + "?user_id=\(userID)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.postedNews + ApiEndpoints.userID + "=\(userID)"
 
         homeResource.getMyNewsData(urlString: homeUrlStr) { response in
             DispatchQueue.main.async {
@@ -66,7 +66,7 @@ struct NewsViewModel {
     }
     func getLikedNews(userID: String) {
         let homeResource = NewsJobResource()
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.likedNews + "?user_id=\(userID)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.likedNews + ApiEndpoints.userID +  "=\(userID)"
 
         homeResource.getMyNewsData(urlString: homeUrlStr) { response in
             DispatchQueue.main.async {

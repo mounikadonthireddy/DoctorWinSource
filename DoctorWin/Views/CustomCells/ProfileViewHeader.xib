@@ -81,9 +81,9 @@
                         <constraint firstAttribute="width" constant="150" id="SLv-wu-mUJ"/>
                     </constraints>
                 </stackView>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="0js-P5-xkX">
-                    <rect key="frame" x="20" y="79.5" width="80" height="77"/>
-                    <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person" translatesAutoresizingMaskIntoConstraints="NO" id="0js-P5-xkX">
+                    <rect key="frame" x="20" y="78" width="80" height="80"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="tintColor" systemColor="secondaryLabelColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="80" id="nxZ-xR-5bT"/>
@@ -177,13 +177,16 @@
                 <constraint firstItem="fDK-Os-GBa" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="xtT-UT-c2G"/>
             </constraints>
             <connections>
+                <outlet property="bookmarkBtn" destination="ve5-yp-PAe" id="79H-v8-QY4"/>
                 <outlet property="followBtn" destination="BzJ-4Z-z4M" id="kgR-i7-iHb"/>
                 <outlet property="followingBtn" destination="0vD-ZK-yJL" id="bOA-7g-cPQ"/>
                 <outlet property="interfaceSegmented" destination="fDK-Os-GBa" id="4LD-aR-xSz"/>
+                <outlet property="mcqBtn" destination="zSF-Y3-iYT" id="Xyv-bf-dY0"/>
                 <outlet property="profileImage" destination="0js-P5-xkX" id="rSD-4U-vZ2"/>
                 <outlet property="profileLocation" destination="BJl-ld-wAl" id="eem-1b-vaf"/>
                 <outlet property="profileName" destination="bgR-oE-U1I" id="sl7-8f-Xkx"/>
                 <outlet property="profileQualification" destination="fe7-k4-Ph6" id="NfU-kB-Yss"/>
+                <outlet property="resumeBtn" destination="aNl-m4-RI1" id="eW0-pa-8dU"/>
                 <outlet property="viewBtn" destination="G7M-lM-5Ub" id="zcY-ja-IPy"/>
             </connections>
             <point key="canvasLocation" x="147.10144927536234" y="193.52678571428569"/>
@@ -192,17 +195,14 @@
     <resources>
         <image name="MCQs" width="512" height="512"/>
         <image name="Resume" width="512" height="512"/>
-        <image name="collegeBg" width="720" height="415"/>
+        <image name="collegeBg" width="375" height="153"/>
         <image name="fmark" width="64" height="64"/>
-        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="person" width="171" height="171"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="tertiarySystemGroupedBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
