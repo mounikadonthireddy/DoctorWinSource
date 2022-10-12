@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="ConnectImageCell" reuseIdentifier="ConnectImageCell" id="gTV-IL-0wX" customClass="ConnectImageCell" customModule="DoctorWin" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="259" height="328"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="259" height="328"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginBg" translatesAutoresizingMaskIntoConstraints="NO" id="iXg-Nh-uOM">
+                        <rect key="frame" x="0.0" y="0.0" width="259" height="328"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="251" id="xrj-40-1pD"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="iXg-Nh-uOM" secondAttribute="trailing" id="jRX-vn-eM9"/>
+                <constraint firstItem="iXg-Nh-uOM" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="qCe-Lx-Zoo"/>
+                <constraint firstItem="iXg-Nh-uOM" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="qcd-qT-Wrx"/>
+                <constraint firstAttribute="bottom" secondItem="iXg-Nh-uOM" secondAttribute="bottom" id="siU-9k-55b"/>
+            </constraints>
+            <size key="customSize" width="259" height="328"/>
+            <connections>
+                <outlet property="personImage" destination="iXg-Nh-uOM" id="hTy-Wf-Xzb"/>
+            </connections>
+            <point key="canvasLocation" x="289.13043478260875" y="170.75892857142856"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="loginBg" width="375" height="153"/>
+    </resources>
+</document>

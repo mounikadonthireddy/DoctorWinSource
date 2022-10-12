@@ -68,6 +68,7 @@ struct NetworkModel: Codable {
     let ProfileImage: String?
     let hightest_qualification: String?
     let speciality: String?
+    let dworks_id: String?
 }
 struct GroupModel: Codable {
     let id : Int?
@@ -90,4 +91,5 @@ struct PeopleModel: Codable {
     let hightest_qualification: String?
     let speciality: String?
     let cover_image: String?
+    let dworks_id: String?
 }

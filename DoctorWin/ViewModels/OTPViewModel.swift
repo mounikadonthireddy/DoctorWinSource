@@ -23,8 +23,8 @@ struct OTPViewModel {
                 case .success(let data ):
                     
                     if data.status ?? false {
-                        User.shared.userID = "\(data.user_id!)"
-                        UserDefaults.standard.setValue("\(data.user_id!)", forKey: "user_id")
+                        User.shared.userID = "\(data.dworks_id!)"
+                        UserDefaults.standard.setValue("\(data.dworks_id!)", forKey: "user_id")
                         UserDefaults.standard.setValue(data.phone_number, forKey: "mobileNum")
                         self.delegate?.didReceiveLoginResponse(wilNavigateTo: true, error: nil)
                     }

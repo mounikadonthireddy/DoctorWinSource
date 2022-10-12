@@ -73,7 +73,7 @@ extension JobsViewController : UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let str = UIStoryboard(name: "Detailsx", bundle: nil)
+        let str = UIStoryboard(name: "Details", bundle: nil)
             let nextVC = str.instantiateViewController(withIdentifier: "CarrierJobDetailsViewController") as! CarrierJobDetailsViewController
             nextVC.detailsModel = jobsArray[indexPath.row]
             self.navigationController?.pushViewController(nextVC, animated: true)

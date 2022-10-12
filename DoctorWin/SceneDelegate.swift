@@ -14,7 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         if let windowScene = scene as? UIWindowScene {
-//            if let userId = UserDefaults.standard.value(forKey: "user_id") {
+            if let userId = UserDefaults.standard.value(forKey: "user_id") {
             let window = UIWindow(windowScene: windowScene)
             let str = UIStoryboard(name: "Tab", bundle: nil)
             let nextViewController = str.instantiateViewController(withIdentifier: "tabView")
@@ -27,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 User.shared.userID = "DWU2026"
                self.window = window
                window.makeKeyAndVisible()
-//           }
+         }
         }
         guard let _ = (scene as? UIWindowScene) else { return }
     }

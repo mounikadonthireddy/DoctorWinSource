@@ -20,23 +20,23 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="AnswersCell" customModule="DoctorWin" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="255" height="140"/>
+            <rect key="frame" x="0.0" y="0.0" width="255" height="135"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="255" height="140"/>
+                <rect key="frame" x="0.0" y="0.0" width="255" height="135"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DR.  Mounika" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dEw-FZ-m3J">
-                        <rect key="frame" x="20" y="16" width="225" height="21"/>
+                        <rect key="frame" x="15" y="16" width="225" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="vgW-3E-6cK"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="18"/>
+                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="9ga-0l-div">
-                        <rect key="frame" x="25" y="58.5" width="30" height="27"/>
+                        <rect key="frame" x="15" y="58.5" width="30" height="27"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" systemColor="labelColor"/>
                         <constraints>
@@ -45,7 +45,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mounika Donthireddy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdr-Fl-TfB">
-                        <rect key="frame" x="65" y="57" width="180" height="18"/>
+                        <rect key="frame" x="55" y="57" width="190" height="18"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="jba-hO-E98"/>
                         </constraints>
@@ -54,7 +54,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Childern specialist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3RY-5U-Ixl">
-                        <rect key="frame" x="65" y="75" width="82" height="12"/>
+                        <rect key="frame" x="55" y="75" width="82" height="12"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="12" id="rKn-I7-srC"/>
                         </constraints>
@@ -63,7 +63,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DR.  Mounika" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hTK-iU-nrC">
-                        <rect key="frame" x="25" y="107" width="220" height="21"/>
+                        <rect key="frame" x="15" y="102" width="230" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="1Uk-25-VPL"/>
                         </constraints>
@@ -75,20 +75,20 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="dEw-FZ-m3J" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="H4A-pE-rTk"/>
+                <constraint firstItem="dEw-FZ-m3J" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="H4A-pE-rTk"/>
                 <constraint firstAttribute="trailing" secondItem="hTK-iU-nrC" secondAttribute="trailing" constant="10" id="SWf-dt-ieS"/>
                 <constraint firstAttribute="trailing" secondItem="hdr-Fl-TfB" secondAttribute="trailing" constant="10" id="VV2-tO-h5M"/>
                 <constraint firstItem="9ga-0l-div" firstAttribute="top" secondItem="dEw-FZ-m3J" secondAttribute="bottom" constant="20" id="Z2P-ml-CBb"/>
                 <constraint firstItem="hdr-Fl-TfB" firstAttribute="top" secondItem="dEw-FZ-m3J" secondAttribute="bottom" constant="20" id="aPZ-fp-ziK"/>
-                <constraint firstItem="9ga-0l-div" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="25" id="cTZ-gf-aVN"/>
+                <constraint firstItem="9ga-0l-div" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="cTZ-gf-aVN"/>
                 <constraint firstItem="3RY-5U-Ixl" firstAttribute="leading" secondItem="9ga-0l-div" secondAttribute="trailing" constant="10" id="dnu-UP-4Ln"/>
-                <constraint firstAttribute="trailing" secondItem="dEw-FZ-m3J" secondAttribute="trailing" constant="10" id="lE3-bW-5Rf"/>
-                <constraint firstAttribute="bottom" secondItem="hTK-iU-nrC" secondAttribute="bottom" constant="12" id="n8N-n8-bwK"/>
+                <constraint firstAttribute="trailing" secondItem="dEw-FZ-m3J" secondAttribute="trailing" constant="15" id="lE3-bW-5Rf"/>
+                <constraint firstAttribute="bottom" secondItem="hTK-iU-nrC" secondAttribute="bottom" priority="999" constant="12" id="n8N-n8-bwK"/>
                 <constraint firstItem="3RY-5U-Ixl" firstAttribute="top" secondItem="hdr-Fl-TfB" secondAttribute="bottom" id="qiV-5w-eqS"/>
                 <constraint firstItem="dEw-FZ-m3J" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="tmm-aB-oER"/>
                 <constraint firstItem="hdr-Fl-TfB" firstAttribute="leading" secondItem="9ga-0l-div" secondAttribute="trailing" constant="10" id="uba-TS-csY"/>
-                <constraint firstItem="hTK-iU-nrC" firstAttribute="top" secondItem="9ga-0l-div" secondAttribute="bottom" constant="20" id="uoO-yx-ZOc"/>
-                <constraint firstItem="hTK-iU-nrC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="25" id="uyn-Hd-dVE"/>
+                <constraint firstItem="hTK-iU-nrC" firstAttribute="top" secondItem="9ga-0l-div" secondAttribute="bottom" constant="15" id="uoO-yx-ZOc"/>
+                <constraint firstItem="hTK-iU-nrC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="uyn-Hd-dVE"/>
             </constraints>
             <size key="customSize" width="255" height="124"/>
             <connections>

@@ -193,7 +193,7 @@ extension NetworkViewController : UICollectionViewDelegate, UICollectionViewData
         if selectedIndex == 0 {
             self.navigateToUserDetails(reqId: "", groupId: "\(groupArray[indexPath.row].group_id ?? "")")
         } else {
-        self.navigateToUserDetails(reqId: "\(peopleArray[indexPath.row].userid ?? 0)", groupId: "")
+        self.navigateToUserDetails(reqId: peopleArray[indexPath.row].dworks_id ?? "", groupId: "")
         }
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {

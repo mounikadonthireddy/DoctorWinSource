@@ -182,6 +182,9 @@
                                         <state key="normal" title="POST">
                                             <color key="titleColor" red="0.0" green="0.18039215689999999" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="submitClicked:" destination="NIz-uj-yvQ" eventType="touchUpInside" id="rQr-4W-UBN"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kzg-jp-vYC">
                                         <rect key="frame" x="10" y="10" width="50" height="50"/>
@@ -214,15 +217,15 @@
                                     <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pHp-G1-pYZ">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Write a Case summary with chief complaint, history and examinations etc..?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="v8d-nP-DFl">
-                                                <rect key="frame" x="20" y="150" width="374" height="269"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Write a Case summary with chief complaint, history and examinations etc..?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="v8d-nP-DFl">
+                                                <rect key="frame" x="20" y="150" width="374" height="358.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3zY-VJ-mXk">
-                                                <rect key="frame" x="20" y="439" width="374" height="30"/>
+                                                <rect key="frame" x="20" y="528.5" width="374" height="30"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add_chief_comp" translatesAutoresizingMaskIntoConstraints="NO" id="wGF-8v-QHU">
                                                         <rect key="frame" x="0.0" y="2.5" width="25" height="25"/>
@@ -260,12 +263,15 @@
                                                 </constraints>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Htq-eC-uWO">
-                                                <rect key="frame" x="25" y="469" width="369" height="60"/>
+                                                <rect key="frame" x="25" y="558.5" width="369" height="60"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="  write your chief complaint.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ufE-el-tAz">
                                                         <rect key="frame" x="35" y="8" width="334" height="44"/>
                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="NIz-uj-yvQ" id="Hef-KL-ky9"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -278,7 +284,7 @@
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Dre-qR-jAw">
-                                                <rect key="frame" x="20" y="549" width="374" height="30"/>
+                                                <rect key="frame" x="20" y="638.5" width="374" height="30"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add_patient_his" translatesAutoresizingMaskIntoConstraints="NO" id="frE-wA-dWf">
                                                         <rect key="frame" x="0.0" y="2.5" width="25" height="25"/>
@@ -316,7 +322,7 @@
                                                 </constraints>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wvW-nN-bGd">
-                                                <rect key="frame" x="25" y="579" width="369" height="290"/>
+                                                <rect key="frame" x="25" y="668.5" width="369" height="290"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rEA-s8-iMx">
                                                         <rect key="frame" x="35" y="15" width="334" height="265"/>
@@ -328,26 +334,41 @@
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="NIz-uj-yvQ" id="6rG-w5-BbC"/>
+                                                                </connections>
                                                             </textField>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Past Illness" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7gG-po-Apq">
                                                                 <rect key="frame" x="0.0" y="55" width="334" height="45"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="NIz-uj-yvQ" id="Fot-i5-UHM"/>
+                                                                </connections>
                                                             </textField>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Drugs" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r4K-XS-ljd">
                                                                 <rect key="frame" x="0.0" y="110" width="334" height="45"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="NIz-uj-yvQ" id="iT0-07-NMS"/>
+                                                                </connections>
                                                             </textField>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Personal" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wz1-n3-k71">
                                                                 <rect key="frame" x="0.0" y="165" width="334" height="45"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="NIz-uj-yvQ" id="vrk-lA-mbf"/>
+                                                                </connections>
                                                             </textField>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Family" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B10-II-yx1">
                                                                 <rect key="frame" x="0.0" y="220" width="334" height="45"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="NIz-uj-yvQ" id="dHS-wi-r6F"/>
+                                                                </connections>
                                                             </textField>
                                                         </subviews>
                                                         <constraints>
@@ -364,7 +385,7 @@
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mnc-X9-DJO">
-                                                <rect key="frame" x="25" y="889" width="369" height="30"/>
+                                                <rect key="frame" x="25" y="978.5" width="369" height="30"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add_investigation" translatesAutoresizingMaskIntoConstraints="NO" id="QLn-ru-uZ0">
                                                         <rect key="frame" x="0.0" y="2.5" width="25" height="25"/>
@@ -402,7 +423,7 @@
                                                 </constraints>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Beb-ZU-Zd5">
-                                                <rect key="frame" x="25" y="919" width="364" height="165"/>
+                                                <rect key="frame" x="25" y="1008.5" width="364" height="165"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Bf1-1S-Cg9">
                                                         <rect key="frame" x="35" y="15" width="329" height="156"/>
@@ -411,16 +432,25 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="329" height="45"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="NIz-uj-yvQ" id="ZuG-ba-2qv"/>
+                                                                </connections>
                                                             </textField>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="System Examination" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VAQ-tI-Wkg">
                                                                 <rect key="frame" x="0.0" y="55" width="329" height="45.5"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="NIz-uj-yvQ" id="WAR-kO-Iha"/>
+                                                                </connections>
                                                             </textField>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Local Examination" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HII-RW-cAu">
                                                                 <rect key="frame" x="0.0" y="110.5" width="329" height="45.5"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="NIz-uj-yvQ" id="nDk-u3-vbv"/>
+                                                                </connections>
                                                             </textField>
                                                         </subviews>
                                                         <constraints>
@@ -437,7 +467,7 @@
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Zkf-YK-wMc">
-                                                <rect key="frame" x="25" y="1104" width="369" height="30"/>
+                                                <rect key="frame" x="25" y="1193.5" width="369" height="30"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add_investigation" translatesAutoresizingMaskIntoConstraints="NO" id="PVS-TJ-Y2w">
                                                         <rect key="frame" x="0.0" y="2.5" width="25" height="25"/>
@@ -475,7 +505,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dAM-ox-WwY">
-                                                <rect key="frame" x="25" y="1319" width="369" height="30"/>
+                                                <rect key="frame" x="25" y="1408.5" width="369" height="30"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add_pro_diagnosis" translatesAutoresizingMaskIntoConstraints="NO" id="7CY-P9-Xug">
                                                         <rect key="frame" x="0.0" y="2.5" width="25" height="25"/>
@@ -513,7 +543,7 @@
                                                 </constraints>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dJz-z1-cZW">
-                                                <rect key="frame" x="25" y="1134" width="364" height="165"/>
+                                                <rect key="frame" x="25" y="1223.5" width="364" height="165"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="HC6-JH-7n0">
                                                         <rect key="frame" x="35" y="15" width="329" height="155"/>
@@ -522,16 +552,25 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="329" height="45"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="NIz-uj-yvQ" id="4HY-E2-OvU"/>
+                                                                </connections>
                                                             </textField>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Lab Finding" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cjU-Cj-LF8">
                                                                 <rect key="frame" x="0.0" y="55" width="329" height="45"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="NIz-uj-yvQ" id="wcZ-Rz-dRK"/>
+                                                                </connections>
                                                             </textField>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Imaging" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vpo-b8-Lha">
                                                                 <rect key="frame" x="0.0" y="110" width="329" height="45"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="NIz-uj-yvQ" id="IDy-lb-Rgy"/>
+                                                                </connections>
                                                             </textField>
                                                         </subviews>
                                                         <constraints>
@@ -548,7 +587,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xOj-Gh-0ZI">
-                                                <rect key="frame" x="25" y="1349" width="364" height="60"/>
+                                                <rect key="frame" x="25" y="1438.5" width="364" height="60"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="  write your chief complaint.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KRX-j3-koq">
                                                         <rect key="frame" x="35" y="20" width="329" height="44"/>
@@ -557,6 +596,9 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="NIz-uj-yvQ" id="eA0-UG-f95"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -657,6 +699,10 @@
                                     <constraint firstItem="pHp-G1-pYZ" firstAttribute="leading" secondItem="FdZ-aK-41h" secondAttribute="leading" id="OZ7-jy-FLS"/>
                                 </constraints>
                             </scrollView>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hlh-09-lUC">
+                                <rect key="frame" x="174" y="-56" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="sPL-c0-4ri"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -665,7 +711,7 @@
                             <constraint firstItem="CgK-hp-bzO" firstAttribute="trailing" secondItem="sPL-c0-4ri" secondAttribute="trailing" id="2AM-ck-xEU"/>
                             <constraint firstItem="pHp-G1-pYZ" firstAttribute="height" relation="greaterThanOrEqual" secondItem="LUw-hI-iRm" secondAttribute="height" id="ExG-Gt-ny8"/>
                             <constraint firstItem="CgK-hp-bzO" firstAttribute="leading" secondItem="sPL-c0-4ri" secondAttribute="leading" id="GJi-Yf-514"/>
-                            <constraint firstItem="v8d-nP-DFl" firstAttribute="height" secondItem="LUw-hI-iRm" secondAttribute="height" multiplier="0.3" id="JEh-kS-Tpo"/>
+                            <constraint firstItem="v8d-nP-DFl" firstAttribute="height" secondItem="LUw-hI-iRm" secondAttribute="height" multiplier="0.4" id="JEh-kS-Tpo"/>
                             <constraint firstItem="CgK-hp-bzO" firstAttribute="top" secondItem="LUw-hI-iRm" secondAttribute="top" constant="60" id="Xhn-ef-VUn"/>
                             <constraint firstItem="FdZ-aK-41h" firstAttribute="top" secondItem="sPL-c0-4ri" secondAttribute="top" constant="60" id="bpe-3y-mGp"/>
                             <constraint firstItem="FdZ-aK-41h" firstAttribute="leading" secondItem="sPL-c0-4ri" secondAttribute="leading" id="g2g-gP-e1R"/>
@@ -685,6 +731,7 @@
                         <outlet property="examinationViewHeight" destination="a59-iV-qfF" id="eHa-Rg-RFB"/>
                         <outlet property="family" destination="B10-II-yx1" id="X7P-FV-S1r"/>
                         <outlet property="historyAdd" destination="N8R-i7-oPm" id="vcw-JU-TBt"/>
+                        <outlet property="imageView" destination="Hlh-09-lUC" id="b7x-yU-KLe"/>
                         <outlet property="imaging" destination="Vpo-b8-Lha" id="P5h-3z-Bq9"/>
                         <outlet property="investigationView" destination="dJz-z1-cZW" id="Am8-HJ-9J2"/>
                         <outlet property="investigationViewHeight" destination="L9o-X2-dp0" id="oCJ-2j-bKt"/>
@@ -748,7 +795,6 @@
                                         <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                         <state key="normal" image="back"/>
                                         <connections>
-                                            <action selector="backClicked:" destination="NIz-uj-yvQ" eventType="touchUpInside" id="1vY-0G-i5o"/>
                                             <action selector="backClicked:" destination="wOl-0v-eP1" eventType="touchUpInside" id="WJC-4G-5B9"/>
                                         </connections>
                                     </button>
@@ -1231,7 +1277,6 @@
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="chiefClicked:" destination="NIz-uj-yvQ" eventType="touchUpInside" id="qJ7-75-YqW"/>
                                                     <action selector="photoClicked:" destination="AKC-uc-0QM" eventType="touchUpInside" id="qL4-kl-mpy"/>
                                                 </connections>
                                             </button>
@@ -1260,7 +1305,6 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="cameraClicked:" destination="AKC-uc-0QM" eventType="touchUpInside" id="d0R-GT-aoc"/>
-                                                    <action selector="chiefClicked:" destination="NIz-uj-yvQ" eventType="touchUpInside" id="FRJ-R3-L00"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1285,7 +1329,6 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="caseClicked:" destination="AKC-uc-0QM" eventType="touchUpInside" id="uax-ZF-2Pk"/>
-                                                    <action selector="chiefClicked:" destination="NIz-uj-yvQ" eventType="touchUpInside" id="99A-4X-H5i"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1309,7 +1352,6 @@
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="chiefClicked:" destination="NIz-uj-yvQ" eventType="touchUpInside" id="3I4-L2-Atg"/>
                                                     <action selector="saleClicked:" destination="AKC-uc-0QM" eventType="touchUpInside" id="8BO-od-n8B"/>
                                                 </connections>
                                             </button>
@@ -1520,7 +1562,6 @@
                                         <inset key="imageEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
                                         <state key="normal" image="close"/>
                                         <connections>
-                                            <action selector="backClicked:" destination="NIz-uj-yvQ" eventType="touchUpInside" id="NT8-ZR-323"/>
                                             <action selector="backClicked:" destination="etn-Ct-wmU" eventType="touchUpInside" id="aJv-1G-mUS"/>
                                         </connections>
                                     </button>

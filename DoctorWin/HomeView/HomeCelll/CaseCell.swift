@@ -83,7 +83,7 @@ class CaseCell: UITableViewCell {
             
         }
         if let urlString = homeModel.profileImage {
-            self.personImage.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "loginBg"))
+            self.personImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
         }
         wishlistBtn.tag = homeModel.postId
         saveBtn.tag = homeModel.postId
@@ -116,7 +116,7 @@ class CaseCell: UITableViewCell {
             
         }
         if let urlString = homeModel.ProfileImage {
-            self.personImage.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "loginBg"))
+            self.personImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
         }
         wishlistBtn.tag = homeModel.id
         saveBtn.tag = homeModel.id

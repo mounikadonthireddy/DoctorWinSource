@@ -72,7 +72,7 @@ class CarrierJobCell: UITableViewCell {
     func configureCell(with data: CarrierModel) {
         self.hospitalName.text =  (data.designation ?? "") + " in " + (data.Speciality ?? "")
         
-        self.specialityName.text = data.name ?? ""
+        self.specialityName.text = data.name_of_company ?? ""
         
         self.location.text = data.location_of_job
         self.experience.text = "\(data.experince ?? "0")" + " yrs Experience"

@@ -39,5 +39,5 @@ struct ProductDetailsModel: Codable {
 }
 
 struct ProductImageModel: Codable {
-    let image: String
+    let image: String?
 }

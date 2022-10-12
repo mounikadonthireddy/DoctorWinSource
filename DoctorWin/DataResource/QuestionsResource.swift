@@ -82,4 +82,21 @@ struct QuestionsResource {
             print("error is \(error)")
         }
     }
+    func getUserRepliesPostedQuestions(userID: String,page:Int, questionId: String,completion : @escaping (_ result: ResponseResult<RepliesModel>) -> Void) {
+        
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.userPostedReplied + ApiEndpoints.userID + "=\(userID)&page=\(page)&question_id=\(questionId)"
+        let httpUtility = HttpUtility()
+        do {
+            httpUtility.getApiData(urlString: homeUrlStr, resultType: RepliesModel.self) { result in
+                
+                switch result {
+                case .success(let data):
+                    completion(.success(data))
+                    
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
+            }
+        }
+    }
 }

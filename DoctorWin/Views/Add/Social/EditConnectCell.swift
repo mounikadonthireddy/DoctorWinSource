@@ -18,6 +18,14 @@ class EditConnectCell: UITableViewCell {
     @IBOutlet weak var dobTF: UITextField!
     @IBOutlet weak var genderTF: DropDown!
     @IBOutlet weak var interest: UIButton!
+    @IBOutlet weak var heightTF: DropDown!
+    @IBOutlet weak var lookingTF: UITextField!
+    @IBOutlet weak var schoolTF: UITextField!
+    @IBOutlet weak var incomeTF: UITextField!
+    @IBOutlet weak var personalityTF: DropDown!
+    @IBOutlet weak var occupationTF: DropDown!
+    @IBOutlet weak var zodiacTF: DropDown!
+    @IBOutlet weak var petsTF: DropDown!
     @IBOutlet weak var courseCollectionView: UICollectionView!
     @IBOutlet weak var collectionViewLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var InterestCollectionView: UICollectionView!
@@ -56,14 +64,26 @@ class EditConnectCell: UITableViewCell {
     }
     func configureCell(data: ConnectProfileModel) {
         nameTF.text = data.name
+        dobTF.text = "\(data.age) yrs"
+        genderTF.text = data.gender
+        heightTF.text = data.height ?? ""
         bioTF.text = data.intro
-        livingTF.text = data.living
+        lookingTF.text = data.looking_for ?? ""
+        livingTF.text = data.living_in ?? ""
+        schoolTF.text = data.institute ?? ""
+        personalityTF.text = data.orientation ?? ""
         qualificationTF.text = data.qualification
         professionTF.text = data.profession
-        dobTF.text = "\(data.age)"
-        genderTF.text = data.gender
-        interestArray = data.interest?.interest ?? []
-        imageArray = data.image
+        incomeTF.text = data.income
+        zodiacTF.text = data.zodiacs
+        petsTF.text = data.pets
+      
+        interestArray = data.interest ?? []
+        imageArray = data.genderimage ?? []
+        zodiacTF.optionArray = ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio","Sagittarius", "Capucorn", "Aquarius", "Pisces"]
+        petsTF.optionArray = ["Cat" ,"Dog", "Reptile", "Amphibian" , "Dont have, but love", "Pet free", "App the pets"]
+        personalityTF.optionArray = ["Introvert", "Extrovert", "Ambvert"]
+        heightTF.optionArray = ["5'0","5'1","5'2","5'3","5'4","5'5","5'6","5'7","5'8","5'9","6'0","6'1","6'2","6'3"]
         InterestCollectionView.reloadData()
         courseCollectionView.reloadData()
     }
@@ -83,13 +103,14 @@ extension EditConnectCell : UICollectionViewDelegate, UICollectionViewDataSource
             let cell: CourseNameCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CourseNameCell", for: indexPath) as! CourseNameCell
             
             cell.name.text = interestArray[indexPath.item].interest
-            cell.backgroundColor = UIColor.white
+            cell.backgroundColor = UIColor.blue
             cell.setCornerRadiusWithBorderColor(radius: 17.5, color: UIColor.secondaryLabel, borderWidth: 0.5)
+         
             return cell
         } else  {
         let cell: ImageCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! ImageCell
             if imageArray.count > 0 {
-                cell.imageBtn.sd_currentImageURL
+               // cell.imageBtn.sd_currentImageURL
             }
     
         return cell
@@ -98,7 +119,7 @@ extension EditConnectCell : UICollectionViewDelegate, UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == InterestCollectionView {
             let size = (interestArray[indexPath.row].interest as NSString).size(withAttributes: nil)
-            return CGSize(width: size.width + 40, height: 30)
+            return CGSize(width: size.width + 60, height: 30)
         } else {
         let yourWidth = CGFloat(90)
         return CGSize(width: yourWidth, height: collectionView.bounds.height)
@@ -107,21 +128,21 @@ extension EditConnectCell : UICollectionViewDelegate, UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2) //.zero
+        return UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4) //.zero
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         
-        return 2
+        return 4
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         
-        return 5
+        return 10
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {

@@ -37,7 +37,8 @@ struct ProfileDataModel : Codable {
     let speciality: String?
     let currentLocation: String?
     let qualification: String?
-
+    let followStatus: Bool?
+    let dworks_id: String?
     enum CodingKeys: String, CodingKey {
         case phoneNumber = "phone_number"
         case postGraduationInstitute = "pg_institute_name"
@@ -68,6 +69,8 @@ struct ProfileDataModel : Codable {
         case speciality = "speciality"
         case currentLocation = "current_job_location"
         case qualification = "hightest_qualification"
+        case followStatus
+        case dworks_id
     }
 }
 struct PersonalInfoEditModel: Codable {

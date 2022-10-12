@@ -282,8 +282,19 @@
 		BFD5FF2C2812EECE003CE888 /* NewsDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5FF2A2812EECE003CE888 /* NewsDetailsCell.swift */; };
 		BFD5FF2D2812EECE003CE888 /* NewsDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFD5FF2B2812EECE003CE888 /* NewsDetailsCell.xib */; };
 		BFD5FF2F2813048E003CE888 /* CarrierTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5FF2E2813048D003CE888 /* CarrierTabViewController.swift */; };
+		DC3A6A2628EFFBDF006F73A2 /* ShopDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3A6A2428EFFBDF006F73A2 /* ShopDetailsCell.swift */; };
+		DC3A6A2728EFFBDF006F73A2 /* ShopDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC3A6A2528EFFBDF006F73A2 /* ShopDetailsCell.xib */; };
+		DC3A6A2A28F07873006F73A2 /* ImageSwipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3A6A2828F07873006F73A2 /* ImageSwipeCell.swift */; };
+		DC3A6A2B28F07873006F73A2 /* ImageSwipeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC3A6A2928F07873006F73A2 /* ImageSwipeCell.xib */; };
+		DC3A6A3228F1A46A006F73A2 /* LearningCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3A6A3028F1A46A006F73A2 /* LearningCell.swift */; };
+		DC3A6A3328F1A46A006F73A2 /* LearningCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC3A6A3128F1A46A006F73A2 /* LearningCell.xib */; };
+		DC3A6A3528F42368006F73A2 /* QuestionDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3A6A3428F42368006F73A2 /* QuestionDetailsViewController.swift */; };
 		DC453E4C28C77EBA00E1B72F /* UserAnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC453E4A28C77EBA00E1B72F /* UserAnswerCell.swift */; };
 		DC453E4D28C77EBA00E1B72F /* UserAnswerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC453E4B28C77EBA00E1B72F /* UserAnswerCell.xib */; };
+		DC465D9F28E08D1C009E7D4C /* ConnectLikeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC465D9D28E08D1C009E7D4C /* ConnectLikeCell.swift */; };
+		DC465DA028E08D1C009E7D4C /* ConnectLikeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC465D9E28E08D1C009E7D4C /* ConnectLikeCell.xib */; };
+		DC465DA328E0947C009E7D4C /* ConnectImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC465DA128E0947C009E7D4C /* ConnectImageCell.swift */; };
+		DC465DA428E0947C009E7D4C /* ConnectImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC465DA228E0947C009E7D4C /* ConnectImageCell.xib */; };
 		DC4AEF1E2853813D00D6D4A3 /* Me.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC4AEF1D2853813D00D6D4A3 /* Me.storyboard */; };
 		DC4AEF20285381C100D6D4A3 /* Network.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC4AEF1F285381C100D6D4A3 /* Network.storyboard */; };
 		DC4AEF222853847C00D6D4A3 /* Shop.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC4AEF212853847C00D6D4A3 /* Shop.storyboard */; };
@@ -296,6 +307,8 @@
 		DC55BE0A2872F47400B1EE1B /* DatingResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC55BE092872F47400B1EE1B /* DatingResource.swift */; };
 		DC6B8A472853318A00F89D57 /* Tab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC6B8A462853318A00F89D57 /* Tab.storyboard */; };
 		DC6BCDA3287BE7D5004F143D /* SaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6BCDA2287BE7D4004F143D /* SaleViewController.swift */; };
+		DC7968FE28F42422004D9FE6 /* QuestionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7968FC28F42422004D9FE6 /* QuestionHeaderCell.swift */; };
+		DC7968FF28F42422004D9FE6 /* QuestionHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC7968FD28F42422004D9FE6 /* QuestionHeaderCell.xib */; };
 		DC86698028730ED700CF89A8 /* ShowInterestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8AE24F286E95B1003376A7 /* ShowInterestViewController.swift */; };
 		DC86698328742FAE00CF89A8 /* ShopCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC86698128742FAE00CF89A8 /* ShopCVCell.swift */; };
 		DC86698428742FAE00CF89A8 /* ShopCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC86698228742FAE00CF89A8 /* ShopCVCell.xib */; };
@@ -376,6 +389,8 @@
 		DCB7D1E5284C7EB700F3CFDE /* ImageDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB7D1E4284C7EB700F3CFDE /* ImageDetailsViewController.swift */; };
 		DCD9880628521ABB00ECCCE7 /* AppliedJobViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD9880528521ABB00ECCCE7 /* AppliedJobViewModel.swift */; };
 		DCD98808285221E900ECCCE7 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCD98807285221E900ECCCE7 /* Details.storyboard */; };
+		DCF1B48F28F42F9F007F4FA3 /* ReplyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF1B48D28F42F9F007F4FA3 /* ReplyCell.swift */; };
+		DCF1B49028F42F9F007F4FA3 /* ReplyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCF1B48E28F42F9F007F4FA3 /* ReplyCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -682,8 +697,19 @@
 		BFD5FF2B2812EECE003CE888 /* NewsDetailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsDetailsCell.xib; sourceTree = "<group>"; };
 		BFD5FF2E2813048D003CE888 /* CarrierTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrierTabViewController.swift; sourceTree = "<group>"; };
 		CFDC4F24275C623FA5230FA3 /* Pods-DoctorWin-DoctorWinUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorWin-DoctorWinUITests.release.xcconfig"; path = "Target Support Files/Pods-DoctorWin-DoctorWinUITests/Pods-DoctorWin-DoctorWinUITests.release.xcconfig"; sourceTree = "<group>"; };
+		DC3A6A2428EFFBDF006F73A2 /* ShopDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDetailsCell.swift; sourceTree = "<group>"; };
+		DC3A6A2528EFFBDF006F73A2 /* ShopDetailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopDetailsCell.xib; sourceTree = "<group>"; };
+		DC3A6A2828F07873006F73A2 /* ImageSwipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSwipeCell.swift; sourceTree = "<group>"; };
+		DC3A6A2928F07873006F73A2 /* ImageSwipeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageSwipeCell.xib; sourceTree = "<group>"; };
+		DC3A6A3028F1A46A006F73A2 /* LearningCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningCell.swift; sourceTree = "<group>"; };
+		DC3A6A3128F1A46A006F73A2 /* LearningCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LearningCell.xib; sourceTree = "<group>"; };
+		DC3A6A3428F42368006F73A2 /* QuestionDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionDetailsViewController.swift; sourceTree = "<group>"; };
 		DC453E4A28C77EBA00E1B72F /* UserAnswerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAnswerCell.swift; sourceTree = "<group>"; };
 		DC453E4B28C77EBA00E1B72F /* UserAnswerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserAnswerCell.xib; sourceTree = "<group>"; };
+		DC465D9D28E08D1C009E7D4C /* ConnectLikeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectLikeCell.swift; sourceTree = "<group>"; };
+		DC465D9E28E08D1C009E7D4C /* ConnectLikeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConnectLikeCell.xib; sourceTree = "<group>"; };
+		DC465DA128E0947C009E7D4C /* ConnectImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectImageCell.swift; sourceTree = "<group>"; };
+		DC465DA228E0947C009E7D4C /* ConnectImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConnectImageCell.xib; sourceTree = "<group>"; };
 		DC4AEF1D2853813D00D6D4A3 /* Me.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Me.storyboard; sourceTree = "<group>"; };
 		DC4AEF1F285381C100D6D4A3 /* Network.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Network.storyboard; sourceTree = "<group>"; };
 		DC4AEF212853847C00D6D4A3 /* Shop.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Shop.storyboard; sourceTree = "<group>"; };
@@ -696,6 +722,8 @@
 		DC55BE092872F47400B1EE1B /* DatingResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatingResource.swift; sourceTree = "<group>"; };
 		DC6B8A462853318A00F89D57 /* Tab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tab.storyboard; sourceTree = "<group>"; };
 		DC6BCDA2287BE7D4004F143D /* SaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleViewController.swift; sourceTree = "<group>"; };
+		DC7968FC28F42422004D9FE6 /* QuestionHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionHeaderCell.swift; sourceTree = "<group>"; };
+		DC7968FD28F42422004D9FE6 /* QuestionHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionHeaderCell.xib; sourceTree = "<group>"; };
 		DC86698128742FAE00CF89A8 /* ShopCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCVCell.swift; sourceTree = "<group>"; };
 		DC86698228742FAE00CF89A8 /* ShopCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopCVCell.xib; sourceTree = "<group>"; };
 		DC86698528742FCD00CF89A8 /* ShopWishlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopWishlistViewController.swift; sourceTree = "<group>"; };
@@ -774,6 +802,8 @@
 		DCB7D1E4284C7EB700F3CFDE /* ImageDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailsViewController.swift; sourceTree = "<group>"; };
 		DCD9880528521ABB00ECCCE7 /* AppliedJobViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppliedJobViewModel.swift; sourceTree = "<group>"; };
 		DCD98807285221E900ECCCE7 /* Details.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Details.storyboard; sourceTree = "<group>"; };
+		DCF1B48D28F42F9F007F4FA3 /* ReplyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyCell.swift; sourceTree = "<group>"; };
+		DCF1B48E28F42F9F007F4FA3 /* ReplyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReplyCell.xib; sourceTree = "<group>"; };
 		E9F70AFB71164BEA0D30A370 /* Pods-DoctorWinTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorWinTests.debug.xcconfig"; path = "Target Support Files/Pods-DoctorWinTests/Pods-DoctorWinTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -895,7 +925,6 @@
 			isa = PBXGroup;
 			children = (
 				43AF8FB727358BF300CC69EF /* LoginViewModel.swift */,
-				43F57E4E27561572001120C8 /* RegisterViewModel.swift */,
 				4347EF432746589100E634E9 /* HomeViewModel.swift */,
 				8FF9ACFD2771B9B4002F4700 /* OTPViewModel.swift */,
 				43B2E8CC275F44B90022CD16 /* QuestionsViewModel.swift */,
@@ -932,7 +961,6 @@
 			isa = PBXGroup;
 			children = (
 				43AF8FBD27358C0700CC69EF /* LoginValidation.swift */,
-				43F57E4C275614A7001120C8 /* RegisterValidation.swift */,
 				43AF8FBE27358C0700CC69EF /* ValidationResult.swift */,
 			);
 			path = Validation;
@@ -952,6 +980,8 @@
 			children = (
 				43AF8FC427358C7E00CC69EF /* LoginResource.swift */,
 				43F57E50275615F9001120C8 /* RegisterResource.swift */,
+				43F57E4C275614A7001120C8 /* RegisterValidation.swift */,
+				43F57E4E27561572001120C8 /* RegisterViewModel.swift */,
 				4347EF452746594800E634E9 /* HomeResource.swift */,
 				43B2E8CE275F450C0022CD16 /* QuestionsResource.swift */,
 				43D38BED275D022A004B42E0 /* JobApplyResource.swift */,
@@ -1165,6 +1195,7 @@
 			isa = PBXGroup;
 			children = (
 				43AF8FA82733BD0900CC69EF /* OTPViewController.swift */,
+				DC3A6A2F28F1A3AF006F73A2 /* Learning */,
 				DCA0A6EE28C4DCC6001DE3F1 /* Question */,
 				43B52E4F273BE7DF004EF637 /* PostQuestion */,
 				43B5CBCA2726760400DFEC71 /* CustomCells */,
@@ -1379,6 +1410,8 @@
 				DC86698228742FAE00CF89A8 /* ShopCVCell.xib */,
 				DC8AE241286D815D003376A7 /* ShopCategoryCell.swift */,
 				DC8AE242286D815D003376A7 /* ShopCategoryCell.xib */,
+				DC3A6A2428EFFBDF006F73A2 /* ShopDetailsCell.swift */,
+				DC3A6A2528EFFBDF006F73A2 /* ShopDetailsCell.xib */,
 				DCA0A6DE28C31462001DE3F1 /* ShopWishlistHeaderView.swift */,
 				DCA0A6DF28C31462001DE3F1 /* ShopWishlistHeaderView.xib */,
 			);
@@ -1394,6 +1427,8 @@
 				DC885E4028D89B8A00110418 /* ConnectionsViewController.swift */,
 				DC885E4628DC704800110418 /* MatchesViewController.swift */,
 				DC885E4828DC721600110418 /* ConnectionLikeViewController.swift */,
+				DC465D9D28E08D1C009E7D4C /* ConnectLikeCell.swift */,
+				DC465D9E28E08D1C009E7D4C /* ConnectLikeCell.xib */,
 				DC885E4A28DC724600110418 /* ChatViewController.swift */,
 				DC8D9ACC28572C0F009533DC /* InterstViewController.swift */,
 				DC8AE24F286E95B1003376A7 /* ShowInterestViewController.swift */,
@@ -1405,10 +1440,21 @@
 				DC885E4D28DC881300110418 /* MatchesInfoCell.xib */,
 				DC961EAC2876E17C00F24913 /* EditConnectCell.swift */,
 				DC961EAD2876E17C00F24913 /* EditConnectCell.xib */,
+				DC465DA128E0947C009E7D4C /* ConnectImageCell.swift */,
+				DC465DA228E0947C009E7D4C /* ConnectImageCell.xib */,
 				BFC3EF02282E4E83000A1582 /* ImageCell.swift */,
 				BFC3EF03282E4E83000A1582 /* ImageCell.xib */,
 			);
 			path = Social;
+			sourceTree = "<group>";
+		};
+		DC3A6A2F28F1A3AF006F73A2 /* Learning */ = {
+			isa = PBXGroup;
+			children = (
+				DC3A6A3028F1A46A006F73A2 /* LearningCell.swift */,
+				DC3A6A3128F1A46A006F73A2 /* LearningCell.xib */,
+			);
+			path = Learning;
 			sourceTree = "<group>";
 		};
 		DCA0A6A928C0ADD2001DE3F1 /* EditProfile */ = {
@@ -1462,6 +1508,8 @@
 				43A6A98527329D0200400F72 /* AddSkillsCell.xib */,
 				BFA90E1927B4E97A009F9784 /* ProfileImageCell.swift */,
 				BFA90E1A27B4E97A009F9784 /* ProfileImageCell.xib */,
+				DC3A6A2828F07873006F73A2 /* ImageSwipeCell.swift */,
+				DC3A6A2928F07873006F73A2 /* ImageSwipeCell.xib */,
 				BFA90E1527B4E036009F9784 /* MySelfCell.swift */,
 				BFA90E1627B4E036009F9784 /* MySelfCell.xib */,
 				DCA0A6D628C0FBE0001DE3F1 /* EditPersonalInfoCell.swift */,
@@ -1481,6 +1529,7 @@
 			children = (
 				DCA0A6EF28C4DCCF001DE3F1 /* Cells */,
 				DC885E2728C7A21D00110418 /* QuestionsViewController.swift */,
+				DC3A6A3428F42368006F73A2 /* QuestionDetailsViewController.swift */,
 			);
 			path = Question;
 			sourceTree = "<group>";
@@ -1496,8 +1545,12 @@
 				DCA0A6F528C4DD50001DE3F1 /* AnswersCell.xib */,
 				DC453E4A28C77EBA00E1B72F /* UserAnswerCell.swift */,
 				DC453E4B28C77EBA00E1B72F /* UserAnswerCell.xib */,
+				DCF1B48D28F42F9F007F4FA3 /* ReplyCell.swift */,
+				DCF1B48E28F42F9F007F4FA3 /* ReplyCell.xib */,
 				DC885E3628D20A1C00110418 /* TrendingQuestionHeaderView.swift */,
 				DC885E3828D20A3300110418 /* TrendingQuestionHeaderView.xib */,
+				DC7968FC28F42422004D9FE6 /* QuestionHeaderCell.swift */,
+				DC7968FD28F42422004D9FE6 /* QuestionHeaderCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1647,9 +1700,11 @@
 				BFA90E1C27B4E97B009F9784 /* ProfileImageCell.xib in Resources */,
 				43B975B52725B63000CDF2F1 /* JobHeadCell.xib in Resources */,
 				DCD98808285221E900ECCCE7 /* Details.storyboard in Resources */,
+				DC7968FF28F42422004D9FE6 /* QuestionHeaderCell.xib in Resources */,
 				BFC3EEE128242568000A1582 /* HospitalDetailsCell.xib in Resources */,
 				BF170F4A28084825001B3109 /* ProfileCell.xib in Resources */,
 				BF0DD93D278C931C0053747A /* TitleView.xib in Resources */,
+				DC3A6A2728EFFBDF006F73A2 /* ShopDetailsCell.xib in Resources */,
 				BFB3A66C28352C10008D0C72 /* CarrierCategoryCell.xib in Resources */,
 				DC4AEF222853847C00D6D4A3 /* Shop.storyboard in Resources */,
 				439275D02727CE8400E91E33 /* StoryCell.xib in Resources */,
@@ -1683,6 +1738,7 @@
 				43AF9F8427296C8F0020CCF3 /* HomeData.json in Resources */,
 				DC885E3528D0E59B00110418 /* PersonImageCell.xib in Resources */,
 				439297952722D629001891B8 /* LaunchScreen.storyboard in Resources */,
+				DC465DA428E0947C009E7D4C /* ConnectImageCell.xib in Resources */,
 				43B5CBCE2726779900DFEC71 /* JobsCell.xib in Resources */,
 				BF431C9D278403180057AF9F /* CreateFirstCaseView.xib in Resources */,
 				BF0DD957278D4C820053747A /* ProfileSkillsCell.xib in Resources */,
@@ -1695,16 +1751,19 @@
 				BF170F69280FD1FC001B3109 /* ExamCell.xib in Resources */,
 				439DC46E273FB28800DAD6D5 /* Roboto-Medium.ttf in Resources */,
 				439923CB272BD8A70085E067 /* JobTableCell.xib in Resources */,
+				DC3A6A2B28F07873006F73A2 /* ImageSwipeCell.xib in Resources */,
 				439923C1272BCC0E0085E067 /* Jobs.json in Resources */,
 				DCA0A6D928C0FBE0001DE3F1 /* EditPersonalInfoCell.xib in Resources */,
 				BFA90E1827B4E036009F9784 /* MySelfCell.xib in Resources */,
 				BFC3EF05282E4E83000A1582 /* ImageCell.xib in Resources */,
+				DCF1B49028F42F9F007F4FA3 /* ReplyCell.xib in Resources */,
 				BF0DD970278D92EF0053747A /* CarrierHeaderCell.xib in Resources */,
 				BF170F8228101AC7001B3109 /* CarrierJobCell.xib in Resources */,
 				43A6A98F27329E5800400F72 /* PollTableViewCell.xib in Resources */,
 				DC885E3D28D217ED00110418 /* TrendingTableCell.xib in Resources */,
 				43A6A99327329F1C00400F72 /* CasesTableViewCell.xib in Resources */,
 				DC885E4528D89C4700110418 /* MatchesCell.xib in Resources */,
+				DC465DA028E08D1C009E7D4C /* ConnectLikeCell.xib in Resources */,
 				439AA1FB2737F2F400D09E26 /* CourseNameCell.xib in Resources */,
 				BF0DD968278D8BF30053747A /* RecentSearchCell.xib in Resources */,
 				43B03AAB27300AB300A4337B /* JobDetails.json in Resources */,
@@ -1749,6 +1808,7 @@
 				43B03A99272EA94E00A4337B /* HomeDetailsCell.xib in Resources */,
 				439DC46A273FB28800DAD6D5 /* Roboto-Regular.ttf in Resources */,
 				BF431C872782DC320057AF9F /* ExperienceCell.xib in Resources */,
+				DC3A6A3328F1A46A006F73A2 /* LearningCell.xib in Resources */,
 				439DC46D273FB28800DAD6D5 /* LICENSE.txt in Resources */,
 				43B23207273AAA2C00038F8A /* AppliedJobCell.xib in Resources */,
 			);
@@ -1879,6 +1939,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFC3EF07282E72B2000A1582 /* BookmarksViewController.swift in Sources */,
+				DC3A6A3228F1A46A006F73A2 /* LearningCell.swift in Sources */,
 				DC9539C3285C5BF600FBD8D0 /* CarrierJobDetailsModel.swift in Sources */,
 				43AF8FA92733BD0900CC69EF /* OTPViewController.swift in Sources */,
 				DC885E4B28DC724600110418 /* ChatViewController.swift in Sources */,
@@ -1902,6 +1963,7 @@
 				DC8AE246286D9DFB003376A7 /* ShopViewModel.swift in Sources */,
 				DC8AE24C286E0306003376A7 /* ShopDetailsViewModel.swift in Sources */,
 				BFD5FF2F2813048E003CE888 /* CarrierTabViewController.swift in Sources */,
+				DC3A6A2A28F07873006F73A2 /* ImageSwipeCell.swift in Sources */,
 				BF431CA0278442D00057AF9F /* DummyCell.swift in Sources */,
 				43B03A9C272EAF6300A4337B /* CommentsCell.swift in Sources */,
 				BF170F8128101AC7001B3109 /* CarrierJobCell.swift in Sources */,
@@ -1942,6 +2004,7 @@
 				DC55BE022872BCB700B1EE1B /* MCQViewModel.swift in Sources */,
 				BF431C802782D57E0057AF9F /* FollowCell.swift in Sources */,
 				DCA0A6F628C4DD50001DE3F1 /* AnswersCell.swift in Sources */,
+				DC3A6A2628EFFBDF006F73A2 /* ShopDetailsCell.swift in Sources */,
 				DC885E4128D89B8A00110418 /* ConnectionsViewController.swift in Sources */,
 				DC453E4C28C77EBA00E1B72F /* UserAnswerCell.swift in Sources */,
 				43F50BC92757931300EC1A80 /* CustomJobViewModel.swift in Sources */,
@@ -1972,6 +2035,7 @@
 				DC885E4428D89C4700110418 /* MatchesCell.swift in Sources */,
 				43B5CBCD2726779900DFEC71 /* JobsCell.swift in Sources */,
 				43A6A99227329F1C00400F72 /* CasesTableViewCell.swift in Sources */,
+				DC7968FE28F42422004D9FE6 /* QuestionHeaderCell.swift in Sources */,
 				43B52E36273BCA51004EF637 /* PostQuestionHeader.swift in Sources */,
 				DCA0A6FB28C61109001DE3F1 /* PeopleViewModel.swift in Sources */,
 				43AF8FAF2733D5B800CC69EF /* RegisterDetailsViewController.swift in Sources */,
@@ -2018,8 +2082,10 @@
 				DC55BE0A2872F47400B1EE1B /* DatingResource.swift in Sources */,
 				43C1BFA2272C150D008877AA /* TopJobsDataModel.swift in Sources */,
 				BFC3EEFD282E2BBC000A1582 /* ConnectViewController.swift in Sources */,
+				DC3A6A3528F42368006F73A2 /* QuestionDetailsViewController.swift in Sources */,
 				BFA90E2027BA7036009F9784 /* APIHelperClass.swift in Sources */,
 				DCA0A6D428C0FA86001DE3F1 /* BioCell.swift in Sources */,
+				DC465DA328E0947C009E7D4C /* ConnectImageCell.swift in Sources */,
 				BFB3A6602834DD66008D0C72 /* JobDetailsViewModel.swift in Sources */,
 				439923C3272BCC2C0085E067 /* JobsDataModel.swift in Sources */,
 				BF431C8E2782EC6F0057AF9F /* ExperinceTitleCell.swift in Sources */,
@@ -2049,6 +2115,7 @@
 				BF170F68280FD1FC001B3109 /* ExamCell.swift in Sources */,
 				43AF8FB52733E00300CC69EF /* CreateCustomJobViewController.swift in Sources */,
 				8FF9ACFE2771B9B4002F4700 /* OTPViewModel.swift in Sources */,
+				DC465D9F28E08D1C009E7D4C /* ConnectLikeCell.swift in Sources */,
 				BF431C832782DA990057AF9F /* FollowViewController.swift in Sources */,
 				43A280A8272AD85C001B88A1 /* NewsDataModel.swift in Sources */,
 				BFC3EED92823DEA6000A1582 /* ShopDetailsViewController.swift in Sources */,
@@ -2103,6 +2170,7 @@
 				439275D62727F22100E91E33 /* HomeTableViewHeader.swift in Sources */,
 				BF170F56280D9A94001B3109 /* NetworkViewController.swift in Sources */,
 				DC885E2828C7A21D00110418 /* QuestionsViewController.swift in Sources */,
+				DCF1B48F28F42F9F007F4FA3 /* ReplyCell.swift in Sources */,
 				DCA0A67028C0A7B4001DE3F1 /* EditBioDataController.swift in Sources */,
 				BF0DD948278D393C0053747A /* ProfileNameCell.swift in Sources */,
 				439275D32727D11E00E91E33 /* SelfStoryCell.swift in Sources */,
@@ -2316,7 +2384,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -2340,7 +2408,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

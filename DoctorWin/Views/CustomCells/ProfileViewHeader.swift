@@ -20,7 +20,7 @@ class ProfileViewHeader: UITableViewHeaderFooterView {
     @IBOutlet weak var mcqBtn: UIButton!
     @IBOutlet weak var interfaceSegmented: CustomSegmentedControl!{
         didSet{
-            interfaceSegmented.setButtonTitles(buttonTitles: ["Home","Post", "Cases", "Questions", "Answers"])
+            interfaceSegmented.setButtonTitles(buttonTitles: ["Post", "Cases", "Questions", "Answers"])
             interfaceSegmented.selectorViewColor = .blue
             interfaceSegmented.selectorTextColor = .blue
         }

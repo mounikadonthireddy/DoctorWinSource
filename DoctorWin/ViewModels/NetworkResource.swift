@@ -30,7 +30,7 @@ struct NetworkResource {
     }
     func getPeopleNetworkData(userID: String, completion : @escaping (_ result: ResponseResult<[PeopleModel]>) -> Void) {
         
-        let jobUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getPeoples + "?userid=\(userID)"
+        let jobUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getPeoples + ApiEndpoints.userID + "=\(userID)"
         
         let httpUtility = HttpUtility()
         do {
@@ -71,7 +71,7 @@ struct NetworkResource {
     }
     func getFollowingData(userID: String, completion : @escaping (_ result: ResponseResult<[FollowModel]>) -> Void) {
         
-        let jobUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getFollowing + ApiEndpoints.userID + "=\(userID)"
+        let jobUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getFollowing + ApiEndpoints.userID + "=\(userID)&page=1"
         
         let httpUtility = HttpUtility()
         do {
@@ -92,7 +92,7 @@ struct NetworkResource {
     }
     func getRequestData(userID: String, completion : @escaping (_ result: ResponseResult<[NetworkModel]>) -> Void) {
         
-        let jobUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getRequest + ApiEndpoints.userID + "=\(userID)&page=1"
+        let jobUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getRequest + ApiEndpoints.userID + "=\(userID)"
         
         let httpUtility = HttpUtility()
         do {

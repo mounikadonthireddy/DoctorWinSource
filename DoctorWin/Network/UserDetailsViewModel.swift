@@ -123,9 +123,9 @@ struct UserDetailsViewModel {
         let homeResource = UserDetailsResource()
         var endUrl  = ""
         if let groupId = group_id {
-            endUrl  = "&group_id=\(groupId)&page=1"
+            endUrl  = "&group_id=\(groupId)"
         }
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getUserPostedAnswers + "?selfid=\(userID)" + endUrl
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getUserPostedAnswers + ApiEndpoints.userID  + "=\(userID)&page=1" + endUrl
 
         homeResource.getUserPostedAnswersData(urlString: homeUrlStr) { response in
             DispatchQueue.main.async {

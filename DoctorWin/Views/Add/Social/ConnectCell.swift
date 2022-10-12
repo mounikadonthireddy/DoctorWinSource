@@ -44,7 +44,7 @@ class ConnectCell: UITableViewCell {
     func configureCell(data: ConnectProfileModel) {
         nameTF.text = data.name
         bioTF.text = data.intro
-        livingTF.text = data.living
+        livingTF.text = data.living_in ?? ""
         qualificationTF.text = data.qualification
         professionTF.text = data.profession
         dobTF.text = "\(data.age)"

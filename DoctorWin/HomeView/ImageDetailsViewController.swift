@@ -19,7 +19,7 @@ class ImageDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if selectedImageUrl != "" {
-            image.sd_setImage(with: URL(string: selectedImageUrl))
+            image.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + selectedImageUrl))
        
         }
         self.detailsLable.text = data

@@ -23,9 +23,11 @@ struct LoginResponse : Decodable {
 struct OTPResponse: Codable {
     let phone_number : String?
     let profile_name: String?
-    let user_id: Int?
+    let dworks_id: String?
     let status: Bool?
     let message: String?
+    let dating_profile_status: Bool?
+    
 
 //    let username_status: String
 //    let username: String

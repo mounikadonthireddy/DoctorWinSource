@@ -66,14 +66,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fBP-Dd-bG9">
-                                <rect key="frame" x="248" y="10" width="45" height="34"/>
+                                <rect key="frame" x="429" y="15" width="30" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="2Is-cM-xEs"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="45" id="6Qi-Gf-g6t"/>
+                                    <constraint firstAttribute="width" constant="30" id="6Qi-Gf-g6t"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
                                 <color key="tintColor" red="0.28627450980000002" green="0.52549019610000003" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Follow">
+                                <state key="normal" image="3dot">
                                     <color key="titleColor" red="0.1019607843" green="0.13725490200000001" blue="0.4941176471" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -100,11 +100,31 @@
                                             </label>
                                         </subviews>
                                     </stackView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.up.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="HZX-XE-X8C">
+                                        <rect key="frame" x="55.5" y="7.5" width="55.5" height="14.5"/>
+                                        <color key="tintColor" systemColor="labelColor"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fmark" translatesAutoresizingMaskIntoConstraints="NO" id="GbU-Mo-3Xn">
+                                        <rect key="frame" x="111" y="5.5" width="55.5" height="19"/>
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small" weight="medium"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hu9-k4-iq7">
+                                        <rect key="frame" x="166.5" y="0.0" width="55.5" height="30"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sFP-cC-DtQ">
+                                        <rect key="frame" x="222" y="0.0" width="55.5" height="30"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GEw-s7-7go">
+                                        <rect key="frame" x="277.5" y="0.0" width="55.5" height="30"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yoS-At-FA5">
+                                        <rect key="frame" x="333" y="0.0" width="55.5" height="30"/>
+                                    </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="236-mi-jrV">
-                                        <rect key="frame" x="55.5" y="6" width="55.5" height="18"/>
+                                        <rect key="frame" x="388.5" y="6" width="55.5" height="18"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message" translatesAutoresizingMaskIntoConstraints="NO" id="c8G-C6-fop">
-                                                <rect key="frame" x="0.0" y="0.0" width="28" height="18"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus.message" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="c8G-C6-fop">
+                                                <rect key="frame" x="0.0" y="0.0" width="28" height="17.5"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oih-1d-g2l">
                                                 <rect key="frame" x="28" y="0.0" width="27.5" height="18"/>
@@ -117,26 +137,6 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.2.squarepath" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="HZX-XE-X8C">
-                                        <rect key="frame" x="111" y="6" width="55.5" height="17.5"/>
-                                        <color key="tintColor" systemColor="labelColor"/>
-                                    </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hu9-k4-iq7">
-                                        <rect key="frame" x="166.5" y="0.0" width="55.5" height="30"/>
-                                    </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sFP-cC-DtQ">
-                                        <rect key="frame" x="222" y="0.0" width="55.5" height="30"/>
-                                    </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GEw-s7-7go">
-                                        <rect key="frame" x="277.5" y="0.0" width="55.5" height="30"/>
-                                    </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share" translatesAutoresizingMaskIntoConstraints="NO" id="yoS-At-FA5">
-                                        <rect key="frame" x="333" y="4" width="55.5" height="22"/>
-                                    </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mark" translatesAutoresizingMaskIntoConstraints="NO" id="GbU-Mo-3Xn">
-                                        <rect key="frame" x="388.5" y="5.5" width="55.5" height="19"/>
-                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small" weight="medium"/>
-                                    </imageView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="hOz-hD-Jfx"/>
@@ -156,12 +156,15 @@
                                         <rect key="frame" x="55.5" y="0.0" width="55.5" height="35"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <connections>
-                                            <action selector="replyClicked:" destination="e4c-gT-axW" eventType="touchUpInside" id="XzI-Gy-gNA"/>
+                                            <action selector="shareClicked:" destination="e4c-gT-axW" eventType="touchUpInside" id="6Ei-ON-kXB"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SU4-ZY-XdS">
                                         <rect key="frame" x="111" y="0.0" width="55.5" height="35"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <connections>
+                                            <action selector="saveClicked:" destination="e4c-gT-axW" eventType="touchUpInside" id="MXX-7f-uSm"/>
+                                        </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bMr-gM-Eyv">
                                         <rect key="frame" x="166.5" y="0.0" width="55.5" height="35"/>
@@ -175,16 +178,13 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="63w-Cm-z4C">
                                         <rect key="frame" x="333" y="0.0" width="55.5" height="35"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <connections>
-                                            <action selector="shareClicked:" destination="e4c-gT-axW" eventType="touchUpInside" id="0L1-uj-dMf"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0V-eQ-JJj">
                                         <rect key="frame" x="388.5" y="0.0" width="55.5" height="35"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                         <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                         <connections>
-                                            <action selector="saveClicked:" destination="e4c-gT-axW" eventType="touchUpInside" id="MqD-2g-4sV"/>
+                                            <action selector="replyClicked:" destination="e4c-gT-axW" eventType="touchUpInside" id="dAM-aD-nsG"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -210,7 +210,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="fBP-Dd-bG9" firstAttribute="leading" secondItem="0rW-9n-hqn" secondAttribute="trailing" constant="20" id="0PZ-af-NU0"/>
                             <constraint firstItem="5Wx-eg-mhB" firstAttribute="leading" secondItem="98B-4H-Y3H" secondAttribute="leading" constant="10" id="1kg-BS-gXT"/>
                             <constraint firstItem="NYr-u8-8Fd" firstAttribute="top" secondItem="0rW-9n-hqn" secondAttribute="bottom" constant="2" id="3kj-LG-3y9"/>
                             <constraint firstAttribute="bottom" secondItem="PFB-yI-tSJ" secondAttribute="bottom" priority="999" constant="15" id="B0f-Dd-Izb"/>
@@ -223,11 +222,12 @@
                             <constraint firstItem="QoL-FK-7T3" firstAttribute="top" secondItem="98B-4H-Y3H" secondAttribute="top" constant="10" id="U4y-s1-dTS"/>
                             <constraint firstItem="7s5-jh-I0q" firstAttribute="top" secondItem="ITZ-x7-cOu" secondAttribute="bottom" constant="10" id="VB5-IJ-V5N"/>
                             <constraint firstAttribute="trailing" secondItem="OKI-nE-HgP" secondAttribute="trailing" constant="10" id="WBd-21-axZ"/>
+                            <constraint firstAttribute="trailing" secondItem="fBP-Dd-bG9" secondAttribute="trailing" constant="5" id="a0f-zh-kIl"/>
                             <constraint firstItem="OKI-nE-HgP" firstAttribute="top" secondItem="7s5-jh-I0q" secondAttribute="bottom" constant="20" id="bh6-hj-LnK"/>
                             <constraint firstAttribute="trailing" secondItem="7s5-jh-I0q" secondAttribute="trailing" id="cKf-kv-yzS"/>
                             <constraint firstItem="ITZ-x7-cOu" firstAttribute="top" secondItem="QoL-FK-7T3" secondAttribute="bottom" constant="20" id="dJu-uc-so5"/>
                             <constraint firstItem="ITZ-x7-cOu" firstAttribute="leading" secondItem="98B-4H-Y3H" secondAttribute="leading" constant="20" id="f2q-Bq-0Um"/>
-                            <constraint firstItem="fBP-Dd-bG9" firstAttribute="top" secondItem="98B-4H-Y3H" secondAttribute="top" constant="10" id="haX-tO-wkm"/>
+                            <constraint firstItem="fBP-Dd-bG9" firstAttribute="top" secondItem="98B-4H-Y3H" secondAttribute="top" constant="15" id="haX-tO-wkm"/>
                             <constraint firstItem="OKI-nE-HgP" firstAttribute="leading" secondItem="98B-4H-Y3H" secondAttribute="leading" constant="10" id="lSB-Bn-nET"/>
                             <constraint firstAttribute="trailing" secondItem="5Wx-eg-mhB" secondAttribute="trailing" constant="10" id="n59-d9-pHg"/>
                             <constraint firstItem="0rW-9n-hqn" firstAttribute="top" secondItem="98B-4H-Y3H" secondAttribute="top" constant="15" id="oSK-Sh-nmv"/>
@@ -258,7 +258,7 @@
                 <outlet property="personImage" destination="QoL-FK-7T3" id="xim-Mj-E1o"/>
                 <outlet property="postImage" destination="7s5-jh-I0q" id="uth-Fc-WDD"/>
                 <outlet property="postedPersonName" destination="0rW-9n-hqn" id="N5F-cJ-H9P"/>
-                <outlet property="saveBtn" destination="f0V-eQ-JJj" id="ZKN-Ew-YcQ"/>
+                <outlet property="saveBtn" destination="SU4-ZY-XdS" id="uFv-hI-Xi4"/>
                 <outlet property="titleLable" destination="ITZ-x7-cOu" id="JJL-Ke-sSH"/>
                 <outlet property="wishlistBtn" destination="LZ7-PN-XV5" id="LA6-cy-gEX"/>
             </connections>
@@ -266,13 +266,13 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="arrow.2.squarepath" catalog="system" width="128" height="89"/>
+        <image name="3dot" width="32" height="32"/>
+        <image name="arrow.up.right" catalog="system" width="128" height="112"/>
+        <image name="fmark" width="19" height="19"/>
         <image name="heart" width="64" height="64"/>
-        <image name="loginBg" width="6240" height="3014"/>
-        <image name="mark" width="19" height="19"/>
-        <image name="message" width="32" height="32"/>
+        <image name="loginBg" width="375" height="153"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
-        <image name="share" width="22" height="22"/>
+        <image name="plus.message" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

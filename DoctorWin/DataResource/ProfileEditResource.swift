@@ -294,6 +294,32 @@ struct ProfileEditResource {
             debugPrint(error)
         }
     }
+    func followPerson(request: FollowRequest, completion : @escaping  (_ result: ResponseResult<Bool?>) -> Void) {
+        
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.complaintFollow + ApiEndpoints.userID + "=\(request.dworks_id)&follow_id=\(request.follow_id)"
+        let homeUrl = URL(string: homeUrlStr)!
+        
+        let httpUtility = HttpUtility()
+        do {
+            let postBody = try JSONEncoder().encode(request)
+            
+            httpUtility.postMethod(requestUrl: homeUrl, requestBody: postBody, resultType: ComplaintFollowResponse.self) {
+                result in
+                
+                switch result {
+                case .success(let data):
+                    completion(.success(data.follow))
+                    
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                    
+                }
+            }
+            
+        } catch let error {
+            debugPrint(error)
+        }
+    }
 }
 
 struct ProfileEditDropDownModel: Codable {

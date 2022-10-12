@@ -11,7 +11,7 @@ struct ShopResource {
     func getshopData(userID: String, category: String, completion : @escaping (_ result: ResponseResult<[ShopModel]>) -> Void) {
         var homeUrlStr = ""
         if category != "" {
-           homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.shopData + "?category_name=\(category)"
+           homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.shopData + ApiEndpoints.userID + "=\(userID)" + "&category_name=\(category)"
         } else {
          homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.shopData + ApiEndpoints.userID + "=\(userID)"
         }

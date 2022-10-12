@@ -26,7 +26,7 @@ struct ConnectResource {
     }
     func getEditProfile(userID: String, completion : @escaping (_ result: ResponseResult<ConnectProfileModel>) -> Void) {
         
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.editProfile +  "?userid=\(userID)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.editProfile + ApiEndpoints.userID +  "=\(userID)"
         let httpUtility = HttpUtility()
         do {
             httpUtility.getApiData(urlString: homeUrlStr, resultType: ConnectProfileModel.self) { result in

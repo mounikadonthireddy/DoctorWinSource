@@ -13,8 +13,7 @@ class ShopViewController: ViewController {
     var categoryArray : [ShopCategoryModel] = []
     var shopArray : [ShopModel] = []
     @IBOutlet weak var shopCollectionView: UICollectionView!
-    @IBOutlet weak var searchView: UIStackView!
-    @IBOutlet weak var searchTF: UITextField!
+    @IBOutlet weak var shopView: UIView!
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     @IBOutlet weak var shopCVLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var categoryCVLayout: UICollectionViewFlowLayout!
@@ -23,8 +22,8 @@ class ShopViewController: ViewController {
         
         categoryCollectionView.register(UINib.init(nibName: "ShopCategoryCell", bundle: nil), forCellWithReuseIdentifier: "ShopCategoryCell")
         shopCollectionView.register(UINib.init(nibName: "ShopCell", bundle: nil), forCellWithReuseIdentifier: "ShopCell")
-        searchView.setCornerRadius(radius: Float(searchView.frame.height)/2)
-       
+      
+        shopView.dropShadow()
         shopCVLayout.scrollDirection = .vertical
         shopCVLayout.minimumLineSpacing = 0
         shopCVLayout.minimumInteritemSpacing = 0

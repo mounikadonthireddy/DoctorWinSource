@@ -33,12 +33,18 @@ struct ConnectProfileModel: Codable {
     let intro: String
     let gender: String
     let age: Int
-    let living: String
+    let living_in: String?
     let qualification: String
     let profession: String
-    let image: [GenderImageModel]
-    let interest: EditInterestModel?
-    
+    let genderimage: [GenderImageModel]?
+    let interest: [ProfileInterestModel]?
+    let looking_for: String?
+    let institute: String?
+    let orientation: String?
+    let height: String?
+    let pets: String?
+    let income: String?
+    let zodiacs: String?
 }
 
 struct EditInterestModel: Codable {

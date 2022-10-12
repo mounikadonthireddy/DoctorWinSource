@@ -153,17 +153,18 @@ class AddCasesViewController: UIViewController {
     
     @IBAction func submitClicked(_ sender: UIButton) {
         
-//        if caseTitle.text == "" {
-//            showAlertView(message: "Enter ")
-//        } else {
+        if caseTitle.text == "" || chiefComplaint.text == "" {
+            showAlertView(message: "Enter Mention title of the case and Description")
+            
+        } else {
                     
-        let parm = ["com_title": caseTitle.text! , "chief_complaint": chiefComplaint.text!, "present_illness": presentIllness.text!, "past_illness": pastIllness.text!, "drugs": drugs.text! , "personal": personal.text! , "family": family.text! , "physical_exam": physicalExamination.text! , "system_exam": systemExamination.text! , "local_exam": localExamination.text! , "vitus": vitus.text! , "lab_finding": labFinding.text! , "imaging": imaging.text! , "diagnosis": probableDiagnosis.text! , "complaint_id": User.shared.userID]
+        let parm = ["title": caseTitle.text! , "chief_complaint": chiefComplaint.text!, "present_illness": presentIllness.text!, "past_illness": pastIllness.text!, "drugs": drugs.text! , "personal": personal.text! , "family": family.text! , "physical_exam": physicalExamination.text! , "system_exam": systemExamination.text! , "local_exam": localExamination.text! , "vitus": vitus.text! , "lab_finding": labFinding.text! , "imaging": imaging.text! , "diagnosis": probableDiagnosis.text! , "complaint_id": User.shared.userID]
             let url = ApiEndpoints.baseUrl + ApiEndpoints.addCase + ApiEndpoints.userID + "=\(User.shared.userID)"
             
-            HttpUtility().profileUpload(img: imageView.image!, url: url, imageName: imageFileName, imageUploadName: "com_image", param: parm) { res in
+            HttpUtility().profileUpload(img: imageView.image!, url: url, imageName: imageFileName, imageUploadName: "image", param: parm) { res in
                 print(res)
             }
-//        }
+ }
     }
     func showAlertView(message: String) {
         
@@ -178,10 +179,12 @@ class AddCasesViewController: UIViewController {
     
 }
 
-extension AddCasesViewController: UITextFieldDelegate {
+extension AddCasesViewController: UITextFieldDelegate, UITextViewDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return textField.resignFirstResponder()
     }
+    
+    
 }
 extension AddCasesViewController: ImagePickerDelegate {
     func didSelect(image: UIImage?, fileName: String?, fileType: String?) {
@@ -216,7 +219,10 @@ extension AddCasesViewController : UICollectionViewDelegate, UICollectionViewDat
         
         let cell: ImageCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! ImageCell
            
-           
+        cell.imageBtn.addTarget(self, action: #selector(selectImage(button:)), for: .touchUpInside)
+//        if self.imageView.image != nil {
+//            cell.profileImage.image =  self.imageView.image
+//        }
         return cell
         
     }
@@ -249,6 +255,11 @@ extension AddCasesViewController : UICollectionViewDelegate, UICollectionViewDat
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-    
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //self.imagePicker.present(from: collectionView)
+    }
+    @objc func selectImage(button: UIButton) {
+        self.imagePicker.present(from: button)
+    }
 }
+

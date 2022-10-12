@@ -31,7 +31,7 @@ class RequestCell: UITableViewCell {
         self.name.text = data.ProfileName ?? ""
         self.qualification.text = (data.hightest_qualification ?? "" ) + ", started following you"
         if let urlString = data.ProfileImage {
-         self.personImage.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "loginBg"))
+            self.personImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
         }
     }
 }

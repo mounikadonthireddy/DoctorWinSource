@@ -16,14 +16,16 @@ protocol CasesBookMarkDelegate {
 protocol NewsBookMarkDelegate {
     func didReceiveBookmakedNews(response: [NewsModel]?, error: String?)
 }
-protocol ArticleBookMarkDelegate {
-  
+protocol SocailBookMarkDelegate {
+    func didReceiveBookmakedSocail(response: [HomeDataModel]?, error: String?)
 }
 protocol ClassiFieldBookmarkDelegate {
     func didReceiveBookmakedClassicfield(response: [CarrierModel]?, error: String?)
 }
-
-protocol BookMarkDelegate: JobBookmarkedDelegate & CasesBookMarkDelegate & NewsBookMarkDelegate & ArticleBookMarkDelegate & ClassiFieldBookmarkDelegate {
+protocol AnswersBookmarkDelegate {
+    func didReceiveBookmakedAnswers(response: [AnswersModel]?, error: String?)
+}
+protocol BookMarkDelegate: JobBookmarkedDelegate & CasesBookMarkDelegate & NewsBookMarkDelegate & SocailBookMarkDelegate & AnswersBookmarkDelegate {
     
 }
 struct BookMarkViewModel {
@@ -39,6 +41,20 @@ struct BookMarkViewModel {
                     
                 case .failure(let error):
                     self.delegate?.didReceiveBookmakedJobs(response: nil, error: error)
+                }
+            }
+        }
+    }
+    func getBookMarkedJAnswers(userID: String) {
+        let resource = CustomJobResource()
+        resource.getBookmarkedAnswers(userID: userID) { response in
+            DispatchQueue.main.async {
+                switch response {
+                case .success(let data):
+                    self.delegate?.didReceiveBookmakedAnswers(response: data, error: nil)
+                    
+                case .failure(let error):
+                    self.delegate?.didReceiveBookmakedAnswers(response: nil, error: error)
                 }
             }
         }
@@ -59,13 +75,45 @@ struct BookMarkViewModel {
                 }
             }
         }
-    func getBookmarkArticles(userID: String) {
-     
+    func getBookmarkSocail(userID: String) {
+        let homeResource = HomeResource()
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.bookmarkSocail + ApiEndpoints.userID + "=\(userID)&page=1"
+
+        homeResource.getBookmarkSocail(urlString: homeUrlStr) { response in
+            DispatchQueue.main.async {
+                switch response {
+                case .success(let data):
+                    self.delegate?.didReceiveBookmakedSocail(response: data, error: nil)
+
+                case .failure(let error):
+                    self.delegate?.didReceiveBookmakedSocail(response: nil, error: error)
+                }
+                
+            }
+        }
+ 
     }
     
     func getBookmarkCases(userID: String) {
         let homeResource = HomeResource()
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.bookmarkCases + ApiEndpoints.userID + "=\(userID)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.bookmarkComplaint + ApiEndpoints.userID + "=\(userID)&page=1"
+
+        homeResource.getBookmarkCases(urlString: homeUrlStr) { response in
+            DispatchQueue.main.async {
+                switch response {
+                case .success(let data):
+                    self.delegate?.didReceiveBookmakedCases(response: data, error: nil)
+
+                case .failure(let error):
+                    self.delegate?.didReceiveBookmakedCases(response: nil, error: error)
+                }
+                
+            }
+        }
+    }
+    func getBookmarkAnswers(userID: String) {
+        let homeResource = HomeResource()
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.bookmarkComplaint + ApiEndpoints.userID + "=\(userID)&page=1"
 
         homeResource.getBookmarkCases(urlString: homeUrlStr) { response in
             DispatchQueue.main.async {

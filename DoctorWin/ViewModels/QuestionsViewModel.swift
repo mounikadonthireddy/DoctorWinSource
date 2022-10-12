@@ -15,11 +15,14 @@ protocol QAViewModelDelegate {
     func didReceiveTrendingQuestionData(response: [AnswersModel]?, error: String?)
     func didReceiveUserQuestionData(response: [PostedQuestionModel]?, error: String?)
 }
-
+protocol RepliesViewModelDelegate {
+    func didReceiveUserRepliesData(response: RepliesModel?, error: String?)
+}
 
 struct QuestionsViewModel {
     var delegate : QuestionsViewModelDelegate?
     var delegate1 : QAViewModelDelegate?
+    var delegate2 : RepliesViewModelDelegate?
     func getQuestionResponseData(userID: String) {
         let resource = QuestionsResource()
         resource.getQuestionData(userID: userID) { response in
@@ -91,6 +94,21 @@ struct QuestionsViewModel {
             }
         }
     }
-    
+    func getRepliesPostedQuestions(userID: String, page:Int, questionId: String) {
+        let resource = QuestionsResource()
+        resource.getUserRepliesPostedQuestions(userID: userID,page: page, questionId:questionId) { response in
+            DispatchQueue.main.async {
+                switch response {
+                case .success(let data):
+                    self.delegate2?.didReceiveUserRepliesData(response: data, error: nil)
+                    
+                case .failure(let error):
+                    self.delegate2?.didReceiveUserRepliesData(response: nil, error: error)
+                }
+                
+            }
+            
+        }
+    }
     
 }

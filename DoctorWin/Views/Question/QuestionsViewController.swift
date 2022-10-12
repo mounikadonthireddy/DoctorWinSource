@@ -39,6 +39,9 @@ class QuestionsViewController: ViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
     }
+    @IBAction func postQuestion(_ sender: UIButton) {
+        
+    }
     /*
      // MARK: - Navigation
      
@@ -89,7 +92,12 @@ extension QuestionsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let str = UIStoryboard(name: "Details", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "QuestionDetailsViewController") as! QuestionDetailsViewController
+        nextVC.questionId = questionsArray[indexPath.row].id ?? 0
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
 //    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 //        let lastElement = questionsArray.count - 1
 //        if !loadingData && indexPath.row == lastElement {

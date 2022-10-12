@@ -16,8 +16,8 @@ struct Constants {
 
 struct ApiEndpoints
 {
-    static let baseImageURL = "http://34.228.82.176:8000"
-    static let baseUrl = "http://34.228.82.176:8000/api/"
+    static let baseImageURL = "http://44.209.240.63:8000"
+    static let baseUrl = "http://44.209.240.63:8000/api/"
     static let baseUrl1 = "http://3.136.112.232:8000/api/"
     static let userID = "?dworks_id"
     static let login = "auth/registration"
@@ -110,7 +110,9 @@ struct ApiEndpoints
     static let getPollPost = "news/poll/post/"
     static let getPollTest = "news/poll/test/"
     static let postPollVote = "news/poll/vote/"
-    
+    static let bookmarkComplaint = "complaint/bookmarks"
+    static let bookmarkSocail = "user/social/bookmark"
+    static let bookmarkAnswer = "ask/question/reply/bookmark"
     
     //user
     
@@ -140,7 +142,7 @@ struct ApiEndpoints
     static let professionalData = "user/profession/info"
     
     static let addPoll = "news/poll/post/"
-    static let addCase = "ios/case"
+    static let addCase = "complaint/post"
     
     static let applyJob = "job/apply/"
     static let jobLike = "job/like/"
@@ -158,12 +160,12 @@ struct ApiEndpoints
     static let searchJobs = "job/search/"
     static let trendingQuestion = "ask/question/popular"
     static let userPostedQA = "ask/question"
-    
+    static let userPostedReplied = "ask/question/reply/show"
     //Network
     static let getNetworkConnections = "group/create"
     static let getFollow = "auth/follow"
     static let getFollowing = "auth/following"
-    static let getRequest = "auth/request"
+    static let getRequest = "auth/request/"
     static let getPeoples = "test/connection"
     
     //Requested User
@@ -175,7 +177,7 @@ struct ApiEndpoints
     
     //connect
     static let getProfession = "connect/dating/profession"
-    static let editProfile = "connect/dating/profile/create"
+    static let editProfile = "connect/dating/profile/create/"
     //Carrier
     
     static let jobDetails = "new/job"

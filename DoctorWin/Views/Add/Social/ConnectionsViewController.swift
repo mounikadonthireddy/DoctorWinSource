@@ -10,6 +10,7 @@ import UIKit
 class ConnectionsViewController: ViewController {
     var views : [UIView]!
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var headerView: UIView!
     lazy var vc1: MatchesViewController = {
         
         let str = UIStoryboard(name: "Network", bundle: nil)
@@ -52,6 +53,7 @@ class ConnectionsViewController: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        headerView.dropShadow()
         views = [UIView]()
         views.append(vc1.view)
         views.append(vc2.view)
@@ -78,6 +80,9 @@ class ConnectionsViewController: ViewController {
 
     @IBAction func backClicked(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
+    }
+    @IBAction func segmentBtnClicked(_ sender: UIButton) {
+        self.containerView.bringSubviewToFront(views[sender.tag])
     }
     /*
     // MARK: - Navigation

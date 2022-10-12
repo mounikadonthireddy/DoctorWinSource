@@ -20,7 +20,7 @@ class UserDetailsViewController: ViewController {
     var answersArray: [AnswersModel] = []
     var requestUserID = ""
     var groupId = ""
-    var selectionType = -1
+    var selectionType = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +30,7 @@ class UserDetailsViewController: ViewController {
         profileTableView.register(UINib(nibName: "HomeTableCell", bundle: nil), forCellReuseIdentifier: "HomeTableCell")
         
         profileTableView.register(UINib(nibName: "NewsCell", bundle: nil), forCellReuseIdentifier: "NewsCell")
-        
-        
+       
         profileTableView.register(UINib(nibName: "QACell", bundle: nil), forCellReuseIdentifier: "QACell")
         profileTableView.register(UINib(nibName: "UserAnswerCell", bundle: nil), forCellReuseIdentifier: "UserAnswerCell")
         
@@ -99,7 +98,7 @@ class UserDetailsViewController: ViewController {
         if groupId != "" {
             userVM.getAnswersData(userID: User.shared.userID, group_id: groupId)
         } else if groupId == "" && requestUserID != "" {
-            userVM.getAnswersData(userID: User.shared.userID)
+            userVM.getAnswersData(userID: requestUserID)
         } else {
             userVM.getQuestionsData(userID: User.shared.userID)
         }
@@ -135,13 +134,10 @@ extension UserDetailsViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch selectionType {
-            
-            
         case 0:
             let cell: CaseCell
             = tableView.dequeueReusableCell(withIdentifier: "CaseCell") as! CaseCell
             cell.configureData(homeModel: postsArray[indexPath.row])
-            
             return cell
             
         case 1:
@@ -163,14 +159,10 @@ extension UserDetailsViewController: UITableViewDelegate, UITableViewDataSource 
             return cell
             
         default:
-            
             return UITableViewCell()
-            
         }
     }
-    
-    
-    
+ 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if let details = groupModel {
             if details.join_status == true {
@@ -187,13 +179,25 @@ extension UserDetailsViewController: UITableViewDelegate, UITableViewDataSource 
         if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "UserHeaderView") as? UserHeaderView {
             if let userDetails = userDetailsModel {
                 headerView.configureView(data: userDetails)
+                if userDetails.followStatus == true {
+                    headerView.joinBtn.setTitle("Following", for: .normal)
+                } else {
+                    headerView.joinBtn.setTitle("Follow", for: .normal)
+                }
+                headerView.joinBtn.addTarget(self, action: #selector(followClicked(button:)), for: .touchUpInside)
+               
             }
             if let details = groupModel {
                 headerView.configureView(data: details)
-                
+                if details.join_status == true {
+                headerView.joinBtn.setTitle("Joined", for: .normal)
+                } else {
+                    headerView.joinBtn.setTitle("Join", for: .normal)
+                }
+                headerView.joinBtn.addTarget(self, action: #selector(joinClicked(button:)), for: .touchUpInside)
             }
             headerView.backBtn.addTarget(self, action: #selector(backClicked(button:)), for: .touchUpInside)
-            headerView.followBtn.addTarget(self, action: #selector(followClicked(button:)), for: .touchUpInside)
+            headerView.followBtn.addTarget(self, action: #selector(followCountClicked(button:)), for: .touchUpInside)
             headerView.postBtn.addTarget(self, action: #selector(postClicked(button:)), for: .touchUpInside)
             //            headerView.followCountBtn.addTarget(self, action: #selector(followCountClicked(button:)), for: .touchUpInside)
             //            headerView.followingCountBtn.addTarget(self, action: #selector(followingCountClicked(button:)), for: .touchUpInside)
@@ -213,12 +217,41 @@ extension UserDetailsViewController: UITableViewDelegate, UITableViewDataSource 
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     @objc func followingCountClicked(button: UIButton) {
-        
+        let str = UIStoryboard(name: "Network", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "FollowingViewController") as! FollowingViewController
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
     @objc func followCountClicked(button: UIButton) {
-        
+        let str = UIStoryboard(name: "Network", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "FollowViewController") as! FollowViewController
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
+  
     @objc func followClicked(button: UIButton) {
+        if let userDetails = userDetailsModel {
+            self.showLoader()
+            let request = FollowRequest(follow_id: userDetails.dworks_id ?? "", dworks_id: User.shared.userID)
+       
+        let resource = ProfileEditResource()
+        resource.followPerson(request: request) { result in
+            DispatchQueue.main.async {
+                self.dismiss()
+                switch result {
+                case .success(let data):
+                    if data != nil && data == true {
+                        self.loadGroupData()
+                        self.profileTableView.reloadData()
+                    }
+                case .failure(_):
+                    print("")
+                }
+                
+            }
+            
+        }
+        }
+    }
+    @objc func joinClicked(button: UIButton) {
         
     }
 }

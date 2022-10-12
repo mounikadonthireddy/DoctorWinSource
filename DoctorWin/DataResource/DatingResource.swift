@@ -11,7 +11,7 @@ struct DatingResource {
     
     func getDatingData(userID: String, completion : @escaping (_ result: ResponseResult<[MatchesModel]>) -> Void) {
 
-       let   homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.dating + "?userid=20&page=1"
+        let   homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.dating + ApiEndpoints.userID + "=\(userID)&page=1"
    
         
         let httpUtility = HttpUtility()

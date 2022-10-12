@@ -233,3 +233,7 @@ struct PostReplyRequest: Codable {
     let profile: String
     let comment: String
 }
+struct FollowRequest: Codable {
+    let follow_id: String
+    let dworks_id: String
+}

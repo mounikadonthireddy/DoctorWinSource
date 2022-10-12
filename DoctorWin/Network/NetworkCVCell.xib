@@ -17,14 +17,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="NetworkCVCell" customModule="DoctorWin" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="175" height="199"/>
+            <rect key="frame" x="0.0" y="0.0" width="175" height="214"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="175" height="199"/>
+                <rect key="frame" x="0.0" y="0.0" width="175" height="214"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UCX-Va-RZp">
-                        <rect key="frame" x="5" y="5" width="165" height="189"/>
+                        <rect key="frame" x="5" y="5" width="165" height="204"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginBg" translatesAutoresizingMaskIntoConstraints="NO" id="pLi-Ku-HAb">
                                 <rect key="frame" x="0.0" y="0.0" width="165" height="60"/>
@@ -39,37 +39,47 @@
                                     <constraint firstAttribute="height" constant="60" id="dBN-UK-zx1"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="h5y-NK-1gM">
-                                <rect key="frame" x="0.0" y="100" width="165" height="50"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="h5y-NK-1gM">
+                                <rect key="frame" x="0.0" y="100" width="165" height="54"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DR. ANMADcd" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPA-UC-T7I">
-                                        <rect key="frame" x="0.0" y="0.0" width="165" height="13.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DR. ANMADcd" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPA-UC-T7I">
+                                        <rect key="frame" x="0.0" y="0.0" width="165" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="11" id="KB1-v5-EuI"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MBBS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pfU-8w-p9s">
-                                        <rect key="frame" x="0.0" y="18.5" width="165" height="13"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
+                                        <rect key="frame" x="0.0" y="25" width="165" height="12"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="12" id="Lyy-CO-zng"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="10"/>
                                         <color key="textColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="h" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tgV-dF-upp">
-                                        <rect key="frame" x="0.0" y="36.5" width="165" height="13.5"/>
+                                        <rect key="frame" x="0.0" y="42" width="165" height="12"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="12" id="1VX-j1-KCD"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
                                         <color key="textColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="2hk-FV-p5L"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="2hk-FV-p5L"/>
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="39W-Nn-K9v">
-                                <rect key="frame" x="22.5" y="160" width="120" height="19"/>
+                                <rect key="frame" x="22.5" y="164" width="120" height="30"/>
                                 <color key="backgroundColor" red="0.90588235294117647" green="0.95294117647058818" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="K0C-mU-SbZ"/>
+                                    <constraint firstAttribute="height" constant="30" id="dV5-cJ-deD"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Join"/>
@@ -100,7 +110,7 @@
                 <constraint firstItem="UCX-Va-RZp" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="cEK-Ul-xdo"/>
                 <constraint firstAttribute="bottom" secondItem="UCX-Va-RZp" secondAttribute="bottom" priority="999" constant="5" id="gru-LO-EbP"/>
             </constraints>
-            <size key="customSize" width="175" height="199"/>
+            <size key="customSize" width="175" height="214"/>
             <connections>
                 <outlet property="bgImage" destination="pLi-Ku-HAb" id="yvo-yX-fQ7"/>
                 <outlet property="bgView" destination="UCX-Va-RZp" id="ZEr-I4-ZVB"/>
@@ -110,7 +120,7 @@
                 <outlet property="personImage" destination="WKs-lL-nKn" id="Wf0-C5-qui"/>
                 <outlet property="qualification" destination="pfU-8w-p9s" id="R58-kU-vOL"/>
             </connections>
-            <point key="canvasLocation" x="228.2608695652174" y="128.23660714285714"/>
+            <point key="canvasLocation" x="228.2608695652174" y="133.25892857142856"/>
         </collectionViewCell>
     </objects>
     <resources>

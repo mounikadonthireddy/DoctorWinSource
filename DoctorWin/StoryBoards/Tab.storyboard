@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="BattleWar.otf">
+        <array key="BattleWar.ttf">
             <string>BattleWarRegular</string>
         </array>
         <array key="Roboto-Medium.ttf">
@@ -59,7 +59,7 @@
                                             <constraint firstAttribute="width" constant="40" id="MfZ-gE-cDG"/>
                                         </constraints>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                                        <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
                                         <state key="normal" image="applied_jobs"/>
                                         <connections>
                                             <action selector="appliedClickedWithButton:" destination="rh3-gR-uTq" eventType="touchUpInside" id="Jxc-Ai-Qce"/>
@@ -72,7 +72,7 @@
                                             <constraint firstAttribute="height" constant="40" id="dUa-XR-M12"/>
                                         </constraints>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                                        <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
                                         <state key="normal" image="icon_job_post"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xkb-ob-6c4">
@@ -82,7 +82,7 @@
                                             <constraint firstAttribute="height" constant="40" id="joh-SL-FlC"/>
                                         </constraints>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                                        <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
                                         <state key="normal" image="jobs_image"/>
                                         <connections>
                                             <action selector="searchClicked:" destination="rh3-gR-uTq" eventType="touchUpInside" id="mWe-ZZ-09W"/>
@@ -514,6 +514,7 @@
                 <tabBarController storyboardIdentifier="tabView" title="tabView" automaticallyAdjustsScrollViewInsets="NO" id="sFd-8r-t0f" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="t5K-3z-qBP">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -529,11 +530,11 @@
             </objects>
             <point key="canvasLocation" x="10230.434782608696" y="111.83035714285714"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Carrier-->
         <scene sceneID="w7u-mo-1iu">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="78I-fJ-oFl" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="bag" catalog="system" id="PwK-Rz-XVY"/>
+                    <tabBarItem key="tabBarItem" title="Carrier" image="bag" catalog="system" id="PwK-Rz-XVY"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vDs-cB-lvs">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -548,11 +549,11 @@
             </objects>
             <point key="canvasLocation" x="32765" y="1101"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Home-->
         <scene sceneID="w6j-zR-OAk">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2Jg-JZ-ome" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="homekit" catalog="system" id="TUa-zn-WxO"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="TUa-zn-WxO"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4lC-d7-O65">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -567,11 +568,11 @@
             </objects>
             <point key="canvasLocation" x="12439" y="588"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Discover-->
         <scene sceneID="xQp-6j-0lv">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nxr-PP-d9X" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="magnifyingglass" catalog="system" id="0K3-MI-ofP"/>
+                    <tabBarItem key="tabBarItem" title="Discover" image="magnifyingglass" catalog="system" id="0K3-MI-ofP"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="37q-Xc-FBb">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -586,11 +587,11 @@
             </objects>
             <point key="canvasLocation" x="19772" y="358"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Account-->
         <scene sceneID="w4B-k3-Y4h">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RhS-ab-RdL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="person.fill" catalog="system" id="Upx-ZB-tV8"/>
+                    <tabBarItem key="tabBarItem" title="Account" image="person.circle" catalog="system" id="Upx-ZB-tV8"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xaN-gO-4PQ">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -605,11 +606,11 @@
             </objects>
             <point key="canvasLocation" x="11140.579710144928" y="-876.5625"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Answer-->
         <scene sceneID="Gkn-kq-PPf">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mY3-5V-V1X" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="plus.square.on.square.fill" catalog="system" id="5Ec-iY-iXr"/>
+                    <tabBarItem key="tabBarItem" title="Answer" image="square.and.pencil" catalog="system" id="5Ec-iY-iXr"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="haW-lT-xLV">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -632,14 +633,14 @@
         <image name="bag" catalog="system" width="128" height="128"/>
         <image name="chevron.up" catalog="system" width="128" height="72"/>
         <image name="homeCam" width="200" height="200"/>
-        <image name="homekit" catalog="system" width="128" height="106"/>
+        <image name="house" catalog="system" width="128" height="106"/>
         <image name="icon_job_post" width="512" height="512"/>
         <image name="jobs_image" width="512" height="512"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
-        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="person.circle" catalog="system" width="128" height="121"/>
         <image name="plus" catalog="system" width="128" height="113"/>
-        <image name="plus.square.on.square.fill" catalog="system" width="128" height="113"/>
         <image name="questionmark" width="64" height="64"/>
+        <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

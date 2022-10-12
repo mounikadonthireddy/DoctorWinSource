@@ -53,7 +53,13 @@ extension RequestViewController: UITableViewDelegate, UITableViewDataSource {
         cell.cellConfigureWithConnectionData(data: requestArray[indexPath.row])
         return cell
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let str = UIStoryboard(name: "Details", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "UserDetailsViewController") as! UserDetailsViewController
+        nextVC.requestUserID = requestArray[indexPath.row].dworks_id ?? ""
+        nextVC.groupId = ""
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
     
 }
 extension RequestViewController: NetworkViewModelDelegate {

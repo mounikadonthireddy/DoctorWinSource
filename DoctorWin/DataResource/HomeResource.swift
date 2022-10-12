@@ -385,5 +385,22 @@ struct HomeResource {
             }
         }
     }
+    
+    func getBookmarkSocail(urlString: String, completion : @escaping (_ result: ResponseResult<[HomeDataModel]>) -> Void) {
+        
+        let httpUtility = HttpUtility()
+        do {
+            httpUtility.getApiData(urlString: urlString, resultType: [HomeDataModel].self) { result in
+                
+                switch result {
+                case .success(let data):
+                    completion(.success(data))
+                    
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
+            }
+        }
+    }
 }
 

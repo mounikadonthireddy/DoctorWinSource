@@ -30,7 +30,7 @@ struct JobsResource {
     }
     func getJobDataBasedOnCategory(userID: String,categoryID: Int, completion : @escaping (_ result: ResponseResult<[CarrierModel]>) -> Void) {
         
-        let jobCategeoryUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getNewJobs + "?categoryid=\(categoryID)" + "&user_id=\(userID)" + "&page=1"
+        let jobCategeoryUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getNewJobs + ApiEndpoints.userID + "=\(userID)"  + "&categoryid=\(categoryID)" + "&page=1"
         
         let httpUtility = HttpUtility()
         do {

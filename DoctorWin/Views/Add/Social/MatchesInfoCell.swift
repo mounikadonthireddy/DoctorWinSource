@@ -10,14 +10,17 @@ import UIKit
 class MatchesInfoCell: UICollectionViewCell {
     @IBOutlet weak var categoryName: UILabel!
     @IBOutlet weak var categoryImage: UIImageView!
+    @IBOutlet weak var bgView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.setCornerRadius(radius: 10)
+        bgView.dropShadow()
     }
     func configureCell(data: ProfileCharModel) {
         categoryName.text = data.value ?? ""
         if let image = data.image {
-            self.categoryImage.sd_setImage(with: URL(string: image), placeholderImage: UIImage(named: "loginBg"))
+            self.categoryImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + image), placeholderImage: UIImage(named: "loginBg"))
             
         }
     }
