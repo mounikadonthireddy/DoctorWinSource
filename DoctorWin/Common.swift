@@ -191,6 +191,10 @@ struct ApiEndpoints
     static let shopRecent = "shopping/product/view"
     static let shopBookmark = "shopping/product/bookmark"
     
+    //Elearning
+    static let learningBanner = "admin/banner/get?name=elearningimage"
+    static let trendingCourses = "learning/subject/feature"
+    static let courses = "learning/subject/option"
     //MCQ
     static let mcq = "user/question"
     static let attemptedMcq = "user/question/attempt"

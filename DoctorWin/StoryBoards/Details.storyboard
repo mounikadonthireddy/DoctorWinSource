@@ -943,7 +943,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="3dO-bU-ity">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="3dO-bU-ity">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
@@ -966,6 +966,40 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C0b-1S-t4r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="20018" y="-311"/>
+        </scene>
+        <!--PopularQuestionDetailsViewController-->
+        <scene sceneID="afd-Yw-0K9">
+            <objects>
+                <viewController storyboardIdentifier="PopularQuestionDetailsViewController" title="PopularQuestionDetailsViewController" id="nio-k2-u2j" customClass="PopularQuestionDetailsViewController" customModule="DoctorWin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IIG-w1-Wgt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="9Yd-mB-nkr">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="nio-k2-u2j" id="7ty-0W-BFz"/>
+                                    <outlet property="delegate" destination="nio-k2-u2j" id="HJ5-ej-kLw"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="aln-KZ-77N"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9Yd-mB-nkr" firstAttribute="leading" secondItem="aln-KZ-77N" secondAttribute="leading" id="6dC-at-Du7"/>
+                            <constraint firstItem="aln-KZ-77N" firstAttribute="trailing" secondItem="9Yd-mB-nkr" secondAttribute="trailing" id="9S2-Cy-T5X"/>
+                            <constraint firstItem="aln-KZ-77N" firstAttribute="bottom" secondItem="9Yd-mB-nkr" secondAttribute="bottom" id="R0R-Eb-Vwb"/>
+                            <constraint firstItem="9Yd-mB-nkr" firstAttribute="top" secondItem="aln-KZ-77N" secondAttribute="top" id="RWT-LT-oIA"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="9Yd-mB-nkr" id="g58-Xo-IHm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vzg-Vw-2NP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="20018" y="-311"/>
         </scene>

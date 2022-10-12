@@ -6,12 +6,16 @@
 //
 
 import UIKit
+protocol TrendingCellDelegate {
+    func cellSelected(data: AnswersModel)
+}
 
 class TrendingTableCell: UITableViewCell {
     var trendingQuestions:[AnswersModel] = []
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var shopCVLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var pageControl: UIPageControl!
+    var delegate: TrendingCellDelegate?
     override func awakeFromNib() {
         super.awakeFromNib()
         collectionView.register(UINib.init(nibName: "AnswersCell", bundle: nil), forCellWithReuseIdentifier: "AnswersCell")
@@ -66,6 +70,9 @@ extension TrendingTableCell: UICollectionViewDelegateFlowLayout, UICollectionVie
         
         return 5
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.cellSelected(data: trendingQuestions[indexPath.row])
+    }
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         self.collectionView.scrollToNearestVisibleCollectionViewCell()
     }
@@ -82,4 +89,5 @@ extension TrendingTableCell: UICollectionViewDelegateFlowLayout, UICollectionVie
             self.pageControl.currentPage = visibleIndexPath.row
         }
     }
+    
 }

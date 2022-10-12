@@ -168,6 +168,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
     }
     @objc func educationClicked(button: UIButton) {
+        let str = UIStoryboard(name: "Learning", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "LearningViewController") as! LearningViewController
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
     @objc func productsClicked(button: UIButton) {
         let str = UIStoryboard(name: "Shop", bundle: nil)

@@ -7,9 +7,9 @@
 
 import UIKit
 
-class QuestionDetailsViewController: ViewController {
+class QuestionDetailsViewController: ViewController,ExpandableLabelDelegate {
     @IBOutlet weak var tableView: UITableView!
-
+    var states : Array<Bool>!
     var repleisData: RepliesModel?
     var questionVM = QuestionsViewModel()
     var pageNumber = 1
@@ -17,24 +17,27 @@ class QuestionDetailsViewController: ViewController {
     var questionId: Int?
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         tableView.register(UINib(nibName: "ReplyCell", bundle: nil), forCellReuseIdentifier: "ReplyCell")
         tableView.register(UINib(nibName: "QuestionHeaderCell", bundle: nil), forCellReuseIdentifier: "QuestionHeaderCell")
         
         tableView.register(TrendingQuestionHeaderView.nib, forHeaderFooterViewReuseIdentifier: TrendingQuestionHeaderView.identifier)
         questionVM.delegate2 = self
-     loadPostedReplies(pageNum: 1)
+        loadPostedReplies(pageNum: 1)
     }
-
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = true
+        self.navigationController?.isNavigationBarHidden = true
+    }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
     func loadPostedReplies(pageNum: Int) {
         self.showLoader()
         questionVM.getRepliesPostedQuestions(userID: User.shared.userID,page: pageNum, questionId: "\(questionId ?? 0)")
@@ -60,46 +63,79 @@ extension QuestionDetailsViewController: UITableViewDelegate, UITableViewDataSou
                 cell.questionLbl.text = data.asked_question ?? ""
             }
             cell.backBtn.addTarget(self, action: #selector(backClicked(button:)), for: .touchUpInside)
+            cell.answer.addTarget(self, action: #selector(answerClicked(button:)), for: .touchUpInside)
             
-           // cell.configure(data: trendingQuestions)
+            // cell.configure(data: trendingQuestions)
             return cell
         } else {
-        let cell: ReplyCell
-        = tableView.dequeueReusableCell(withIdentifier: "ReplyCell") as! ReplyCell
+            let cell: ReplyCell
+            = tableView.dequeueReusableCell(withIdentifier: "ReplyCell") as! ReplyCell
             if let data = repleisData?.reply_by {
                 cell.configureDataWith(homeModel: data[indexPath.row])
+                cell.titleLable.delegate = self
+                cell.titleLable.setLessLinkWith(lessLink: "Close", attributes: [.foregroundColor:UIColor.red], position: .left)
+                cell.layoutIfNeeded()
+                cell.titleLable.shouldCollapse = true
+                cell.titleLable.textReplacementType = .character
+                cell.titleLable.numberOfLines = 5
+                cell.titleLable.collapsed = states[indexPath.row]
+                if !states[indexPath.row] {
+                    if let _ =  data[indexPath.row].posted_ans_image {
+                        cell.imageHeiht.constant = 300
+                    }
+                else {
+                    cell.imageHeiht.constant = 0
+                }
             }
-        return cell
+                else {
+                    cell.imageHeiht.constant = 0
+                }
+                cell.titleLable.text = data[indexPath.row].ans
+            }
+            return cell
         }
     }
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: TrendingQuestionHeaderView.identifier) as? TrendingQuestionHeaderView {
-//            if section == 0 {
-//                headerView.nameLbl.text  = "Trending QnA"
-//            } else {
-//                headerView.nameLbl.text  = "Questions for you"
-//            }
-//          
-//            return headerView
-//        }
-//        return nil
-//    }
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 50
-//    }
-//    
-//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        let lastElement = questionsArray.count - 1
-//        if !loadingData && indexPath.row == lastElement {
-//            self.showLoader()
-//            loadingData = true
-//            pageNumber += 1
-//            self.loadPostedQuestions(pageNum: pageNumber)
-//        }
-//    }
+    @objc   func willExpandLabel(_ label: ExpandableLabel) {
+         tableView.beginUpdates()
+    }
+    
+    @objc  func didExpandLabel(_ label: ExpandableLabel) {
+        let point = label.convert(CGPoint.zero, to: tableView)
+        if let indexPath = tableView.indexPathForRow(at: point) as IndexPath? {
+            states[indexPath.row] = false
+            DispatchQueue.main.async { [weak self] in
+                self?.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+            }
+        }
+        tableView.endUpdates()
+        tableView.reloadData()
+    }
+    
+    @objc func willCollapseLabel(_ label: ExpandableLabel) {
+        tableView.beginUpdates()
+    }
+    
+    @objc  func didCollapseLabel(_ label: ExpandableLabel) {
+        let point = label.convert(CGPoint.zero, to: tableView)
+        if let indexPath = tableView.indexPathForRow(at: point) as IndexPath? {
+            
+            states[indexPath.row] = true
+            DispatchQueue.main.async { [weak self] in
+                self?.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+            }
+        }
+        tableView.endUpdates()
+        tableView.reloadData()
+    }
     
     @objc func backClicked(button: UIButton) {
         self.navigationController?.popViewController(animated: true)
+    }
+    @objc func answerClicked(button: UIButton) {
+        let str = UIStoryboard(name: "Add", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "AddAnswerViewController") as! AddAnswerViewController
+        // nextVC.questionId = questionsArray[indexPath.row].id ?? 0
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }
 extension QuestionDetailsViewController: RepliesViewModelDelegate {
@@ -107,6 +143,7 @@ extension QuestionDetailsViewController: RepliesViewModelDelegate {
         self.dismiss()
         if let data  = response {
             repleisData = data
+            states = [Bool](repeating: true, count: response?.reply_by?.count ?? 0)
             tableView.reloadData()
         }
     }

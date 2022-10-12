@@ -116,11 +116,15 @@ extension Date {
         let dayHourMinuteSecond: Set<Calendar.Component> = [.day, .hour, .minute, .second]
         let difference = NSCalendar.current.dateComponents(dayHourMinuteSecond, from: conDate, to: self)
 
-        let seconds = "\(difference.second ?? 0)s"
-        let minutes = "\(difference.minute ?? 0)m"
-        let hours = "\(difference.hour ?? 0)h"
-        let days = "\(difference.day ?? 0)d"
-
+        let seconds = "\(difference.second ?? 0) secs ago"
+        let minutes = "\(difference.minute ?? 0) mins ago"
+        let hours = "\(difference.hour ?? 0) hours ago"
+        let days = "\(difference.day ?? 0) days ago"
+        let months = "\(difference.month ?? 0) months ago"
+        let years = "\(difference.year ?? 0) years ago"
+        
+        if let year = difference.year, year       > 0 { return years }
+        if let month = difference.month, month          > 0 { return months }
         if let day = difference.day, day          > 0 { return days }
         if let hour = difference.hour, hour       > 0 { return hours }
         if let minute = difference.minute, minute > 0 { return minutes }

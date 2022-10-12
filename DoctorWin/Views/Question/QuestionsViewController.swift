@@ -27,6 +27,7 @@ class QuestionsViewController: ViewController {
         self.loadPopularQuestions()
         // Do any additional setup after loading the view.
     }
+    
     func loadPopularQuestions() {
         self.showLoader()
         questionVM.getMostPopularQuestions(userID: User.shared.userID)
@@ -38,6 +39,8 @@ class QuestionsViewController: ViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
+        self.tabBarController?.tabBar.isHidden = false
+        
     }
     @IBAction func postQuestion(_ sender: UIButton) {
         
@@ -69,6 +72,7 @@ extension QuestionsViewController: UITableViewDelegate, UITableViewDataSource {
             let cell: TrendingTableCell
             = tableView.dequeueReusableCell(withIdentifier: "TrendingTableCell") as! TrendingTableCell
             cell.configure(data: trendingQuestions)
+            cell.delegate = self
             return cell
         } else {
         let cell: QACell
@@ -147,5 +151,13 @@ extension UICollectionView {
         if closestCellIndex != -1 {
             self.scrollToItem(at: IndexPath(row: closestCellIndex, section: 0), at: .centeredHorizontally, animated: true)
         }
+    }
+}
+extension QuestionsViewController: TrendingCellDelegate {
+    func cellSelected(data: AnswersModel) {
+        let str = UIStoryboard(name: "Details", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "PopularQuestionDetailsViewController") as! PopularQuestionDetailsViewController
+        nextVC.answerData = data
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }

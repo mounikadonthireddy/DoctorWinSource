@@ -38,7 +38,7 @@ class BookmarksViewController: ViewController, ExpandableLabelDelegate {
         bookmarksTableView.register(UINib(nibName: "ArticalCell", bundle: nil), forCellReuseIdentifier: "ArticalCell")
 
         bookmarksTableView.register(UINib(nibName: "NewsCell", bundle: nil), forCellReuseIdentifier: "NewsCell")
-        bookmarksTableView.register(UINib(nibName: "UserAnswerCell", bundle: nil), forCellReuseIdentifier: "UserAnswerCell")
+        bookmarksTableView.register(UINib(nibName: "ReplyCell", bundle: nil), forCellReuseIdentifier: "ReplyCell")
    
         // Do any additional setup after loading the view.
         self.loadBookmarkJobs()
@@ -111,8 +111,8 @@ extension BookmarksViewController : UITableViewDelegate, UITableViewDataSource {
          
             return cell
         case 4:
-            let cell: UserAnswerCell
-            = tableView.dequeueReusableCell(withIdentifier: "UserAnswerCell") as! UserAnswerCell
+            let cell: ReplyCell
+            = tableView.dequeueReusableCell(withIdentifier: "ReplyCell") as! ReplyCell
             cell.configureDataWith(homeModel: answersArray[indexPath.row])
             return cell
             

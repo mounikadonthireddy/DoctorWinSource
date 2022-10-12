@@ -25,7 +25,7 @@ class AnswersCell: UICollectionViewCell {
         self.questionDes.text = homeModel.ans ?? ""
 
         if let urlString = homeModel.ProfileImage {
-            self.personImage.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "loginBg"))
+            self.personImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
         }
         
     }

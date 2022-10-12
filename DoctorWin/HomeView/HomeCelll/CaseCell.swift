@@ -14,6 +14,7 @@ class CaseCell: UITableViewCell {
     @IBOutlet weak var discussion: UILabel!
     @IBOutlet weak var titleLable: UILabel!
     @IBOutlet weak var likeLable: UILabel!
+    @IBOutlet weak var dateLable: UILabel!
     @IBOutlet weak var postImage: UIImageView!
     @IBOutlet weak var followBtn: UIButton!
     @IBOutlet weak var wishlistBtn: UIButton!
@@ -52,21 +53,21 @@ class CaseCell: UITableViewCell {
         if let urlString = homeModel.postImage {
             self.postImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
             let url = URL(string: ApiEndpoints.baseImageURL + urlString)
-//            if let imageSource = CGImageSourceCreateWithURL(url! as CFURL, nil) {
-//                if let imageProperties = CGImageSourceCopyPropertiesAtIndex(imageSource, 0, nil) as Dictionary? {
-//                     let pixelWidth = imageProperties[kCGImagePropertyPixelWidth] as! Int
-//                     let pixelHeight = imageProperties[kCGImagePropertyPixelHeight] as! Int
-//                     print("the image width is: \(pixelWidth)")
-//                     print("the image height is: \(pixelHeight)")
-//
-//                    let ratio = pixelWidth / pixelWidth
-//                    if ratio != 0 {
-//                    let newHeight = postImage.frame.width / CGFloat(ratio)
-//                    imageHeiht.constant = newHeight
-//                    self.layoutIfNeeded()
-                    //}
-                  //}
-              //}
+            //            if let imageSource = CGImageSourceCreateWithURL(url! as CFURL, nil) {
+            //                if let imageProperties = CGImageSourceCopyPropertiesAtIndex(imageSource, 0, nil) as Dictionary? {
+            //                     let pixelWidth = imageProperties[kCGImagePropertyPixelWidth] as! Int
+            //                     let pixelHeight = imageProperties[kCGImagePropertyPixelHeight] as! Int
+            //                     print("the image width is: \(pixelWidth)")
+            //                     print("the image height is: \(pixelHeight)")
+            //
+            //                    let ratio = pixelWidth / pixelWidth
+            //                    if ratio != 0 {
+            //                    let newHeight = postImage.frame.width / CGFloat(ratio)
+            //                    imageHeiht.constant = newHeight
+            //                    self.layoutIfNeeded()
+            //}
+            //}
+            //}
             
         } else {
             imageHeiht.constant  = 0
@@ -88,6 +89,9 @@ class CaseCell: UITableViewCell {
         wishlistBtn.tag = homeModel.postId
         saveBtn.tag = homeModel.postId
         //        replyBtn.tag = homeModel.id
+        
+        dateLable.text = Date().offsetFrom(dateStr: homeModel.postedDate)
+        
     }
     func configureDataWith(homeModel: CasesDataModel) {
         self.postedPersonName.text = (homeModel.ProfileName ?? "")
@@ -99,10 +103,12 @@ class CaseCell: UITableViewCell {
         self.likeLable.text = "\(String(describing: homeModel.like_count))"
         
         self.followBtn.tag = homeModel.id
-        if let urlString = homeModel.image {
-            let finalUrlString =  urlString
-            
-//            self.postImage.sd_setImage(with: URL(string: finalUrlString), placeholderImage: UIImage(named: "loginBg"))
+        if let data = homeModel.image {
+            if data.count > 0 {
+                if let urlString = data[0].image {
+                    self.postImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
+                }
+            }
         }
         
         if homeModel.bookmark_status {
@@ -121,6 +127,7 @@ class CaseCell: UITableViewCell {
         wishlistBtn.tag = homeModel.id
         saveBtn.tag = homeModel.id
         //        replyBtn.tag = homeModel.id
+        dateLable.text = Date().offsetFrom(dateStr: homeModel.created_date)
     }
     @IBAction func likeClicked(_ sender: UIButton) {
         let request = ComplaintLikeRequest(complaint_id:"\(sender.tag)", user_id: User.shared.userID)
@@ -178,7 +185,7 @@ class CaseCell: UITableViewCell {
                         self.bookmarkImage.image = UIImage(named: "mark")
                     }
                 case .failure: break
-                   //debug
+                    //debug
                 }
             }
             

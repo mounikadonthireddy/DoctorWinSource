@@ -540,7 +540,7 @@
     </objects>
     <resources>
         <image name="back" width="32" height="32"/>
-        <image name="loginBg" width="6240" height="3014"/>
+        <image name="loginBg" width="375" height="153"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
     </resources>
 </document>

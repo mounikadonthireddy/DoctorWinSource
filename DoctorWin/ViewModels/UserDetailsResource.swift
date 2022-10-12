@@ -88,6 +88,29 @@ struct PostedQuestionModel: Codable {
     let id: Int?
 }
 
+
+
+
+
+struct RepliesModel: Codable {
+    let id: Int
+    let asked_question: String?
+    let reply_by: [AnswersModel]?
+}
+
+//struct ReplyByModel: Codable {
+//    let number_of_like: Int?
+//    let bookmark_status: Bool?
+//    let cover_image: String?
+//    let speciality: String?
+//    let ProfileName: String?
+//    let ans: String?
+//    let ProfileImage: String?
+//    let posted_ans_image: String?
+//    let number_of_comment: Int?
+//    let posted_ans_id: Int?
+//    let ansquestionid: Int?
+//}
 struct AnswersModel: Codable {
     let ProfileName: String?
     let ProfileImage: String?
@@ -101,25 +124,5 @@ struct AnswersModel: Codable {
     let id: Int
     let posted_ans_image: String?
     let cover_image: String?
-    
-}
-
-
-
-struct RepliesModel: Codable {
-    let id: Int
-    let asked_question: String?
-    let reply_by: [ReplyByModel]?
-}
-
-struct ReplyByModel: Codable {
-    let number_of_like: Int?
-    let bookmark_status: Bool?
-    let cover_image: String?
-    let speciality: String?
-    let ProfileName: String?
-    let ans: String?
-    let ProfileImage: String?
-    
     
 }

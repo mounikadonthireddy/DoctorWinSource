@@ -40,14 +40,17 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="MCi-HH-D5o">
+                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="MCi-HH-D5o">
                         <rect key="frame" x="0.0" y="104" width="40" height="16"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menu" translatesAutoresizingMaskIntoConstraints="NO" id="mre-13-w0E">
-                                <rect key="frame" x="0.0" y="0.0" width="20" height="16"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="playlist" translatesAutoresizingMaskIntoConstraints="NO" id="mre-13-w0E">
+                                <rect key="frame" x="0.0" y="5" width="15" height="6"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="15" id="19f-Ji-5hJ"/>
+                                </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1h" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qN-Km-yD6">
-                                <rect key="frame" x="20" y="1" width="20" height="14.5"/>
+                                <rect key="frame" x="15" y="1" width="25" height="14.5"/>
                                 <color key="backgroundColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -56,7 +59,9 @@
                         </subviews>
                         <color key="backgroundColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="mre-13-w0E" secondAttribute="bottom" constant="5" id="NNQ-gD-hSB"/>
                             <constraint firstAttribute="height" constant="16" id="er6-C1-JAQ"/>
+                            <constraint firstItem="mre-13-w0E" firstAttribute="top" secondItem="MCi-HH-D5o" secondAttribute="top" constant="5" id="mST-cC-bHr"/>
                             <constraint firstAttribute="width" constant="40" id="y9v-Sg-nAk"/>
                         </constraints>
                     </stackView>
@@ -90,7 +95,7 @@
                                 <rect key="frame" x="16" y="-0.5" width="15.5" height="20"/>
                                 <color key="tintColor" systemColor="systemOrangeColor"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Zo5-EE-daz">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.leadinghalf.filled" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Zo5-EE-daz">
                                 <rect key="frame" x="32.5" y="-0.5" width="15" height="20"/>
                                 <color key="tintColor" systemColor="systemOrangeColor"/>
                             </imageView>
@@ -108,6 +113,12 @@
                             <constraint firstAttribute="width" constant="80" id="fnn-Kj-Klm"/>
                         </constraints>
                     </stackView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1h" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wP2-xg-adC">
+                        <rect key="frame" x="92" y="167" width="13" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
@@ -115,6 +126,7 @@
                 <constraint firstItem="cM6-Ci-0co" firstAttribute="bottom" secondItem="tnU-QY-ZH2" secondAttribute="bottom" id="21b-r9-p2K"/>
                 <constraint firstItem="Y6H-s7-zs3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="8a7-wZ-dLF"/>
                 <constraint firstItem="efF-jc-CLC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="2" id="Fp0-lo-qzx"/>
+                <constraint firstItem="wP2-xg-adC" firstAttribute="top" secondItem="Y6H-s7-zs3" secondAttribute="bottom" constant="10" id="Iow-uL-OpW"/>
                 <constraint firstItem="ERF-G9-fsj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Lsa-V3-r9e"/>
                 <constraint firstAttribute="trailing" secondItem="tnU-QY-ZH2" secondAttribute="trailing" id="Pgn-IR-g5s"/>
                 <constraint firstItem="MCi-HH-D5o" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="SKP-iN-4ad"/>
@@ -122,19 +134,28 @@
                 <constraint firstItem="ERF-G9-fsj" firstAttribute="top" secondItem="tnU-QY-ZH2" secondAttribute="bottom" constant="5" id="UUq-n7-GPP"/>
                 <constraint firstAttribute="trailing" secondItem="Y6H-s7-zs3" secondAttribute="trailing" id="UyQ-BZ-Ta6"/>
                 <constraint firstItem="tnU-QY-ZH2" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="W6c-Ax-CIB"/>
+                <constraint firstItem="wP2-xg-adC" firstAttribute="leading" secondItem="efF-jc-CLC" secondAttribute="trailing" constant="10" id="frk-Bs-7Qr"/>
                 <constraint firstItem="tnU-QY-ZH2" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="tSu-xU-cgy"/>
                 <constraint firstItem="MCi-HH-D5o" firstAttribute="bottom" secondItem="tnU-QY-ZH2" secondAttribute="bottom" id="wvu-lj-5ar"/>
                 <constraint firstItem="efF-jc-CLC" firstAttribute="top" secondItem="Y6H-s7-zs3" secondAttribute="bottom" constant="5" id="ynz-jW-aOn"/>
                 <constraint firstItem="Y6H-s7-zs3" firstAttribute="top" secondItem="ERF-G9-fsj" secondAttribute="bottom" id="zuv-qO-ac5"/>
             </constraints>
             <size key="customSize" width="222" height="193"/>
+            <connections>
+                <outlet property="courseImage" destination="tnU-QY-ZH2" id="4ad-lL-vFt"/>
+                <outlet property="courseName" destination="Y6H-s7-zs3" id="EJx-Pg-lZT"/>
+                <outlet property="courseTime" destination="cM6-Ci-0co" id="3ba-tZ-jxz"/>
+                <outlet property="courseVidoes" destination="2qN-Km-yD6" id="8HX-09-qlX"/>
+                <outlet property="rating" destination="wP2-xg-adC" id="gC6-cQ-vyd"/>
+            </connections>
             <point key="canvasLocation" x="262.31884057971018" y="103.45982142857143"/>
         </collectionViewCell>
     </objects>
     <resources>
         <image name="loginBg" width="375" height="153"/>
-        <image name="menu" width="512" height="512"/>
+        <image name="playlist" width="24" height="24"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
+        <image name="star.leadinghalf.filled" catalog="system" width="128" height="116"/>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

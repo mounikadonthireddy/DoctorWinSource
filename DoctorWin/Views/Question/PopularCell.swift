@@ -1,45 +1,45 @@
 //
-//  ReplyCell.swift
+//  PopularCell.swift
 //  DoctorWin
 //
-//  Created by AHP on 10/10/2565 BE.
+//  Created by AHP on 12/10/2565 BE.
 //
 
 import UIKit
 
-class ReplyCell: UITableViewCell {
-    @IBOutlet weak var imageHeiht: NSLayoutConstraint!
-    @IBOutlet weak var postImage: UIImageView!
+class PopularCell: UITableViewCell {
+
+    @IBOutlet weak var questionLbl: UILabel!
+    @IBOutlet weak var backBtn: UIButton!
+    @IBOutlet weak var nextBtn: UIButton!
+    @IBOutlet weak var personImage: UIImageView!
     @IBOutlet weak var postedPersonName: UILabel!
     @IBOutlet weak var designation: UILabel!
     @IBOutlet weak var discussion: UILabel!
-    @IBOutlet weak var titleLable: ExpandableLabel!
+    @IBOutlet weak var titleLable: UILabel!
     @IBOutlet weak var likeLable: UILabel!
     @IBOutlet weak var wishlistBtn: UIButton!
     @IBOutlet weak var saveBtn: UIButton!
-    weak var delegate: CellActionDelegate?
-    @IBOutlet weak var personImage: UIImageView!
     @IBOutlet weak var likeImage: UIImageView!
     @IBOutlet weak var bookmarkImage: UIImageView!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        personImage.setCornerRadiusWithBorderColor(radius: 25, color: UIColor.lightGray, borderWidth: 0.2)
-        
+//        stackView.setCornerRadius(radius: Float(stackView.frame.height)/2)
+        personImage.setCornerRadius(radius: Float(personImage.frame.height)/2)
     }
-    
+
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
+
         // Configure the view for the selected state
     }
-    
     func configureDataWith(homeModel: AnswersModel) {
         self.postedPersonName.text = (homeModel.ProfileName ?? "")
         self.titleLable.text =  homeModel.ans ?? ""
         self.designation.text = homeModel.speciality ?? ""
-        self.discussion.text = "\(homeModel.number_of_comment ?? 0)"
+        self.questionLbl.text = homeModel.asked_question ?? ""
+     //   self.discussion.text = "\(homeModel.dis ?? 0)"
         self.likeLable.text = "\(homeModel.number_of_like ?? 0)"
         if homeModel.bookmark_status ?? false {
             bookmarkImage.image = UIImage(named: "fmark")
@@ -47,15 +47,13 @@ class ReplyCell: UITableViewCell {
         
         if homeModel.bookmark_status ?? false {
             likeImage.image = UIImage(named: "fheart")
-        }
-        if let imageStr = homeModel.posted_ans_image {
-            self.postImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + imageStr), placeholderImage: UIImage(named: "loginBg"))
+            
         }
         if let urlString = homeModel.ProfileImage {
             self.personImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
         }
-        //        wishlistBtn.tag = homeModel.id
-        //        saveBtn.tag = homeModel.id
+//        wishlistBtn.tag = homeModel.id
+//        saveBtn.tag = homeModel.id
         //        replyBtn.tag = homeModel.id
     }
     @IBAction func likeClicked(_ sender: UIButton) {

@@ -21,6 +21,7 @@ struct CasesDataModel: Codable {
     let follow: Bool
     let chief_complaint: String?
     let like_count: Int
+    let created_date: String
     
     
 }
