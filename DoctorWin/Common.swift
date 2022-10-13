@@ -195,6 +195,9 @@ struct ApiEndpoints
     static let learningBanner = "admin/banner/get?name=elearningimage"
     static let trendingCourses = "learning/subject/feature"
     static let courses = "learning/subject/option"
+    static let categories = "learning/banner/app/"
+    static let courseDetails = "learning/subject/get/"
+    static let curriculamDetails = "learning/subject/"
     //MCQ
     static let mcq = "user/question"
     static let attemptedMcq = "user/question/attempt"

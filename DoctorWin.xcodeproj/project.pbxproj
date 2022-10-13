@@ -360,6 +360,19 @@
 		DC961EAB2876D68000F24913 /* EditConnectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC961EAA2876D68000F24913 /* EditConnectViewModel.swift */; };
 		DC961EAE2876E17C00F24913 /* EditConnectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC961EAC2876E17C00F24913 /* EditConnectCell.swift */; };
 		DC961EAF2876E17C00F24913 /* EditConnectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC961EAD2876E17C00F24913 /* EditConnectCell.xib */; };
+		DC9AB74728F830C300C6043E /* CurriculamHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9AB74528F830C300C6043E /* CurriculamHeaderCell.swift */; };
+		DC9AB74828F830C300C6043E /* CurriculamHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC9AB74628F830C300C6043E /* CurriculamHeaderCell.xib */; };
+		DC9AB74B28F830DD00C6043E /* CurriculamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9AB74928F830DD00C6043E /* CurriculamCell.swift */; };
+		DC9AB74C28F830DD00C6043E /* CurriculamCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC9AB74A28F830DD00C6043E /* CurriculamCell.xib */; };
+		DC9AB74F28F8311200C6043E /* CurriculamExpandCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9AB74D28F8311200C6043E /* CurriculamExpandCell.swift */; };
+		DC9AB75028F8311200C6043E /* CurriculamExpandCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC9AB74E28F8311200C6043E /* CurriculamExpandCell.xib */; };
+		DC9AB75628F84D5600C6043E /* CurriculamCourseHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9AB75528F84D5600C6043E /* CurriculamCourseHeaderCell.swift */; };
+		DC9AB75828F84D6600C6043E /* CurriculamCourseHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC9AB75728F84D6600C6043E /* CurriculamCourseHeaderCell.xib */; };
+		DC9AB75B28F8550B00C6043E /* CourseCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9AB75928F8550B00C6043E /* CourseCategoryCell.swift */; };
+		DC9AB75C28F8550B00C6043E /* CourseCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC9AB75A28F8550B00C6043E /* CourseCategoryCell.xib */; };
+		DC9AB75F28F863B800C6043E /* CategoryTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9AB75D28F863B700C6043E /* CategoryTVCell.swift */; };
+		DC9AB76028F863B800C6043E /* CategoryTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC9AB75E28F863B700C6043E /* CategoryTVCell.xib */; };
+		DC9AB76228F867C100C6043E /* LearningCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9AB76128F867C100C6043E /* LearningCategoryViewModel.swift */; };
 		DCA0A67028C0A7B4001DE3F1 /* EditBioDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA0A66F28C0A7B4001DE3F1 /* EditBioDataController.swift */; };
 		DCA0A6CF28C0F9A4001DE3F1 /* PersonalInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA0A6CD28C0F9A3001DE3F1 /* PersonalInfoCell.swift */; };
 		DCA0A6D028C0F9A4001DE3F1 /* PersonalInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCA0A6CE28C0F9A4001DE3F1 /* PersonalInfoCell.xib */; };
@@ -404,6 +417,14 @@
 		DCF1B4A728F72594007F4FA3 /* LearningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF1B4A628F72594007F4FA3 /* LearningViewModel.swift */; };
 		DCF1B4A928F725AC007F4FA3 /* LearningResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF1B4A828F725AC007F4FA3 /* LearningResource.swift */; };
 		DCF1B4AB28F725C1007F4FA3 /* CourseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF1B4AA28F725C1007F4FA3 /* CourseModel.swift */; };
+		DCF1B4AD28F7E00D007F4FA3 /* LearningDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF1B4AC28F7E00C007F4FA3 /* LearningDetailsViewController.swift */; };
+		DCF1B4AF28F7E01F007F4FA3 /* LearningCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF1B4AE28F7E01F007F4FA3 /* LearningCategoryViewController.swift */; };
+		DCF1B4B228F7FE9D007F4FA3 /* LearningDetailsHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF1B4B028F7FE9C007F4FA3 /* LearningDetailsHeaderCell.swift */; };
+		DCF1B4B328F7FE9D007F4FA3 /* LearningDetailsHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCF1B4B128F7FE9C007F4FA3 /* LearningDetailsHeaderCell.xib */; };
+		DCF1B4B628F81068007F4FA3 /* LearningOverViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF1B4B428F81068007F4FA3 /* LearningOverViewCell.swift */; };
+		DCF1B4B728F81068007F4FA3 /* LearningOverViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCF1B4B528F81068007F4FA3 /* LearningOverViewCell.xib */; };
+		DCF1B4B928F816D1007F4FA3 /* LearningDetailsVieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF1B4B828F816D0007F4FA3 /* LearningDetailsVieModel.swift */; };
+		DCF1B4BB28F816E5007F4FA3 /* LearningDetailsResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF1B4BA28F816E5007F4FA3 /* LearningDetailsResource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -786,6 +807,19 @@
 		DC961EAA2876D68000F24913 /* EditConnectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditConnectViewModel.swift; sourceTree = "<group>"; };
 		DC961EAC2876E17C00F24913 /* EditConnectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditConnectCell.swift; sourceTree = "<group>"; };
 		DC961EAD2876E17C00F24913 /* EditConnectCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditConnectCell.xib; sourceTree = "<group>"; };
+		DC9AB74528F830C300C6043E /* CurriculamHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurriculamHeaderCell.swift; sourceTree = "<group>"; };
+		DC9AB74628F830C300C6043E /* CurriculamHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurriculamHeaderCell.xib; sourceTree = "<group>"; };
+		DC9AB74928F830DD00C6043E /* CurriculamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurriculamCell.swift; sourceTree = "<group>"; };
+		DC9AB74A28F830DD00C6043E /* CurriculamCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurriculamCell.xib; sourceTree = "<group>"; };
+		DC9AB74D28F8311200C6043E /* CurriculamExpandCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurriculamExpandCell.swift; sourceTree = "<group>"; };
+		DC9AB74E28F8311200C6043E /* CurriculamExpandCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurriculamExpandCell.xib; sourceTree = "<group>"; };
+		DC9AB75528F84D5600C6043E /* CurriculamCourseHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurriculamCourseHeaderCell.swift; sourceTree = "<group>"; };
+		DC9AB75728F84D6600C6043E /* CurriculamCourseHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurriculamCourseHeaderCell.xib; sourceTree = "<group>"; };
+		DC9AB75928F8550B00C6043E /* CourseCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCategoryCell.swift; sourceTree = "<group>"; };
+		DC9AB75A28F8550B00C6043E /* CourseCategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseCategoryCell.xib; sourceTree = "<group>"; };
+		DC9AB75D28F863B700C6043E /* CategoryTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTVCell.swift; sourceTree = "<group>"; };
+		DC9AB75E28F863B700C6043E /* CategoryTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTVCell.xib; sourceTree = "<group>"; };
+		DC9AB76128F867C100C6043E /* LearningCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningCategoryViewModel.swift; sourceTree = "<group>"; };
 		DCA0A66F28C0A7B4001DE3F1 /* EditBioDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBioDataController.swift; sourceTree = "<group>"; };
 		DCA0A6CD28C0F9A3001DE3F1 /* PersonalInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInfoCell.swift; sourceTree = "<group>"; };
 		DCA0A6CE28C0F9A4001DE3F1 /* PersonalInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonalInfoCell.xib; sourceTree = "<group>"; };
@@ -830,6 +864,14 @@
 		DCF1B4A628F72594007F4FA3 /* LearningViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningViewModel.swift; sourceTree = "<group>"; };
 		DCF1B4A828F725AC007F4FA3 /* LearningResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningResource.swift; sourceTree = "<group>"; };
 		DCF1B4AA28F725C1007F4FA3 /* CourseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseModel.swift; sourceTree = "<group>"; };
+		DCF1B4AC28F7E00C007F4FA3 /* LearningDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningDetailsViewController.swift; sourceTree = "<group>"; };
+		DCF1B4AE28F7E01F007F4FA3 /* LearningCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningCategoryViewController.swift; sourceTree = "<group>"; };
+		DCF1B4B028F7FE9C007F4FA3 /* LearningDetailsHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningDetailsHeaderCell.swift; sourceTree = "<group>"; };
+		DCF1B4B128F7FE9C007F4FA3 /* LearningDetailsHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LearningDetailsHeaderCell.xib; sourceTree = "<group>"; };
+		DCF1B4B428F81068007F4FA3 /* LearningOverViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningOverViewCell.swift; sourceTree = "<group>"; };
+		DCF1B4B528F81068007F4FA3 /* LearningOverViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LearningOverViewCell.xib; sourceTree = "<group>"; };
+		DCF1B4B828F816D0007F4FA3 /* LearningDetailsVieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningDetailsVieModel.swift; sourceTree = "<group>"; };
+		DCF1B4BA28F816E5007F4FA3 /* LearningDetailsResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningDetailsResource.swift; sourceTree = "<group>"; };
 		E9F70AFB71164BEA0D30A370 /* Pods-DoctorWinTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorWinTests.debug.xcconfig"; path = "Target Support Files/Pods-DoctorWinTests/Pods-DoctorWinTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1610,7 +1652,28 @@
 			children = (
 				DC3A6A2F28F1A3AF006F73A2 /* Cells */,
 				DCF1B49A28F71060007F4FA3 /* LearningViewController.swift */,
+				DC9AB75928F8550B00C6043E /* CourseCategoryCell.swift */,
+				DC9AB75A28F8550B00C6043E /* CourseCategoryCell.xib */,
+				DCF1B4B028F7FE9C007F4FA3 /* LearningDetailsHeaderCell.swift */,
+				DCF1B4B128F7FE9C007F4FA3 /* LearningDetailsHeaderCell.xib */,
+				DCF1B4B428F81068007F4FA3 /* LearningOverViewCell.swift */,
+				DCF1B4B528F81068007F4FA3 /* LearningOverViewCell.xib */,
+				DCF1B4AC28F7E00C007F4FA3 /* LearningDetailsViewController.swift */,
+				DC9AB74528F830C300C6043E /* CurriculamHeaderCell.swift */,
+				DC9AB74628F830C300C6043E /* CurriculamHeaderCell.xib */,
+				DC9AB74928F830DD00C6043E /* CurriculamCell.swift */,
+				DC9AB74A28F830DD00C6043E /* CurriculamCell.xib */,
+				DC9AB74D28F8311200C6043E /* CurriculamExpandCell.swift */,
+				DC9AB74E28F8311200C6043E /* CurriculamExpandCell.xib */,
+				DC9AB75528F84D5600C6043E /* CurriculamCourseHeaderCell.swift */,
+				DC9AB75728F84D6600C6043E /* CurriculamCourseHeaderCell.xib */,
+				DCF1B4AE28F7E01F007F4FA3 /* LearningCategoryViewController.swift */,
+				DC9AB76128F867C100C6043E /* LearningCategoryViewModel.swift */,
+				DC9AB75D28F863B700C6043E /* CategoryTVCell.swift */,
+				DC9AB75E28F863B700C6043E /* CategoryTVCell.xib */,
 				DCF1B4A628F72594007F4FA3 /* LearningViewModel.swift */,
+				DCF1B4B828F816D0007F4FA3 /* LearningDetailsVieModel.swift */,
+				DCF1B4BA28F816E5007F4FA3 /* LearningDetailsResource.swift */,
 				DCF1B4A828F725AC007F4FA3 /* LearningResource.swift */,
 				DCF1B4AA28F725C1007F4FA3 /* CourseModel.swift */,
 			);
@@ -1735,6 +1798,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC9AB75028F8311200C6043E /* CurriculamExpandCell.xib in Resources */,
 				DC885E2A28C8D82300110418 /* BattleWar.otf in Resources */,
 				DCF1B49F28F711C0007F4FA3 /* LearningCategoryCell.xib in Resources */,
 				DC86698428742FAE00CF89A8 /* ShopCVCell.xib in Resources */,
@@ -1768,6 +1832,7 @@
 				BFC3EEDD2823DEB6000A1582 /* ShopCell.xib in Resources */,
 				43B975AF2725B19B00CDF2F1 /* JobInformationCell.xib in Resources */,
 				DC4AEF20285381C100D6D4A3 /* Network.storyboard in Resources */,
+				DC9AB76028F863B800C6043E /* CategoryTVCell.xib in Resources */,
 				DC4AEF24285384BD00D6D4A3 /* Job.storyboard in Resources */,
 				BFB3A66828352A02008D0C72 /* SpecialityCell.xib in Resources */,
 				DCA0A6F328C4DCF1001DE3F1 /* QACell.xib in Resources */,
@@ -1812,6 +1877,7 @@
 				BF170F8228101AC7001B3109 /* CarrierJobCell.xib in Resources */,
 				43A6A98F27329E5800400F72 /* PollTableViewCell.xib in Resources */,
 				DC885E3D28D217ED00110418 /* TrendingTableCell.xib in Resources */,
+				DCF1B4B328F7FE9D007F4FA3 /* LearningDetailsHeaderCell.xib in Resources */,
 				43A6A99327329F1C00400F72 /* CasesTableViewCell.xib in Resources */,
 				DC885E4528D89C4700110418 /* MatchesCell.xib in Resources */,
 				DC465DA028E08D1C009E7D4C /* ConnectLikeCell.xib in Resources */,
@@ -1819,8 +1885,10 @@
 				BF0DD968278D8BF30053747A /* RecentSearchCell.xib in Resources */,
 				43B03AAB27300AB300A4337B /* JobDetails.json in Resources */,
 				43B975AB2725B18A00CDF2F1 /* JobRequirementCell.xib in Resources */,
+				DC9AB75828F84D6600C6043E /* CurriculamCourseHeaderCell.xib in Resources */,
 				BF431C812782D57E0057AF9F /* FollowCell.xib in Resources */,
 				DC86698A2874396E00CF89A8 /* ShopWishlistCell.xib in Resources */,
+				DC9AB74C28F830DD00C6043E /* CurriculamCell.xib in Resources */,
 				BFC3EF01282E2C04000A1582 /* ConnectCell.xib in Resources */,
 				BF0DD953278D46C50053747A /* ProfessionalDetailsCell.xib in Resources */,
 				DC885E2C28C8D83700110418 /* BattleWar.ttf in Resources */,
@@ -1833,7 +1901,9 @@
 				43D04BD32742892600414771 /* EditSkillCell.xib in Resources */,
 				DCA0A6ED28C3622A001DE3F1 /* NetworkCVHeaderTVCell.xib in Resources */,
 				DCA0A6E528C34957001DE3F1 /* NetworkCVCell.xib in Resources */,
+				DCF1B4B728F81068007F4FA3 /* LearningOverViewCell.xib in Resources */,
 				BF0DD96C278D8C930053747A /* RecentSearchCVCell.xib in Resources */,
+				DC9AB74828F830C300C6043E /* CurriculamHeaderCell.xib in Resources */,
 				439DC469273FB28800DAD6D5 /* Roboto-Thin.ttf in Resources */,
 				439DC468273FB28800DAD6D5 /* Roboto-Black.ttf in Resources */,
 				43B52E3C273BCE77004EF637 /* PostReplyCell.xib in Resources */,
@@ -1861,6 +1931,7 @@
 				BF431C872782DC320057AF9F /* ExperienceCell.xib in Resources */,
 				DC3A6A3328F1A46A006F73A2 /* LearningCell.xib in Resources */,
 				439DC46D273FB28800DAD6D5 /* LICENSE.txt in Resources */,
+				DC9AB75C28F8550B00C6043E /* CourseCategoryCell.xib in Resources */,
 				43B23207273AAA2C00038F8A /* AppliedJobCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2012,6 +2083,7 @@
 				43F57E5327561860001120C8 /* BaseViewController.swift in Sources */,
 				435FB5642750BC630040C406 /* JobsViewModel.swift in Sources */,
 				439297C52722D732001891B8 /* MeViewController.swift in Sources */,
+				DCF1B4BB28F816E5007F4FA3 /* LearningDetailsResource.swift in Sources */,
 				DC8AE246286D9DFB003376A7 /* ShopViewModel.swift in Sources */,
 				DC8AE24C286E0306003376A7 /* ShopDetailsViewModel.swift in Sources */,
 				BFD5FF2F2813048E003CE888 /* CarrierTabViewController.swift in Sources */,
@@ -2040,6 +2112,7 @@
 				BF170F53280D34E2001B3109 /* ProfileViewFooter.swift in Sources */,
 				BF170F73280FE970001B3109 /* HomeTableHeader.swift in Sources */,
 				BF170F5C280D9B08001B3109 /* NetworkCell.swift in Sources */,
+				DCF1B4AD28F7E00D007F4FA3 /* LearningDetailsViewController.swift in Sources */,
 				BF431C95278328FD0057AF9F /* MyCasesViewController.swift in Sources */,
 				DCA0A6E428C34957001DE3F1 /* NetworkCVCell.swift in Sources */,
 				43B03AA9272F99E100A4337B /* AddCasesViewController.swift in Sources */,
@@ -2050,6 +2123,7 @@
 				BFC3EED72823DE98000A1582 /* ShopViewController.swift in Sources */,
 				DC8AE250286E95B2003376A7 /* ShowInterestViewController.swift in Sources */,
 				4392978D2722D628001891B8 /* ViewController.swift in Sources */,
+				DC9AB74B28F830DD00C6043E /* CurriculamCell.swift in Sources */,
 				DCF1B49B28F71060007F4FA3 /* LearningViewController.swift in Sources */,
 				43B5CBD02726E48400DFEC71 /* JobsViewController.swift in Sources */,
 				DCA0A6CF28C0F9A4001DE3F1 /* PersonalInfoCell.swift in Sources */,
@@ -2090,6 +2164,7 @@
 				BFCB16BC279991DD005E3FEB /* MyStoriesViewController.swift in Sources */,
 				DC885E4428D89C4700110418 /* MatchesCell.swift in Sources */,
 				43B5CBCD2726779900DFEC71 /* JobsCell.swift in Sources */,
+				DC9AB75F28F863B800C6043E /* CategoryTVCell.swift in Sources */,
 				43A6A99227329F1C00400F72 /* CasesTableViewCell.swift in Sources */,
 				DC7968FE28F42422004D9FE6 /* QuestionHeaderCell.swift in Sources */,
 				43B52E36273BCA51004EF637 /* PostQuestionHeader.swift in Sources */,
@@ -2130,6 +2205,7 @@
 				BFC3EEE82824E95E000A1582 /* NetworkViewModel.swift in Sources */,
 				DC885E2E28C8DD8C00110418 /* AddQuestionViewController.swift in Sources */,
 				DCF1B4A928F725AC007F4FA3 /* LearningResource.swift in Sources */,
+				DC9AB75B28F8550B00C6043E /* CourseCategoryCell.swift in Sources */,
 				43B52E48273BE52B004EF637 /* HomeDetailsTableView.swift in Sources */,
 				BF0DD963278D6CA40053747A /* QuickJobTVCell.swift in Sources */,
 				43B52E3E273BD024004EF637 /* PostQuestionViewController.swift in Sources */,
@@ -2154,7 +2230,9 @@
 				43B23203273AA67100038F8A /* AppliedJobViewController.swift in Sources */,
 				DCA0A6F228C4DCF1001DE3F1 /* QACell.swift in Sources */,
 				DC9539C1285C5BCA00FBD8D0 /* CasesDataModel.swift in Sources */,
+				DC9AB74728F830C300C6043E /* CurriculamHeaderCell.swift in Sources */,
 				439923CF272BD8D30085E067 /* JobsCollectionCell.swift in Sources */,
+				DC9AB75628F84D5600C6043E /* CurriculamCourseHeaderCell.swift in Sources */,
 				BF0DD952278D46C50053747A /* ProfessionalDetailsCell.swift in Sources */,
 				DC9539B9285C5B8200FBD8D0 /* PollsDataModel.swift in Sources */,
 				43B28450273CE1BA00E8CED8 /* AddMainViewController.swift in Sources */,
@@ -2189,6 +2267,7 @@
 				DCB7D1E1284B536200F3CFDE /* BookMarkViewModel.swift in Sources */,
 				DCA0A6D828C0FBE0001DE3F1 /* EditPersonalInfoCell.swift in Sources */,
 				BF0DD967278D8BF30053747A /* RecentSearchCell.swift in Sources */,
+				DCF1B4B228F7FE9D007F4FA3 /* LearningDetailsHeaderCell.swift in Sources */,
 				43F50BCB2757931F00EC1A80 /* CustomJobResource.swift in Sources */,
 				BF170F6C280FD629001B3109 /* CaseDetailsCell.swift in Sources */,
 				DC885E3028C8EBB800110418 /* CreatePostViewController.swift in Sources */,
@@ -2198,6 +2277,7 @@
 				43F971E3275BC2E000733478 /* PollResource.swift in Sources */,
 				439297892722D628001891B8 /* AppDelegate.swift in Sources */,
 				DC9539C7285C5C2300FBD8D0 /* CarrierModel.swift in Sources */,
+				DCF1B4B928F816D1007F4FA3 /* LearningDetailsVieModel.swift in Sources */,
 				BFCB16B627997832005E3FEB /* CustomSegmentedControl.swift in Sources */,
 				BF0DD95A278D5B9C0053747A /* RecommandedJobCell.swift in Sources */,
 				43B03AA1272F98CA00A4337B /* AddNewsViewController.swift in Sources */,
@@ -2238,8 +2318,10 @@
 				BF30C7DB277B34820047E277 /* AddCustomJobResource.swift in Sources */,
 				43F57E51275615F9001120C8 /* RegisterResource.swift in Sources */,
 				DC9539BF285C5BB800FBD8D0 /* NewsModel.swift in Sources */,
+				DCF1B4B628F81068007F4FA3 /* LearningOverViewCell.swift in Sources */,
 				BF431C98278352820057AF9F /* NewTypeCell.swift in Sources */,
 				43D04BCF27426C8E00414771 /* EditMeViewController.swift in Sources */,
+				DCF1B4AF28F7E01F007F4FA3 /* LearningCategoryViewController.swift in Sources */,
 				BFB3A6622834F021008D0C72 /* CarrierJobDetailHeaderView.swift in Sources */,
 				43B975A027258A0000CDF2F1 /* HomeTableCell.swift in Sources */,
 				439297D227231EDE001891B8 /* InfoCell.swift in Sources */,
@@ -2249,6 +2331,8 @@
 				431052F92759E48B006BC13A /* FilterViewController.swift in Sources */,
 				4347EF442746589100E634E9 /* HomeViewModel.swift in Sources */,
 				439297BF2722D718001891B8 /* HomeViewController.swift in Sources */,
+				DC9AB74F28F8311200C6043E /* CurriculamExpandCell.swift in Sources */,
+				DC9AB76228F867C100C6043E /* LearningCategoryViewModel.swift in Sources */,
 				BF431C862782DC320057AF9F /* ExperienceCell.swift in Sources */,
 				BFC3EEEA2824EA5E000A1582 /* NetworkResource.swift in Sources */,
 				43B03A8D272D070700A4337B /* ProfileDataModel.swift in Sources */,

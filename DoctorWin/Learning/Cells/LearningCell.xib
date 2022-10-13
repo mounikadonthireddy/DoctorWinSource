@@ -146,6 +146,7 @@
                 <outlet property="courseName" destination="Y6H-s7-zs3" id="EJx-Pg-lZT"/>
                 <outlet property="courseTime" destination="cM6-Ci-0co" id="3ba-tZ-jxz"/>
                 <outlet property="courseVidoes" destination="2qN-Km-yD6" id="8HX-09-qlX"/>
+                <outlet property="departmentLbl" destination="ERF-G9-fsj" id="hZw-ug-Z8U"/>
                 <outlet property="rating" destination="wP2-xg-adC" id="gC6-cQ-vyd"/>
             </connections>
             <point key="canvasLocation" x="262.31884057971018" y="103.45982142857143"/>

@@ -45,3 +45,38 @@ struct CourseDetailsModel: Codable {
     let course: String?
     let number_of_lession: Int?
 }
+
+struct CurriculamModel: Codable {
+    let id: Int
+    let chapter_name:String?
+    let duration: String?
+    let number_of_subtopic: Int?
+    let sub_chapter: [SubChaperModel]?
+}
+struct SubChaperModel: Codable {
+    let id: Int
+    let sub_chapter_name: String?
+    let video: String?
+    let duration: String?
+}
+struct CoursesCategoryModel: Codable {
+    let name_of_course: String?
+    let id: Int
+}
+struct CategoryModel: Codable {
+    let course: [CoursesCategoryModel]
+    
+}
+struct LearningCategoryModel: Codable {
+    let id: Int
+    let subject_title: String?
+    let lecture_creater_name: String?
+    let image: String?
+    let options: String?
+    let rating: String?
+    let department: String?
+    let original_price: String?
+    let offer_price: String?
+    let validity: String?
+    let number_of_lession: Int?
+}

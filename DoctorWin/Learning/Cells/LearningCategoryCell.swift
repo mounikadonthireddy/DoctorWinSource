@@ -6,11 +6,14 @@
 //
 
 import UIKit
-
+protocol ElearingCellSelected {
+    func selectedCellWith(data: CourseModel)
+}
 class LearningCategoryCell: UITableViewCell {
     @IBOutlet weak var courseCollectionView: UICollectionView!
     @IBOutlet weak var collectionViewLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var titleLable: UILabel!
+    var delegate: ElearingCellSelected?
     var coursesArray: [CourseModel] = []
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -79,6 +82,8 @@ extension LearningCategoryCell : UICollectionViewDelegate, UICollectionViewDataS
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.selectedCellWith(data: coursesArray[indexPath.row])
+    }
     
 }
