@@ -28,6 +28,8 @@ struct HttpUtility {
     
     func getApiData<T:Decodable>(urlString: String, resultType: T.Type, completion:@escaping(Result<T, RequestError>) -> Void) {
         
+        
+        
         guard let url = URL(string: urlString) else {
             completion(.failure(.invalidUrl))
             return
