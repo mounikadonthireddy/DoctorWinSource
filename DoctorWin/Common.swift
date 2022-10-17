@@ -114,6 +114,9 @@ struct ApiEndpoints
     static let bookmarkSocail = "user/social/bookmark"
     static let bookmarkAnswer = "ask/question/reply/bookmark"
     
+    //cases
+    static let casesLike = "user/social/like"
+    static let casesBookmarks = "user/social/bookmark"
     //user
     
     static let getUserExp = "user/add/exp/"
@@ -132,8 +135,9 @@ struct ApiEndpoints
     static let getUserPostedAnswers  = "ask/question/reply/show"
     
     //complaint
-    static let getComplaint = "complaint/"
+    static let getComplaint = "complaint/case"
     static let getComplaintComment = "complaint/comment/"
+    
     
     static let profileEdit = "job/profile/"
     static let personalEdit = "user/personal/info"
@@ -204,6 +208,8 @@ struct ApiEndpoints
     
     //Dating
     static let dating = "connect/dating/recommed/profile"
+    static let myLikes = "connect/dating/i/likes/you/"
+    static let otherLikes = "connect/dating/you/likes/me/"
 }
 
 class User {

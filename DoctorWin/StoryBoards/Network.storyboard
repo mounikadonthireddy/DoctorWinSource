@@ -1069,14 +1069,17 @@
                                     <outlet property="delegate" destination="xA7-bS-8hx" id="Ql5-ir-SD7"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MdP-ex-Nee">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MdP-ex-Nee">
                                 <rect key="frame" x="344" y="84" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="IMC-5o-cBE"/>
                                     <constraint firstAttribute="height" constant="50" id="J8e-IB-eSX"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" image="match_wishist"/>
+                                <state key="normal" backgroundImage="match_wishist"/>
+                                <connections>
+                                    <action selector="likedClicked:" destination="xA7-bS-8hx" eventType="touchUpInside" id="Tsb-JC-Q90"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NTy-gS-ZSR">
                                 <rect key="frame" x="0.0" y="767" width="414" height="50"/>
@@ -1087,27 +1090,38 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kCa-F8-KiQ">
                                                 <rect key="frame" x="0.0" y="0.0" width="52.5" height="50"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" image="retry"/>
+                                                <state key="normal" backgroundImage="retry"/>
+                                                <connections>
+                                                    <action selector="undoClicked:" destination="xA7-bS-8hx" eventType="touchUpInside" id="bva-HR-Euk"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9s1-nS-YIQ">
                                                 <rect key="frame" x="107.5" y="0.0" width="52" height="50"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" image="reject"/>
+                                                <state key="normal" backgroundImage="reject"/>
+                                                <connections>
+                                                    <action selector="rejectClicked:" destination="xA7-bS-8hx" eventType="touchUpInside" id="G2m-Wg-FRt"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="deg-LP-OpC">
                                                 <rect key="frame" x="214.5" y="0.0" width="52.5" height="50"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" image="chat"/>
+                                                <state key="normal" backgroundImage="chat"/>
+                                                <connections>
+                                                    <action selector="messageClicked:" destination="xA7-bS-8hx" eventType="touchUpInside" id="BEV-mR-uFZ"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MTa-GD-iG2">
                                                 <rect key="frame" x="322" y="0.0" width="52" height="50"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" image="save"/>
+                                                <state key="normal" backgroundImage="save"/>
+                                                <connections>
+                                                    <action selector="wishlistClicked:" destination="xA7-bS-8hx" eventType="touchUpInside" id="A2a-bx-Cb9"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="HxP-nF-Ep7" firstAttribute="top" secondItem="NTy-gS-ZSR" secondAttribute="top" id="0PF-J6-U4J"/>
                                     <constraint firstAttribute="bottom" secondItem="HxP-nF-Ep7" secondAttribute="bottom" id="CzS-ik-Dz0"/>

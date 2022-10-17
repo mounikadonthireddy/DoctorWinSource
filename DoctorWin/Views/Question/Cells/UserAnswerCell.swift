@@ -60,7 +60,7 @@ class UserAnswerCell: UITableViewCell {
         //        replyBtn.tag = homeModel.id
     }
     @IBAction func likeClicked(_ sender: UIButton) {
-        let request = ComplaintLikeRequest(complaint_id:"\(sender.tag)", user_id: User.shared.userID)
+        let request = ComplaintLikeRequest(achievement_id: "\(sender.tag)", dworks_id: User.shared.userID)
         
         let resource = HomeResource()
         resource.likeComplaint(request: request) { result in
@@ -82,7 +82,7 @@ class UserAnswerCell: UITableViewCell {
     }
     
     @IBAction  func saveClicked(_ sender: UIButton) {
-        let request = ComplaintLikeRequest(complaint_id:"\(sender.tag)", user_id: User.shared.userID)
+        let request = ComplaintLikeRequest(achievement_id: "\(sender.tag)", dworks_id: User.shared.userID)
         
         let resource = HomeResource()
         resource.saveComplaint(request: request) { result in

@@ -15,7 +15,7 @@ class NetworkCVHeaderView: UICollectionReusableView {
     @IBOutlet weak var groupTableView: UITableView!
     @IBOutlet weak var groupTableHeight: NSLayoutConstraint!
     var delegate: NetworkGroupSelected?
-    var groupArray: [GroupModel]  = []
+    var groupArray: [AdminGroupModel]  = []
     @IBOutlet weak var interfaceSegmented: CustomSegmentedControl!{
         didSet{
             interfaceSegmented.setButtonTitles(buttonTitles: ["Groups", "People"])
@@ -32,7 +32,7 @@ class NetworkCVHeaderView: UICollectionReusableView {
         groupTableView.register(NetworkTableHeader.nib, forHeaderFooterViewReuseIdentifier: NetworkTableHeader.identifier)
         
     }
-    func loadGropsData(data:[GroupModel]) {
+    func loadGropsData(data:[AdminGroupModel]) {
         groupArray = data
         groupTableHeight.constant = CGFloat(groupArray.count * 50) + 55
         groupTableView.reloadData()

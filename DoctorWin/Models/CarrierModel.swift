@@ -28,6 +28,7 @@ struct CarrierModel: Codable {
     let description: String?
     let gender: String?
     let website:String?
+    let jobid: String?
     
 }
 

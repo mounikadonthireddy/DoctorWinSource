@@ -9,7 +9,7 @@ import UIKit
 
 class CarrierJobCell: UITableViewCell {
     
-    
+    var jobId = ""
     @IBOutlet weak var hospitalImage: UIImageView!
     @IBOutlet weak var experience: UILabel!
     @IBOutlet weak var salary: UILabel!
@@ -49,7 +49,7 @@ class CarrierJobCell: UITableViewCell {
     
     
     @IBAction func saveClicked(_ sender: UIButton) {
-        let request = JobApplyRequest(user_id: User.shared.userID, job_id: "\(sender.tag)")
+        let request = JobApplyRequest(user_id: User.shared.userID, job_id: "\(jobId)")
         let resource = JobsResource()
         resource.saveJob(request: request) { result in
             DispatchQueue.main.async {
@@ -79,7 +79,7 @@ class CarrierJobCell: UITableViewCell {
         self.experience.text = "\(data.experince ?? "0")" + " yrs Experience"
         
         
-        save.tag = data.id
+        jobId = data.jobid ?? ""
         self.salary.text = "\(data.min_salary ?? "") /" + "\(data.max_salary ?? "") /" + (data.monthly_or_anual ?? "")
         
         

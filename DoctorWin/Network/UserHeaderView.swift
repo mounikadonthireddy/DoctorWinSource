@@ -68,7 +68,10 @@ class UserHeaderView: UITableViewHeaderFooterView {
         specialityLbl.text = data.description ?? ""
         imageArray = data.group_joined_image ?? []
         personsCV.reloadData()
-        if data.join_status == false {
+        if data.admin_status == true {
+            joinBtn.setTitle("Edit", for: .normal)
+        }
+        else if data.join_status == false {
             joinBtn.setTitle("Join", for: .normal)
             postViewHeight.constant = 0
             postView.isHidden = true

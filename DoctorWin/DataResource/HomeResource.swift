@@ -58,7 +58,7 @@ struct HomeResource {
     }
     func getCaseDetails(userID: String,complaintID: String ,completion : @escaping (_ result: ResponseResult<CaseDetails>) -> Void) {
         
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getComplaint + ApiEndpoints.userID + "=\(userID)&complaint_id=\(complaintID)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getComplaint + ApiEndpoints.userID + "=\(userID)&complaint_id=\(complaintID)&page=1"
         let httpUtility = HttpUtility()
         do {
             
@@ -131,7 +131,7 @@ struct HomeResource {
     
     func likeComplaint(request: ComplaintLikeRequest, completion : @escaping  (_ result: ResponseResult<StatusResponseModel>) -> Void) {
         
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.likeJobs + ApiEndpoints.userID +  "=\(request.user_id)&complaint_id=\(request.complaint_id)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.casesLike + ApiEndpoints.userID +  "=\(request.dworks_id)&achievement_id=\(request.achievement_id)"
         let homeUrl = URL(string: homeUrlStr)!
         
         let httpUtility = HttpUtility()
@@ -234,16 +234,16 @@ struct HomeResource {
             debugPrint(error)
         }
     }
-    func saveComplaint(request: ComplaintLikeRequest, completion : @escaping  (_ result: ResponseResult<StatusResponseModel>) -> Void) {
+    func saveComplaint(request: ComplaintLikeRequest, completion : @escaping  (_ result: ResponseResult<BookmarkStatusResponseModel>) -> Void) {
         
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.savedJobs + ApiEndpoints.userID + "=\(request.user_id)&complaint_id=\(request.complaint_id)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.casesBookmarks + ApiEndpoints.userID + "=\(request.dworks_id)&achievement_id=\(request.achievement_id)"
         let homeUrl = URL(string: homeUrlStr)!
         
         let helper = APIHelperClass()
         do {
             let postBody = try JSONEncoder().encode(request)
             
-            helper.callWebserviceToMakeRequest(requestUrl: homeUrl, requestBody: postBody, resultType: StatusResponseModel.self, httpMethod: HTTPMethod.post) {
+            helper.callWebserviceToMakeRequest(requestUrl: homeUrl, requestBody: postBody, resultType: BookmarkStatusResponseModel.self, httpMethod: HTTPMethod.post) {
                 result in
                 
                 switch result {

@@ -124,6 +124,7 @@
                                                         </state>
                                                         <connections>
                                                             <action selector="personClicked:" destination="hab-2n-djf" eventType="touchUpInside" id="FcK-Lg-Hsr"/>
+                                                            <action selector="postClicked:" destination="hab-2n-djf" eventType="touchUpInside" id="fIo-yT-NU7"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0rD-S8-2WG">

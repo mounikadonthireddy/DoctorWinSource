@@ -69,6 +69,11 @@ class ShopViewController: ViewController {
     @IBAction func personClicked(_ sender: Any) {
         
     }
+    @IBAction func postClicked(_ sender: Any) {
+        let str = UIStoryboard(name: "Add", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "SaleViewController") as! SaleViewController
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
 }
 
 extension ShopViewController : UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {

@@ -187,9 +187,14 @@ extension UserDetailsViewController: UITableViewDelegate, UITableViewDataSource 
                 headerView.joinBtn.addTarget(self, action: #selector(followClicked(button:)), for: .touchUpInside)
                
             }
+            headerView.joinBtn.tag = 1
             if let details = groupModel {
                 headerView.configureView(data: details)
-                if details.join_status == true {
+                if details.admin_status == true {
+                    headerView.joinBtn.setTitle("Edit", for: .normal)
+                    headerView.joinBtn.tag = 2
+                }
+                else if details.join_status == true {
                 headerView.joinBtn.setTitle("Joined", for: .normal)
                 } else {
                     headerView.joinBtn.setTitle("Join", for: .normal)
@@ -252,7 +257,14 @@ extension UserDetailsViewController: UITableViewDelegate, UITableViewDataSource 
         }
     }
     @objc func joinClicked(button: UIButton) {
-        
+        if button.tag == 2 {
+            let str = UIStoryboard(name: "Add", bundle: nil)
+            let nextVC = str.instantiateViewController(withIdentifier: "CreateGroupViewController") as! CreateGroupViewController
+            if let data = groupModel {
+                nextVC.groupModel = data
+            }
+            self.navigationController?.pushViewController(nextVC, animated: true)
+        }
     }
 }
 extension UserDetailsViewController: UserDetailsViewModelDelegate {

@@ -244,5 +244,6 @@ struct GroupProfileModel: Codable {
     let number_of_joined: Int?
     let group_joined_image: [GenderImageModel]?
     let profileImage: String?
+    let admin_status: Bool?
     
 }

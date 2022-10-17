@@ -184,7 +184,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     @objc func jobClicked(button: UIButton) {
-        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "QuestionsViewController") as! QuestionsViewController
+        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "CarrierTabViewController") as! CarrierTabViewController
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     @objc func explainClicked(button: UIButton) {
@@ -197,6 +197,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let str = UIStoryboard(name: "Details", bundle: nil)
         let nextVC = str.instantiateViewController(withIdentifier: "CaseDetailsViewController") as! CaseDetailsViewController
         nextVC.detailsModel = homedataArry[indexPath.row]
+        nextVC.caseId = homedataArry[indexPath.row].postId
         self.navigationController?.pushViewController(nextVC, animated: true)
         //        } else if homedataArry[indexPath.row].newsStatus ?? false {
         //            let str = UIStoryboard(name: "Details", bundle: nil)

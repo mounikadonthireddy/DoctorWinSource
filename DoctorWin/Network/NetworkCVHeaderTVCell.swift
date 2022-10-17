@@ -21,9 +21,11 @@ class NetworkCVHeaderTVCell: UITableViewCell {
         
         // Configure the view for the selected state
     }
-    func configureWithConnectionData(data: GroupModel) {
+    func configureWithConnectionData(data: AdminGroupModel) {
         self.groupName.text = data.name_of_group ?? ""
-        
+        if data.admin_status == true {
+            
+        }
         if let urlString = data.image {
             self.groupImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
         }

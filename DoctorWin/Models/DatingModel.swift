@@ -51,3 +51,23 @@ struct ProfileCharModel: Codable {
     let value: String?
     let image: String?
 }
+
+struct LikeMatchesModel: Codable {
+    let datingid: String?
+    let name: String?
+    let intro: String?
+    let age: Int?
+    let gender: String?
+    let qualification: String?
+    let living: String?
+    let likes: Bool?
+    let block: Bool?
+    let skip_status: Bool?
+    let interest: [ProfileInterestModel]?
+    let profile: [ProfileCharModel]?
+    let image1: String?
+    let image2:String?
+    let image3:String?
+    let looking_for:String?
+    let genderimage: String?
+}

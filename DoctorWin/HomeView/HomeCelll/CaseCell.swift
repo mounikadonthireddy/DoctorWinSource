@@ -130,17 +130,19 @@ class CaseCell: UITableViewCell {
         dateLable.text = Date().offsetFrom(dateStr: homeModel.created_date)
     }
     @IBAction func likeClicked(_ sender: UIButton) {
-        let request = ComplaintLikeRequest(complaint_id:"\(sender.tag)", user_id: User.shared.userID)
-        
+        let request = ComplaintLikeRequest(achievement_id: "\(sender.tag)", dworks_id: User.shared.userID)
+        let count = Int(likeLable.text ?? "0")
         let resource = HomeResource()
         resource.likeComplaint(request: request) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let data) :
-                    if data.status  {
+                    if data.likes == true {
                         self.likeImage.image = UIImage(named: "fheart")
+                        self.likeLable.text = "\(data.like_count ?? 0)"
                     } else {
                         self.likeImage.image = UIImage(named: "heart")
+                        self.likeLable.text = "\((count ?? 1) - 1)"
                     }
                 case .failure(_):
                     print("")
@@ -171,14 +173,15 @@ class CaseCell: UITableViewCell {
         }
     }
     @IBAction  func saveClicked(_ sender: UIButton) {
-        let request = ComplaintLikeRequest(complaint_id:"\(sender.tag)", user_id: User.shared.userID)
+        let request = ComplaintLikeRequest(achievement_id: "\(sender.tag)", dworks_id: User.shared.userID)
         
         let resource = HomeResource()
         resource.saveComplaint(request: request) { result in
+            print(result)
             DispatchQueue.main.async {
                 switch result {
                 case .success( let data):
-                    if data.status {
+                    if data.bookmark == true {
                         self.bookmarkImage.image = UIImage(named: "fmark")
                     }
                     else {

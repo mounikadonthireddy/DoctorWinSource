@@ -11,10 +11,11 @@ class NetworkViewController: ViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionViewLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var topView: UIView!
+    @IBOutlet weak var addBtn: UIButton!
     var groupVM = GroupViewModel()
     var peopleVM = PeopleViewModel()
     var groupArray :[GroupModel] = []
-    var adminGroupArray :[GroupModel] = []
+    var adminGroupArray :[AdminGroupModel] = []
     var peopleArray :[PeopleModel] = []
     let collectionViewHeaderFooterReuseIdentifier = "NetworkCVHeaderView"
     var selectedIndex = 0
@@ -22,6 +23,7 @@ class NetworkViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         topView.dropShadow()
+        addBtn.setCornerRadius(radius: Float(addBtn.frame.height/2))
         collectionViewLayout.scrollDirection = .vertical
         collectionViewLayout.minimumLineSpacing = 0
         collectionViewLayout.minimumInteritemSpacing = 0
@@ -93,6 +95,12 @@ class NetworkViewController: ViewController {
         //   nextVC.RequestUserID = "\(connectionsArray[indexPath.row].userid ?? 0)"
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
+    @IBAction func createGroupClicked(_ sender: UIButton) {
+        let str = UIStoryboard(name: "Add", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "CreateGroupViewController") as! CreateGroupViewController
+        //   nextVC.RequestUserID = "\(connectionsArray[indexPath.row].userid ?? 0)"
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
 }
 
 
@@ -133,12 +141,20 @@ extension NetworkViewController : UICollectionViewDelegate, UICollectionViewData
         let cell: NetworkCVCell = collectionView.dequeueReusableCell(withReuseIdentifier: "NetworkCVCell", for: indexPath) as! NetworkCVCell
         if selectedIndex  == 0 {
             cell.cellConfigureWithGroupData(data: groupArray[indexPath.row])
+            cell.followBtn.addTarget(self, action: #selector(joinClicked(button:)), for: .touchUpInside)
         } else {
             cell.cellConfigureWithPeopleData(data: peopleArray[indexPath.row])
+            cell.followBtn.addTarget(self, action: #selector(peopleFollowClicked(button:)), for: .touchUpInside)
         }
         
         
         return cell
+        
+    }
+    @objc func joinClicked(button: UIButton) {
+        
+    }
+    @objc func peopleFollowClicked(button: UIButton) {
         
     }
     func collectionView(_ collectionView: UICollectionView,

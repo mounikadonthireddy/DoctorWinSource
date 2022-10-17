@@ -84,7 +84,7 @@ class HomeTableCell: UITableViewCell {
         // replyBtn.tag = homeModel.id ?? 0
     }
     @IBAction func likeClicked(_ sender: UIButton) {
-        let request = ComplaintLikeRequest(complaint_id:"\(sender.tag)", user_id: User.shared.userID)
+        let request = ComplaintLikeRequest(achievement_id: "\(sender.tag)", dworks_id: User.shared.userID)
         
         let resource = HomeResource()
         resource.likeComplaint(request: request) { result in
@@ -125,7 +125,7 @@ class HomeTableCell: UITableViewCell {
         }
     }
     @IBAction  func saveClicked(_ sender: UIButton) {
-        let request = ComplaintLikeRequest(complaint_id:"\(sender.tag)", user_id: User.shared.userID)
+        let request = ComplaintLikeRequest(achievement_id: "\(sender.tag)", dworks_id: User.shared.userID)
         
         let resource = HomeResource()
         resource.saveComplaint(request: request) { result in
@@ -204,8 +204,8 @@ struct ComplaintFollowRequest:Codable {
     let user_id: String
 }
 struct ComplaintLikeRequest: Codable {
-    let complaint_id: String
-    let user_id: String
+    let achievement_id: String
+    let dworks_id: String
 }
 
 struct ShopSaveRequest: Codable {

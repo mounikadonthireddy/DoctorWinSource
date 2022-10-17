@@ -143,6 +143,8 @@ struct ProfileUpdateResponseModel: Codable {
 struct StatusResponseModel: Codable {
     let status : Bool
     let like_count: Int?
+    let likes: Bool?
+    
 }
 struct ProfessionalEditModel: Codable {
     let current_department: String
@@ -152,4 +154,11 @@ struct ProfessionalEditModel: Codable {
     let pg: String
     let pg_institute_name: String
     
+}
+
+
+struct BookmarkStatusResponseModel: Codable {
+    let status : Bool
+    let bookmark_count: Int?
+    let bookmark: Bool?
 }

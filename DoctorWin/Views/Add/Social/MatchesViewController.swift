@@ -48,3 +48,20 @@ extension MatchesViewController: DatingViewModelDelegate {
         }
     }
 }
+extension MatchesViewController {
+    @IBAction func undoClicked(_ sender: UIButton) {
+        
+    }
+    @IBAction func rejectClicked(_ sender: UIButton) {
+        
+    }
+    @IBAction func messageClicked(_ sender: UIButton) {
+        
+    }
+    @IBAction func wishlistClicked(_ sender: UIButton) {
+        
+    }
+    @IBAction func likedClicked(_ sender: UIButton) {
+        
+    }
+}

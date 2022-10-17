@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ConnectionLikeViewController: UIViewController {
+class ConnectionLikeViewController: ViewController {
     @IBOutlet weak var connectLikesCV: UICollectionView!
     @IBOutlet weak var connectLikesLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var interfaceSegmented: CustomSegmentedControl!{
@@ -17,13 +17,27 @@ class ConnectionLikeViewController: UIViewController {
             interfaceSegmented.selectorTextColor = .blue
         }
     }
+    var datingVM = LikedDatingViewModel()
+    var likesArray :[LikeMatchesModel] = []
+    var likedArray :[LikeMatchesModel] = []
+    var selectedIndex = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpCollectionView()
+        datingVM.delegate = self
+        interfaceSegmented.delegate = self
+        loadOtherLikedProfiles()
         
         // Do any additional setup after loading the view.
     }
-    
+    func loadLikedProfiles() {
+        self.showLoader()
+        datingVM.getDatingProfilesData(userID: User.shared.userID)
+    }
+    func loadOtherLikedProfiles() {
+        self.showLoader()
+        datingVM.getOtherLikedProfilesData(userID: User.shared.userID)
+    }
     func setUpCollectionView() {
         connectLikesCV.register(UINib.init(nibName: "ConnectLikeCell", bundle: nil), forCellWithReuseIdentifier: "ConnectLikeCell")
         
@@ -32,27 +46,27 @@ class ConnectionLikeViewController: UIViewController {
         connectLikesLayout.minimumInteritemSpacing = 0
         connectLikesLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 extension ConnectionLikeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        return 10
+        if selectedIndex == 0 {
+            return likedArray.count
+        } else if selectedIndex == 1{
+            return likesArray.count
+        }
+       return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
        
             let cell: ConnectLikeCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ConnectLikeCell", for: indexPath) as! ConnectLikeCell
-           // cell.configureCell(data: profileInfoArray[indexPath.row])
+        if selectedIndex == 0 {
+            cell.configureCell(data: likedArray[indexPath.row])
+        } else {
+            cell.configureCell(data: likesArray[indexPath.row])
+        }
+           
             cell.dropShadow()
             return cell
         
@@ -89,8 +103,28 @@ extension ConnectionLikeViewController: UICollectionViewDelegate, UICollectionVi
 
 extension ConnectionLikeViewController: CustomSegmentedControlDelegate {
     func change(to index: Int) {
-        
+        selectedIndex = index
+        if index == 1 {
+            self.loadLikedProfiles()
+        } else if index == 0 {
+            self.loadOtherLikedProfiles()
+        }
     }
     
+    
+}
+extension ConnectionLikeViewController: LikedDatingViewModelDelegate {
+    func didOtherLikedDatingData(response: [LikeMatchesModel]?, error: String?) {
+        self.dismiss()
+        self.likedArray = response ?? []
+        self.connectLikesCV.reloadData()
+    }
+    
+    func didReciveDatingData(response: [LikeMatchesModel]?, error: String?) {
+        self.dismiss()
+        self.likesArray = response ?? []
+        self.connectLikesCV.reloadData()
+    }
+  
     
 }
