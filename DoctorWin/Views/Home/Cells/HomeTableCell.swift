@@ -237,3 +237,15 @@ struct FollowRequest: Codable {
     let follow_id: String
     let dworks_id: String
 }
+struct ProfileLikeRequest: Codable {
+    let dworks_id: String
+    let like_id: String
+}
+struct ProfileSkipRequest: Codable {
+    let dworks_id: String
+    let skip_profile_id: String
+}
+struct ProfileUndiRequest: Codable {
+    let dworks_id: String
+   
+}

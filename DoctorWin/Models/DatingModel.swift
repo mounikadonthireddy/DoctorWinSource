@@ -46,6 +46,7 @@ struct MatchesModel: Codable {
     let image2:String?
     let image3:String?
     let looking_for:String?
+    let user: Int
 }
 struct ProfileCharModel: Codable {
     let value: String?

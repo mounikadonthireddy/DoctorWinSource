@@ -12,7 +12,8 @@ class ShopDetailsViewController: ViewController {
     @IBOutlet weak var detailsTableView: UITableView!
     @IBOutlet weak var chatBtn: UIButton!
     @IBOutlet weak var backBtn: UIButton!
-    @IBOutlet weak var uploadBtn: UIButton!
+    @IBOutlet weak var wishlistBtn: UIButton!
+    @IBOutlet weak var shareBtn: UIButton!
     var imagesArray :[ProductImageModel] = []
     var productId = 0
     var productVM = ShopDetailsViewModel()
@@ -22,7 +23,8 @@ class ShopDetailsViewController: ViewController {
         super.viewDidLoad()
         productVM.delegate = self
         self.loadProductDetails()
-        uploadBtn.setCornerRadius(radius: Float(uploadBtn.frame.width)/2)
+        wishlistBtn.setCornerRadius(radius: Float(wishlistBtn.frame.width)/2)
+        shareBtn.setCornerRadius(radius: Float(shareBtn.frame.width)/2)
         
         backBtn.setCornerRadius(radius: Float(backBtn.frame.width)/2)
         // Do any additional setup after loading the view.
@@ -33,7 +35,7 @@ class ShopDetailsViewController: ViewController {
     
     
     func loadProductDetails() {
-        self.showLoader()
+       // self.showLoader()
         productVM.getShopData(userID: User.shared.userID, productId: productId)
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -51,14 +53,16 @@ class ShopDetailsViewController: ViewController {
     @IBAction func backClicked(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
-    @IBAction func uploadClicked(_ sender: Any) {
+    @IBAction func bookmarkClicked(_ sender: Any) {
         
     }
+    @IBAction func shareClicked(_ sender: Any) {
+        
+    }
+    
     @IBAction func chatClicked(_ sender: Any) {
         
     }
-    
-    
 }
 extension ShopDetailsViewController: ProductDetailsDelegate {
     func didReciveProductData(response: ProductDetailsModel?, error: String?) {

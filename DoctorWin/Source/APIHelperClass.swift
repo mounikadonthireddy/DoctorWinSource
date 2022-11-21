@@ -20,7 +20,9 @@ struct APIHelperClass {
         urlRequest.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "content-type")
         }
         urlRequest.addValue("application/json", forHTTPHeaderField: "accept-type")
-        
+        if User.shared.token != "" {
+            urlRequest.setValue("\(User.shared.token)", forHTTPHeaderField: "jwt")
+        }
         
         URLSession.shared.dataTask(with: urlRequest) { (data, httpUrlResponse, error) in
             

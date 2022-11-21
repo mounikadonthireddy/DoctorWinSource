@@ -127,6 +127,7 @@ struct ComplaintLikeModel: Codable {
 
 protocol CaseDetailsDelegate {
     func didReciveCaseDetails(response: CaseDetails?, error: String?)
+    func didReciveCommentsList(response: [CommentModel]?, error: String?)
 }
 struct DetailsViewModel {
     var delegate: CaseDetailsDelegate?
@@ -142,6 +143,27 @@ struct DetailsViewModel {
                     
                 case .failure(let error):
                     self.delegate?.didReciveCaseDetails(response: nil, error: error)
+                }
+            
+            }
+            
+            
+        }
+          
+        
+    }
+    func getComments(userID: String, caseId: String) {
+       
+        let homeResource = HomeResource()
+
+        homeResource.getComments(userId: userID, postID: caseId) { response in
+            DispatchQueue.main.async {
+                switch response {
+                case .success(let data):
+                    self.delegate?.didReciveCommentsList(response: data, error: nil)
+                    
+                case .failure(let error):
+                    self.delegate?.didReciveCommentsList(response: nil, error: error)
                 }
             
             }

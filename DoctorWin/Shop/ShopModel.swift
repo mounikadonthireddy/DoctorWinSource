@@ -29,7 +29,7 @@ struct ProductDetailsModel: Codable {
     let product_models: String?
     let product_price: String
     let location: String
-    let phone: Int
+    let phone: String
     let description: String
     let profile_name: String
     let profileImage: String?

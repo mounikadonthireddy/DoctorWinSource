@@ -58,7 +58,7 @@ struct HomeResource {
     }
     func getCaseDetails(userID: String,complaintID: String ,completion : @escaping (_ result: ResponseResult<CaseDetails>) -> Void) {
         
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getComplaint + ApiEndpoints.userID + "=\(userID)&complaint_id=\(complaintID)&page=1"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getComplaint + ApiEndpoints.userID + "=\(userID)&id=\(complaintID)&page=1"
         let httpUtility = HttpUtility()
         do {
             
@@ -391,6 +391,23 @@ struct HomeResource {
         let httpUtility = HttpUtility()
         do {
             httpUtility.getApiData(urlString: urlString, resultType: [HomeDataModel].self) { result in
+                
+                switch result {
+                case .success(let data):
+                    completion(.success(data))
+                    
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
+            }
+        }
+    }
+    func getComments(userId: String,postID: String, completion : @escaping (_ result: ResponseResult<[CommentModel]>) -> Void) {
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getComments + ApiEndpoints.userID + "=\(userId)" + "&achievement_id=\(postID)"
+      
+        let httpUtility = HttpUtility()
+        do {
+            httpUtility.getApiData(urlString: homeUrlStr, resultType: [CommentModel].self) { result in
                 
                 switch result {
                 case .success(let data):

@@ -364,6 +364,8 @@
 		DC961EAB2876D68000F24913 /* EditConnectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC961EAA2876D68000F24913 /* EditConnectViewModel.swift */; };
 		DC961EAE2876E17C00F24913 /* EditConnectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC961EAC2876E17C00F24913 /* EditConnectCell.swift */; };
 		DC961EAF2876E17C00F24913 /* EditConnectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC961EAD2876E17C00F24913 /* EditConnectCell.xib */; };
+		DC96D3B8292B9C3300F4CCF9 /* ImageCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC96D3B6292B9C3300F4CCF9 /* ImageCVCell.xib */; };
+		DC96D3B9292B9C3300F4CCF9 /* ImageCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC96D3B7292B9C3300F4CCF9 /* ImageCVCell.swift */; };
 		DC9AB74728F830C300C6043E /* CurriculamHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9AB74528F830C300C6043E /* CurriculamHeaderCell.swift */; };
 		DC9AB74828F830C300C6043E /* CurriculamHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC9AB74628F830C300C6043E /* CurriculamHeaderCell.xib */; };
 		DC9AB74B28F830DD00C6043E /* CurriculamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9AB74928F830DD00C6043E /* CurriculamCell.swift */; };
@@ -815,6 +817,8 @@
 		DC961EAA2876D68000F24913 /* EditConnectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditConnectViewModel.swift; sourceTree = "<group>"; };
 		DC961EAC2876E17C00F24913 /* EditConnectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditConnectCell.swift; sourceTree = "<group>"; };
 		DC961EAD2876E17C00F24913 /* EditConnectCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditConnectCell.xib; sourceTree = "<group>"; };
+		DC96D3B6292B9C3300F4CCF9 /* ImageCVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCVCell.xib; sourceTree = "<group>"; };
+		DC96D3B7292B9C3300F4CCF9 /* ImageCVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCVCell.swift; sourceTree = "<group>"; };
 		DC9AB74528F830C300C6043E /* CurriculamHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurriculamHeaderCell.swift; sourceTree = "<group>"; };
 		DC9AB74628F830C300C6043E /* CurriculamHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurriculamHeaderCell.xib; sourceTree = "<group>"; };
 		DC9AB74928F830DD00C6043E /* CurriculamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurriculamCell.swift; sourceTree = "<group>"; };
@@ -1594,6 +1598,8 @@
 				43A6A98527329D0200400F72 /* AddSkillsCell.xib */,
 				BFA90E1927B4E97A009F9784 /* ProfileImageCell.swift */,
 				BFA90E1A27B4E97A009F9784 /* ProfileImageCell.xib */,
+				DC96D3B7292B9C3300F4CCF9 /* ImageCVCell.swift */,
+				DC96D3B6292B9C3300F4CCF9 /* ImageCVCell.xib */,
 				DC3A6A2828F07873006F73A2 /* ImageSwipeCell.swift */,
 				DC3A6A2928F07873006F73A2 /* ImageSwipeCell.xib */,
 				BFA90E1527B4E036009F9784 /* MySelfCell.swift */,
@@ -1942,6 +1948,7 @@
 				43B03A99272EA94E00A4337B /* HomeDetailsCell.xib in Resources */,
 				439DC46A273FB28800DAD6D5 /* Roboto-Regular.ttf in Resources */,
 				BF431C872782DC320057AF9F /* ExperienceCell.xib in Resources */,
+				DC96D3B8292B9C3300F4CCF9 /* ImageCVCell.xib in Resources */,
 				DC3A6A3328F1A46A006F73A2 /* LearningCell.xib in Resources */,
 				DC96036D28FD5CC100007E6A /* HomeDetailsHeaderCell.xib in Resources */,
 				439DC46D273FB28800DAD6D5 /* LICENSE.txt in Resources */,
@@ -2254,6 +2261,7 @@
 				43B28450273CE1BA00E8CED8 /* AddMainViewController.swift in Sources */,
 				BF170F71280FD726001B3109 /* ExamDetailsViewController.swift in Sources */,
 				43A6A97E2732520600400F72 /* AddExperienceCell.swift in Sources */,
+				DC96D3B9292B9C3300F4CCF9 /* ImageCVCell.swift in Sources */,
 				BFCB16BE279993AC005E3FEB /* PollsViewModel.swift in Sources */,
 				DCA0A6E828C36118001DE3F1 /* NetworkCVHeaderView.swift in Sources */,
 				BF170F4F280D34CA001B3109 /* ProfileViewHeader.swift in Sources */,

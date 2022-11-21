@@ -162,3 +162,12 @@ struct BookmarkStatusResponseModel: Codable {
     let bookmark_count: Int?
     let bookmark: Bool?
 }
+struct SkipProfileResponseModel: Codable {
+    let skiped_profile : Bool?
+    let status: Bool?
+}
+struct UndoProfileResponseModel: Codable {
+    let undo : Bool?
+    let status: Bool?
+    let rest_profile: Int?
+}

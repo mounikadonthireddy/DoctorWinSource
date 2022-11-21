@@ -74,6 +74,26 @@ struct ShopResource {
         }
         
     }
+    func getshopBannerData(userID: String, completion : @escaping (_ result: ResponseResult<[ImageBannerModel]>) -> Void) {
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.shopBanner
+        let urlString = homeUrlStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+
+        let httpUtility = HttpUtility()
+        do {
+            httpUtility.getApiData(urlString: urlString, resultType: [ImageBannerModel].self) { result in
+                
+                switch result {
+                case .success(let data):
+                    completion(.success(data))
+                    
+                case .failure( _):
+                    completion(.failure("Please try Again After SomeTime"))
+                    
+                }
+            }
+        }
+        
+    }
     func getshopCategoryData(userID: String, productId: Int, completion : @escaping (_ result: ResponseResult<ProductDetailsModel>) -> Void) {
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.shopData + ApiEndpoints.userID + "=\(userID)&productid=\(productId)"
         let httpUtility = HttpUtility()

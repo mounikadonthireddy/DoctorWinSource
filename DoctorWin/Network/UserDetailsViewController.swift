@@ -54,7 +54,7 @@ class UserDetailsViewController: ViewController {
         
     }
     func loadGroupData() {
-        self.showLoader()
+       // self.showLoader()
         if groupId != "" {
             userVM.getGroupProfileData(userID: User.shared.userID, groupId: groupId)
         } else if requestUserID != "" {
@@ -64,7 +64,7 @@ class UserDetailsViewController: ViewController {
         }
     }
     func loadPostsData() {
-        self.showLoader()
+        //self.showLoader()
         if groupId != "" {
             userVM.getPostData(userID: User.shared.userID, group_id: groupId)
         } else if groupId == "" && requestUserID != "" {
@@ -74,7 +74,7 @@ class UserDetailsViewController: ViewController {
         }
     }
     func loadCasesData() {
-        self.showLoader()
+       // self.showLoader()
         if groupId != "" {
             userVM.getCasesData(userID: User.shared.userID, group_id: groupId)
         } else if groupId == "" && requestUserID != "" {
@@ -84,7 +84,7 @@ class UserDetailsViewController: ViewController {
         }
     }
     func loadQuestionsData() {
-        self.showLoader()
+        ///self.showLoader()
         if groupId != "" {
             userVM.getQuestionsData(userID: User.shared.userID, group_id: groupId)
         } else if groupId == "" && requestUserID != "" {
@@ -94,7 +94,7 @@ class UserDetailsViewController: ViewController {
         }
     }
     func loadAnswersData() {
-        self.showLoader()
+       // self.showLoader()
         if groupId != "" {
             userVM.getAnswersData(userID: User.shared.userID, group_id: groupId)
         } else if groupId == "" && requestUserID != "" {

@@ -95,7 +95,7 @@ struct PostedQuestionModel: Codable {
 struct RepliesModel: Codable {
     let id: Int
     let asked_question: String?
-    let reply_by: [AnswersModel]?
+    let reply_by: [AnswersModel1]?
 }
 
 //struct ReplyByModel: Codable {
@@ -122,6 +122,21 @@ struct AnswersModel: Codable {
     let like_status: Bool?
     let speciality: String?
     let id: Int
+    let posted_ans_image: String?
+    let cover_image: String?
+    
+}
+struct AnswersModel1: Codable {
+    let ProfileName: String?
+    let ProfileImage: String?
+    let asked_question: String?
+    let ans: String?
+    let number_of_comment: Int?
+    let number_of_like: Int?
+    let bookmark_status: Bool?
+    let like_status: Bool?
+    let speciality: String?
+    let posted_ans_id: Int
     let posted_ans_image: String?
     let cover_image: String?
     

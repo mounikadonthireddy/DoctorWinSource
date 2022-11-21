@@ -34,8 +34,30 @@ class ReplyCell: UITableViewCell {
         
         // Configure the view for the selected state
     }
-    
     func configureDataWith(homeModel: AnswersModel) {
+        self.postedPersonName.text = (homeModel.ProfileName ?? "")
+        self.titleLable.text =  homeModel.ans ?? ""
+        self.designation.text = homeModel.speciality ?? ""
+        self.discussion.text = "\(homeModel.number_of_comment ?? 0)"
+        self.likeLable.text = "\(homeModel.number_of_like ?? 0)"
+        if homeModel.bookmark_status ?? false {
+            bookmarkImage.image = UIImage(named: "fmark")
+        }
+        
+        if homeModel.bookmark_status ?? false {
+            likeImage.image = UIImage(named: "fheart")
+        }
+        if let imageStr = homeModel.posted_ans_image {
+            self.postImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + imageStr), placeholderImage: UIImage(named: "loginBg"))
+        }
+        if let urlString = homeModel.ProfileImage {
+            self.personImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
+        }
+        //        wishlistBtn.tag = homeModel.id
+        //        saveBtn.tag = homeModel.id
+        //        replyBtn.tag = homeModel.id
+    }
+    func configureDataWith(homeModel: AnswersModel1) {
         self.postedPersonName.text = (homeModel.ProfileName ?? "")
         self.titleLable.text =  homeModel.ans ?? ""
         self.designation.text = homeModel.speciality ?? ""

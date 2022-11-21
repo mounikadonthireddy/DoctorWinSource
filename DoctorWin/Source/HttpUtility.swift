@@ -27,15 +27,19 @@ enum HTTPMethod: String {
 struct HttpUtility {
     
     func getApiData<T:Decodable>(urlString: String, resultType: T.Type, completion:@escaping(Result<T, RequestError>) -> Void) {
-        
-        
-        
+     
         guard let url = URL(string: urlString) else {
             completion(.failure(.invalidUrl))
             return
         }
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "GET"
+        if User.shared.token != "" {
+            urlRequest.setValue("\(User.shared.token)", forHTTPHeaderField: "jwt")
+        }
+        
         //send Request
-        URLSession.shared.dataTask(with: url) { (responseData, httpUrlResponse, error) in
+        URLSession.shared.dataTask(with: urlRequest) { (responseData, httpUrlResponse, error) in
             if error != nil {
                 completion(.failure(RequestError.invalidUrl))
             }

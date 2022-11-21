@@ -134,7 +134,7 @@ extension QuestionDetailsViewController: UITableViewDelegate, UITableViewDataSou
     @objc func answerClicked(button: UIButton) {
         let str = UIStoryboard(name: "Add", bundle: nil)
         let nextVC = str.instantiateViewController(withIdentifier: "AddAnswerViewController") as! AddAnswerViewController
-        // nextVC.questionId = questionsArray[indexPath.row].id ?? 0
+        nextVC.askedQuestion = repleisData?.asked_question ?? ""
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }

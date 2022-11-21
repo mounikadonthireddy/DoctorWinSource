@@ -16,8 +16,8 @@ struct Constants {
 
 struct ApiEndpoints
 {
-    static let baseImageURL = "http://44.209.240.63:8000"
-    static let baseUrl = "http://44.209.240.63:8000/api/"
+    static let baseImageURL = ""
+    static let baseUrl = "https://api.doctorworld.live/api/"
     static let baseUrl1 = "http://3.136.112.232:8000/api/"
     static let userID = "?dworks_id"
     static let login = "auth/registration"
@@ -135,8 +135,9 @@ struct ApiEndpoints
     static let getUserPostedAnswers  = "ask/question/reply/show"
     
     //complaint
-    static let getComplaint = "complaint/case"
+    static let getComplaint = "user/social/"
     static let getComplaintComment = "complaint/comment/"
+    static let getComments = "user/social/comment"
     
     
     static let profileEdit = "job/profile/"
@@ -191,6 +192,7 @@ struct ApiEndpoints
     //Shop
     static let shopData = "shopping/product/image/"
     static let shopCategory = "shopping/product/category"
+    static let shopBanner = "admin/banner/get?name=shop store image"
     static let shopSale = "shopping/product/upload"
     static let shopRecent = "shopping/product/view"
     static let shopBookmark = "shopping/product/bookmark"
@@ -210,6 +212,10 @@ struct ApiEndpoints
     static let dating = "connect/dating/recommed/profile"
     static let myLikes = "connect/dating/i/likes/you/"
     static let otherLikes = "connect/dating/you/likes/me/"
+    static let likeProfile = "connect/dating/you/likes/me/"
+    static let skiprofile = "connect/dating/skip/profile"
+    static let undoProfile = "connect/dating/undo/skip/profile"
+    
 }
 
 class User {
@@ -218,4 +224,5 @@ class User {
         
     }
     var userID: String = ""
+    var token: String = ""
 }

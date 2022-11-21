@@ -50,16 +50,80 @@ extension MatchesViewController: DatingViewModelDelegate {
 }
 extension MatchesViewController {
     @IBAction func undoClicked(_ sender: UIButton) {
+        let request = ProfileUndiRequest(dworks_id: User.shared.userID)
+        let resource = DatingResource()
+        resource.undoProfile(request: request) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let data) :
+                    if data.undo == true {
+//                        if self.datingArray.count - 1 != self.currentProfileIndex {
+//                            self.currentProfileIndex = self.currentProfileIndex + 1
+//                        } else {
+//                            self.currentProfileIndex = 0
+//                        }
+                        self.tableView.reloadData()
+                    } else {
+                        
+                    }
+                case .failure(_):
+                    print("")
+                }
+            }
+            
+        }
         
     }
     @IBAction func rejectClicked(_ sender: UIButton) {
-        
+        let request = ProfileSkipRequest(dworks_id: User.shared.userID, skip_profile_id: "\(datingArray[currentProfileIndex].user)")
+        let resource = DatingResource()
+        resource.skipProfile(request: request) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let data) :
+                    if data.skiped_profile == true {
+                        if self.datingArray.count - 1 != self.currentProfileIndex {
+                            self.currentProfileIndex = self.currentProfileIndex + 1
+                        } else {
+                            self.currentProfileIndex = 0
+                        }
+                        self.tableView.reloadData()
+                    } else {
+                        
+                    }
+                case .failure(_):
+                    print("")
+                }
+            }
+            
+        }
     }
     @IBAction func messageClicked(_ sender: UIButton) {
         
     }
     @IBAction func wishlistClicked(_ sender: UIButton) {
-        
+        let request = ProfileLikeRequest(dworks_id: User.shared.userID, like_id: "\(datingArray[currentProfileIndex].user)")
+        let resource = DatingResource()
+        resource.likeProfile(request: request) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let data) :
+                    if data.likes == true {
+                        if self.datingArray.count - 1 != self.currentProfileIndex {
+                            self.currentProfileIndex = self.currentProfileIndex + 1
+                        } else {
+                            self.currentProfileIndex = 0
+                        }
+                        self.tableView.reloadData()
+                    } else {
+                        
+                    }
+                case .failure(_):
+                    print("")
+                }
+            }
+            
+        }
     }
     @IBAction func likedClicked(_ sender: UIButton) {
         

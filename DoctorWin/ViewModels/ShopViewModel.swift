@@ -15,6 +15,7 @@ protocol ShopWishlistDelegate {
 protocol ShopDelegate {
     func didReciveShopData(response: [ShopModel]?, error: String?)
     func didReciveShopCategoryData(response: [ShopCategoryModel]?, error: String?)
+    func didReciveShopBannerData(response: [ImageBannerModel]?, error: String?)
 }
 
 struct ShopViewModel {
@@ -47,6 +48,22 @@ struct ShopViewModel {
                     
                 case .failure(let error):
                     self.delegate?.didReciveShopCategoryData(response: nil, error: error)
+                }
+            
+            }
+            
+        }
+    }
+    func getShopBannerData(userID: String) {
+        let homeResource = ShopResource()
+        homeResource.getshopBannerData(userID: userID) { response in
+            DispatchQueue.main.async {
+                switch response {
+                case .success(let data):
+                    self.delegate?.didReciveShopBannerData(response: data, error: nil)
+                    
+                case .failure(let error):
+                    self.delegate?.didReciveShopBannerData(response: nil, error: error)
                 }
             
             }

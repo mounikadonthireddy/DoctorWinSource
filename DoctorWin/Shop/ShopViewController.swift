@@ -12,18 +12,24 @@ class ShopViewController: ViewController {
     var shopVM = ShopViewModel()
     var categoryArray : [ShopCategoryModel] = []
     var shopArray : [ShopModel] = []
+    var bannerArray : [ImageBannerModel] = []
     @IBOutlet weak var shopCollectionView: UICollectionView!
     @IBOutlet weak var shopView: UIView!
     @IBOutlet weak var categoryCollectionView: UICollectionView!
+    @IBOutlet weak var bannerCollectionView: UICollectionView!
     @IBOutlet weak var shopCVLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var categoryCVLayout: UICollectionViewFlowLayout!
+    @IBOutlet weak var bannerCVLayout: UICollectionViewFlowLayout!
+    @IBOutlet weak var bannerCVHeight: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        shopView.dropShadow()
+        bannerCVHeight.constant = 0
         categoryCollectionView.register(UINib.init(nibName: "ShopCategoryCell", bundle: nil), forCellWithReuseIdentifier: "ShopCategoryCell")
         shopCollectionView.register(UINib.init(nibName: "ShopCell", bundle: nil), forCellWithReuseIdentifier: "ShopCell")
-      
-        shopView.dropShadow()
+        bannerCollectionView.register(UINib.init(nibName: "ImageCVCell", bundle: nil), forCellWithReuseIdentifier: "ImageCVCell")
+        
+        
         shopCVLayout.scrollDirection = .vertical
         shopCVLayout.minimumLineSpacing = 0
         shopCVLayout.minimumInteritemSpacing = 0
@@ -33,10 +39,15 @@ class ShopViewController: ViewController {
         categoryCVLayout.minimumLineSpacing = 0
         categoryCVLayout.minimumInteritemSpacing = 0
         categoryCVLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        bannerCVLayout.scrollDirection = .horizontal
+        bannerCVLayout.minimumLineSpacing = 0
+        bannerCVLayout.minimumInteritemSpacing = 0
+        bannerCVLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         shopVM.delegate = self
         // Do any additional setup after loading the view.
         loadShopData()
         loadShopCategoryData()
+        loadShopBannerData()
     }
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.tabBar.isHidden = true
@@ -48,6 +59,10 @@ class ShopViewController: ViewController {
     func loadShopCategoryData() {
         showLoader()
         shopVM.getShopCategoryData(userID: User.shared.userID, pageNum: 0)
+    }
+    func loadShopBannerData() {
+        showLoader()
+        shopVM.getShopBannerData(userID: User.shared.userID)
     }
     @IBAction func backClicked(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -82,6 +97,11 @@ extension ShopViewController : UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == categoryCollectionView {
             return categoryArray.count
+        } else  if collectionView == bannerCollectionView {
+            if bannerArray.count > 0 {
+                return 1
+            }
+            return 0
         } else {
             return shopArray.count
         }
@@ -93,6 +113,11 @@ extension ShopViewController : UICollectionViewDelegate, UICollectionViewDataSou
             cell.bgView.setCornerRadiusWithBorderColor(radius: 5, color: UIColor.secondaryLabel, borderWidth: 0.5)
             cell.configureCell(data: categoryArray[indexPath.row])
             return cell
+            
+        } else if collectionView == bannerCollectionView {
+                let cell: ImageCVCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCVCell", for: indexPath) as! ImageCVCell
+                cell.loadCellBannerImages(data: bannerArray)
+                return cell
         } else {
             let cell: ShopCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShopCell", for: indexPath) as! ShopCell
             cell.configureCell(data: shopArray[indexPath.row])
@@ -104,6 +129,8 @@ extension ShopViewController : UICollectionViewDelegate, UICollectionViewDataSou
         if collectionView == categoryCollectionView {
             let size = (categoryArray[indexPath.row].name as NSString).size(withAttributes: nil)
             return CGSize(width: size.width + 50, height: 35)
+        } else  if collectionView == bannerCollectionView {
+            return CGSize(width: bannerCollectionView.frame.size.width , height: 230)
         } else {
         let yourWidth = collectionView.bounds.width/2 - 10
         return CGSize(width: yourWidth, height: 195)
@@ -138,12 +165,10 @@ extension ShopViewController : UICollectionViewDelegate, UICollectionViewDataSou
             let nextVC = str.instantiateViewController(withIdentifier: "ShopDetailsViewController") as! ShopDetailsViewController
             nextVC.productId = shopArray[indexPath.row].id
             self.navigationController?.pushViewController(nextVC, animated: true)
-        } else {
+        } else if collectionView == categoryCollectionView {
             let type = categoryArray[indexPath.row].name
-           // let data = shopArray.filter { $0.product_name == type }
             let str = UIStoryboard(name: "Shop", bundle: nil)
             let nextVC = str.instantiateViewController(withIdentifier: "ShopCategoryViewController") as! ShopCategoryViewController
-//            nextVC.shopArray = data
             nextVC.categorySelected = type
             self.navigationController?.pushViewController(nextVC, animated: true)
         }
@@ -152,6 +177,15 @@ extension ShopViewController : UICollectionViewDelegate, UICollectionViewDataSou
     
 }
 extension ShopViewController: ShopDelegate {
+    func didReciveShopBannerData(response: [ImageBannerModel]?, error: String?) {
+        self.dismiss()
+        bannerArray = response ?? []
+        if bannerArray.count != 0 {
+            bannerCVHeight.constant = 230
+        }
+        bannerCollectionView.reloadData()
+    }
+    
     func didReciveShopData(response: [ShopModel]?, error: String?) {
         self.dismiss()
         shopArray = response ?? []

@@ -12,8 +12,12 @@ class AddAnswerViewController: UIViewController {
     @IBOutlet weak var questionLbl: UILabel!
     @IBOutlet weak var questionTF: UITextView!
     @IBOutlet weak var selectedImage: UIImageView!
+    var askedQuestion = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+        if askedQuestion != "" {
+            questionLbl.text = askedQuestion
+        }
 
         // Do any additional setup after loading the view.
     }

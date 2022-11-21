@@ -14,7 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         if let windowScene = scene as? UIWindowScene {
-            if let userId = UserDefaults.standard.value(forKey: "user_id") {
+            if let userId = UserDefaults.standard.string(forKey: "token") {
             let window = UIWindow(windowScene: windowScene)
             let str = UIStoryboard(name: "Tab", bundle: nil)
             let nextViewController = str.instantiateViewController(withIdentifier: "tabView")
@@ -24,7 +24,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 
 //                let nextViewController = str.instantiateViewController(withIdentifier: "RegisterDetailsViewController") as? RegisterDetailsViewController
                window.rootViewController = nextViewController
-                User.shared.userID = "DWU2026"
+                User.shared.userID = userId
+                User.shared.token = userId
                self.window = window
                window.makeKeyAndVisible()
          }

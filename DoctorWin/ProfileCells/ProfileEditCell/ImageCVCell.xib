@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="ImageCVCell" reuseIdentifier="ImageCVCell" id="gTV-IL-0wX" customClass="ImageCVCell" customModule="DoctorWin" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="324" height="223"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="324" height="223"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginBg" translatesAutoresizingMaskIntoConstraints="NO" id="eNN-lk-CUr">
+                        <rect key="frame" x="20" y="10" width="284" height="180"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="180" id="MaM-W6-nh6"/>
+                        </constraints>
+                    </imageView>
+                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Dpd-CL-KOC">
+                        <rect key="frame" x="5" y="195" width="314" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="7e5-GA-qDD"/>
+                        </constraints>
+                        <color key="pageIndicatorTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="currentPageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </pageControl>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="eNN-lk-CUr" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="I0i-EH-qAD"/>
+                <constraint firstAttribute="trailing" secondItem="eNN-lk-CUr" secondAttribute="trailing" constant="20" id="PJf-5p-OQk"/>
+                <constraint firstAttribute="trailing" secondItem="Dpd-CL-KOC" secondAttribute="trailing" constant="5" id="SYA-Ru-Qak"/>
+                <constraint firstItem="eNN-lk-CUr" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="c6M-Qi-ocJ"/>
+                <constraint firstItem="Dpd-CL-KOC" firstAttribute="top" secondItem="eNN-lk-CUr" secondAttribute="bottom" constant="5" id="moC-NE-hmS"/>
+                <constraint firstAttribute="bottom" secondItem="Dpd-CL-KOC" secondAttribute="bottom" priority="999" constant="8" id="rQS-5E-59T"/>
+                <constraint firstItem="Dpd-CL-KOC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="s2V-si-6ju"/>
+            </constraints>
+            <size key="customSize" width="324" height="223"/>
+            <connections>
+                <outlet property="imageView" destination="eNN-lk-CUr" id="PIy-6h-VFc"/>
+                <outlet property="pageControl" destination="Dpd-CL-KOC" id="m2p-g2-F9j"/>
+            </connections>
+            <point key="canvasLocation" x="334.78260869565219" y="136.94196428571428"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="loginBg" width="375" height="153"/>
+    </resources>
+</document>

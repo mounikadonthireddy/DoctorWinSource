@@ -25,6 +25,7 @@ struct OTPResponse: Codable {
     let profile_name: String?
     let dworks_id: String?
     let status: Bool?
+    let token: String?
     let message: String?
     let dating_profile_status: Bool?
     

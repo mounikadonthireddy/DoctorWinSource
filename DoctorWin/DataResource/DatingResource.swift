@@ -68,4 +68,82 @@ struct DatingResource {
         }
         
     }
+    func likeProfile(request: ProfileLikeRequest, completion : @escaping  (_ result: ResponseResult<StatusResponseModel>) -> Void) {
+        
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.likeProfile + ApiEndpoints.userID +  "=\(request.dworks_id)&like_id=\(request.like_id)"
+        let homeUrl = URL(string: homeUrlStr)!
+        
+        let httpUtility = HttpUtility()
+        do {
+            let postBody = try JSONEncoder().encode(request)
+            
+            httpUtility.postMethod(requestUrl: homeUrl, requestBody: postBody, resultType: StatusResponseModel.self) {
+                result in
+                switch result {
+                case .success(let data):
+                    completion(.success(data))
+                    
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                    
+                }
+                
+            }
+            
+        } catch let error {
+            debugPrint(error)
+        }
+    }
+    func skipProfile(request: ProfileSkipRequest, completion : @escaping  (_ result: ResponseResult<SkipProfileResponseModel>) -> Void) {
+        
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.skiprofile + ApiEndpoints.userID +  "=\(request.dworks_id)&skip_profile_id=\(request.skip_profile_id)"
+        let homeUrl = URL(string: homeUrlStr)!
+        
+        let httpUtility = HttpUtility()
+        do {
+            let postBody = try JSONEncoder().encode(request)
+            
+            httpUtility.postMethod(requestUrl: homeUrl, requestBody: postBody, resultType: SkipProfileResponseModel.self) {
+                result in
+                switch result {
+                case .success(let data):
+                    completion(.success(data))
+                    
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                    
+                }
+                
+            }
+            
+        } catch let error {
+            debugPrint(error)
+        }
+    }
+    func undoProfile(request: ProfileUndiRequest, completion : @escaping  (_ result: ResponseResult<UndoProfileResponseModel>) -> Void) {
+        
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.undoProfile + ApiEndpoints.userID +  "=\(request.dworks_id)"
+        let homeUrl = URL(string: homeUrlStr)!
+        
+        let httpUtility = HttpUtility()
+        do {
+            let postBody = try JSONEncoder().encode(request)
+            
+            httpUtility.postMethod(requestUrl: homeUrl, requestBody: postBody, resultType: UndoProfileResponseModel.self) {
+                result in
+                switch result {
+                case .success(let data):
+                    completion(.success(data))
+                    
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                    
+                }
+                
+            }
+            
+        } catch let error {
+            debugPrint(error)
+        }
+    }
 }

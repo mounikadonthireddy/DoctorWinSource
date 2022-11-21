@@ -107,6 +107,10 @@ extension ShopCategoryViewController : UICollectionViewDelegate, UICollectionVie
     
 }
 extension ShopCategoryViewController: ShopDelegate {
+    func didReciveShopBannerData(response: [ImageBannerModel]?, error: String?) {
+        
+    }
+    
     func didReciveShopData(response: [ShopModel]?, error: String?) {
         self.dismiss()
         shopArray = response ?? []

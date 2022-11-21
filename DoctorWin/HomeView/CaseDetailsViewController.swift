@@ -8,18 +8,22 @@
 import UIKit
 
 class CaseDetailsViewController: ViewController {
-
+    
     @IBOutlet weak var HomeDetailsTableView: UITableView!
-    var detailsModel : HomeDataModel!
+    var detailsModel : HomeDataModel?
     var viewModel = DetailsViewModel()
     var caseId = 0
+    var commentsArray: [CommentModel] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
+        HomeDetailsTableView.register(UINib(nibName: "HomeDetailsHeaderCell", bundle: nil), forCellReuseIdentifier: "HomeDetailsHeaderCell")
+        HomeDetailsTableView.register(UINib(nibName: "HomeDetailsImageCell", bundle: nil), forCellReuseIdentifier: "HomeDetailsImageCell")
         
         HomeDetailsTableView.register(UINib(nibName: "CaseDetailsCell", bundle: nil), forCellReuseIdentifier: "CaseDetailsCell")
         HomeDetailsTableView.register(UINib(nibName: "CommentsCell", bundle: nil), forCellReuseIdentifier: "CommentsCell")
-
+        
+        
         tabBarController?.tabBar.isHidden = true
         self.HomeDetailsTableView.delegate = self
         self.HomeDetailsTableView.dataSource = self
@@ -28,7 +32,7 @@ class CaseDetailsViewController: ViewController {
     }
     func loadCaseDetails() {
         self.showLoader()
-        viewModel.getCaseDetails(userID: User.shared.userID, caseId: "\(caseId)")
+        viewModel.getComments(userID: User.shared.userID, caseId: "\(caseId)")
     }
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.tabBar.isHidden = true
@@ -36,49 +40,60 @@ class CaseDetailsViewController: ViewController {
     @IBAction func backClikced(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+ 
 }
 extension CaseDetailsViewController : UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 4
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return 1
-        } else {
-//            return detailsModel.commentsArray?.count ?? 0
-            return 0
+        if let _ = detailsModel {
+            if section == 3 {
+                return commentsArray.count
+            } else if section == 1 {
+                return 0
+            } else {
+                //            return detailsModel.commentsArray?.count ?? 0
+                return 1
+            }
         }
-     
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-        let cell: CaseDetailsCell
+            let cell: HomeDetailsHeaderCell
+            = tableView.dequeueReusableCell(withIdentifier: "HomeDetailsHeaderCell") as! HomeDetailsHeaderCell
+            cell.configureData(homeModel: detailsModel!)
+            return cell
+        } else  if indexPath.section == 1 {
+            let cell: CaseDetailsCell
             = tableView.dequeueReusableCell(withIdentifier: "CaseDetailsCell") as! CaseDetailsCell
-      //  cell.configureCellWith(data: detailsModel)
-        return cell
+            
+            return cell
+        } else if indexPath.section == 2 {
+            let cell: HomeDetailsImageCell
+            = tableView.dequeueReusableCell(withIdentifier: "HomeDetailsImageCell") as! HomeDetailsImageCell
+            cell.configureData(homeModel: detailsModel!)
+            return cell
         } else {
             let cell: CommentsCell
-                = tableView.dequeueReusableCell(withIdentifier: "CommentsCell") as! CommentsCell
-//            cell.configureCellWith(data: detailsModel.commentsArray![indexPath.row])
+            = tableView.dequeueReusableCell(withIdentifier: "CommentsCell") as! CommentsCell
+                    cell.configureCellWith(data: commentsArray[indexPath.row])
             return cell
         }
     }
-   
+    
     
     
 }
 extension CaseDetailsViewController: CaseDetailsDelegate {
+    func didReciveCommentsList(response: [CommentModel]?, error: String?) {
+        self.dismiss()
+        commentsArray = response ?? []
+        self.HomeDetailsTableView.reloadData()
+    }
+    
     func didReciveCaseDetails(response: CaseDetails?, error: String?) {
         self.dismiss()
     }

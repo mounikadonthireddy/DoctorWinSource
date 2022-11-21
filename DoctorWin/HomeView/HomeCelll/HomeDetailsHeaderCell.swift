@@ -22,5 +22,14 @@ class HomeDetailsHeaderCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    func configureData(homeModel: HomeDataModel) {
+        self.postedPersonName.text = (homeModel.profileName ?? "")
+        self.titleLable.text =  homeModel.postTitle ?? ""
+        self.designation.text = homeModel.speciality ?? ""
+        if let urlString = homeModel.profileImage {
+            self.personImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
+        }
+        
+    }
     
 }

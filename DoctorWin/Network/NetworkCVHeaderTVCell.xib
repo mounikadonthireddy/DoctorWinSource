@@ -17,34 +17,33 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WVK-JZ-Udo">
+                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WVK-JZ-Udo">
                         <rect key="frame" x="10" y="5" width="300" height="40"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="u78-S7-C4n">
-                                <rect key="frame" x="0.0" y="1.5" width="35" height="37"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="collegeBg" translatesAutoresizingMaskIntoConstraints="NO" id="u78-S7-C4n">
+                                <rect key="frame" x="0.0" y="0.0" width="35" height="40"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="35" id="hBn-ex-Uoo"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  All Request" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHC-kk-HCN">
-                                <rect key="frame" x="45" y="0.0" width="195" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="20" id="341-ML-4y6"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  All Request" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHC-kk-HCN">
+                                <rect key="frame" x="35" y="0.0" width="175" height="40"/>
                                 <fontDescription key="fontDescription" name="PingFangSC-Medium" family="PingFang SC" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="51D-z6-UsE">
-                                <rect key="frame" x="250" y="0.0" width="15" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="51D-z6-UsE">
+                                <rect key="frame" x="215" y="10" width="60" height="20"/>
+                                <color key="backgroundColor" red="0.46154546410000002" green="0.62916066699999995" blue="0.80544255060000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="15" id="2pG-pg-PPV"/>
+                                    <constraint firstAttribute="width" constant="60" id="2pG-pg-PPV"/>
+                                    <constraint firstAttribute="height" constant="20" id="tqG-K2-AdO"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Admin" image="ferry" catalog="system">
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                <state key="normal" title="Admin" image="xmark.seal.fill" catalog="system">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
@@ -60,6 +59,8 @@
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="r3g-nh-UBa"/>
+                            <constraint firstItem="51D-z6-UsE" firstAttribute="centerY" secondItem="WVK-JZ-Udo" secondAttribute="centerY" id="rDR-1i-6a9"/>
+                            <constraint firstItem="51D-z6-UsE" firstAttribute="leading" secondItem="YHC-kk-HCN" secondAttribute="trailing" constant="5" id="u73-1o-nE5"/>
                         </constraints>
                     </stackView>
                 </subviews>
@@ -79,8 +80,8 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="ferry" catalog="system" width="125" height="128"/>
+        <image name="collegeBg" width="375" height="153"/>
         <image name="greaterthan" catalog="system" width="128" height="111"/>
-        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="xmark.seal.fill" catalog="system" width="128" height="128"/>
     </resources>
 </document>
