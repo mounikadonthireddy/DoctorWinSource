@@ -480,6 +480,9 @@
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                         <state key="normal" image="questionmark"/>
+                                        <connections>
+                                            <action selector="postQuestion:" destination="OOz-um-2GT" eventType="touchUpInside" id="zG8-oW-RBK"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LZ2-J3-2K2">
                                         <rect key="frame" x="319" y="45" width="40" height="40"/>
@@ -490,6 +493,9 @@
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                         <state key="normal" image="answers_menu"/>
+                                        <connections>
+                                            <action selector="searchQuestion:" destination="OOz-um-2GT" eventType="touchUpInside" id="pev-bw-nQ3"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>

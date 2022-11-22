@@ -82,6 +82,30 @@ struct QuestionsResource {
             print("error is \(error)")
         }
     }
+    func postMainQuestion(request: QuestionRequestModel,userId: String, completion  : @escaping (_ result: ResponseResult<BoolResponseModel>) -> Void) {
+        let urlStr = ApiEndpoints.baseUrl + ApiEndpoints.postQuestion
+        let homeUrl = URL(string: urlStr)!
+        
+        let httpUtility = HttpUtility()
+        do {
+            
+            let postBody = try JSONEncoder().encode(request)
+            
+            httpUtility.postMethod(requestUrl: homeUrl, requestBody: postBody, resultType: BoolResponseModel.self) { (result) in
+                
+                switch result {
+                case .success(let data):
+                    completion(.success(data))
+                    
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
+              
+            }
+        } catch let error {
+            print("error is \(error)")
+        }
+    }
     func getUserRepliesPostedQuestions(userID: String,page:Int, questionId: String,completion : @escaping (_ result: ResponseResult<RepliesModel>) -> Void) {
         
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.userPostedReplied + ApiEndpoints.userID + "=\(userID)&page=\(page)&question_id=\(questionId)"

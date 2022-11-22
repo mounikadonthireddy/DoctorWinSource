@@ -173,6 +173,7 @@ struct ApiEndpoints
     static let getRequest = "auth/request/"
     static let getPeoples = "test/connection"
     static let createGroup = "group/create"
+    static let postQuestion = "ask/question"
     
     //Requested User
     

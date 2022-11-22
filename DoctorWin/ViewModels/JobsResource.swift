@@ -28,7 +28,7 @@ struct JobsResource {
             }
         }
     }
-    func getJobDataBasedOnCategory(userID: String,categoryID: Int, completion : @escaping (_ result: ResponseResult<[CarrierModel]>) -> Void) {
+    func getJobDataBasedOnCategory(userID: String,categoryID: Int, completion : @escaping (_ result: ResponseResult<JobCarrierModel>) -> Void) {
         
         let jobCategeoryUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getNewJobs + ApiEndpoints.userID + "=\(userID)"  + "&categoryid=\(categoryID)" + "&page=1"
         
@@ -36,7 +36,7 @@ struct JobsResource {
         do {
             
             
-            httpUtility.getApiData(urlString: jobCategeoryUrlStr, resultType: [CarrierModel].self) { result in
+            httpUtility.getApiData(urlString: jobCategeoryUrlStr, resultType: JobCarrierModel.self) { result in
                 
                 switch result {
                 case .success(let data):
@@ -69,7 +69,7 @@ struct JobsResource {
             }
         }
     }
-    func getJobAllData(userID: String, completion : @escaping (_ result: ResponseResult<[CarrierModel]>) -> Void) {
+    func getJobAllData(userID: String, completion : @escaping (_ result: ResponseResult<JobCarrierModel>) -> Void) {
         
         let jobCategeoryUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getNewJobs + ApiEndpoints.userID +  "=\(userID)&page=1"
         
@@ -77,7 +77,7 @@ struct JobsResource {
         do {
             
             
-            httpUtility.getApiData(urlString: jobCategeoryUrlStr, resultType: [CarrierModel].self) { result in
+            httpUtility.getApiData(urlString: jobCategeoryUrlStr, resultType: JobCarrierModel.self) { result in
                 
                 switch result {
                 case .success(let data):

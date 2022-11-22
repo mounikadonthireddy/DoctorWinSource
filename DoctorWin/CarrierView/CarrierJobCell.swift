@@ -75,7 +75,7 @@ class CarrierJobCell: UITableViewCell {
         
         self.specialityName.text = data.name_of_company ?? ""
         
-        self.location.text = data.location_of_job
+        self.location.text = (data.city ?? "") + "," + (data.state ?? "")
         self.experience.text = "\(data.experince ?? "0")" + " yrs Experience"
         
         

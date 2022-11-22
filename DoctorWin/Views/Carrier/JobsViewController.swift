@@ -82,13 +82,13 @@ extension JobsViewController : UITableViewDelegate, UITableViewDataSource {
     
 }
 extension JobsViewController: JobsViewModelDelegate {
-    func didReceiveCarrierResponse(response: [CarrierModel]?, error: String?) {
+    func didReceiveCarrierResponse(response: JobCarrierModel?, error: String?) {
         
     }
     
-    func didReceiveJobsResponse(response: [CarrierModel]?, error: String?) {
+    func didReceiveJobsResponse(response: JobCarrierModel?, error: String?) {
         if error == nil {
-            jobsArray = response ?? []
+            jobsArray = response?.data ?? []
             jobTableView.reloadData()
         }
     }

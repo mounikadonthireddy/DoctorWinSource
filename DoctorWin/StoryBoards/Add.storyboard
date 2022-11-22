@@ -1156,14 +1156,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Easily start your question, case discussion here..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="YbG-S0-mcd">
-                                <rect key="frame" x="10" y="184" width="394" height="668"/>
+                                <rect key="frame" x="10" y="234" width="394" height="618"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D9T-6m-eNg">
-                                <rect key="frame" x="10" y="54" width="394" height="100"/>
+                                <rect key="frame" x="10" y="104" width="394" height="100"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="LXp-BS-mnP">
                                         <rect key="frame" x="10" y="18" width="374" height="35"/>
@@ -1199,7 +1199,7 @@
                                                     <constraint firstAttribute="width" constant="15" id="vce-Xm-bMv"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To askquestions start with What,How,Why etc..." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rft-mT-wjM">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To ask questions start with What,How,Why etc..." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rft-mT-wjM">
                                                 <rect key="frame" x="20" y="0.0" width="354" height="15.5"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
                                                 <color key="textColor" red="0.0" green="0.1803921568627451" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1223,19 +1223,81 @@
                                     <constraint firstItem="LXp-BS-mnP" firstAttribute="top" secondItem="D9T-6m-eNg" secondAttribute="top" constant="18" id="yZY-Je-k2S"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aZp-gP-bcm">
+                                <rect key="frame" x="0.0" y="44" width="414" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MZb-vn-Ktb">
+                                        <rect key="frame" x="10" y="9" width="32" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="32" id="1CD-Ez-TVb"/>
+                                            <constraint firstAttribute="height" constant="32" id="oNu-r6-pRp"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="xmark" catalog="system"/>
+                                        <connections>
+                                            <action selector="backClicked:" destination="PSN-aS-8h1" eventType="touchUpInside" id="E2J-r9-e5r"/>
+                                            <action selector="closeClicked:" destination="h3m-HV-8Fi" eventType="touchUpInside" id="2yw-7u-Hqg"/>
+                                            <action selector="closeClicked:" destination="PSN-aS-8h1" eventType="touchUpInside" id="ZVg-IE-nWm"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Question" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="twE-xz-xhD">
+                                        <rect key="frame" x="62" y="14.5" width="114.5" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="uzN-aq-uTe"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="19"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sXt-Lm-MOF">
+                                        <rect key="frame" x="324" y="2.5" width="80" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="cFa-wW-gVl"/>
+                                            <constraint firstAttribute="height" constant="45" id="dRd-zb-qOP"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="POST">
+                                            <color key="titleColor" red="0.0" green="0.18039215689999999" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="postClicked:" destination="h3m-HV-8Fi" eventType="touchUpInside" id="7Bh-f7-jBH"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="MZb-vn-Ktb" firstAttribute="leading" secondItem="aZp-gP-bcm" secondAttribute="leading" constant="10" id="FTw-Cg-w8Y"/>
+                                    <constraint firstItem="twE-xz-xhD" firstAttribute="leading" secondItem="MZb-vn-Ktb" secondAttribute="trailing" constant="20" id="FmG-s0-Es5"/>
+                                    <constraint firstAttribute="trailing" secondItem="sXt-Lm-MOF" secondAttribute="trailing" constant="10" id="IjG-W2-pGe"/>
+                                    <constraint firstItem="twE-xz-xhD" firstAttribute="centerY" secondItem="MZb-vn-Ktb" secondAttribute="centerY" id="d7k-Bf-JzX"/>
+                                    <constraint firstAttribute="height" constant="50" id="hVk-jE-OPZ"/>
+                                    <constraint firstItem="sXt-Lm-MOF" firstAttribute="centerY" secondItem="aZp-gP-bcm" secondAttribute="centerY" id="yvu-dk-Wd0"/>
+                                    <constraint firstItem="MZb-vn-Ktb" firstAttribute="centerY" secondItem="aZp-gP-bcm" secondAttribute="centerY" id="zqC-Y3-Wjj"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="p4m-Og-Qej"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="YbG-S0-mcd" firstAttribute="leading" secondItem="p4m-Og-Qej" secondAttribute="leading" constant="10" id="GMV-Q6-G5y"/>
-                            <constraint firstItem="D9T-6m-eNg" firstAttribute="top" secondItem="p4m-Og-Qej" secondAttribute="top" constant="10" id="HyX-Gv-Fy4"/>
+                            <constraint firstItem="aZp-gP-bcm" firstAttribute="top" secondItem="p4m-Og-Qej" secondAttribute="top" id="IhF-YE-M6A"/>
                             <constraint firstItem="p4m-Og-Qej" firstAttribute="bottom" secondItem="YbG-S0-mcd" secondAttribute="bottom" constant="10" id="KLO-N8-YGW"/>
+                            <constraint firstItem="aZp-gP-bcm" firstAttribute="leading" secondItem="p4m-Og-Qej" secondAttribute="leading" id="S00-Fw-lam"/>
                             <constraint firstItem="YbG-S0-mcd" firstAttribute="top" secondItem="D9T-6m-eNg" secondAttribute="bottom" constant="30" id="SX6-gL-m88"/>
                             <constraint firstItem="p4m-Og-Qej" firstAttribute="trailing" secondItem="YbG-S0-mcd" secondAttribute="trailing" constant="10" id="SaL-BQ-0oP"/>
                             <constraint firstItem="p4m-Og-Qej" firstAttribute="trailing" secondItem="D9T-6m-eNg" secondAttribute="trailing" constant="10" id="XgR-Ch-0q3"/>
                             <constraint firstItem="D9T-6m-eNg" firstAttribute="leading" secondItem="p4m-Og-Qej" secondAttribute="leading" constant="10" id="bCu-aB-P64"/>
+                            <constraint firstItem="D9T-6m-eNg" firstAttribute="top" secondItem="aZp-gP-bcm" secondAttribute="bottom" constant="10" id="kc5-ua-YaU"/>
+                            <constraint firstItem="aZp-gP-bcm" firstAttribute="trailing" secondItem="p4m-Og-Qej" secondAttribute="trailing" id="uRa-Oz-f5F"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="headerView" destination="aZp-gP-bcm" id="alA-4D-rBR"/>
+                        <outlet property="headerViewHeight" destination="hVk-jE-OPZ" id="uFD-3O-NK1"/>
+                        <outlet property="postBtn" destination="sXt-Lm-MOF" id="dho-hb-lNx"/>
+                        <outlet property="questionTV" destination="YbG-S0-mcd" id="Tnn-mX-xlg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BP5-ED-S1f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

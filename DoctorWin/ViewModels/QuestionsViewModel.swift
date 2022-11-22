@@ -6,6 +6,10 @@
 //
 
 import Foundation
+protocol PostQuestionViewModelDelegate {
+    func didPostedQuestion(status:Bool, error: String?)
+    
+}
 protocol QuestionsViewModelDelegate {
     func didReceiveQuestionData(response: [QuestionModel]?, error: String?)
     func didPostedQuestion(status:Bool, error: String?)
@@ -111,4 +115,27 @@ struct QuestionsViewModel {
         }
     }
     
+}
+struct PostQuestionsViewModel {
+    var delegate : PostQuestionViewModelDelegate?
+  
+    func getQuestionResponseData(questionRequest: QuestionRequestModel, userID: String) {
+        let resource = QuestionsResource()
+        resource.postMainQuestion(request: questionRequest,userId: userID) { response in
+            DispatchQueue.main.async {
+                switch response {
+                case .success( let data):
+                    if data.status == true  {
+                        self.delegate?.didPostedQuestion(status: true, error: nil)
+                    }
+                    else {
+                        self.delegate?.didPostedQuestion(status: false, error: "error")
+                    }
+                case .failure(let error):
+                    self.delegate?.didPostedQuestion(status: false, error: error)
+                    
+                }
+            }
+        }
+    }
 }

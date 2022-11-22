@@ -54,11 +54,11 @@ extension SearchJobsViewController : UITableViewDelegate, UITableViewDataSource 
     
 }
 extension SearchJobsViewController: JobsViewModelDelegate {
-    func didReceiveJobsResponse(response: [CarrierModel]?, error: String?) {
+    func didReceiveJobsResponse(response: JobCarrierModel?, error: String?) {
         
     }
     
-    func didReceiveCarrierResponse(response: [CarrierModel]?, error: String?) {
+    func didReceiveCarrierResponse(response: JobCarrierModel?, error: String?) {
         
     }
     

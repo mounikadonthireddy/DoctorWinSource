@@ -43,6 +43,12 @@ class QuestionsViewController: ViewController {
         
     }
     @IBAction func postQuestion(_ sender: UIButton) {
+        let str = UIStoryboard(name: "Add", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "AddQuestionViewController") as! AddQuestionViewController
+        nextVC.isHeaderVisible = false
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+    @IBAction func searchQuestion(_ sender: UIButton) {
         
     }
     /*

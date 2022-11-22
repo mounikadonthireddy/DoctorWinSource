@@ -104,15 +104,15 @@ extension CarrierTabViewController: JobCategoryViewModelDelegate {
     
 }
 extension CarrierTabViewController: JobsViewModelDelegate {
-    func didReceiveCarrierResponse(response: [CarrierModel]?, error: String?) {
+    func didReceiveCarrierResponse(response: JobCarrierModel?, error: String?) {
         self.dismiss()
         if error == nil {
-            carrierJobArray = response ?? []
+            carrierJobArray = response?.data ?? []
             tableView.reloadData()
         }
     }
     
-    func didReceiveJobsResponse(response: [CarrierModel]?, error: String?) {
+    func didReceiveJobsResponse(response: JobCarrierModel?, error: String?) {
         self.dismiss()
     }
     

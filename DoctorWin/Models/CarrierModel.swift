@@ -6,6 +6,12 @@
 //
 
 import Foundation
+struct JobCarrierModel: Codable {
+    let next: Bool?
+    let data: [CarrierModel]?
+    let total_pages: Int?
+    
+}
 struct CarrierModel: Codable {
     let id: Int
     let designation: String?
@@ -29,7 +35,8 @@ struct CarrierModel: Codable {
     let gender: String?
     let website:String?
     let jobid: String?
-    
+    let city: String?
+    let state: String?
 }
 
 struct EligibilityModel: Codable {

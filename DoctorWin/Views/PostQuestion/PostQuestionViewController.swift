@@ -121,3 +121,7 @@ struct QuestionRequest: Codable {
     let question: String
     let  user_id: String
 }
+struct QuestionRequestModel: Codable {
+    let question: String
+    let status: Bool
+}

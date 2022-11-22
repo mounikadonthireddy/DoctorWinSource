@@ -7,8 +7,8 @@
 
 import Foundation
 protocol JobsViewModelDelegate {
-    func didReceiveJobsResponse(response: [CarrierModel]?, error: String?)
-    func didReceiveCarrierResponse(response: [CarrierModel]?, error: String?)
+    func didReceiveJobsResponse(response: JobCarrierModel?, error: String?)
+    func didReceiveCarrierResponse(response: JobCarrierModel?, error: String?)
 
 }
 
