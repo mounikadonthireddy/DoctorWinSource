@@ -539,23 +539,67 @@
                                     <outlet property="delegate" destination="zeH-R7-1kf" id="qfa-3G-gfz"/>
                                 </connections>
                             </tableView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cO2-Y5-M5g">
+                                <rect key="frame" x="20" y="637" width="335" height="0.0"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p4Y-W0-QI8">
+                                        <rect key="frame" x="50" y="-17.5" width="280" height="35"/>
+                                        <color key="backgroundColor" red="0.92549019610000005" green="0.93725490199999995" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="CBz-f7-kkk"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="   Write something....">
+                                            <color key="titleColor" systemColor="secondaryLabelColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="postClicked:" destination="zeH-R7-1kf" eventType="touchUpInside" id="JKK-8H-JSI"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person" translatesAutoresizingMaskIntoConstraints="NO" id="R5E-KV-djY">
+                                        <rect key="frame" x="10" y="-17.5" width="35" height="35"/>
+                                        <color key="tintColor" systemColor="secondaryLabelColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="WCA-TZ-2Zv"/>
+                                            <constraint firstAttribute="width" constant="35" id="tbw-rh-ZmB"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="R5E-KV-djY" firstAttribute="centerY" secondItem="cO2-Y5-M5g" secondAttribute="centerY" id="7y4-Au-glQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="p4Y-W0-QI8" secondAttribute="trailing" constant="5" id="880-dB-Mkh"/>
+                                    <constraint firstItem="p4Y-W0-QI8" firstAttribute="centerY" secondItem="cO2-Y5-M5g" secondAttribute="centerY" id="9ME-xZ-kkU"/>
+                                    <constraint firstAttribute="height" id="X4I-Jk-3Ch"/>
+                                    <constraint firstItem="p4Y-W0-QI8" firstAttribute="leading" secondItem="R5E-KV-djY" secondAttribute="trailing" constant="5" id="ZpV-i9-Ant"/>
+                                    <constraint firstItem="R5E-KV-djY" firstAttribute="leading" secondItem="cO2-Y5-M5g" secondAttribute="leading" constant="10" id="o8y-u4-VHA"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="MJc-iI-cE9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="MJc-iI-cE9" firstAttribute="bottom" secondItem="cO2-Y5-M5g" secondAttribute="bottom" constant="30" id="4VA-K6-zLF"/>
                             <constraint firstItem="xVY-EP-JEw" firstAttribute="top" secondItem="MJc-iI-cE9" secondAttribute="top" id="6vj-st-YMp"/>
                             <constraint firstItem="xVY-EP-JEw" firstAttribute="leading" secondItem="MJc-iI-cE9" secondAttribute="leading" id="8N7-ax-4vx"/>
+                            <constraint firstAttribute="trailing" secondItem="cO2-Y5-M5g" secondAttribute="trailing" constant="20" id="IaV-Zg-9HV"/>
+                            <constraint firstItem="cO2-Y5-M5g" firstAttribute="leading" secondItem="3Qh-3f-aY0" secondAttribute="leading" constant="20" id="jfl-HI-BEq"/>
                             <constraint firstItem="MJc-iI-cE9" firstAttribute="trailing" secondItem="xVY-EP-JEw" secondAttribute="trailing" id="u7U-MA-2E6"/>
                             <constraint firstItem="MJc-iI-cE9" firstAttribute="bottom" secondItem="xVY-EP-JEw" secondAttribute="bottom" id="wM1-xq-H6S"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="postBtn" destination="p4Y-W0-QI8" id="UNi-sk-rjH"/>
+                        <outlet property="postPersonImage" destination="R5E-KV-djY" id="Xf1-qS-xin"/>
+                        <outlet property="postView" destination="cO2-Y5-M5g" id="X3h-W1-A17"/>
+                        <outlet property="postViewHeight" destination="X4I-Jk-3Ch" id="Vhl-a6-yAk"/>
                         <outlet property="profileTableView" destination="xVY-EP-JEw" id="AwU-mP-7vo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I9e-bd-WQS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="19384" y="-310"/>
+            <point key="canvasLocation" x="19383.200000000001" y="-310.79460269865069"/>
         </scene>
         <!--Job Details View Controller-->
         <scene sceneID="628-8X-yya">
@@ -1012,7 +1056,11 @@
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="message" catalog="system" width="128" height="113"/>
         <image name="paperplane" catalog="system" width="128" height="118"/>
+        <image name="person" width="171" height="171"/>
         <image name="wback" width="512" height="512"/>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

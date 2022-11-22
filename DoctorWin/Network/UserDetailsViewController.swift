@@ -21,10 +21,14 @@ class UserDetailsViewController: ViewController {
     var requestUserID = ""
     var groupId = ""
     var selectionType = 0
-    
+    @IBOutlet weak var postView: UIView!
+    @IBOutlet weak var postViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var postPersonImage: UIImageView!
+    @IBOutlet weak var postBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        postPersonImage.setCornerRadius(radius: Float(postPersonImage.frame.width)/2)
+        postView.setCornerRadius(radius: Float(postView.frame.height)/2)
         self.profileTableView.register(UINib(nibName: "UserHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "UserHeaderView")
         profileTableView.register(UINib(nibName: "CaseCell", bundle: nil), forCellReuseIdentifier: "CaseCell")
         profileTableView.register(UINib(nibName: "HomeTableCell", bundle: nil), forCellReuseIdentifier: "HomeTableCell")
@@ -166,10 +170,10 @@ extension UserDetailsViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if let details = groupModel {
             if details.join_status == true {
-                return 420
+                return 402
             }
         }
-        return 350
+        return 372
         
     }
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -193,17 +197,22 @@ extension UserDetailsViewController: UITableViewDelegate, UITableViewDataSource 
                 if details.admin_status == true {
                     headerView.joinBtn.setTitle("Edit", for: .normal)
                     headerView.joinBtn.tag = 2
-                }
-                else if details.join_status == true {
+                    postView.isHidden = false
+                    postViewHeight.constant = 40
+                } else if details.join_status == true {
                 headerView.joinBtn.setTitle("Joined", for: .normal)
+                    postView.isHidden = false
+                    postViewHeight.constant = 40
                 } else {
                     headerView.joinBtn.setTitle("Join", for: .normal)
+                    postViewHeight.constant = 0
+                    postView.isHidden = true
                 }
                 headerView.joinBtn.addTarget(self, action: #selector(joinClicked(button:)), for: .touchUpInside)
             }
             headerView.backBtn.addTarget(self, action: #selector(backClicked(button:)), for: .touchUpInside)
             headerView.followBtn.addTarget(self, action: #selector(followCountClicked(button:)), for: .touchUpInside)
-            headerView.postBtn.addTarget(self, action: #selector(postClicked(button:)), for: .touchUpInside)
+//            headerView.postBtn.addTarget(self, action: #selector(postClicked(button:)), for: .touchUpInside)
             //            headerView.followCountBtn.addTarget(self, action: #selector(followCountClicked(button:)), for: .touchUpInside)
             //            headerView.followingCountBtn.addTarget(self, action: #selector(followingCountClicked(button:)), for: .touchUpInside)
             headerView.interfaceSegmented.delegate = self
@@ -216,7 +225,7 @@ extension UserDetailsViewController: UITableViewDelegate, UITableViewDataSource 
     @objc func backClicked(button: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
-    @objc func postClicked(button: UIButton) {
+    @IBAction func postClicked(_ sender: UIButton) {
         let str = UIStoryboard(name: "Add", bundle: nil)
         let nextVC = str.instantiateViewController(withIdentifier: "AddMainViewController") as! AddMainViewController
         self.navigationController?.pushViewController(nextVC, animated: true)

@@ -20,7 +20,7 @@ class NetworkCVCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
         followBtn.setCornerRadiusWithBorderColor(radius: 15, color: UIColor.clear, borderWidth: 0.5)
-        self.personImage.setCornerRadius(radius: 29)
+        self.personImage.setCornerRadiusWithBorderColor(radius: 10, color: UIColor.white, borderWidth: 4)
         bgView.setCornerRadiusWithBorderColor(radius: 8, color: UIColor.lightGray, borderWidth: 0.5)
     }
 

@@ -10,17 +10,18 @@ import UIKit
 class UserHeaderView: UITableViewHeaderFooterView {
     @IBOutlet weak var followBtn: UIButton!
     @IBOutlet weak var backBtn: UIButton!
+    @IBOutlet weak var inviteBtn: UIButton!
+    @IBOutlet weak var shareBtn: UIButton!
     @IBOutlet weak var joinBtn: UIButton!
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var specialityLbl: UILabel!
     @IBOutlet weak var personImage: UIImageView!
     @IBOutlet weak var bgImage: UIImageView!
-    @IBOutlet weak var postView: UIView!
-    @IBOutlet weak var postViewHeight: NSLayoutConstraint!
-    @IBOutlet weak var postPersonImage: UIImageView!
     @IBOutlet weak var personsCV: UICollectionView!
+    @IBOutlet weak var personsCVHeight: NSLayoutConstraint!
     @IBOutlet weak var collectionViewLayout: UICollectionViewFlowLayout!
-    @IBOutlet weak var postBtn: UIButton!
+    @IBOutlet weak var bgView: UIView!
+    @IBOutlet weak var adminViewHeight: NSLayoutConstraint!
     @IBOutlet weak var interfaceSegmented: CustomSegmentedControl!{
         didSet{
             interfaceSegmented.setButtonTitles(buttonTitles: [ "Post","Cases", "Questions", "Answers"])
@@ -34,15 +35,16 @@ class UserHeaderView: UITableViewHeaderFooterView {
         super.awakeFromNib()
         // Initialization code
         interfaceSegmented.delegate = self
-        joinBtn.setCornerRadius(radius: 15)
-        postBtn.setCornerRadius(radius: Float(postBtn.frame.height)/2)
-        personImage.setCornerRadius(radius: Float(personImage.frame.width)/2)
-        postPersonImage.setCornerRadius(radius: Float(postPersonImage.frame.width)/2)
+        joinBtn.setCornerRadius(radius: 5)
+        inviteBtn.setCornerRadius(radius: 5)
+        shareBtn.setCornerRadius(radius: 5)
+        self.personImage.setCornerRadiusWithBorderColor(radius: 10, color: UIColor.white, borderWidth: 4)
+      
         collectionViewLayout.scrollDirection = .vertical
         collectionViewLayout.minimumLineSpacing = 0
         collectionViewLayout.minimumInteritemSpacing = 0
         collectionViewLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        
+        bgView.setCornerRadiusWithBorderColor(radius: 8, color: UIColor.lightGray, borderWidth: 0.5)
         
         personsCV.register(UINib.init(nibName: "PersonImageCell", bundle: nil), forCellWithReuseIdentifier: "PersonImageCell")
         
@@ -67,20 +69,24 @@ class UserHeaderView: UITableViewHeaderFooterView {
         followBtn.setTitle("\(data.number_of_joined ?? 0) Participants", for: .normal)
         specialityLbl.text = data.description ?? ""
         imageArray = data.group_joined_image ?? []
+        if imageArray.count == 0 {
+            personsCVHeight.constant = 0
+        } else {
+            personsCVHeight.constant = 30
+        }
         personsCV.reloadData()
         if data.admin_status == true {
             joinBtn.setTitle("Edit", for: .normal)
+            adminViewHeight.constant = 20
         }
         else if data.join_status == false {
             joinBtn.setTitle("Join", for: .normal)
-            postViewHeight.constant = 0
-            postView.isHidden = true
+            adminViewHeight.constant = 0
         } else {
             joinBtn.setTitle("Joined", for: .normal)
             joinBtn.backgroundColor = UIColor.lightGray
             joinBtn.isEnabled = false
-            postView.isHidden = false
-            postViewHeight.constant = 70
+            adminViewHeight.constant = 20
         }
         if let urlString = data.profileImage {
             
@@ -88,6 +94,9 @@ class UserHeaderView: UITableViewHeaderFooterView {
         }
         if let image = data.cover_image {
             self.bgImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + image), placeholderImage: UIImage(named: "loginBg"))
+        }
+        if let image = data.image {
+            self.personImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + image), placeholderImage: UIImage(named: "loginBg"))
         }
         // interfaceSegmented.delegate = self
         

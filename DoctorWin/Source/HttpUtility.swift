@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import Alamofire
+
 enum RequestError: String,Error {
     case invalidUrl = "Please Try again After sometime"
     case internalServerError = "Currently Our Server is down. Please Try again After sometime"
@@ -122,7 +124,9 @@ struct HttpUtility {
         let request = NSMutableURLRequest(url: url!)
         request.httpMethod="POST"
         
-        
+        if User.shared.token != "" {
+            request.setValue("\(User.shared.token)", forHTTPHeaderField: "jwt")
+        }
         let boundary = generateBoundaryString()
         request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
         let imageData = img.jpegData(compressionQuality: 0.1)
@@ -159,10 +163,8 @@ struct HttpUtility {
             }
         }
         task.resume()
-        
-        
+  
     }
-    
 }
 
 extension Data {
@@ -172,5 +174,115 @@ extension Data {
               let prettyPrintedString = NSString(data: data, encoding: String.Encoding.utf8.rawValue) else { return nil }
         
         return prettyPrintedString
+    }
+}
+struct ImageUploadModel {
+    let fileName: String
+    let imageName: String
+    let image: UIImage
+}
+struct AGImageStructInfo {
+    var fileName: String
+    var type: String
+    var data: Data
+}
+
+class AGUploadImageWebServices {
+    
+    private let boundary = "Boundary-\(NSUUID().uuidString)"
+    private var request: URLRequest?
+    
+    init(url: String, parameter param : [String: Any], inputData:[String:Any]) {
+        guard let url = URL(string: url) else { return }
+        
+        request = URLRequest(url: url)
+        if User.shared.token != "" {
+            request?.setValue("\(User.shared.token)", forHTTPHeaderField: "jwt")
+        }
+        request?.httpMethod = "POST"
+        request?.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        request?.httpBody = createBody(with: param, input: inputData, boundary: boundary)
+    }
+    
+    func responseJSON(completionHandler: @escaping ([String: Any]?, Error?) -> ()) {
+        guard let request = request else { return }
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            
+            guard let data = data, error == nil else {
+                debugPrint("System error:- \(String(describing: error))")
+                completionHandler(nil, error)
+                return
+            }
+            
+            let responseString = String(data: data, encoding: .utf8)
+            print("responseString = \(String(describing: responseString))")
+            
+            DispatchQueue.main.async {
+                do {
+                    let dicResponse = try JSONSerialization.jsonObject(with: data, options: []) as?  [String: Any]
+                    print("Response Dict:- \(String(describing: dicResponse))")
+                    completionHandler(dicResponse, nil)
+                } catch {
+                    completionHandler(nil, error)
+                    print("Response Error:- \(String(describing: error))")
+                }
+            }
+        }
+        
+        task.resume()
+    }
+
+    internal func createBody(with parameters: [String: Any],input:[String:Any]?, boundary: String) -> Data {
+        var body = Data()
+        if input != nil {
+            for (key, value) in input! {
+                body.append("\r\n--\(boundary)\r\n".data(using: .utf8)!)
+                body.append("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n".data(using: .utf8)!)
+                body.append("\(value)\r\n".data(using: .utf8)!)
+            }
+        }
+
+        for (key, value) in parameters {
+            if let imageInfo = value as? AGImageStructInfo {
+                body.append("--\(boundary)\r\n")
+                body.append("Content-Disposition: form-data; name=\"\(key)\"; filename=\"\(imageInfo.fileName)\"\r\n")
+                body.append("Content-Type: \(imageInfo.type)\r\n\r\n")
+                body.append(imageInfo.data)
+                body.append("\r\n")
+            }
+            else if let imageInfo = value as? [AGImageStructInfo] {
+                for image in imageInfo {
+                    body.append("--\(boundary)\r\n")
+                    body.append("Content-Disposition: form-data; name=\"\(key)\"; filename=\"\(image.fileName)\"\r\n")
+                    body.append("Content-Type: \(image.type)\r\n\r\n")
+                    body.append(image.data)
+                    body.append("\r\n")
+                }
+            }
+            else{
+                body.append("--\(boundary)\r\n")
+                body.append("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n")
+                body.append("\(value)\r\n")
+            }
+        }
+        
+        body.append("--\(boundary)--\r\n")
+        return body
+    }
+}
+
+extension UIImage {
+    func toData() -> Data{
+        return self.jpegData(compressionQuality: 0.1)! as Data
+    }
+}
+
+extension Data {
+    
+    mutating func append(_ string: String) {
+        if let data = string.data(using: .utf8) {
+            append(data)
+        }
     }
 }

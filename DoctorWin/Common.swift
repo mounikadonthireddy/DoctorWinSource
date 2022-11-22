@@ -172,6 +172,7 @@ struct ApiEndpoints
     static let getFollowing = "auth/following"
     static let getRequest = "auth/request/"
     static let getPeoples = "test/connection"
+    static let createGroup = "group/create"
     
     //Requested User
     

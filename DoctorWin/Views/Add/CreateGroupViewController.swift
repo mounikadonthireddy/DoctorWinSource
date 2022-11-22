@@ -7,13 +7,18 @@
 
 import UIKit
 
-class CreateGroupViewController: UIViewController {
+class CreateGroupViewController: ViewController {
     @IBOutlet weak var groupNameTF: UITextField!
     @IBOutlet weak var groupDescriptionTV: UITextView!
     @IBOutlet weak var groupImage: UIButton!
+    @IBOutlet weak var groupImageView: UIImageView!
     @IBOutlet weak var coverImage: UIButton!
+    @IBOutlet weak var coverImageView: UIImageView!
     var imageFileName: String = ""
     var imagePicker: ImagePicker!
+    var imageUpload : [ImageUploadModel] = []
+    var imageUpload1 : AGImageStructInfo?
+    var imageUpload2 : AGImageStructInfo?
     var groupModel : GroupProfileModel?
     var tag = -1
     override func viewDidLoad() {
@@ -44,23 +49,50 @@ class CreateGroupViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     @IBAction func createClicked(_ sender: UIButton) {
+        let param = ["name_of_group": groupNameTF.text ?? "",
+                     "description": groupDescriptionTV.text ?? ""] as [String : Any]
+       self.showLoader()
+        let url = ApiEndpoints.baseUrl + ApiEndpoints.createGroup
+
         
+        let parameters: [String: Any] = [
+            "image": imageUpload1,
+            "cover_image": imageUpload2
+        ]
+
+        AGUploadImageWebServices(url: url, parameter: parameters, inputData: param)
+            .responseJSON { (json, eror) in
+                self.dismiss()
+            debugPrint(json)
+        }
+            
+      
     }
     @IBAction func groupImageClicked(_ sender: UIButton) {
+        tag = 1
         self.imagePicker.present(from: sender)
     }
     @IBAction func coverImageClicked(_ sender: UIButton) {
+        tag = 2
         self.imagePicker.present(from: sender)
     }
 
 }
 extension CreateGroupViewController: ImagePickerDelegate {
     func didSelect(image: UIImage?, fileName: String?, fileType: String?) {
-        if tag == 0 {
+        if tag == 1 {
             self.groupImage.setImage(image, for: .normal)
+          //  groupImageView.image = image
+            imageUpload.append(ImageUploadModel(fileName: fileName!, imageName: "image", image: image!))
+            
+            imageUpload1 = AGImageStructInfo(fileName: fileName!, type: "image/jpeg", data: image!.toData())
            
-        } else if tag == 1 {
+        } else if tag == 2 {
             self.coverImage.setImage(image, for: .normal)
+          //  coverImageView.image = image
+            imageUpload.append(ImageUploadModel(fileName: fileName!, imageName: "cover_image", image: image!))
+            imageUpload2 = AGImageStructInfo(fileName: fileName!, type: "image/jpeg", data: image!.toData())
+           
         }
        
         self.imageFileName = fileName ?? ""

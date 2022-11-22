@@ -10,10 +10,12 @@ import UIKit
 class NetworkCVHeaderTVCell: UITableViewCell {
     @IBOutlet weak var groupName: UILabel!
     @IBOutlet weak var groupImage: UIImageView!
+    @IBOutlet weak var headerView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         groupImage.setCornerRadius(radius: Float(groupImage.frame.height)/2)
+        headerView.setCornerRadius(radius: Float(headerView.frame.height)/2)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

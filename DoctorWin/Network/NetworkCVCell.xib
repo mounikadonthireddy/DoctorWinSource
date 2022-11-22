@@ -76,18 +76,31 @@
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="39W-Nn-K9v">
                                 <rect key="frame" x="22.5" y="164" width="120" height="30"/>
-                                <color key="backgroundColor" red="0.90588235294117647" green="0.95294117647058818" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.90588235294117647" green="0.95294117647058818" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="K0C-mU-SbZ"/>
                                     <constraint firstAttribute="height" constant="30" id="dV5-cJ-deD"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Join"/>
+                                <state key="normal" title="Join">
+                                    <color key="titleColor" red="0.082352941176470587" green="0.396078431372549" blue="0.75294117647058822" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HEq-0w-d1s">
+                                <rect key="frame" x="138" y="5" width="22" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="22" id="621-pd-PPP"/>
+                                    <constraint firstAttribute="height" constant="22" id="vHp-o4-Zqm"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="multiply.circle.fill" catalog="system"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="WKs-lL-nKn" firstAttribute="centerX" secondItem="pLi-Ku-HAb" secondAttribute="centerX" id="2Ib-Iu-XaN"/>
+                            <constraint firstItem="HEq-0w-d1s" firstAttribute="top" secondItem="UCX-Va-RZp" secondAttribute="top" constant="5" id="2dn-4c-2SC"/>
                             <constraint firstItem="pLi-Ku-HAb" firstAttribute="top" secondItem="UCX-Va-RZp" secondAttribute="top" id="DCv-ut-GCA"/>
                             <constraint firstItem="h5y-NK-1gM" firstAttribute="top" secondItem="WKs-lL-nKn" secondAttribute="bottom" constant="10" id="JGa-Bi-ktv"/>
                             <constraint firstAttribute="width" priority="999" constant="165" id="Mdr-gp-cDs"/>
@@ -98,6 +111,7 @@
                             <constraint firstItem="WKs-lL-nKn" firstAttribute="top" secondItem="UCX-Va-RZp" secondAttribute="top" constant="30" id="gn7-af-qZQ"/>
                             <constraint firstItem="39W-Nn-K9v" firstAttribute="top" secondItem="h5y-NK-1gM" secondAttribute="bottom" constant="10" id="iNt-79-3NB"/>
                             <constraint firstAttribute="trailing" secondItem="pLi-Ku-HAb" secondAttribute="trailing" id="jtk-gV-9ue"/>
+                            <constraint firstAttribute="trailing" secondItem="HEq-0w-d1s" secondAttribute="trailing" constant="5" id="rDP-JK-BtM"/>
                             <constraint firstAttribute="trailing" secondItem="h5y-NK-1gM" secondAttribute="trailing" id="zNI-bK-NeU"/>
                         </constraints>
                     </view>
@@ -125,6 +139,7 @@
     </objects>
     <resources>
         <image name="loginBg" width="375" height="153"/>
+        <image name="multiply.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
