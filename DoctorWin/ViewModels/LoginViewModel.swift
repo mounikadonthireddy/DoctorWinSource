@@ -19,7 +19,7 @@ struct LoginViewModel {
     func loginUser(loginRequest: LoginRequest) {
         let validationResult = LoginValidation().Validate(loginRequest: loginRequest)
         
-        if(validationResult.success) {
+        if validationResult.success {
             //use loginResource to call login API
             self.delegate?.didValidated(status: true, error: nil)
             
@@ -29,17 +29,12 @@ struct LoginViewModel {
                 //return the response we get from loginResource
                 DispatchQueue.main.async {
                     switch result {
-                    case .success(let data):
-                        if data.status {
+                    case .success(_):
+                        
                             UserDefaults.standard.setValue(loginRequest.phoneNumber, forKey: "mobileNum")
+                            
                             self.delegate?.didReceiveLoginResponse(wilNavigateTo: false, error: nil)
-                        } else if data.status == false && data.Verified == false {
-                            self.delegate?.didReceiveLoginResponse(wilNavigateTo: true, error: "register")
-                            
-                        } else {
-                            self.delegate?.didReceiveLoginResponse(wilNavigateTo: false, error: "Please Try again after sometime")
-                            
-                        }
+                   
                     
                 case .failure(_):
                     self.delegate?.didReceiveLoginResponse(wilNavigateTo: false, error: "Please Try again after sometime")

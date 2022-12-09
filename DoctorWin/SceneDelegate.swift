@@ -14,7 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         if let windowScene = scene as? UIWindowScene {
-            if let userId = UserDefaults.standard.string(forKey: "token") {
+//            if let userId = UserDefaults.standard.string(forKey: "token") {
             let window = UIWindow(windowScene: windowScene)
             let str = UIStoryboard(name: "Tab", bundle: nil)
             let nextViewController = str.instantiateViewController(withIdentifier: "tabView")
@@ -24,11 +24,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 
 //                let nextViewController = str.instantiateViewController(withIdentifier: "RegisterDetailsViewController") as? RegisterDetailsViewController
                window.rootViewController = nextViewController
-                User.shared.userID = userId
-                User.shared.token = userId
+                User.shared.userID = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkd29ya3NfaWQiOiJEV18yMDIyXzEyXzE1IiwiZXhwIjoxNjcyMzI0MDc3LCJpYXQiOjE2NzA1OTYwNzd9.1JiAPC5MA4E6RAIc_8ttHGRLEvUxQ3sPkUIXhNxb5cs"
+                User.shared.token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkd29ya3NfaWQiOiJEV18yMDIyXzEyXzE1IiwiZXhwIjoxNjcyMzI0MDc3LCJpYXQiOjE2NzA1OTYwNzd9.1JiAPC5MA4E6RAIc_8ttHGRLEvUxQ3sPkUIXhNxb5cs"
                self.window = window
                window.makeKeyAndVisible()
-         }
+//         }
         }
         guard let _ = (scene as? UIWindowScene) else { return }
     }

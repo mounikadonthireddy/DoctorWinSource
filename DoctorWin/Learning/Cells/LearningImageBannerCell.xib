@@ -18,17 +18,17 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginBg" translatesAutoresizingMaskIntoConstraints="NO" id="7nZ-Aw-XHX">
-                        <rect key="frame" x="0.0" y="0.0" width="324" height="200"/>
+                        <rect key="frame" x="15" y="30" width="294" height="120"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="200" id="aVb-EI-TeM"/>
+                            <constraint firstAttribute="height" constant="120" id="aVb-EI-TeM"/>
                         </constraints>
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="7nZ-Aw-XHX" secondAttribute="bottom" priority="999" constant="2" id="6KL-qk-3Oy"/>
-                    <constraint firstItem="7nZ-Aw-XHX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Fhg-Cj-6Cu"/>
-                    <constraint firstItem="7nZ-Aw-XHX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="S0G-Ec-bBV"/>
-                    <constraint firstAttribute="trailing" secondItem="7nZ-Aw-XHX" secondAttribute="trailing" id="f7f-56-R95"/>
+                    <constraint firstAttribute="bottom" secondItem="7nZ-Aw-XHX" secondAttribute="bottom" priority="999" constant="30" id="6KL-qk-3Oy"/>
+                    <constraint firstItem="7nZ-Aw-XHX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Fhg-Cj-6Cu"/>
+                    <constraint firstItem="7nZ-Aw-XHX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="30" id="S0G-Ec-bBV"/>
+                    <constraint firstAttribute="trailing" secondItem="7nZ-Aw-XHX" secondAttribute="trailing" constant="15" id="f7f-56-R95"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

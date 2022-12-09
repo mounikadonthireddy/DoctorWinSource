@@ -18,9 +18,11 @@ class SaleViewController: ViewController {
     @IBOutlet weak var productModel: UITextField!
     @IBOutlet weak var productLocation: UITextField!
     @IBOutlet weak var mobileNumber: UITextField!
-    
+    var imageUpload : [AGImageStructInfo] = []
+    var imagePicker: ImagePicker!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.imagePicker = ImagePicker(presentationController: self, delegate: self)
         collectionView.register(UINib.init(nibName: "ImageCell", bundle: nil), forCellWithReuseIdentifier: "ImageCell")
         
         collectionViewLayout.scrollDirection = .horizontal
@@ -30,6 +32,27 @@ class SaleViewController: ViewController {
     }
     @IBAction func backClicked(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
+    }
+    @IBAction func postClicked(_ sender: UIButton) {
+        let inputDict = ["category_name": "Book",
+                         "product_name": "Book",
+                         "product_condition": "Good",
+                         "product_models": "LKG",
+                         "product_price": "1000",
+                         "location": "Hyderabad",
+                         "phone": "114324545",
+                         "description": "vsdfgsdfgdsfgdf"
+        ]
+        let parameters: [String: Any] = [
+            "image": imageUpload
+        ]
+        let url = ApiEndpoints.baseUrl + ApiEndpoints.postProduct
+        AGUploadImageWebServices(url: url, parameter: parameters, inputData: inputDict )
+            .responseJSON { (json, eror) in
+                self.dismiss()
+            debugPrint(json)
+        }
+        
     }
 }
 extension SaleViewController : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -42,6 +65,7 @@ extension SaleViewController : UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell: ImageCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! ImageCell
+        cell.imageBtn.addTarget(self, action: #selector(imageClicked(button:)), for: .touchUpInside)
         return cell
         
     }
@@ -74,6 +98,19 @@ extension SaleViewController : UICollectionViewDelegate, UICollectionViewDataSou
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+       // self.imagePicker.present(from: sender)
+    }
+    @objc func imageClicked(button: UIButton) {
+        self.imagePicker.present(from: button)
+    }
     
+    
+}
+extension SaleViewController: ImagePickerDelegate {
+    func didSelect(image: UIImage?, fileName: String?, fileType: String?) {
+        imageUpload.append(AGImageStructInfo(fileName: fileName!, type: "image/jpeg", data: image!.toData()))
+
+    }
     
 }

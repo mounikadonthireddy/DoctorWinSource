@@ -16,15 +16,15 @@ protocol DataSavageProtocol {
 }
 
 protocol HomeViewModelDelegate {
-    func didReciveHomeData(response: [HomeDataModel]?, error: String?)
+    func didReciveHomeData(response: HomeResponseModel?, error: String?)
 }
 
 struct HomeViewModel {
     var delegate : HomeViewModelDelegate?
     var savedelegate : DataSavageProtocol?
-    func getNewsPollArticleComplaintDataFromAPI(userID: String, pageNum: Int) {
+    func getHomeDataFromAPI(pageNum: Int) {
         let homeResource = HomeResource()
-        homeResource.getHomeData(userID: userID, pageNum: pageNum) { response in
+        homeResource.getHomeData(pageNum: pageNum) { response in
             DispatchQueue.main.async {
                 switch response {
                 case .success(let data):

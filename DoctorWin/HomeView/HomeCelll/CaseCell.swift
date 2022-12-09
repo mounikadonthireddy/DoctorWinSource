@@ -26,6 +26,7 @@ class CaseCell: UITableViewCell {
     @IBOutlet weak var likeImage: UIImageView!
     @IBOutlet weak var bookmarkImage: UIImageView!
     @IBOutlet weak var imageHeiht: NSLayoutConstraint!
+    var postId: String = ""
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -40,19 +41,38 @@ class CaseCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func configureData(homeModel: HomeDataModel) {
-        self.postedPersonName.text = (homeModel.profileName ?? "")
-        self.titleLable.text =  homeModel.postTitle ?? ""
-        self.designation.text = homeModel.speciality ?? ""
-        if let value = homeModel.discussionCount {
+        self.titleLable.text =  homeModel.title ?? ""
+        self.dateLable.text = homeModel.posted_date ?? ""
+        if let value = homeModel.comment_count {
             self.discussion.text = "\(String(describing: value))"
         }
-        if let value1 = homeModel.likeCount {
+        if let value1 = homeModel.like_count {
             self.likeLable.text = "\(String(describing: value1))"
         }
-        self.followBtn.tag = homeModel.postUserId ?? 0
-        if let urlString = homeModel.postImage {
-            self.postImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
-            let url = URL(string: ApiEndpoints.baseImageURL + urlString)
+        if homeModel.bookmark_status ?? false {
+            bookmarkImage.image = UIImage(named: "fmark")
+        }
+        if homeModel.follow_status ?? false  {
+            self.followBtn.setTitle("Following", for: .normal)
+        }
+        if homeModel.like_status ?? false {
+            likeImage.image = UIImage(named: "fheart")
+            
+        }
+        
+        if let userData = homeModel.userDetails {
+            self.designation.text = userData.speciality ?? ""
+            self.postedPersonName.text = userData.name
+            if let urlString = userData.image {
+                self.personImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
+            }
+            self.postId = userData.posted_id
+        }
+        
+        if let urlString = homeModel.image {
+//            var url = ApiEndpoints.baseImageURL + urlString[0]
+//            self.postImage.sd_setImage(with: URL(string: url), placeholderImage: UIImage(named: "loginBg"))
+           // let url = URL(string: ApiEndpoints.baseImageURL + urlString)
             //            if let imageSource = CGImageSourceCreateWithURL(url! as CFURL, nil) {
             //                if let imageProperties = CGImageSourceCopyPropertiesAtIndex(imageSource, 0, nil) as Dictionary? {
             //                     let pixelWidth = imageProperties[kCGImagePropertyPixelWidth] as! Int
@@ -73,24 +93,9 @@ class CaseCell: UITableViewCell {
             imageHeiht.constant  = 0
         }
         //  self.descriptionLable.text = homeModel.chiefComplaint
-        if homeModel.bookmarkStatus ?? false {
-            bookmarkImage.image = UIImage(named: "fmark")
-        }
-        if homeModel.follow  {
-            self.followBtn.setTitle("Following", for: .normal)
-        }
-        if homeModel.likeStatus ?? false {
-            likeImage.image = UIImage(named: "fheart")
-            
-        }
-        if let urlString = homeModel.profileImage {
-            self.personImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
-        }
-        wishlistBtn.tag = homeModel.postId
-        saveBtn.tag = homeModel.postId
-        //        replyBtn.tag = homeModel.id
         
-        dateLable.text = Date().offsetFrom(dateStr: homeModel.postedDate)
+        
+        
         
     }
     func configureDataWith(homeModel: CasesDataModel) {

@@ -12,11 +12,11 @@ enum ResponseResult<Value> {
 }
 
 struct HomeResource {
-    func getHomeData(userID: String, pageNum: Int, completion : @escaping (_ result: ResponseResult<[HomeDataModel]>) -> Void) {
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getPollComplaint + "?dworks_id=\(userID)&page=\(pageNum)"
+    func getHomeData(pageNum: Int, completion : @escaping (_ result: ResponseResult<HomeResponseModel>) -> Void) {
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.homeApi + "?page=\(pageNum)"
         let httpUtility = HttpUtility()
         do {
-            httpUtility.getApiData(urlString: homeUrlStr, resultType: [HomeDataModel].self) { result in
+            httpUtility.getApiData(urlString: homeUrlStr, resultType: HomeResponseModel.self) { result in
                 
                 switch result {
                 case .success(let data):

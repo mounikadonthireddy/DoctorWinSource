@@ -8,6 +8,40 @@
 import Foundation
 
 struct HomeDataModel: Codable {
+    let id: Int
+    let title: String?
+    let description: String?
+    let status: Bool?
+    let posted_date: String?
+    let bookmark_status: Bool?
+    let like_status: Bool?
+    let like_count: Int?
+    let comment_count: Int?
+    let follow_status: Bool?
+    let posted_by: Bool?
+    let userDetails: PostedUserDetailsModel?
+    let display_status: Int?
+    let image: [ImagesModel]?
+}
+
+
+struct HomeResponseModel: Codable {
+    let total_pages: Int?
+    let previous: Bool?
+    let next: Bool?
+    let homeResponse: [HomeDataModel]?
+}
+struct PostedUserDetailsModel: Codable {
+    let name: String
+    let image: String?
+    let speciality: String?
+    let posted_id: String
+}
+struct ImagesModel: Codable {
+    let image: String?
+}
+
+struct CasesModel: Codable {
     let postId:  Int
     let postTitle: String?
     let postImage: String?

@@ -56,10 +56,9 @@ class OTPViewController: UIViewController {
         }
     }
     @IBAction func verifyClicked(_ sender: Any) {
-        guard let number = UserDefaults.standard.value(forKey: "mobileNum")  else { return }
-        
-        let otp = self.otpTF1.text! + self.otpTF2.text! + self.otpTF3.text! + self.otpTF4.text!
-        let request = OTPRequest(phone_number: number as! String, otp: otp)
+ 
+    let otp = self.otpTF1.text! + self.otpTF2.text! + self.otpTF3.text! + self.otpTF4.text!
+        let request = OTPRequest(phone_number: mobileNumber , otp: otp)
         
         otpVM.validateOTP(request: request)
     }
@@ -143,12 +142,30 @@ extension OTPViewController: UITextFieldDelegate {
     }
 }
 extension OTPViewController: OTPViewModelDelegate {
-    func didReceiveLoginResponse(wilNavigateTo: Bool, error: String?) {
-        if wilNavigateTo {
+    func didReceiveLoginResponse(wilNavigateTo: NavigationScreen, error: String?) {
+        
+        switch wilNavigateTo {
+        case .register:
+            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
+            self.navigationController?.pushViewController(nextVC, animated: true)
+            
+        case .profileImage:
+            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
+            self.navigationController?.pushViewController(nextVC, animated: true)
+            
+        case .coverImage:
+            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
+            self.navigationController?.pushViewController(nextVC, animated: true)
+            
+        case .home:
             let str = UIStoryboard(name: "Tab", bundle: nil)
             let nextViewController = str.instantiateViewController(withIdentifier: "tabView")
             nextViewController.navigationController?.isNavigationBarHidden = true
             self.navigationController?.pushViewController(nextViewController, animated: true)
+        case .none:
+            print(error ?? "")
+            
         }
+        
     }
 }

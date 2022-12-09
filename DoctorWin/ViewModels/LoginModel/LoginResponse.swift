@@ -8,40 +8,16 @@
 
 import Foundation
 
-//struct LoginResponse : Decodable {
-//
-//    let errorMessage: String?
-//    let data: LoginResponseData?
-//}
-
-struct LoginResponse : Decodable {
-    let message: String?
-    let status: Bool
-    let Verified: Bool
+struct LoginResponseModel: Codable {
+    let message: String
+    let is_active: Bool
+    let userDetails: LoginUserDetails?
 }
-                                                        
-struct OTPResponse: Codable {
-    let phone_number : String?
-    let profile_name: String?
-    let dworks_id: String?
-    let status: Bool?
+struct LoginUserDetails: Codable {
+    let phone_number: String?
+    let name: String?
+    let dating_profile_status : Bool?
+    let cover_image: Bool?
+    let profile_image: Bool?
     let token: String?
-    let message: String?
-    let dating_profile_status: Bool?
-    
-
-//    let username_status: String
-//    let username: String
-    
-//    "id": 183,
-//       "phone_number": "6304763236",
-//       "profile_name": "Mounika",
-//       "current_job_location": "Hyderabad",
-//       "speciality": "Dentistry",
-//       "hightest_qualification": "D.ortho",
-//       "status": true,
-//       "userdetail": 206,
-//       "user_id": 206,
-//       "email": "test@gmail.com",
-//       "username": "Mounika@job27563"
 }

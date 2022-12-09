@@ -39,7 +39,7 @@
                                             <constraint firstAttribute="height" constant="35" id="dnw-1I-7y1"/>
                                             <constraint firstAttribute="width" constant="60" id="gr3-gb-06V"/>
                                         </constraints>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="arrow.backward" catalog="system"/>
                                         <connections>
@@ -59,7 +59,7 @@
                                             <constraint firstAttribute="width" constant="35" id="O1M-rV-dKl"/>
                                             <constraint firstAttribute="height" constant="35" id="WsI-1W-Ftr"/>
                                         </constraints>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="cart.fill" catalog="system"/>
                                     </button>
@@ -69,12 +69,12 @@
                                             <constraint firstAttribute="width" constant="35" id="IjK-fa-Hsc"/>
                                             <constraint firstAttribute="height" constant="35" id="wXg-hr-4Yv"/>
                                         </constraints>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                         <state key="normal" image="videos"/>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.46154546410000002" green="0.62916066699999995" blue="0.90099267250000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="ahB-zu-nRr" firstAttribute="leading" secondItem="Gxd-U2-gIm" secondAttribute="leading" constant="20" id="2PR-AO-tWH"/>
                                     <constraint firstItem="NNM-tA-jeU" firstAttribute="leading" secondItem="ahB-zu-nRr" secondAttribute="trailing" id="5kZ-PN-Eq0"/>

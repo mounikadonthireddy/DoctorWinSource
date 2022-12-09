@@ -28,28 +28,28 @@ class HomeDetailsImageCell: UITableViewCell {
     }
     func configureData(homeModel: HomeDataModel) {
        
-        if let value = homeModel.discussionCount {
-            self.discussion.text = "\(String(describing: value))"
-        }
-        if let value1 = homeModel.likeCount {
-            self.likeLable.text = "\(String(describing: value1))"
-        }
-
-        if let urlString = homeModel.postImage {
-            self.postImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
-        } else {
-            imageHeiht.constant  = 0
-        }
-        //  self.descriptionLable.text = homeModel.chiefComplaint
-        if homeModel.bookmarkStatus ?? false {
-            bookmarkImage.image = UIImage(named: "fmark")
-        }
-     
-        if homeModel.likeStatus ?? false {
-            likeImage.image = UIImage(named: "fheart")
-        }
-        wishlistBtn.tag = homeModel.postId
-        saveBtn.tag = homeModel.postId
+//        if let value = homeModel.discussionCount {
+//            self.discussion.text = "\(String(describing: value))"
+//        }
+//        if let value1 = homeModel.likeCount {
+//            self.likeLable.text = "\(String(describing: value1))"
+//        }
+//
+//        if let urlString = homeModel.postImage {
+//            self.postImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
+//        } else {
+//            imageHeiht.constant  = 0
+//        }
+//        //  self.descriptionLable.text = homeModel.chiefComplaint
+//        if homeModel.bookmarkStatus ?? false {
+//            bookmarkImage.image = UIImage(named: "fmark")
+//        }
+//     
+//        if homeModel.likeStatus ?? false {
+//            likeImage.image = UIImage(named: "fheart")
+//        }
+//        wishlistBtn.tag = homeModel.postId
+//        saveBtn.tag = homeModel.postId
         
     }
     @IBAction func likeClicked(_ sender: UIButton) {

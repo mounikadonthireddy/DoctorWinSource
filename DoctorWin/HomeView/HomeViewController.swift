@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, ExpandableLabelDelegate {
+class HomeViewController: ViewController, ExpandableLabelDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var questionBtn: UIButton!
     @IBOutlet weak var topView: UIView!
@@ -16,6 +16,7 @@ class HomeViewController: UIViewController, ExpandableLabelDelegate {
     var homeVM = HomeViewModel()
     var loadingData = true
     var pageNumber = 1
+    var nextPageAvailable = false
     var states : Array<Bool>!
     
     override func viewDidLoad() {
@@ -25,10 +26,6 @@ class HomeViewController: UIViewController, ExpandableLabelDelegate {
         questionBtn.setCornerRadius(radius: Float(questionBtn.frame.height)/2)
         tableView.register(UINib(nibName: "CaseCell", bundle: nil), forCellReuseIdentifier: "CaseCell")
         topView.dropShadow()
-        
-        
-        tableView.register(UINib(nibName: "NewsCell", bundle: nil), forCellReuseIdentifier: "NewsCell")
-        tableView.register(UINib(nibName: "ExamCell", bundle: nil), forCellReuseIdentifier: "ExamCell")
         
         tableView.register(HomeTableHeader.nib, forHeaderFooterViewReuseIdentifier: HomeTableHeader.identifier)
         
@@ -78,7 +75,7 @@ class HomeViewController: UIViewController, ExpandableLabelDelegate {
     
     func loadHomeData(pageNum: Int) {
         self.showLoader()
-        self.homeVM.getNewsPollArticleComplaintDataFromAPI(userID: User.shared.userID, pageNum: pageNum)
+        self.homeVM.getHomeDataFromAPI(pageNum: pageNum)
         
     }
     
@@ -158,13 +155,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
     }
     @objc private func didTapImageView(_ sender: UITapGestureRecognizer) {
-        let str = UIStoryboard(name: "Details", bundle: nil)
-        let nextVC = str.instantiateViewController(withIdentifier: "ImageDetailsViewController") as! ImageDetailsViewController
-        if let image = homedataArry[sender.view?.tag ?? 0].postImage {
-            nextVC.selectedImageUrl = image
-        }
-        nextVC.data = homedataArry[sender.view?.tag ?? 0].postTitle ?? ""
-        self.navigationController?.pushViewController(nextVC, animated: true)
+//        let str = UIStoryboard(name: "Details", bundle: nil)
+//        let nextVC = str.instantiateViewController(withIdentifier: "ImageDetailsViewController") as! ImageDetailsViewController
+//        if let image = homedataArry[sender.view?.tag ?? 0].postImage {
+//            nextVC.selectedImageUrl = image
+//        }
+//        nextVC.data = homedataArry[sender.view?.tag ?? 0].postTitle ?? ""
+//        self.navigationController?.pushViewController(nextVC, animated: true)
         
     }
     @objc func educationClicked(button: UIButton) {
@@ -197,7 +194,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let str = UIStoryboard(name: "Details", bundle: nil)
         let nextVC = str.instantiateViewController(withIdentifier: "CaseDetailsViewController") as! CaseDetailsViewController
         nextVC.detailsModel = homedataArry[indexPath.row]
-        nextVC.caseId = homedataArry[indexPath.row].postId
+     //   nextVC.caseId = homedataArry[indexPath.row].postId
         self.navigationController?.pushViewController(nextVC, animated: true)
         //        } else if homedataArry[indexPath.row].newsStatus ?? false {
         //            let str = UIStoryboard(name: "Details", bundle: nil)
@@ -287,7 +284,7 @@ extension HomeViewController: CellActionDelegate {
 
 
 extension HomeViewController : HomeViewModelDelegate {
-    func didReciveHomeData(response: [HomeDataModel]?, error: String?) {
+    func didReciveHomeData(response: HomeResponseModel?, error: String?) {
         self.dismiss()
         loadingData = false
         if (error != nil) {
@@ -296,29 +293,12 @@ extension HomeViewController : HomeViewModelDelegate {
             self.present(alert, animated: true, completion: nil)
             
         } else {
-            self.homedataArry = homedataArry + (response ?? [])
+            let data = response?.homeResponse ?? []
+            self.homedataArry = homedataArry + data
+            self.nextPageAvailable = response?.next ?? false
             self.tableView.reloadData()
             states = [Bool](repeating: true, count: homedataArry.count)
         }
-    }
-    
-    
-    
-    func showLoader() {
-        let alert = UIAlertController(title: nil, message: "Loading...", preferredStyle: .alert)
-        
-        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
-        loadingIndicator.hidesWhenStopped = true
-        loadingIndicator.style = UIActivityIndicatorView.Style.medium
-        loadingIndicator.startAnimating()
-        
-        alert.view.addSubview(loadingIndicator)
-        DispatchQueue.main.async { [weak self] in
-            self?.present(alert, animated: true, completion: nil)
-        }
-    }
-    func dismiss() {
-        dismiss(animated: false, completion: nil)
     }
     
 }

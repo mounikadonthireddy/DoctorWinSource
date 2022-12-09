@@ -10,7 +10,7 @@ import Foundation
 
 struct LoginResource {
 
-    func loginUser(loginRequest: LoginRequest, completion :  @escaping(ResponseResult<LoginResponse>) -> Void) {
+    func loginUser(loginRequest: LoginRequest, completion :  @escaping(ResponseResult<LoginResponseModel>) -> Void) {
         let loginUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.login
         let homeUrl = URL(string: loginUrlStr)!
 
@@ -18,7 +18,7 @@ struct LoginResource {
         do {
             
             let loginPostBody = try JSONEncoder().encode(loginRequest)
-            httpUtility.postMethod(requestUrl: homeUrl, requestBody: loginPostBody, resultType: LoginResponse.self) { (result) in
+            httpUtility.postMethod(requestUrl: homeUrl, requestBody: loginPostBody, resultType: LoginResponseModel.self) { (result) in
                 switch result {
                 case .success(let data):
                     completion(.success(data))
@@ -33,7 +33,7 @@ struct LoginResource {
             debugPrint(error)
         }
     }
-    func validateOtp(request: OTPRequest, completion :  @escaping(ResponseResult<OTPResponse>) -> Void) {
+    func validateOtp(request: OTPRequest, completion :  @escaping(ResponseResult<LoginResponseModel>) -> Void) {
         let loginUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.otp
         let homeUrl = URL(string: loginUrlStr)!
 
@@ -41,7 +41,7 @@ struct LoginResource {
         do {
             
             let loginPostBody = try JSONEncoder().encode(request)
-            httpUtility.callWebserviceToMakeRequest(requestUrl: homeUrl, requestBody: loginPostBody, resultType: OTPResponse.self, httpMethod: HTTPMethod.post) { (result) in
+            httpUtility.callWebserviceToMakeRequest(requestUrl: homeUrl, requestBody: loginPostBody, resultType: LoginResponseModel.self, httpMethod: HTTPMethod.post) { (result) in
                 switch result {
                 case .success(let data):
                     completion(.success(data))
@@ -57,7 +57,7 @@ struct LoginResource {
         }
     }
     
-    func resendOtp(request: LoginRequest, completion :  @escaping(ResponseResult<LoginResponse>) -> Void) {
+    func resendOtp(request: LoginRequest, completion :  @escaping(ResponseResult<LoginResponseModel>) -> Void) {
         let loginUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.resendOtp
         let homeUrl = URL(string: loginUrlStr)!
 
@@ -65,7 +65,7 @@ struct LoginResource {
         do {
             
             let loginPostBody = try JSONEncoder().encode(request)
-            httpUtility.postMethod(requestUrl: homeUrl, requestBody: loginPostBody, resultType: LoginResponse.self) { (result) in
+            httpUtility.postMethod(requestUrl: homeUrl, requestBody: loginPostBody, resultType: LoginResponseModel.self) { (result) in
                 switch result {
                 case .success(let data):
                     completion(.success(data))

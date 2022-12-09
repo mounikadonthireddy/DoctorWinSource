@@ -24,13 +24,7 @@ extension LoginViewController : LoginViewModelDelegate {
     
     func didReceiveLoginResponse(wilNavigateTo: Bool, error: String?) {
         self.dismiss()
-        
-        if wilNavigateTo == true {
-            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
-            nextVC.mobileNum = self.mobileNumTF.text ?? ""
-            self.navigationController?.pushViewController(nextVC, animated: true)
-        }
-        else if wilNavigateTo == false && error == nil {
+        if  error == nil {
             let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "OTPViewController") as! OTPViewController
             self.navigationController?.pushViewController(nextVC, animated: true)
         } else if wilNavigateTo == false && error != nil {
@@ -47,13 +41,13 @@ extension LoginViewController : LoginViewModelDelegate {
 }
 
 extension LoginViewController: UITextFieldDelegate {
-//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//        let maxLength = 10
-//        let currentString: NSString = textField.text! as NSString
-//        let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
-//        return newString.length <= maxLength
-//        
-//    }
+    //    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    //        let maxLength = 10
+    //        let currentString: NSString = textField.text! as NSString
+    //        let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
+    //        return newString.length <= maxLength
+    //
+    //    }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return textField.resignFirstResponder()
     }

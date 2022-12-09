@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.4.4)
+  - ExpandableLabel (0.5.2)
   - iOSDropDown (0.3.4)
   - MaterialComponents/AnimationTiming (124.2.0)
   - MaterialComponents/Availability (124.2.0)
@@ -61,31 +62,38 @@ PODS:
   - SDWebImage (5.12.1):
     - SDWebImage/Core (= 5.12.1)
   - SDWebImage/Core (5.12.1)
+  - SkeletonView (1.30.4)
 
 DEPENDENCIES:
   - Alamofire (~> 5.4)
+  - ExpandableLabel
   - iOSDropDown
   - "MaterialComponents/TextControls+FilledTextAreas"
   - "MaterialComponents/TextControls+FilledTextFields"
   - "MaterialComponents/TextControls+OutlinedTextAreas"
   - "MaterialComponents/TextControls+OutlinedTextFields"
   - SDWebImage (~> 5.0)
+  - SkeletonView
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - ExpandableLabel
     - iOSDropDown
     - MaterialComponents
     - MDFInternationalization
     - SDWebImage
+    - SkeletonView
 
 SPEC CHECKSUMS:
   Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
+  ExpandableLabel: c2fab6d27860c572d67134b30522a5917746171d
   iOSDropDown: c10a761f9a00c3f1cc9d3bce43ae504628e2f692
   MaterialComponents: 1a9b2d9d45b1601ae544de85089adc4c464306d4
   MDFInternationalization: d697c55307816222a55685c4ccb1044ffb030c12
   SDWebImage: 4dc3e42d9ec0c1028b960a33ac6b637bb432207b
+  SkeletonView: 5a050f6411e697abd4cda0a8d767013399dccd69
 
-PODFILE CHECKSUM: cb0a41cb1e5285a91a1f0246e401ae1f66372a34
+PODFILE CHECKSUM: f214764aaf9c41d4583063e91d116b7e32a026f4
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3
