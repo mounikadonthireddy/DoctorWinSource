@@ -9,21 +9,18 @@ import UIKit
 
 class MyNewsViewController: ViewController,ExpandableLabelDelegate {
     var states : Array<Bool>!
-    var newsArray:[NewsModel] = []
+    var newsArray:[HomeDataModel] = []
     @IBOutlet weak var newsTableView: UITableView!
+    @IBOutlet weak var backBtn: UIButton!
     var newsVM = NewsDataViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.backBtn.setCornerRadius(radius: 20)
         newsTableView.register(UINib(nibName: "NewsCell", bundle: nil), forCellReuseIdentifier: "NewsCell")
 
-        self.newsTableView.delegate = self
-        self.newsTableView.dataSource = self
-        self.navigationItem.title = "News & Stories"
         self.navigationController?.isNavigationBarHidden = true
         newsVM.delegate = self
-        
-        // Do any additional setup after loading the view.
         self.loadMyNews(index: 0)
     }
    
@@ -113,17 +110,15 @@ extension MyNewsViewController : UITableViewDelegate, UITableViewDataSource {
 }
 
 
-extension MyNewsViewController: NewsBookMarkDelegate {
-    func didReceiveBookmakedNews(response: [NewsModel]?, error: String?) {
+extension MyNewsViewController: NewsDelegate {
+    func didReceiveNews(response: HomeResponseModel?, error: String?) {
         self.dismiss()
         if (error != nil) {
             
         } else {
-        self.newsArray = response ?? []
+            self.newsArray = response?.homeResponse ?? []
         states = [Bool](repeating: true, count: newsArray.count)
         self.newsTableView.reloadData()
         }
     }
-    
-    
 }

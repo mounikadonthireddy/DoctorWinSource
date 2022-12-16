@@ -7,66 +7,25 @@
 
 import Foundation
 
-
-struct CasesViewModel {
-    var delegate: CasesBookMarkDelegate?
-
-    func getCases(userID: String, index: Int) {
-        let homeResource = HomeResource()
-        var endPoint = ""
-        switch index {
-        case 0:
-            endPoint = ApiEndpoints.postedCases + ApiEndpoints.userID + "=\(userID)"
-        case 1:
-            endPoint = ApiEndpoints.postedCases + ApiEndpoints.userID + "=\(userID)"
-    
-        default:
-            endPoint = ""
-        }
-        let homeUrlStr = ApiEndpoints.baseUrl + endPoint 
-
-        homeResource.getBookmarkCases(urlString: homeUrlStr) { response in
-            DispatchQueue.main.async {
-                switch response {
-                case .success(let data):
-                    self.delegate?.didReceiveBookmakedCases(response: data, error: nil)
-
-                case .failure(let error):
-                    self.delegate?.didReceiveBookmakedCases(response: nil, error: error)
-                }
-                
-            }
-        }
-    }
-    
+protocol NewsDelegate {
+    func didReceiveNews(response: HomeResponseModel?, error: String?)
 }
-
 struct NewsDataViewModel {
-    var delegate: NewsBookMarkDelegate?
+    var delegate: NewsDelegate?
 
     func getNews(userID: String, index: Int) {
         let homeResource = NewsJobResource()
-        var endPoint = ""
-        switch index {
-        case 0:
-            endPoint = ApiEndpoints.postedNews + ApiEndpoints.userID + "=\(userID)"
-        case 1:
-            endPoint = ApiEndpoints.postedNews + ApiEndpoints.userID + "=\(userID)"
-        case 2:
-            endPoint = ApiEndpoints.likedNews + ApiEndpoints.userID + "=\(userID)"
-        default:
-            endPoint = ""
-        }
-        let homeUrlStr = ApiEndpoints.baseUrl + endPoint 
+       
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getNews
 
         homeResource.getMyNewsData1(urlString: homeUrlStr) { response in
               DispatchQueue.main.async {
                   switch response {
                   case .success(let data):
-                      self.delegate?.didReceiveBookmakedNews(response: data, error: nil)
+                      self.delegate?.didReceiveNews(response: data, error: nil)
                       
                   case .failure(let error):
-                      self.delegate?.didReceiveBookmakedNews(response: nil, error: error)
+                      self.delegate?.didReceiveNews(response: nil, error: error)
                   }
                   
               }

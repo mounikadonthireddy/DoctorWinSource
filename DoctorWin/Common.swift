@@ -30,7 +30,7 @@ struct ApiEndpoints {
     //job
     static let createBookMarkJobs = "job/bookmark/"
     static let getJobCategory = "job/category/"
-    static let likeJobs = "job/like/"
+  
     static let getTopJobs = "job/top/"
     static let customJobs = "custom/user/"
     static let savedJobs = "job/bookmark/"
@@ -44,25 +44,14 @@ struct ApiEndpoints {
     static let getSpeacilty = "job/department/"
     static let getDesignation = "job/designations/"
     static let recentSearch = "job/search/recent"
-    
  
     //news
-    static let postedNews = "user/news"
-    static let bookmarkNews = "user/news/bookmarks"
-    static let likedNews = "user/news/likes"
+    static let getNews = "news"
+  
    //Cases
-    static let postedCases = "user/case"
-    static let likedCases = "user/case/likes"
-    static let casesLike = "user/social/like"
-    static let casesBookmarks = "user/social/bookmark"
-    static let bookmarkComplaint = "complaint/bookmarks"
-    static let bookmarkSocail = "user/social/bookmark"
-    static let bookmarkAnswer = "ask/question/reply/bookmark"
     //user details
-    static let getUserPostedPosts  = "user/social/"
-    static let getUserPostedCases  = "complaint/case"
-    static let getUserPostedQuestions  = "ask/question"
-    static let getUserPostedAnswers  = "ask/question/reply/show"
+   
+    static let getTabPost = "tab"
     //complaint
     static let getComplaint = "user/social/"
     static let getComplaintComment = "complaint/comment/"
@@ -70,6 +59,7 @@ struct ApiEndpoints {
     //Question
     static let getAllQuestion =  "all/questions"
     //Profile
+    static let getProfileDetails = "group/profile"
     static let profileEdit = "job/profile/"
     static let personalEdit = "user/personal/info"
     static let professionalEdit = "job/profile/"
@@ -77,16 +67,17 @@ struct ApiEndpoints {
     static let professionalData = "user/profession/info"
     static let addCase = "complaint/post"
     static let applyJob = "job/apply/"
-    static let jobLike = "job/like/"
-    static let complaintBookmark = "/job/bookmark/"
+   
+
     static let questions = "comment/question/post/"
     static let complaintFollow = "auth/follow/"
-    static let newsCategory = "admin/page/post"
+   
     static let jobsCount = "custom/user/"
     static let searchJobs = "job/search/"
     static let trendingQuestion = "popular"
-    static let userPostedQA = "ask/question"
+  
     static let userPostedReplied = "ask/question/reply/show"
+    static let getBookMarks = "bookmarks"
     //Network
     static let getNetworkConnections = "groups"
     static let getFollow = "auth/follow"

@@ -6,7 +6,26 @@
 //
 
 import Foundation
+//struct ProfileModel {
+//    let name: String
+//    let imageName: String
+//}
 
+struct UserProfileModel: Codable {
+    let is_active: Bool
+    let userDetails: ProfileModel?
+}
+struct ProfileModel: Codable {
+    let name: String?
+    let image: String?
+    let speciality: String?
+    let cover_image: String?
+    let following_count: Int
+    let hightest_qualification: String?
+    let follow_status: Bool
+    let follow_count: Int
+    let location: String?
+}
 struct ProfileDataModel : Codable {
     let phoneNumber: String?
     let postGraduationInstitute: String?

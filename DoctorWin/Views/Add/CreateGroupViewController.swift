@@ -25,7 +25,7 @@ class CreateGroupViewController: ViewController {
         super.viewDidLoad()
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
         if let data = groupModel {
-            groupNameTF.text = data.name_of_group ?? ""
+            groupNameTF.text = data.name ?? ""
             groupDescriptionTV.text = data.description ?? ""
             groupImage.sd_setImage(with:URL(string: ApiEndpoints.baseImageURL + (data.image ?? "")), for: .normal)
             coverImage.sd_setImage(with:URL(string: ApiEndpoints.baseImageURL + (data.cover_image ?? "")), for: .normal)

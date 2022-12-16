@@ -71,6 +71,7 @@ class CaseCell: UITableViewCell {
         if homeModel.like_status ?? false {
             wishlistBtn.setImage(UIImage(named: "fheart"), for: .normal)
         }
+        
        
             if let userData = homeModel.userDetails {
                 self.designation.text = userData.speciality ?? ""
@@ -94,16 +95,28 @@ class CaseCell: UITableViewCell {
         if let imageData = homeModel.image {
             pageControl.numberOfPages = imageData.count
             if imageData.count > 0 {
+                pageControl.isHidden = false
+                self.imageHeiht.constant = 250
                 if let urlString = imageData[0].image {
                     self.postImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
                 }
             } else {
                 imageHeiht.constant = 0
             }
+        } else {
+            imageHeiht.constant = 0
+            pageControl.isHidden = true
         }
     }
-    func configureDataWith(homeModel: CasesDataModel) {
-      
+    func configureProfileData(profileData: PostedUserDetailsModel?) {
+        if let userData = profileData {
+            self.designation.text = userData.speciality ?? ""
+            self.postedPersonName.text = userData.name
+            if let urlString = userData.image {
+                self.personImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
+            }
+           // self.postId = userData.posted_id
+    }
     }
     @IBAction func likeClicked(_ sender: UIButton) {
         

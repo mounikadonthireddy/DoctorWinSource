@@ -64,9 +64,9 @@ class UserHeaderView: UITableViewHeaderFooterView {
         
     }
     func configureView(data: GroupProfileModel) {
-        nameLbl.text = "\(data.name_of_group ?? "")"
+        nameLbl.text = "\(data.name ?? "")"
         specialityLbl.text = data.description ?? ""
-        followBtn.setTitle("\(data.number_of_joined ?? 0) Participants", for: .normal)
+        followBtn.setTitle("\(data.total_joined ) Participants", for: .normal)
         specialityLbl.text = data.description ?? ""
         imageArray = data.group_joined_image ?? []
         if imageArray.count == 0 {
@@ -79,7 +79,7 @@ class UserHeaderView: UITableViewHeaderFooterView {
             joinBtn.setTitle("Edit", for: .normal)
             adminViewHeight.constant = 20
         }
-        else if data.join_status == false {
+        else if data.joined_status == false {
             joinBtn.setTitle("Join", for: .normal)
             adminViewHeight.constant = 0
         } else {
@@ -88,7 +88,7 @@ class UserHeaderView: UITableViewHeaderFooterView {
             joinBtn.isEnabled = false
             adminViewHeight.constant = 20
         }
-        if let urlString = data.profileImage {
+        if let urlString = data.image {
             
             self.personImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
         }

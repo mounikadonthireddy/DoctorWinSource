@@ -8,26 +8,23 @@
 import Foundation
 
 protocol UserDetailsViewModelDelegate {
-    func didReciveProfileData(response: ProfileDataModel?, error: String?)
+    func didReciveProfileData(response: ProfileModel?, error: String?)
     func didReciveGroupProfileData(response: GroupProfileModel?, error: String?)
-    func didRecivePostsData(response: [HomeDataModel]?, error: String?)
-    func didReciveCasesData(response: [CasesDataModel]?, error: String?)
-    func didReciveQuestionsData(response: [PostedQuestionModel]?, error: String?)
-    func didReciveAnswersData(response: [AnswersModel]?, error: String?)
+    func didRecivePostsData(response: HomeResponseModel?, error: String?)
 }
 
 struct UserDetailsViewModel {
     var delegate : UserDetailsViewModelDelegate?
     func getProfileData(userID: String) {
         let resource = ProfileEditResource()
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.profileEdit + ApiEndpoints.userID + "=\(userID)"
-
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getProfileDetails + "?posted_id=\(userID)&display_status=7"
+        
         resource.getProfileData(url: homeUrlStr) { response in
             DispatchQueue.main.async {
                 switch response {
                 case .success(let data):
                     self.delegate?.didReciveProfileData(response: data, error: nil)
-
+                    
                 case .failure(let error):
                     self.delegate?.didReciveProfileData(response: nil, error: error)
                 }
@@ -37,14 +34,14 @@ struct UserDetailsViewModel {
     }
     func getGroupProfileData(userID: String, groupId: String) {
         let resource = ProfileEditResource()
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getNetworkConnections + ApiEndpoints.userID + "=\(userID)&group_id=\(groupId)"
-
+        let homeUrlStr  = ApiEndpoints.baseUrl + ApiEndpoints.getProfileDetails +  "?posted_id=\(groupId)&display_status=8"
+        
         resource.getGroupProfileData(url: homeUrlStr) { response in
             DispatchQueue.main.async {
                 switch response {
                 case .success(let data):
                     self.delegate?.didReciveGroupProfileData(response: data, error: nil)
-
+                    
                 case .failure(let error):
                     self.delegate?.didReciveGroupProfileData(response: nil, error: error)
                 }
@@ -52,18 +49,12 @@ struct UserDetailsViewModel {
             }
         }
     }
-    func getHomeData(userId: String, group_id: String) {
     
-        
-    }
-    func getPostData(userID: String, group_id: String? = nil) {
+    func getPostData(display_status: Int, group_id: String, page : Int,posted_id: String ) {
         let homeResource = UserDetailsResource()
-        var endUrl  = ""
-        if let groupId = group_id {
-            endUrl  = "&group_id=\(groupId)"
-        }
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getUserPostedPosts + ApiEndpoints.userID + "=\(userID)&page=1" + "\(endUrl)"
-
+        
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getTabPost + "?display_status=\(display_status)&posted_id=\(posted_id)&page=\(page)&id=\(group_id)"
+        print("posted url \(homeUrlStr)")
         homeResource.getUserPostedPostsData(urlString: homeUrlStr) { response in
             DispatchQueue.main.async {
                 switch response {
@@ -77,150 +68,22 @@ struct UserDetailsViewModel {
             }
         }
     }
-    func getCasesData(userID: String, group_id: String? = nil) {
-        let homeResource = UserDetailsResource()
-        var endUrl  = ""
-        if let groupId = group_id {
-            endUrl  = "&group_id=\(groupId)"
-        }
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getUserPostedCases + ApiEndpoints.userID + "=\(userID)&page=1" + endUrl
-
-        homeResource.getUserPostedCasesData(urlString: homeUrlStr) { response in
-            DispatchQueue.main.async {
-                switch response {
-                case .success(let data):
-                    self.delegate?.didReciveCasesData(response: data, error: nil)
-                    
-                case .failure(let error):
-                    self.delegate?.didReciveCasesData(response: nil, error: error)
-                }
-                
-            }
-        }
-    }
-    func getQuestionsData(userID: String, group_id: String? = nil) {
-        let homeResource = UserDetailsResource()
-        var endUrl  = ""
-        if let groupId = group_id {
-            endUrl  = "&group_id=\(groupId)"
-        }
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getUserPostedQuestions + ApiEndpoints.userID + "=\(userID)&page=1" + endUrl
-
-        homeResource.getUserPostedQuestionsData(urlString: homeUrlStr) { response in
-            DispatchQueue.main.async {
-                switch response {
-                case .success(let data):
-                    self.delegate?.didReciveQuestionsData(response: data, error: nil)
-                    
-                case .failure(let error):
-                    self.delegate?.didReciveQuestionsData(response: nil, error: error)
-                }
-                
-            }
-        }
-    }
-    func getAnswersData(userID: String, group_id: String? = nil) {
-        let homeResource = UserDetailsResource()
-        var endUrl  = ""
-        if let groupId = group_id {
-            endUrl  = "&group_id=\(groupId)"
-        }
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getUserPostedAnswers + ApiEndpoints.userID  + "=\(userID)&page=1" + endUrl
-
-        homeResource.getUserPostedAnswersData(urlString: homeUrlStr) { response in
-            DispatchQueue.main.async {
-                switch response {
-                case .success(let data):
-                    self.delegate?.didReciveAnswersData(response: data, error: nil)
-                    
-                case .failure(let error):
-                    self.delegate?.didReciveAnswersData(response: nil, error: error)
-                }
-                
-            }
-        }
-    }
-//    func getFollowDataFromAPI(userID: String) {
-//        let homeResource = NetworkResource()
-//        homeResource.getFollowData(userID: userID) { response in
-//            DispatchQueue.main.async {
-//                switch response {
-//                case .success(let data):
-//                    self.delegate?.didReceiveFollowDataResponse(response: data, error: nil)
-//
-//                case .failure(let error):
-//                    self.delegate?.didReceiveFollowDataResponse(response: nil, error: error)
-//                }
-//            }
-//        }
-//    }
-//
-//    func getFollowingDataFromAPI(userID: String) {
-//        let homeResource = NetworkResource()
-//        homeResource.getFollowingData(userID: userID) { response in
-//            DispatchQueue.main.async {
-//                switch response {
-//                case .success(let data):
-//                    self.delegate?.didReceiveFollowDataResponse(response: data, error: nil)
-//
-//                case .failure(let error):
-//                    self.delegate?.didReceiveFollowDataResponse(response: nil, error: error)
-//                }
-//            }
-//        }
-//    }
     func getProfileData(userID: String, requestId: String) {
         let resource = ProfileEditResource()
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.userDetails + ApiEndpoints.userID + "=\(userID)&requested_user_id=\(requestId)"
-
+        
         resource.getProfileData(url: homeUrlStr) { response in
             DispatchQueue.main.async {
                 switch response {
                 case .success(let data):
                     self.delegate?.didReciveProfileData(response: data, error: nil)
-
+                    
                 case .failure(let error):
                     self.delegate?.didReciveProfileData(response: nil, error: error)
                 }
                 
             }
         }
-    }
-    
-    func getUserPostedNews(userID: String) {
-//        let homeResource = NewsJobResource()
-//        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.postedNews + "?user_id=\(userID)"
-//
-//        homeResource.getMyNewsData1(urlString: homeUrlStr) { response in
-//            DispatchQueue.main.async {
-//                switch response {
-//                case .success(let data):
-//                    self.delegate?.didReceivePostedNews(response: data, error: nil)
-//
-//                case .failure(let error):
-//                    self.delegate?.didReceivePostedNews(response: nil, error: error)
-//                }
-//
-//            }
-//        }
-    }
-    
-    func getUserPostedCases(userID: String) {
-//        let homeResource = HomeResource()
-//        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.userCases + "?user_id=\(userID)"
-//
-//        homeResource.getBookmarkCases(urlString: homeUrlStr) { response in
-//            DispatchQueue.main.async {
-//                switch response {
-//                case .success(let data):
-//                    self.delegate?.didReceivePostedCases(response: data, error: nil)
-//
-//                case .failure(let error):
-//                    self.delegate?.didReceivePostedCases(response: nil, error: error)
-//                }
-//
-//            }
-//        }
     }
 }
 
@@ -236,14 +99,16 @@ struct UserDetailsModel: Codable {
     let followStatus: Bool?
 }
 struct GroupProfileModel: Codable {
-    let name_of_group: String?
-    let description: String?
+    let name: String?
     let image: String?
+    let description: String?
     let cover_image: String?
-    let join_status: Bool?
-    let number_of_joined: Int?
-    let group_joined_image: [GenderImageModel]?
-    let profileImage: String?
+    let total_joined: Int
     let admin_status: Bool?
-    
+    let joined_status: Bool?
+    let group_joined_image: [GenderImageModel]?
+}
+struct GroupProfileDataModel: Codable {
+    let is_active: Bool
+    let userDetails: GroupProfileModel?
 }

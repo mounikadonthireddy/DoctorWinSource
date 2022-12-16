@@ -30,24 +30,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="463" height="570.5"/>
                         <subviews>
                             <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginBg" translatesAutoresizingMaskIntoConstraints="NO" id="waT-aK-kkP">
-                                <rect key="frame" x="0.0" y="0.0" width="463" height="300"/>
+                                <rect key="frame" x="0.0" y="0.0" width="463" height="400"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="44n-Kp-DHa"/>
+                                    <constraint firstAttribute="height" constant="400" id="44n-Kp-DHa"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Very Nice" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X6P-3j-QjO">
-                                <rect key="frame" x="20" y="315" width="428" height="31"/>
+                                <rect key="frame" x="20" y="415" width="428" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="31" id="CPL-Ia-iKP"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P0Z-Ac-U8S">
-                                <rect key="frame" x="15" y="356" width="438" height="111"/>
+                                <rect key="frame" x="15" y="456" width="438" height="11"/>
                                 <string key="text">OS has built-in support for adding shadows to UIView components. All you need to do in order to add a shadow to a UIView object is to set the shadow properties of the view’s layer. </string>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -65,10 +65,10 @@
                                         <color key="tintColor" systemColor="labelColor"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share" translatesAutoresizingMaskIntoConstraints="NO" id="6of-V5-x45">
-                                        <rect key="frame" x="266" y="0.0" width="88.5" height="25"/>
+                                        <rect key="frame" x="266" y="1.5" width="88.5" height="22"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mark" translatesAutoresizingMaskIntoConstraints="NO" id="SBY-re-Ij5">
-                                        <rect key="frame" x="354.5" y="0.0" width="88.5" height="25"/>
+                                        <rect key="frame" x="354.5" y="3" width="88.5" height="19"/>
                                     </imageView>
                                 </subviews>
                                 <constraints>
@@ -243,10 +243,10 @@
     <resources>
         <image name="arrow.2.squarepath" catalog="system" width="128" height="89"/>
         <image name="heart" width="64" height="64"/>
-        <image name="loginBg" width="6240" height="3014"/>
-        <image name="mark" width="64" height="64"/>
+        <image name="loginBg" width="375" height="153"/>
+        <image name="mark" width="19" height="19"/>
         <image name="message" width="32" height="32"/>
-        <image name="share" width="64" height="64"/>
+        <image name="share" width="22" height="22"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

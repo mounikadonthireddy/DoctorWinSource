@@ -111,11 +111,11 @@ struct HomeResource {
         }
     }
     
-    func getBookmarkCases(urlString: String, completion : @escaping (_ result: ResponseResult<[CasesDataModel]>) -> Void) {
+    func getBookmarkCases(urlString: String, completion : @escaping (_ result: ResponseResult<HomeResponseModel>) -> Void) {
         
         let httpUtility = HttpUtility()
         do {
-            httpUtility.getApiData(urlString: urlString, resultType: [CasesDataModel].self) { result in
+            httpUtility.getApiData(urlString: urlString, resultType: HomeResponseModel.self) { result in
                 
                 switch result {
                 case .success(let data):

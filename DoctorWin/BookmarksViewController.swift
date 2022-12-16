@@ -8,14 +8,7 @@
 import UIKit
 
 class BookmarksViewController: ViewController, ExpandableLabelDelegate {
-    var states : Array<Bool>!
-    var bookmarkVM = BookMarkViewModel()
-    var selectedIndex = 0
-    var jobsArray : [CarrierModel] = []
-    var newsArray:[NewsModel] = []
-    var socialArray: [HomeDataModel] = []
-    var casesArray: [CasesDataModel] = []
-    var answersArray: [AnswersModel] = []
+   
     @IBOutlet weak var bookmarksTableView: UITableView!
     @IBOutlet weak var interfaceSegmented: CustomSegmentedControl!{
         didSet{
@@ -24,40 +17,33 @@ class BookmarksViewController: ViewController, ExpandableLabelDelegate {
             interfaceSegmented.selectorTextColor = .black
         }
     }
-  
+    var states : Array<Bool>!
+    var bookmarkVM = BookMarkViewModel()
+    var selectedIndex = 0
+    var jobsArray : [CarrierModel] = []
+    var socialArray: [HomeDataModel] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         interfaceSegmented.delegate = self
-       
         bookmarkVM.delegate = self
-      
+        
         bookmarksTableView.register(UINib(nibName: "CaseCell", bundle: nil), forCellReuseIdentifier: "CaseCell")
         bookmarksTableView.register(UINib.init(nibName: "CarrierJobCell", bundle: nil), forCellReuseIdentifier: "CarrierJobCell")
-
-        bookmarksTableView.register(UINib(nibName: "ArticalCell", bundle: nil), forCellReuseIdentifier: "ArticalCell")
-
+        
+        
         bookmarksTableView.register(UINib(nibName: "NewsCell", bundle: nil), forCellReuseIdentifier: "NewsCell")
-        bookmarksTableView.register(UINib(nibName: "ReplyCell", bundle: nil), forCellReuseIdentifier: "ReplyCell")
-   
+        
         // Do any additional setup after loading the view.
-        self.loadBookmarkJobs()
-    }
-    
-    func loadBookmarkNews() {
-        bookmarkVM.getBookmarkNews(userID: User.shared.userID)
-    }
-    func loadBookmarkSocial() {
-        bookmarkVM.getBookmarkSocail(userID: User.shared.userID)
-    }
-    func loadBookmarkCases() {
-        bookmarkVM.getBookmarkCases(userID: User.shared.userID)
+        self.loadBookmarks(display_status: 1, page: 1)
     }
     func loadBookmarkJobs() {
-        bookmarkVM.getBookMarkedJobs(userID: User.shared.userID)
+        //bookmarkVM.getBookMarkedJobs(userID: User.shared.userID)
     }
-    func loadBookmarkAnswers() {
-        bookmarkVM.getBookMarkedJAnswers(userID: User.shared.userID)
+    func loadBookmarks(display_status: Int, page: Int) {
+        self.showLoader()
+        bookmarkVM.getBookmarkSocail(display_status: display_status, page: page)
     }
     @IBAction func backClicked(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
@@ -69,52 +55,35 @@ extension BookmarksViewController : UITableViewDelegate, UITableViewDataSource {
         switch selectedIndex {
         case 0:
             return jobsArray.count
-        case 1:
-            return casesArray.count
-        
-        case 2:
-            return newsArray.count
-        case 3:
+        case 1,3,2,4:
             return socialArray.count
-        case 4:
-            return answersArray.count
         default:
             return 0
         }
-
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch selectedIndex {
         case 0:
             let cell: CarrierJobCell
-                = tableView.dequeueReusableCell(withIdentifier: "CarrierJobCell") as! CarrierJobCell
+            = tableView.dequeueReusableCell(withIdentifier: "CarrierJobCell") as! CarrierJobCell
             cell.configureCell(with: jobsArray[indexPath.row])
             return cell
             
-        case 1:
+        case 1,3,4:
             let cell: CaseCell
-                = tableView.dequeueReusableCell(withIdentifier: "CaseCell") as! CaseCell
-            cell.configureDataWith(homeModel: casesArray[indexPath.row])
+            = tableView.dequeueReusableCell(withIdentifier: "CaseCell") as! CaseCell
+            cell.configureData(homeModel: socialArray[indexPath.row])
             return cell
             
             
         case 2:
             let cell: NewsCell
-                = tableView.dequeueReusableCell(withIdentifier: "NewsCell") as! NewsCell
-           cell.configureData(homeModel: newsArray[indexPath.row])
-            return cell
-        case 3:
-            let cell: CaseCell
-            = tableView.dequeueReusableCell(withIdentifier: "CaseCell") as! CaseCell
+            = tableView.dequeueReusableCell(withIdentifier: "NewsCell") as! NewsCell
             cell.configureData(homeModel: socialArray[indexPath.row])
-         
             return cell
-        case 4:
-            let cell: ReplyCell
-            = tableView.dequeueReusableCell(withIdentifier: "ReplyCell") as! ReplyCell
-            cell.configureDataWith(homeModel: answersArray[indexPath.row])
-            return cell
+            
             
         default:
             return UITableViewCell()
@@ -124,43 +93,43 @@ extension BookmarksViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let str = UIStoryboard(name: "Details", bundle: nil)
         let nextVC = str.instantiateViewController(withIdentifier: "NewsDetailsViewController") as! NewsDetailsViewController
-//        nextVC.newsDetailsData = newsArray[indexPath.row]
+        //        nextVC.newsDetailsData = newsArray[indexPath.row]
         self.navigationController?.pushViewController(nextVC, animated: true)
         
     }
     @objc   func willExpandLabel(_ label: ExpandableLabel) {
-       // tableView.beginUpdates()
+        // tableView.beginUpdates()
     }
     
     @objc  func didExpandLabel(_ label: ExpandableLabel) {
         let point = label.convert(CGPoint.zero, to: bookmarksTableView)
         if let indexPath = bookmarksTableView.indexPathForRow(at: point) as IndexPath? {
-           
-           
+            
+            
         }
         
-//        if let indexPath = tableView.indexPathForRow(at: point) as IndexPath? {
-//            states[indexPath.row] = false
-//            DispatchQueue.main.async { [weak self] in
-//                self?.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
-//            }
-//        }
-//        tableView.endUpdates()
+        //        if let indexPath = tableView.indexPathForRow(at: point) as IndexPath? {
+        //            states[indexPath.row] = false
+        //            DispatchQueue.main.async { [weak self] in
+        //                self?.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+        //            }
+        //        }
+        //        tableView.endUpdates()
     }
     
     @objc func willCollapseLabel(_ label: ExpandableLabel) {
-       // tableView.beginUpdates()
+        // tableView.beginUpdates()
     }
     
     @objc  func didCollapseLabel(_ label: ExpandableLabel) {
-//        let point = label.convert(CGPoint.zero, to: tableView)
-//        if let indexPath = tableView.indexPathForRow(at: point) as IndexPath? {
-//            states[indexPath.row] = true
-//            DispatchQueue.main.async { [weak self] in
-//                self?.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
-//            }
-//        }
-//        tableView.endUpdates()
+        //        let point = label.convert(CGPoint.zero, to: tableView)
+        //        if let indexPath = tableView.indexPathForRow(at: point) as IndexPath? {
+        //            states[indexPath.row] = true
+        //            DispatchQueue.main.async { [weak self] in
+        //                self?.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+        //            }
+        //        }
+        //        tableView.endUpdates()
     }
     
     
@@ -173,13 +142,13 @@ extension BookmarksViewController: CustomSegmentedControlDelegate {
         if index == 0 {
             self.loadBookmarkJobs()
         } else if index == 1 {
-            self.loadBookmarkCases()
+            self.loadBookmarks(display_status: 1, page: 1)
         } else if index == 2 {
-            self.loadBookmarkNews()
+            self.loadBookmarks(display_status: 5, page: 1)
         } else if index == 3 {
-            self.loadBookmarkSocial()
+            self.loadBookmarks(display_status: 2, page: 1)
         } else if index == 4 {
-            self.loadBookmarkAnswers()
+            self.loadBookmarks(display_status: 1, page: 1)
         }
         
         self.showLoader()
@@ -191,46 +160,19 @@ extension BookmarksViewController: BookMarkDelegate {
         if (error != nil) {
             
         } else {
-        self.jobsArray = response ?? []
-        self.bookmarksTableView.reloadData()
+            self.jobsArray = response ?? []
+            self.bookmarksTableView.reloadData()
         }
         
     }
-    func didReceiveBookmakedSocail(response: [HomeDataModel]?, error: String?) {
+    func didReceiveBookmakedSocail(response: HomeResponseModel?, error: String?) {
         self.dismiss()
         if (error != nil) {
             
         } else {
-        self.socialArray = response ?? []
-        self.bookmarksTableView.reloadData()
+            self.socialArray = response?.homeResponse ?? []
+            self.bookmarksTableView.reloadData()
         }
     }
-    func didReceiveBookmakedCases(response: [CasesDataModel]?, error: String?) {
-        self.dismiss()
-        if (error != nil) {
-            
-        } else {
-        self.casesArray = response ?? []
-        self.bookmarksTableView.reloadData()
-        }
-    }
-    func didReceiveBookmakedAnswers(response: [AnswersModel]?, error: String?) {
-        self.dismiss()
-        if (error != nil) {
-            
-        } else {
-        self.answersArray = response ?? []
-        self.bookmarksTableView.reloadData()
-        }
-    }
-    func didReceiveBookmakedNews(response: [NewsModel]?, error: String?) {
-        self.dismiss()
-        if (error != nil) {
-            
-        } else {
-        self.newsArray = response ?? []
-            states = [Bool](repeating: true, count: newsArray.count)
-        self.bookmarksTableView.reloadData()
-        }
-    }
+    
 }

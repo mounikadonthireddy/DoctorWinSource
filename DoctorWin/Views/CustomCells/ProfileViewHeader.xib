@@ -182,6 +182,7 @@
             </constraints>
             <connections>
                 <outlet property="bookmarkBtn" destination="ve5-yp-PAe" id="79H-v8-QY4"/>
+                <outlet property="coverImage" destination="b4O-nW-5Oh" id="gTx-GO-XaL"/>
                 <outlet property="followBtn" destination="BzJ-4Z-z4M" id="kgR-i7-iHb"/>
                 <outlet property="followingBtn" destination="0vD-ZK-yJL" id="bOA-7g-cPQ"/>
                 <outlet property="interfaceSegmented" destination="fDK-Os-GBa" id="4LD-aR-xSz"/>

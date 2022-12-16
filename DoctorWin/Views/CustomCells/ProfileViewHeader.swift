@@ -12,6 +12,7 @@ class ProfileViewHeader: UITableViewHeaderFooterView {
     @IBOutlet weak var profileQualification: UILabel!
     @IBOutlet weak var profileLocation: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var coverImage: UIImageView!
     @IBOutlet weak var followBtn: UIButton!
     @IBOutlet weak var followingBtn: UIButton!
     @IBOutlet weak var viewBtn: UIButton!
@@ -39,16 +40,19 @@ class ProfileViewHeader: UITableViewHeaderFooterView {
         viewBtn.setCornerRadius(radius: 10)
         profileImage.setCornerRadius(radius: Float(profileImage.frame.width)/2)
     }
-    func configureView(data:ProfileDataModel) {
-        profileName.text = "DR. " + (data.profileName ?? "")
-        profileQualification.text = data.qualification ?? ""
-        profileLocation.text  = (data.speciality ?? "") + " At " + (data.currentLocation ?? "")
+    func configureView(data:ProfileModel) {
+        profileName.text = "DR. " + (data.name ?? "")
+        profileQualification.text = data.hightest_qualification ?? ""
+        profileLocation.text  = (data.speciality ?? "") + " At " + (data.location ?? "")
         
-        followBtn.setTitle("\(data.follow ?? 0) Follow", for: .normal)
+        followBtn.setTitle("\(data.follow_count ) Follow", for: .normal)
         
-        followingBtn.setTitle("\(data.following ?? 0) Following", for: .normal)
-        if let urlString = data.profileImage {
+        followingBtn.setTitle("\(data.following_count ) Following", for: .normal)
+        if let urlString = data.image {
             self.profileImage.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "loginBg"))
+        }
+        if let urlString1 = data.cover_image {
+            self.coverImage.sd_setImage(with: URL(string: urlString1), placeholderImage: UIImage(named: "loginBg"))
         }
         
     }

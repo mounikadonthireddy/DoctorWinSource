@@ -32,6 +32,7 @@ struct HomeResponseModel: Codable {
     let next: Bool?
     let is_active: Bool?
     let homeResponse: [HomeDataModel]?
+    let userGroupDetails: PostedUserDetailsModel?
 }
 struct PostedUserDetailsModel: Codable {
     let name: String

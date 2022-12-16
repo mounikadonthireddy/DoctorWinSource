@@ -8,11 +8,11 @@
 import Foundation
 
 struct UserDetailsResource {
-    func getUserPostedPostsData(urlString: String, completion : @escaping (_ result: ResponseResult<[HomeDataModel]>) -> Void) {
+    func getUserPostedPostsData(urlString: String, completion : @escaping (_ result: ResponseResult<HomeResponseModel>) -> Void) {
         
         let httpUtility = HttpUtility()
         do {
-            httpUtility.getApiData(urlString: urlString, resultType: [HomeDataModel].self) { result in
+            httpUtility.getApiData(urlString: urlString, resultType: HomeResponseModel.self) { result in
                 
                 switch result {
                 case .success(let data):

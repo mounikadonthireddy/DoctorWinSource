@@ -53,15 +53,19 @@ struct ProfileEditResource {
             debugPrint(error)
         }
     }
-    func getProfileData(url: String, completion : @escaping (_ result: ResponseResult<ProfileDataModel>) -> Void) {
+    func getProfileData(url: String, completion : @escaping (_ result: ResponseResult<ProfileModel>) -> Void) {
         
         let httpUtility = HttpUtility()
         do {
-            httpUtility.getApiData(urlString: url, resultType: ProfileDataModel.self) { result in
+            httpUtility.getApiData(urlString: url, resultType: UserProfileModel.self) { result in
                 
                 switch result {
                 case .success(let data):
-                    completion(.success(data))
+                    if data.is_active == true {
+                        completion(.success(data.userDetails!))
+                    } else {
+                        completion(.failure(""))
+                    }
                     
                 case .failure( let error):
                     completion(.failure(error.rawValue))
@@ -73,11 +77,15 @@ struct ProfileEditResource {
         
         let httpUtility = HttpUtility()
         do {
-            httpUtility.getApiData(urlString: url, resultType: GroupProfileModel.self) { result in
+            httpUtility.getApiData(urlString: url, resultType: GroupProfileDataModel.self) { result in
                 
                 switch result {
                 case .success(let data):
-                    completion(.success(data))
+                    if data.is_active == true {
+                        completion(.success(data.userDetails!))
+                    } else {
+                        completion(.failure(""))
+                    }
                     
                 case .failure( let error):
                     completion(.failure(error.rawValue))

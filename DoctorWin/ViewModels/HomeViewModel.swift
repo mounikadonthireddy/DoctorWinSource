@@ -85,40 +85,7 @@ struct HomeViewModel {
     }
     
    
-    func getAllCases(userID: String) {
-//        let homeResource = HomeResource()
-//        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.postedCases + "?user_id=\(userID)"
-//
-//        homeResource.getBookmarkCases(urlString: homeUrlStr) { response in
-//            DispatchQueue.main.async {
-////                switch response {
-////                case .success(let data):
-////                    self.delegate?.didReciveHomeData(response: data, error: nil)
-////
-////                case .failure(let error):
-////                    self.delegate?.didReciveHomeData(response: nil, error: error)
-////                }
-////
-//            }
-//        }
-    }
-    func getLikedCases(userID: String) {
-        let homeResource = HomeResource()
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.likedCases + ApiEndpoints.userID + "=\(userID)"
 
-        homeResource.getBookmarkCases(urlString: homeUrlStr) { response in
-            DispatchQueue.main.async {
-//                switch response {
-              //  case .success(let data):
-                   // self.delegate?.didReciveHomeData(response: data, error: nil)//
-
-             //   case .failure(let error):
-                   // self.delegate?.didReciveHomeData(response: nil, error: error)
-              //  }
-                
-            }
-        }
-    }
 }
 
 protocol CaseDetailsDelegate {

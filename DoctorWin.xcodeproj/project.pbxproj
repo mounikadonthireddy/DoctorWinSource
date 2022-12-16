@@ -143,7 +143,6 @@
 		43F57E5327561860001120C8 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F57E5227561860001120C8 /* BaseViewController.swift */; };
 		43F971E1275B5E8800733478 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F971E0275B5E8800733478 /* ProfileViewModel.swift */; };
 		8FF9ACFE2771B9B4002F4700 /* OTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF9ACFD2771B9B4002F4700 /* OTPViewModel.swift */; };
-		8FF9AD00277314B7002F4700 /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF9ACFF277314B7002F4700 /* NewsViewModel.swift */; };
 		8FF9AD0227731525002F4700 /* NewsJobResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF9AD0127731525002F4700 /* NewsJobResource.swift */; };
 		91081772765C1A0B97616E69 /* Pods_DoctorWinTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 968112DC4E4E426C6FD7BD78 /* Pods_DoctorWinTests.framework */; };
 		92090A9F281AD4A980169631 /* Pods_DoctorWin_DoctorWinUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BDDA2635A6F61E4F15F8578 /* Pods_DoctorWin_DoctorWinUITests.framework */; };
@@ -211,7 +210,6 @@
 		BF431C8F2782EC6F0057AF9F /* ExperinceTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF431C8D2782EC6F0057AF9F /* ExperinceTitleCell.xib */; };
 		BF431C912782FAF20057AF9F /* ExperienceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF431C902782FAF20057AF9F /* ExperienceViewController.swift */; };
 		BF431C9327831BB30057AF9F /* MyNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF431C9227831BB30057AF9F /* MyNewsViewController.swift */; };
-		BF431C95278328FD0057AF9F /* MyCasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF431C94278328FD0057AF9F /* MyCasesViewController.swift */; };
 		BF431C98278352820057AF9F /* NewTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF431C96278352820057AF9F /* NewTypeCell.swift */; };
 		BF431C99278352820057AF9F /* NewTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF431C97278352820057AF9F /* NewTypeCell.xib */; };
 		BF431C9B2784030D0057AF9F /* CreateFirstCaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF431C9A2784030D0057AF9F /* CreateFirstCaseView.swift */; };
@@ -222,7 +220,6 @@
 		BFA90E1827B4E036009F9784 /* MySelfCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFA90E1627B4E036009F9784 /* MySelfCell.xib */; };
 		BFA90E1B27B4E97B009F9784 /* ProfileImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA90E1927B4E97A009F9784 /* ProfileImageCell.swift */; };
 		BFA90E1C27B4E97B009F9784 /* ProfileImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFA90E1A27B4E97A009F9784 /* ProfileImageCell.xib */; };
-		BFA90E1E27B53F5F009F9784 /* NewsCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA90E1D27B53F5F009F9784 /* NewsCategoryViewController.swift */; };
 		BFA90E2027BA7036009F9784 /* APIHelperClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA90E1F27BA7036009F9784 /* APIHelperClass.swift */; };
 		BFA90E2327BB50F9009F9784 /* AddCaseTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA90E2127BB50F9009F9784 /* AddCaseTextCell.swift */; };
 		BFA90E2427BB50F9009F9784 /* AddCaseTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFA90E2227BB50F9009F9784 /* AddCaseTextCell.xib */; };
@@ -262,7 +259,6 @@
 		BFC3EF07282E72B2000A1582 /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC3EF06282E72B2000A1582 /* BookmarksViewController.swift */; };
 		BFC3EF092834C71C000A1582 /* CarrierJobDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC3EF082834C71C000A1582 /* CarrierJobDetailsViewController.swift */; };
 		BFCB16B627997832005E3FEB /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCB16B527997832005E3FEB /* CustomSegmentedControl.swift */; };
-		BFCB16BC279991DD005E3FEB /* MyStoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCB16BB279991DD005E3FEB /* MyStoriesViewController.swift */; };
 		BFCB174027B4172A005E3FEB /* DropDownResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCB173F27B4172A005E3FEB /* DropDownResource.swift */; };
 		BFD5FF2C2812EECE003CE888 /* NewsDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5FF2A2812EECE003CE888 /* NewsDetailsCell.swift */; };
 		BFD5FF2D2812EECE003CE888 /* NewsDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFD5FF2B2812EECE003CE888 /* NewsDetailsCell.xib */; };
@@ -580,7 +576,6 @@
 		4E552430B9EE5A355A34C680 /* Pods-DoctorWin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorWin.debug.xcconfig"; path = "Target Support Files/Pods-DoctorWin/Pods-DoctorWin.debug.xcconfig"; sourceTree = "<group>"; };
 		5A3E4100895420D494512681 /* Pods-DoctorWin-DoctorWinUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorWin-DoctorWinUITests.debug.xcconfig"; path = "Target Support Files/Pods-DoctorWin-DoctorWinUITests/Pods-DoctorWin-DoctorWinUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8FF9ACFD2771B9B4002F4700 /* OTPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewModel.swift; sourceTree = "<group>"; };
-		8FF9ACFF277314B7002F4700 /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
 		8FF9AD0127731525002F4700 /* NewsJobResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsJobResource.swift; sourceTree = "<group>"; };
 		94EDB2E4E945E92A335EAAC8 /* Pods-DoctorWinTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorWinTests.release.xcconfig"; path = "Target Support Files/Pods-DoctorWinTests/Pods-DoctorWinTests.release.xcconfig"; sourceTree = "<group>"; };
 		968112DC4E4E426C6FD7BD78 /* Pods_DoctorWinTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoctorWinTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -649,7 +644,6 @@
 		BF431C8D2782EC6F0057AF9F /* ExperinceTitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExperinceTitleCell.xib; sourceTree = "<group>"; };
 		BF431C902782FAF20057AF9F /* ExperienceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceViewController.swift; sourceTree = "<group>"; };
 		BF431C9227831BB30057AF9F /* MyNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNewsViewController.swift; sourceTree = "<group>"; };
-		BF431C94278328FD0057AF9F /* MyCasesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCasesViewController.swift; sourceTree = "<group>"; };
 		BF431C96278352820057AF9F /* NewTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTypeCell.swift; sourceTree = "<group>"; };
 		BF431C97278352820057AF9F /* NewTypeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewTypeCell.xib; sourceTree = "<group>"; };
 		BF431C9A2784030D0057AF9F /* CreateFirstCaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFirstCaseView.swift; sourceTree = "<group>"; };
@@ -660,7 +654,6 @@
 		BFA90E1627B4E036009F9784 /* MySelfCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MySelfCell.xib; sourceTree = "<group>"; };
 		BFA90E1927B4E97A009F9784 /* ProfileImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageCell.swift; sourceTree = "<group>"; };
 		BFA90E1A27B4E97A009F9784 /* ProfileImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileImageCell.xib; sourceTree = "<group>"; };
-		BFA90E1D27B53F5F009F9784 /* NewsCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCategoryViewController.swift; sourceTree = "<group>"; };
 		BFA90E1F27BA7036009F9784 /* APIHelperClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelperClass.swift; sourceTree = "<group>"; };
 		BFA90E2127BB50F9009F9784 /* AddCaseTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCaseTextCell.swift; sourceTree = "<group>"; };
 		BFA90E2227BB50F9009F9784 /* AddCaseTextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCaseTextCell.xib; sourceTree = "<group>"; };
@@ -700,7 +693,6 @@
 		BFC3EF06282E72B2000A1582 /* BookmarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
 		BFC3EF082834C71C000A1582 /* CarrierJobDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrierJobDetailsViewController.swift; sourceTree = "<group>"; };
 		BFCB16B527997832005E3FEB /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
-		BFCB16BB279991DD005E3FEB /* MyStoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStoriesViewController.swift; sourceTree = "<group>"; };
 		BFCB173F27B4172A005E3FEB /* DropDownResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownResource.swift; sourceTree = "<group>"; };
 		BFD5FF2A2812EECE003CE888 /* NewsDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailsCell.swift; sourceTree = "<group>"; };
 		BFD5FF2B2812EECE003CE888 /* NewsDetailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsDetailsCell.xib; sourceTree = "<group>"; };
@@ -990,7 +982,6 @@
 				DCA0A6FC28C757EC001DE3F1 /* UserDetailsResource.swift */,
 				8FF9AD0127731525002F4700 /* NewsJobResource.swift */,
 				435FB56B27510FE40040C406 /* JobCategoryResource.swift */,
-				8FF9ACFF277314B7002F4700 /* NewsViewModel.swift */,
 				BF30C7D8277B33DE0047E277 /* AddCustomJobViewModel.swift */,
 				BF30C7DA277B34820047E277 /* AddCustomJobResource.swift */,
 				DCB7D1E0284B536200F3CFDE /* BookMarkViewModel.swift */,
@@ -1157,7 +1148,6 @@
 		43B52E4B273BE737004EF637 /* News */ = {
 			isa = PBXGroup;
 			children = (
-				BFA90E1D27B53F5F009F9784 /* NewsCategoryViewController.swift */,
 				BF431C9E278442D00057AF9F /* DummyCell.swift */,
 				BF431C9F278442D00057AF9F /* DummyCell.xib */,
 			);
@@ -1194,8 +1184,6 @@
 				BF431C902782FAF20057AF9F /* ExperienceViewController.swift */,
 				BF431C9227831BB30057AF9F /* MyNewsViewController.swift */,
 				DCC7469A285C7D4C00B33A2D /* StoryBoards */,
-				BF431C94278328FD0057AF9F /* MyCasesViewController.swift */,
-				BFCB16BB279991DD005E3FEB /* MyStoriesViewController.swift */,
 				BFC3EF06282E72B2000A1582 /* BookmarksViewController.swift */,
 			);
 			name = Profile;
@@ -2068,7 +2056,6 @@
 				BF170F73280FE970001B3109 /* HomeTableHeader.swift in Sources */,
 				BF170F5C280D9B08001B3109 /* NetworkCell.swift in Sources */,
 				DCF1B4AD28F7E00D007F4FA3 /* LearningDetailsViewController.swift in Sources */,
-				BF431C95278328FD0057AF9F /* MyCasesViewController.swift in Sources */,
 				DCA0A6E428C34957001DE3F1 /* NetworkCVCell.swift in Sources */,
 				43B03AA9272F99E100A4337B /* AddCasesViewController.swift in Sources */,
 				435FB56C27510FE40040C406 /* JobCategoryResource.swift in Sources */,
@@ -2095,7 +2082,6 @@
 				43AF8FB12733D89D00CC69EF /* PaddingLabel.swift in Sources */,
 				BF0DD956278D4C820053747A /* ProfileSkillsCell.swift in Sources */,
 				43AF8FAC2733D54500CC69EF /* RegisterCell.swift in Sources */,
-				8FF9AD00277314B7002F4700 /* NewsViewModel.swift in Sources */,
 				DC55BE062872F40500B1EE1B /* DatingModel.swift in Sources */,
 				DC9539B5285C5B4800FBD8D0 /* CommentModel.swift in Sources */,
 				BFA90E2827BB5346009F9784 /* AddCasesTitleHeader.swift in Sources */,
@@ -2116,7 +2102,6 @@
 				43B231FB273AA38600038F8A /* SearchJobsViewController.swift in Sources */,
 				43B975B12725B20000CDF2F1 /* JobInformationCell.swift in Sources */,
 				DC8D9ACD28572C0F009533DC /* InterstViewController.swift in Sources */,
-				BFCB16BC279991DD005E3FEB /* MyStoriesViewController.swift in Sources */,
 				DC885E4428D89C4700110418 /* MatchesCell.swift in Sources */,
 				43B5CBCD2726779900DFEC71 /* JobsCell.swift in Sources */,
 				DC9AB75F28F863B800C6043E /* CategoryTVCell.swift in Sources */,
@@ -2279,7 +2264,6 @@
 				439297D227231EDE001891B8 /* InfoCell.swift in Sources */,
 				4392978B2722D628001891B8 /* SceneDelegate.swift in Sources */,
 				DC86698328742FAE00CF89A8 /* ShopCVCell.swift in Sources */,
-				BFA90E1E27B53F5F009F9784 /* NewsCategoryViewController.swift in Sources */,
 				431052F92759E48B006BC13A /* FilterViewController.swift in Sources */,
 				4347EF442746589100E634E9 /* HomeViewModel.swift in Sources */,
 				439297BF2722D718001891B8 /* HomeViewController.swift in Sources */,

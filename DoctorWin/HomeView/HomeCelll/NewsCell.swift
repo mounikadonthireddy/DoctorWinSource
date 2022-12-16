@@ -20,6 +20,8 @@ class NewsCell: UITableViewCell {
     weak var delegate: CellActionDelegate?
     @IBOutlet weak var likeImage: UIImageView!
     @IBOutlet weak var bookmarkImage: UIImageView!
+    var postId: Int = 0
+    var display_status: Int = 0
     
     
     override func awakeFromNib() {
@@ -35,34 +37,54 @@ class NewsCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configureData(homeModel: NewsModel) {
-        self.postedPersonName.text = (homeModel.ProfileName ?? "") + "  \(homeModel.speciality)"
-        self.titleLable.text =  homeModel.title
-        
-        self.descriptionLable.text = homeModel.discription
-        if let value = homeModel.discussions {
-            self.discussion.text = "\(String(describing: value))"
-        }
+    func configureData(homeModel: HomeDataModel) {
+        self.titleLable.text =  homeModel.title ?? ""
+        self.descriptionLable.text =  homeModel.description ?? ""
+        self.postId = homeModel.id
+        self.display_status = homeModel.display_status ?? 0
        
-        
-//        if let urlString = homeModel.image{
-//            self.postImage.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "loginBg"))
-//        }
+        if let value = homeModel.comment_count {
+            self.discussion.text = "\(value)"
 
-        if homeModel.bookmark_status {
-            bookmarkImage.image = UIImage(named: "fmark")
         }
+        if let value1 = homeModel.like_count {
+            self.wishlistBtn.setTitle("\(value1)", for: .normal)
+        }
+        if homeModel.bookmark_status ?? false {
+            saveBtn.setImage(UIImage(named: "fmark"), for: .normal)
+         
+        }
+        if homeModel.follow_status ?? false  {
+            //self.followBtn.setTitle("Following", for: .normal)
+        }
+        if homeModel.like_status ?? false {
+            wishlistBtn.setImage(UIImage(named: "fheart"), for: .normal)
+        }
+        
        
-        if homeModel.like_status {
-            likeImage.image = UIImage(named: "fheart")
+            if let userData = homeModel.userDetails {
             
+                self.postedPersonName.text = userData.name
+                
         }
-//        if let urlString = homeModel.ProfileImage {
-//           self.personImage.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "loginBg"))
-//        }
-        wishlistBtn.tag = homeModel.id
-        saveBtn.tag = homeModel.id
-        // replyBtn.tag = homeModel.id ?? 0
+            if let groupData = homeModel.groupDetails {
+                if groupData.status == true {
+              
+                self.postedPersonName.text = groupData.name ?? ""
+              
+            }
+           
+        }
+        if let imageData = homeModel.image {
+          
+            if imageData.count > 0 {
+               
+              
+                if let urlString = imageData[0].image {
+                    self.postImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
+                }
+            }
+        }
     }
     @IBAction func likeClicked(_ sender: UIButton) {
 //        let request = ComplaintLikeRequest(achievement_id: "\(sender.tag)", dworks_id: User.shared.userID)

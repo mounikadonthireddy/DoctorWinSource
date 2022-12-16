@@ -52,7 +52,7 @@ struct ProfileViewModel {
 
     func getProfileData(userID: String) {
         let resource = ProfileEditResource()
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.profileEdit + ApiEndpoints.userID + "=\(userID)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getProfileDetails + ApiEndpoints.userID + "=\(userID)&display_status=7"
 
         resource.getProfileData(url: homeUrlStr) { response in
             DispatchQueue.main.async {
@@ -111,7 +111,7 @@ struct ProfileViewModel {
 }
 protocol ProfileViewModelDelegate {
  
-    func didReciveProfileData(response: ProfileDataModel?, error: String?)
+    func didReciveProfileData(response: ProfileModel?, error: String?)
     func didReciveProfileExperienceData(response: [ExperienceModel]?, error: String?)
 
 }

@@ -11,14 +11,12 @@ class ProfileViewController: ViewController,UICollectionViewDelegateFlowLayout {
     @IBOutlet weak var profileTableView: UITableView!
     var userDetailsModel : ProfileDataModel?
     var userVM = UserDetailsViewModel()
-    var newsArray: [NewsModel] = []
     var postsArray:[HomeDataModel] = []
-    var casesArray: [CasesDataModel] = []
-    var questionsArray : [PostedQuestionModel] = []
-    var answersArray: [AnswersModel] = []
-    var profileDataModel : ProfileDataModel!
+    var profileModel : ProfileModel?
+    var postProfieDetails: PostedUserDetailsModel?
     var profileVM = ProfileViewModel()
     var selectionType = -1
+    var preference = 0
     override func viewDidLoad() {
         super.viewDidLoad()
        
@@ -38,25 +36,14 @@ class ProfileViewController: ViewController,UICollectionViewDelegateFlowLayout {
     }
     func parse() {
         self.showLoader()
-        userVM.getProfileData(userID: User.shared.userID)
+        userVM.getProfileData(userID: "")
         
     }
     func loadPostsData() {
         self.showLoader()
-        userVM.getPostData(userID: User.shared.userID)
+        userVM.getPostData(display_status: 2, group_id: "", page: 1, posted_id: "")
     }
-    func loadCasesData() {
-        self.showLoader()
-        userVM.getCasesData(userID: User.shared.userID)
-    }
-    func loadQuestionsData() {
-        self.showLoader()
-        userVM.getQuestionsData(userID: User.shared.userID)
-    }
-    func loadAnswersData() {
-        self.showLoader()
-        userVM.getAnswersData(userID: User.shared.userID)
-    }
+    
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
@@ -69,57 +56,27 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch selectionType {
-        case -1:
-            return 0
-        case 0:
-            return postsArray.count
-        case 1:
-            return casesArray.count
-        case 2:
-            return questionsArray.count
-        case 3:
-            return answersArray.count
-            
-        default:
-            return 0
-        }
+      return postsArray.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch selectionType {
-        case 0:
-            let cell: CaseCell
-            = tableView.dequeueReusableCell(withIdentifier: "CaseCell") as! CaseCell
-            cell.configureData(homeModel: postsArray[indexPath.row])
-            return cell
-            
-        case 1:
-            let cell: CaseCell
-            = tableView.dequeueReusableCell(withIdentifier: "CaseCell") as! CaseCell
-            cell.configureDataWith(homeModel: casesArray[indexPath.row])
-            return cell
-            
-        case 2:
+        if preference == 3 {
             let cell: QACell
             = tableView.dequeueReusableCell(withIdentifier: "QACell") as! QACell
-            //cell.configureWith(data: questionsArray[indexPath.row])
+            cell.configureWith(data: postsArray[indexPath.row])
+           
             return cell
-            
-        case 3:
-            let cell: UserAnswerCell
-            = tableView.dequeueReusableCell(withIdentifier: "UserAnswerCell") as! UserAnswerCell
-            cell.configureDataWith(homeModel: answersArray[indexPath.row])
+        } else {
+            let cell: CaseCell
+            = tableView.dequeueReusableCell(withIdentifier: "CaseCell") as! CaseCell
+            cell.configureProfileData(profileData: postProfieDetails)
+            cell.configureData(homeModel: postsArray[indexPath.row])
             return cell
-            
-        default:
-            return UITableViewCell()
-            
         }
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: ProfileViewHeader.identifier) as? ProfileViewHeader {
-            if  profileDataModel != nil  {
-                headerView.configureView(data: profileDataModel)
+            if  let profile = profileModel  {
+                headerView.configureView(data: profile)
                 headerView.viewBtn.addTarget(self, action: #selector(viewClicked(button:)), for: .touchUpInside)
                 headerView.followBtn.addTarget(self, action: #selector(followClicked(button:)), for: .touchUpInside)
                 headerView.followingBtn.addTarget(self, action: #selector(followingClicked(button:)), for: .touchUpInside)
@@ -171,15 +128,11 @@ extension ProfileViewController  {
 }
 
 
-struct ProfileModel {
-    let name: String
-    let imageName: String
-}
 
 extension ProfileViewController: UserDetailsViewModelDelegate {
-    func didReciveProfileData(response: ProfileDataModel?, error: String?) {
+    func didReciveProfileData(response: ProfileModel?, error: String?) {
         self.dismiss()
-        profileDataModel = response
+        profileModel = response
         profileTableView.reloadData()
     }
     
@@ -187,67 +140,33 @@ extension ProfileViewController: UserDetailsViewModelDelegate {
         
     }
     
-    func didRecivePostsData(response: [HomeDataModel]?, error: String?) {
+    func didRecivePostsData(response: HomeResponseModel?, error: String?) {
         self.dismiss()
-        postsArray = response ?? []
-        self.profileTableView.reloadData()
-    }
-    
-    func didReciveCasesData(response: [CasesDataModel]?, error: String?) {
-        self.dismiss()
-        casesArray  = response ?? []
-        self.profileTableView.reloadData()
-    }
-    
-    func didReciveQuestionsData(response: [PostedQuestionModel]?, error: String?) {
-        self.dismiss()
-        questionsArray  = response ?? []
-        self.profileTableView.reloadData()
-    }
-    
-    func didReciveAnswersData(response: [AnswersModel]?, error: String?) {
-        self.dismiss()
-        answersArray = response ?? []
-        self.profileTableView.reloadData()
-    }
-    
-    func didReceivePostedNews(response: [NewsModel]?, error: String?) {
-        self.dismiss()
-        if error == nil {
-            newsArray = response ?? []
-            profileTableView.reloadData()
+        postsArray = response?.homeResponse ?? []
+        if let data = response?.userGroupDetails {
+        postProfieDetails  = data
         }
+        self.profileTableView.reloadData()
     }
-    
-    func didReceivePostedCases(response: [CasesDataModel]?, error: String?) {
-        self.dismiss()
-        if error == nil {
-            casesArray = response ?? []
-            profileTableView.reloadData()
-        }
-    }
-    
 }
 extension ProfileViewController : CustomSegmentedControlDelegate {
     func change(to index: Int) {
+       
+        self.showLoader()
+        postsArray = []
         switch index {
         case 0:
-            self.selectionType = 0
-            self.loadPostsData()
-            
+            preference = 2
         case 1:
-            self.selectionType = 1
-            self.loadCasesData()
-            
+            preference = 1
         case 2:
-            self.selectionType = 2
-            self.loadQuestionsData()
+            preference = 3
         case 3:
-            self.selectionType = 3
-            self.loadAnswersData()
+            preference = 4
             
         default: break
         }
+        userVM.getPostData(display_status: preference, group_id: "", page: 1, posted_id: "")
         
     }
 }

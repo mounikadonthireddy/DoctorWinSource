@@ -9,7 +9,7 @@ import UIKit
 
 class MeViewController: ViewController {
     @IBOutlet weak var profileTableView: UITableView!
-    var profileDataModel : ProfileDataModel!
+    var profileModel : ProfileModel!
     var profileVM = ProfileViewModel()
     var experienceArray: [ExperienceModel] = []
     override func viewDidLoad() {
@@ -70,7 +70,7 @@ extension MeViewController: UITableViewDelegate, UITableViewDataSource {
         return 7
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if profileDataModel != nil {
+        if profileModel != nil {
             if section == 5 {
                 return experienceArray.count
             }
@@ -86,14 +86,14 @@ extension MeViewController: UITableViewDelegate, UITableViewDataSource {
             let cell: ProfileNameCell = tableView.dequeueReusableCell(withIdentifier: "ProfileNameCell", for: indexPath) as! ProfileNameCell
             cell.editBtn.addTarget(self, action: #selector(editClicked(button:)), for: .touchUpInside)
             cell.backBtn.addTarget(self, action: #selector(backClicked(button:)), for: .touchUpInside)
-            cell.cellConfigureWith(data: profileDataModel)
+           // cell.cellConfigureWith(data: profileModel)
             cell.editBtn.tag = 1
             return cell
 
             
         case 1:
             let cell: BioCell = tableView.dequeueReusableCell(withIdentifier: "BioCell", for: indexPath) as! BioCell
-            cell.cellConfigureWith(data: profileDataModel)
+           // cell.cellConfigureWith(data: profileModel)
             cell.editBtn.addTarget(self, action: #selector(editClicked(button:)), for: .touchUpInside)
             cell.editBtn.tag = 2
             
@@ -101,14 +101,14 @@ extension MeViewController: UITableViewDelegate, UITableViewDataSource {
             
         case 2:
             let cell: PersonalInfoCell = tableView.dequeueReusableCell(withIdentifier: "PersonalInfoCell", for: indexPath) as! PersonalInfoCell
-            cell.cellConfigureWith(data: profileDataModel)
+           // cell.cellConfigureWith(data: profileModel)
             cell.professionalEdit.addTarget(self, action: #selector(editClicked(button:)), for: .touchUpInside)
             cell.professionalEdit.tag = 3
             
             return cell
         case 3:
             let cell: ProfessionalDetailsCell = tableView.dequeueReusableCell(withIdentifier: "ProfessionalDetailsCell", for: indexPath) as! ProfessionalDetailsCell
-            cell.cellConfigureWith(data: profileDataModel)
+           // cell.cellConfigureWith(data: profileModel)
             cell.professionalEdit.addTarget(self, action: #selector(editClicked(button:)), for: .touchUpInside)
             cell.professionalEdit.tag = 4
             
@@ -131,7 +131,7 @@ extension MeViewController: UITableViewDelegate, UITableViewDataSource {
             
         case 6:
             let cell: ProfileSkillsCell = tableView.dequeueReusableCell(withIdentifier: "ProfileSkillsCell", for: indexPath) as! ProfileSkillsCell
-            cell.cellConfigureWith(data: profileDataModel)
+          //  cell.cellConfigureWith(data: profileModel)
             cell.edit.addTarget(self, action: #selector(editClicked(button:)), for: .touchUpInside)
             cell.edit.tag = 6
             return cell
@@ -149,7 +149,7 @@ extension MeViewController: UITableViewDelegate, UITableViewDataSource {
     @objc func editClicked(button: UIButton) {
         let str = UIStoryboard(name: "Me", bundle: nil)
         let nextVC = str.instantiateViewController(withIdentifier: "EditMeViewController") as! EditMeViewController
-        nextVC.profileDataModel = profileDataModel
+        //nextVC.profileDataModel = profileModel
         nextVC.selectedIndex = button.tag
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
@@ -165,29 +165,11 @@ extension MeViewController: UITableViewDelegate, UITableViewDataSource {
         nextVC.expModel = experienceArray[button.tag]
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
-    @objc func casesClicked(button: UIButton) {
-        let str = UIStoryboard(name: "Me", bundle: nil)
-        let nextVC = str.instantiateViewController(withIdentifier: "MyCasesViewController") as! MyCasesViewController
-        self.navigationController?.pushViewController(nextVC, animated: true)
-    }
-    @objc func newsClicked(button: UIButton) {
-        let str = UIStoryboard(name: "Me", bundle: nil)
-        let nextVC = str.instantiateViewController(withIdentifier: "MyNewsViewController") as! MyNewsViewController
-        self.navigationController?.pushViewController(nextVC, animated: true)
-    }
    
-    @objc func articalsClicked(button: UIButton) {
-       
-    }
-    
-    
-    @objc func appliedClicked(button: UIButton) {
-        let str = UIStoryboard(name: "Job", bundle: nil)
-        let nextVC = str.instantiateViewController(withIdentifier: "AppliedJobViewController") as! AppliedJobViewController
-        //        nextVC.expModel = experienceArray[button.tag]
-        nextVC.showBack = true
-        self.navigationController?.pushViewController(nextVC, animated: true)
-    }
+   
+   
+   
+   
     @objc func followClicked(button: UIButton) {
         let str = UIStoryboard(name: "Network", bundle: nil)
         let nextVC = str.instantiateViewController(withIdentifier: "FollowViewController") as! FollowViewController
@@ -230,9 +212,9 @@ extension MeViewController: ProfileViewModelDelegate {
     }
     
     
-    func didReciveProfileData(response: ProfileDataModel?, error: String?) {
+    func didReciveProfileData(response: ProfileModel?, error: String?) {
         self.dismiss()
-        profileDataModel = response
+        profileModel = response
         profileTableView.reloadData()
         self.loadExperince()
     }

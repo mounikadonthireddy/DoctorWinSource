@@ -58,23 +58,7 @@ struct CustomJobResource {
             }
         }
     }
-    func getBookmarkedAnswers(userID: String, completion : @escaping (_ result: ResponseResult<[AnswersModel]>) -> Void) {
-        let savedJobUrl = ApiEndpoints.baseUrl + ApiEndpoints.bookmarkAnswer + ApiEndpoints.userID + "=\(userID)&page=1"
-        let httpUtility = HttpUtility()
-        do {
-            httpUtility.getApiData(urlString: savedJobUrl, resultType: [AnswersModel].self) {result in
-                
-                switch result {
-                case .success(let data):
-                    completion(.success(data))
-                    
-                case .failure( let error):
-                    completion(.failure(error.rawValue))
-                }
-                
-            }
-        }
-    }
+    
     func getAppliedJobData(userID: String, completion : @escaping (_ result: ResponseResult<[CarrierModel]>) -> Void) {
         let appliedJobUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.appliedJobs + ApiEndpoints.userID + "=\(userID)"
         let httpUtility = HttpUtility()
