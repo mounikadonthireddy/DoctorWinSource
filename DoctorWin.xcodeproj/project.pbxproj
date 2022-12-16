@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		374773A5DD63296C89A4623F /* Pods_DoctorWin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A09804BC68F94A7ED859E3B0 /* Pods_DoctorWin.framework */; };
 		431052F92759E48B006BC13A /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431052F82759E48B006BC13A /* FilterViewController.swift */; };
-		431052FB2759EA55006BC13A /* Filter.json in Resources */ = {isa = PBXBuildFile; fileRef = 431052FA2759EA55006BC13A /* Filter.json */; };
 		431052FD275A099A006BC13A /* ProfileEditResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431052FC275A099A006BC13A /* ProfileEditResource.swift */; };
 		4347EF442746589100E634E9 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4347EF432746589100E634E9 /* HomeViewModel.swift */; };
 		4347EF462746594800E634E9 /* HomeResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4347EF452746594800E634E9 /* HomeResource.swift */; };
@@ -46,9 +45,7 @@
 		43953E8C273E9C050027CE80 /* CarrierTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43953E8B273E9C050027CE80 /* CarrierTableView.swift */; };
 		43953E8E273E9DC40027CE80 /* JobCategoryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43953E8D273E9DC40027CE80 /* JobCategoryCollectionView.swift */; };
 		43953E90273E9DF70027CE80 /* RecommendedCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43953E8F273E9DF70027CE80 /* RecommendedCollectionView.swift */; };
-		439923C1272BCC0E0085E067 /* Jobs.json in Resources */ = {isa = PBXBuildFile; fileRef = 439923C0272BCC0E0085E067 /* Jobs.json */; };
 		439923C3272BCC2C0085E067 /* JobsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439923C2272BCC2C0085E067 /* JobsDataModel.swift */; };
-		439923C7272BD0A70085E067 /* Topjobs.json in Resources */ = {isa = PBXBuildFile; fileRef = 439923C6272BD0A70085E067 /* Topjobs.json */; };
 		439923CA272BD8A70085E067 /* JobTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439923C8272BD8A70085E067 /* JobTableCell.swift */; };
 		439923CB272BD8A70085E067 /* JobTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 439923C9272BD8A70085E067 /* JobTableCell.xib */; };
 		439923CF272BD8D30085E067 /* JobsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439923CD272BD8D30085E067 /* JobsCollectionCell.swift */; };
@@ -65,16 +62,12 @@
 		439DC46C273FB28800DAD6D5 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 439DC465273FB28800DAD6D5 /* Roboto-Bold.ttf */; };
 		439DC46D273FB28800DAD6D5 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 439DC466273FB28800DAD6D5 /* LICENSE.txt */; };
 		439DC46E273FB28800DAD6D5 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 439DC467273FB28800DAD6D5 /* Roboto-Medium.ttf */; };
-		439DC470273FB63800DAD6D5 /* Custom.json in Resources */ = {isa = PBXBuildFile; fileRef = 439DC46F273FB63800DAD6D5 /* Custom.json */; };
 		439DC472273FB67A00DAD6D5 /* CustomJobModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439DC471273FB67A00DAD6D5 /* CustomJobModel.swift */; };
-		43A280A6272AD82A001B88A1 /* News.json in Resources */ = {isa = PBXBuildFile; fileRef = 43A280A5272AD82A001B88A1 /* News.json */; };
 		43A280A8272AD85C001B88A1 /* NewsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A280A7272AD85C001B88A1 /* NewsDataModel.swift */; };
 		43A6A97E2732520600400F72 /* AddExperienceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A6A97C2732520600400F72 /* AddExperienceCell.swift */; };
 		43A6A97F2732520600400F72 /* AddExperienceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43A6A97D2732520600400F72 /* AddExperienceCell.xib */; };
 		43A6A98627329D0200400F72 /* AddSkillsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A6A98427329D0100400F72 /* AddSkillsCell.swift */; };
 		43A6A98727329D0200400F72 /* AddSkillsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43A6A98527329D0200400F72 /* AddSkillsCell.xib */; };
-		43A6A98E27329E5800400F72 /* PollTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A6A98C27329E5800400F72 /* PollTableViewCell.swift */; };
-		43A6A98F27329E5800400F72 /* PollTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43A6A98D27329E5800400F72 /* PollTableViewCell.xib */; };
 		43A6A99227329F1C00400F72 /* CasesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A6A99027329F1C00400F72 /* CasesTableViewCell.swift */; };
 		43A6A99327329F1C00400F72 /* CasesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43A6A99127329F1C00400F72 /* CasesTableViewCell.xib */; };
 		43AF8FA92733BD0900CC69EF /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AF8FA82733BD0900CC69EF /* OTPViewController.swift */; };
@@ -92,22 +85,18 @@
 		43AF8FC527358C7E00CC69EF /* LoginResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AF8FC427358C7E00CC69EF /* LoginResource.swift */; };
 		43AF8FC727358C8500CC69EF /* HttpUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AF8FC627358C8500CC69EF /* HttpUtility.swift */; };
 		43AF8FCA27358C9900CC69EF /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AF8FC927358C9900CC69EF /* Common.swift */; };
-		43AF9F8427296C8F0020CCF3 /* HomeData.json in Resources */ = {isa = PBXBuildFile; fileRef = 43AF9F8327296C8F0020CCF3 /* HomeData.json */; };
 		43AF9F87272975260020CCF3 /* HomeDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AF9F86272975260020CCF3 /* HomeDataModel.swift */; };
 		43AF9F892729D4390020CCF3 /* CustomSegmentedContrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AF9F882729D4390020CCF3 /* CustomSegmentedContrl.swift */; };
 		43AF9F8B2729D46A0020CCF3 /* JobsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AF9F8A2729D46A0020CCF3 /* JobsMainViewController.swift */; };
 		43AF9F8D2729D5140020CCF3 /* PredictorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AF9F8C2729D5140020CCF3 /* PredictorViewController.swift */; };
 		43B03A8D272D070700A4337B /* ProfileDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B03A8C272D070700A4337B /* ProfileDataModel.swift */; };
-		43B03A93272D1D6100A4337B /* Profile.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B03A92272D1D6100A4337B /* Profile.json */; };
 		43B03A95272E4B2D00A4337B /* JobDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B03A94272E4B2D00A4337B /* JobDetailsViewController.swift */; };
 		43B03A98272EA94E00A4337B /* HomeDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B03A96272EA94E00A4337B /* HomeDetailsCell.swift */; };
 		43B03A99272EA94E00A4337B /* HomeDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43B03A97272EA94E00A4337B /* HomeDetailsCell.xib */; };
 		43B03A9C272EAF6300A4337B /* CommentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B03A9A272EAF6300A4337B /* CommentsCell.swift */; };
 		43B03A9D272EAF6300A4337B /* CommentsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43B03A9B272EAF6300A4337B /* CommentsCell.xib */; };
 		43B03AA1272F98CA00A4337B /* AddNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B03AA0272F98CA00A4337B /* AddNewsViewController.swift */; };
-		43B03AA3272F99A300A4337B /* AddPollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B03AA2272F99A300A4337B /* AddPollViewController.swift */; };
 		43B03AA9272F99E100A4337B /* AddCasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B03AA8272F99E100A4337B /* AddCasesViewController.swift */; };
-		43B03AAB27300AB300A4337B /* JobDetails.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B03AAA27300AB300A4337B /* JobDetails.json */; };
 		43B03AAF2730104A00A4337B /* JobDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B03AAE2730104A00A4337B /* JobDetailsModel.swift */; };
 		43B231FB273AA38600038F8A /* SearchJobsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B231FA273AA38600038F8A /* SearchJobsViewController.swift */; };
 		43B231FD273AA65100038F8A /* CustomJobMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B231FC273AA65100038F8A /* CustomJobMainViewController.swift */; };
@@ -153,8 +142,6 @@
 		43F57E51275615F9001120C8 /* RegisterResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F57E50275615F9001120C8 /* RegisterResource.swift */; };
 		43F57E5327561860001120C8 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F57E5227561860001120C8 /* BaseViewController.swift */; };
 		43F971E1275B5E8800733478 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F971E0275B5E8800733478 /* ProfileViewModel.swift */; };
-		43F971E3275BC2E000733478 /* PollResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F971E2275BC2E000733478 /* PollResource.swift */; };
-		43F971E5275BC53100733478 /* PollViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F971E4275BC53100733478 /* PollViewModel.swift */; };
 		8FF9ACFE2771B9B4002F4700 /* OTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF9ACFD2771B9B4002F4700 /* OTPViewModel.swift */; };
 		8FF9AD00277314B7002F4700 /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF9ACFF277314B7002F4700 /* NewsViewModel.swift */; };
 		8FF9AD0227731525002F4700 /* NewsJobResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF9AD0127731525002F4700 /* NewsJobResource.swift */; };
@@ -275,9 +262,7 @@
 		BFC3EF07282E72B2000A1582 /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC3EF06282E72B2000A1582 /* BookmarksViewController.swift */; };
 		BFC3EF092834C71C000A1582 /* CarrierJobDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC3EF082834C71C000A1582 /* CarrierJobDetailsViewController.swift */; };
 		BFCB16B627997832005E3FEB /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCB16B527997832005E3FEB /* CustomSegmentedControl.swift */; };
-		BFCB16BA2799919A005E3FEB /* MyPollsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCB16B92799919A005E3FEB /* MyPollsViewController.swift */; };
 		BFCB16BC279991DD005E3FEB /* MyStoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCB16BB279991DD005E3FEB /* MyStoriesViewController.swift */; };
-		BFCB16BE279993AC005E3FEB /* PollsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCB16BD279993AC005E3FEB /* PollsViewModel.swift */; };
 		BFCB174027B4172A005E3FEB /* DropDownResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCB173F27B4172A005E3FEB /* DropDownResource.swift */; };
 		BFD5FF2C2812EECE003CE888 /* NewsDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5FF2A2812EECE003CE888 /* NewsDetailsCell.swift */; };
 		BFD5FF2D2812EECE003CE888 /* NewsDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFD5FF2B2812EECE003CE888 /* NewsDetailsCell.xib */; };
@@ -349,7 +334,6 @@
 		DC8D9AD1285787EE009533DC /* ConnectResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D9AD0285787EE009533DC /* ConnectResource.swift */; };
 		DC9539B5285C5B4800FBD8D0 /* CommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9539B4285C5B4800FBD8D0 /* CommentModel.swift */; };
 		DC9539B7285C5B6E00FBD8D0 /* NewscategoryDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9539B6285C5B6E00FBD8D0 /* NewscategoryDataModel.swift */; };
-		DC9539B9285C5B8200FBD8D0 /* PollsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9539B8285C5B8200FBD8D0 /* PollsDataModel.swift */; };
 		DC9539BB285C5B9600FBD8D0 /* NewsCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9539BA285C5B9600FBD8D0 /* NewsCategoryModel.swift */; };
 		DC9539BF285C5BB800FBD8D0 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9539BE285C5BB800FBD8D0 /* NewsModel.swift */; };
 		DC9539C1285C5BCA00FBD8D0 /* CasesDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9539C0285C5BCA00FBD8D0 /* CasesDataModel.swift */; };
@@ -453,7 +437,6 @@
 /* Begin PBXFileReference section */
 		0250EC400ED02723119E7CA8 /* Pods-DoctorWin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorWin.release.xcconfig"; path = "Target Support Files/Pods-DoctorWin/Pods-DoctorWin.release.xcconfig"; sourceTree = "<group>"; };
 		431052F82759E48B006BC13A /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
-		431052FA2759EA55006BC13A /* Filter.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Filter.json; sourceTree = "<group>"; };
 		431052FC275A099A006BC13A /* ProfileEditResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditResource.swift; sourceTree = "<group>"; };
 		4347EF432746589100E634E9 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		4347EF452746594800E634E9 /* HomeResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeResource.swift; sourceTree = "<group>"; };
@@ -496,9 +479,7 @@
 		43953E8B273E9C050027CE80 /* CarrierTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrierTableView.swift; sourceTree = "<group>"; };
 		43953E8D273E9DC40027CE80 /* JobCategoryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobCategoryCollectionView.swift; sourceTree = "<group>"; };
 		43953E8F273E9DF70027CE80 /* RecommendedCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedCollectionView.swift; sourceTree = "<group>"; };
-		439923C0272BCC0E0085E067 /* Jobs.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Jobs.json; sourceTree = "<group>"; };
 		439923C2272BCC2C0085E067 /* JobsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsDataModel.swift; sourceTree = "<group>"; };
-		439923C6272BD0A70085E067 /* Topjobs.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Topjobs.json; sourceTree = "<group>"; };
 		439923C8272BD8A70085E067 /* JobTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobTableCell.swift; sourceTree = "<group>"; };
 		439923C9272BD8A70085E067 /* JobTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JobTableCell.xib; sourceTree = "<group>"; };
 		439923CD272BD8D30085E067 /* JobsCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsCollectionCell.swift; sourceTree = "<group>"; };
@@ -515,16 +496,12 @@
 		439DC465273FB28800DAD6D5 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		439DC466273FB28800DAD6D5 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		439DC467273FB28800DAD6D5 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
-		439DC46F273FB63800DAD6D5 /* Custom.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Custom.json; sourceTree = "<group>"; };
 		439DC471273FB67A00DAD6D5 /* CustomJobModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomJobModel.swift; sourceTree = "<group>"; };
-		43A280A5272AD82A001B88A1 /* News.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = News.json; sourceTree = "<group>"; };
 		43A280A7272AD85C001B88A1 /* NewsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDataModel.swift; sourceTree = "<group>"; };
 		43A6A97C2732520600400F72 /* AddExperienceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExperienceCell.swift; sourceTree = "<group>"; };
 		43A6A97D2732520600400F72 /* AddExperienceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddExperienceCell.xib; sourceTree = "<group>"; };
 		43A6A98427329D0100400F72 /* AddSkillsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSkillsCell.swift; sourceTree = "<group>"; };
 		43A6A98527329D0200400F72 /* AddSkillsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddSkillsCell.xib; sourceTree = "<group>"; };
-		43A6A98C27329E5800400F72 /* PollTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollTableViewCell.swift; sourceTree = "<group>"; };
-		43A6A98D27329E5800400F72 /* PollTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PollTableViewCell.xib; sourceTree = "<group>"; };
 		43A6A99027329F1C00400F72 /* CasesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CasesTableViewCell.swift; sourceTree = "<group>"; };
 		43A6A99127329F1C00400F72 /* CasesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CasesTableViewCell.xib; sourceTree = "<group>"; };
 		43AF8FA82733BD0900CC69EF /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
@@ -542,22 +519,18 @@
 		43AF8FC427358C7E00CC69EF /* LoginResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginResource.swift; sourceTree = "<group>"; };
 		43AF8FC627358C8500CC69EF /* HttpUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpUtility.swift; sourceTree = "<group>"; };
 		43AF8FC927358C9900CC69EF /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
-		43AF9F8327296C8F0020CCF3 /* HomeData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = HomeData.json; sourceTree = "<group>"; };
 		43AF9F86272975260020CCF3 /* HomeDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataModel.swift; sourceTree = "<group>"; };
 		43AF9F882729D4390020CCF3 /* CustomSegmentedContrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegmentedContrl.swift; sourceTree = "<group>"; };
 		43AF9F8A2729D46A0020CCF3 /* JobsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsMainViewController.swift; sourceTree = "<group>"; };
 		43AF9F8C2729D5140020CCF3 /* PredictorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictorViewController.swift; sourceTree = "<group>"; };
 		43B03A8C272D070700A4337B /* ProfileDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataModel.swift; sourceTree = "<group>"; };
-		43B03A92272D1D6100A4337B /* Profile.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Profile.json; sourceTree = "<group>"; };
 		43B03A94272E4B2D00A4337B /* JobDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailsViewController.swift; sourceTree = "<group>"; };
 		43B03A96272EA94E00A4337B /* HomeDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailsCell.swift; sourceTree = "<group>"; };
 		43B03A97272EA94E00A4337B /* HomeDetailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeDetailsCell.xib; sourceTree = "<group>"; };
 		43B03A9A272EAF6300A4337B /* CommentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsCell.swift; sourceTree = "<group>"; };
 		43B03A9B272EAF6300A4337B /* CommentsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentsCell.xib; sourceTree = "<group>"; };
 		43B03AA0272F98CA00A4337B /* AddNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewsViewController.swift; sourceTree = "<group>"; };
-		43B03AA2272F99A300A4337B /* AddPollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPollViewController.swift; sourceTree = "<group>"; };
 		43B03AA8272F99E100A4337B /* AddCasesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCasesViewController.swift; sourceTree = "<group>"; };
-		43B03AAA27300AB300A4337B /* JobDetails.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = JobDetails.json; sourceTree = "<group>"; };
 		43B03AAE2730104A00A4337B /* JobDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailsModel.swift; sourceTree = "<group>"; };
 		43B231FA273AA38600038F8A /* SearchJobsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchJobsViewController.swift; sourceTree = "<group>"; };
 		43B231FC273AA65100038F8A /* CustomJobMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomJobMainViewController.swift; sourceTree = "<group>"; };
@@ -603,8 +576,6 @@
 		43F57E50275615F9001120C8 /* RegisterResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterResource.swift; sourceTree = "<group>"; };
 		43F57E5227561860001120C8 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		43F971E0275B5E8800733478 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
-		43F971E2275BC2E000733478 /* PollResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollResource.swift; sourceTree = "<group>"; };
-		43F971E4275BC53100733478 /* PollViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollViewModel.swift; sourceTree = "<group>"; };
 		4BDDA2635A6F61E4F15F8578 /* Pods_DoctorWin_DoctorWinUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoctorWin_DoctorWinUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E552430B9EE5A355A34C680 /* Pods-DoctorWin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorWin.debug.xcconfig"; path = "Target Support Files/Pods-DoctorWin/Pods-DoctorWin.debug.xcconfig"; sourceTree = "<group>"; };
 		5A3E4100895420D494512681 /* Pods-DoctorWin-DoctorWinUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorWin-DoctorWinUITests.debug.xcconfig"; path = "Target Support Files/Pods-DoctorWin-DoctorWinUITests/Pods-DoctorWin-DoctorWinUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -729,9 +700,7 @@
 		BFC3EF06282E72B2000A1582 /* BookmarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
 		BFC3EF082834C71C000A1582 /* CarrierJobDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrierJobDetailsViewController.swift; sourceTree = "<group>"; };
 		BFCB16B527997832005E3FEB /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
-		BFCB16B92799919A005E3FEB /* MyPollsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPollsViewController.swift; sourceTree = "<group>"; };
 		BFCB16BB279991DD005E3FEB /* MyStoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStoriesViewController.swift; sourceTree = "<group>"; };
-		BFCB16BD279993AC005E3FEB /* PollsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollsViewModel.swift; sourceTree = "<group>"; };
 		BFCB173F27B4172A005E3FEB /* DropDownResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownResource.swift; sourceTree = "<group>"; };
 		BFD5FF2A2812EECE003CE888 /* NewsDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailsCell.swift; sourceTree = "<group>"; };
 		BFD5FF2B2812EECE003CE888 /* NewsDetailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsDetailsCell.xib; sourceTree = "<group>"; };
@@ -802,7 +771,6 @@
 		DC8D9AD0285787EE009533DC /* ConnectResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectResource.swift; sourceTree = "<group>"; };
 		DC9539B4285C5B4800FBD8D0 /* CommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentModel.swift; sourceTree = "<group>"; };
 		DC9539B6285C5B6E00FBD8D0 /* NewscategoryDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewscategoryDataModel.swift; sourceTree = "<group>"; };
-		DC9539B8285C5B8200FBD8D0 /* PollsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollsDataModel.swift; sourceTree = "<group>"; };
 		DC9539BA285C5B9600FBD8D0 /* NewsCategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCategoryModel.swift; sourceTree = "<group>"; };
 		DC9539BE285C5BB800FBD8D0 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 		DC9539C0285C5BCA00FBD8D0 /* CasesDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CasesDataModel.swift; sourceTree = "<group>"; };
@@ -947,7 +915,6 @@
 				43AF8FC327358C6900CC69EF /* DataResource */,
 				43AF8FC127358C0C00CC69EF /* Validation */,
 				43AF8FB627358B8F00CC69EF /* ViewModels */,
-				43AF9F8227296C7C0020CCF3 /* SampleJson */,
 				4392978A2722D628001891B8 /* SceneDelegate.swift */,
 				4392978C2722D628001891B8 /* ViewController.swift */,
 				DC55BDFF2872B9B900B1EE1B /* MCQViewController.swift */,
@@ -1023,9 +990,7 @@
 				DCA0A6FC28C757EC001DE3F1 /* UserDetailsResource.swift */,
 				8FF9AD0127731525002F4700 /* NewsJobResource.swift */,
 				435FB56B27510FE40040C406 /* JobCategoryResource.swift */,
-				43F971E4275BC53100733478 /* PollViewModel.swift */,
 				8FF9ACFF277314B7002F4700 /* NewsViewModel.swift */,
-				BFCB16BD279993AC005E3FEB /* PollsViewModel.swift */,
 				BF30C7D8277B33DE0047E277 /* AddCustomJobViewModel.swift */,
 				BF30C7DA277B34820047E277 /* AddCustomJobResource.swift */,
 				DCB7D1E0284B536200F3CFDE /* BookMarkViewModel.swift */,
@@ -1070,7 +1035,6 @@
 				DC8AE247286D9E0F003376A7 /* ShopResource.swift */,
 				DC55BE092872F47400B1EE1B /* DatingResource.swift */,
 				431052FC275A099A006BC13A /* ProfileEditResource.swift */,
-				43F971E2275BC2E000733478 /* PollResource.swift */,
 				BFCB173F27B4172A005E3FEB /* DropDownResource.swift */,
 			);
 			path = DataResource;
@@ -1085,21 +1049,6 @@
 			path = Source;
 			sourceTree = "<group>";
 		};
-		43AF9F8227296C7C0020CCF3 /* SampleJson */ = {
-			isa = PBXGroup;
-			children = (
-				43AF9F8327296C8F0020CCF3 /* HomeData.json */,
-				43A280A5272AD82A001B88A1 /* News.json */,
-				439923C0272BCC0E0085E067 /* Jobs.json */,
-				439923C6272BD0A70085E067 /* Topjobs.json */,
-				43B03A92272D1D6100A4337B /* Profile.json */,
-				43B03AAA27300AB300A4337B /* JobDetails.json */,
-				439DC46F273FB63800DAD6D5 /* Custom.json */,
-				431052FA2759EA55006BC13A /* Filter.json */,
-			);
-			path = SampleJson;
-			sourceTree = "<group>";
-		};
 		43AF9F85272975150020CCF3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -1109,7 +1058,6 @@
 				DC9539C0285C5BCA00FBD8D0 /* CasesDataModel.swift */,
 				DC9539BE285C5BB800FBD8D0 /* NewsModel.swift */,
 				DC9539BA285C5B9600FBD8D0 /* NewsCategoryModel.swift */,
-				DC9539B8285C5B8200FBD8D0 /* PollsDataModel.swift */,
 				DC9539B6285C5B6E00FBD8D0 /* NewscategoryDataModel.swift */,
 				439923C2272BCC2C0085E067 /* JobsDataModel.swift */,
 				43C1BFA1272C150D008877AA /* TopJobsDataModel.swift */,
@@ -1179,7 +1127,6 @@
 			isa = PBXGroup;
 			children = (
 				43B03AA0272F98CA00A4337B /* AddNewsViewController.swift */,
-				43B03AA2272F99A300A4337B /* AddPollViewController.swift */,
 				43B03AA8272F99E100A4337B /* AddCasesViewController.swift */,
 				BFA90E2527BB5163009F9784 /* CreateCaseViewController.swift */,
 				43B2844F273CE1BA00E8CED8 /* AddMainViewController.swift */,
@@ -1249,7 +1196,6 @@
 				DCC7469A285C7D4C00B33A2D /* StoryBoards */,
 				BF431C94278328FD0057AF9F /* MyCasesViewController.swift */,
 				BFCB16BB279991DD005E3FEB /* MyStoriesViewController.swift */,
-				BFCB16B92799919A005E3FEB /* MyPollsViewController.swift */,
 				BFC3EF06282E72B2000A1582 /* BookmarksViewController.swift */,
 			);
 			name = Profile;
@@ -1341,8 +1287,6 @@
 				43B52E3A273BCE77004EF637 /* PostReplyCell.xib */,
 				439AA1FC2739267900D09E26 /* CaseEditCell.swift */,
 				439AA1FD2739267900D09E26 /* CaseEditCell.xib */,
-				43A6A98C27329E5800400F72 /* PollTableViewCell.swift */,
-				43A6A98D27329E5800400F72 /* PollTableViewCell.xib */,
 				43A6A99027329F1C00400F72 /* CasesTableViewCell.swift */,
 				43A6A99127329F1C00400F72 /* CasesTableViewCell.xib */,
 				BFA90E2127BB50F9009F9784 /* AddCaseTextCell.swift */,
@@ -1854,7 +1798,6 @@
 				DC4AEF24285384BD00D6D4A3 /* Job.storyboard in Resources */,
 				BFB3A66828352A02008D0C72 /* SpecialityCell.xib in Resources */,
 				DCA0A6F328C4DCF1001DE3F1 /* QACell.xib in Resources */,
-				43A280A6272AD82A001B88A1 /* News.json in Resources */,
 				BF0DD95B278D5B9C0053747A /* RecommandedJobCell.xib in Resources */,
 				BFA90E2A27BB5380009F9784 /* AddCasesTitleHeader.xib in Resources */,
 				43A6A97F2732520600400F72 /* AddExperienceCell.xib in Resources */,
@@ -1867,7 +1810,6 @@
 				BFC3EEF2282525E5000A1582 /* RequestCell.xib in Resources */,
 				43B03A9D272EAF6300A4337B /* CommentsCell.xib in Resources */,
 				DCA0A6E128C31463001DE3F1 /* ShopWishlistHeaderView.xib in Resources */,
-				43AF9F8427296C8F0020CCF3 /* HomeData.json in Resources */,
 				DC885E3528D0E59B00110418 /* PersonImageCell.xib in Resources */,
 				439297952722D629001891B8 /* LaunchScreen.storyboard in Resources */,
 				DC465DA428E0947C009E7D4C /* ConnectImageCell.xib in Resources */,
@@ -1887,14 +1829,12 @@
 				439923CB272BD8A70085E067 /* JobTableCell.xib in Resources */,
 				DCF1B4A328F71251007F4FA3 /* LearningImageBannerCell.xib in Resources */,
 				DC3A6A2B28F07873006F73A2 /* ImageSwipeCell.xib in Resources */,
-				439923C1272BCC0E0085E067 /* Jobs.json in Resources */,
 				DCA0A6D928C0FBE0001DE3F1 /* EditPersonalInfoCell.xib in Resources */,
 				BFA90E1827B4E036009F9784 /* MySelfCell.xib in Resources */,
 				BFC3EF05282E4E83000A1582 /* ImageCell.xib in Resources */,
 				DCF1B49028F42F9F007F4FA3 /* ReplyCell.xib in Resources */,
 				BF0DD970278D92EF0053747A /* CarrierHeaderCell.xib in Resources */,
 				BF170F8228101AC7001B3109 /* CarrierJobCell.xib in Resources */,
-				43A6A98F27329E5800400F72 /* PollTableViewCell.xib in Resources */,
 				DC885E3D28D217ED00110418 /* TrendingTableCell.xib in Resources */,
 				DCF1B4B328F7FE9D007F4FA3 /* LearningDetailsHeaderCell.xib in Resources */,
 				43A6A99327329F1C00400F72 /* CasesTableViewCell.xib in Resources */,
@@ -1902,7 +1842,6 @@
 				DC465DA028E08D1C009E7D4C /* ConnectLikeCell.xib in Resources */,
 				439AA1FB2737F2F400D09E26 /* CourseNameCell.xib in Resources */,
 				BF0DD968278D8BF30053747A /* RecentSearchCell.xib in Resources */,
-				43B03AAB27300AB300A4337B /* JobDetails.json in Resources */,
 				43B975AB2725B18A00CDF2F1 /* JobRequirementCell.xib in Resources */,
 				DC9AB75828F84D6600C6043E /* CurriculamCourseHeaderCell.xib in Resources */,
 				BF431C812782D57E0057AF9F /* FollowCell.xib in Resources */,
@@ -1927,13 +1866,9 @@
 				439DC468273FB28800DAD6D5 /* Roboto-Black.ttf in Resources */,
 				43B52E3C273BCE77004EF637 /* PostReplyCell.xib in Resources */,
 				439DC46C273FB28800DAD6D5 /* Roboto-Bold.ttf in Resources */,
-				431052FB2759EA55006BC13A /* Filter.json in Resources */,
-				439DC470273FB63800DAD6D5 /* Custom.json in Resources */,
 				DC4AEF1E2853813D00D6D4A3 /* Me.storyboard in Resources */,
-				439923C7272BD0A70085E067 /* Topjobs.json in Resources */,
 				DC885E4F28DC881300110418 /* MatchesInfoCell.xib in Resources */,
 				BF0DD964278D6CA40053747A /* QuickJobTVCell.xib in Resources */,
-				43B03A93272D1D6100A4337B /* Profile.json in Resources */,
 				DC8AE244286D815D003376A7 /* ShopCategoryCell.xib in Resources */,
 				BF170F63280FCE49001B3109 /* CaseCell.xib in Resources */,
 				DC885E3928D20A3300110418 /* TrendingQuestionHeaderView.xib in Resources */,
@@ -2088,9 +2023,7 @@
 				DC885E4B28DC724600110418 /* ChatViewController.swift in Sources */,
 				43B2E8CF275F450C0022CD16 /* QuestionsResource.swift in Sources */,
 				DC8AE243286D815D003376A7 /* ShopCategoryCell.swift in Sources */,
-				43F971E5275BC53100733478 /* PollViewModel.swift in Sources */,
 				43B231FF273AA65B00038F8A /* CustomJobViewController.swift in Sources */,
-				43A6A98E27329E5800400F72 /* PollTableViewCell.swift in Sources */,
 				43F57E4F27561572001120C8 /* RegisterViewModel.swift in Sources */,
 				DC961EA92876D61200F24913 /* EditConnectViewController.swift in Sources */,
 				43AF8FB827358BF300CC69EF /* LoginViewModel.swift in Sources */,
@@ -2194,7 +2127,6 @@
 				43AF8FAF2733D5B800CC69EF /* RegisterDetailsViewController.swift in Sources */,
 				43AF9F87272975260020CCF3 /* HomeDataModel.swift in Sources */,
 				DC8AE24A286D9E33003376A7 /* ShopModel.swift in Sources */,
-				BFCB16BA2799919A005E3FEB /* MyPollsViewController.swift in Sources */,
 				BF170F4928084825001B3109 /* ProfileCell.swift in Sources */,
 				BFC3EEF62828D7FC000A1582 /* UserHeaderView.swift in Sources */,
 				43953E90273E9DF70027CE80 /* RecommendedCollectionView.swift in Sources */,
@@ -2212,7 +2144,6 @@
 				DC96036C28FD5CC100007E6A /* HomeDetailsHeaderCell.swift in Sources */,
 				439297C82722F0E6001891B8 /* NewsCell.swift in Sources */,
 				43AF8FBC27358BFA00CC69EF /* LoginRequest.swift in Sources */,
-				43B03AA3272F99A300A4337B /* AddPollViewController.swift in Sources */,
 				DC885E3C28D217ED00110418 /* TrendingTableCell.swift in Sources */,
 				DCF1B49228F6E098007F4FA3 /* AddAnswerViewController.swift in Sources */,
 				43B52E42273BD1CB004EF637 /* PostReplyTableView.swift in Sources */,
@@ -2257,12 +2188,10 @@
 				439923CF272BD8D30085E067 /* JobsCollectionCell.swift in Sources */,
 				DC9AB75628F84D5600C6043E /* CurriculamCourseHeaderCell.swift in Sources */,
 				BF0DD952278D46C50053747A /* ProfessionalDetailsCell.swift in Sources */,
-				DC9539B9285C5B8200FBD8D0 /* PollsDataModel.swift in Sources */,
 				43B28450273CE1BA00E8CED8 /* AddMainViewController.swift in Sources */,
 				BF170F71280FD726001B3109 /* ExamDetailsViewController.swift in Sources */,
 				43A6A97E2732520600400F72 /* AddExperienceCell.swift in Sources */,
 				DC96D3B9292B9C3300F4CCF9 /* ImageCVCell.swift in Sources */,
-				BFCB16BE279993AC005E3FEB /* PollsViewModel.swift in Sources */,
 				DCA0A6E828C36118001DE3F1 /* NetworkCVHeaderView.swift in Sources */,
 				BF170F4F280D34CA001B3109 /* ProfileViewHeader.swift in Sources */,
 				DCB7D1E3284B635800F3CFDE /* LikedViewModel.swift in Sources */,
@@ -2298,7 +2227,6 @@
 				439297C12722D721001891B8 /* CarrierViewController.swift in Sources */,
 				DC55BE082872F42900B1EE1B /* DatingViewModel.swift in Sources */,
 				BF1588B727C65A37000B8979 /* DataViewController.swift in Sources */,
-				43F971E3275BC2E000733478 /* PollResource.swift in Sources */,
 				439297892722D628001891B8 /* AppDelegate.swift in Sources */,
 				DC9539C7285C5C2300FBD8D0 /* CarrierModel.swift in Sources */,
 				DCF1B4B928F816D1007F4FA3 /* LearningDetailsVieModel.swift in Sources */,

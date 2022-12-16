@@ -153,7 +153,7 @@ extension UserDetailsViewController: UITableViewDelegate, UITableViewDataSource 
         case 2:
             let cell: QACell
             = tableView.dequeueReusableCell(withIdentifier: "QACell") as! QACell
-            cell.configureWith(data: questionsArray[indexPath.row])
+          //  cell.configureWith(data: questionsArray[indexPath.row])
             return cell
             
         case 3:

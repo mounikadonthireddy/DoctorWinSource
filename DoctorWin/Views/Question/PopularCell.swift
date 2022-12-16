@@ -57,46 +57,46 @@ class PopularCell: UITableViewCell {
         //        replyBtn.tag = homeModel.id
     }
     @IBAction func likeClicked(_ sender: UIButton) {
-        let request = ComplaintLikeRequest(achievement_id: "\(sender.tag)", dworks_id: User.shared.userID)
-        
-        let resource = HomeResource()
-        resource.likeComplaint(request: request) { result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let data):
-                    if data.status  {
-                        self.likeImage.image = UIImage(named: "fheart")
-                    } else {
-                        self.likeImage.image = UIImage(named: "heart")
-                    }
-                case .failure(_):
-                    print("")
-                }
-            }
-            
-        }
+//        let request = ComplaintLikeRequest(achievement_id: "\(sender.tag)", dworks_id: User.shared.userID)
+//        
+//        let resource = HomeResource()
+//        resource.likeComplaint(request: request) { result in
+//            DispatchQueue.main.async {
+//                switch result {
+//                case .success(let data):
+//                    if data.status  {
+//                        self.likeImage.image = UIImage(named: "fheart")
+//                    } else {
+//                        self.likeImage.image = UIImage(named: "heart")
+//                    }
+//                case .failure(_):
+//                    print("")
+//                }
+//            }
+//            
+//        }
         
     }
     
     @IBAction  func saveClicked(_ sender: UIButton) {
-        let request = ComplaintLikeRequest(achievement_id: "\(sender.tag)", dworks_id: User.shared.userID)
-        let resource = HomeResource()
-        resource.saveComplaint(request: request) { result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success( let data):
-                    if data.status {
-                        self.bookmarkImage.image = UIImage(named: "fmark")
-                    }
-                    else {
-                        self.bookmarkImage.image = UIImage(named: "mark")
-                    }
-                case .failure: break
-                    //debug
-                }
-            }
-            
-        }
+//        let request = ComplaintLikeRequest(achievement_id: "\(sender.tag)", dworks_id: User.shared.userID)
+//        let resource = HomeResource()
+//        resource.saveComplaint(request: request) { result in
+//            DispatchQueue.main.async {
+//                switch result {
+//                case .success( let data):
+//                    if data.status {
+//                        self.bookmarkImage.image = UIImage(named: "fmark")
+//                    }
+//                    else {
+//                        self.bookmarkImage.image = UIImage(named: "mark")
+//                    }
+//                case .failure: break
+//                    //debug
+//                }
+//            }
+//
+//        }
     }
     @IBAction  func shareClicked(_ sender: UIButton) {
         

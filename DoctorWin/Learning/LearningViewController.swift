@@ -11,7 +11,7 @@ class LearningViewController: ViewController {
     @IBOutlet weak var tableView: UITableView!
     var learningVM = LearningViewModel()
     var bannerArray: [ElearningBannerModel] = []
-    var trendingCourseArray: [CourseModel] = []
+    var trendingCourseArray: [LearningModel] = []
     var coursesArray: [CoursesModel] = []
     var categoriesArray: [CoursesCategoryModel] = []
     override func viewDidLoad() {
@@ -23,8 +23,8 @@ class LearningViewController: ViewController {
         learningVM.delegate = self
         // Do any additional setup after loading the view.
         self.loadBannerImages()
-        self.loadTrendingCourses()
-        self.loadCourses()
+        //self.loadTrendingCourses()
+       // self.loadCourses()
         self.loadCoursesCategories()
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -34,10 +34,10 @@ class LearningViewController: ViewController {
         self.showLoader()
         learningVM.getElearningBanner(userID: User.shared.userID)
     }
-    func loadTrendingCourses() {
-        self.showLoader()
-        learningVM.getTrendingCourses(userID: User.shared.userID)
-    }
+//    func loadTrendingCourses() {
+//        self.showLoader()
+//        learningVM.getTrendingCourses(userID: User.shared.userID)
+//    }
     func loadCourses() {
         self.showLoader()
         learningVM.getCourses(userID: User.shared.userID)
@@ -79,7 +79,7 @@ extension LearningViewController: UITableViewDelegate, UITableViewDataSource {
             
             let cell: LearningImageBannerCell
             = tableView.dequeueReusableCell(withIdentifier: "LearningImageBannerCell") as! LearningImageBannerCell
-            cell.setBannerImage(data: bannerArray[0])
+            cell.setBannerImage(data: bannerArray)
             return cell
         }
        else if indexPath.section == 1 {
@@ -96,9 +96,9 @@ extension LearningViewController: UITableViewDelegate, UITableViewDataSource {
             = tableView.dequeueReusableCell(withIdentifier: "LearningCategoryCell") as! LearningCategoryCell
             cell.delegate = self
             if indexPath.section == 2 {
-                cell.getCourseArray(data: trendingCourseArray, title: "Trending Courses")
+                //cell.getCourseArray(data: trendingCourseArray, title: "Trending Courses")
             } else if indexPath.section == 3 {
-                cell.getCourseArray(data: coursesArray[indexPath.row].course ?? [], title: coursesArray[indexPath.row].name ?? "")
+              //  cell.getCourseArray(data: coursesArray[indexPath.row].course ?? [], title: coursesArray[indexPath.row].name ?? "")
             }
             return cell
         }
@@ -107,6 +107,12 @@ extension LearningViewController: UITableViewDelegate, UITableViewDataSource {
     
 }
 extension LearningViewController: LearningViewModelDelegate {
+    func didReciveTrendingCourses(response: [LearningModel]?, error: String?) {
+        self.dismiss()
+        trendingCourseArray = response ?? []
+        tableView.reloadData()
+    }
+    
     func didReciveCategories(response: [CoursesCategoryModel]?, error: String?) {
         self.dismiss()
         categoriesArray = response ?? []
@@ -125,9 +131,9 @@ extension LearningViewController: LearningViewModelDelegate {
         tableView.reloadData()
     }
     
-    func didReciveTrendingCourses(response: [CourseModel]?, error: String?) {
+    func didReciveTrendingCourses(response: [CoursesCategoryModel]?, error: String?) {
         self.dismiss()
-        trendingCourseArray = response ?? []
+       // trendingCourseArray = response ?? []
         tableView.reloadData()
     }
 }

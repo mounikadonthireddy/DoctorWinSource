@@ -24,29 +24,32 @@ struct QuestionsResource {
             }
         }
     }
-    func getTrendingQuestionData(userID: String, completion : @escaping (_ result: ResponseResult<[AnswersModel]>) -> Void) {
+    func getTrendingQuestionData(userID: String, completion : @escaping (_ result: ResponseResult<[HomeDataModel]>) -> Void) {
         
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.trendingQuestion
         let httpUtility = HttpUtility()
         do {
-            httpUtility.getApiData(urlString: homeUrlStr, resultType: [AnswersModel].self) { result in
+            httpUtility.getApiData(urlString: homeUrlStr, resultType: HomeResponseModel.self) { result in
                 
                 switch result {
                 case .success(let data):
-                    completion(.success(data))
-                    
+                    if data.is_active == true {
+                        completion(.success(data.homeResponse ?? []))
+                    } else {
+                        completion(.failure("Empty Response"))
+                    }
                 case .failure( let error):
                     completion(.failure(error.rawValue))
                 }
             }
         }
     }
-    func getUserPostedQuestionData(userID: String,page:Int, completion : @escaping (_ result: ResponseResult<[PostedQuestionModel]>) -> Void) {
+    func getUserPostedQuestionData(userID: String,page:Int, completion : @escaping (_ result: ResponseResult<HomeResponseModel>) -> Void) {
         
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.userPostedQA + ApiEndpoints.userID + "=\(userID)&page=\(page)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getAllQuestion + "?page=\(page)"
         let httpUtility = HttpUtility()
         do {
-            httpUtility.getApiData(urlString: homeUrlStr, resultType: [PostedQuestionModel].self) { result in
+            httpUtility.getApiData(urlString: homeUrlStr, resultType: HomeResponseModel.self) { result in
                 
                 switch result {
                 case .success(let data):

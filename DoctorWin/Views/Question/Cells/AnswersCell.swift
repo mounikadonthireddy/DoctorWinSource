@@ -18,15 +18,31 @@ class AnswersCell: UICollectionViewCell {
         // Initialization code
         personImage.setCornerRadius(radius: Float(personImage.frame.height)/2)
     }
-    func configureDataWith(homeModel: AnswersModel) {
-        self.personName.text = (homeModel.ProfileName ?? "")
-        self.questionTitle.text =  homeModel.asked_question ?? ""
-        self.personDesignation.text = homeModel.speciality ?? ""
-        self.questionDes.text = homeModel.ans ?? ""
-
-        if let urlString = homeModel.ProfileImage {
-            self.personImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
+    func configureDataWith(homeModel: HomeDataModel) {
+        
+        self.questionTitle.text =  homeModel.title ?? ""
+       
+        self.questionDes.text = homeModel.description ?? ""
+        if let userData = homeModel.userDetails {
+            self.personDesignation.text = userData.speciality ?? ""
+            self.personName.text = userData.name
+            if let urlString = userData.image {
+                self.personImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
+            }
+           // self.postId = userData.posted_id
+    }
+        if let groupData = homeModel.groupDetails {
+            if groupData.status == true {
+            self.personDesignation.text =  "by " + (homeModel.userDetails?.name ?? "")
+            self.personName.text = groupData.name ?? ""
+            if let urlString = groupData.image {
+                self.personImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
+            }
+            //self.postId = groupData.id ?? ""
         }
+       
+    }
+       
         
     }
 }

@@ -36,7 +36,7 @@ class NetworkViewController: ViewController {
         groupVM.delegate = self
         peopleVM.delegate = self
         self.loadGropConnections()
-        self.loadPeopleConnections()
+      //  self.loadPeopleConnections()
         collectionView.register(UINib(nibName: collectionViewHeaderFooterReuseIdentifier, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: collectionViewHeaderFooterReuseIdentifier)
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -108,8 +108,8 @@ extension NetworkViewController:  GroupViewModelDelegate {
     func didReceiveNetworkDataResponse(response: NetworkGroupModel?, error: String?) {
         self.dismiss()
         if let res = response {
-            groupArray = res.other_groups ?? []
-            adminGroupArray = res.admin_groups ?? []
+            groupArray = res.otherGroups ?? []
+            adminGroupArray = res.selfGroups ?? []
             collectionView.reloadData()
         }
         

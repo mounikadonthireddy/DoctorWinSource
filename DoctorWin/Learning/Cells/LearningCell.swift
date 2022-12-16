@@ -21,11 +21,11 @@ class LearningCell: UICollectionViewCell {
         courseImage.setCornerRadiusWithBorderColor(radius: 8, color: UIColor.lightGray, borderWidth: 0.2)
     }
     func configureCell(data: CourseModel) {
-        courseName.text = data.subject_title ?? ""
+        courseName.text = data.name ?? ""
         courseTime.text = data.duration ?? ""
-        courseVidoes.text = "\(data.number_of_lession ?? 0)"
-        rating.text = "(" +  "\(data.rating ?? "")" + ")"
-        departmentLbl.text = data.department ?? ""
+//        courseVidoes.text = "\(data.number_of_lession ?? 0)"
+//        rating.text = "(" +  "\(data.rating ?? "")" + ")"
+//        departmentLbl.text = data.department ?? ""
         if let urlString = data.image {
             self.courseImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
         }

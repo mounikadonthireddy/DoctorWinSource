@@ -14,14 +14,22 @@ struct CoursesModel: Codable {
 
 struct CourseModel: Codable {
     let id: Int
-    let subject_title: String?
+    let category: String?
     let image: String?
-    let rating: String?
-    let department: String?
+    let name: String?
+    let subcategory: String?
     let duration: String?
-    let number_of_lession:Int?
+    let video:Int?
+    let topics: Int?
 }
-
+struct LearningResponseModel: Codable {
+    let is_active: Bool?
+    let learnResponse: [LearningModel]?
+}
+struct LearningModel: Codable {
+    let suggest: String?
+    let subjects: [CourseModel]?
+}
 struct ElearningBannerModel: Codable {
     let id: Int
     let app_name: String?
@@ -58,6 +66,10 @@ struct SubChaperModel: Codable {
     let sub_chapter_name: String?
     let video: String?
     let duration: String?
+}
+struct CoursesCategoryResponseModel: Codable {
+    let is_active: Bool?
+    let learnResponse: [CoursesCategoryModel]?
 }
 struct CoursesCategoryModel: Codable {
     let name_of_course: String?

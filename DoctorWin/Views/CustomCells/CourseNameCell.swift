@@ -15,6 +15,7 @@ class CourseNameCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        bgView.setCornerRadius(radius: 10)
       
     }
 

@@ -179,11 +179,6 @@ extension MeViewController: UITableViewDelegate, UITableViewDataSource {
     @objc func articalsClicked(button: UIButton) {
        
     }
-    @objc func pollsClicked(button: UIButton) {
-        let str = UIStoryboard(name: "Me", bundle: nil)
-        let nextVC = str.instantiateViewController(withIdentifier: "MyPollsViewController") as! MyPollsViewController
-        self.navigationController?.pushViewController(nextVC, animated: true)
-    }
     
     
     @objc func appliedClicked(button: UIButton) {

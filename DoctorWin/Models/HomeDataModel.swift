@@ -20,6 +20,7 @@ struct HomeDataModel: Codable {
     let follow_status: Bool?
     let posted_by: Bool?
     let userDetails: PostedUserDetailsModel?
+    let groupDetails: PostedGroupDetailsModel?
     let display_status: Int?
     let image: [ImagesModel]?
 }
@@ -29,6 +30,7 @@ struct HomeResponseModel: Codable {
     let total_pages: Int?
     let previous: Bool?
     let next: Bool?
+    let is_active: Bool?
     let homeResponse: [HomeDataModel]?
 }
 struct PostedUserDetailsModel: Codable {
@@ -39,6 +41,13 @@ struct PostedUserDetailsModel: Codable {
 }
 struct ImagesModel: Codable {
     let image: String?
+}
+struct PostedGroupDetailsModel: Codable {
+    let status: Bool?
+    let id: String?
+    let cover_image: String?
+    let image: String?
+    let name: String?
 }
 
 struct CasesModel: Codable {
@@ -82,4 +91,17 @@ struct CasesModel: Codable {
         case isSocial = "social"
         case isQuestion = "quora"
     }
+}
+struct LikeResponseModel: Codable {
+    let like_count : Int?
+    let status: Bool?
+    let message: String?
+}
+struct LikeRequestModel: Codable{
+    let display_status: Int
+    let id: Int
+    let preference: String
+}
+enum Preference: String {
+    case like,join,bookmark
 }

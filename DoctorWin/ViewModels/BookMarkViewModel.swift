@@ -76,21 +76,21 @@ struct BookMarkViewModel {
             }
         }
     func getBookmarkSocail(userID: String) {
-        let homeResource = HomeResource()
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.bookmarkSocail + ApiEndpoints.userID + "=\(userID)&page=1"
-
-        homeResource.getBookmarkSocail(urlString: homeUrlStr) { response in
-            DispatchQueue.main.async {
-                switch response {
-                case .success(let data):
-                    self.delegate?.didReceiveBookmakedSocail(response: data, error: nil)
-
-                case .failure(let error):
-                    self.delegate?.didReceiveBookmakedSocail(response: nil, error: error)
-                }
-                
-            }
-        }
+//        let homeResource = HomeResource()
+//        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.bookmarkSocail + ApiEndpoints.userID + "=\(userID)&page=1"
+//
+//        homeResource.getBookmarkSocail(urlString: homeUrlStr) { response in
+//            DispatchQueue.main.async {
+//                switch response {
+//                case .success(let data):
+//                    self.delegate?.didReceiveBookmakedSocail(response: data, error: nil)
+//
+//                case .failure(let error):
+//                    self.delegate?.didReceiveBookmakedSocail(response: nil, error: error)
+//                }
+//                
+//            }
+//        }
  
     }
     

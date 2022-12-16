@@ -7,11 +7,11 @@
 
 import UIKit
 protocol TrendingCellDelegate {
-    func cellSelected(data: AnswersModel)
+    func cellSelected(data: HomeDataModel)
 }
 
 class TrendingTableCell: UITableViewCell {
-    var trendingQuestions:[AnswersModel] = []
+    var trendingQuestions:[HomeDataModel] = []
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var shopCVLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var pageControl: UIPageControl!
@@ -28,7 +28,7 @@ class TrendingTableCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    func configure(data:[AnswersModel]) {
+    func configure(data:[HomeDataModel]) {
         trendingQuestions = data
         pageControl.numberOfPages = trendingQuestions.count
         collectionView.reloadData()

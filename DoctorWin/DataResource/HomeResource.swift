@@ -30,32 +30,8 @@ struct HomeResource {
         }
         
     }
-    func saveComplaintToWishslist(userID: String,complaintID: String, reqModel: ComplaintLikeModel ,completion : @escaping (_ result: ResponseResult<ResponseModel>) -> Void) {
-        
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.jobLike + ApiEndpoints.userID +  "=\(userID)&complaint_id=\(complaintID)"
-        let homeUrl = URL(string: homeUrlStr)!
-        
-        let httpUtility = HttpUtility()
-        do {
-            
-            let postBody = try JSONEncoder().encode(reqModel)
-            
-            httpUtility.postMethod(requestUrl: homeUrl, requestBody: postBody, resultType: ResponseModel.self) { (result) in
-                
-                switch result {
-                case .success(let data):
-                    completion(.success(data))
-                    
-                case .failure( let error):
-                    completion(.failure(error.rawValue))
-                    
-                }
-                
-            }
-        } catch let error {
-            print("error is \(error)")
-        }
-    }
+    
+    
     func getCaseDetails(userID: String,complaintID: String ,completion : @escaping (_ result: ResponseResult<CaseDetails>) -> Void) {
         
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getComplaint + ApiEndpoints.userID + "=\(userID)&id=\(complaintID)&page=1"
@@ -76,32 +52,7 @@ struct HomeResource {
         }
         
     }
-    func saveComplaintToBookmark(userID: String,complaintID: String, reqModel: ComplaintLikeModel ,completion : @escaping (_ result: ResponseResult<String?>) -> Void) {
-        
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.complaintBookmark + ApiEndpoints.userID + "=\(userID)&complaint_id=\(complaintID)"
-        let homeUrl = URL(string: homeUrlStr)!
-        
-        let httpUtility = HttpUtility()
-        do {
-            
-            let postBody = try JSONEncoder().encode(reqModel)
-            
-            httpUtility.postMethod(requestUrl: homeUrl, requestBody: postBody, resultType: ComplaintLikeResponse.self) { (result) in
     
-                switch result {
-                case .success(let data):
-                    completion(.success(data.like_status))
-                    
-                case .failure( let error):
-                    completion(.failure(error.rawValue))
-                    
-                }
-                
-            }
-        } catch let error {
-            print("error is \(error)")
-        }
-    }
     func followComplaint(request: ComplaintFollowRequest, completion : @escaping  (_ result: ResponseResult<Bool?>) -> Void) {
         
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.complaintFollow + ApiEndpoints.userID + "=\(request.user_id)&follow_id=\(request.follow_id)"
@@ -129,220 +80,11 @@ struct HomeResource {
         }
     }
     
-    func likeComplaint(request: ComplaintLikeRequest, completion : @escaping  (_ result: ResponseResult<StatusResponseModel>) -> Void) {
-        
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.casesLike + ApiEndpoints.userID +  "=\(request.dworks_id)&achievement_id=\(request.achievement_id)"
-        let homeUrl = URL(string: homeUrlStr)!
-        
-        let httpUtility = HttpUtility()
-        do {
-            let postBody = try JSONEncoder().encode(request)
-            
-            httpUtility.postMethod(requestUrl: homeUrl, requestBody: postBody, resultType: StatusResponseModel.self) {
-                result in
-                switch result {
-                case .success(let data):
-                    completion(.success(data))
-                    
-                case .failure( let error):
-                    completion(.failure(error.rawValue))
-                    
-                }
-                
-            }
-            
-        } catch let error {
-            debugPrint(error)
-        }
-    }
+   
     
-    func likePoll(request: PollLikeRequest, completion : @escaping  (_ result: ResponseResult<StatusResponseModel>) -> Void) {
-        
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.likeJobs + ApiEndpoints.userID + "=\(request.user_id)&poll_id=\(request.poll_id)"
-        let homeUrl = URL(string: homeUrlStr)!
-        
-        let httpUtility = HttpUtility()
-        do {
-            let postBody = try JSONEncoder().encode(request)
-            
-            httpUtility.postMethod(requestUrl: homeUrl, requestBody: postBody, resultType: StatusResponseModel.self) {
-                result in
-                switch result {
-                case .success(let data):
-                    completion(.success(data))
-                    
-                case .failure( let error):
-                    completion(.failure(error.rawValue))
-                    
-                }
-                
-            }
-            
-        } catch let error {
-            debugPrint(error)
-        }
-    }
-    func likeArtical(request: ArticalLikeRequest, completion : @escaping  (_ result: ResponseResult<StatusResponseModel>) -> Void) {
-        
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.likeJobs + ApiEndpoints.userID + "=\(request.user_id)&art_id=\(request.art_id)"
-        let homeUrl = URL(string: homeUrlStr)!
-        
-        let httpUtility = HttpUtility()
-        do {
-            let postBody = try JSONEncoder().encode(request)
-            
-            httpUtility.postMethod(requestUrl: homeUrl, requestBody: postBody, resultType: StatusResponseModel.self) {
-                result in
-                switch result {
-                case .success(let data):
-                    completion(.success(data))
-                    
-                case .failure( let error):
-                    completion(.failure(error.rawValue))
-                    
-                }
-                
-            }
-            
-        } catch let error {
-            debugPrint(error)
-        }
-    }
-    func likeNews(request: NewsLikeRequest, completion : @escaping  (_ result: ResponseResult<StatusResponseModel>) -> Void) {
-        
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.likeJobs + ApiEndpoints.userID + "=\(request.user_id)&artical_id=\(request.artical_id)"
-        let homeUrl = URL(string: homeUrlStr)!
-        
-        let httpUtility = HttpUtility()
-        do {
-            let postBody = try JSONEncoder().encode(request)
-            
-            httpUtility.postMethod(requestUrl: homeUrl, requestBody: postBody, resultType: StatusResponseModel.self) {
-                result in
-                switch result {
-                case .success(let data):
-                    completion(.success(data))
-                    
-                case .failure( let error):
-                    completion(.failure(error.rawValue))
-                    
-                }
-                
-            }
-            
-        } catch let error {
-            debugPrint(error)
-        }
-    }
-    func saveComplaint(request: ComplaintLikeRequest, completion : @escaping  (_ result: ResponseResult<BookmarkStatusResponseModel>) -> Void) {
-        
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.casesBookmarks + ApiEndpoints.userID + "=\(request.dworks_id)&achievement_id=\(request.achievement_id)"
-        let homeUrl = URL(string: homeUrlStr)!
-        
-        let helper = APIHelperClass()
-        do {
-            let postBody = try JSONEncoder().encode(request)
-            
-            helper.callWebserviceToMakeRequest(requestUrl: homeUrl, requestBody: postBody, resultType: BookmarkStatusResponseModel.self, httpMethod: HTTPMethod.post) {
-                result in
-                
-                switch result {
-                case .success(let data):
-                    completion(.success(data))
-                    
-                case .failure( let error):
-                    completion(.failure(error.rawValue))
-                    
-                }
-                
-            }
-            
-        } catch let error {
-            debugPrint(error)
-        }
-    }
+  
     
-    func savePoll(request: PollLikeRequest, completion : @escaping  (_ result: ResponseResult<StatusResponseModel>) -> Void) {
-        
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.savedJobs + ApiEndpoints.userID + "=\(request.user_id)&poll_id=\(request.poll_id)"
-        let homeUrl = URL(string: homeUrlStr)!
-        
-        let helper = APIHelperClass()
-        do {
-            let postBody = try JSONEncoder().encode(request)
-            
-            helper.callWebserviceToMakeRequest(requestUrl: homeUrl, requestBody: postBody, resultType: StatusResponseModel.self, httpMethod: HTTPMethod.post) {
-                result in
-                
-                switch result {
-                case .success(let data):
-                    completion(.success(data))
-                    
-                case .failure( let error):
-                    completion(.failure(error.rawValue))
-                    
-                }
-                
-            }
-            
-        } catch let error {
-            debugPrint(error)
-        }
-    }
-    func saveArtical(request: ArticalLikeRequest, completion : @escaping  (_ result: ResponseResult<StatusResponseModel>) -> Void) {
-        
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.savedJobs + ApiEndpoints.userID +  "=\(request.user_id)&art_id=\(request.art_id)"
-        let homeUrl = URL(string: homeUrlStr)!
-        
-        let helper = APIHelperClass()
-        do {
-            let postBody = try JSONEncoder().encode(request)
-            
-            helper.callWebserviceToMakeRequest(requestUrl: homeUrl, requestBody: postBody, resultType: StatusResponseModel.self, httpMethod: HTTPMethod.post) {
-                result in
-                
-                switch result {
-                case .success(let data):
-                    completion(.success(data))
-                    
-                case .failure( let error):
-                    completion(.failure(error.rawValue))
-                    
-                }
-                
-            }
-            
-        } catch let error {
-            debugPrint(error)
-        }
-    }
-    func saveNews(request: NewsLikeRequest, completion : @escaping  (_ result: ResponseResult<StatusResponseModel>) -> Void) {
-        
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.savedJobs + ApiEndpoints.userID + "\(request.user_id)&artical_id=\(request.artical_id)"
-        let homeUrl = URL(string: homeUrlStr)!
-        
-        let helper = APIHelperClass()
-        do {
-            let postBody = try JSONEncoder().encode(request)
-            
-            helper.callWebserviceToMakeRequest(requestUrl: homeUrl, requestBody: postBody, resultType: StatusResponseModel.self, httpMethod: HTTPMethod.post) {
-                result in
-                
-                switch result {
-                case .success(let data):
-                    completion(.success(data))
-                    
-                case .failure( let error):
-                    completion(.failure(error.rawValue))
-                    
-                }
-                
-            }
-            
-        } catch let error {
-            debugPrint(error)
-        }
-    }
+   
     func replyComplaint(request: PostReplyRequest, completion : @escaping  (_ result: ResponseResult<PostReplyResponse>) -> Void) {
         
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getComplaintComment + ApiEndpoints.userID + "=\(request.profile)"
@@ -386,22 +128,7 @@ struct HomeResource {
         }
     }
     
-    func getBookmarkSocail(urlString: String, completion : @escaping (_ result: ResponseResult<[HomeDataModel]>) -> Void) {
-        
-        let httpUtility = HttpUtility()
-        do {
-            httpUtility.getApiData(urlString: urlString, resultType: [HomeDataModel].self) { result in
-                
-                switch result {
-                case .success(let data):
-                    completion(.success(data))
-                    
-                case .failure( let error):
-                    completion(.failure(error.rawValue))
-                }
-            }
-        }
-    }
+   
     func getComments(userId: String,postID: String, completion : @escaping (_ result: ResponseResult<[CommentModel]>) -> Void) {
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getComments + ApiEndpoints.userID + "=\(userId)" + "&achievement_id=\(postID)"
       
@@ -421,3 +148,31 @@ struct HomeResource {
     }
 }
 
+struct LikeSaveFollowResource {
+    func addToWishslist(reqModel: LikeRequestModel ,completion : @escaping (_ result: ResponseResult<LikeResponseModel>) -> Void) {
+        
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.prefrenceApi
+        let homeUrl = URL(string: homeUrlStr)!
+        
+        let httpUtility = HttpUtility()
+        do {
+            
+            let postBody = try JSONEncoder().encode(reqModel)
+            
+            httpUtility.postMethod(requestUrl: homeUrl, requestBody: postBody, resultType: LikeResponseModel.self) { (result) in
+                
+                switch result {
+                case .success(let data):
+                    completion(.success(data))
+                    
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                    
+                }
+                
+            }
+        } catch let error {
+            print("error is \(error)")
+        }
+    }
+}

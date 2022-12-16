@@ -10,8 +10,8 @@ import UIKit
 class QuestionsViewController: ViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var topView: UIView!
-    var questionsArray: [PostedQuestionModel] = []
-    var trendingQuestions:[AnswersModel] = []
+    var questionsArray: [HomeDataModel] = []
+    var trendingQuestions:[HomeDataModel] = []
     var questionVM = QuestionsViewModel()
     var pageNumber = 1
     var loadingData = true
@@ -121,16 +121,18 @@ extension QuestionsViewController: UITableViewDelegate, UITableViewDataSource {
     
 }
 extension QuestionsViewController: QAViewModelDelegate {
-    func didReceiveTrendingQuestionData(response: [AnswersModel]?, error: String?) {
+    func didReceiveTrendingQuestionData(response: [HomeDataModel]?, error: String?) {
         self.dismiss()
         trendingQuestions = response ?? []
         tableView.reloadData()
     }
     
-    func didReceiveUserQuestionData(response: [PostedQuestionModel]?, error: String?) {
+    func didReceiveUserQuestionData(response: HomeResponseModel?, error: String?) {
         self.dismiss()
         loadingData = false
-        questionsArray = questionsArray + (response ?? [])
+        if let data = response?.homeResponse {
+        questionsArray = questionsArray + data
+        }
         tableView.reloadData()
     }
     
@@ -160,10 +162,10 @@ extension UICollectionView {
     }
 }
 extension QuestionsViewController: TrendingCellDelegate {
-    func cellSelected(data: AnswersModel) {
+    func cellSelected(data: HomeDataModel) {
         let str = UIStoryboard(name: "Details", bundle: nil)
         let nextVC = str.instantiateViewController(withIdentifier: "PopularQuestionDetailsViewController") as! PopularQuestionDetailsViewController
-        nextVC.answerData = data
+       // nextVC.answerData = data
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }

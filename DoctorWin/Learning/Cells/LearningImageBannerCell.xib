@@ -23,10 +23,17 @@
                             <constraint firstAttribute="height" constant="120" id="aVb-EI-TeM"/>
                         </constraints>
                     </imageView>
+                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="PH7-y3-qG3">
+                        <rect key="frame" x="104" y="155" width="116" height="26"/>
+                        <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="currentPageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </pageControl>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="PH7-y3-qG3" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="2KE-F4-I4R"/>
                     <constraint firstAttribute="bottom" secondItem="7nZ-Aw-XHX" secondAttribute="bottom" priority="999" constant="30" id="6KL-qk-3Oy"/>
                     <constraint firstItem="7nZ-Aw-XHX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Fhg-Cj-6Cu"/>
+                    <constraint firstItem="PH7-y3-qG3" firstAttribute="top" secondItem="7nZ-Aw-XHX" secondAttribute="bottom" constant="5" id="K1i-6S-YLl"/>
                     <constraint firstItem="7nZ-Aw-XHX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="30" id="S0G-Ec-bBV"/>
                     <constraint firstAttribute="trailing" secondItem="7nZ-Aw-XHX" secondAttribute="trailing" constant="15" id="f7f-56-R95"/>
                 </constraints>
@@ -34,6 +41,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="imageview" destination="7nZ-Aw-XHX" id="Rxp-yL-zni"/>
+                <outlet property="pageControl" destination="PH7-y3-qG3" id="zt8-b8-ldV"/>
             </connections>
             <point key="canvasLocation" x="140.57971014492756" y="134.26339285714286"/>
         </tableViewCell>

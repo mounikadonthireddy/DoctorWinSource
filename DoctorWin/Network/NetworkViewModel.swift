@@ -72,13 +72,13 @@ struct NetworkModel: Codable {
 }
 struct GroupModel: Codable {
     let id : Int?
-    let name_of_group: String?
+    let group_id: String?
+    let name: String?
     let description: String?
     let image: String?
     let cover_image: String?
-    let number_of_joined: Int?
-    let group_id: String?
-    let admin_status: Bool?
+    let total_joined: Int?
+   
 }
 struct AdminGroupModel: Codable {
 
@@ -90,8 +90,9 @@ struct AdminGroupModel: Codable {
 }
 
 struct NetworkGroupModel: Codable {
-    let other_groups: [GroupModel]?
-    let admin_groups: [AdminGroupModel]?
+    let is_active: Bool?
+    let otherGroups: [GroupModel]?
+    let selfGroups: [AdminGroupModel]?
 }
 
 struct PeopleModel: Codable {

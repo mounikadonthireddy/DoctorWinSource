@@ -16,8 +16,8 @@ protocol QuestionsViewModelDelegate {
     
 }
 protocol QAViewModelDelegate {
-    func didReceiveTrendingQuestionData(response: [AnswersModel]?, error: String?)
-    func didReceiveUserQuestionData(response: [PostedQuestionModel]?, error: String?)
+    func didReceiveTrendingQuestionData(response: [HomeDataModel]?, error: String?)
+    func didReceiveUserQuestionData(response: HomeResponseModel?, error: String?)
 }
 protocol RepliesViewModelDelegate {
     func didReceiveUserRepliesData(response: RepliesModel?, error: String?)

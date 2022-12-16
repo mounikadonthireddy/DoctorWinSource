@@ -27,9 +27,9 @@ class NetworkCVCell: UICollectionViewCell {
    
   
     func cellConfigureWithGroupData(data: GroupModel) {
-        self.name.text = data.name_of_group ?? ""
+        self.name.text = data.name ?? ""
         self.qualification.text = data.description ?? ""
-        self.location.text = "\(data.number_of_joined ?? 0) " + "Followers"
+        self.location.text = "\(data.total_joined ?? 0) " + "Followers"
         self.setImagesforItems(profileImg: data.image, bgImage: data.cover_image)
         followBtn.setTitle("Join", for: .normal)
     }

@@ -26,10 +26,17 @@ struct ApiEndpoints {
     static let resendOtp = "auth/resend/otp/"
     //Home
     static let homeApi = "homepage"
+    static let prefrenceApi = "preference/status"
     //job
     static let createBookMarkJobs = "job/bookmark/"
     static let getJobCategory = "job/category/"
     static let likeJobs = "job/like/"
+    static let getTopJobs = "job/top/"
+    static let customJobs = "custom/user/"
+    static let savedJobs = "job/bookmark/"
+    static let appliedJobs = "job/apply/"
+    static let getNewJobs = "new/job/"
+    
     //drop down
     static let getJobsLocation = "job/location/"
     static let getnewsCategory = "job/news/category/"
@@ -37,12 +44,8 @@ struct ApiEndpoints {
     static let getSpeacilty = "job/department/"
     static let getDesignation = "job/designations/"
     static let recentSearch = "job/search/recent"
-    // Job
-    static let getTopJobs = "job/top/"
-    static let customJobs = "custom/user/"
-    static let savedJobs = "job/bookmark/"
-    static let appliedJobs = "job/apply/"
-    static let getNewJobs = "new/job/"
+    
+ 
     //news
     static let postedNews = "user/news"
     static let bookmarkNews = "user/news/bookmarks"
@@ -64,6 +67,8 @@ struct ApiEndpoints {
     static let getComplaint = "user/social/"
     static let getComplaintComment = "complaint/comment/"
     static let getComments = "user/social/comment"
+    //Question
+    static let getAllQuestion =  "all/questions"
     //Profile
     static let profileEdit = "job/profile/"
     static let personalEdit = "user/personal/info"
@@ -79,11 +84,11 @@ struct ApiEndpoints {
     static let newsCategory = "admin/page/post"
     static let jobsCount = "custom/user/"
     static let searchJobs = "job/search/"
-    static let trendingQuestion = "ask/question/popular"
+    static let trendingQuestion = "popular"
     static let userPostedQA = "ask/question"
     static let userPostedReplied = "ask/question/reply/show"
     //Network
-    static let getNetworkConnections = "group/create"
+    static let getNetworkConnections = "groups"
     static let getFollow = "auth/follow"
     static let getFollowing = "auth/following"
     static let getRequest = "auth/request/"
@@ -112,9 +117,9 @@ struct ApiEndpoints {
     static let postProduct = "shopping/product/post"
     //Elearning
     static let learningBanner = "admin/banner/get?name=elearningimage"
-    static let trendingCourses = "learning/subject/feature"
-    static let courses = "learning/subject/option"
-    static let categories = "learning/banner/app/"
+    static let trendingCourses = "learning/trending"
+    static let courses = "learning/category/"
+    static let categories = "learning/category/"
     static let courseDetails = "learning/subject/get/"
     static let curriculamDetails = "learning/subject/"
     //MCQ

@@ -8,7 +8,7 @@
 import Foundation
 protocol LearningViewModelDelegate {
     func didReciveBannerImage(response: [ElearningBannerModel]?, error: String?)
-    func didReciveTrendingCourses(response: [CourseModel]?, error: String?)
+    func didReciveTrendingCourses(response: [LearningModel]?, error: String?)
     func didReciveCourses(response: [CoursesModel]?, error: String?)
     func didReciveCategories(response: [CoursesCategoryModel]?, error: String?)
 }
@@ -40,7 +40,7 @@ struct LearningViewModel {
             DispatchQueue.main.async {
                 switch response {
                 case .success(let data):
-                    self.delegate?.didReciveTrendingCourses(response: data, error: nil)
+                    self.delegate?.didReciveTrendingCourses(response: data.learnResponse, error: nil)
                     
                 case .failure(let error):
                     self.delegate?.didReciveTrendingCourses(response: nil, error: error)

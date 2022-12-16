@@ -24,8 +24,8 @@ class QACell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    func configureWith(data: PostedQuestionModel) {
-        questionLbl.text = data.asked_question ?? ""
-        answerCountLbl.text = "\(data.number_of_answer ?? 0) Answers"
+    func configureWith(data: HomeDataModel) {
+        questionLbl.text = data.title ?? ""
+        answerCountLbl.text = "\(data.comment_count ?? 0) Answers"
     }
 }

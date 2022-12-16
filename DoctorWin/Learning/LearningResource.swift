@@ -27,11 +27,11 @@ struct LearningResource {
         }
     }
     
-    func getTrendingCourseData(userID: String, completion : @escaping (_ result: ResponseResult<[CourseModel]>) -> Void) {
+    func getTrendingCourseData(userID: String, completion : @escaping (_ result: ResponseResult<LearningResponseModel>) -> Void) {
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.trendingCourses
         let httpUtility = HttpUtility()
         do {
-            httpUtility.getApiData(urlString: homeUrlStr, resultType: [CourseModel].self) { result in
+            httpUtility.getApiData(urlString: homeUrlStr, resultType: LearningResponseModel.self) { result in
                 
                 switch result {
                 case .success(let data):
@@ -65,11 +65,11 @@ struct LearningResource {
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.categories
         let httpUtility = HttpUtility()
         do {
-            httpUtility.getApiData(urlString: homeUrlStr, resultType: CategoryModel.self) { result in
+            httpUtility.getApiData(urlString: homeUrlStr, resultType: CoursesCategoryResponseModel.self) { result in
                 
                 switch result {
                 case .success(let data):
-                    completion(.success(data.course))
+                    completion(.success(data.learnResponse ?? []))
                     
                 case .failure( let error):
                     completion(.failure(error.rawValue))

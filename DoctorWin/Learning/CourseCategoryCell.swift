@@ -60,23 +60,13 @@ extension CourseCategoryCell : UICollectionViewDelegate, UICollectionViewDataSou
             cell.name.text = arr[indexPath.item].name_of_course ?? ""
         }
         
-        cell.name.backgroundColor = UIColor.white
-        cell.setCornerRadiusWithBorderColor(radius: Float(cell.frame.height)/2, color: UIColor.black, borderWidth: 1)
+        //cell.name.backgroundColor = UIColor.white
+        cell.dropShadow()
         return cell
         
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        var str = ""
-        if indexPath.section == 0 {
-            let arr = courseArray.split().right
-            str = arr[indexPath.row].name_of_course ?? ""
-        } else {
-            let arr = courseArray.split().left
-            str = arr[indexPath.row].name_of_course ?? ""
-        }
-        
-        let size = (str as NSString).size(withAttributes: nil)
-        return CGSize(width: size.width + 40, height: 40)
+        return CGSize(width: 160, height: 140)
         
     }
     func collectionView(_ collectionView: UICollectionView,
@@ -89,7 +79,7 @@ extension CourseCategoryCell : UICollectionViewDelegate, UICollectionViewDataSou
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         
-        return 5
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView,

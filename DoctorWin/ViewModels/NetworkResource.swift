@@ -9,7 +9,7 @@ import Foundation
 struct NetworkResource {
     func getNetworkData(userID: String, completion : @escaping (_ result: ResponseResult<NetworkGroupModel>) -> Void) {
         
-        let jobUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getNetworkConnections + ApiEndpoints.userID + "=\(userID)"
+        let jobUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getNetworkConnections 
         
         let httpUtility = HttpUtility()
         do {

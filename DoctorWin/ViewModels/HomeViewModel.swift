@@ -39,48 +39,48 @@ struct HomeViewModel {
         }
     }
     func saveToWishlist(userID: String, categeroyID: String) {
-       
-        let homeResource = HomeResource()
-        let model = ComplaintLikeModel(user_id: userID, complaint_id: categeroyID)
-        homeResource.saveComplaintToWishslist(userID: userID, complaintID: categeroyID, reqModel: model) { response in
-            DispatchQueue.main.async {
-                switch response {
-                case .success(let data):
-                    if data.status == "true" {
-                        self.savedelegate?.didReplySent(status: true, error: nil)
-                    } else {
-                        self.savedelegate?.didReplySent(status: false, error: "error")
-                    }
-                case .failure(_):
-                    print("")
-                }
-                
-            
-            
-            }
-            
-        }
+//       
+//        let homeResource = HomeResource()
+//        let model = ComplaintLikeModel(user_id: userID, complaint_id: categeroyID)
+//        homeResource.saveComplaintToWishslist(userID: userID, complaintID: categeroyID, reqModel: model) { response in
+//            DispatchQueue.main.async {
+//                switch response {
+//                case .success(let data):
+//                    if data.status == "true" {
+//                        self.savedelegate?.didReplySent(status: true, error: nil)
+//                    } else {
+//                        self.savedelegate?.didReplySent(status: false, error: "error")
+//                    }
+//                case .failure(_):
+//                    print("")
+//                }
+//                
+//            
+//            
+//            }
+//            
+//        }
           
         
     }
     
     func saveToBookMark(userID: String, categeroyID: String) {
        
-        let homeResource = HomeResource()
-        let model = ComplaintLikeModel(user_id: userID, complaint_id: categeroyID)
-        homeResource.saveComplaintToBookmark(userID: userID, complaintID: categeroyID, reqModel: model) { response in
-            DispatchQueue.main.async {
-                
-                if response != nil {
-//                    self.delegate?.didAddedToWishlist(status: response, error: nil)
-                } else {
-             
-                    self.savedelegate?.didAddedToWishlist(status: nil, error: nil)
-                }
-            
-            }
-            
-        }
+//        let homeResource = HomeResource()
+//        let model = ComplaintLikeModel(user_id: userID, complaint_id: categeroyID)
+//        homeResource.saveComplaintToBookmark(userID: userID, complaintID: categeroyID, reqModel: model) { response in
+//            DispatchQueue.main.async {
+//                
+//                if response != nil {
+////                    self.delegate?.didAddedToWishlist(status: response, error: nil)
+//                } else {
+//             
+//                    self.savedelegate?.didAddedToWishlist(status: nil, error: nil)
+//                }
+//            
+//            }
+//            
+//        }
         
     }
     
@@ -119,10 +119,6 @@ struct HomeViewModel {
             }
         }
     }
-}
-struct ComplaintLikeModel: Codable {
-    let user_id : String
-    let complaint_id: String
 }
 
 protocol CaseDetailsDelegate {
