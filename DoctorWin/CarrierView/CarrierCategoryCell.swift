@@ -16,8 +16,8 @@ class CarrierCategoryCell: UICollectionViewCell {
         self.bgView.clipsToBounds = true
         // Initialization code
     }
-    func configureCell(with data: JobCategoryDataModel) {
-        self.jobTypeName.text = data.title
+    func configureCell(with data: JobCategoryModel) {
+        self.jobTypeName.text = data.category
         self.bgView.layer.cornerRadius = 10
       jobTypeImage.setCornerRadius(radius: 35)
         if let urlString = data.image {

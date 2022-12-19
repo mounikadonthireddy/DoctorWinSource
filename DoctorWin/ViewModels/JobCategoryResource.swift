@@ -7,15 +7,15 @@
 
 import Foundation
 struct JobCategoryResource {
-    func getJobCategoryData(userID: String, completion : @escaping (_ result: ResponseResult<[JobCategoryDataModel]>) -> Void)  {
+    func getJobCategoryData(userID: String, completion : @escaping (_ result: ResponseResult<JobCategoryResponseModel>) -> Void)  {
         
-        let jobCategoryUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getJobCategory + ApiEndpoints.userID + "=\(userID)"
+        let jobCategoryUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getJobCategory 
         
         let httpUtility = HttpUtility()
         do {
             
             
-            httpUtility.getApiData(urlString: jobCategoryUrlStr, resultType: [JobCategoryDataModel].self) { result in
+            httpUtility.getApiData(urlString: jobCategoryUrlStr, resultType: JobCategoryResponseModel.self) { result in
                 
                 switch result {
                 case .success(let data):

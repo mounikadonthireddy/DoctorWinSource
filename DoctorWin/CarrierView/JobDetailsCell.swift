@@ -31,14 +31,14 @@ class JobDetailsCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configureCellWith(data: CarrierModel) {
-        self.titleLabel.text = (data.designation ?? "") + " " + (data.Speciality ?? "") + " at "  + (data.name_of_company ?? "")
-        if data.eligibility.count > 0 {
-            self.speacilityLabel.text = data.eligibility.reduce("", { ($0.isEmpty ? "" : $0 + ", ") + $1.name })
-        }
+    func configureCellWith(data: JobDetailsModel) {
+        self.titleLabel.text = (data.category ?? "") + " " + (data.Speciality ?? "") + " At " + (data.name_of_company ?? "")
+        self.speacilityLabel.text = data.eligibility ?? ""
+        
         self.salaryLabel.text = "\(data.min_salary ?? "") -" + "\(data.max_salary ?? "") /" + (data.monthly_or_anual ?? "")
-        self.expLabel.text = (data.experince ?? "" ) + " yrs of experience"
-        self.locationLabel.text = data.location_of_job ?? ""
+        
+        self.expLabel.text = (data.min_experince ?? "" ) + "-" + (data.max_experince ?? "") + " yrs of Exp."
+        self.locationLabel.text = (data.city ?? "") + "," + (data.state ?? "")
         if data.accommodation ?? false {
             self.accomdationLabel.text = "Accommodation Provided : Yes"
         } else {

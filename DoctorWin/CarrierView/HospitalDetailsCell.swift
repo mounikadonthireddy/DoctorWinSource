@@ -25,8 +25,8 @@ class HospitalDetailsCell: UITableViewCell {
         
         // Configure the view for the selected state
     }
-    func configureCellWith(data: CarrierModel) {
-        self.hospitalLocation.text = "Company Address : " + (data.location_of_job ?? "")
+    func configureCellWith(data: JobDetailsModel) {
+        self.hospitalLocation.text = "Company Address : " + (data.address_of_company ?? "")
         self.hospitalWebsite.text = "Company Website : " + (data.website ?? "")
         self.hospitalName.text = "Name of Consultancy/Hospital : " + (data.name_of_company ?? "")
         self.hospitalDescription.text = "Company Description: " + (data.about_company ?? "")

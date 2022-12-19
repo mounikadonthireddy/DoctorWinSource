@@ -17,7 +17,7 @@ class JobsViewController: UIViewController {
     @IBOutlet weak var stackViewHeight: NSLayoutConstraint!
     var jobType: String = ""
     var categoryID: Int = 0
-    var jobsArray :[CarrierModel] = []
+    var jobsArray :[JobModel] = []
     var jobsVM = JobsViewModel()
     var query: Bool = false
     var queryString = ""
@@ -75,20 +75,20 @@ extension JobsViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let str = UIStoryboard(name: "Details", bundle: nil)
             let nextVC = str.instantiateViewController(withIdentifier: "CarrierJobDetailsViewController") as! CarrierJobDetailsViewController
-            nextVC.detailsModel = jobsArray[indexPath.row]
+           // nextVC.detailsModel = jobsArray[indexPath.row]
             self.navigationController?.pushViewController(nextVC, animated: true)
 
     }
     
 }
 extension JobsViewController: JobsViewModelDelegate {
-    func didReceiveCarrierResponse(response: JobCarrierModel?, error: String?) {
+    func didReceiveCarrierResponse(response: JobResponseModel?, error: String?) {
         
     }
     
-    func didReceiveJobsResponse(response: JobCarrierModel?, error: String?) {
+    func didReceiveJobsResponse(response: JobResponseModel?, error: String?) {
         if error == nil {
-            jobsArray = response?.data ?? []
+            jobsArray = response?.jobResponse ?? []
             jobTableView.reloadData()
         }
     }

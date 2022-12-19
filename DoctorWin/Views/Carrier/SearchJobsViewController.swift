@@ -27,7 +27,7 @@ class SearchJobsViewController: UIViewController {
     }
     func parse1() {
         
-        jobsVM.getAllJobData(userID: User.shared.userID)
+        jobsVM.getAllJobData(pageNum: 1)
         
     }
     @IBAction func backClicked(_ sender: UIButton) {
@@ -54,11 +54,11 @@ extension SearchJobsViewController : UITableViewDelegate, UITableViewDataSource 
     
 }
 extension SearchJobsViewController: JobsViewModelDelegate {
-    func didReceiveJobsResponse(response: JobCarrierModel?, error: String?) {
+    func didReceiveJobsResponse(response: JobResponseModel?, error: String?) {
         
     }
     
-    func didReceiveCarrierResponse(response: JobCarrierModel?, error: String?) {
+    func didReceiveCarrierResponse(response: JobResponseModel?, error: String?) {
         
     }
     

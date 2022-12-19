@@ -9,7 +9,7 @@ import UIKit
 
 class AppliedJobViewController: ViewController {
     @IBOutlet weak var appliedJobTableView: UITableView!
-    var appliedJobArray :[CarrierModel] = []
+    var appliedJobArray :[JobModel] = []
     var customJobVM = AppliedJobViewModel()
     var showBack:Bool = false
     @IBOutlet weak var backView: UIView!
@@ -59,13 +59,13 @@ extension AppliedJobViewController : UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let str = UIStoryboard(name: "Details", bundle: nil)
             let nextVC = str.instantiateViewController(withIdentifier: "CarrierJobDetailsViewController") as! CarrierJobDetailsViewController
-           nextVC.detailsModel = appliedJobArray[indexPath.row]
+          // nextVC.detailsModel = appliedJobArray[indexPath.row]
             self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
 }
 extension AppliedJobViewController: AppliedJobViewModelDelegate {
-    func didReceiveAppliedJobs(response: [CarrierModel]?, error: String?) {
+    func didReceiveAppliedJobs(response: [JobModel]?, error: String?) {
         self.dismiss()
         self.appliedJobArray = response ?? []
         appliedJobTableView.reloadData()

@@ -49,47 +49,46 @@ class CarrierJobCell: UITableViewCell {
     
     
     @IBAction func saveClicked(_ sender: UIButton) {
-        let request = JobApplyRequest(user_id: User.shared.userID, job_id: "\(jobId)")
-        let resource = JobsResource()
-        resource.saveJob(request: request) { result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success( let data):
-                    if data.status {
-                        self.bookMarkImage.image = UIImage(named: "fmark")
-                    }
-                    else {
-                        self.bookMarkImage.image = UIImage(named: "mark")
-                    }
-                case .failure: break
-                   //debug
-                }
-               
-            }
-            
-        }
+//        let request = JobApplyRequest(user_id: User.shared.userID, job_id: "\(jobId)")
+//        let resource = JobsResource()
+//        resource.saveJob(request: request) { result in
+//            DispatchQueue.main.async {
+//                switch result {
+//                case .success( let data):
+//                    if data.status {
+//                        self.bookMarkImage.image = UIImage(named: "fmark")
+//                    }
+//                    else {
+//                        self.bookMarkImage.image = UIImage(named: "mark")
+//                    }
+//                case .failure: break
+//                   //debug
+//                }
+//               
+//            }
+//            
+//        }
         
     }
-    func configureCell(with data: CarrierModel) {
-        self.hospitalName.text =  (data.designation ?? "") + " in " + (data.Speciality ?? "")
-        
+    func configureCell(with data: JobModel) {
+       self.hospitalName.text =  (data.category ?? "") + " in " + (data.Speciality ?? "") 
         self.specialityName.text = data.name_of_company ?? ""
         
         self.location.text = (data.city ?? "") + "," + (data.state ?? "")
-        self.experience.text = "\(data.experince ?? "0")" + " yrs Experience"
+        self.experience.text = (data.min_experince ?? "" ) + "-" + (data.max_experince ?? "") + " yrs of Exp."
         
         
         jobId = data.jobid ?? ""
-        self.salary.text = "\(data.min_salary ?? "") /" + "\(data.max_salary ?? "") /" + (data.monthly_or_anual ?? "")
+        self.salary.text = "\(data.min_salary ?? "") -" + "\(data.max_salary ?? "") /" + (data.monthly_or_anual ?? "")
         
         
-        if let urlString = data.hospital_image {
+        if let urlString = data.image {
             
             self.hospitalImage.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "loginBg"))
         }
-        self.courseArray = data.eligibility
+        self.courseArray = data.eligibility ?? []
         self.courseCollectionView.reloadData()
-        if data.bookmark {
+        if data.bookmark_status == true {
             self.bookMarkImage.image = UIImage(named: "fmark")
         }
     }

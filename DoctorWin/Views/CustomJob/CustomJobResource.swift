@@ -41,11 +41,11 @@ struct CustomJobResource {
             }
         }
     }
-    func getBookmarkedJobData(userID: String, completion : @escaping (_ result: ResponseResult<[CarrierModel]>) -> Void) {
+    func getBookmarkedJobData(userID: String, completion : @escaping (_ result: ResponseResult<[JobModel]>) -> Void) {
         let savedJobUrl = ApiEndpoints.baseUrl + ApiEndpoints.savedJobs + ApiEndpoints.userID + "=\(userID)&page=1"
         let httpUtility = HttpUtility()
         do {
-            httpUtility.getApiData(urlString: savedJobUrl, resultType: [CarrierModel].self) {result in
+            httpUtility.getApiData(urlString: savedJobUrl, resultType: [JobModel].self) {result in
                 
                 switch result {
                 case .success(let data):
@@ -59,11 +59,11 @@ struct CustomJobResource {
         }
     }
     
-    func getAppliedJobData(userID: String, completion : @escaping (_ result: ResponseResult<[CarrierModel]>) -> Void) {
-        let appliedJobUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.appliedJobs + ApiEndpoints.userID + "=\(userID)"
+    func getAppliedJobData(userID: String, completion : @escaping (_ result: ResponseResult<[JobModel]>) -> Void) {
+        let appliedJobUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.appliedJobs 
         let httpUtility = HttpUtility()
         do {
-            httpUtility.getApiData(urlString: appliedJobUrlStr, resultType: [CarrierModel].self) { result in
+            httpUtility.getApiData(urlString: appliedJobUrlStr, resultType: [JobModel].self) { result in
                 
                 switch result {
                 case .success(let data):

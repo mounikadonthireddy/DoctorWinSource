@@ -23,7 +23,7 @@ class LearningViewController: ViewController {
         learningVM.delegate = self
         // Do any additional setup after loading the view.
         self.loadBannerImages()
-        //self.loadTrendingCourses()
+        self.loadTrendingCourses()
        // self.loadCourses()
         self.loadCoursesCategories()
     }
@@ -34,14 +34,14 @@ class LearningViewController: ViewController {
         self.showLoader()
         learningVM.getElearningBanner(userID: User.shared.userID)
     }
-//    func loadTrendingCourses() {
-//        self.showLoader()
-//        learningVM.getTrendingCourses(userID: User.shared.userID)
-//    }
-    func loadCourses() {
+    func loadTrendingCourses() {
         self.showLoader()
-        learningVM.getCourses(userID: User.shared.userID)
+        learningVM.getTrendingCourses(userID: User.shared.userID)
     }
+//    func loadCourses() {
+//        self.showLoader()
+//        learningVM.getCourses(userID: User.shared.userID)
+//    }
     func loadCoursesCategories() {
         self.showLoader()
         learningVM.getCoursesCategeries(userID: User.shared.userID)
@@ -62,15 +62,15 @@ class LearningViewController: ViewController {
 }
 extension LearningViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        return 3
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return bannerArray.count
-        } else if section == 1 || section == 2 {
+        } else if section == 1 {
             return 1
-        } else if section == 3 {
-            return coursesArray.count
+        } else if section == 2 {
+            return trendingCourseArray.count
         }
         return 1
     }
@@ -91,15 +91,10 @@ extension LearningViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         }
         else {
-            
             let cell: LearningCategoryCell
             = tableView.dequeueReusableCell(withIdentifier: "LearningCategoryCell") as! LearningCategoryCell
             cell.delegate = self
-            if indexPath.section == 2 {
-                //cell.getCourseArray(data: trendingCourseArray, title: "Trending Courses")
-            } else if indexPath.section == 3 {
-              //  cell.getCourseArray(data: coursesArray[indexPath.row].course ?? [], title: coursesArray[indexPath.row].name ?? "")
-            }
+            cell.getCourseArray(data: trendingCourseArray[indexPath.row].subjects ?? [], title: trendingCourseArray[indexPath.row].suggest ?? "")
             return cell
         }
     }

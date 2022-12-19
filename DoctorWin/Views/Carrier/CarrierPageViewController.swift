@@ -12,7 +12,7 @@ class CarrierPageViewController: ViewController {
     var allJobsArray :[JobsDataModel] = []
     var categoryJobsViewModel = JobCategoryViewModel()
     var jobsVM = JobsViewModel()
-    var quickSearchArray:[JobCategoryDataModel] = []
+    var quickSearchArray:[JobCategoryModel] = []
     var titleArray:[String] = ["", "Most Recent Search", "Quick Job Search", "Recommended Jobs", "", "View All Jobs"]
     var locationArray : [LocationModel] = []
     var speacilityArray:[SpeciltyModel] = []
@@ -55,7 +55,7 @@ class CarrierPageViewController: ViewController {
         
     }
     func parse1() {
-        jobsVM.getAllJobData(userID: User.shared.userID)
+        jobsVM.getAllJobData(pageNum: 1)
     }
     func parse() {
         self.showLoader()
@@ -289,11 +289,11 @@ extension CarrierPageViewController: UITableViewDelegate, UITableViewDataSource 
     }
 }
 extension CarrierPageViewController: JobsViewModelDelegate {
-    func didReceiveJobsResponse(response: JobCarrierModel?, error: String?) {
+    func didReceiveJobsResponse(response: JobResponseModel?, error: String?) {
         
     }
     
-    func didReceiveCarrierResponse(response: JobCarrierModel?, error: String?) {
+    func didReceiveCarrierResponse(response: JobResponseModel?, error: String?) {
         
     }
     
@@ -308,9 +308,9 @@ extension CarrierPageViewController: JobsViewModelDelegate {
     
 }
 extension CarrierPageViewController: JobCategoryViewModelDelegate {
-    func didReceiveTopJobs(response: [JobCategoryDataModel]?, error: String?) {
+    func didReceiveTopJobs(response: JobCategoryResponseModel?, error: String?) {
         self.dismiss()
-        quickSearchArray = response ?? []
+        quickSearchArray = response?.jobResponse ?? []
         tableView.reloadData()
     }
     

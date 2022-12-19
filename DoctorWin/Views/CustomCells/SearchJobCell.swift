@@ -41,24 +41,24 @@ class SearchJobCell: UITableViewCell {
     @IBAction func callClicked(_ sender: Any) {
     }
     @IBAction func saveClicked(_ sender: UIButton) {
-        let request = JobApplyRequest(user_id: User.shared.userID, job_id: "\(sender.tag)")
-        let resource = JobsResource()
-        resource.saveJob(request: request) { result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success( let data):
-                    if data.status {
-                        self.save.setImage( UIImage(named: "fmark"), for: .normal)
-                    }
-                    else {
-                        self.save.setImage( UIImage(named: "mark"), for: .normal)
-                    }
-                case .failure: break
-                   //debug
-                }
-            }
-           
-        }
+//        let request = JobApplyRequest(user_id: User.shared.userID, job_id: "\(sender.tag)")
+//        let resource = JobsResource()
+//        resource.saveJob(request: request) { result in
+//            DispatchQueue.main.async {
+//                switch result {
+//                case .success( let data):
+//                    if data.status {
+//                        self.save.setImage( UIImage(named: "fmark"), for: .normal)
+//                    }
+//                    else {
+//                        self.save.setImage( UIImage(named: "mark"), for: .normal)
+//                    }
+//                case .failure: break
+//                   //debug
+//                }
+//            }
+//           
+//        }
         
     }
     func configureCell(with data: JobsDataModel) {

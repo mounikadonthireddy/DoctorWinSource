@@ -116,10 +116,10 @@ extension NetworkViewController:  GroupViewModelDelegate {
     }
 }
 extension NetworkViewController: PeopleViewModelDelegate {
-    func didReceiveNetworkDataResponse(response: [PeopleModel]?, error: String?) {
+    func didReceiveNetworkDataResponse(response: PeopleResponseModel?, error: String?) {
         self.dismiss()
         if let res = response {
-            peopleArray = res
+            peopleArray = res.userDetails ?? []
             collectionView.reloadData()
         }
     }
@@ -209,7 +209,7 @@ extension NetworkViewController : UICollectionViewDelegate, UICollectionViewData
         if selectedIndex == 0 {
             self.navigateToUserDetails(reqId: "", groupId: "\(groupArray[indexPath.row].group_id ?? "")")
         } else {
-        self.navigateToUserDetails(reqId: peopleArray[indexPath.row].dworks_id ?? "", groupId: "")
+        self.navigateToUserDetails(reqId: peopleArray[indexPath.row].posted_id ?? "", groupId: "")
         }
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
@@ -228,6 +228,14 @@ extension NetworkViewController : UICollectionViewDelegate, UICollectionViewData
 extension NetworkViewController: CustomSegmentedControlDelegate {
     func change(to index: Int) {
         selectedIndex = index
+        switch index {
+        case 0:
+            self.loadGropConnections()
+        case 1:
+            self.loadPeopleConnections()
+        default:
+            print("nothing selected")
+        }
         self.collectionView.reloadData()
     }
     

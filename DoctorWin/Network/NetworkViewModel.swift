@@ -96,11 +96,15 @@ struct NetworkGroupModel: Codable {
 }
 
 struct PeopleModel: Codable {
-    let userid: Int?
-    let ProfileName: String?
-    let ProfileImage: String?
+    let id: Int?
+    let name: String?
+    let image: String?
     let hightest_qualification: String?
     let speciality: String?
     let cover_image: String?
-    let dworks_id: String?
+    let posted_id: String?
+}
+struct PeopleResponseModel: Codable {
+    let is_active: Bool
+    let userDetails: [PeopleModel]?
 }

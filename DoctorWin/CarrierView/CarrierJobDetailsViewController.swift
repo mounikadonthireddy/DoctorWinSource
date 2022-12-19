@@ -10,31 +10,27 @@ import UIKit
 class CarrierJobDetailsViewController: ViewController {
     @IBOutlet weak var jobTableView: UITableView!
     @IBOutlet weak var applyBtn: UIButton!
-    var detailsModel : CarrierModel?
+    var detailsModel : JobDetailsModel?
     var selectionType : CarrierSelection = .jobDetails
-    var viewHeight = 0
-    
+    var detailsVM = JobDetailsViewModel()
+    var jobId: Int = 0
+    var displayStaus: Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
+        detailsVM.delegate = self
         jobTableView.register(UINib(nibName: "JobDetailsCell", bundle: nil), forCellReuseIdentifier: "JobDetailsCell")
         jobTableView.register(UINib(nibName: "HospitalDetailsCell", bundle: nil), forCellReuseIdentifier: "HospitalDetailsCell")
         
         jobTableView.register(CarrierJobDetailHeaderView.nib, forHeaderFooterViewReuseIdentifier: CarrierJobDetailHeaderView.identifier)
-        
-//        if detailsModel != nil {
-//
-//            if response?.apply_status ?? false  {
-//                self.applyBtn.setTitle("Applied", for: .normal)
-//            }
-//            if applyBtn.titleLabel?.text == "Applied" {
-//                applyBtn.isUserInteractionEnabled = false
-//            }
-//        }
+
         self.jobTableView.delegate = self
         self.jobTableView.dataSource = self
         self.applyBtn.clipsToBounds = true
         self.applyBtn.layer.cornerRadius = 10
-        
+        loadHospitalDetails()
+    }
+    func loadHospitalDetails() {
+        detailsVM.getCarrierJobDetails(JobId: "\(jobId)")
     }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
@@ -42,9 +38,7 @@ class CarrierJobDetailsViewController: ViewController {
     }
     
     @IBAction func applyClicked(_ sender: Any) {
-        
-        if  let jobId = detailsModel?.id {
-        let request = JobApplyRequest(user_id: User.shared.userID, job_id: "\(jobId)")
+        let request = JobApplyRequest(display_status: displayStaus, id: jobId, preference: Preference.jobapply.rawValue)
         let resource = JobsResource()
         self.showLoader()
         resource.applyJob(request: request) { result in
@@ -65,8 +59,6 @@ class CarrierJobDetailsViewController: ViewController {
         }
         
     }
-    }
-    
 }
 extension CarrierJobDetailsViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -99,33 +91,23 @@ extension CarrierJobDetailsViewController : UITableViewDelegate, UITableViewData
         
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        if selectionType == .hospitalDetails {
-//            return 80
-//        }
         return 280
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "CarrierJobDetailHeaderView") as? CarrierJobDetailHeaderView {
             if let data = detailsModel {
-                headerView.speciality.text = data.eligibility.reduce("", { ($0.isEmpty ? "" : $0 + ", ") + $1.name })
-
-                headerView.location.text = data.location_of_job ?? ""
-                headerView.titileLbl.text = (data.designation ?? "") + " " + (data.Speciality ?? "")
-                
+                headerView.speciality.text = data.eligibility ?? ""
+                headerView.location.text = (data.city ?? "") + "," + (data.state ?? "")
+                headerView.titileLbl.text =  (data.category ?? "") + " " + (data.Speciality ?? "") 
+                headerView.posted.text = "Posted " + (data.created_date ?? "")
                 headerView.deleagte = self
-//                if selectionType == .hospitalDetails {
-//                    headerView.titleView.isHidden = true
-//                    headerView.viewHeight.constant = 0
-//                    
-//                } else {
-//                    headerView.titleView.isHidden = false
-//                    headerView.viewHeight.constant = 200
-//                    
-//                }
+                if data.bookmark_status == true {
+                    headerView.wishlistBtn.setImage(UIImage(named: "fmark"), for: .normal)
+        
+                }
+                displayStaus = data.display_status ?? 0
             }
             headerView.backBtn.addTarget(self, action: #selector(backClicked(button:)), for: .touchUpInside)
-            
-            
             return headerView
         }
         
@@ -152,6 +134,20 @@ extension CarrierJobDetailsViewController: CarrierDetailsSelectionType {
             selectionType = .jobDetails
         }
         jobTableView.reloadData()
+    }
+}
+extension CarrierJobDetailsViewController: JobDetailsViewModelDelegate {
+    
+    func didReceiveJobDetails(response: JobDetailsModel?, error: String?) {
+        self.dismiss()
+        if let data = response {
+            detailsModel = data
+            if data.apply_status ?? false  {
+                self.applyBtn.setTitle("Applied", for: .normal)
+                applyBtn.isUserInteractionEnabled = false
+            }
+            jobTableView.reloadData()
+        }
     }
     
     

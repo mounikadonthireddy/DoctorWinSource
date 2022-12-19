@@ -7,30 +7,15 @@
 
 import Foundation
 protocol JobDetailsViewModelDelegate {
-    func didReciveHospitalData(response: HospitalDetailsModel?, error: String?)
-    func didReceiveJobDetails(response: CarrierJobDetailsModel?, error: String?)
-
+    func didReceiveJobDetails(response: JobDetailsModel?, error: String?)
 }
 
-struct CarrierJobDetailsViewModel {
+struct JobDetailsViewModel {
     var delegate : JobDetailsViewModelDelegate?
-    func getCarrierHospitalDetails(userID: String, JobId: String) {
-        let homeResource = JobsResource()
-        homeResource.getJobHospitalData(userID: userID, jobId: JobId) { response in
-            DispatchQueue.main.async {
-                switch response {
-                case .success(let data):
-                    self.delegate?.didReciveHospitalData(response: data, error: nil)
-                    
-                case .failure(let error):
-                    self.delegate?.didReciveHospitalData(response: nil, error: error)
-                }
-            }
-        }
-    }
-    func getCarrierJobDetails(userID: String, JobId: String) {
+
+    func getCarrierJobDetails(JobId: String) {
           let jobResource = JobsResource()
-        jobResource.getJobDetailsData(userID: userID , jobId: JobId) { response in
+        jobResource.getJobDetailsData(jobId: JobId) { response in
               DispatchQueue.main.async {
                 switch response {
                 case .success(let data):

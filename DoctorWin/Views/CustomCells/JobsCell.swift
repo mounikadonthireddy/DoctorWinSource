@@ -20,9 +20,9 @@ class JobsCell: UICollectionViewCell {
         
         // Initialization code
     }
-    func configureCell(with data: JobCategoryDataModel) {
-        self.jobTypeName.text = data.title
-        self.jobDesName.text = data.about
+    func configureCell(with data: JobCategoryModel) {
+        self.jobTypeName.text = data.category
+       // self.jobDesName.text = data.about
 
         if let urlString = data.image {
             let finalUrlString = "http://3.132.212.116:8000" + urlString

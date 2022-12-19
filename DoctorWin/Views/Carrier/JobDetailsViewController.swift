@@ -41,24 +41,24 @@ class JobDetailsViewController: ViewController {
     }
     
     @IBAction func applyClicked(_ sender: Any) {
-        let request = JobApplyRequest(user_id: User.shared.userID, job_id: "\(detailsModel.id!)")
-        let resource = JobsResource()
-        self.showLoader()
-        resource.applyJob(request: request) { result in
-            DispatchQueue.main.async {
-                self.dismiss()
-                switch result {                    
-                case .success(let data):
-                    if data.status  {
-                    self.applyBtn.setTitle("Applied", for: .normal)
-                        self.applyBtn.isUserInteractionEnabled = false
-                }
-                case .failure(_):
-                    print("")
-                }
-               
-            }
-        }
+//        let request = JobApplyRequest(display_status: <#T##Int#>, id: <#T##Int#>, preference: Preference.jobapply.rawValue)
+//        let resource = JobsResource()
+//        self.showLoader()
+//        resource.applyJob(request: request) { result in
+//            DispatchQueue.main.async {
+//                self.dismiss()
+//                switch result {
+//                case .success(let data):
+//                    if data.status  {
+//                    self.applyBtn.setTitle("Applied", for: .normal)
+//                        self.applyBtn.isUserInteractionEnabled = false
+//                }
+//                case .failure(_):
+//                    print("")
+//                }
+//
+//            }
+//        }
         
     }
     @IBAction func chatClicked(_ sender: Any) {

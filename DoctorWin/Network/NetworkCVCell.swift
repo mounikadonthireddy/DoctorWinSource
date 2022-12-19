@@ -34,10 +34,10 @@ class NetworkCVCell: UICollectionViewCell {
         followBtn.setTitle("Join", for: .normal)
     }
     func cellConfigureWithPeopleData(data: PeopleModel) {
-        self.name.text = data.ProfileName ?? ""
+        self.name.text = data.name ?? ""
         self.qualification.text = data.hightest_qualification ?? ""
         self.location.text = data.speciality ?? ""
-        self.setImagesforItems(profileImg: data.ProfileImage, bgImage: data.cover_image)
+        self.setImagesforItems(profileImg: data.image, bgImage: data.cover_image)
         followBtn.setTitle("Follow", for: .normal)
     }
     func setImagesforItems(profileImg: String?, bgImage: String?) {

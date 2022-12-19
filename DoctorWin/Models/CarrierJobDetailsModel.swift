@@ -6,17 +6,17 @@
 //
 
 import Foundation
-struct CarrierJobDetailsModel: Codable {
-    let gender: String?
-    let designation: String?
-    let Speciality: String?
-    let name: String?
-    let location: String?
-    let accommodation: String?
-    let job_type: String?
-    let discription: String?
-    let apply_status: Bool?
-    let experince: String?
-    let salary, monthly_or_anual: String?
-
-}
+//struct CarrierJobDetailsModel: Codable {
+//    let gender: String?
+//    let designation: String?
+//    let Speciality: String?
+//    let name: String?
+//    let location: String?
+//    let accommodation: String?
+//    let job_type: String?
+//    let discription: String?
+//    let apply_status: Bool?
+//    let experince: String?
+//    let salary, monthly_or_anual: String?
+//
+//}

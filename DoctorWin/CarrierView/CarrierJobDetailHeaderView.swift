@@ -24,12 +24,12 @@ class CarrierJobDetailHeaderView: UITableViewHeaderFooterView {
     @IBOutlet weak var viewHeight: NSLayoutConstraint!
     @IBOutlet weak var titleView: UIView!
     @IBOutlet weak var backBtn: UIButton!
-
+    @IBOutlet weak var wishlistBtn: UIButton!
      var deleagte: CarrierDetailsSelectionType?
     @IBOutlet weak var interfaceSegmented: CustomSegmentedControl!{
         didSet{
-            interfaceSegmented.setButtonTitles(buttonTitles: ["Job Details","Hospital Details"])
-            interfaceSegmented.selectorViewColor = .black
+            interfaceSegmented.setButtonTitles(buttonTitles: ["Job Details","About Company"])
+            interfaceSegmented.selectorViewColor = .blue
             interfaceSegmented.selectorTextColor = .black
             interfaceSegmented.delegate = self
         }
@@ -42,13 +42,6 @@ class CarrierJobDetailHeaderView: UITableViewHeaderFooterView {
     static var identifier: String {
         return String(describing: self)
     }
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
 
 }
 extension CarrierJobDetailHeaderView: CustomSegmentedControlDelegate {

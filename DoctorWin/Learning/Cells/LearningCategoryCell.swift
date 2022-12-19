@@ -51,6 +51,8 @@ extension LearningCategoryCell : UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: LearningCell = collectionView.dequeueReusableCell(withReuseIdentifier: "LearningCell", for: indexPath) as! LearningCell
         cell.configureCell(data: coursesArray[indexPath.row])
+     
+
         return cell
         
     }
@@ -80,10 +82,10 @@ extension LearningCategoryCell : UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return coursesArray.count
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.selectedCellWith(data: coursesArray[indexPath.row])
+       // delegate?.selectedCellWith(data: coursesArray[indexPath.row])
     }
     
 }

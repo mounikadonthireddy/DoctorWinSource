@@ -17,7 +17,8 @@ class JobsCollectionCell: UICollectionViewCell {
     @IBOutlet weak var specialityName: UILabel!
     @IBOutlet weak var hospitalName: UILabel!
     @IBOutlet weak var save: UIButton!
-
+    var display_status: Int = 0
+    var jobId: Int = 0
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -38,7 +39,7 @@ class JobsCollectionCell: UICollectionViewCell {
         }
     }
     @IBAction func saveClicked(_ sender: UIButton) {
-        let request = JobApplyRequest(user_id: User.shared.userID, job_id: "\(sender.tag)")
+        let request = JobApplyRequest(display_status: display_status, id: sender.tag, preference: Preference.jobapply.rawValue)
         let resource = JobsResource()
         resource.saveJob(request: request) { result in
             DispatchQueue.main.async {
@@ -103,6 +104,7 @@ func calculateDaysfrom(date: String) -> Int {
 }
 
 struct JobApplyRequest: Codable {
-    let user_id: String
-    let job_id: String
+    let display_status: Int
+    let id: Int
+    let preference: String
 }

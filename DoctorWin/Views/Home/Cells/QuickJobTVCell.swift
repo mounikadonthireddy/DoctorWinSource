@@ -12,7 +12,7 @@ protocol QuickJobCellSelectionDelegate: class {
 }
 class QuickJobTVCell: UITableViewCell {
 
-    var jobsArray : [JobCategoryDataModel] = []
+    var jobsArray : [JobCategoryModel] = []
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionViewLayout: UICollectionViewFlowLayout!
     weak var selectionDelegate: QuickJobCellSelectionDelegate?
@@ -35,7 +35,7 @@ class QuickJobTVCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    func configureCell(with dataArray: [JobCategoryDataModel]) {
+    func configureCell(with dataArray: [JobCategoryModel]) {
         jobsArray = dataArray
         collectionView.reloadData()
 
@@ -80,7 +80,7 @@ extension QuickJobTVCell : UICollectionViewDelegate, UICollectionViewDataSource 
             return 0
         }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectionDelegate?.quickCellSelecte(jobType: jobsArray[indexPath.row].title ?? "", categoryID: jobsArray[indexPath.row].id ?? 0)
+        selectionDelegate?.quickCellSelecte(jobType: jobsArray[indexPath.row].category ?? "", categoryID: jobsArray[indexPath.row].id ?? 0)
     
     }
     

@@ -12,10 +12,10 @@ class CarrierTabViewController: ViewController {
     @IBOutlet weak var collectionViewLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var topView: UIView!
-    var carrierJobArray :[CarrierModel] = []
+    var carrierJobArray :[JobModel] = []
     var categoryJobsViewModel = JobCategoryViewModel()
     var jobsVM = JobsViewModel()
-    var quickSearchArray:[JobCategoryDataModel] = []
+    var quickSearchArray:[JobCategoryModel] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.contentInsetAdjustmentBehavior = .never
@@ -48,7 +48,7 @@ class CarrierTabViewController: ViewController {
     
     func parse1() {
         self.showLoader()
-        jobsVM.getAllJobData(userID: User.shared.userID)
+        jobsVM.getAllJobData(pageNum: 1)
     }
     func parse() {
         self.showLoader()
@@ -88,31 +88,31 @@ extension CarrierTabViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let str = UIStoryboard(name: "Details", bundle: nil)
         let nextVC = str.instantiateViewController(withIdentifier: "CarrierJobDetailsViewController") as! CarrierJobDetailsViewController
-        nextVC.detailsModel = carrierJobArray[indexPath.row]
+        nextVC.jobId = carrierJobArray[indexPath.row].id
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
     
 }
 extension CarrierTabViewController: JobCategoryViewModelDelegate {
-    func didReceiveTopJobs(response: [JobCategoryDataModel]?, error: String?) {
+    func didReceiveTopJobs(response: JobCategoryResponseModel?, error: String?) {
         self.dismiss()
-        quickSearchArray = response ?? []
+        quickSearchArray = response?.jobResponse ?? []
         collectionView.reloadData()
     }
     
     
 }
 extension CarrierTabViewController: JobsViewModelDelegate {
-    func didReceiveCarrierResponse(response: JobCarrierModel?, error: String?) {
+    func didReceiveCarrierResponse(response: JobResponseModel?, error: String?) {
         self.dismiss()
         if error == nil {
-            carrierJobArray = response?.data ?? []
+            carrierJobArray = response?.jobResponse ?? []
             tableView.reloadData()
         }
     }
     
-    func didReceiveJobsResponse(response: JobCarrierModel?, error: String?) {
+    func didReceiveJobsResponse(response: JobResponseModel?, error: String?) {
         self.dismiss()
     }
     
@@ -153,7 +153,7 @@ extension CarrierTabViewController : UICollectionViewDelegate, UICollectionViewD
         
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = ((quickSearchArray[indexPath.row].title ?? "") as NSString).size(withAttributes: nil)
+        let size = ((quickSearchArray[indexPath.row].category ?? "") as NSString).size(withAttributes: nil)
         return CGSize(width: size.width + 50, height: 110)
     }
     func collectionView(_ collectionView: UICollectionView,
@@ -182,7 +182,7 @@ extension CarrierTabViewController : UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let str = UIStoryboard(name: "Job", bundle: nil)
         let nextVC = str.instantiateViewController(withIdentifier: "JobsViewController") as! JobsViewController
-        nextVC.jobType = quickSearchArray[indexPath.row].title ?? ""
+        nextVC.jobType = quickSearchArray[indexPath.row].category ?? ""
         nextVC.categoryID = quickSearchArray[indexPath.row].id ?? 0
         
         self.navigationController?.pushViewController(nextVC, animated: true)

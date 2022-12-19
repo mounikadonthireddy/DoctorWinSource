@@ -20,7 +20,7 @@ class BookmarksViewController: ViewController, ExpandableLabelDelegate {
     var states : Array<Bool>!
     var bookmarkVM = BookMarkViewModel()
     var selectedIndex = 0
-    var jobsArray : [CarrierModel] = []
+    var jobsArray : [JobModel] = []
     var socialArray: [HomeDataModel] = []
     
     override func viewDidLoad() {
@@ -155,7 +155,7 @@ extension BookmarksViewController: CustomSegmentedControlDelegate {
     }
 }
 extension BookmarksViewController: BookMarkDelegate {
-    func didReceiveBookmakedJobs(response: [CarrierModel]?, error: String?) {
+    func didReceiveBookmakedJobs(response: [JobModel]?, error: String?) {
         self.dismiss()
         if (error != nil) {
             

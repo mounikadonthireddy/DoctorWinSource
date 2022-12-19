@@ -7,8 +7,8 @@
 
 import Foundation
 protocol JobsViewModelDelegate {
-    func didReceiveJobsResponse(response: JobCarrierModel?, error: String?)
-    func didReceiveCarrierResponse(response: JobCarrierModel?, error: String?)
+    func didReceiveJobsResponse(response: JobResponseModel?, error: String?)
+    func didReceiveCarrierResponse(response: JobResponseModel?, error: String?)
 
 }
 
@@ -58,9 +58,9 @@ struct JobsViewModel {
 
   }
       }
-    func getAllJobData(userID: String) {
+    func getAllJobData(pageNum: Int) {
           let jobResource = JobsResource()
-          jobResource.getJobAllData(userID: userID ) { response in
+        jobResource.getJobAllData(pageNum: pageNum ) { response in
               DispatchQueue.main.async {
                 switch response {
                 case .success(let data):

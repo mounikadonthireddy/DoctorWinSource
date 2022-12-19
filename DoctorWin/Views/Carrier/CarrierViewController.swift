@@ -8,7 +8,7 @@
 import UIKit
 
 class CarrierViewController: ViewController {
-    var jobsCategoryArray:[JobCategoryDataModel] = []
+    var jobsCategoryArray:[JobCategoryModel] = []
     var topJobsArray:[JobsDataModel] = []
     weak var jobScreenSelectionDelegate: JobScreenSelectionDelegate?
     @IBOutlet weak var jobCategeoryCollectionView: UICollectionView!
@@ -194,7 +194,7 @@ extension CarrierViewController : UICollectionViewDelegate,UICollectionViewDataS
             jobScreenSelectionDelegate?.didSelectScreen(selectedType: JobScreenSelection.recommandedJob(withModel: topJobsArray[indexPath.row]))
 
         } else {
-            let value = jobsCategoryArray[indexPath.item].title ?? "none"
+            let value = jobsCategoryArray[indexPath.item].category ?? "none"
             let id = jobsCategoryArray[indexPath.item].id ?? 0
 
             jobScreenSelectionDelegate?.didSelectScreen(selectedType: JobScreenSelection.jobWithType(withtype: JobType.init(rawValue: value)!, categoryID: id))
@@ -213,9 +213,9 @@ extension CarrierViewController: TopJobsViewModelDelegate {
     
 }
 extension CarrierViewController: JobCategoryViewModelDelegate {
-    func didReceiveTopJobs(response: [JobCategoryDataModel]?, error: String?) {
+    func didReceiveTopJobs(response: JobCategoryResponseModel?, error: String?) {
         self.dismiss()
-        jobsCategoryArray = response ?? []
+        jobsCategoryArray = response?.jobResponse ?? []
         collectionViewHeight.constant = CGFloat(jobsCategoryArray.count * 45)
         jobCategeoryCollectionView.reloadData()
     }

@@ -7,7 +7,7 @@
 
 import Foundation
 protocol PeopleViewModelDelegate {
-    func didReceiveNetworkDataResponse(response: [PeopleModel]?, error: String?)
+    func didReceiveNetworkDataResponse(response: PeopleResponseModel?, error: String?)
 }
 
 struct PeopleViewModel {

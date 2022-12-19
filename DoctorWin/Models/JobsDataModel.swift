@@ -7,10 +7,13 @@
 
 import Foundation
 
-struct JobCategoryDataModel: Codable {
-    let title : String?
+struct JobCategoryModel: Codable {
+    let category : String?
     let image : String?
     let id : Int?
-    let about: String?
-
+}
+struct JobCategoryResponseModel: Codable {
+    let is_active: Bool?
+    let jobResponse: [JobCategoryModel]?
+    
 }

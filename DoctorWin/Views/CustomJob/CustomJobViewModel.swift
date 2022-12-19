@@ -7,7 +7,7 @@
 
 import Foundation
 protocol JobBookmarkedDelegate {
-    func didReceiveBookmakedJobs(response: [CarrierModel]?, error: String?)
+    func didReceiveBookmakedJobs(response: [JobModel]?, error: String?)
 }
 
 protocol CustomJobViewModelDelegate {

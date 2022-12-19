@@ -104,5 +104,5 @@ struct LikeRequestModel: Codable{
     let preference: String
 }
 enum Preference: String {
-    case like,join,bookmark
+    case like,join,bookmark,jobapply
 }

@@ -270,6 +270,8 @@
 		DC3A6A3228F1A46A006F73A2 /* LearningCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3A6A3028F1A46A006F73A2 /* LearningCell.swift */; };
 		DC3A6A3328F1A46A006F73A2 /* LearningCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC3A6A3128F1A46A006F73A2 /* LearningCell.xib */; };
 		DC3A6A3528F42368006F73A2 /* QuestionDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3A6A3428F42368006F73A2 /* QuestionDetailsViewController.swift */; };
+		DC41528229509FE200A77DF6 /* NameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC41528029509FE200A77DF6 /* NameCell.swift */; };
+		DC41528329509FE200A77DF6 /* NameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC41528129509FE200A77DF6 /* NameCell.xib */; };
 		DC453E4C28C77EBA00E1B72F /* UserAnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC453E4A28C77EBA00E1B72F /* UserAnswerCell.swift */; };
 		DC453E4D28C77EBA00E1B72F /* UserAnswerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC453E4B28C77EBA00E1B72F /* UserAnswerCell.xib */; };
 		DC465D9F28E08D1C009E7D4C /* ConnectLikeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC465D9D28E08D1C009E7D4C /* ConnectLikeCell.swift */; };
@@ -705,6 +707,8 @@
 		DC3A6A3028F1A46A006F73A2 /* LearningCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningCell.swift; sourceTree = "<group>"; };
 		DC3A6A3128F1A46A006F73A2 /* LearningCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LearningCell.xib; sourceTree = "<group>"; };
 		DC3A6A3428F42368006F73A2 /* QuestionDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionDetailsViewController.swift; sourceTree = "<group>"; };
+		DC41528029509FE200A77DF6 /* NameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameCell.swift; sourceTree = "<group>"; };
+		DC41528129509FE200A77DF6 /* NameCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NameCell.xib; sourceTree = "<group>"; };
 		DC453E4A28C77EBA00E1B72F /* UserAnswerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAnswerCell.swift; sourceTree = "<group>"; };
 		DC453E4B28C77EBA00E1B72F /* UserAnswerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserAnswerCell.xib; sourceTree = "<group>"; };
 		DC465D9D28E08D1C009E7D4C /* ConnectLikeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectLikeCell.swift; sourceTree = "<group>"; };
@@ -1285,6 +1289,8 @@
 				43AF8FAB2733D54500CC69EF /* RegisterCell.xib */,
 				439AA1F82737F2F400D09E26 /* CourseNameCell.swift */,
 				439AA1F92737F2F400D09E26 /* CourseNameCell.xib */,
+				DC41528029509FE200A77DF6 /* NameCell.swift */,
+				DC41528129509FE200A77DF6 /* NameCell.xib */,
 				BF431C96278352820057AF9F /* NewTypeCell.swift */,
 				BF431C97278352820057AF9F /* NewTypeCell.xib */,
 				BF0DD969278D8C930053747A /* RecentSearchCVCell.swift */,
@@ -1814,6 +1820,7 @@
 				DCF1B4A528F7182F007F4FA3 /* Learning.storyboard in Resources */,
 				439DC46E273FB28800DAD6D5 /* Roboto-Medium.ttf in Resources */,
 				DC96036928FD5C9300007E6A /* HomeDetailsImageCell.xib in Resources */,
+				DC41528329509FE200A77DF6 /* NameCell.xib in Resources */,
 				439923CB272BD8A70085E067 /* JobTableCell.xib in Resources */,
 				DCF1B4A328F71251007F4FA3 /* LearningImageBannerCell.xib in Resources */,
 				DC3A6A2B28F07873006F73A2 /* ImageSwipeCell.xib in Resources */,
@@ -2262,6 +2269,7 @@
 				BFB3A6622834F021008D0C72 /* CarrierJobDetailHeaderView.swift in Sources */,
 				43B975A027258A0000CDF2F1 /* HomeTableCell.swift in Sources */,
 				439297D227231EDE001891B8 /* InfoCell.swift in Sources */,
+				DC41528229509FE200A77DF6 /* NameCell.swift in Sources */,
 				4392978B2722D628001891B8 /* SceneDelegate.swift in Sources */,
 				DC86698328742FAE00CF89A8 /* ShopCVCell.swift in Sources */,
 				431052F92759E48B006BC13A /* FilterViewController.swift in Sources */,

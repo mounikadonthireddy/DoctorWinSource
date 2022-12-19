@@ -28,19 +28,21 @@ struct NetworkResource {
             }
         }
     }
-    func getPeopleNetworkData(userID: String, completion : @escaping (_ result: ResponseResult<[PeopleModel]>) -> Void) {
+    func getPeopleNetworkData(userID: String, completion : @escaping (_ result: ResponseResult<PeopleResponseModel>) -> Void) {
         
-        let jobUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getPeoples + ApiEndpoints.userID + "=\(userID)"
+        let jobUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getPeoples
         
         let httpUtility = HttpUtility()
         do {
-            
-            
-            httpUtility.getApiData(urlString: jobUrlStr, resultType: [PeopleModel].self) { result in
+            httpUtility.getApiData(urlString: jobUrlStr, resultType: PeopleResponseModel.self) { result in
                 
                 switch result {
                 case .success(let data):
+                    if data.is_active == true {
                     completion(.success(data))
+                    } else {
+                        completion(.failure(""))
+                    }
                 case .failure( let error):
                     completion(.failure(error.rawValue))
                 }

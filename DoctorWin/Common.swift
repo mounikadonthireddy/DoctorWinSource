@@ -29,13 +29,13 @@ struct ApiEndpoints {
     static let prefrenceApi = "preference/status"
     //job
     static let createBookMarkJobs = "job/bookmark/"
-    static let getJobCategory = "job/category/"
+    static let getJobCategory = "jobcategory"
   
     static let getTopJobs = "job/top/"
     static let customJobs = "custom/user/"
     static let savedJobs = "job/bookmark/"
     static let appliedJobs = "job/apply/"
-    static let getNewJobs = "new/job/"
+    static let getNewJobs = "alljobs"
     
     //drop down
     static let getJobsLocation = "job/location/"
@@ -83,7 +83,7 @@ struct ApiEndpoints {
     static let getFollow = "auth/follow"
     static let getFollowing = "auth/following"
     static let getRequest = "auth/request/"
-    static let getPeoples = "test/connection"
+    static let getPeoples = "people"
     static let createGroup = "group/create"
     static let postQuestion = "ask/question"
     //Requested User
@@ -95,7 +95,7 @@ struct ApiEndpoints {
     static let getProfession = "connect/dating/profession"
     static let editProfile = "connect/dating/profile/create/"
     //Carrier
-    static let jobDetails = "new/job"
+    static let jobDetails = "alljobs"
     static let hospitalDetails = "new/job/hospital/details"
     static let getInterest = "connect/dating/interest"
     //Shop

@@ -12,9 +12,7 @@ struct JobsResource {
         let jobUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getTopJobs + ApiEndpoints.userID + "=\(userID)"
         
         let httpUtility = HttpUtility()
-        do {
-            
-            
+        do {            
             httpUtility.getApiData(urlString: jobUrlStr, resultType: [JobsDataModel].self) { result in
                 
                 switch result {
@@ -28,7 +26,7 @@ struct JobsResource {
             }
         }
     }
-    func getJobDataBasedOnCategory(userID: String,categoryID: Int, completion : @escaping (_ result: ResponseResult<JobCarrierModel>) -> Void) {
+    func getJobDataBasedOnCategory(userID: String,categoryID: Int, completion : @escaping (_ result: ResponseResult<JobResponseModel>) -> Void) {
         
         let jobCategeoryUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getNewJobs + ApiEndpoints.userID + "=\(userID)"  + "&categoryid=\(categoryID)" + "&page=1"
         
@@ -36,7 +34,7 @@ struct JobsResource {
         do {
             
             
-            httpUtility.getApiData(urlString: jobCategeoryUrlStr, resultType: JobCarrierModel.self) { result in
+            httpUtility.getApiData(urlString: jobCategeoryUrlStr, resultType: JobResponseModel.self) { result in
                 
                 switch result {
                 case .success(let data):
@@ -49,15 +47,13 @@ struct JobsResource {
             }
         }
     }
-    func getSearchJobData(userID: String,query: String, completion : @escaping (_ result: ResponseResult<[CarrierModel]>) -> Void) {
+    func getSearchJobData(userID: String,query: String, completion : @escaping (_ result: ResponseResult<[JobModel]>) -> Void) {
         
         let jobCategeoryUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.searchJobs  + ApiEndpoints.userID + "=\(userID)&" + query
         
         let httpUtility = HttpUtility()
         do {
-            
-            
-            httpUtility.getApiData(urlString: jobCategeoryUrlStr, resultType: [CarrierModel].self) { result in
+            httpUtility.getApiData(urlString: jobCategeoryUrlStr, resultType: [JobModel].self) { result in
                 
                 switch result {
                 case .success(let data):
@@ -69,15 +65,13 @@ struct JobsResource {
             }
         }
     }
-    func getJobAllData(userID: String, completion : @escaping (_ result: ResponseResult<JobCarrierModel>) -> Void) {
+    func getJobAllData(pageNum: Int, completion : @escaping (_ result: ResponseResult<JobResponseModel>) -> Void) {
         
-        let jobCategeoryUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getNewJobs + ApiEndpoints.userID +  "=\(userID)&page=1"
+        let jobCategeoryUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getNewJobs + "?page=\(pageNum)"
         
         let httpUtility = HttpUtility()
         do {
-            
-            
-            httpUtility.getApiData(urlString: jobCategeoryUrlStr, resultType: JobCarrierModel.self) { result in
+            httpUtility.getApiData(urlString: jobCategeoryUrlStr, resultType: JobResponseModel.self) { result in
                 
                 switch result {
                 case .success(let data):
@@ -92,7 +86,7 @@ struct JobsResource {
     }
     func saveJob(request: JobApplyRequest, completion : @escaping  (_ result: ResponseResult<StatusResponseModel>) -> Void) {
         
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.createBookMarkJobs + ApiEndpoints.userID + "=\(request.user_id)&job_id=\(request.job_id)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.prefrenceApi +  "?id=\(request.id)&display_status=\(request.display_status)&preference=\(request.preference)"
         let homeUrl = URL(string: homeUrlStr)!
         
         let httpUtility = HttpUtility()
@@ -117,7 +111,7 @@ struct JobsResource {
         }
     }
     func applyJob(request: JobApplyRequest, completion : @escaping  (_ result: ResponseResult<StatusResponseModel>) -> Void) {
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.appliedJobs + ApiEndpoints.userID + "=\(request.user_id)&job_id=\(request.job_id)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.prefrenceApi +  "?id=\(request.id)&display_status=\(request.display_status)&preference=\(request.preference)"
         let homeUrl = URL(string: homeUrlStr)!
         
         let httpUtility = HttpUtility()
@@ -141,19 +135,22 @@ struct JobsResource {
             debugPrint(error)
         }
     }
-    func getJobDetailsData(userID: String,jobId:String, completion : @escaping (_ result: ResponseResult<CarrierJobDetailsModel>) -> Void) {
+    func getJobDetailsData(jobId:String, completion : @escaping (_ result: ResponseResult<JobDetailsModel?>) -> Void) {
         
-        let jobCategeoryUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.jobDetails + ApiEndpoints.userID +  "=\(userID)&jobid=\(jobId)"
+        let jobCategeoryUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.jobDetails + "?jobid=\(jobId)"
         
         let httpUtility = HttpUtility()
         do {
-            
-            
-            httpUtility.getApiData(urlString: jobCategeoryUrlStr, resultType: CarrierJobDetailsModel.self) { result in
+            httpUtility.getApiData(urlString: jobCategeoryUrlStr, resultType: JobDetailsResponseModel.self) { result in
                 
                 switch result {
                 case .success(let data):
-                    completion(.success(data))
+                    if data.is_active == true {
+                        completion(.success(data.jobResponse))
+                    } else {
+                        completion(.failure(""))
+                    }
+                   
                     
                 case .failure( let error):
                     completion(.failure(error.rawValue))
@@ -162,15 +159,13 @@ struct JobsResource {
             }
         }
     }
-    func getJobHospitalData(userID: String,jobId: String, completion : @escaping (_ result: ResponseResult<HospitalDetailsModel>) -> Void) {
+    func getJobHospitalData(userID: String,jobId: String, completion : @escaping (_ result: ResponseResult<JobDetailsResponseModel>) -> Void) {
         
         let jobCategeoryUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.hospitalDetails + ApiEndpoints.userID + "=\(userID)&jobid=\(jobId)"
         
         let httpUtility = HttpUtility()
         do {
-            
-            
-            httpUtility.getApiData(urlString: jobCategeoryUrlStr, resultType: HospitalDetailsModel.self) { result in
+            httpUtility.getApiData(urlString: jobCategeoryUrlStr, resultType: JobDetailsResponseModel.self) { result in
                 
                 switch result {
                 case .success(let data):
