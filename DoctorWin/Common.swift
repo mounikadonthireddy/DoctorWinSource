@@ -66,7 +66,7 @@ struct ApiEndpoints {
     static let professionalEdit = "job/profile/"
     static let addExperience = "user/add/exp"
     static let professionalData = "user/profession/info"
-    static let addCase = "complaint/post"
+    static let addCase = "casesheet"
     static let applyJob = "job/apply/"
    
 
@@ -97,7 +97,7 @@ struct ApiEndpoints {
     static let editProfile = "connect/dating/profile/create/"
     //Carrier
     static let jobDetails = "alljobs"
-    static let hospitalDetails = "new/job/hospital/details"
+  
     static let getInterest = "connect/dating/interest"
     //Shop
     static let shopData = "sale/product"

@@ -20,6 +20,7 @@ class CreateGroupViewController: ViewController {
     var imageUpload1 : AGImageStructInfo?
     var imageUpload2 : AGImageStructInfo?
     var groupModel : GroupProfileModel?
+ 
     var tag = -1
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -159,23 +159,4 @@ struct JobsResource {
             }
         }
     }
-    func getJobHospitalData(userID: String,jobId: String, completion : @escaping (_ result: ResponseResult<JobDetailsResponseModel>) -> Void) {
-        
-        let jobCategeoryUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.hospitalDetails + ApiEndpoints.userID + "=\(userID)&jobid=\(jobId)"
-        
-        let httpUtility = HttpUtility()
-        do {
-            httpUtility.getApiData(urlString: jobCategeoryUrlStr, resultType: JobDetailsResponseModel.self) { result in
-                
-                switch result {
-                case .success(let data):
-                    completion(.success(data))
-                    
-                case .failure( let error):
-                    completion(.failure(error.rawValue))
-                }
-                
-            }
-        }
-    }
 }

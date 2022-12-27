@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddCasesViewController: UIViewController {
+class AddCasesViewController: ViewController {
     @IBOutlet weak var caseTitle: UITextView!
     @IBOutlet weak var presentIllness: UITextField!
     @IBOutlet weak var pastIllness: UITextField!
@@ -46,6 +46,8 @@ class AddCasesViewController: UIViewController {
     var diagnosisEnabled = false
     var imageFileName: String = ""
     var imagePicker: ImagePicker!
+    var imageUpload1 : [AGImageStructInfo] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
@@ -158,11 +160,21 @@ class AddCasesViewController: UIViewController {
             
         } else {
                     
-        let parm = ["title": caseTitle.text! , "chief_complaint": chiefComplaint.text!, "present_illness": presentIllness.text!, "past_illness": pastIllness.text!, "drugs": drugs.text! , "personal": personal.text! , "family": family.text! , "physical_exam": physicalExamination.text! , "system_exam": systemExamination.text! , "local_exam": localExamination.text! , "vitus": vitus.text! , "lab_finding": labFinding.text! , "imaging": imaging.text! , "diagnosis": probableDiagnosis.text! , "complaint_id": User.shared.userID]
-            let url = ApiEndpoints.baseUrl + ApiEndpoints.addCase + ApiEndpoints.userID + "=\(User.shared.userID)"
+        let parm = ["title": caseTitle.text!  , "chief_complaint": chiefComplaint.text!, "present_illness": presentIllness.text! , "past_illness": pastIllness.text! , "drugs": drugs.text!  , "personal": personal.text! , "family": family.text!  , "physical_exam": physicalExamination.text! , "system_exam": systemExamination.text!  , "local_exam": localExamination.text!  , "vitus": vitus.text!  , "lab_finding": labFinding.text!  , "imaging": imaging.text! , "diagnosis": probableDiagnosis.text!]
             
-            HttpUtility().profileUpload(img: imageView.image!, url: url, imageName: imageFileName, imageUploadName: "image", param: parm) { res in
-                print(res)
+            let url = ApiEndpoints.baseUrl + ApiEndpoints.addCase
+            self.showLoader()
+            
+            
+            let parameters: [String: Any] = [
+                "image": imageUpload1
+            ]
+
+            AGUploadImageWebServices(url: url, parameter: parameters, inputData: parm)
+                .responseJSON { (json, eror) in
+    
+                    self.dismiss()
+                debugPrint(json)
             }
  }
     }
@@ -191,6 +203,7 @@ extension AddCasesViewController: ImagePickerDelegate {
         self.imageView.image = image
         self.imageFileName = fileName ?? ""
 //        self.fileType = fileType ?? ""
+        imageUpload1.append(AGImageStructInfo(fileName: fileName!, type: "image/jpeg", data: image!.toData()))
     }
     
 }

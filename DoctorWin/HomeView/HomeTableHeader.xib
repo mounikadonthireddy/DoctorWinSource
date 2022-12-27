@@ -267,6 +267,8 @@
                 <outlet property="job" destination="eeG-4q-O4w" id="bia-SO-t9O"/>
                 <outlet property="news" destination="Xfa-hY-BcW" id="fcw-55-Bft"/>
                 <outlet property="products" destination="5LD-jd-7aK" id="xfD-Vo-yr2"/>
+                <outlet property="stack1" destination="gaV-5O-Rsj" id="WPd-lD-YTo"/>
+                <outlet property="stack2" destination="lvt-Aq-ka6" id="8bS-kO-8nb"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="77.445652173913047"/>
         </view>

@@ -141,7 +141,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             headerView.connect.addTarget(self, action: #selector(connectClicked(button:)), for: .touchUpInside)
             headerView.products.addTarget(self, action: #selector(productsClicked(button:)), for: .touchUpInside)
             headerView.education.addTarget(self, action: #selector(educationClicked(button:)), for: .touchUpInside)
-            
+            headerView.stack1.setCornerRadius(radius: 10)
+            headerView.stack2.setCornerRadius(radius: 10)
             return headerView
         }
         

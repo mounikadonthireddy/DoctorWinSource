@@ -13,7 +13,8 @@ class HomeTableHeader: UITableViewHeaderFooterView {
     @IBOutlet weak var news: UIButton!
     @IBOutlet weak var job: UIButton!
     @IBOutlet weak var connect: UIButton!
-
+    @IBOutlet weak var stack1: BorderView!
+    @IBOutlet weak var stack2: BorderView!
     static var nib: UINib {
         return UINib(nibName: identifier, bundle: nil)
     }
