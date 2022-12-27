@@ -9,8 +9,6 @@ import UIKit
 import iOSDropDown
 class MySelfCell: UITableViewCell {
     @IBOutlet weak var nameTF: UITextField!
-    @IBOutlet weak var locationTF: UITextField!
-    @IBOutlet weak var qualificationTF: DropDown!
     @IBOutlet weak var specilityTF: DropDown!
     @IBOutlet weak var save: UIButton!
     var profileDelegate: ProfileUpdateDelegate?
@@ -19,9 +17,9 @@ class MySelfCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         nameTF.setUnderLine()
-        locationTF.setUnderLine()
+      
         specilityTF.setUnderLine()
-        qualificationTF.setUnderLine()
+     
         save.setCornerRadius(radius: Float(save.frame.height)/2)
     }
     
@@ -32,7 +30,7 @@ class MySelfCell: UITableViewCell {
     }
     @IBAction func saveClicked(_ sender: Any){
         
-        let personalInfoRequest = SelfDataEditModel(highest_qualification: self.qualificationTF.text ?? "", current_job_location: locationTF.text ?? "", speciality: specilityTF.text ?? "", profile_name: nameTF.text ?? "")
+        let personalInfoRequest = SelfDataEditModel(highest_qualification:  "", current_job_location:  "", speciality: specilityTF.text ?? "", profile_name: nameTF.text ?? "")
         
         let resource = ProfileEditResource()
         resource.editSelfdataPersonalInfoData(userID: User.shared.userID, profileReq: personalInfoRequest) { data in
@@ -53,10 +51,8 @@ class MySelfCell: UITableViewCell {
     }
     
     func configurePersonalEditCell(data: ProfileDataModel) {
-        self.nameTF.text = data.profileName
-        self.locationTF.text = data.currentLocation
-        self.specilityTF.text = data.speciality
-        self.qualificationTF.text = data.qualification
+        self.nameTF.text = data.name ?? ""
+        self.specilityTF.text = data.speciality ?? ""
     }
     
 }

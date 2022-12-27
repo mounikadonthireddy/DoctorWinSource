@@ -48,11 +48,11 @@ class EditPersonalInfoCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func configurePersonalEditCell(data: ProfileDataModel) {
-        self.contactNumTF.text = data.phoneNumber
-        self.emailIDTF.text = data.email
-        self.genderTF.text = data.gender
-        self.dobTF.text = data.dob
-        genderTF.optionArray = genderArray
+        self.contactNumTF.text = data.phone_number ?? ""
+        self.emailIDTF.text = data.email ?? ""
+        self.genderTF.text = data.gender ?? ""
+        self.dobTF.text = data.dob ?? ""
+        genderTF.optionArray = genderArray 
     }
     @IBAction func saveClicked(_ sender: Any){
         let name = UserDefaults.standard.value(forKey: "username") ?? ""

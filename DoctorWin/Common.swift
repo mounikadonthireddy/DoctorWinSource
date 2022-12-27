@@ -60,7 +60,8 @@ struct ApiEndpoints {
     static let getAllQuestion =  "all/questions"
     //Profile
     static let getProfileDetails = "group/profile"
-    static let profileEdit = "job/profile/"
+    static let getProfile = "auth/register"
+    static let profileEdit = "auth/profileupdate"
     static let personalEdit = "user/personal/info"
     static let professionalEdit = "job/profile/"
     static let addExperience = "user/add/exp"
@@ -99,10 +100,10 @@ struct ApiEndpoints {
     static let hospitalDetails = "new/job/hospital/details"
     static let getInterest = "connect/dating/interest"
     //Shop
-    static let shopData = "shopping/product/image/"
-    static let shopCategory = "shopping/product/category"
+    static let shopData = "sale/product"
+    static let shopCategory = "sale/category"
     static let shopBanner = "admin/banner/get?name=shop store image"
-    static let shopSale = "shopping/product/upload"
+    static let shopSale = "sale/userrelatedproducts"
     static let shopRecent = "shopping/product/view"
     static let shopBookmark = "shopping/product/bookmark"
     static let postProduct = "shopping/product/post"
@@ -111,7 +112,7 @@ struct ApiEndpoints {
     static let trendingCourses = "learning/trending"
     static let courses = "learning/category/"
     static let categories = "learning/category/"
-    static let courseDetails = "learning/subject/get/"
+    static let courseDetails = "learning/topic"
     static let curriculamDetails = "learning/subject/"
     //MCQ
     static let mcq = "user/question"

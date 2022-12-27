@@ -35,10 +35,10 @@ struct HomeResponseModel: Codable {
     let userGroupDetails: PostedUserDetailsModel?
 }
 struct PostedUserDetailsModel: Codable {
-    let name: String
+    let name: String?
     let image: String?
     let speciality: String?
-    let posted_id: String
+    let posted_id: String?
 }
 struct ImagesModel: Codable {
     let image: String?

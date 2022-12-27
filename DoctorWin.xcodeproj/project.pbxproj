@@ -390,6 +390,8 @@
 		DCB7D1E5284C7EB700F3CFDE /* ImageDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB7D1E4284C7EB700F3CFDE /* ImageDetailsViewController.swift */; };
 		DCD9880628521ABB00ECCCE7 /* AppliedJobViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD9880528521ABB00ECCCE7 /* AppliedJobViewModel.swift */; };
 		DCD98808285221E900ECCCE7 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCD98807285221E900ECCCE7 /* Details.storyboard */; };
+		DCEA4B542951A3200033FBA7 /* CourseBuyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEA4B522951A3200033FBA7 /* CourseBuyCell.swift */; };
+		DCEA4B552951A3200033FBA7 /* CourseBuyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCEA4B532951A3200033FBA7 /* CourseBuyCell.xib */; };
 		DCF1B48F28F42F9F007F4FA3 /* ReplyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF1B48D28F42F9F007F4FA3 /* ReplyCell.swift */; };
 		DCF1B49028F42F9F007F4FA3 /* ReplyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCF1B48E28F42F9F007F4FA3 /* ReplyCell.xib */; };
 		DCF1B49228F6E098007F4FA3 /* AddAnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF1B49128F6E098007F4FA3 /* AddAnswerViewController.swift */; };
@@ -825,6 +827,8 @@
 		DCB7D1E4284C7EB700F3CFDE /* ImageDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailsViewController.swift; sourceTree = "<group>"; };
 		DCD9880528521ABB00ECCCE7 /* AppliedJobViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppliedJobViewModel.swift; sourceTree = "<group>"; };
 		DCD98807285221E900ECCCE7 /* Details.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Details.storyboard; sourceTree = "<group>"; };
+		DCEA4B522951A3200033FBA7 /* CourseBuyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseBuyCell.swift; sourceTree = "<group>"; };
+		DCEA4B532951A3200033FBA7 /* CourseBuyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseBuyCell.xib; sourceTree = "<group>"; };
 		DCF1B48D28F42F9F007F4FA3 /* ReplyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyCell.swift; sourceTree = "<group>"; };
 		DCF1B48E28F42F9F007F4FA3 /* ReplyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReplyCell.xib; sourceTree = "<group>"; };
 		DCF1B49128F6E098007F4FA3 /* AddAnswerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAnswerViewController.swift; sourceTree = "<group>"; };
@@ -1610,6 +1614,8 @@
 				DCF1B49A28F71060007F4FA3 /* LearningViewController.swift */,
 				DC9AB75928F8550B00C6043E /* CourseCategoryCell.swift */,
 				DC9AB75A28F8550B00C6043E /* CourseCategoryCell.xib */,
+				DCEA4B522951A3200033FBA7 /* CourseBuyCell.swift */,
+				DCEA4B532951A3200033FBA7 /* CourseBuyCell.xib */,
 				DCF1B4B028F7FE9C007F4FA3 /* LearningDetailsHeaderCell.swift */,
 				DCF1B4B128F7FE9C007F4FA3 /* LearningDetailsHeaderCell.xib */,
 				DCF1B4B428F81068007F4FA3 /* LearningOverViewCell.swift */,
@@ -1760,6 +1766,7 @@
 				DC86698428742FAE00CF89A8 /* ShopCVCell.xib in Resources */,
 				BF431C99278352820057AF9F /* NewTypeCell.xib in Resources */,
 				DC453E4D28C77EBA00E1B72F /* UserAnswerCell.xib in Resources */,
+				DCEA4B552951A3200033FBA7 /* CourseBuyCell.xib in Resources */,
 				BF170F5F280DAEFE001B3109 /* NetworkTableHeader.xib in Resources */,
 				43B975A52725978900CDF2F1 /* CarrierSubCell.xib in Resources */,
 				DC961EAF2876E17C00F24913 /* EditConnectCell.xib in Resources */,
@@ -2030,6 +2037,7 @@
 				BF170F59280D9AEE001B3109 /* NetworkTableHeader.swift in Sources */,
 				BF431C9327831BB30057AF9F /* MyNewsViewController.swift in Sources */,
 				43F57E5327561860001120C8 /* BaseViewController.swift in Sources */,
+				DCEA4B542951A3200033FBA7 /* CourseBuyCell.swift in Sources */,
 				435FB5642750BC630040C406 /* JobsViewModel.swift in Sources */,
 				439297C52722D732001891B8 /* MeViewController.swift in Sources */,
 				DCF1B4BB28F816E5007F4FA3 /* LearningDetailsResource.swift in Sources */,

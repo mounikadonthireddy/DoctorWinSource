@@ -20,7 +20,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="ProfileViewHeader" reuseIdentifier="UserHeaderView" id="J2h-oc-TVa" customClass="UserHeaderView" customModule="DoctorWin" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="341" height="401"/>
+            <rect key="frame" x="0.0" y="0.0" width="341" height="415"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="collegeBg" translatesAutoresizingMaskIntoConstraints="NO" id="u9o-Pd-Vdf">
@@ -75,6 +75,7 @@
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K7N-vo-pxE" customClass="CustomSegmentedControl" customModule="DoctorWin" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="355" width="341" height="40"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="wc9-cG-N9H"/>
                     </constraints>
@@ -91,7 +92,7 @@
                 </label>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="nyI-5l-vQI">
                     <rect key="frame" x="10" y="260" width="321" height="30"/>
-                    <color key="backgroundColor" red="0.08235294118" green="0.39607843139999999" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="dTR-ia-46L"/>
                     </constraints>
@@ -231,7 +232,7 @@
                 <outlet property="shareBtn" destination="pbk-WF-B6e" id="Utg-BX-wWM"/>
                 <outlet property="specialityLbl" destination="fgW-T1-DVc" id="lum-qr-KEj"/>
             </connections>
-            <point key="canvasLocation" x="143.4375" y="164.2605633802817"/>
+            <point key="canvasLocation" x="143.4375" y="171.6549295774648"/>
         </collectionReusableView>
     </objects>
     <resources>

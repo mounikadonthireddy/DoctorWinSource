@@ -14,7 +14,7 @@ class LearningDetailsHeaderCell: UITableViewCell {
     @IBOutlet weak var backBtn: UIButton!
     @IBOutlet weak var cart: UIButton!
     @IBOutlet weak var postedName: UIButton!
-    @IBOutlet weak var rating: UILabel!
+    @IBOutlet weak var detailsLbl: UILabel!
     @IBOutlet weak var departmentLbl: UILabel!
     @IBOutlet weak var interfaceSegmented: CustomSegmentedControl!{
         didSet{
@@ -36,13 +36,13 @@ class LearningDetailsHeaderCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func configureCell(data: CourseDetailsModel) {
-        courseName.text = data.subject_title ?? ""
-        postedName.setTitle(data.lecture_creater_name ?? "", for: .normal)
-     //   courseVidoes.text = "\(data.number_of_lession ?? 0)"
-        rating.text = "(" +  "\(data.rating ?? "")" + ")"
-        departmentLbl.text = data.department ?? ""
-        if let urlString = data.image {
-            self.courseImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
+        if let subject = data.subject {
+            courseName.text = subject.name ?? ""
+              detailsLbl.text = subject.description ?? ""
+        }
+       
+        if let urlString = data.demo_video {
+//            self.courseImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
         }
     }
 }

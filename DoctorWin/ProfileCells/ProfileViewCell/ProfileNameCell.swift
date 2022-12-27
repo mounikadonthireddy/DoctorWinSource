@@ -10,10 +10,9 @@ import UIKit
 class ProfileNameCell: UITableViewCell {
     @IBOutlet weak var profileNameView: UIImageView!
     @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var coverImage: UIImageView!
     @IBOutlet weak var profileName: UILabel!
-    @IBOutlet weak var designation: UILabel!
     @IBOutlet weak var speciality: UILabel!
-    @IBOutlet weak var location: UILabel!
     @IBOutlet weak var editBtn: UIButton!
     @IBOutlet weak var backBtn: UIButton!
     override func awakeFromNib() {
@@ -31,16 +30,15 @@ class ProfileNameCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func cellConfigureWith(data: ProfileDataModel) {
-        self.profileName.text = "DR." + (data.profileName ?? "XXXXX")
-        self.designation.text = data.speciality ?? "XXXXX"
-        self.location.text = data.currentLocation ?? "XXXX"
-
-        self.speciality.text = data.qualification ?? "XXXXX"
-        
-        if let urlString = data.profileImage {
+        self.profileName.text = "DR." + (data.name ?? "XXXXX")
+        self.speciality.text = data.hightest_qualification ?? "XXXXX"
+        if let urlString = data.image {
             let finalUrlString = ApiEndpoints.baseImageURL + urlString
-            
             self.profileImage.sd_setImage(with: URL(string: finalUrlString), placeholderImage: UIImage(named: "loginBg"))
+        }
+        if let urlString1 = data.cover_image {
+            let finalUrlString = ApiEndpoints.baseImageURL + urlString1
+            self.coverImage.sd_setImage(with: URL(string: finalUrlString), placeholderImage: UIImage(named: "loginBg"))
         }
     }
     

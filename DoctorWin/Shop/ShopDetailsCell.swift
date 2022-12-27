@@ -28,15 +28,17 @@ class ShopDetailsCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func configureCellwith(data: ProductDetailsModel) {
-        productName.text = data.product_name
-        productPrice.text = "$" + data.product_price
+        productName.text = data.name ?? ""
+        productPrice.text = "$" + (data.price ?? "")
         productCondition.text =  data.product_condition
         productDescription.text =  data.description
         productModel.text =  data.product_models ?? ""
-        personName.text = data.profile_name
-        personSpeciality.text = data.speciality
-        if let urlString = data.profileImage {
+        if let user = data.userDetails {
+        personName.text = user.name ?? ""
+        personSpeciality.text = user.speciality ?? ""
+        if let urlString = user.image {
             self.personImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
         }
+    }
     }
 }

@@ -19,8 +19,11 @@ struct LearningDetailsVieModel {
             DispatchQueue.main.async {
                 switch response {
                 case .success(let data):
-                    self.delegate?.didReciveCourseDetails(response: data, error: nil)
-                    
+                    if data.is_active == true {
+                        self.delegate?.didReciveCourseDetails(response: data.learnResponse, error: nil)
+                    } else {
+                        self.delegate?.didReciveCourseDetails(response: nil, error: "")
+                    }
                 case .failure(let error):
                     self.delegate?.didReciveCourseDetails(response: nil, error: error)
                 }

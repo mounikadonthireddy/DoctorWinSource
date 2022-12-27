@@ -94,10 +94,10 @@ extension UserDetailsViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if let details = groupModel {
             if details.joined_status == true {
-                return 402
+                return 412
             }
         }
-        return 372
+        return 382
         
     }
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

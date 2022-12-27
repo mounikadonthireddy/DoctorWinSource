@@ -45,7 +45,7 @@ class EditProfessionalDetailsCell: UITableViewCell {
             DispatchQueue.main.async {
                 switch data {
                 case .success(let res ):
-                    if res?.status == true {
+                    if res?.is_active == true {
                         self.profileDelegate?.didProfileUpdated(status: true, error: nil)
                     }
                 case .failure(_):
@@ -56,12 +56,12 @@ class EditProfessionalDetailsCell: UITableViewCell {
         }
     }
     func configureCellWithProfessionData(data: ProfileDataModel) {
-        self.graduationTF.text = data.underGraduation
-        self.postGraduationTF.text = data.postGraduation
-        self.postGraduationInstititeTF.text = data.postGraduationInstitute
-        self.graduationInstititeTF.text = data.underGraduationInstitute
-        self.instititeTF.text = data.currentInstitute ?? "XXXXX"
-        self.currentWorkingTF.text = data.currentDepartment
+        self.graduationTF.text = data.ug ?? ""
+        self.postGraduationTF.text = data.pg ?? ""
+        self.postGraduationInstititeTF.text = data.pg_institute_name ?? ""
+        self.graduationInstititeTF.text = data.ug_institute_name ?? ""
+        self.instititeTF.text = data.current_institute ?? "XXXXX"
+        self.currentWorkingTF.text = data.current_department
         
     }
     func configureDataForDropDown(data: ProfessionalDropDownModel) {

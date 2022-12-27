@@ -51,9 +51,9 @@ class UserHeaderView: UITableViewHeaderFooterView {
     }
     
     func configureView(data: ProfileDataModel) {
-        nameLbl.text = "\(data.profileName ?? "")"
-        specialityLbl.text = (data.speciality ?? "") + " at \(data.currentLocation ?? "" )"
-        if let urlString = data.profileImage {
+        nameLbl.text = "\(data.name ?? "")"
+        specialityLbl.text = (data.speciality ?? "") + " at \(data.current_job_location ?? "" )"
+        if let urlString = data.image {
             
             self.personImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
         }
@@ -107,12 +107,9 @@ extension UserHeaderView: CustomSegmentedControlDelegate {
     func change(to index: Int) {
         
     }
-    
-    
 }
 extension UserHeaderView : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         return imageArray.count
     }
     
@@ -120,15 +117,11 @@ extension UserHeaderView : UICollectionViewDelegate, UICollectionViewDataSource,
         
         let cell: PersonImageCell = collectionView.dequeueReusableCell(withReuseIdentifier: "PersonImageCell", for: indexPath) as! PersonImageCell
         cell.configure(data: imageArray[indexPath.row])
-        
         return cell
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        
-        return CGSize(width: 20, height: 20)
+        return CGSize(width: 25, height: 25)
     }
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
@@ -139,21 +132,16 @@ extension UserHeaderView : UICollectionViewDelegate, UICollectionViewDataSource,
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        
         return 0
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        
         return 0
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-    
-    
-    
 }

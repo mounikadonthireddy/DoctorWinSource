@@ -46,7 +46,7 @@ class ShopViewController: ViewController {
         shopVM.delegate = self
         // Do any additional setup after loading the view.
         loadShopData()
-        loadShopCategoryData()
+       loadShopCategoryData()
         loadShopBannerData()
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -163,7 +163,7 @@ extension ShopViewController : UICollectionViewDelegate, UICollectionViewDataSou
         if collectionView == shopCollectionView {
             let str = UIStoryboard(name: "Shop", bundle: nil)
             let nextVC = str.instantiateViewController(withIdentifier: "ShopDetailsViewController") as! ShopDetailsViewController
-            nextVC.productId = shopArray[indexPath.row].id
+            nextVC.productId = shopArray[indexPath.row].id ?? 0
             self.navigationController?.pushViewController(nextVC, animated: true)
         } else if collectionView == categoryCollectionView {
             let type = categoryArray[indexPath.row].name
@@ -177,6 +177,13 @@ extension ShopViewController : UICollectionViewDelegate, UICollectionViewDataSou
     
 }
 extension ShopViewController: ShopDelegate {
+    func didReciveShopData(response: ShopResponseModel?, error: String?) {
+        if let data = response {
+            shopArray = data.shopResponse ?? []
+        }
+        shopCollectionView.reloadData()
+    }
+    
     func didReciveShopBannerData(response: [ImageBannerModel]?, error: String?) {
         self.dismiss()
         bannerArray = response ?? []

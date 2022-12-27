@@ -42,13 +42,13 @@
                         <rect key="frame" x="10" y="40" width="363" height="130"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EWN-Zg-LB6">
-                                <rect key="frame" x="0.0" y="0.0" width="176.5" height="130"/>
+                                <rect key="frame" x="0.0" y="0.0" width="363" height="130"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="s2P-00-vRn">
-                                        <rect key="frame" x="0.0" y="0.0" width="176.5" height="60"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="363" height="60"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q40-Ko-E43">
-                                                <rect key="frame" x="0.0" y="0.0" width="176.5" height="27.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="363" height="27.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16" id="naa-x2-nTS"/>
                                                 </constraints>
@@ -57,17 +57,17 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Accident" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PYV-aI-7g9">
-                                                <rect key="frame" x="0.0" y="32.5" width="176.5" height="27.5"/>
+                                                <rect key="frame" x="0.0" y="32.5" width="363" height="27.5"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="QJM-4V-kbd">
-                                        <rect key="frame" x="0.0" y="70" width="176.5" height="60"/>
+                                        <rect key="frame" x="0.0" y="70" width="363" height="60"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speaciality" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qID-Bf-aL1">
-                                                <rect key="frame" x="0.0" y="0.0" width="176.5" height="27.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="363" height="27.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16" id="z5z-90-94M"/>
                                                 </constraints>
@@ -76,55 +76,12 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="MBBS" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wBG-d8-zW0" customClass="DropDown" customModule="iOSDropDown">
-                                                <rect key="frame" x="0.0" y="32.5" width="176.5" height="27.5"/>
+                                                <rect key="frame" x="0.0" y="32.5" width="363" height="27.5"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isSearchEnable" value="NO"/>
                                                 </userDefinedRuntimeAttributes>
-                                            </textField>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="UbE-X3-ezN">
-                                <rect key="frame" x="186.5" y="0.0" width="176.5" height="130"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Y5g-qg-fvO">
-                                        <rect key="frame" x="0.0" y="0.0" width="176.5" height="60"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Location" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HyT-SN-fpp">
-                                                <rect key="frame" x="0.0" y="0.0" width="176.5" height="27.5"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16" id="eWg-3V-2M0"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
-                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="XXXX" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qg4-Vs-0ud">
-                                                <rect key="frame" x="0.0" y="32.5" width="176.5" height="27.5"/>
-                                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
-                                            </textField>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="eR2-za-POC">
-                                        <rect key="frame" x="0.0" y="70" width="176.5" height="60"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Highest Qualification" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="znf-sV-BlF">
-                                                <rect key="frame" x="0.0" y="0.0" width="176.5" height="27.5"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16" id="gFK-ZZ-xge"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
-                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="KIMS" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q6I-eT-Jn5" customClass="DropDown" customModule="iOSDropDown">
-                                                <rect key="frame" x="0.0" y="32.5" width="176.5" height="27.5"/>
-                                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -164,9 +121,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="pI9-yW-MbP"/>
             <connections>
-                <outlet property="locationTF" destination="qg4-Vs-0ud" id="HhB-Xp-NhE"/>
                 <outlet property="nameTF" destination="PYV-aI-7g9" id="nwd-hu-qcM"/>
-                <outlet property="qualificationTF" destination="q6I-eT-Jn5" id="exj-nz-J6Z"/>
                 <outlet property="save" destination="nyB-aw-6d8" id="8Tp-v2-nW0"/>
                 <outlet property="specilityTF" destination="wBG-d8-zW0" id="Pwv-cb-Qi4"/>
             </connections>

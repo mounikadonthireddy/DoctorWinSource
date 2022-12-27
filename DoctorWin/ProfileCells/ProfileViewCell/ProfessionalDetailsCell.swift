@@ -33,12 +33,12 @@ class ProfessionalDetailsCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func cellConfigureWith(data: ProfileDataModel) {
-        self.graduation.text = data.underGraduation ?? "XXXXXXX"
-        self.postGraduation.text = data.postGraduation ?? "XXXXXXX"
-        self.postGraduationInstitute.text = data.postGraduationInstitute ?? "XXXXXXX"
-        self.graduationInstitute.text = data.underGraduationInstitute ?? "XXXXXXX"
-        self.workingCompany.text = data.currentDepartment ?? "XXXXXXX"
-        self.currentInstitution.text = data.currentInstitute ?? "XXXXXXX"
+        self.graduation.text = data.ug ?? "Add"
+        self.postGraduation.text = data.pg ?? "Add"
+        self.postGraduationInstitute.text = data.pg_institute_name ?? "Add"
+        self.graduationInstitute.text = data.ug_institute_name ?? "Add"
+        self.workingCompany.text = data.current_department ?? "Add"
+        self.currentInstitution.text = data.current_institute ?? "Add"
     }
     
 }

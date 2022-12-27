@@ -8,7 +8,7 @@
 import Foundation
 
 protocol ProductDetailsDelegate {
-    func didReciveProductData(response: ProductDetailsModel?, error: String?)
+    func didReciveProductData(response: ShopDetailsModel?, error: String?)
    
 }
 

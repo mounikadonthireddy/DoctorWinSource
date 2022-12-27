@@ -35,18 +35,18 @@ class InfoCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func cellConfigureWith(data: ProfileDataModel, section: Int) {
-        self.graduation.text = data.underGraduation
-        self.postGraduation.text = data.postGraduation
-        self.postGraduationInstitute.text = data.postGraduationInstitute
-        self.graduationInstitute.text = data.underGraduationInstitute
-        self.workingCompany.text = data.currentDepartment
-        self.currentInstitution.text = data.currentInstitute
+        self.graduation.text = data.ug ?? ""
+        self.postGraduation.text = data.pg ?? ""
+        self.postGraduationInstitute.text = data.pg_institute_name ?? ""
+        self.graduationInstitute.text = data.ug_institute_name ?? ""
+        self.workingCompany.text = data.current_department ?? ""
+        self.currentInstitution.text = data.current_institute ?? ""
         
-        self.contactNumber.text = data.phoneNumber
-        self.emailID.text = data.email
-        self.gender.text = data.gender
-        self.dob.text = data.dob
-        self.location.text = data.location
+        self.contactNumber.text = data.phone_number ?? ""
+        self.emailID.text = data.email ?? ""
+        self.gender.text = data.gender ?? ""
+        self.dob.text = data.dob ?? ""
+        self.location.text = data.current_job_location ?? ""
         self.language.text = data.language
         
         

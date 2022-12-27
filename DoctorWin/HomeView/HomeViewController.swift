@@ -175,10 +175,18 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     @objc func connectClicked(button: UIButton) {
-        let str = UIStoryboard(name: "Network", bundle: nil)
-        let nextVC = str.instantiateViewController(withIdentifier: "ConnectionsViewController") as! ConnectionsViewController
-        
-        self.navigationController?.pushViewController(nextVC, animated: true)
+        if let _ = UserDefaults.standard.value(forKey: "") {
+            let str = UIStoryboard(name: "Network", bundle: nil)
+            let nextVC = str.instantiateViewController(withIdentifier: "ConnectionsViewController") as! ConnectionsViewController
+            
+            self.navigationController?.pushViewController(nextVC, animated: true)
+        } else {
+            let str = UIStoryboard(name: "Network", bundle: nil)
+            let nextVC = str.instantiateViewController(withIdentifier: "ConnectionsViewController") as! ConnectionsViewController
+            
+            self.navigationController?.pushViewController(nextVC, animated: true)
+        }
+       
     }
     @objc func jobClicked(button: UIButton) {
         let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "CarrierTabViewController") as! CarrierTabViewController

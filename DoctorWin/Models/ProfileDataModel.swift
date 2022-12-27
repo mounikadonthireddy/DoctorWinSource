@@ -10,7 +10,10 @@ import Foundation
 //    let name: String
 //    let imageName: String
 //}
-
+struct ProfileDetailsResponseModel: Codable {
+    let is_active: Bool?
+    let userDetails: ProfileDataModel?
+}
 struct UserProfileModel: Codable {
     let is_active: Bool
     let userDetails: ProfileModel?
@@ -27,70 +30,29 @@ struct ProfileModel: Codable {
     let location: String?
 }
 struct ProfileDataModel : Codable {
-    let phoneNumber: String?
-    let postGraduationInstitute: String?
-    let currentInstitute: String?
-    let currentDepartment: String?
-    let underGraduationInstitute: String?
-    let postGraduation: String?
-    let profileImage: String?
-    let profileName: String?
-    let follow: Int?
-    let following: Int?
-    let appliedJobs: Int?
-    let casePost: Int?
-    let newsPost: Int?
-    let underGraduation: String?
-    let email: String?
-    let dob: String?
-    let gender : String?
-    let location : String?
-    let language : String?
-    let aboutMe: String?
-    let skill : String?
-    let storiesCount: Int?
-    let pollsCount: Int?
-    let newslikeCount: Int
-    let articalsCount : Int
-    let casesCount: Int
+    let phone_number: String?
+    let email:String?
+    let name: String?
+    let current_job_location: String?
     let speciality: String?
-    let currentLocation: String?
-    let qualification: String?
-    let followStatus: Bool?
-    let dworks_id: String?
-    enum CodingKeys: String, CodingKey {
-        case phoneNumber = "phone_number"
-        case postGraduationInstitute = "pg_institute_name"
-        case currentInstitute = "current_institute"
-        case currentDepartment = "current_department"
-        case underGraduationInstitute = "ug_institute_name"
-        case postGraduation = "pg"
-        case profileImage = "profileImage"
-        case profileName = "profile_name"
-        case follow = "follow"
-        case following = "following"
-        case appliedJobs = "applied_jobs"
-        case casePost = "case_post"
-        case newsPost = "news_post"
-        case underGraduation = "ug"
-        case email
-        case dob
-        case gender
-        case location
-        case language
-        case aboutMe = "tell_me_about_youself"
-        case skill
-        case newslikeCount = "news_post_like"
-        case pollsCount = "poll_likes"
-        case storiesCount = "college_story_likes"
-        case articalsCount = "artical_like"
-        case casesCount = "case_like"
-        case speciality = "speciality"
-        case currentLocation = "current_job_location"
-        case qualification = "hightest_qualification"
-        case followStatus
-        case dworks_id
-    }
+    let hightest_qualification: String?
+    let image: String?
+    let cover_image: String?
+    let current_department: String?
+    let current_institute: String?
+    let dob: String?
+    let gender: String?
+    let language: String?
+    let degrees: String?
+    let ug: String?
+    let pg: String?
+    let ug_institute_name: String?
+    let pg_institute_name: String?
+    let skill: String?
+    let tell_me_about_youself: String?
+    let user: Int?
+    let resume: String?
+    let experience: [ExperienceModel]?
 }
 struct PersonalInfoEditModel: Codable {
     let phone_number: String
@@ -110,7 +72,7 @@ struct BoolResponseModel: Codable {
     let message: String?
 }
 struct ProfessionalResponseModel: Codable {
-    let status: Bool?
+    let is_active: Bool?
     let message: String?
 }
 struct PersonalInfoEditModel1: Codable {

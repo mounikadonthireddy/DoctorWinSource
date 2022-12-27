@@ -49,12 +49,12 @@ struct ProfileEditViewModel {
 }
 struct ProfileViewModel {
     var delegate : ProfileViewModelDelegate?
-
+//
     func getProfileData(userID: String) {
         let resource = ProfileEditResource()
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getProfileDetails + ApiEndpoints.userID + "=\(userID)&display_status=7"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getProfile
 
-        resource.getProfileData(url: homeUrlStr) { response in
+        resource.getUserProfileDetailsData(url: homeUrlStr) { response in
             DispatchQueue.main.async {
                 switch response {
                 case .success(let data):
@@ -68,21 +68,21 @@ struct ProfileViewModel {
         }
     }
    
-    func getProfileExperienceData(userID: String) {
-        let resource = ProfileEditResource()
-        resource.getProfileExperienceData(userID: userID) { response in
-            DispatchQueue.main.async {
-                switch response {
-                case .success(let data):
-                    self.delegate?.didReciveProfileExperienceData(response: data, error: nil)
-
-                case .failure(let error):
-                    self.delegate?.didReciveProfileExperienceData(response: nil, error: error)
-                }
-                
-            }
-        }
-    }
+//    func getProfileExperienceData(userID: String) {
+//        let resource = ProfileEditResource()
+//        resource.getProfileExperienceData(userID: userID) { response in
+//            DispatchQueue.main.async {
+//                switch response {
+//                case .success(let data):
+//                    self.delegate?.didReciveProfileExperienceData(response: data, error: nil)
+//
+//                case .failure(let error):
+//                    self.delegate?.didReciveProfileExperienceData(response: nil, error: error)
+//                }
+//                
+//            }
+//        }
+//    }
     
     func deleteExp(userID: String, expID: Int,request: DeleteExpModel,completion : @escaping (_ result: ProfessionalResponseModel?) -> Void) {
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.addExperience + ApiEndpoints.userID + "=\(userID)&exp_id=\(expID)"
@@ -110,8 +110,5 @@ struct ProfileViewModel {
 
 }
 protocol ProfileViewModelDelegate {
- 
-    func didReciveProfileData(response: ProfileModel?, error: String?)
-    func didReciveProfileExperienceData(response: [ExperienceModel]?, error: String?)
-
+    func didReciveProfileData(response: ProfileDataModel?, error: String?)
 }

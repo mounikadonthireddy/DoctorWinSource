@@ -65,9 +65,9 @@ class ShopDetailsViewController: ViewController {
     }
 }
 extension ShopDetailsViewController: ProductDetailsDelegate {
-    func didReciveProductData(response: ProductDetailsModel?, error: String?) {
+    func didReciveProductData(response: ShopDetailsModel?, error: String?) {
         self.dismiss()
-        if let data = response {
+        if let data = response?.shopResponse {
             productDetails = data
             productLocation.text =  data.location
             detailsTableView.reloadData()

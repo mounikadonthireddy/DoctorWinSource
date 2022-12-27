@@ -99,7 +99,7 @@ extension ShopCategoryViewController : UICollectionViewDelegate, UICollectionVie
         
         let str = UIStoryboard(name: "Shop", bundle: nil)
         let nextVC = str.instantiateViewController(withIdentifier: "ShopDetailsViewController") as! ShopDetailsViewController
-        nextVC.productId = shopArray[indexPath.row].id
+        nextVC.productId = shopArray[indexPath.row].id ?? 0
         self.navigationController?.pushViewController(nextVC, animated: true)
         
     }
@@ -111,9 +111,11 @@ extension ShopCategoryViewController: ShopDelegate {
         
     }
     
-    func didReciveShopData(response: [ShopModel]?, error: String?) {
+    func didReciveShopData(response: ShopResponseModel?, error: String?) {
         self.dismiss()
-        shopArray = response ?? []
+        if let data = response {
+            shopArray = data.shopResponse ?? []
+        }
         shopCollectionView.reloadData()
     }
     

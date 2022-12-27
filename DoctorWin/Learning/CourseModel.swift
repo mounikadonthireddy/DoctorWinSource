@@ -36,36 +36,45 @@ struct ElearningBannerModel: Codable {
     let image: String?
     
 }
-struct CourseDetailsModel: Codable {
-    let id: Int
-    let subject_title: String?
-    let lecture_creater_name: String?
-    let image: String?
-    let discription: String?
-    let heightlight_of_subcourse: String?
-    let options: String?
-    let rating: String?
-    let department: String?
-    let video: String?
-    let original_price:String?
-    let offer_price: String?
-    let validity: String?
-    let course: String?
-    let number_of_lession: Int?
+struct CourseDetailsResponseModel: Codable {
+    let is_active : Bool
+    let learnResponse: CourseDetailsModel?
 }
-
-struct CurriculamModel: Codable {
-    let id: Int
-    let chapter_name:String?
+struct CourseDetailsModel: Codable {
+    let demo_video: String?
+    let subject: SubjectModel?
+    let overView: OverViewModel?
+    let Curriculum:[CurriculamModel]?
+    let buy: [BuyModel]?
+}
+struct SubjectModel: Codable {
+    let id: Int?
+    let name:String?
+    let description: String?
+    let video: Int?
     let duration: String?
-    let number_of_subtopic: Int?
-    let sub_chapter: [SubChaperModel]?
+}
+struct OverViewModel: Codable {
+    let description: String?
+    let heightlight: String?
+}
+struct CurriculamModel: Codable {
+    let id: Int?
+    let name:String?
+    let duration: String?
+    let total_lession: Int?
+    let lession: [SubChaperModel]?
 }
 struct SubChaperModel: Codable {
-    let id: Int
-    let sub_chapter_name: String?
+    let id: Int?
+    let name: String?
     let video: String?
     let duration: String?
+}
+struct BuyModel: Codable {
+    let name: String?
+    let description: String?
+    let price: Int?
 }
 struct CoursesCategoryResponseModel: Codable {
     let is_active: Bool?

@@ -94,6 +94,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="addImage" destination="7GU-iS-goC" id="BqE-eC-9Pv"/>
+                <outlet property="coverImage" destination="uCI-mU-6Hb" id="tjz-Wo-hrh"/>
                 <outlet property="profileImage" destination="aIV-GM-Lcb" id="sok-ID-pKg"/>
                 <outlet property="saveBtn" destination="aNb-xs-ZTa" id="GNW-XA-zqy"/>
             </connections>
@@ -101,7 +102,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="collegeBg" width="720" height="415"/>
+        <image name="collegeBg" width="375" height="153"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="labelColor">

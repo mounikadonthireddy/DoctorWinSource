@@ -46,19 +46,19 @@ class LearningCategoryViewController: ViewController {
 }
 extension LearningCategoryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return array.count
+        return 4
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: CategoryTVCell
         = tableView.dequeueReusableCell(withIdentifier: "CategoryTVCell") as! CategoryTVCell
-        cell.configureCell(data: array[indexPath.row])
+       // cell.configureCell(data: array[indexPath.row])
        // cell.setBannerImage(data: bannerArray[0])
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let str = UIStoryboard(name: "Learning", bundle: nil)
         let nextVC = str.instantiateViewController(withIdentifier: "LearningDetailsViewController") as! LearningDetailsViewController
-        nextVC.subject = "\(array[indexPath.row].id)"
+       // nextVC.subject = "\(array[indexPath.row].id)"
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     

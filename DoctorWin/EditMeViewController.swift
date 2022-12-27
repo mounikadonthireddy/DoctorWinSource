@@ -10,12 +10,13 @@ import UIKit
 class EditMeViewController: ViewController {
     @IBOutlet weak var profileTableView: UITableView!
     var profileDataModel : ProfileDataModel!
+   
     var personalDropDownData : ProfileEditDropDownModel!
     var professionalData : ProfessionalDropDownModel!
     var personalEditVM = ProfileEditViewModel()
     var spealityArray: [SpeciltyModel] = []
     var qualificationArray: [QualificationModel] = []
-    var selectedIndex = 0
+    var selectedIndex = -1
     @IBOutlet weak var imageView : UIImageView!
     var imageFileName: String = ""
     var fileType: String = ""
@@ -40,9 +41,9 @@ class EditMeViewController: ViewController {
         profileTableView.contentInset = UIEdgeInsets(top: -10, left: 0, bottom: 0, right: 0)
         
         
-        loadLanguageDropGenderData()
+        
         loadProfessionalDropDownData()
-        downloadQualificationResource()
+    
         downloadSpeacilityResource()
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -120,38 +121,25 @@ class EditMeViewController: ViewController {
 
 extension EditMeViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.section {
-        case 0:
-            let cell: ProfileImageCell = tableView.dequeueReusableCell(withIdentifier: "ProfileImageCell", for: indexPath) as! ProfileImageCell
-            // cell.configurePersonalEditCell(data: profileDataModel)
-            cell.saveBtn.addTarget(self, action: #selector(imageUpload(button:)), for: .touchUpInside)
-            cell.addImage.addTarget(self, action: #selector(selectImage(button:)), for: .touchUpInside)
-            if self.imageView.image != nil {
-                cell.profileImage.image =  self.imageView.image
-            }
-            cell.cellConfigureWith(data: profileDataModel)
-            return cell
-        case 1:
+    
             switch selectedIndex {
             case 1:
                 let cell: MySelfCell = tableView.dequeueReusableCell(withIdentifier: "MySelfCell", for: indexPath) as! MySelfCell
-                cell.locationTF.delegate = self
+             
                 cell.nameTF.delegate = self
                 cell.configurePersonalEditCell(data: profileDataModel)
                 cell.profileDelegate = self
                 cell.specilityTF.optionArray = spealityArray.map({ data in
                     return data.department
                 })
-                cell.qualificationTF.optionArray = qualificationArray.map({ data in
-                    return data.qualification
-                })
+             
                 return cell
             case 3:
                 let cell: EditPersonalInfoCell = tableView.dequeueReusableCell(withIdentifier: "EditPersonalInfoCell", for: indexPath) as! EditPersonalInfoCell
@@ -187,8 +175,9 @@ extension EditMeViewController: UITableViewDelegate, UITableViewDataSource {
                 
             case 2,6:
                 let cell: EditSkillCell = tableView.dequeueReusableCell(withIdentifier: "EditSkillCell", for: indexPath) as! EditSkillCell
-                cell.configureCellWithEdit(data: profileDataModel, section: indexPath.section)
+                cell.configureCellWithEdit(data: profileDataModel, section: selectedIndex)
                 cell.profileDelegate = self
+                cell.saveBtn.tag = indexPath.section
                 cell.detailsTF.delegate = self
                 return cell
                 
@@ -198,12 +187,6 @@ extension EditMeViewController: UITableViewDelegate, UITableViewDataSource {
                 return UITableViewCell()
                 
             }
-        default:
-            
-            return UITableViewCell()
-            
-            }
-            
     }
     @objc func editClicked(button: Any) {
         let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "EditMeViewController") as! EditMeViewController

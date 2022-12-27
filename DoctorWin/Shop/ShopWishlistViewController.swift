@@ -72,22 +72,9 @@ extension ShopWishlistViewController: UITableViewDelegate, UITableViewDataSource
         
         let cell: ShopWishlistCell
         = tableView.dequeueReusableCell(withIdentifier: "ShopWishlistCell") as! ShopWishlistCell
-//        if salesArray.count > 0 {
-//            cell.salesArray = salesArray
-//         print(salesArray)
-//        }
-//        if bookmarkArray.count > 0 {
-//            cell.bookmarkArray = bookmarkArray
-//           print(bookmarkArray)
-//        }
-//
-//        if recentArray.count > 0 {
-//            cell.recentArray = recentArray
-//            print(recentArray)
-//        }
+
         cell.cellConfigure(sale: salesArray, recent: recentArray, bookmark: bookmarkArray)
-        //cell.collectionView.reloadData()
-        // cell.deleagte = self
+       
         return cell
         
     }
@@ -116,21 +103,27 @@ extension ShopWishlistViewController: UITableViewDelegate, UITableViewDataSource
     
 }
 extension ShopWishlistViewController: ShopWishlistDelegate {
-    func didReciveBookmarkShopData(response: [ShopModel]?, error: String?) {
+    func didReciveBookmarkShopData(response: ShopResponseModel?, error: String?) {
         self.dismiss()
-        bookmarkArray = response ?? []
+        if let data = response {
+            bookmarkArray = data.shopResponse ?? []
+        }
         self.shopCollectionView.reloadData()
     }
     
-    func didReciveUploadShopData(response: [ShopModel]?, error: String?) {
+    func didReciveUploadShopData(response: ShopResponseModel?, error: String?) {
         self.dismiss()
-        salesArray = response ?? []
+        if let data = response {
+            salesArray = data.shopResponse ?? []
+        }
         self.shopCollectionView.reloadData()
     }
     
-    func didReciveRecentShopData(response: [ShopModel]?, error: String?) {
+    func didReciveRecentShopData(response: ShopResponseModel?, error: String?) {
         self.dismiss()
-        recentArray = response ?? []
+        if let data = response {
+            recentArray = data.shopResponse ?? []
+        }
         self.shopCollectionView.reloadData()
 
     }
@@ -196,11 +189,11 @@ extension ShopWishlistViewController: UICollectionViewDelegate, UICollectionView
         let str = UIStoryboard(name: "Shop", bundle: nil)
         let nextVC = str.instantiateViewController(withIdentifier: "ShopDetailsViewController") as! ShopDetailsViewController
         if indexPath.section == 0 {
-            nextVC.productId = salesArray[indexPath.row].id
+            nextVC.productId = salesArray[indexPath.row].id ?? 0
         } else  if indexPath.section == 0 {
-            nextVC.productId = recentArray[indexPath.row].id
+            nextVC.productId = recentArray[indexPath.row].id ?? 0
         } else {
-            nextVC.productId = bookmarkArray[indexPath.row].id
+            nextVC.productId = bookmarkArray[indexPath.row].id ?? 0
         }
         self.navigationController?.pushViewController(nextVC, animated: true)
     }

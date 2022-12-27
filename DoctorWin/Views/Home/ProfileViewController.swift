@@ -14,7 +14,6 @@ class ProfileViewController: ViewController,UICollectionViewDelegateFlowLayout {
     var postsArray:[HomeDataModel] = []
     var profileModel : ProfileModel?
     var postProfieDetails: PostedUserDetailsModel?
-    var profileVM = ProfileViewModel()
     var selectionType = -1
     var preference = 0
     override func viewDidLoad() {

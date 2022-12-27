@@ -31,10 +31,10 @@ class PersonalInfoCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func cellConfigureWith(data: ProfileDataModel) {
-        self.contactNumber.text = data.phoneNumber
+        self.contactNumber.text = data.phone_number ?? ""
         self.emailID.text = data.email
-        self.gender.text = data.gender ?? "XXXXXXX"
-        self.dob.text = data.dob ?? "XXXXXXX"
+        self.gender.text = data.gender ?? "Add gender"
+        self.dob.text = data.dob ?? "Add DOB"
     }
     
 }

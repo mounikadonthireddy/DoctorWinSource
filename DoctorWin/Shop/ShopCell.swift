@@ -19,11 +19,16 @@ class ShopCell: UICollectionViewCell {
         productImage.setCornerRadius(radius: 5)
     }
     func configureCell(data: ShopModel) {
-        productName.text = data.product_name
-        productPrice.text = "$" + data.product_price
+        productName.text = data.name ?? ""
+        productPrice.text = "$" + (data.price ?? "")
+        if let image = data.image {
     
-        self.productImage.sd_setImage(with: URL(string:ApiEndpoints.baseImageURL + data.image), placeholderImage: UIImage(named: "loginBg"))
-        saveBtn.tag = data.id
+        self.productImage.sd_setImage(with: URL(string:ApiEndpoints.baseImageURL + image), placeholderImage: UIImage(named: "loginBg"))
+        }
+        if data.bookmark == true {
+            saveBtn.setImage(UIImage(named: "fmark"), for: .normal)
+        }
+        saveBtn.tag = data.id ?? 0
     }
     @IBAction func saveClicked(_ sender:UIButton) {
        

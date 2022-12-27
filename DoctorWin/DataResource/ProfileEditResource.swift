@@ -53,6 +53,26 @@ struct ProfileEditResource {
             debugPrint(error)
         }
     }
+    func getUserProfileDetailsData(url: String, completion : @escaping (_ result: ResponseResult<ProfileDataModel?>) -> Void) {
+        
+        let httpUtility = HttpUtility()
+        do {
+            httpUtility.getApiData(urlString: url, resultType: ProfileDetailsResponseModel.self) { result in
+                
+                switch result {
+                case .success(let data):
+                    if data.is_active == true {
+                        completion(.success(data.userDetails))
+                    } else {
+                        completion(.failure(""))
+                    }
+                    
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
+            }
+        }
+    }
     func getProfileData(url: String, completion : @escaping (_ result: ResponseResult<ProfileModel>) -> Void) {
         
         let httpUtility = HttpUtility()
@@ -136,13 +156,13 @@ struct ProfileEditResource {
     }
     func editProfileAboutMe(userID: String,profileReq: EditAboutModel,  completion : @escaping (_ result: ResponseResult<ProfessionalResponseModel?>) -> Void) {
         
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.profileEdit + ApiEndpoints.userID + "=\(userID)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.profileEdit
         let homeUrl = URL(string: homeUrlStr)!
         let httpUtility = HttpUtility()
         do {
             let postBody = try JSONEncoder().encode(profileReq)
             
-            httpUtility.patchMethod(requestUrl: homeUrl, requestBody: postBody, resultType: ProfessionalResponseModel.self) {
+            httpUtility.putMethod(requestUrl: homeUrl, requestBody: postBody, resultType: ProfessionalResponseModel.self) {
                 response in
                 switch response {
                 case .success(let data):
@@ -165,7 +185,7 @@ struct ProfileEditResource {
         do {
             let postBody = try JSONEncoder().encode(profileReq)
             
-            httpUtility.patchMethod(requestUrl: homeUrl, requestBody: postBody, resultType: ProfessionalResponseModel.self) {
+            httpUtility.putMethod(requestUrl: homeUrl, requestBody: postBody, resultType: ProfessionalResponseModel.self) {
                 response in
                 switch response {
                 case .success(let data):
@@ -211,7 +231,7 @@ struct ProfileEditResource {
         do {
             let postBody = try JSONEncoder().encode(profileReq)
             
-            httpUtility.patchMethod(requestUrl: homeUrl, requestBody: postBody, resultType: ProfessionalResponseModel.self) {
+            httpUtility.putMethod(requestUrl: homeUrl, requestBody: postBody, resultType: ProfessionalResponseModel.self) {
                 response in
                 switch response {
                 case .success(let data):

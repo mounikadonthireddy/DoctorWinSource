@@ -30,7 +30,7 @@ class AddSkillsCell: UITableViewCell {
         if section == 1 {
             titleName.text = "About Me"
         
-            descriptionName.text = data.aboutMe ??  "Write something about you"
+            descriptionName.text = data.tell_me_about_youself ??  "Write something about you"
             butonHeight.constant = 0
             buttonName.isHidden = true
             

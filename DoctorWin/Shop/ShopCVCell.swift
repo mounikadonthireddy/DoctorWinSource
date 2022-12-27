@@ -18,9 +18,11 @@ class ShopCVCell: UICollectionViewCell {
         productImage.setCornerRadius(radius: 5)
     }
     func configureCell(data: ShopModel) {
-        productName.text = data.product_name
-        productPrice.text = "$" + data.product_price
+        productName.text = data.name ?? ""
+        productPrice.text = "$" + (data.price ?? "")
+        if let image = data.image {
     
-        self.productImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + data.image), placeholderImage: UIImage(named: "loginBg"))
+        self.productImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + image), placeholderImage: UIImage(named: "loginBg"))
+        }
     }
 }

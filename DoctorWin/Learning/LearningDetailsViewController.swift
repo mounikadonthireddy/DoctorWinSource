@@ -12,14 +12,15 @@ class LearningDetailsViewController: ViewController {
     var detailsVM = LearningDetailsVieModel()
     var courseDetails : CourseDetailsModel?
     var curriculamArray : [CurriculamModel] = []
-    var subject: String = ""
+    var subject: String = "2"
     var selectedIndex = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "LearningDetailsHeaderCell", bundle: nil), forCellReuseIdentifier: "LearningDetailsHeaderCell")
         tableView.register(UINib(nibName: "LearningOverViewCell", bundle: nil), forCellReuseIdentifier: "LearningOverViewCell")
         tableView.register(UINib(nibName: "CurriculamCell", bundle: nil), forCellReuseIdentifier: "CurriculamCell")
-       
+        tableView.register(UINib(nibName: "CourseBuyCell", bundle: nil), forCellReuseIdentifier: "CourseBuyCell")
+
         detailsVM.delegate = self
         loadCourseDetails()
         loadCurriculamDetails()
@@ -46,11 +47,16 @@ class LearningDetailsViewController: ViewController {
     
 }
 extension LearningDetailsViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 360
+    }
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+        if section == 1 && selectedIndex == 2 {
+            return courseDetails?.buy?.count ?? 0
+        }
         return 1
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -67,14 +73,23 @@ extension LearningDetailsViewController: UITableViewDelegate, UITableViewDataSou
             if selectedIndex == 0 {
                 let cell: LearningOverViewCell
                 = tableView.dequeueReusableCell(withIdentifier: "LearningOverViewCell") as! LearningOverViewCell
-                if let data = courseDetails {
-                    cell.configureCell(desc: data.discription ?? "", highlight: data.heightlight_of_subcourse ?? "")
+                if let data = courseDetails?.overView {
+                    cell.configureCell(data: data)
                 }
                 return cell
             } else if selectedIndex == 1 {
                 let cell: CurriculamCell
                 = tableView.dequeueReusableCell(withIdentifier: "CurriculamCell") as! CurriculamCell
-                cell.loadCellData(array: curriculamArray)
+                if let data = courseDetails?.Curriculum {
+                cell.loadCellData(array: data)
+                }
+                return cell
+            } else if selectedIndex == 2 {
+                let cell: CourseBuyCell
+                = tableView.dequeueReusableCell(withIdentifier: "CourseBuyCell") as! CourseBuyCell
+                if let data = courseDetails?.buy {
+                    cell.cellloadData(data: data[indexPath.row])
+                }
                 return cell
             }
             

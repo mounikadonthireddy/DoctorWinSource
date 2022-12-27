@@ -186,40 +186,6 @@
             </objects>
             <point key="canvasLocation" x="29649" y="-458"/>
         </scene>
-        <!--Me View Controller-->
-        <scene sceneID="mcV-SP-cID">
-            <objects>
-                <viewController storyboardIdentifier="MeViewController" id="wgc-KT-9wF" customClass="MeViewController" customModule="DoctorWin" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="BfC-QK-vL0">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aBK-g3-Sva">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
-                                <color key="backgroundColor" red="0.94509803920000002" green="0.94901960780000005" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="pVa-EO-SNf"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="aBK-g3-Sva" firstAttribute="bottom" secondItem="pVa-EO-SNf" secondAttribute="bottom" id="JP4-fQ-bi0"/>
-                            <constraint firstItem="aBK-g3-Sva" firstAttribute="trailing" secondItem="pVa-EO-SNf" secondAttribute="trailing" id="RXb-1P-OlH"/>
-                            <constraint firstItem="aBK-g3-Sva" firstAttribute="leading" secondItem="pVa-EO-SNf" secondAttribute="leading" id="dmS-W8-hJw"/>
-                            <constraint firstItem="aBK-g3-Sva" firstAttribute="top" secondItem="BfC-QK-vL0" secondAttribute="top" id="jk0-hN-JK1"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="ejk-3c-hN0"/>
-                    <connections>
-                        <outlet property="profileTableView" destination="aBK-g3-Sva" id="fep-p4-ev5"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aol-FF-a68" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6787" y="1212"/>
-        </scene>
         <!--Experience View Controller-->
         <scene sceneID="voK-T6-3LI">
             <objects>
@@ -658,6 +624,80 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vE3-UO-q2O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="31109" y="-471"/>
+        </scene>
+        <!--MeViewController-->
+        <scene sceneID="L1g-fN-eou">
+            <objects>
+                <viewController storyboardIdentifier="MeViewController" title="MeViewController" id="kzl-W0-DoT" customClass="MeViewController" customModule="DoctorWin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RLJ-kF-7gb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ntZ-Wz-ZF2">
+                                <rect key="frame" x="0.0" y="44" width="414" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9w7-Z2-f0c">
+                                        <rect key="frame" x="15" y="10" width="43" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="43" id="2ci-ov-tU8"/>
+                                            <constraint firstAttribute="height" constant="31" id="Ial-2y-2dc"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="back"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gUd-8F-mQ6">
+                                        <rect key="frame" x="68" y="10" width="137" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="31" id="VmN-sy-sRw"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="67" id="oE1-B0-bYD"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="20"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Create Resume">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="backClikced:" destination="kzl-W0-DoT" eventType="touchUpInside" id="rap-v2-cWg"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="gUd-8F-mQ6" firstAttribute="top" secondItem="ntZ-Wz-ZF2" secondAttribute="top" constant="10" id="8bl-DN-JaF"/>
+                                    <constraint firstAttribute="height" constant="40" id="Im5-51-VCB"/>
+                                    <constraint firstItem="9w7-Z2-f0c" firstAttribute="leading" secondItem="ntZ-Wz-ZF2" secondAttribute="leading" constant="15" id="Iqw-4B-VfS"/>
+                                    <constraint firstItem="9w7-Z2-f0c" firstAttribute="top" secondItem="ntZ-Wz-ZF2" secondAttribute="top" constant="10" id="sAF-be-iMu"/>
+                                    <constraint firstItem="gUd-8F-mQ6" firstAttribute="leading" secondItem="9w7-Z2-f0c" secondAttribute="trailing" constant="10" id="w8E-e9-SIf"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="IJ5-Mm-Nqi">
+                                <rect key="frame" x="0.0" y="114" width="414" height="748"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="kzl-W0-DoT" id="PiW-P5-TGo"/>
+                                    <outlet property="delegate" destination="kzl-W0-DoT" id="W7a-z6-OGs"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ioJ-kS-URg"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ntZ-Wz-ZF2" firstAttribute="leading" secondItem="ioJ-kS-URg" secondAttribute="leading" id="0DP-GT-PF0"/>
+                            <constraint firstItem="ioJ-kS-URg" firstAttribute="bottom" secondItem="IJ5-Mm-Nqi" secondAttribute="bottom" id="5xu-d3-ntt"/>
+                            <constraint firstItem="IJ5-Mm-Nqi" firstAttribute="leading" secondItem="ioJ-kS-URg" secondAttribute="leading" id="G0d-Ys-SRn"/>
+                            <constraint firstItem="ntZ-Wz-ZF2" firstAttribute="trailing" secondItem="ioJ-kS-URg" secondAttribute="trailing" id="JGG-Us-6MO"/>
+                            <constraint firstItem="ntZ-Wz-ZF2" firstAttribute="top" secondItem="ioJ-kS-URg" secondAttribute="top" id="QNx-xx-hEt"/>
+                            <constraint firstItem="IJ5-Mm-Nqi" firstAttribute="top" secondItem="ntZ-Wz-ZF2" secondAttribute="bottom" constant="30" id="U3H-gv-V0g"/>
+                            <constraint firstItem="ioJ-kS-URg" firstAttribute="trailing" secondItem="IJ5-Mm-Nqi" secondAttribute="trailing" id="lof-Ps-8ak"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="profileTableView" destination="IJ5-Mm-Nqi" id="3kz-aC-dru"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TVg-di-hZV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="31516" y="-471"/>
         </scene>
     </scenes>
     <resources>

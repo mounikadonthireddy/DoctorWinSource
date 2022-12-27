@@ -22,7 +22,7 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PersonalInfoCell" rowHeight="235" id="Atp-lv-Kf3" customClass="PersonalInfoCell" customModule="DoctorWin" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="406" height="207"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="Atp-lv-Kf3" id="JVU-7R-cO9">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Atp-lv-Kf3" id="JVU-7R-cO9">
                 <rect key="frame" x="0.0" y="0.0" width="406" height="207"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -48,7 +48,7 @@
                                             <constraint firstAttribute="width" constant="20" id="FgJ-a4-upl"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XXXXXXXXX" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mA-E5-bOt">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mA-E5-bOt">
                                         <rect key="frame" x="35" y="0.0" width="351" height="29"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16" id="Mfr-oW-ehC"/>
@@ -74,12 +74,12 @@
                                             <constraint firstAttribute="width" constant="20" id="XNY-xB-F6k"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xxxxxxxxxxx@gmail.com" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAa-zJ-t5N">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAa-zJ-t5N">
                                         <rect key="frame" x="35" y="0.0" width="351" height="28.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16" id="uGR-HO-f5g"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -95,12 +95,12 @@
                                             <constraint firstAttribute="width" constant="20" id="cPR-TS-ZO4"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XXXXXXXXX" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JfT-qW-pFd">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="add gender" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JfT-qW-pFd">
                                         <rect key="frame" x="35" y="0.0" width="351" height="29"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16" id="1rh-jc-Ekx"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -116,12 +116,12 @@
                                             <constraint firstAttribute="width" constant="20" id="aHe-jo-1EQ"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XX XX XXXX" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VHa-ku-MhF">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="add DOB" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VHa-ku-MhF">
                                         <rect key="frame" x="35" y="0.0" width="351" height="28.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16" id="GRA-hb-ahW"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -154,7 +154,7 @@
                     <constraint firstItem="djY-NM-jqQ" firstAttribute="top" secondItem="JVU-7R-cO9" secondAttribute="top" constant="17" id="OoL-hf-s9F"/>
                     <constraint firstItem="jqJ-pP-OfV" firstAttribute="leading" secondItem="JVU-7R-cO9" secondAttribute="leading" constant="10" id="W9F-hx-2yX"/>
                     <constraint firstAttribute="trailing" secondItem="O2J-MN-5LU" secondAttribute="trailing" constant="50" id="b1W-Bw-cI4"/>
-                    <constraint firstAttribute="bottom" secondItem="jqJ-pP-OfV" secondAttribute="bottom" constant="14" id="kDO-GT-96h"/>
+                    <constraint firstAttribute="bottom" secondItem="jqJ-pP-OfV" secondAttribute="bottom" priority="999" constant="14" id="kDO-GT-96h"/>
                     <constraint firstAttribute="trailing" secondItem="djY-NM-jqQ" secondAttribute="trailing" constant="10" id="qqo-wR-ooV"/>
                     <constraint firstItem="O2J-MN-5LU" firstAttribute="leading" secondItem="JVU-7R-cO9" secondAttribute="leading" constant="10" id="wng-cY-ran"/>
                 </constraints>

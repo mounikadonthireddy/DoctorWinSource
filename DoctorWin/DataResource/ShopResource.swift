@@ -8,16 +8,16 @@
 import Foundation
 struct ShopResource {
     
-    func getshopData(userID: String, category: String, completion : @escaping (_ result: ResponseResult<[ShopModel]>) -> Void) {
+    func getshopData(userID: String, category: String, completion : @escaping (_ result: ResponseResult<ShopResponseModel>) -> Void) {
         var homeUrlStr = ""
         if category != "" {
-           homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.shopData + ApiEndpoints.userID + "=\(userID)" + "&category_name=\(category)"
+           homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.shopData +  "?category_name=\(category)"
         } else {
-         homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.shopData + ApiEndpoints.userID + "=\(userID)"
+         homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.shopData
         }
         let httpUtility = HttpUtility()
         do {
-            httpUtility.getApiData(urlString: homeUrlStr, resultType: [ShopModel].self) { result in
+            httpUtility.getApiData(urlString: homeUrlStr, resultType: ShopResponseModel.self) { result in
                 
                 switch result {
                 case .success(let data):
@@ -31,18 +31,18 @@ struct ShopResource {
         }
         
     }
-    func getshopData(userID: String, index: Int, completion : @escaping (_ result: ResponseResult<[ShopModel]>) -> Void) {
+    func getshopData(userID: String, index: Int, completion : @escaping (_ result: ResponseResult<ShopResponseModel>) -> Void) {
         var homeUrlStr = ""
         if index == 0 {
-           homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.shopSale + ApiEndpoints.userID + "=\(userID)"
+           homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.shopSale + "?method=view"
         } else if index == 1 {
-         homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.shopRecent + ApiEndpoints.userID + "=\(userID)"
+         homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.shopSale + "?method=Viewed"
         } else if index == 2 {
-            homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.shopBookmark + ApiEndpoints.userID + "=\(userID)"
+            homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.shopSale + "?method=Bookmark"
            }
         let httpUtility = HttpUtility()
         do {
-            httpUtility.getApiData(urlString: homeUrlStr, resultType: [ShopModel].self) { result in
+            httpUtility.getApiData(urlString: homeUrlStr, resultType: ShopResponseModel.self) { result in
                 
                 switch result {
                 case .success(let data):
@@ -60,11 +60,16 @@ struct ShopResource {
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.shopCategory + ApiEndpoints.userID + "=\(userID)"
         let httpUtility = HttpUtility()
         do {
-            httpUtility.getApiData(urlString: homeUrlStr, resultType: [ShopCategoryModel].self) { result in
+            httpUtility.getApiData(urlString: homeUrlStr, resultType: ShopCategoryResponseModel.self) { result in
                 
                 switch result {
                 case .success(let data):
-                    completion(.success(data))
+                    if data.is_active {
+                        completion(.success(data.shopResponse ?? []))
+                    }
+                    else {
+                        completion(.failure("Please try Again After SomeTime"))
+                    }
                     
                 case .failure( _):
                     completion(.failure("Please try Again After SomeTime"))
@@ -94,11 +99,11 @@ struct ShopResource {
         }
         
     }
-    func getshopCategoryData(userID: String, productId: Int, completion : @escaping (_ result: ResponseResult<ProductDetailsModel>) -> Void) {
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.shopData + ApiEndpoints.userID + "=\(userID)&productid=\(productId)"
+    func getshopCategoryData(userID: String, productId: Int, completion : @escaping (_ result: ResponseResult<ShopDetailsModel>) -> Void) {
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.shopData + "?productid=\(productId)"
         let httpUtility = HttpUtility()
         do {
-            httpUtility.getApiData(urlString: homeUrlStr, resultType: ProductDetailsModel.self) { result in
+            httpUtility.getApiData(urlString: homeUrlStr, resultType: ShopDetailsModel.self) { result in
                 
                 switch result {
                 case .success(let data):

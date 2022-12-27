@@ -20,8 +20,8 @@ class LearningOverViewCell: UITableViewCell {
         
         // Configure the view for the selected state
     }
-    func configureCell(desc:String, highlight: String) {
-        descriptionLbl.text = desc
-        heightlightsLbl.text = highlight
+    func configureCell(data: OverViewModel) {
+        descriptionLbl.text = data.description ?? ""
+        heightlightsLbl.text = data.heightlight ?? ""
     }
 }

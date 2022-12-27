@@ -7,13 +7,13 @@
 
 import Foundation
 protocol ShopWishlistDelegate {
-    func didReciveBookmarkShopData(response: [ShopModel]?, error: String?)
-    func didReciveUploadShopData(response: [ShopModel]?, error: String?)
-    func didReciveRecentShopData(response: [ShopModel]?, error: String?)
+    func didReciveBookmarkShopData(response: ShopResponseModel?, error: String?)
+    func didReciveUploadShopData(response: ShopResponseModel?, error: String?)
+    func didReciveRecentShopData(response: ShopResponseModel?, error: String?)
 }
 
 protocol ShopDelegate {
-    func didReciveShopData(response: [ShopModel]?, error: String?)
+    func didReciveShopData(response: ShopResponseModel?, error: String?)
     func didReciveShopCategoryData(response: [ShopCategoryModel]?, error: String?)
     func didReciveShopBannerData(response: [ImageBannerModel]?, error: String?)
 }

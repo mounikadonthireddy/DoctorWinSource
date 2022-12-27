@@ -15,7 +15,7 @@ class EditSkillCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        detailsTF.setUnderLine()
+       // detailsTF.setUnderLine()
         saveBtn.setCornerRadius(radius: Float(saveBtn.frame.height)/2)
     }
     
@@ -34,7 +34,7 @@ class EditSkillCell: UITableViewCell {
                     switch res {
                         
                     case .success(let data):
-                        if data?.status == true {
+                        if data?.is_active == true {
                             self.profileDelegate?.didProfileUpdated(status: true, error: nil)
                         } else {
                             self.profileDelegate?.didProfileUpdated(status: false, error: nil)
@@ -53,7 +53,7 @@ class EditSkillCell: UITableViewCell {
                     switch res {
                         
                     case .success(let data):
-                        if data?.status == true {
+                        if data?.is_active == true {
                             self.profileDelegate?.didProfileUpdated(status: true, error: nil)
                         } else {
                             self.profileDelegate?.didProfileUpdated(status: false, error: nil)
@@ -68,7 +68,7 @@ class EditSkillCell: UITableViewCell {
     func configureCellWithEdit(data: ProfileDataModel, section: Int) {
         if section == 2 {
             titleLabel.text = "About Me"
-            detailsTF.text = data.aboutMe
+            detailsTF.text = data.tell_me_about_youself
             detailsTF.placeholder = "Write something about you"
             saveBtn.tag = 0
         } else {

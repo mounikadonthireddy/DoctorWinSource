@@ -9,6 +9,7 @@ import UIKit
 
 class ProfileImageCell: UITableViewCell {
     @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var coverImage: UIImageView!
     @IBOutlet weak var addImage: UIButton!
     @IBOutlet weak var saveBtn: UIButton!
 
@@ -32,12 +33,15 @@ class ProfileImageCell: UITableViewCell {
         
     }
     func cellConfigureWith(data: ProfileDataModel) {
-        
-        
-        if let urlString = data.profileImage {
+        if let urlString = data.image {
             let finalUrlString = ApiEndpoints.baseImageURL + urlString
             
             self.profileImage.sd_setImage(with: URL(string: finalUrlString), placeholderImage: UIImage(named: "loginBg"))
+        }
+        if let urlString1 = data.cover_image {
+            let finalUrlString = ApiEndpoints.baseImageURL + urlString1
+            
+            self.coverImage.sd_setImage(with: URL(string: finalUrlString), placeholderImage: UIImage(named: "loginBg"))
         }
     }
     

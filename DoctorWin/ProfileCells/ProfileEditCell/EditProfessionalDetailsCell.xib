@@ -182,6 +182,9 @@
                                 </subviews>
                             </stackView>
                         </subviews>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="238" id="7Bh-lc-FfG"/>
+                        </constraints>
                     </stackView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CZS-ah-2Ri">
                         <rect key="frame" x="201" y="291" width="100" height="45"/>

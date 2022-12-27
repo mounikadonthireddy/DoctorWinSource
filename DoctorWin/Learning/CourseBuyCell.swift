@@ -1,15 +1,16 @@
 //
-//  CurriculamExpandCell.swift
+//  CourseBuyCell.swift
 //  DoctorWin
 //
-//  Created by AHP on 13/10/2565 BE.
+//  Created by AHP on 20/12/2565 BE.
 //
 
 import UIKit
 
-class CurriculamExpandCell: UITableViewCell {
+class CourseBuyCell: UITableViewCell {
+    @IBOutlet weak var detailsLbl: UILabel!
+    @IBOutlet weak var priceLbl: UILabel!
     @IBOutlet weak var nameLbl: UILabel!
-    @IBOutlet weak var videoLbl: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,8 +21,9 @@ class CurriculamExpandCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    func configureCell(data: SubChaperModel) {
+    func cellloadData(data: BuyModel) {
         nameLbl.text = data.name ?? ""
-        videoLbl.text = data.duration ?? ""
+        detailsLbl.text = data.description ?? ""
+        priceLbl.text = "\u{20B9}\(data.price)"
     }
 }

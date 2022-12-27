@@ -25,7 +25,7 @@ class BioCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func cellConfigureWith(data: ProfileDataModel) {
-        self.profileSummary.text = data.aboutMe ?? "write something about you"
+        self.profileSummary.text = data.tell_me_about_youself ?? "write something about you"
         
     }
     

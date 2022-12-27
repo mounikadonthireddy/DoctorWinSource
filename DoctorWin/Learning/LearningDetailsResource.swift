@@ -7,13 +7,13 @@
 
 import Foundation
 struct LearningDetailsResource {
-    func getElearningCourseDetailsData(userID: String,subjectId: String, completion : @escaping (_ result: ResponseResult<CourseDetailsModel>) -> Void) {
+    func getElearningCourseDetailsData(userID: String,subjectId: String, completion : @escaping (_ result: ResponseResult<CourseDetailsResponseModel>) -> Void) {
         
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.courseDetails + "?subject=\(subjectId)"
         
         let httpUtility = HttpUtility()
         do {
-            httpUtility.getApiData(urlString: homeUrlStr, resultType: CourseDetailsModel.self) { result in
+            httpUtility.getApiData(urlString: homeUrlStr, resultType: CourseDetailsResponseModel.self) { result in
                 
                 switch result {
                 case .success(let data):
