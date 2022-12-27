@@ -9,7 +9,7 @@ import UIKit
 
 class MatchesInfoCell: UICollectionViewCell {
     @IBOutlet weak var categoryName: UILabel!
-    @IBOutlet weak var categoryImage: UIImageView!
+    @IBOutlet weak var categoryTitle: UILabel!
     @IBOutlet weak var bgView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,10 +19,11 @@ class MatchesInfoCell: UICollectionViewCell {
     }
     func configureCell(data: ProfileCharModel) {
         categoryName.text = data.value ?? ""
-        if let image = data.image {
-            self.categoryImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + image), placeholderImage: UIImage(named: "loginBg"))
-            
-        }
+        categoryTitle.text = data.name ?? ""
+//        if let image = data.image {
+//            self.categoryImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + image), placeholderImage: UIImage(named: "loginBg"))
+//
+//        }
     }
     
 }

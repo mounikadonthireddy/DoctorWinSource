@@ -157,15 +157,15 @@ extension ShowInterestViewController : UICollectionViewDelegate, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: CourseNameCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CourseNameCell", for: indexPath) as! CourseNameCell
         
-        cell.name.text = interestsArray[indexPath.item].interest
+        cell.name.text = interestsArray[indexPath.item].name
         cell.backgroundColor = UIColor.white
         cell.setCornerRadiusWithBorderColor(radius: 17.5, color: UIColor.secondaryLabel, borderWidth: 0.5)
         return cell
         
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = (interestsArray[indexPath.row].interest as NSString).size(withAttributes: nil)
-        return CGSize(width: size.width + 20, height: 30)
+        //let size = (interestsArray[indexPath.row].interest as NSString).size(withAttributes: nil)
+        return CGSize(width: 120, height: 30)
         
     }
     func collectionView(_ collectionView: UICollectionView,

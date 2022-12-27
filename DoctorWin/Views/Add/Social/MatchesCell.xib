@@ -272,7 +272,9 @@
                 <outlet property="aboutMeViewHeight" destination="6LT-4G-1XH" id="FqT-e0-gHJ"/>
                 <outlet property="image1" destination="FP9-td-jVO" id="wWm-KJ-hlE"/>
                 <outlet property="image2" destination="RNw-Ku-YMd" id="zs0-BH-Iie"/>
+                <outlet property="image2Height" destination="onK-7k-ARz" id="5VV-LC-BhP"/>
                 <outlet property="image3" destination="goJ-d5-e7I" id="uwI-XG-Hp9"/>
+                <outlet property="image3Height" destination="JsN-nC-jla" id="dzP-nd-E81"/>
                 <outlet property="imagesView" destination="nj6-zY-VXi" id="glb-dx-14P"/>
                 <outlet property="imagesViewCV" destination="YH4-Bc-e7j" id="I0y-aD-7hE"/>
                 <outlet property="imagesViewCVLayout" destination="tyN-Ak-NnV" id="49b-sc-eDb"/>

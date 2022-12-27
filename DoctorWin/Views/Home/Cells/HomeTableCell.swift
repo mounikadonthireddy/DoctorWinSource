@@ -238,8 +238,7 @@ struct FollowRequest: Codable {
     let dworks_id: String
 }
 struct ProfileLikeRequest: Codable {
-    let dworks_id: String
-    let like_id: String
+    let id: String
 }
 struct ProfileSkipRequest: Codable {
     let dworks_id: String

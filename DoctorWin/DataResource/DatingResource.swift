@@ -9,12 +9,12 @@ import Foundation
 
 struct DatingResource {
     
-    func getDatingData(userID: String, completion : @escaping (_ result: ResponseResult<[MatchesModel]>) -> Void) {
+    func getDatingData(userID: String, completion : @escaping (_ result: ResponseResult<MatchesResponseModel?>) -> Void) {
         
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.dating + ApiEndpoints.userID + "=\(userID)&page=1"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.dating
         let httpUtility = HttpUtility()
         do {
-            httpUtility.getApiData(urlString: homeUrlStr, resultType: [MatchesModel].self) { result in
+            httpUtility.getApiData(urlString: homeUrlStr, resultType: MatchesResponseModel.self) { result in
                 
                 switch result {
                 case .success(let data):
@@ -29,12 +29,17 @@ struct DatingResource {
         
     }
     
-    func getMyLikedProfileData(userID: String, completion : @escaping (_ result: ResponseResult<[LikeMatchesModel]>) -> Void) {
-        
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.myLikes + ApiEndpoints.userID + "=\(userID)"
+    func getMyLikedProfileData(likeType: LikeType, completion : @escaping (_ result: ResponseResult<LikedProfileResponseModel?>) -> Void) {
+       var homeUrlStr = ApiEndpoints.baseUrl
+        if likeType == .myLikes {
+            homeUrlStr  += ApiEndpoints.myLikes
+        } else if likeType == .others {
+            homeUrlStr  += ApiEndpoints.otherLikes
+        }
+       
         let httpUtility = HttpUtility()
         do {
-            httpUtility.getApiData(urlString: homeUrlStr, resultType: [LikeMatchesModel].self) { result in
+            httpUtility.getApiData(urlString: homeUrlStr, resultType: LikedProfileResponseModel.self) { result in
                 
                 switch result {
                 case .success(let data):
@@ -48,36 +53,17 @@ struct DatingResource {
         }
         
     }
-    func getOthersLikedProfileData(userID: String, completion : @escaping (_ result: ResponseResult<[LikeMatchesModel]>) -> Void) {
+    
+    func likeProfile(request: ProfileLikeRequest, completion : @escaping  (_ result: ResponseResult<BoolResponseModel>) -> Void) {
         
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.otherLikes + ApiEndpoints.userID + "=\(userID)"
-        
-        let httpUtility = HttpUtility()
-        do {
-            httpUtility.getApiData(urlString: homeUrlStr, resultType: [LikeMatchesModel].self) { result in
-                
-                switch result {
-                case .success(let data):
-                    completion(.success(data))
-                    
-                case .failure( _):
-                    completion(.failure("Please try Again After SomeTime"))
-                    
-                }
-            }
-        }
-        
-    }
-    func likeProfile(request: ProfileLikeRequest, completion : @escaping  (_ result: ResponseResult<StatusResponseModel>) -> Void) {
-        
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.likeProfile + ApiEndpoints.userID +  "=\(request.dworks_id)&like_id=\(request.like_id)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.likeProfile 
         let homeUrl = URL(string: homeUrlStr)!
         
         let httpUtility = HttpUtility()
         do {
             let postBody = try JSONEncoder().encode(request)
             
-            httpUtility.postMethod(requestUrl: homeUrl, requestBody: postBody, resultType: StatusResponseModel.self) {
+            httpUtility.postMethod(requestUrl: homeUrl, requestBody: postBody, resultType: BoolResponseModel.self) {
                 result in
                 switch result {
                 case .success(let data):

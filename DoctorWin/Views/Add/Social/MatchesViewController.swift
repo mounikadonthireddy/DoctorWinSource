@@ -38,13 +38,15 @@ extension MatchesViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 extension MatchesViewController: DatingViewModelDelegate {
-    func didReciveDatingData(response: [MatchesModel]?, error: String?) {
+    func didReciveDatingData(response: MatchesResponseModel?, error: String?) {
         self.dismiss()
-        datingArray = response ?? []
-        if datingArray.count > 0 {
-            currentProfileIndex  = 0
-            // showProfile(index: 0)
-            tableView.reloadData()
+        if response?.is_active == true {
+            datingArray = response?.datingResponse ?? []
+            if datingArray.count > 0 {
+                currentProfileIndex  = 0
+                // showProfile(index: 0)
+                tableView.reloadData()
+            }
         }
     }
 }
@@ -102,21 +104,20 @@ extension MatchesViewController {
         
     }
     @IBAction func wishlistClicked(_ sender: UIButton) {
-        let request = ProfileLikeRequest(dworks_id: User.shared.userID, like_id: "\(datingArray[currentProfileIndex].user)")
+        let request = ProfileLikeRequest(id: "\(datingArray[currentProfileIndex].id ?? 0)")
         let resource = DatingResource()
         resource.likeProfile(request: request) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let data) :
-                    if data.likes == true {
+                    if data.status == true && data.message == nil {
+               
                         if self.datingArray.count - 1 != self.currentProfileIndex {
                             self.currentProfileIndex = self.currentProfileIndex + 1
                         } else {
                             self.currentProfileIndex = 0
                         }
                         self.tableView.reloadData()
-                    } else {
-                        
                     }
                 case .failure(_):
                     print("")

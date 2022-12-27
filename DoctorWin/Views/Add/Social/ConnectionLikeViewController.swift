@@ -19,7 +19,7 @@ class ConnectionLikeViewController: ViewController {
     }
     var datingVM = LikedDatingViewModel()
     var likesArray :[LikeMatchesModel] = []
-    var likedArray :[LikeMatchesModel] = []
+   
     var selectedIndex = 0
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,11 +32,11 @@ class ConnectionLikeViewController: ViewController {
     }
     func loadLikedProfiles() {
         self.showLoader()
-        datingVM.getDatingProfilesData(userID: User.shared.userID)
+        datingVM.getDatingProfilesData(type: .myLikes)
     }
     func loadOtherLikedProfiles() {
         self.showLoader()
-        datingVM.getOtherLikedProfilesData(userID: User.shared.userID)
+        datingVM.getDatingProfilesData(type: .others)
     }
     func setUpCollectionView() {
         connectLikesCV.register(UINib.init(nibName: "ConnectLikeCell", bundle: nil), forCellWithReuseIdentifier: "ConnectLikeCell")
@@ -50,23 +50,16 @@ class ConnectionLikeViewController: ViewController {
 }
 extension ConnectionLikeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if selectedIndex == 0 {
-            return likedArray.count
-        } else if selectedIndex == 1{
+        
             return likesArray.count
-        }
-       return 0
+
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
        
             let cell: ConnectLikeCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ConnectLikeCell", for: indexPath) as! ConnectLikeCell
-        if selectedIndex == 0 {
-            cell.configureCell(data: likedArray[indexPath.row])
-        } else {
+    
             cell.configureCell(data: likesArray[indexPath.row])
-        }
-           
             cell.dropShadow()
             return cell
         
@@ -114,17 +107,11 @@ extension ConnectionLikeViewController: CustomSegmentedControlDelegate {
     
 }
 extension ConnectionLikeViewController: LikedDatingViewModelDelegate {
-    func didOtherLikedDatingData(response: [LikeMatchesModel]?, error: String?) {
+    func didReciveDatingData(response: LikedProfileResponseModel?, error: String?) {
         self.dismiss()
-        self.likedArray = response ?? []
-        self.connectLikesCV.reloadData()
+        if response?.is_active == true {
+            self.likesArray = response?.datingResponse ?? []
+            self.connectLikesCV.reloadData()
+        }
     }
-    
-    func didReciveDatingData(response: [LikeMatchesModel]?, error: String?) {
-        self.dismiss()
-        self.likesArray = response ?? []
-        self.connectLikesCV.reloadData()
-    }
-  
-    
 }

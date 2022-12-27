@@ -30,7 +30,7 @@ class EditConnectViewController:  ViewController {
     }
     func loadProfileData() {
         self.showLoader()
-        viewModel.loadAllInterest(userId: User.shared.userID)
+        viewModel.loadProfileData(userId: User.shared.userID)
         
     }
     func downloadQualificationResource() {
@@ -114,9 +114,9 @@ extension EditConnectViewController: UITableViewDelegate, UITableViewDataSource 
     
 }
 extension EditConnectViewController: EditConnectProfileDelegate {
-    func didProfileData(response: ConnectProfileModel?, error: String?) {
+    func didProfileData(response: ConnectProfileResponseModel?, error: String?) {
         self.dismiss()
-        if let res = response {
+        if let res = response?.datingResponse {
             profileData = res
             self.tableView.reloadData()
         }

@@ -28,18 +28,23 @@ struct GenderImageModel: Codable {
 }
 
 struct ProfileInterestModel: Codable {
-    let interest: String
+    let name: String?
+}
+struct MatchesResponseModel: Codable {
+    let is_active: Bool?
+    let datingResponse: [MatchesModel]?
 }
 struct MatchesModel: Codable {
+    let id: Int?
     let datingid: String?
     let name: String?
     let intro: String?
     let age: Int?
-    let living: String?
-    let likes: Bool?
+    let living_in: String?
+    let like: Bool?
     let block: Bool?
     let skip_status: Bool?
-    let genderimage: [GenderImageModel]?
+    let image: [GenderImageModel]?
     let interest: [ProfileInterestModel]?
     let profile: [ProfileCharModel]?
     let image1: String?
@@ -51,24 +56,21 @@ struct MatchesModel: Codable {
 struct ProfileCharModel: Codable {
     let value: String?
     let image: String?
+    let name: String?
+}
+struct LikedProfileResponseModel: Codable {
+    let is_active: Bool?
+    let datingResponse: [LikeMatchesModel]?
 }
 
 struct LikeMatchesModel: Codable {
-    let datingid: String?
+    let id: Int?
     let name: String?
-    let intro: String?
     let age: Int?
-    let gender: String?
-    let qualification: String?
-    let living: String?
-    let likes: Bool?
-    let block: Bool?
-    let skip_status: Bool?
-    let interest: [ProfileInterestModel]?
-    let profile: [ProfileCharModel]?
-    let image1: String?
-    let image2:String?
-    let image3:String?
-    let looking_for:String?
-    let genderimage: String?
+    let image: String?
+   
+}
+enum LikeType {
+    case myLikes
+    case others
 }

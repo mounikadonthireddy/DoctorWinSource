@@ -94,7 +94,7 @@ struct ApiEndpoints {
     static let userDetails = "job/profile/"
     //connect
     static let getProfession = "connect/dating/profession"
-    static let editProfile = "connect/dating/profile/create/"
+    static let editProfile = "dating/profile/create/"
     //Carrier
     static let jobDetails = "alljobs"
   
@@ -118,10 +118,10 @@ struct ApiEndpoints {
     static let mcq = "user/question"
     static let attemptedMcq = "user/question/attempt"
     //Dating
-    static let dating = "connect/dating/recommed/profile"
-    static let myLikes = "connect/dating/i/likes/you/"
-    static let otherLikes = "connect/dating/you/likes/me/"
-    static let likeProfile = "connect/dating/you/likes/me/"
+    static let dating = "dating/allprofiles"
+    static let myLikes = "dating/likes?selection=self"
+    static let otherLikes = "dating/likes?selection=others"
+    static let likeProfile = "dating/likes"
     static let skiprofile = "connect/dating/skip/profile"
     static let undoProfile = "connect/dating/undo/skip/profile"
 }

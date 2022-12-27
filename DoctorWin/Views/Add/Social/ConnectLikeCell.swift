@@ -18,7 +18,7 @@ class ConnectLikeCell: UICollectionViewCell {
         personView.setCornerRadius(radius: 15)
     }
     func configureCell(data: LikeMatchesModel) {
-        if let urlString = data.genderimage {
+        if let urlString = data.image {
             self.personImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
         }
         personName.text = data.name ?? ""

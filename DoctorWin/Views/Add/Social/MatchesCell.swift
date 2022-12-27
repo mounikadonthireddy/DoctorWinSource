@@ -29,6 +29,8 @@ class MatchesCell: UITableViewCell {
     @IBOutlet weak var imagesViewCVLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var imagesView: UIView!
     @IBOutlet weak var imagesViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var image3Height: NSLayoutConstraint!
+    @IBOutlet weak var image2Height: NSLayoutConstraint!
     @IBOutlet weak var imagesViewCV: UICollectionView!
     var profileInfoArray: [ProfileCharModel] = []
     var profileInterestArray: [ProfileInterestModel] = []
@@ -120,7 +122,7 @@ class MatchesCell: UITableViewCell {
             interestViewHeight.constant = 0
         }
         
-        if let imagesArray = data.genderimage {
+        if let imagesArray = data.image {
             profileImagesArray = imagesArray
             var infoHeight = 400
             infoHeight = infoHeight * profileImagesArray.count
@@ -136,9 +138,15 @@ class MatchesCell: UITableViewCell {
         }
         if let urlString2 = data.image2 {
             self.image2.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString2), placeholderImage: UIImage(named: "loginBg"))
+            image2Height.constant = 400
+        } else {
+            image2Height.constant = 0
         }
         if let urlString3 = data.image3 {
             self.image3.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString3), placeholderImage: UIImage(named: "loginBg"))
+            image3Height.constant = 400
+        } else {
+            image3Height.constant = 0
         }
         
     }
@@ -165,7 +173,7 @@ extension MatchesCell: UICollectionViewDelegate, UICollectionViewDataSource, UIC
         } else if collectionView == interestViewCV {
             let cell: CourseNameCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CourseNameCell", for: indexPath) as! CourseNameCell
             
-            cell.name.text = profileInterestArray[indexPath.item].interest
+            cell.name.text = profileInterestArray[indexPath.item].name
             cell.name.backgroundColor = UIColor.white
             cell.dropShadow()
             return cell
@@ -178,8 +186,14 @@ extension MatchesCell: UICollectionViewDelegate, UICollectionViewDataSource, UIC
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         if collectionView == interestViewCV {
-            let size = (profileInterestArray[indexPath.row].interest as NSString).size(withAttributes: nil)
-            return CGSize(width: size.width + 70, height: 55)
+           
+            if let value = profileInterestArray[indexPath.row].name {
+               let size = (value as NSString).size(withAttributes: nil)
+                return CGSize(width: size.width + 70, height: 55)
+            } else {
+                return CGSize(width: 50, height: 55)
+            }
+           
         } else if collectionView == infoViewCV {
             let yourWidth = collectionView.bounds.width/2 - 10
             return CGSize(width: yourWidth, height: 70)

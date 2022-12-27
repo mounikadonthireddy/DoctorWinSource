@@ -24,12 +24,12 @@ struct ConnectResource {
             }
         }
     }
-    func getEditProfile(userID: String, completion : @escaping (_ result: ResponseResult<ConnectProfileModel>) -> Void) {
+    func getEditProfile(userID: String, completion : @escaping (_ result: ResponseResult<ConnectProfileResponseModel?>) -> Void) {
         
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.editProfile + ApiEndpoints.userID +  "=\(userID)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.editProfile 
         let httpUtility = HttpUtility()
         do {
-            httpUtility.getApiData(urlString: homeUrlStr, resultType: ConnectProfileModel.self) { result in
+            httpUtility.getApiData(urlString: homeUrlStr, resultType: ConnectProfileResponseModel.self) { result in
                 
                 switch result {
                 case .success(let data):

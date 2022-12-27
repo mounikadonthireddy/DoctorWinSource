@@ -63,13 +63,13 @@ class EditConnectCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func configureCell(data: ConnectProfileModel) {
-        nameTF.text = data.name
-        dobTF.text = "\(data.age) yrs"
+        nameTF.text = data.name ?? ""
+        dobTF.text = "\(data.age ?? 0) yrs"
         genderTF.text = data.gender
         heightTF.text = data.height ?? ""
         bioTF.text = data.intro
         lookingTF.text = data.looking_for ?? ""
-        livingTF.text = data.living_in ?? ""
+        livingTF.text = data.living ?? ""
         schoolTF.text = data.institute ?? ""
         personalityTF.text = data.orientation ?? ""
         qualificationTF.text = data.qualification
@@ -78,8 +78,8 @@ class EditConnectCell: UITableViewCell {
         zodiacTF.text = data.zodiacs
         petsTF.text = data.pets
       
-        interestArray = data.interest ?? []
-        imageArray = data.genderimage ?? []
+       // interestArray = data.interest ?? []
+//        imageArray = data.genderimage ?? []
         zodiacTF.optionArray = ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio","Sagittarius", "Capucorn", "Aquarius", "Pisces"]
         petsTF.optionArray = ["Cat" ,"Dog", "Reptile", "Amphibian" , "Dont have, but love", "Pet free", "App the pets"]
         personalityTF.optionArray = ["Introvert", "Extrovert", "Ambvert"]
@@ -102,7 +102,7 @@ extension EditConnectCell : UICollectionViewDelegate, UICollectionViewDataSource
         if collectionView == InterestCollectionView {
             let cell: CourseNameCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CourseNameCell", for: indexPath) as! CourseNameCell
             
-            cell.name.text = interestArray[indexPath.item].interest
+            cell.name.text = interestArray[indexPath.item].name
             cell.backgroundColor = UIColor.blue
             cell.setCornerRadiusWithBorderColor(radius: 17.5, color: UIColor.secondaryLabel, borderWidth: 0.5)
          
@@ -118,8 +118,8 @@ extension EditConnectCell : UICollectionViewDelegate, UICollectionViewDataSource
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == InterestCollectionView {
-            let size = (interestArray[indexPath.row].interest as NSString).size(withAttributes: nil)
-            return CGSize(width: size.width + 60, height: 30)
+           // let size = (interestArray[indexPath.row].interest as NSString).size(withAttributes: nil)
+            return CGSize(width: 60 + 60, height: 30)
         } else {
         let yourWidth = CGFloat(90)
         return CGSize(width: yourWidth, height: collectionView.bounds.height)
