@@ -8,19 +8,17 @@
 import Foundation
 
 protocol RegisterViewModelDelegate {
-    func didReceiveRegsiterResponse(wilNavigateTo: Bool, error: String?)
-    func didValidated(status: Bool, error: String?)
-    
+    func didReceiveRegsiterResponse(userData: LoginUserDetails?, error: String?)
 }
 
 struct RegisterViewModel {
     var delegate : RegisterViewModelDelegate?
     
     func registerUser(registerRequest: RegisterRequest) {
-        let validationResult = RegisterValidation().Validate(registerRequest: registerRequest)
-        
-        if(validationResult.success) {
-            self.delegate?.didValidated(status: true, error: nil)
+//        let validationResult = RegisterValidation().Validate(registerRequest: registerRequest)
+//
+//        if(validationResult.success) {
+//            self.delegate?.didValidated(status: true, error: nil)
             
             //use loginResource to call login API
             let registerResource = RegisterResource()
@@ -30,28 +28,24 @@ struct RegisterViewModel {
                     
                     switch result {
                     case .success(let data):
-                    if data.message == "Otp sented Successful" {
-                        
-                        UserDefaults.standard.setValue("\(registerRequest.name)", forKey: "username")
-                        UserDefaults.standard.setValue(registerRequest.phoneNumber, forKey: "mobileNum")
-                        self.delegate?.didReceiveRegsiterResponse(wilNavigateTo: false, error: nil)
-                    }
-                    else {
-                        self.delegate?.didReceiveRegsiterResponse(wilNavigateTo: false, error: "Please Try again after sometim")
-                    }
-                 
+                        if data.is_active == true {
+                        self.delegate?.didReceiveRegsiterResponse(userData: data.userDetails, error: nil)
+                  
+                        } else {
+                            self.delegate?.didReceiveRegsiterResponse(userData: nil, error: "error")
+                        }
                     case .failure(let error):
                         
-                        self.delegate?.didReceiveRegsiterResponse(wilNavigateTo: false, error: error)
+                        self.delegate?.didReceiveRegsiterResponse(userData: nil, error: error)
                     }
                 }
             }
-        } else {
-            DispatchQueue.main.async {
-                self.delegate?.didValidated(status: false, error: validationResult.error ?? "")
-            }
+//        } else {
+//            DispatchQueue.main.async {
+//                self.delegate?.didValidated(status: false, error: validationResult.error ?? "")
+//            }
             
-        }
+//        }
     }
 }
 

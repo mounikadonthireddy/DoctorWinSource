@@ -18,7 +18,7 @@ class CourseCategoryCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        courseCollectionView.register(UINib.init(nibName: "NameCell", bundle: nil), forCellWithReuseIdentifier: "NameCell")
+        courseCollectionView.register(UINib.init(nibName: "CarrierCategoryCell", bundle: nil), forCellWithReuseIdentifier: "CarrierCategoryCell")
         self.courseCollectionView.delegate = self
         self.courseCollectionView.dataSource = self
         self.courseCollectionView.backgroundColor = UIColor.white
@@ -47,15 +47,18 @@ extension CourseCategoryCell : UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: NameCell = collectionView.dequeueReusableCell(withReuseIdentifier: "NameCell", for: indexPath) as! NameCell
+        let cell: CarrierCategoryCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CarrierCategoryCell", for: indexPath) as! CarrierCategoryCell
+        
+        cell.jobTypeName.numberOfLines = 0
 
-            cell.name.text = courseArray[indexPath.item].name_of_course ?? ""
-        cell.dropShadow()
+        cell.configureCell(with:  courseArray[indexPath.row])
+       // cell.dropShadow()
         return cell
         
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 160, height: courseCollectionView.frame.height/2)
+        let size = ((courseArray[indexPath.row].name_of_course ?? "") as NSString).size(withAttributes: nil)
+        return CGSize(width: 100, height: 140)
         
     }
     func collectionView(_ collectionView: UICollectionView,

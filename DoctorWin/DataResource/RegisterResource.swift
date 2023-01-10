@@ -8,7 +8,7 @@
 import Foundation
 struct RegisterResource {
     func registerUser(registerRequest: RegisterRequest, completion : @escaping (ResponseResult<LoginResponseModel>) -> Void) {
-        let loginUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.login
+        let loginUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.register
         let homeUrl = URL(string: loginUrlStr)!
 
         let httpUtility = HttpUtility()

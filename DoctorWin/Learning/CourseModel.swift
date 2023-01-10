@@ -83,21 +83,23 @@ struct CoursesCategoryResponseModel: Codable {
 struct CoursesCategoryModel: Codable {
     let name_of_course: String?
     let id: Int
+    let image: String?
 }
 struct CategoryModel: Codable {
     let course: [CoursesCategoryModel]
     
 }
+struct LearningCategoryResponseModel: Codable {
+    let is_active: Bool?
+    let learnResponse: [LearningCategoryModel]?
+}
 struct LearningCategoryModel: Codable {
-    let id: Int
-    let subject_title: String?
-    let lecture_creater_name: String?
+    let id: Int?
+    let name: String?
+    let description: String?
     let image: String?
-    let options: String?
-    let rating: String?
-    let department: String?
     let original_price: String?
     let offer_price: String?
-    let validity: String?
-    let number_of_lession: Int?
+    let videos: Int?
+    let percentage_off: Int?
 }

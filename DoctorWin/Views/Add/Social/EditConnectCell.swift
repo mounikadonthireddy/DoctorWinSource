@@ -26,7 +26,7 @@ class EditConnectCell: UITableViewCell {
     @IBOutlet weak var occupationTF: DropDown!
     @IBOutlet weak var zodiacTF: DropDown!
     @IBOutlet weak var petsTF: DropDown!
-    @IBOutlet weak var courseCollectionView: UICollectionView!
+    @IBOutlet weak var ImagesCollectionView: UICollectionView!
     @IBOutlet weak var collectionViewLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var InterestCollectionView: UICollectionView!
     @IBOutlet weak var collectionViewLayout1: UICollectionViewFlowLayout!
@@ -35,13 +35,13 @@ class EditConnectCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        courseCollectionView.register(UINib.init(nibName: "ImageCell", bundle: nil), forCellWithReuseIdentifier: "ImageCell")
+        ImagesCollectionView.register(UINib.init(nibName: "ImageCell", bundle: nil), forCellWithReuseIdentifier: "ImageCell")
         // Do any additional setup after loading the view.
         InterestCollectionView.register(UINib.init(nibName: "CourseNameCell", bundle: nil), forCellWithReuseIdentifier: "CourseNameCell")
         
-        self.courseCollectionView.delegate = self
-        self.courseCollectionView.dataSource = self
-        self.courseCollectionView.backgroundColor = UIColor.white
+        self.ImagesCollectionView.delegate = self
+        self.ImagesCollectionView.dataSource = self
+        self.ImagesCollectionView.backgroundColor = UIColor.white
         
         self.InterestCollectionView.delegate = self
         self.InterestCollectionView.dataSource = self
@@ -80,12 +80,15 @@ class EditConnectCell: UITableViewCell {
       
        // interestArray = data.interest ?? []
 //        imageArray = data.genderimage ?? []
+        genderTF.optionArray = ApiEndpoints.genderArray
         zodiacTF.optionArray = ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio","Sagittarius", "Capucorn", "Aquarius", "Pisces"]
         petsTF.optionArray = ["Cat" ,"Dog", "Reptile", "Amphibian" , "Dont have, but love", "Pet free", "App the pets"]
         personalityTF.optionArray = ["Introvert", "Extrovert", "Ambvert"]
         heightTF.optionArray = ["5'0","5'1","5'2","5'3","5'4","5'5","5'6","5'7","5'8","5'9","6'0","6'1","6'2","6'3"]
+        qualificationTF.optionArray = ApiEndpoints.qualificationArray
+        professionTF.optionArray = ApiEndpoints.occupationArray
         InterestCollectionView.reloadData()
-        courseCollectionView.reloadData()
+        ImagesCollectionView.reloadData()
     }
     
 }
@@ -121,14 +124,19 @@ extension EditConnectCell : UICollectionViewDelegate, UICollectionViewDataSource
            // let size = (interestArray[indexPath.row].interest as NSString).size(withAttributes: nil)
             return CGSize(width: 60 + 60, height: 30)
         } else {
-        let yourWidth = CGFloat(90)
-        return CGSize(width: yourWidth, height: collectionView.bounds.height)
+            let yourWidth = ImagesCollectionView.frame.width/3
+            let yourHeight = ImagesCollectionView.frame.height/2 - 8
+            return CGSize(width: yourWidth, height: yourHeight)
         }
     }
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4) //.zero
+        if collectionView == InterestCollectionView {
+        return UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
+        } else {
+            return UIEdgeInsets.zero
+        }//.zero
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -141,8 +149,11 @@ extension EditConnectCell : UICollectionViewDelegate, UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        
+        if collectionView == InterestCollectionView {
         return 10
+        } else {
+            return 0
+        }
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -150,4 +161,23 @@ extension EditConnectCell : UICollectionViewDelegate, UICollectionViewDataSource
     }
     
     
+}
+
+struct ConnectProfileRequetModel: Codable {
+    let name: String
+    let intro: String
+    let gender: String
+    let age: String
+    let living: String
+    let qualification: String
+    let profession: String
+    let height: String
+    let looking_for: String
+    let living_in: String
+    let institute: String
+    let orientation: String
+    let zodiacs: String
+    let pets: String
+    let income: String
+    let interest: String
 }

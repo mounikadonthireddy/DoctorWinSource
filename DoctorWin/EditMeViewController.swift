@@ -15,7 +15,7 @@ class EditMeViewController: ViewController {
     var professionalData : ProfessionalDropDownModel!
     var personalEditVM = ProfileEditViewModel()
     var spealityArray: [SpeciltyModel] = []
-    var qualificationArray: [QualificationModel] = []
+   
     var selectedIndex = -1
     @IBOutlet weak var imageView : UIImageView!
     var imageFileName: String = ""
@@ -79,23 +79,7 @@ class EditMeViewController: ViewController {
         
         personalEditVM.getProfessionalDropDownData(userID: User.shared.userID)
     }
-    func downloadQualificationResource() {
-        self.showLoader()
-        let resouce = DropDownResource()
-        resouce.getQualificationData { result in
-            DispatchQueue.main.async {
-                self.dismiss()
-                switch result {
-                case .success(let data ):
-                    self.qualificationArray = data
-                    self.profileTableView.reloadData()
-                case .failure(_):
-                    print("")
-                }
-
-            }
-        }
-    }
+    
     func downloadSpeacilityResource() {
         self.showLoader()
         let resouce = DropDownResource()
@@ -137,7 +121,7 @@ extension EditMeViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.configurePersonalEditCell(data: profileDataModel)
                 cell.profileDelegate = self
                 cell.specilityTF.optionArray = spealityArray.map({ data in
-                    return data.department
+                    return data.Speciality ?? ""
                 })
              
                 return cell

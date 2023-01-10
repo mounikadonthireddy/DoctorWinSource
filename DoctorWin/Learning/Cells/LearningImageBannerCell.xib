@@ -10,32 +10,41 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="211" id="KGk-i7-Jjw" customClass="LearningImageBannerCell" customModule="DoctorWin" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="324" height="211"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="314" id="KGk-i7-Jjw" customClass="LearningImageBannerCell" customModule="DoctorWin" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="328" height="314"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="324" height="211"/>
+                <rect key="frame" x="0.0" y="0.0" width="328" height="314"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginBg" translatesAutoresizingMaskIntoConstraints="NO" id="7nZ-Aw-XHX">
-                        <rect key="frame" x="15" y="30" width="294" height="120"/>
+                        <rect key="frame" x="0.0" y="30" width="328" height="180"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="120" id="aVb-EI-TeM"/>
+                            <constraint firstAttribute="height" constant="180" id="aVb-EI-TeM"/>
                         </constraints>
                     </imageView>
                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="PH7-y3-qG3">
-                        <rect key="frame" x="104" y="155" width="116" height="26"/>
+                        <rect key="frame" x="106" y="172" width="116" height="26"/>
                         <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="currentPageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </pageControl>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newYear" translatesAutoresizingMaskIntoConstraints="NO" id="e1J-Ej-Qc6">
+                        <rect key="frame" x="15" y="220" width="298" height="80"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="80" id="GEL-6t-hff"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="PH7-y3-qG3" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="2KE-F4-I4R"/>
-                    <constraint firstAttribute="bottom" secondItem="7nZ-Aw-XHX" secondAttribute="bottom" priority="999" constant="30" id="6KL-qk-3Oy"/>
-                    <constraint firstItem="7nZ-Aw-XHX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Fhg-Cj-6Cu"/>
-                    <constraint firstItem="PH7-y3-qG3" firstAttribute="top" secondItem="7nZ-Aw-XHX" secondAttribute="bottom" constant="5" id="K1i-6S-YLl"/>
+                    <constraint firstItem="e1J-Ej-Qc6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="9Nu-ud-SoU"/>
+                    <constraint firstItem="7nZ-Aw-XHX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Fhg-Cj-6Cu"/>
+                    <constraint firstAttribute="trailing" secondItem="e1J-Ej-Qc6" secondAttribute="trailing" constant="15" id="Kxo-s5-HLn"/>
+                    <constraint firstAttribute="bottom" secondItem="e1J-Ej-Qc6" secondAttribute="bottom" priority="999" constant="15" id="ReR-Qe-OpX"/>
                     <constraint firstItem="7nZ-Aw-XHX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="30" id="S0G-Ec-bBV"/>
-                    <constraint firstAttribute="trailing" secondItem="7nZ-Aw-XHX" secondAttribute="trailing" constant="15" id="f7f-56-R95"/>
+                    <constraint firstItem="e1J-Ej-Qc6" firstAttribute="top" secondItem="7nZ-Aw-XHX" secondAttribute="bottom" constant="10" id="YJi-fX-IHa"/>
+                    <constraint firstAttribute="trailing" secondItem="7nZ-Aw-XHX" secondAttribute="trailing" id="f7f-56-R95"/>
+                    <constraint firstItem="e1J-Ej-Qc6" firstAttribute="top" secondItem="PH7-y3-qG3" secondAttribute="bottom" constant="22" id="xne-l8-ztt"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -43,10 +52,11 @@
                 <outlet property="imageview" destination="7nZ-Aw-XHX" id="Rxp-yL-zni"/>
                 <outlet property="pageControl" destination="PH7-y3-qG3" id="zt8-b8-ldV"/>
             </connections>
-            <point key="canvasLocation" x="140.57971014492756" y="134.26339285714286"/>
+            <point key="canvasLocation" x="143.47826086956522" y="168.75"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="loginBg" width="375" height="153"/>
+        <image name="newYear" width="1080" height="193"/>
     </resources>
 </document>

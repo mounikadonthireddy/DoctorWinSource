@@ -170,7 +170,7 @@ extension CarrierPageViewController: UITableViewDelegate, UITableViewDataSource 
                 return data.location
             }
             cell.specialityTF.optionArray = speacilityArray.map{ data in
-                return data.department
+                return data.Speciality ?? ""
             }
             cell.designationTF.optionArray = designationArray.map{ data in
                 return data.position
@@ -350,7 +350,7 @@ extension CarrierPageViewController: SearchJobDelegate {
         let str = UIStoryboard(name: "Network", bundle: nil)
         let nextVC = str.instantiateViewController(withIdentifier: "DataViewController") as! DataViewController
         nextVC.inputArray =  speacilityArray.map{ data in
-            return data.department
+            return data.Speciality ?? ""
         }
         
         self.navigationController?.pushViewController(nextVC, animated: true)

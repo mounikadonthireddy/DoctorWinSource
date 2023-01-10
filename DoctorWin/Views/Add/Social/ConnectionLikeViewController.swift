@@ -13,8 +13,8 @@ class ConnectionLikeViewController: ViewController {
     @IBOutlet weak var interfaceSegmented: CustomSegmentedControl!{
         didSet{
             interfaceSegmented.setButtonTitles(buttonTitles: ["Who Likes Me", "My Likes"])
-            interfaceSegmented.selectorViewColor = .blue
-            interfaceSegmented.selectorTextColor = .blue
+            interfaceSegmented.selectorViewColor = UIColor(rgb: 0xF06292)
+            interfaceSegmented.selectorTextColor = UIColor(rgb: 0xF06292)
         }
     }
     var datingVM = LikedDatingViewModel()

@@ -7,67 +7,26 @@
 
 import UIKit
 import iOSDropDown
+import SkyFloatingLabelTextField
 
 class RegisterViewController: ViewController {
-    
-    @IBOutlet weak var MobileTFView: UIView!
-    @IBOutlet weak var nameTFView: UIView!
-    @IBOutlet weak var emailTFView: UIView!
-    @IBOutlet weak var specialityTFView: UIView!
-    @IBOutlet weak var qualificationTFView: UIView!
-    @IBOutlet weak var locationTFView: UIView!
     @IBOutlet weak var nextButton: UIButton!
-
-    @IBOutlet weak  var mobileNumTF: UITextField!
-    @IBOutlet weak  var emailTF: UITextField!
     @IBOutlet weak  var specialityTF: DropDown!
-    @IBOutlet weak  var locationTF: UITextField!
-    @IBOutlet weak  var qualificationTF: DropDown!
-    @IBOutlet weak var userNameTF: UITextField!
-    private var registerViewModel = RegisterViewModel()
+    @IBOutlet weak var userNameTF: SkyFloatingLabelTextField!
     var mobileNum: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
-        self.downloadQualificationResource()
+       
         self.downloadSpeacilityResource()
     }
     func setupUI() {
-        self.MobileTFView.setCornerRadiusWithBorderColor(radius: 10, color: UIColor(rgb: 0x062D88), borderWidth: 1)
-        self.nameTFView.setCornerRadiusWithBorderColor(radius: 10, color: UIColor(rgb: 0x062D88), borderWidth: 1)
-        self.emailTFView.setCornerRadiusWithBorderColor(radius: 10, color: UIColor(rgb: 0x062D88), borderWidth: 1)
-        self.specialityTFView.setCornerRadiusWithBorderColor(radius: 10, color: UIColor(rgb: 0x062D88), borderWidth: 1)
-        self.qualificationTFView.setCornerRadiusWithBorderColor(radius: 10, color: UIColor(rgb: 0x062D88), borderWidth: 1)
-        self.locationTFView.setCornerRadiusWithBorderColor(radius: 10, color: UIColor(rgb: 0x062D88), borderWidth: 1)
+        userNameTF.title = "Full Name*"
         self.specialityTF.placeholder  = "Select Speciality"
-        self.qualificationTF.placeholder  = "Select Highest Qualification"
-
-        registerViewModel.delegate = self
-        if mobileNum != "" {
-            mobileNumTF.text = mobileNum
-        }
-        
         self.nextButton.btn_setCornerRadius(radius: self.nextButton.frame.height/2)
      
     }
-    func downloadQualificationResource() {
-        self.showLoader()
-        let resouce = DropDownResource()
-        resouce.getQualificationData { result in
-            DispatchQueue.main.async {
-                self.dismiss()
-            }
-            switch result {
-                
-            case .success(let data ):
-                self.qualificationTF.optionArray = data.map { data in
-                    return data.qualification
-                }
-            case .failure(_):
-                print("")
-            }
-        }
-    }
+   
     func downloadSpeacilityResource() {
         self.showLoader()
         let resouce = DropDownResource()
@@ -79,7 +38,7 @@ class RegisterViewController: ViewController {
                 
             case .success(let data ):
                 self.specialityTF.optionArray = data.map { data in
-                    return data.department
+                    return data.Speciality ?? ""
                 }
             case .failure(_):
                 print("")
@@ -91,48 +50,22 @@ class RegisterViewController: ViewController {
     }
     
     @IBAction func nextClicked(_ sender: Any) {
-      //  self.showLoader()
-        let request = RegisterRequest(phoneNumber: self.mobileNumTF.text ?? "", name: self.userNameTF.text ?? "", email: emailTF.text ?? "", qualification: qualificationTF.text ?? "", currentLocation: locationTF.text ?? "", speciality: specialityTF.text ?? "")
-        registerViewModel.registerUser(registerRequest: request)
+        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "CreateAccountViewController") as! CreateAccountViewController
+        nextVC.mobileNum = mobileNum
+        nextVC.userName = userNameTF.text ?? ""
+        nextVC.speciality = specialityTF.text ?? ""
+        self.navigationController?.pushViewController(nextVC, animated: true)
+      
     }
     
 }
 
 extension RegisterViewController: UITextFieldDelegate {
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if textField == mobileNumTF {
-            let maxLength = 10
-                let currentString: NSString = textField.text! as NSString
-                let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
-                return newString.length <= maxLength
-        }
-        return true  
-    }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return textField.resignFirstResponder()
     }
 }
-extension RegisterViewController: RegisterViewModelDelegate {
-    func didValidated(status: Bool, error: String?) {
-        if status {
-            self.showLoader()
-        } else {
-           
-            DispatchQueue.main.async {
-                let alert = UIAlertController(title: Constants.ErrorAlertTitle, message: error, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: Constants.OkAlertTitle, style: .default, handler: nil))
-                self.present(alert, animated: true)
-            }
-        }
-    }
-    
-    func didReceiveRegsiterResponse(wilNavigateTo: Bool, error: String?) {
-        self.dismiss()
-        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "OTPViewController") as! OTPViewController
-        nextVC.mobileNumber = self.mobileNumTF.text ?? ""
-        self.navigationController?.pushViewController(nextVC, animated: true)
-    } 
-}
+
 extension NSLayoutConstraint {
     /**
      Change multiplier constraint

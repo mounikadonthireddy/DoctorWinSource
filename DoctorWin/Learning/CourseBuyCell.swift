@@ -24,6 +24,6 @@ class CourseBuyCell: UITableViewCell {
     func cellloadData(data: BuyModel) {
         nameLbl.text = data.name ?? ""
         detailsLbl.text = data.description ?? ""
-        priceLbl.text = "\u{20B9}\(data.price)"
+        priceLbl.text = "\u{20B9}\(data.price ?? 0)"
     }
 }

@@ -176,9 +176,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     @objc func connectClicked(button: UIButton) {
-        if let _ = UserDefaults.standard.value(forKey: "") {
+       
+        let dating = UserDefaults.standard.bool(forKey: "datingProfile")
+        if dating == false {
             let str = UIStoryboard(name: "Network", bundle: nil)
-            let nextVC = str.instantiateViewController(withIdentifier: "ConnectionsViewController") as! ConnectionsViewController
+            let nextVC = str.instantiateViewController(withIdentifier: "ConnectViewController") as! ConnectViewController
             
             self.navigationController?.pushViewController(nextVC, animated: true)
         } else {

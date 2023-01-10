@@ -15,12 +15,15 @@ struct Constants {
 }
 
 struct ApiEndpoints {
+    static let qualificationArray = ["PG MS", "PG MD", "SS DNB", "SS Mch","SS DM", "Nursing GNM", "Nursing Bsc", "Nursing Msc","BDS","MDS","Veternery", "BPT", "MPT", "AYUSH", "AYUSH MD/MS", "Paramedical"]
+    static let occupationArray = ["Java", "Python", "Full Stack", "Database Engineer", "Software Engineer", "Web Developer"]
+    static let genderArray = ["Male", "Female"]
     static let baseImageURL = ""
     static let baseUrl = "http://3.144.164.127:8000/api/"
     static let baseUrl1 = "http://3.136.112.232:8000/api/"
     static let userID = "?dworks_id"
     static let login = "auth/login/"
-    static let register = "auth/registration"
+    static let register = "auth/register"
     static let logout = "auth/logout/"
     static let otp = "auth/verify/otp"
     static let resendOtp = "auth/resend/otp/"
@@ -41,7 +44,7 @@ struct ApiEndpoints {
     static let getJobsLocation = "job/location/"
     static let getnewsCategory = "job/news/category/"
     static let getQualification = "job/search/higher/qualifiction"
-    static let getSpeacilty = "job/department/"
+    static let getSpeacilty = "jobexplore"
     static let getDesignation = "job/designations/"
     static let recentSearch = "job/search/recent"
  
@@ -114,6 +117,7 @@ struct ApiEndpoints {
     static let categories = "learning/category/"
     static let courseDetails = "learning/topic"
     static let curriculamDetails = "learning/subject/"
+  static let getCategoryCourses = "learning/subcategory/selection"
     //MCQ
     static let mcq = "user/question"
     static let attemptedMcq = "user/question/attempt"

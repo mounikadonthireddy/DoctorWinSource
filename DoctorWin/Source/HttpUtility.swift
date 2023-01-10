@@ -192,14 +192,14 @@ class AGUploadImageWebServices {
     private let boundary = "Boundary-\(NSUUID().uuidString)"
     private var request: URLRequest?
     
-    init(url: String, parameter param : [String: Any], inputData:[String:Any]) {
+    init(url: String, parameter param : [String: Any], inputData:[String:Any], method:HTTPMethod) {
         guard let url = URL(string: url) else { return }
         
         request = URLRequest(url: url)
         if User.shared.token != "" {
             request?.setValue("\(User.shared.token)", forHTTPHeaderField: "jwt")
         }
-        request?.httpMethod = "POST"
+        request?.httpMethod = method.rawValue
         request?.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
         request?.httpBody = createBody(with: param, input: inputData, boundary: boundary)
     }

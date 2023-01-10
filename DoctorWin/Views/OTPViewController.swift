@@ -7,7 +7,7 @@
 
 import UIKit
 
-class OTPViewController: UIViewController {
+class OTPViewController: ViewController {
     @IBOutlet weak var otpTF1: UITextField!
     @IBOutlet weak var otpTF2: UITextField!
     @IBOutlet weak var otpTF3: UITextField!
@@ -32,14 +32,14 @@ class OTPViewController: UIViewController {
         self.navigationItem.title = "OTP"
         self.navigationItem.backBarButtonItem?.title = ""
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-       
-            mobileNum.text = "OTP sent via \(mobileNumber)"
-       
+        
+        mobileNum.text = "OTP sent via \(mobileNumber)"
+        
         //updateOTPCount()
         Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateOTPCount), userInfo: nil, repeats: true)
-
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        //        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        //        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
     }
     @objc func keyboardWillShow(notification: NSNotification) {
@@ -49,15 +49,15 @@ class OTPViewController: UIViewController {
             }
         }
     }
-
+    
     @objc func keyboardWillHide(notification: NSNotification) {
         if view.frame.origin.y != 0 {
             self.view.frame.origin.y = 0
         }
     }
     @IBAction func verifyClicked(_ sender: Any) {
- 
-    let otp = self.otpTF1.text! + self.otpTF2.text! + self.otpTF3.text! + self.otpTF4.text!
+        
+        let otp = self.otpTF1.text! + self.otpTF2.text! + self.otpTF3.text! + self.otpTF4.text!
         let request = OTPRequest(phone_number: mobileNumber , otp: otp)
         
         otpVM.validateOTP(request: request)
@@ -76,9 +76,9 @@ class OTPViewController: UIViewController {
                     let alert = UIAlertController(title: nil, message: "OTP Sented Successfully", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: Constants.OkAlertTitle, style: .default, handler: nil))
                     self.present(alert, animated: true)
-                
-                self.updateOTPCount()
-                self.resendBtn.isUserInteractionEnabled = false
+                    
+                    self.updateOTPCount()
+                    self.resendBtn.isUserInteractionEnabled = false
                 }
             }
         } else {
@@ -102,10 +102,10 @@ class OTPViewController: UIViewController {
         }
     }
     func timeFormatted(_ totalSeconds: Int) -> String {
-            let seconds: Int = totalSeconds % 60
-            let minutes: Int = (totalSeconds / 60) % 60
-            return String(format: "%02d:%02d", minutes, seconds) 
-        }
+        let seconds: Int = totalSeconds % 60
+        let minutes: Int = (totalSeconds / 60) % 60
+        return String(format: "%02d:%02d", minutes, seconds)
+    }
 }
 extension OTPViewController: UITextFieldDelegate {
     func textFieldShouldReturnSingle(_ textField: UITextField , newString : String) {
@@ -141,30 +141,38 @@ extension OTPViewController: UITextFieldDelegate {
         otpTF4.resignFirstResponder()
     }
 }
-extension OTPViewController: OTPViewModelDelegate {
-    func didReceiveLoginResponse(wilNavigateTo: NavigationScreen, error: String?) {
+extension OTPViewController: RegisterViewModelDelegate {
+    
+    func didReceiveRegsiterResponse(userData: LoginUserDetails?, error: String?) {
         
-        switch wilNavigateTo {
-        case .register:
+        self.dismiss()
+        if let data = userData {
+         UserDefaults.standard.setValue("\(data.name ?? "")", forKey: "username")
+            UserDefaults.standard.setValue(data.phone_number ?? "", forKey: "mobileNum")
+            UserDefaults.standard.set(data.dating_profile_status, forKey: "datingProfile")
+            UserDefaults.standard.setValue("\(data.token ?? "")", forKey: "token")
+            User.shared.token = data.token ?? ""
+            if data.profile_image == false {
+                let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "ProfilePicViewController") as! ProfilePicViewController
+                
+                self.navigationController?.pushViewController(nextVC, animated: true)
+                
+            } else if data.cover_image == false {
+                let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "CoverPicViewController") as! CoverPicViewController
+                
+                self.navigationController?.pushViewController(nextVC, animated: true)
+            } else {
+                let str = UIStoryboard(name: "Tab", bundle: nil)
+                let nextViewController = str.instantiateViewController(withIdentifier: "tabView")
+                
+                nextViewController.navigationController?.isNavigationBarHidden = true
+                self.navigationController?.pushViewController(nextViewController, animated: true)
+            }
+        } else {
             let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
+            nextVC.mobileNum = mobileNumber
+            
             self.navigationController?.pushViewController(nextVC, animated: true)
-            
-        case .profileImage:
-            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
-            self.navigationController?.pushViewController(nextVC, animated: true)
-            
-        case .coverImage:
-            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
-            self.navigationController?.pushViewController(nextVC, animated: true)
-            
-        case .home:
-            let str = UIStoryboard(name: "Tab", bundle: nil)
-            let nextViewController = str.instantiateViewController(withIdentifier: "tabView")
-            nextViewController.navigationController?.isNavigationBarHidden = true
-            self.navigationController?.pushViewController(nextViewController, animated: true)
-        case .none:
-            print(error ?? "")
-            
         }
         
     }

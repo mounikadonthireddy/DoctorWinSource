@@ -82,7 +82,7 @@ struct GroupModel: Codable {
 }
 struct AdminGroupModel: Codable {
 
-    let name_of_group: String?
+    let name: String?
     let image: String?
     let group_id: String?
     let admin_status: Bool?

@@ -24,7 +24,7 @@ class NetworkCVHeaderTVCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func configureWithConnectionData(data: AdminGroupModel) {
-        self.groupName.text = data.name_of_group ?? ""
+        self.groupName.text = data.name ?? ""
         if data.admin_status == true {
             
         }

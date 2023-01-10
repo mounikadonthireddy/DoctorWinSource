@@ -9,8 +9,8 @@ import UIKit
 
 class ConnectViewController: ViewController {
     @IBOutlet weak var tableView: UITableView!
-    var qualificationArray: [QualificationModel] = []
-    var professionArray: [ProfessionModel] = []
+  
+   
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,8 +18,8 @@ class ConnectViewController: ViewController {
         tableView.register(UINib(nibName: "ConnectCell", bundle: nil), forCellReuseIdentifier: "ConnectCell")
 
         // Do any additional setup after loading the view.
-        downloadQualificationResource()
-        downloadProfessionalResource()
+       
+       
     }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
@@ -29,40 +29,8 @@ class ConnectViewController: ViewController {
     func loadProfileData() {
         
     }
-    func downloadQualificationResource() {
-        self.showLoader()
-        let resouce = DropDownResource()
-        resouce.getQualificationData { result in
-            DispatchQueue.main.async {
-                self.dismiss()
-                switch result {
-                case .success(let data):
-                    self.qualificationArray = data
-                    self.tableView.reloadData()
-                case .failure(_):
-                    self.tableView.reloadData()
-                }
-                
-            }
-        }
-    }
-    func downloadProfessionalResource() {
-        self.showLoader()
-        let resouce = DropDownResource()
-        resouce.getProfessionalData { result in
-            DispatchQueue.main.async {
-                self.dismiss()
-                switch result {
-                case .success(let data):
-                    self.professionArray = data
-                    self.tableView.reloadData()
-                case .failure(_):
-                    self.tableView.reloadData()
-                }
-                
-            }
-        }
-    }
+    
+    
     @IBAction func backClicked(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -84,13 +52,9 @@ extension ConnectViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell:ConnectCell = tableView.dequeueReusableCell(withIdentifier: "ConnectCell") as! ConnectCell
-        cell.professionTF.optionArray = professionArray.map({ data in
-            return data.position
-        })
-        cell.qualificationTF.optionArray = qualificationArray.map({ data in
-            return data.qualification
-        })
-        cell.genderTF.optionArray = ["Male", "Female"]
+        cell.professionTF.optionArray = ApiEndpoints.occupationArray
+        cell.qualificationTF.optionArray = ApiEndpoints.qualificationArray
+        cell.genderTF.optionArray = ApiEndpoints.genderArray
         
      //   cell.cellConfigureWithConnectionData(data: connectionsArray[indexPath.row])
       cell.interest.addTarget(self, action: #selector(interstClicked(button:)), for: .touchUpInside)

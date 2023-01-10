@@ -13,6 +13,8 @@ class LearningCategoryViewController: ViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var vidoes: UIButton!
+    @IBOutlet weak var qBank: UIButton!
     var array: [LearningCategoryModel] = []
     var categoryVm = LearningCategoryViewModel()
     override func viewDidLoad() {
@@ -22,6 +24,8 @@ class LearningCategoryViewController: ViewController {
         categoryVm.delegate = self
         titleLbl.text = "    " + subject
         loadCourses()
+        vidoes.setCornerRadiusWithBorderColor(radius: Float(vidoes.frame.height)/2, color: UIColor(rgb: 0x90FF1A), borderWidth: 0.5)
+        qBank.setCornerRadiusWithBorderColor(radius: Float(qBank.frame.height)/2, color: UIColor(rgb: 0x90FF1A), borderWidth: 0.5)
         // Do any additional setup after loading the view.
     }
     
@@ -29,29 +33,27 @@ class LearningCategoryViewController: ViewController {
         self.navigationController?.popViewController(animated: true)
     }
     func loadCourses() {
-      //  self.showLoader()
-        categoryVm.getCourses(userID: User.shared.userID, subId: subject)
+     self.showLoader()
+        categoryVm.getCourses(userID: User.shared.userID, subId: subjectId)
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func videosClicked(_ sender: UIButton) {
+        vidoes.backgroundColor = UIColor(rgb: 0xDAFFB3)
+        qBank.backgroundColor = .white
     }
-    */
-
+    @IBAction func qBankClicked(_ sender: UIButton) {
+        qBank.backgroundColor = UIColor(rgb: 0xDAFFB3)
+        vidoes.backgroundColor = .white
+    }
 }
 extension LearningCategoryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return array.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: CategoryTVCell
         = tableView.dequeueReusableCell(withIdentifier: "CategoryTVCell") as! CategoryTVCell
-       // cell.configureCell(data: array[indexPath.row])
+        cell.configureCell(data: array[indexPath.row])
        // cell.setBannerImage(data: bannerArray[0])
         return cell
     }

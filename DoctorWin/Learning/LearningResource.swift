@@ -78,11 +78,11 @@ struct LearningResource {
             }
         }
     }
-    func getCategoryBasedCouresesData(userID: String,subId: String, completion : @escaping (_ result: ResponseResult<[LearningCategoryModel]>) -> Void) {
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.courseDetails + "?name=\(subId)"
+    func getCategoryBasedCouresesData(userID: String,subId: String, completion : @escaping (_ result: ResponseResult<LearningCategoryResponseModel?>) -> Void) {
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getCategoryCourses + "?categoryid=\(subId)"
         let httpUtility = HttpUtility()
         do {
-            httpUtility.getApiData(urlString: homeUrlStr, resultType: [LearningCategoryModel].self) { result in
+            httpUtility.getApiData(urlString: homeUrlStr, resultType: LearningCategoryResponseModel.self) { result in
                 
                 switch result {
                 case .success(let data):

@@ -170,7 +170,7 @@ class AddCasesViewController: ViewController {
                 "image": imageUpload1
             ]
 
-            AGUploadImageWebServices(url: url, parameter: parameters, inputData: parm)
+            AGUploadImageWebServices(url: url, parameter: parameters, inputData: parm, method: .post)
                 .responseJSON { (json, eror) in
     
                     self.dismiss()

@@ -91,7 +91,7 @@
             <connections>
                 <outlet property="groupImage" destination="u78-S7-C4n" id="vsW-OL-qAg"/>
                 <outlet property="groupName" destination="YHC-kk-HCN" id="zS3-oc-1oU"/>
-                <outlet property="headerView" destination="51D-z6-UsE" id="EZc-fk-c6e"/>
+                <outlet property="headerView" destination="wBu-2V-Dif" id="nnj-04-rkh"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="78.348214285714278"/>
         </tableViewCell>

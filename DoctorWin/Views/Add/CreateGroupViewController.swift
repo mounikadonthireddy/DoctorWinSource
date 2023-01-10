@@ -61,7 +61,7 @@ class CreateGroupViewController: ViewController {
             "cover_image": imageUpload2
         ]
 
-        AGUploadImageWebServices(url: url, parameter: parameters, inputData: param)
+        AGUploadImageWebServices(url: url, parameter: parameters, inputData: param, method: .post)
             .responseJSON { (json, eror) in
                 self.dismiss()
             debugPrint(json)

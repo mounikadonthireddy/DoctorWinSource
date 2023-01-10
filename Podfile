@@ -8,10 +8,7 @@ target 'DoctorWin' do
   # Pods for DoctorWin
   pod 'SDWebImage', '~> 5.0'
   pod 'iOSDropDown'
-  pod 'MaterialComponents/TextControls+OutlinedTextAreas'
-  pod 'MaterialComponents/TextControls+OutlinedTextFields'
-  pod 'MaterialComponents/TextControls+FilledTextAreas'
-  pod 'MaterialComponents/TextControls+FilledTextFields'
+  pod 'SkyFloatingLabelTextField', '~> 3.0'
   pod 'Alamofire', '~> 5.4'
   pod "ExpandableLabel"
   pod "SkeletonView"

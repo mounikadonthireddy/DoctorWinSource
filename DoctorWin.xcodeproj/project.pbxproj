@@ -263,6 +263,7 @@
 		BFD5FF2C2812EECE003CE888 /* NewsDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5FF2A2812EECE003CE888 /* NewsDetailsCell.swift */; };
 		BFD5FF2D2812EECE003CE888 /* NewsDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFD5FF2B2812EECE003CE888 /* NewsDetailsCell.xib */; };
 		BFD5FF2F2813048E003CE888 /* CarrierTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5FF2E2813048D003CE888 /* CarrierTabViewController.swift */; };
+		DC103DE6296C3B2F00A4FD4D /* LearningImageBannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF1B4A028F71251007F4FA3 /* LearningImageBannerCell.swift */; };
 		DC3A6A2628EFFBDF006F73A2 /* ShopDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3A6A2428EFFBDF006F73A2 /* ShopDetailsCell.swift */; };
 		DC3A6A2728EFFBDF006F73A2 /* ShopDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC3A6A2528EFFBDF006F73A2 /* ShopDetailsCell.xib */; };
 		DC3A6A2A28F07873006F73A2 /* ImageSwipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3A6A2828F07873006F73A2 /* ImageSwipeCell.swift */; };
@@ -348,6 +349,9 @@
 		DC961EAF2876E17C00F24913 /* EditConnectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC961EAD2876E17C00F24913 /* EditConnectCell.xib */; };
 		DC96D3B8292B9C3300F4CCF9 /* ImageCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC96D3B6292B9C3300F4CCF9 /* ImageCVCell.xib */; };
 		DC96D3B9292B9C3300F4CCF9 /* ImageCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC96D3B7292B9C3300F4CCF9 /* ImageCVCell.swift */; };
+		DC97A6FD295D9E5C00E24D6B /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC97A6FC295D9E5C00E24D6B /* CreateAccountViewController.swift */; };
+		DC97A6FF295D9E7B00E24D6B /* ProfilePicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC97A6FE295D9E7B00E24D6B /* ProfilePicViewController.swift */; };
+		DC97A701295D9E8A00E24D6B /* CoverPicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC97A700295D9E8A00E24D6B /* CoverPicViewController.swift */; };
 		DC9AB74728F830C300C6043E /* CurriculamHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9AB74528F830C300C6043E /* CurriculamHeaderCell.swift */; };
 		DC9AB74828F830C300C6043E /* CurriculamHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC9AB74628F830C300C6043E /* CurriculamHeaderCell.xib */; };
 		DC9AB74B28F830DD00C6043E /* CurriculamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9AB74928F830DD00C6043E /* CurriculamCell.swift */; };
@@ -785,6 +789,9 @@
 		DC961EAD2876E17C00F24913 /* EditConnectCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditConnectCell.xib; sourceTree = "<group>"; };
 		DC96D3B6292B9C3300F4CCF9 /* ImageCVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCVCell.xib; sourceTree = "<group>"; };
 		DC96D3B7292B9C3300F4CCF9 /* ImageCVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCVCell.swift; sourceTree = "<group>"; };
+		DC97A6FC295D9E5C00E24D6B /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		DC97A6FE295D9E7B00E24D6B /* ProfilePicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePicViewController.swift; sourceTree = "<group>"; };
+		DC97A700295D9E8A00E24D6B /* CoverPicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverPicViewController.swift; sourceTree = "<group>"; };
 		DC9AB74528F830C300C6043E /* CurriculamHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurriculamHeaderCell.swift; sourceTree = "<group>"; };
 		DC9AB74628F830C300C6043E /* CurriculamHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurriculamHeaderCell.xib; sourceTree = "<group>"; };
 		DC9AB74928F830DD00C6043E /* CurriculamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurriculamCell.swift; sourceTree = "<group>"; };
@@ -1202,6 +1209,9 @@
 			isa = PBXGroup;
 			children = (
 				439297B92722D639001891B8 /* RegisterViewController.swift */,
+				DC97A6FC295D9E5C00E24D6B /* CreateAccountViewController.swift */,
+				DC97A6FE295D9E7B00E24D6B /* ProfilePicViewController.swift */,
+				DC97A700295D9E8A00E24D6B /* CoverPicViewController.swift */,
 				43AF8FAE2733D5B800CC69EF /* RegisterDetailsViewController.swift */,
 			);
 			path = Register;
@@ -2045,6 +2055,7 @@
 				DC8AE24C286E0306003376A7 /* ShopDetailsViewModel.swift in Sources */,
 				BFD5FF2F2813048E003CE888 /* CarrierTabViewController.swift in Sources */,
 				DC3A6A2A28F07873006F73A2 /* ImageSwipeCell.swift in Sources */,
+				DC97A701295D9E8A00E24D6B /* CoverPicViewController.swift in Sources */,
 				DCF1B49728F6F11F007F4FA3 /* PopularCell.swift in Sources */,
 				BF431CA0278442D00057AF9F /* DummyCell.swift in Sources */,
 				43B03A9C272EAF6300A4337B /* CommentsCell.swift in Sources */,
@@ -2181,6 +2192,7 @@
 				BF170F4C28084966001B3109 /* ProfileViewController.swift in Sources */,
 				BF170F85281119ED001B3109 /* JobDetailsCell.swift in Sources */,
 				43B03A95272E4B2D00A4337B /* JobDetailsViewController.swift in Sources */,
+				DC97A6FD295D9E5C00E24D6B /* CreateAccountViewController.swift in Sources */,
 				43B23203273AA67100038F8A /* AppliedJobViewController.swift in Sources */,
 				DCA0A6F228C4DCF1001DE3F1 /* QACell.swift in Sources */,
 				DC9539C1285C5BCA00FBD8D0 /* CasesDataModel.swift in Sources */,
@@ -2214,6 +2226,7 @@
 				DC885E3F28D8956800110418 /* CreateGroupViewController.swift in Sources */,
 				43953E8E273E9DC40027CE80 /* JobCategoryCollectionView.swift in Sources */,
 				43D04BD22742892600414771 /* EditSkillCell.swift in Sources */,
+				DC97A6FF295D9E7B00E24D6B /* ProfilePicViewController.swift in Sources */,
 				435FB5622750BC4B0040C406 /* CarrierViewModel.swift in Sources */,
 				DCA0A6DC28C10079001DE3F1 /* EditProfessionalDetailsCell.swift in Sources */,
 				DC8AE24E286E0ADB003376A7 /* ShopCategoryViewController.swift in Sources */,
@@ -2306,6 +2319,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				439297AB2722D629001891B8 /* DoctorWinUITests.swift in Sources */,
+				DC103DE6296C3B2F00A4FD4D /* LearningImageBannerCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

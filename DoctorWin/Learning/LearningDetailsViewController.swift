@@ -23,27 +23,14 @@ class LearningDetailsViewController: ViewController {
 
         detailsVM.delegate = self
         loadCourseDetails()
-        loadCurriculamDetails()
+      
         // Do any additional setup after loading the view.
     }
     func loadCourseDetails() {
-       // self.showLoader()
+       self.showLoader()
         detailsVM.getElearningCourseDetails(userID: User.shared.userID, subjectId: subject)
     }
-    func loadCurriculamDetails() {
-       // self.showLoader()
-        detailsVM.getCurriculamDetails(userID: User.shared.userID, subjectId: subject)
-    }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }
 extension LearningDetailsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -107,11 +94,7 @@ extension LearningDetailsViewController: UITableViewDelegate, UITableViewDataSou
     
 }
 extension LearningDetailsViewController: LearningDetailsVieModelDelegate {
-    func didReciveCurriculamDetails(response: [CurriculamModel]?, error: String?) {
-        self.dismiss()
-        curriculamArray = response ?? []
-        tableView.reloadData()
-    }
+    
     
     func didReciveCourseDetails(response: CourseDetailsModel?, error: String?) {
         self.dismiss()

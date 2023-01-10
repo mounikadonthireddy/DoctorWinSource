@@ -10,10 +10,9 @@ import UIKit
 class CategoryTVCell: UITableViewCell {
     @IBOutlet weak var courseImage: UIImageView!
     @IBOutlet weak var courseName: UILabel!
-    @IBOutlet weak var courseDuration: UILabel!
     @IBOutlet weak var actualPrice: UILabel!
     @IBOutlet weak var discountPrice: UILabel!
-    @IBOutlet weak var courseVidoes: UILabel!
+    @IBOutlet weak var discount: UILabel!
     @IBOutlet weak var courseTime: UILabel!
     @IBOutlet weak var departmentLbl: UILabel!
     @IBOutlet weak var rating: UILabel!
@@ -29,13 +28,13 @@ class CategoryTVCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func configureCell(data: LearningCategoryModel) {
-        courseName.text = data.subject_title ?? ""
+        courseName.text = data.name ?? ""
        // courseTime.text = data.duration ?? ""
-        courseVidoes.text = "\(data.number_of_lession ?? 0)"
-        rating.text = "(" +  "\(data.rating ?? "")" + ")"
+        rating.text = "\(data.videos ?? 0) Modules"
+        discount.text = "\(data.percentage_off ?? 0)% Off"
         actualPrice.text = "\u{20B9} " + ( data.original_price ?? "")
-        discountPrice.text =   data.offer_price ?? ""
-        departmentLbl.text = data.department ?? ""
+        discountPrice.text =  "\u{20B9} "  + ( data.offer_price ?? "")
+        departmentLbl.text = data.description ?? ""
         if let urlString = data.image {
             self.courseImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
         }

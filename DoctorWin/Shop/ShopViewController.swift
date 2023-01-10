@@ -15,6 +15,7 @@ class ShopViewController: ViewController {
     var bannerArray : [ImageBannerModel] = []
     @IBOutlet weak var shopCollectionView: UICollectionView!
     @IBOutlet weak var shopView: UIView!
+    @IBOutlet weak var searchBtn: UIButton!
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     @IBOutlet weak var bannerCollectionView: UICollectionView!
     @IBOutlet weak var shopCVLayout: UICollectionViewFlowLayout!
@@ -24,6 +25,7 @@ class ShopViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         shopView.dropShadow()
+        searchBtn.setCornerRadius(radius: Float(searchBtn.frame.height)/2)
         bannerCVHeight.constant = 0
         categoryCollectionView.register(UINib.init(nibName: "ShopCategoryCell", bundle: nil), forCellWithReuseIdentifier: "ShopCategoryCell")
         shopCollectionView.register(UINib.init(nibName: "ShopCell", bundle: nil), forCellWithReuseIdentifier: "ShopCell")
@@ -67,15 +69,7 @@ class ShopViewController: ViewController {
     @IBAction func backClicked(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     @IBAction func wishlistClicked(_ sender: Any) {
         let str = UIStoryboard(name: "Shop", bundle: nil)
         let nextVC = str.instantiateViewController(withIdentifier: "ShopWishlistViewController") as! ShopWishlistViewController
@@ -124,6 +118,7 @@ extension ShopViewController : UICollectionViewDelegate, UICollectionViewDataSou
             return cell
         }
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
         if collectionView == categoryCollectionView {
@@ -159,6 +154,7 @@ extension ShopViewController : UICollectionViewDelegate, UICollectionViewDataSou
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == shopCollectionView {
             let str = UIStoryboard(name: "Shop", bundle: nil)

@@ -15,21 +15,11 @@ struct LoginRequest : Encodable {
     }
 }
 struct RegisterRequest : Encodable {
-    let phoneNumber: String
+    let phone_number: String
     let name: String
     let email: String
-    let qualification: String
-    let currentLocation: String
     let speciality: String
-    
-    enum CodingKeys: String,CodingKey {
-        case phoneNumber = "phone_number"
-        case name = "profile_name"
-        case email  = "email"
-        case qualification = "hightest_qualification"
-        case currentLocation = "current_job_location"
-        case speciality = "speciality"
-    }
+    let password: String
 }
 
 struct OTPRequest: Encodable {

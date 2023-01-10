@@ -47,7 +47,7 @@ class SaleViewController: ViewController {
             "image": imageUpload
         ]
         let url = ApiEndpoints.baseUrl + ApiEndpoints.postProduct
-        AGUploadImageWebServices(url: url, parameter: parameters, inputData: inputDict )
+        AGUploadImageWebServices(url: url, parameter: parameters, inputData: inputDict, method: .post )
             .responseJSON { (json, eror) in
                 self.dismiss()
             debugPrint(json)

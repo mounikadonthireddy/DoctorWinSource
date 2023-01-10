@@ -18,7 +18,12 @@ struct LearningCategoryViewModel {
             DispatchQueue.main.async {
                 switch response {
                 case .success(let data):
-                    self.delegate?.didReciveCategoyBasedCourses(response: data, error: nil)
+                    if data?.is_active == true {
+                        self.delegate?.didReciveCategoyBasedCourses(response: data?.learnResponse, error: nil)
+                    } else {
+                        self.delegate?.didReciveCategoyBasedCourses(response: nil, error: "error")
+                    }
+                   
                     
                 case .failure(let error):
                     self.delegate?.didReciveCategoyBasedCourses(response: nil, error: error)

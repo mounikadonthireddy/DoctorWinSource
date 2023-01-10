@@ -26,23 +26,4 @@ struct LearningDetailsResource {
             }
         }
     }
-    func getElearningCurriculamData(userID: String,subjectId: String, completion : @escaping (_ result: ResponseResult<[CurriculamModel]>) -> Void) {
-        
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.curriculamDetails + "?subject=\(subjectId)"
-        
-        let httpUtility = HttpUtility()
-        do {
-            httpUtility.getApiData(urlString: homeUrlStr, resultType: [CurriculamModel].self) { result in
-                
-                switch result {
-                case .success(let data):
-                    completion(.success(data))
-                    
-                case .failure( let error):
-                    completion(.failure(error.rawValue))
-                    
-                }
-            }
-        }
-    }
 }

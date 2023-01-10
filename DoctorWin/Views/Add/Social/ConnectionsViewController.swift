@@ -10,6 +10,11 @@ import UIKit
 class ConnectionsViewController: ViewController {
     var views : [UIView]!
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var btn1: UIButton!
+    @IBOutlet weak var btn2: UIButton!
+    @IBOutlet weak var btn3: UIButton!
+    @IBOutlet weak var btn4: UIButton!
+ 
     @IBOutlet weak var headerView: UIView!
     lazy var vc1: MatchesViewController = {
         
@@ -53,6 +58,10 @@ class ConnectionsViewController: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        btn1.alignVertical()
+        btn2.alignVertical()
+        btn3.alignVertical()
+        btn4.alignVertical()
         headerView.dropShadow()
         views = [UIView]()
         views.append(vc1.view)
@@ -82,6 +91,46 @@ class ConnectionsViewController: ViewController {
         self.navigationController?.popViewController(animated: true)
     }
     @IBAction func segmentBtnClicked(_ sender: UIButton) {
+        switch sender.tag {
+        case 0:
+            btn1.setTitleColor(UIColor(rgb: 0xF06292), for: .normal)
+            btn2.setTitleColor(.black, for: .normal)
+            btn3.setTitleColor(.black, for: .normal)
+            btn4.setTitleColor(.black, for: .normal)
+            btn1.tintColor = UIColor(rgb: 0xF06292)
+            btn2.tintColor = .black
+            btn3.tintColor = .black
+            btn4.tintColor = .black
+        case 1:
+            btn2.setTitleColor(UIColor(rgb: 0xF06292), for: .normal)
+            btn1.setTitleColor(.black, for: .normal)
+            btn3.setTitleColor(.black, for: .normal)
+            btn4.setTitleColor(.black, for: .normal)
+            btn2.tintColor = UIColor(rgb: 0xF06292)
+            btn1.tintColor = .black
+            btn3.tintColor = .black
+            btn4.tintColor = .black
+        case 2:
+            btn3.setTitleColor(UIColor(rgb: 0xF06292), for: .normal)
+            btn2.setTitleColor(.black, for: .normal)
+            btn1.setTitleColor(.black, for: .normal)
+            btn4.setTitleColor(.black, for: .normal)
+            btn3.tintColor = UIColor(rgb: 0xF06292)
+            btn2.tintColor = .black
+            btn1.tintColor = .black
+            btn4.tintColor = .black
+        case 3:
+            btn4.setTitleColor(UIColor(rgb: 0xF06292), for: .normal)
+            btn2.setTitleColor(.black, for: .normal)
+            btn3.setTitleColor(.black, for: .normal)
+            btn1.setTitleColor(.black, for: .normal)
+            btn4.tintColor = UIColor(rgb: 0xF06292)
+            btn2.tintColor = .black
+            btn3.tintColor = .black
+            btn1.tintColor = .black
+        default:
+            print("nothing selected")
+        }
         self.containerView.bringSubviewToFront(views[sender.tag])
     }
     /*
@@ -94,4 +143,18 @@ class ConnectionsViewController: ViewController {
     }
     */
 
+}
+extension UIButton {
+    func alignVertical(spacing: CGFloat = 6.0) {
+        guard let imageSize = self.imageView?.image?.size,
+            let text = self.titleLabel?.text,
+            let font = self.titleLabel?.font
+            else { return }
+        self.titleEdgeInsets = UIEdgeInsets(top: 0.0, left: -imageSize.width, bottom: -(imageSize.height + spacing), right: 0.0)
+        let labelString = NSString(string: text)
+        let titleSize = labelString.size(withAttributes: [kCTFontAttributeName as NSAttributedString.Key: font])
+        self.imageEdgeInsets = UIEdgeInsets(top: -(titleSize.height + spacing), left: 0.0, bottom: 0.0, right: -titleSize.width)
+        let edgeOffset = abs(titleSize.height - imageSize.height) / 2.0;
+        self.contentEdgeInsets = UIEdgeInsets(top: edgeOffset, left: 0.0, bottom: edgeOffset, right: 0.0)
+    }
 }

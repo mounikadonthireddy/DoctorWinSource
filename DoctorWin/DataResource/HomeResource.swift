@@ -13,7 +13,7 @@ enum ResponseResult<Value> {
 
 struct HomeResource {
     func getHomeData(pageNum: Int, completion : @escaping (_ result: ResponseResult<HomeResponseModel>) -> Void) {
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.homeApi + "?page=\(pageNum)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.homeApi + "?page=\(pageNum)&limit=10"
         let httpUtility = HttpUtility()
         do {
             httpUtility.getApiData(urlString: homeUrlStr, resultType: HomeResponseModel.self) { result in
