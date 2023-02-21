@@ -8,6 +8,8 @@
 import Foundation
 protocol EditConnectProfileDelegate {
     func didProfileData(response: ConnectProfileResponseModel?, error: String?)
+    func didProfileImageData(response: DatingImagesResponseModel?, error: String?)
+    func updateProfile(response: BoolResponseModel?, error: String?)
 }
 struct EditConnectViewModel {
     var delegate :  EditConnectProfileDelegate?
@@ -22,6 +24,36 @@ struct EditConnectViewModel {
                     
                 case .failure(let error):
                     self.delegate?.didProfileData(response: nil, error: error)
+                }
+                
+            }
+        }
+    }
+    func UpdateProfileData(request: ConnectProfileRequetModel) {
+        let homeResource = ConnectResource()
+        homeResource.UpdateProfile(request: request) { response in
+            DispatchQueue.main.async {
+                switch response {
+                case .success(let data):
+                    self.delegate?.updateProfile(response: data, error: nil)
+                    
+                case .failure(let error):
+                    self.delegate?.updateProfile(response: nil, error: error)
+                }
+                
+            }
+        }
+    }
+    func loadImagesData(userId: String) {
+        let homeResource = ConnectResource()
+        homeResource.getProfileImages(userID: userId) { response in
+            DispatchQueue.main.async {
+                switch response {
+                case .success(let data):
+                    self.delegate?.didProfileImageData(response: data, error: nil)
+                    
+                case .failure(let error):
+                    self.delegate?.didProfileImageData(response: nil, error: error)
                 }
                 
             }
@@ -56,4 +88,8 @@ struct ConnectProfileModel: Codable {
 struct EditInterestModel: Codable {
     let interestid: String
     let interest: [ProfileInterestModel]
+}
+struct DatingImagesResponseModel: Codable {
+    let is_active: Bool?
+    let datingResponse: [GenderImageModel]?
 }

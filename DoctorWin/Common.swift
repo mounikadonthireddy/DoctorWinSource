@@ -18,8 +18,8 @@ struct ApiEndpoints {
     static let qualificationArray = ["PG MS", "PG MD", "SS DNB", "SS Mch","SS DM", "Nursing GNM", "Nursing Bsc", "Nursing Msc","BDS","MDS","Veternery", "BPT", "MPT", "AYUSH", "AYUSH MD/MS", "Paramedical"]
     static let occupationArray = ["Java", "Python", "Full Stack", "Database Engineer", "Software Engineer", "Web Developer"]
     static let genderArray = ["Male", "Female"]
-    static let baseImageURL = ""
-    static let baseUrl = "http://3.144.164.127:8000/api/"
+    static let baseImageURL = "https://api.drworld.in/"
+    static let baseUrl = "https://api.drworld.in/api/"
     static let baseUrl1 = "http://3.136.112.232:8000/api/"
     static let userID = "?dworks_id"
     static let login = "auth/login/"
@@ -98,10 +98,11 @@ struct ApiEndpoints {
     //connect
     static let getProfession = "connect/dating/profession"
     static let editProfile = "dating/profile/create/"
+    static let getDatingImages = "dating/image"
     //Carrier
     static let jobDetails = "alljobs"
   
-    static let getInterest = "connect/dating/interest"
+    static let getInterest = "dating/interest"
     //Shop
     static let shopData = "sale/product"
     static let shopCategory = "sale/category"
@@ -113,11 +114,12 @@ struct ApiEndpoints {
     //Elearning
     static let learningBanner = "admin/banner/get?name=elearningimage"
     static let trendingCourses = "learning/trending"
-    static let courses = "learning/category/"
+    static let fellowship = "learning/followship/?q=image"
     static let categories = "learning/category/"
     static let courseDetails = "learning/topic"
     static let curriculamDetails = "learning/subject/"
   static let getCategoryCourses = "learning/subcategory/selection"
+    static let getFellowship = "learning/followship/courses"
     //MCQ
     static let mcq = "user/question"
     static let attemptedMcq = "user/question/attempt"

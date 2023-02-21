@@ -28,7 +28,7 @@ class RegisterViewController: ViewController {
     }
    
     func downloadSpeacilityResource() {
-        self.showLoader()
+        //self.showLoader()
         let resouce = DropDownResource()
         resouce.getSpecilityData { result in
             DispatchQueue.main.async {

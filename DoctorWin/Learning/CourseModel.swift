@@ -11,7 +11,14 @@ struct CoursesModel: Codable {
     let name: String?
     let course: [CourseModel]?
 }
-
+struct FellowshipResponseModel: Codable {
+    let subcategoryResponse: [FellowshipModel]?
+    let is_active: Bool?
+}
+struct FellowshipModel: Codable {
+    let image: String?
+    let subcategory: String?
+}
 struct CourseModel: Codable {
     let id: Int
     let category: String?
@@ -101,5 +108,7 @@ struct LearningCategoryModel: Codable {
     let original_price: String?
     let offer_price: String?
     let videos: Int?
+    let duration: String?
     let percentage_off: Int?
+    let subcategory: String?
 }

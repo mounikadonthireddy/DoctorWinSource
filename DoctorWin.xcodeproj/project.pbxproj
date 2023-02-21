@@ -264,6 +264,9 @@
 		BFD5FF2D2812EECE003CE888 /* NewsDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFD5FF2B2812EECE003CE888 /* NewsDetailsCell.xib */; };
 		BFD5FF2F2813048E003CE888 /* CarrierTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5FF2E2813048D003CE888 /* CarrierTabViewController.swift */; };
 		DC103DE6296C3B2F00A4FD4D /* LearningImageBannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF1B4A028F71251007F4FA3 /* LearningImageBannerCell.swift */; };
+		DC103DE9296D682700A4FD4D /* TrendingCourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC103DE7296D682700A4FD4D /* TrendingCourseCell.swift */; };
+		DC103DEA296D682700A4FD4D /* TrendingCourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC103DE8296D682700A4FD4D /* TrendingCourseCell.xib */; };
+		DC103DEC296EB4DF00A4FD4D /* FellowshipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC103DEB296EB4DF00A4FD4D /* FellowshipViewController.swift */; };
 		DC3A6A2628EFFBDF006F73A2 /* ShopDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3A6A2428EFFBDF006F73A2 /* ShopDetailsCell.swift */; };
 		DC3A6A2728EFFBDF006F73A2 /* ShopDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC3A6A2528EFFBDF006F73A2 /* ShopDetailsCell.xib */; };
 		DC3A6A2A28F07873006F73A2 /* ImageSwipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3A6A2828F07873006F73A2 /* ImageSwipeCell.swift */; };
@@ -389,6 +392,9 @@
 		DCA0A6F928C610F8001DE3F1 /* GroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA0A6F828C610F8001DE3F1 /* GroupViewModel.swift */; };
 		DCA0A6FB28C61109001DE3F1 /* PeopleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA0A6FA28C61109001DE3F1 /* PeopleViewModel.swift */; };
 		DCA0A6FD28C757EC001DE3F1 /* UserDetailsResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA0A6FC28C757EC001DE3F1 /* UserDetailsResource.swift */; };
+		DCAE86B6297437ED004D85D5 /* FellowshipTVell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAE86B4297437ED004D85D5 /* FellowshipTVell.swift */; };
+		DCAE86B7297437ED004D85D5 /* FellowshipTVell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCAE86B5297437ED004D85D5 /* FellowshipTVell.xib */; };
+		DCAE86B92974F46F004D85D5 /* FellowshipViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAE86B82974F46F004D85D5 /* FellowshipViewModel.swift */; };
 		DCB7D1E1284B536200F3CFDE /* BookMarkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB7D1E0284B536200F3CFDE /* BookMarkViewModel.swift */; };
 		DCB7D1E3284B635800F3CFDE /* LikedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB7D1E2284B635800F3CFDE /* LikedViewModel.swift */; };
 		DCB7D1E5284C7EB700F3CFDE /* ImageDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB7D1E4284C7EB700F3CFDE /* ImageDetailsViewController.swift */; };
@@ -706,6 +712,9 @@
 		BFD5FF2B2812EECE003CE888 /* NewsDetailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsDetailsCell.xib; sourceTree = "<group>"; };
 		BFD5FF2E2813048D003CE888 /* CarrierTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrierTabViewController.swift; sourceTree = "<group>"; };
 		CFDC4F24275C623FA5230FA3 /* Pods-DoctorWin-DoctorWinUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorWin-DoctorWinUITests.release.xcconfig"; path = "Target Support Files/Pods-DoctorWin-DoctorWinUITests/Pods-DoctorWin-DoctorWinUITests.release.xcconfig"; sourceTree = "<group>"; };
+		DC103DE7296D682700A4FD4D /* TrendingCourseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCourseCell.swift; sourceTree = "<group>"; };
+		DC103DE8296D682700A4FD4D /* TrendingCourseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrendingCourseCell.xib; sourceTree = "<group>"; };
+		DC103DEB296EB4DF00A4FD4D /* FellowshipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FellowshipViewController.swift; sourceTree = "<group>"; };
 		DC3A6A2428EFFBDF006F73A2 /* ShopDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDetailsCell.swift; sourceTree = "<group>"; };
 		DC3A6A2528EFFBDF006F73A2 /* ShopDetailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopDetailsCell.xib; sourceTree = "<group>"; };
 		DC3A6A2828F07873006F73A2 /* ImageSwipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSwipeCell.swift; sourceTree = "<group>"; };
@@ -829,6 +838,9 @@
 		DCA0A6F828C610F8001DE3F1 /* GroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewModel.swift; sourceTree = "<group>"; };
 		DCA0A6FA28C61109001DE3F1 /* PeopleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewModel.swift; sourceTree = "<group>"; };
 		DCA0A6FC28C757EC001DE3F1 /* UserDetailsResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsResource.swift; sourceTree = "<group>"; };
+		DCAE86B4297437ED004D85D5 /* FellowshipTVell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FellowshipTVell.swift; sourceTree = "<group>"; };
+		DCAE86B5297437ED004D85D5 /* FellowshipTVell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FellowshipTVell.xib; sourceTree = "<group>"; };
+		DCAE86B82974F46F004D85D5 /* FellowshipViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FellowshipViewModel.swift; sourceTree = "<group>"; };
 		DCB7D1E0284B536200F3CFDE /* BookMarkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarkViewModel.swift; sourceTree = "<group>"; };
 		DCB7D1E2284B635800F3CFDE /* LikedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedViewModel.swift; sourceTree = "<group>"; };
 		DCB7D1E4284C7EB700F3CFDE /* ImageDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailsViewController.swift; sourceTree = "<group>"; };
@@ -1622,8 +1634,14 @@
 			children = (
 				DC3A6A2F28F1A3AF006F73A2 /* Cells */,
 				DCF1B49A28F71060007F4FA3 /* LearningViewController.swift */,
+				DC103DEB296EB4DF00A4FD4D /* FellowshipViewController.swift */,
+				DCAE86B4297437ED004D85D5 /* FellowshipTVell.swift */,
+				DCAE86B5297437ED004D85D5 /* FellowshipTVell.xib */,
 				DC9AB75928F8550B00C6043E /* CourseCategoryCell.swift */,
+				DCAE86B82974F46F004D85D5 /* FellowshipViewModel.swift */,
 				DC9AB75A28F8550B00C6043E /* CourseCategoryCell.xib */,
+				DC103DE7296D682700A4FD4D /* TrendingCourseCell.swift */,
+				DC103DE8296D682700A4FD4D /* TrendingCourseCell.xib */,
 				DCEA4B522951A3200033FBA7 /* CourseBuyCell.swift */,
 				DCEA4B532951A3200033FBA7 /* CourseBuyCell.xib */,
 				DCF1B4B028F7FE9C007F4FA3 /* LearningDetailsHeaderCell.swift */,
@@ -1830,6 +1848,7 @@
 				43B975A127258A0000CDF2F1 /* HomeTableCell.xib in Resources */,
 				439923D0272BD8D30085E067 /* JobsCollectionCell.xib in Resources */,
 				BF30C7D7277AEE240047E277 /* SearchJobCell.xib in Resources */,
+				DCAE86B7297437ED004D85D5 /* FellowshipTVell.xib in Resources */,
 				BF170F5D280D9B08001B3109 /* NetworkCell.xib in Resources */,
 				439297922722D629001891B8 /* Assets.xcassets in Resources */,
 				439297C92722F0E6001891B8 /* NewsCell.xib in Resources */,
@@ -1885,6 +1904,7 @@
 				BF170F63280FCE49001B3109 /* CaseCell.xib in Resources */,
 				DC885E3928D20A3300110418 /* TrendingQuestionHeaderView.xib in Resources */,
 				439DC46B273FB28800DAD6D5 /* Roboto-Light.ttf in Resources */,
+				DC103DEA296D682700A4FD4D /* TrendingCourseCell.xib in Resources */,
 				439275D42727D11E00E91E33 /* SelfStoryCell.xib in Resources */,
 				BFB3A6642834F02B008D0C72 /* CarrierJobDetailHeaderView.xib in Resources */,
 				BF170F50280D34CA001B3109 /* ProfileViewHeader.xib in Resources */,
@@ -2079,6 +2099,7 @@
 				BF170F6F280FD67F001B3109 /* CaseDetailsViewController.swift in Sources */,
 				4347EF462746594800E634E9 /* HomeResource.swift in Sources */,
 				BF170F53280D34E2001B3109 /* ProfileViewFooter.swift in Sources */,
+				DCAE86B92974F46F004D85D5 /* FellowshipViewModel.swift in Sources */,
 				BF170F73280FE970001B3109 /* HomeTableHeader.swift in Sources */,
 				BF170F5C280D9B08001B3109 /* NetworkCell.swift in Sources */,
 				DCF1B4AD28F7E00D007F4FA3 /* LearningDetailsViewController.swift in Sources */,
@@ -2096,6 +2117,7 @@
 				43B5CBD02726E48400DFEC71 /* JobsViewController.swift in Sources */,
 				DCA0A6CF28C0F9A4001DE3F1 /* PersonalInfoCell.swift in Sources */,
 				DC885E3428D0E59B00110418 /* PersonImageCell.swift in Sources */,
+				DCAE86B6297437ED004D85D5 /* FellowshipTVell.swift in Sources */,
 				43AF8FBB27358BFA00CC69EF /* LoginResponse.swift in Sources */,
 				DC55BE022872BCB700B1EE1B /* MCQViewModel.swift in Sources */,
 				BF431C802782D57E0057AF9F /* FollowCell.swift in Sources */,
@@ -2157,6 +2179,7 @@
 				43AF8FBC27358BFA00CC69EF /* LoginRequest.swift in Sources */,
 				DC885E3C28D217ED00110418 /* TrendingTableCell.swift in Sources */,
 				DCF1B49228F6E098007F4FA3 /* AddAnswerViewController.swift in Sources */,
+				DC103DE9296D682700A4FD4D /* TrendingCourseCell.swift in Sources */,
 				43B52E42273BD1CB004EF637 /* PostReplyTableView.swift in Sources */,
 				43B231FD273AA65100038F8A /* CustomJobMainViewController.swift in Sources */,
 				BFD5FF2C2812EECE003CE888 /* NewsDetailsCell.swift in Sources */,
@@ -2205,6 +2228,7 @@
 				43A6A97E2732520600400F72 /* AddExperienceCell.swift in Sources */,
 				DC96D3B9292B9C3300F4CCF9 /* ImageCVCell.swift in Sources */,
 				DCA0A6E828C36118001DE3F1 /* NetworkCVHeaderView.swift in Sources */,
+				DC103DEC296EB4DF00A4FD4D /* FellowshipViewController.swift in Sources */,
 				BF170F4F280D34CA001B3109 /* ProfileViewHeader.swift in Sources */,
 				DCB7D1E3284B635800F3CFDE /* LikedViewModel.swift in Sources */,
 				DCF1B4A228F71251007F4FA3 /* LearningImageBannerCell.swift in Sources */,
@@ -2483,14 +2507,14 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B3V4HNX4M8;
+				DEVELOPMENT_TEAM = BG73653244;
 				INFOPLIST_FILE = DoctorWin/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.MedLab.ios.DoctorWin;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MedLab.ios.DoctorWin12;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -2507,14 +2531,14 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B3V4HNX4M8;
+				DEVELOPMENT_TEAM = BG73653244;
 				INFOPLIST_FILE = DoctorWin/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.MedLab.ios.DoctorWin;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MedLab.ios.DoctorWin12;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

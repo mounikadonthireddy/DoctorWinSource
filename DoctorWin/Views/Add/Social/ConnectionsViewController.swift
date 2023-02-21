@@ -49,7 +49,7 @@ class ConnectionsViewController: ViewController {
         let str = UIStoryboard(name: "Network", bundle: nil)
         var viewController = str.instantiateViewController(withIdentifier: "EditConnectViewController") as! EditConnectViewController
        // viewController.jobScreenSelectionDelegate = self
-
+        viewController.loadData = true
         return viewController
     }()
     

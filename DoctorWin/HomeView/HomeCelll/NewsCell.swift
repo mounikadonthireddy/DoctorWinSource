@@ -48,7 +48,7 @@ class NewsCell: UITableViewCell {
 
         }
         if let value1 = homeModel.like_count {
-            self.wishlistBtn.setTitle("\(value1)", for: .normal)
+           //c self.wishlistBtn.setTitle("\(value1)", for: .normal)
         }
         if homeModel.bookmark_status ?? false {
             saveBtn.setImage(UIImage(named: "fmark"), for: .normal)

@@ -45,7 +45,7 @@ struct HttpUtility {
             if error != nil {
                 completion(.failure(RequestError.invalidUrl))
             }
-            
+            print(httpUrlResponse?.url)
             if(error == nil && responseData != nil && responseData?.count != 0) {
                 print(responseData?.prettyPrintedJSONString ?? "")
                 

@@ -8,12 +8,12 @@
 import UIKit
 
 class ImageCell: UICollectionViewCell {
-
+    @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var imageBtn: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        self.imageBtn.setCornerRadiusWithBorderColor(radius: 5, color: UIColor.lightGray, borderWidth: 0.5)
+        self.profileImage.setCornerRadiusWithBorderColor(radius: 5, color: UIColor.lightGray, borderWidth: 0.5)
     }
 
 }

@@ -9,12 +9,15 @@ import UIKit
 
 class LearningViewController: ViewController {
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var searchBtn: UIButton!
+   
     
     var learningVM = LearningViewModel()
     var bannerArray: [ElearningBannerModel] = []
+    var trendingArray: [LearningModel] = []
     var trendingCourseArray: [LearningModel] = []
+    var recommendedArray: [LearningModel] = []
     var coursesArray: [CoursesModel] = []
+    var fellowshipArray: [FellowshipModel] = []
     var categoriesArray: [CoursesCategoryModel] = []
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,11 +26,11 @@ class LearningViewController: ViewController {
         tableView.register(UINib(nibName: "CourseCategoryCell", bundle: nil), forCellReuseIdentifier: "CourseCategoryCell")
         
         learningVM.delegate = self
-        searchBtn.setCornerRadius(radius: 10)
+       
         // Do any additional setup after loading the view.
         self.loadBannerImages()
         self.loadTrendingCourses()
-       // self.loadCourses()
+        self.loadFellowshopCoursesData()
         self.loadCoursesCategories()
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -41,10 +44,10 @@ class LearningViewController: ViewController {
         self.showLoader()
         learningVM.getTrendingCourses(userID: User.shared.userID)
     }
-//    func loadCourses() {
-//        self.showLoader()
-//        learningVM.getCourses(userID: User.shared.userID)
-//    }
+    func loadFellowshopCoursesData() {
+        self.showLoader()
+        learningVM.getFellowshopCourses(userID: User.shared.userID)
+    }
     func loadCoursesCategories() {
         self.showLoader()
         learningVM.getCoursesCategeries(userID: User.shared.userID)
@@ -56,39 +59,64 @@ class LearningViewController: ViewController {
 }
 extension LearningViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 6
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 1 {
+        if section == 0 {
+            return 1
+        } else if section == 1 {
             if bannerArray.count > 0 {
                 return 1
             } else {
                 return 0
             }
-           
-        } else if section == 0 {
-            return 1
         } else if section == 2 {
+            return recommendedArray.count
+        }  else if section == 3 {
+            return trendingArray.count
+        } else if section == 4 {
+            return 1
+        }
+        else if section == 5 {
             return trendingCourseArray.count
         }
         return 1
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 1 {
-            
-            let cell: LearningImageBannerCell
-            = tableView.dequeueReusableCell(withIdentifier: "LearningImageBannerCell") as! LearningImageBannerCell
-            cell.setBannerImage(data: bannerArray)
-            return cell
-        }
-       else if indexPath.section == 0 {
-            
-            let cell: CourseCategoryCell
-            = tableView.dequeueReusableCell(withIdentifier: "CourseCategoryCell") as! CourseCategoryCell
-           cell.configureCell(data: categoriesArray)
+        if indexPath.section == 0 {
+             
+             let cell: CourseCategoryCell
+             = tableView.dequeueReusableCell(withIdentifier: "CourseCategoryCell") as! CourseCategoryCell
+            cell.configureCell(data: categoriesArray, index: 0)
+            cell.delegate = self
+             return cell
+         } else if indexPath.section == 1 {
+           
+           let cell: LearningImageBannerCell
+           = tableView.dequeueReusableCell(withIdentifier: "LearningImageBannerCell") as! LearningImageBannerCell
+           cell.setBannerImage(data: bannerArray)
+           return cell
+       } else if indexPath.section == 2 {
+           let cell: LearningCategoryCell
+           = tableView.dequeueReusableCell(withIdentifier: "LearningCategoryCell") as! LearningCategoryCell
            cell.delegate = self
-            return cell
-        }
+           cell.getCourseArray(data: recommendedArray[indexPath.row].subjects ?? [], title: "Recommended Courses")
+           return cell
+       } else if indexPath.section == 3 {
+           let cell: LearningCategoryCell
+           = tableView.dequeueReusableCell(withIdentifier: "LearningCategoryCell") as! LearningCategoryCell
+           cell.delegate = self
+           cell.getCourseArray(data: trendingArray[indexPath.row].subjects ?? [], title: "Trending Courses")
+           cell.backgroundColor = UIColor.clear
+           return cell
+       } else  if indexPath.section == 4 {
+           
+           let cell: CourseCategoryCell
+           = tableView.dequeueReusableCell(withIdentifier: "CourseCategoryCell") as! CourseCategoryCell
+          cell.getFellowshipArray(data: fellowshipArray, index: 4)
+          cell.delegate = self
+           return cell
+       }
         else {
             let cell: LearningCategoryCell
             = tableView.dequeueReusableCell(withIdentifier: "LearningCategoryCell") as! LearningCategoryCell
@@ -103,7 +131,20 @@ extension LearningViewController: UITableViewDelegate, UITableViewDataSource {
 extension LearningViewController: LearningViewModelDelegate {
     func didReciveTrendingCourses(response: [LearningModel]?, error: String?) {
         self.dismiss()
-        trendingCourseArray = response ?? []
+       let res  = response ?? []
+        recommendedArray = res.filter {
+            $0.suggest == "Recommended Courses"
+        }
+        trendingArray = res.filter {
+            $0.suggest == "Trending Courses"
+        }
+        trendingCourseArray = res.filter {
+            $0.suggest != "Trending Courses"
+        }
+        trendingCourseArray = trendingCourseArray.filter {
+            $0.suggest != "Recommended Courses"
+        }
+      
         tableView.reloadData()
     }
     
@@ -113,9 +154,14 @@ extension LearningViewController: LearningViewModelDelegate {
         tableView.reloadData()
     }
     
-    func didReciveCourses(response: [CoursesModel]?, error: String?) {
+    func didReciveFellowshipCourses(response: FellowshipResponseModel?, error: String?) {
         self.dismiss()
-        coursesArray = response ?? []
+        
+        if response?.is_active == true {
+            fellowshipArray = response?.subcategoryResponse ?? []
+            print("felloship\(fellowshipArray)")
+        }
+        
         tableView.reloadData()
     }
     
@@ -138,7 +184,13 @@ extension LearningViewController: ElearingCellSelected {
         nextVC.subject = "\(data.id)"
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
-    
+    func openFellowshipView(selected: String) {
+        let str = UIStoryboard(name: "Learning", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "FellowshipViewController") as! FellowshipViewController
+        nextVC.fellowshipArray = fellowshipArray
+        nextVC.selectedText = selected
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
     
 }
 extension LearningViewController: CategeryCellSelectedDelegate {
@@ -147,6 +199,13 @@ extension LearningViewController: CategeryCellSelectedDelegate {
         let nextVC = str.instantiateViewController(withIdentifier: "LearningCategoryViewController") as! LearningCategoryViewController
         nextVC.subjectId = "\(data.id)"
         nextVC.subject = data.name_of_course ?? ""
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+    func openFellowshipView1(selected: String) {
+        let str = UIStoryboard(name: "Learning", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "FellowshipViewController") as! FellowshipViewController
+        nextVC.fellowshipArray = fellowshipArray
+        nextVC.selectedText = selected
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     

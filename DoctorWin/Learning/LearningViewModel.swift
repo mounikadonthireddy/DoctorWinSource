@@ -9,7 +9,7 @@ import Foundation
 protocol LearningViewModelDelegate {
     func didReciveBannerImage(response: [ElearningBannerModel]?, error: String?)
     func didReciveTrendingCourses(response: [LearningModel]?, error: String?)
-    func didReciveCourses(response: [CoursesModel]?, error: String?)
+    func didReciveFellowshipCourses(response: FellowshipResponseModel?, error: String?)
     func didReciveCategories(response: [CoursesCategoryModel]?, error: String?)
 }
 
@@ -50,17 +50,17 @@ struct LearningViewModel {
             
         }
     }
-    func getCourses(userID: String) {
+    func getFellowshopCourses(userID: String) {
         let homeResource = LearningResource()
       
-        homeResource.getCoursesData(userID: userID) { response in
+        homeResource.getFellowshopCoursesData(userID: userID) { response in
             DispatchQueue.main.async {
                 switch response {
                 case .success(let data):
-                    self.delegate?.didReciveCourses(response: data, error: nil)
+                    self.delegate?.didReciveFellowshipCourses(response: data, error: nil)
                     
                 case .failure(let error):
-                    self.delegate?.didReciveCourses(response: nil, error: error)
+                    self.delegate?.didReciveFellowshipCourses(response: nil, error: error)
                 }
             
             }

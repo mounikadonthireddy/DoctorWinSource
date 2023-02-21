@@ -43,6 +43,9 @@ class ProfilePicViewController: ViewController {
                 .responseJSON { (json, eror) in
     
                     self.dismiss()
+                    let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "CoverPicViewController") as! CoverPicViewController
+                   
+                    self.navigationController?.pushViewController(nextVC, animated: true)
                 debugPrint(json)
             }
     }
@@ -56,4 +59,7 @@ extension ProfilePicViewController: ImagePickerDelegate {
         imageUpload1.append(AGImageStructInfo(fileName: fileName!, type: "image/jpeg", data: image!.toData()))
     }
     
+}
+struct ImageUploadResponse: Codable {
+    let is_active: Bool?
 }

@@ -8,13 +8,16 @@
 import Foundation
 
 struct InterestModel: Codable {
-    let position: String
-    let id: Int
+    let name: String?
+  
+}
+struct InterestResponseModel: Codable {
+    let datingResponse: [InterestModel]?
+    let is_active: Bool?
 }
 
-
 protocol InterestViewModelDelegate {
-    func didInterestData(response: [InterestModel]?, error: String?)
+    func didInterestData(response: InterestResponseModel?, error: String?)
     func submitInterestResponse(res: BoolResponseModel?, error: String?)
 }
 

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TrendingCourseCell" id="rZs-sU-qrs" customClass="TrendingCourseCell" customModule="DoctorWin" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="291" height="241"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="291" height="241"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginBg" translatesAutoresizingMaskIntoConstraints="NO" id="OMg-y3-FYT">
+                        <rect key="frame" x="0.0" y="10" width="291" height="180"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="180" id="stx-FS-BiR"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MDS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wHF-TA-3dW">
+                        <rect key="frame" x="10" y="195" width="271" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Master of Dental surgery of  MDS" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="THy-hz-FIR">
+                        <rect key="frame" x="10" y="213" width="271" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="AYF-PY-zPe"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="7Ph-XG-1oM"/>
+            <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="THy-hz-FIR" secondAttribute="bottom" priority="999" constant="10" id="F2W-QP-cRy"/>
+                <constraint firstAttribute="trailing" secondItem="OMg-y3-FYT" secondAttribute="trailing" id="FPo-3d-PvI"/>
+                <constraint firstAttribute="trailing" secondItem="wHF-TA-3dW" secondAttribute="trailing" constant="10" id="QgM-Rb-H4q"/>
+                <constraint firstItem="OMg-y3-FYT" firstAttribute="leading" secondItem="rZs-sU-qrs" secondAttribute="leading" id="SNy-FB-0md"/>
+                <constraint firstAttribute="trailing" secondItem="THy-hz-FIR" secondAttribute="trailing" constant="10" id="Sis-8Q-lMT"/>
+                <constraint firstItem="wHF-TA-3dW" firstAttribute="leading" secondItem="rZs-sU-qrs" secondAttribute="leading" constant="10" id="VM5-N2-RTx"/>
+                <constraint firstItem="OMg-y3-FYT" firstAttribute="top" secondItem="rZs-sU-qrs" secondAttribute="top" constant="10" id="YbN-j8-6E8"/>
+                <constraint firstItem="wHF-TA-3dW" firstAttribute="top" secondItem="OMg-y3-FYT" secondAttribute="bottom" constant="5" id="end-ji-MMN"/>
+                <constraint firstItem="THy-hz-FIR" firstAttribute="leading" secondItem="rZs-sU-qrs" secondAttribute="leading" constant="10" id="s6s-1z-ipi"/>
+                <constraint firstItem="THy-hz-FIR" firstAttribute="top" secondItem="wHF-TA-3dW" secondAttribute="bottom" id="ydA-QF-77X"/>
+            </constraints>
+            <size key="customSize" width="291" height="241"/>
+            <connections>
+                <outlet property="courseImage" destination="OMg-y3-FYT" id="ASa-Q9-pj1"/>
+                <outlet property="courseName" destination="THy-hz-FIR" id="ssF-dc-8SL"/>
+                <outlet property="departmentLbl" destination="wHF-TA-3dW" id="JcK-bp-KKR"/>
+            </connections>
+            <point key="canvasLocation" x="312.31884057971018" y="119.53125"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="loginBg" width="375" height="153"/>
+        <systemColor name="tertiarySystemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

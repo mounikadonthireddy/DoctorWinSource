@@ -968,7 +968,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="63X-g8-lhn">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="104" width="414" height="758"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="v2Z-ok-mVA" id="LVw-me-lYl"/>
@@ -976,16 +976,13 @@
                                 </connections>
                             </tableView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aFf-aW-iXO">
-                                <rect key="frame" x="0.0" y="44" width="414" height="0.0"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="noi-Tf-xYf">
-                                        <rect key="frame" x="43" y="5" width="109" height="0.0"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" id="R55-vl-ATh"/>
-                                            <constraint firstAttribute="width" constant="109" id="ZJh-F7-qzx"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
-                                        <state key="normal" title="Edit Profile">
+                                        <rect key="frame" x="10" y="8" width="154" height="32"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="22"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="   Edit Profile" image="back">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -993,43 +990,12 @@
                                             <action selector="backClicked:" destination="v2Z-ok-mVA" eventType="touchUpInside" id="JPg-Y5-MRl"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6yC-wy-ISH">
-                                        <rect key="frame" x="8" y="15" width="30" height="0.0"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="Hpv-bV-Edo"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="sTh-9j-fYv"/>
-                                            <constraint firstAttribute="height" id="xxO-iz-jTe"/>
-                                        </constraints>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" image="back">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="backClicked:" destination="dsq-yL-bOK" eventType="touchUpInside" id="F8f-20-vet"/>
-                                            <action selector="backClicked:" destination="v2Z-ok-mVA" eventType="touchUpInside" id="xPL-5c-LQW"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sAi-gT-O45">
-                                        <rect key="frame" x="364" y="15" width="40" height="0.0"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" id="MGP-A3-JLL"/>
-                                            <constraint firstAttribute="width" constant="40" id="pnG-bu-0Da"/>
-                                        </constraints>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" image="checkmark" catalog="system"/>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="noi-Tf-xYf" firstAttribute="leading" secondItem="6yC-wy-ISH" secondAttribute="trailing" constant="5" id="B6f-MZ-Af1"/>
-                                    <constraint firstItem="noi-Tf-xYf" firstAttribute="top" secondItem="aFf-aW-iXO" secondAttribute="top" constant="5" id="PH7-jl-t8k"/>
-                                    <constraint firstItem="6yC-wy-ISH" firstAttribute="leading" secondItem="aFf-aW-iXO" secondAttribute="leading" constant="8" id="b6I-bd-oZo"/>
-                                    <constraint firstAttribute="trailing" secondItem="sAi-gT-O45" secondAttribute="trailing" constant="10" id="hJl-wc-hy6"/>
-                                    <constraint firstItem="sAi-gT-O45" firstAttribute="top" secondItem="aFf-aW-iXO" secondAttribute="top" constant="15" id="hWc-Oc-WYN"/>
-                                    <constraint firstItem="noi-Tf-xYf" firstAttribute="leading" secondItem="6yC-wy-ISH" secondAttribute="trailing" constant="5" id="hln-oj-50q"/>
-                                    <constraint firstItem="6yC-wy-ISH" firstAttribute="top" secondItem="aFf-aW-iXO" secondAttribute="top" constant="15" id="u89-bE-LK7"/>
-                                    <constraint firstAttribute="height" id="zl6-Cs-UMO"/>
+                                    <constraint firstItem="noi-Tf-xYf" firstAttribute="leading" secondItem="aFf-aW-iXO" secondAttribute="leading" constant="10" id="AZN-h4-yyq"/>
+                                    <constraint firstItem="noi-Tf-xYf" firstAttribute="top" secondItem="aFf-aW-iXO" secondAttribute="top" constant="8" id="fng-TU-csx"/>
+                                    <constraint firstAttribute="height" constant="60" id="zl6-Cs-UMO"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1038,7 +1004,7 @@
                         <constraints>
                             <constraint firstItem="aFf-aW-iXO" firstAttribute="leading" secondItem="4uL-KV-vBa" secondAttribute="leading" id="1HK-Tc-Sue"/>
                             <constraint firstItem="aFf-aW-iXO" firstAttribute="top" secondItem="4uL-KV-vBa" secondAttribute="top" id="1ZN-Lx-eVs"/>
-                            <constraint firstItem="63X-g8-lhn" firstAttribute="top" secondItem="4uL-KV-vBa" secondAttribute="top" id="WZv-Y6-0Cz"/>
+                            <constraint firstItem="63X-g8-lhn" firstAttribute="top" secondItem="aFf-aW-iXO" secondAttribute="bottom" id="rAW-XO-Sw8"/>
                             <constraint firstItem="63X-g8-lhn" firstAttribute="leading" secondItem="4uL-KV-vBa" secondAttribute="leading" id="rep-hM-GPe"/>
                             <constraint firstItem="4uL-KV-vBa" firstAttribute="trailing" secondItem="63X-g8-lhn" secondAttribute="trailing" id="s71-gU-hCp"/>
                             <constraint firstItem="aFf-aW-iXO" firstAttribute="trailing" secondItem="4uL-KV-vBa" secondAttribute="trailing" id="wSq-71-zZU"/>
@@ -1046,12 +1012,14 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="headerView" destination="aFf-aW-iXO" id="wIN-pI-w73"/>
                         <outlet property="tableView" destination="63X-g8-lhn" id="peG-a9-y4e"/>
+                        <outlet property="viewHeight" destination="zl6-Cs-UMO" id="OuU-5U-e64"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IXn-fW-hXF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="23459" y="-310"/>
+            <point key="canvasLocation" x="23457.971014492756" y="-310.04464285714283"/>
         </scene>
         <!--Matches View Controller-->
         <scene sceneID="JJg-Qc-Hsf">

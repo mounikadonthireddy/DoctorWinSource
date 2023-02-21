@@ -7,7 +7,9 @@
 
 import UIKit
 import iOSDropDown
-
+protocol connectProfileDelegate: Any {
+    func update(request: ConnectProfileRequetModel)
+}
 class EditConnectCell: UITableViewCell {
     
     @IBOutlet weak var nameTF: UITextField!
@@ -31,7 +33,9 @@ class EditConnectCell: UITableViewCell {
     @IBOutlet weak var InterestCollectionView: UICollectionView!
     @IBOutlet weak var collectionViewLayout1: UICollectionViewFlowLayout!
     var imageArray: [GenderImageModel] = []
-    var interestArray: [ProfileInterestModel] = []
+    var interestArray: [InterestModel] = []
+    var selectedInterest:[String] = []
+    var delegate:connectProfileDelegate?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -62,6 +66,10 @@ class EditConnectCell: UITableViewCell {
         
         // Configure the view for the selected state
     }
+    func loadInterestArray(data: [InterestModel]) {
+        interestArray = data
+        InterestCollectionView.reloadData()
+    }
     func configureCell(data: ConnectProfileModel) {
         nameTF.text = data.name ?? ""
         dobTF.text = "\(data.age ?? 0) yrs"
@@ -90,7 +98,15 @@ class EditConnectCell: UITableViewCell {
         InterestCollectionView.reloadData()
         ImagesCollectionView.reloadData()
     }
-    
+    func loadImages(array:[GenderImageModel]) {
+        imageArray = array
+        ImagesCollectionView.reloadData()
+    }
+    @IBAction func updateClicked(_ sender: Any) {
+        let interest = selectedInterest.joined(separator: ",")
+        let request =  ConnectProfileRequetModel(name: (nameTF.text ?? ""), intro: (bioTF.text ?? ""), gender: (genderTF.text ?? ""), age: (dobTF.text ?? ""), living: (livingTF.text ?? ""), qualification: (qualificationTF.text ?? ""), profession: (professionTF.text ?? ""), height: (heightTF.text ?? ""), looking_for: (lookingTF.text ?? ""), living_in: (livingTF.text ?? ""), institute: (occupationTF.text ?? ""), orientation: (personalityTF.text ?? ""), zodiacs: (zodiacTF.text ?? ""), pets: (petsTF.text ?? ""), income: (incomeTF.text ?? ""), interest: interest)
+        delegate?.update(request: request)
+    }
 }
 extension EditConnectCell : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -106,14 +122,19 @@ extension EditConnectCell : UICollectionViewDelegate, UICollectionViewDataSource
             let cell: CourseNameCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CourseNameCell", for: indexPath) as! CourseNameCell
             
             cell.name.text = interestArray[indexPath.item].name
-            cell.backgroundColor = UIColor.blue
+           // cell.backgroundColor = UIColor.blue
             cell.setCornerRadiusWithBorderColor(radius: 17.5, color: UIColor.secondaryLabel, borderWidth: 0.5)
          
             return cell
         } else  {
         let cell: ImageCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! ImageCell
-            if imageArray.count > 0 {
-               // cell.imageBtn.sd_currentImageURL
+            
+            if imageArray.count == 5 {
+                if let urlString = imageArray[indexPath.row].image {
+                    cell.profileImage.sd_setImage(with: URL(string:  urlString), placeholderImage: UIImage(named: "loginBg"))
+                } else {
+                    cell.profileImage.image = nil
+                }
             }
     
         return cell

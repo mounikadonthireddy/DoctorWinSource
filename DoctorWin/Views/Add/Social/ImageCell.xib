@@ -17,9 +17,13 @@
                 <rect key="frame" x="0.0" y="0.0" width="110" height="197"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qsq-OF-rId">
+                        <rect key="frame" x="5" y="5" width="100" height="187"/>
+                        <color key="backgroundColor" red="0.87843137250000003" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IJ3-hk-m6p">
                         <rect key="frame" x="5" y="5" width="100" height="187"/>
-                        <color key="backgroundColor" red="0.87843137250000003" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -35,12 +39,17 @@
                 <constraint firstItem="IJ3-hk-m6p" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="9Ux-qz-djW"/>
                 <constraint firstItem="IJ3-hk-m6p" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Ahw-Mk-xFs"/>
                 <constraint firstAttribute="bottom" secondItem="IJ3-hk-m6p" secondAttribute="bottom" constant="5" id="IQE-bJ-1yV"/>
+                <constraint firstItem="qsq-OF-rId" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="K0A-wN-cl6"/>
+                <constraint firstItem="qsq-OF-rId" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="XHJ-Cu-cv2"/>
+                <constraint firstAttribute="bottom" secondItem="qsq-OF-rId" secondAttribute="bottom" constant="5" id="Y2k-Vq-pjD"/>
                 <constraint firstAttribute="trailing" secondItem="IJ3-hk-m6p" secondAttribute="trailing" constant="5" id="fbm-C2-2k4"/>
+                <constraint firstAttribute="trailing" secondItem="qsq-OF-rId" secondAttribute="trailing" constant="5" id="hqN-Fu-yVO"/>
                 <constraint firstItem="IJ3-hk-m6p" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="kRV-1b-lpr"/>
             </constraints>
             <size key="customSize" width="110" height="197"/>
             <connections>
                 <outlet property="imageBtn" destination="IJ3-hk-m6p" id="M0A-CY-4wG"/>
+                <outlet property="profileImage" destination="qsq-OF-rId" id="qNn-Ry-BT9"/>
             </connections>
             <point key="canvasLocation" x="181.15942028985509" y="110.82589285714285"/>
         </collectionViewCell>

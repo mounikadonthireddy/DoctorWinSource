@@ -19,15 +19,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="979" id="KGk-i7-Jjw" customClass="ConnectCell" customModule="DoctorWin" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="409" height="979"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="1074" id="KGk-i7-Jjw" customClass="ConnectCell" customModule="DoctorWin" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="410" height="1074"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="409" height="979"/>
+                <rect key="frame" x="0.0" y="0.0" width="410" height="1074"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="4aR-V6-tKB">
-                        <rect key="frame" x="0.0" y="275" width="409" height="100"/>
+                        <rect key="frame" x="0.0" y="275" width="410" height="100"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="100" id="zXF-lF-0gz"/>
@@ -40,13 +40,13 @@
                         </collectionViewFlowLayout>
                     </collectionView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Aee-Qz-aHI">
-                        <rect key="frame" x="20" y="395" width="369" height="450"/>
+                        <rect key="frame" x="20" y="395" width="370" height="450"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jWN-wg-hAY">
-                                <rect key="frame" x="0.0" y="0.0" width="369" height="66.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="370" height="66.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rT1-wM-gIF">
-                                        <rect key="frame" x="0.0" y="0.0" width="369" height="13"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="370" height="13"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="13" id="17A-Ye-Na9"/>
@@ -56,7 +56,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1bJ-bo-82F">
-                                        <rect key="frame" x="0.0" y="23" width="369" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="23" width="370" height="43.5"/>
                                         <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -69,10 +69,10 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="w16-iC-r10">
-                                <rect key="frame" x="0.0" y="76.5" width="369" height="67"/>
+                                <rect key="frame" x="0.0" y="76.5" width="370" height="67"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bio" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cmy-H9-PGA">
-                                        <rect key="frame" x="0.0" y="0.0" width="369" height="13"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="370" height="13"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="13" id="cof-RV-Vj1"/>
                                         </constraints>
@@ -81,7 +81,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="About" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SVK-2D-VCt">
-                                        <rect key="frame" x="0.0" y="23" width="369" height="44"/>
+                                        <rect key="frame" x="0.0" y="23" width="370" height="44"/>
                                         <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -90,10 +90,10 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ppj-yg-rgN">
-                                <rect key="frame" x="0.0" y="153.5" width="369" height="66.5"/>
+                                <rect key="frame" x="0.0" y="153.5" width="370" height="66.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Living In" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PSP-9u-m05">
-                                        <rect key="frame" x="0.0" y="0.0" width="369" height="13"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="370" height="13"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="13" id="CfC-BS-m58"/>
                                         </constraints>
@@ -102,7 +102,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Living In" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m0o-So-cbS">
-                                        <rect key="frame" x="0.0" y="23" width="369" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="23" width="370" height="43.5"/>
                                         <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -111,10 +111,10 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="nFY-ch-ijx">
-                                <rect key="frame" x="0.0" y="230" width="369" height="66.5"/>
+                                <rect key="frame" x="0.0" y="230" width="370" height="66.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Qualification" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ts-iZ-Nh8">
-                                        <rect key="frame" x="0.0" y="0.0" width="369" height="13"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="370" height="13"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="13" id="GIz-PO-t7J"/>
                                         </constraints>
@@ -123,7 +123,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Highest Qualification" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j3l-tG-89E" customClass="DropDown" customModule="iOSDropDown">
-                                        <rect key="frame" x="0.0" y="23" width="369" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="23" width="370" height="43.5"/>
                                         <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -132,10 +132,10 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="pYf-jb-kU3">
-                                <rect key="frame" x="0.0" y="306.5" width="369" height="67"/>
+                                <rect key="frame" x="0.0" y="306.5" width="370" height="67"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profession" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gj2-uf-ert">
-                                        <rect key="frame" x="0.0" y="0.0" width="369" height="13"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="370" height="13"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="13" id="ETU-AS-KaD"/>
                                         </constraints>
@@ -144,7 +144,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Profession" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p8O-O9-82R" customClass="DropDown" customModule="iOSDropDown">
-                                        <rect key="frame" x="0.0" y="23" width="369" height="44"/>
+                                        <rect key="frame" x="0.0" y="23" width="370" height="44"/>
                                         <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -153,13 +153,13 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fb1-yd-6d5">
-                                <rect key="frame" x="0.0" y="383.5" width="369" height="66.5"/>
+                                <rect key="frame" x="0.0" y="383.5" width="370" height="66.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Orb-u0-0Jd">
-                                        <rect key="frame" x="0.0" y="0.0" width="179.5" height="57"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="180" height="57"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Of Birth" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cHK-5k-Qpp">
-                                                <rect key="frame" x="0.0" y="0.0" width="179.5" height="13"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="180" height="13"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="13" id="LOT-cH-O4p"/>
                                                 </constraints>
@@ -168,7 +168,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7uS-bL-OjE">
-                                                <rect key="frame" x="0.0" y="23" width="179.5" height="34"/>
+                                                <rect key="frame" x="0.0" y="23" width="180" height="34"/>
                                                 <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -177,10 +177,10 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PJG-dC-s1v">
-                                        <rect key="frame" x="189.5" y="0.0" width="179.5" height="57"/>
+                                        <rect key="frame" x="190" y="0.0" width="180" height="57"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FpZ-Wj-cTr">
-                                                <rect key="frame" x="0.0" y="0.0" width="179.5" height="13"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="180" height="13"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="13" id="Qzp-tE-AS7"/>
                                                 </constraints>
@@ -189,7 +189,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Gender" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2HE-Cc-r9Z" customClass="DropDown" customModule="iOSDropDown">
-                                                <rect key="frame" x="0.0" y="23" width="179.5" height="34"/>
+                                                <rect key="frame" x="0.0" y="23" width="180" height="34"/>
                                                 <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -215,40 +215,41 @@
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xwQ-X0-Sxj">
-                        <rect key="frame" x="115.5" y="916" width="178" height="42"/>
-                        <color key="backgroundColor" red="0.0" green="0.3294117647" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="178" id="dU5-L0-BeS"/>
-                            <constraint firstAttribute="height" constant="42" id="uxn-2n-cYc"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
-                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                        <state key="normal" title="Add More Interest">
-                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </state>
-                    </button>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileConnect" translatesAutoresizingMaskIntoConstraints="NO" id="Ejr-CO-qF8">
-                        <rect key="frame" x="0.0" y="0.0" width="409" height="275"/>
+                        <rect key="frame" x="0.0" y="0.0" width="410" height="275"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="275" id="Bj6-PQ-eBJ"/>
                         </constraints>
                     </imageView>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="RE0-LY-cNp">
+                        <rect key="frame" x="10" y="919" width="390" height="145"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="9w7-Pz-c9p"/>
+                        </constraints>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PgM-pM-dUS">
+                            <size key="itemSize" width="80" height="80"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                    </collectionView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="4aR-V6-tKB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="0aE-vn-hrF"/>
                     <constraint firstItem="Aee-Qz-aHI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="3Vv-id-Ebd"/>
-                    <constraint firstItem="xwQ-X0-Sxj" firstAttribute="top" secondItem="Ckj-f5-CnN" secondAttribute="bottom" constant="17" id="5iy-V4-VHJ"/>
+                    <constraint firstAttribute="trailing" secondItem="RE0-LY-cNp" secondAttribute="trailing" constant="10" id="AIR-ou-GHK"/>
                     <constraint firstItem="4aR-V6-tKB" firstAttribute="top" secondItem="Ejr-CO-qF8" secondAttribute="bottom" id="Dgc-GC-6fi"/>
                     <constraint firstItem="Ckj-f5-CnN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="HJk-Ro-uCv"/>
                     <constraint firstAttribute="trailing" secondItem="Ejr-CO-qF8" secondAttribute="trailing" id="Nrf-z9-Jhp"/>
                     <constraint firstAttribute="trailing" secondItem="4aR-V6-tKB" secondAttribute="trailing" id="Nsw-yI-frI"/>
+                    <constraint firstItem="RE0-LY-cNp" firstAttribute="top" secondItem="Ckj-f5-CnN" secondAttribute="bottom" constant="20" id="PiQ-aP-au0"/>
                     <constraint firstItem="Ckj-f5-CnN" firstAttribute="top" secondItem="Aee-Qz-aHI" secondAttribute="bottom" constant="29" id="R5o-eh-h95"/>
+                    <constraint firstAttribute="bottom" secondItem="RE0-LY-cNp" secondAttribute="bottom" priority="999" constant="10" id="TIV-mD-p7a"/>
                     <constraint firstItem="Ejr-CO-qF8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="b77-0y-JhO"/>
                     <constraint firstItem="Ejr-CO-qF8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="cqv-sr-slE"/>
                     <constraint firstItem="Aee-Qz-aHI" firstAttribute="top" secondItem="4aR-V6-tKB" secondAttribute="bottom" constant="20" id="mfe-QZ-ilq"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="xwQ-X0-Sxj" secondAttribute="bottom" constant="10" id="oms-7r-cdy"/>
-                    <constraint firstItem="xwQ-X0-Sxj" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="pjm-kP-txd"/>
+                    <constraint firstItem="RE0-LY-cNp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="oRn-gR-BbJ"/>
                     <constraint firstAttribute="trailing" secondItem="Aee-Qz-aHI" secondAttribute="trailing" constant="20" id="yLc-U9-pFG"/>
                 </constraints>
             </tableViewCellContentView>
@@ -259,13 +260,12 @@
                 <outlet property="courseCollectionView" destination="4aR-V6-tKB" id="vxK-XS-TaB"/>
                 <outlet property="dobTF" destination="7uS-bL-OjE" id="0uG-FA-6gm"/>
                 <outlet property="genderTF" destination="2HE-Cc-r9Z" id="Fqi-wb-gsW"/>
-                <outlet property="interest" destination="xwQ-X0-Sxj" id="miB-eN-S9k"/>
                 <outlet property="livingTF" destination="m0o-So-cbS" id="0IV-LJ-0BU"/>
                 <outlet property="nameTF" destination="1bJ-bo-82F" id="mrl-7x-IWm"/>
                 <outlet property="professionTF" destination="p8O-O9-82R" id="mPV-TE-22W"/>
                 <outlet property="qualificationTF" destination="j3l-tG-89E" id="dDt-gJ-m2e"/>
             </connections>
-            <point key="canvasLocation" x="202.17391304347828" y="390.73660714285711"/>
+            <point key="canvasLocation" x="202.89855072463769" y="422.54464285714283"/>
         </tableViewCell>
     </objects>
     <resources>

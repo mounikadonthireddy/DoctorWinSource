@@ -25,7 +25,7 @@ class HomeViewController: ViewController, ExpandableLabelDelegate {
         plusBtn.setCornerRadius(radius: Float(plusBtn.frame.width)/2)
         questionBtn.setCornerRadius(radius: Float(questionBtn.frame.height)/2)
         tableView.register(UINib(nibName: "CaseCell", bundle: nil), forCellReuseIdentifier: "CaseCell")
-        topView.dropShadow()
+        //topView.dropShadow()
         
         tableView.register(HomeTableHeader.nib, forHeaderFooterViewReuseIdentifier: HomeTableHeader.identifier)
         
@@ -110,6 +110,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         cell.delegate = self
         cell.configureData(homeModel: homedataArry[indexPath.row])
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapImageView(_:)))
+        cell.commentBtn.addTarget(self, action: #selector(commentClicked(button:)), for: .touchUpInside)
         cell.postImage.tag = indexPath.row
         cell.postImage?.addGestureRecognizer(tapGestureRecognizer)
         cell.layoutIfNeeded()
@@ -129,7 +130,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         return 10
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 400
+        return 380
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
@@ -143,6 +144,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             headerView.education.addTarget(self, action: #selector(educationClicked(button:)), for: .touchUpInside)
             headerView.stack1.setCornerRadius(radius: 10)
             headerView.stack2.setCornerRadius(radius: 10)
+            headerView.bgView.setCornerRadius(radius: 20)
             return headerView
         }
         
@@ -170,6 +172,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let nextVC = str.instantiateViewController(withIdentifier: "LearningViewController") as! LearningViewController
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
+    @objc func commentClicked(button: UIButton) {
+//        let str = UIStoryboard(name: "Details", bundle: nil)
+//        let nextVC = str.instantiateViewController(withIdentifier: "CaseDetailsViewController") as! CaseDetailsViewController
+//        nextVC.detailsModel = homedataArry[button.tag]
+//     //   nextVC.caseId = homedataArry[indexPath.row].postId
+//        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
     @objc func productsClicked(button: UIButton) {
         let str = UIStoryboard(name: "Shop", bundle: nil)
         let nextVC = str.instantiateViewController(withIdentifier: "ShopViewController") as! ShopViewController
@@ -180,7 +189,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let dating = UserDefaults.standard.bool(forKey: "datingProfile")
         if dating == false {
             let str = UIStoryboard(name: "Network", bundle: nil)
-            let nextVC = str.instantiateViewController(withIdentifier: "ConnectViewController") as! ConnectViewController
+            let nextVC = str.instantiateViewController(withIdentifier: "EditConnectViewController") as! EditConnectViewController
             
             self.navigationController?.pushViewController(nextVC, animated: true)
         } else {
@@ -202,11 +211,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //        if homedataArry[indexPath.row].complaintStatus ?? false {
-        let str = UIStoryboard(name: "Details", bundle: nil)
-        let nextVC = str.instantiateViewController(withIdentifier: "CaseDetailsViewController") as! CaseDetailsViewController
-        nextVC.detailsModel = homedataArry[indexPath.row]
-     //   nextVC.caseId = homedataArry[indexPath.row].postId
-        self.navigationController?.pushViewController(nextVC, animated: true)
+//        let str = UIStoryboard(name: "Details", bundle: nil)
+//        let nextVC = str.instantiateViewController(withIdentifier: "CaseDetailsViewController") as! CaseDetailsViewController
+//        nextVC.detailsModel = homedataArry[indexPath.row]
+//     //   nextVC.caseId = homedataArry[indexPath.row].postId
+//        self.navigationController?.pushViewController(nextVC, animated: true)
         //        } else if homedataArry[indexPath.row].newsStatus ?? false {
         //            let str = UIStoryboard(name: "Details", bundle: nil)
         //            let nextVC = str.instantiateViewController(withIdentifier: "NewsDetailsViewController") as! NewsDetailsViewController

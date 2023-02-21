@@ -34,11 +34,11 @@
                                 <rect key="frame" x="8" y="4" width="19" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="iAW-5J-ZDi"/>
+                                    <constraint firstAttribute="width" constant="19" id="sIt-6N-LVr"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="H6w-Wm-e2F" firstAttribute="leading" secondItem="lX1-xB-eiK" secondAttribute="leading" constant="35" id="7Tu-sR-bfE"/>
                             <constraint firstAttribute="trailing" secondItem="H6w-Wm-e2F" secondAttribute="trailing" constant="10" id="9Vh-mO-KQs"/>
                             <constraint firstAttribute="bottom" secondItem="lGm-B1-Sig" secondAttribute="bottom" constant="4" id="9mk-zn-GTe"/>
                             <constraint firstItem="lGm-B1-Sig" firstAttribute="leading" secondItem="lX1-xB-eiK" secondAttribute="leading" constant="8" id="Laz-7y-NPN"/>
@@ -62,6 +62,7 @@
                 <outlet property="bgView" destination="lX1-xB-eiK" id="Bhl-Vk-E39"/>
                 <outlet property="categoryImage" destination="lGm-B1-Sig" id="cF0-dt-pB3"/>
                 <outlet property="categoryName" destination="H6w-Wm-e2F" id="ocs-dw-U40"/>
+                <outlet property="imageWidth" destination="sIt-6N-LVr" id="qEY-Il-1C7"/>
             </connections>
             <point key="canvasLocation" x="52.898550724637687" y="61.272321428571423"/>
         </collectionViewCell>

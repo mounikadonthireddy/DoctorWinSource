@@ -55,14 +55,14 @@ extension InterstViewController : UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: CourseNameCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CourseNameCell", for: indexPath) as! CourseNameCell
         
-        cell.name.text = interestArray[indexPath.item].position
+        cell.name.text = interestArray[indexPath.item].name ?? ""
         cell.name.backgroundColor = UIColor.clear
         cell.setCornerRadiusWithBorderColor(radius: 17.5, color: UIColor.secondaryLabel, borderWidth: 0.5)
         return cell
         
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = (interestArray[indexPath.row].position as NSString).size(withAttributes: nil)
+        let size = ((interestArray[indexPath.row].name ?? "") as NSString).size(withAttributes: nil)
         return CGSize(width: size.width + 20, height: 35)
         
     }
@@ -94,7 +94,7 @@ extension InterstViewController : UICollectionViewDelegate, UICollectionViewData
     let selectedCell:UICollectionViewCell = collectionView.cellForItem(at: indexPath)!
   
 
-        let selected = interestArray[indexPath.row].position
+        let selected = interestArray[indexPath.row].name ?? ""
         if selectedArray.contains(selected) {
             
             selectedArray.removeAll {$0 == selected }
@@ -114,10 +114,10 @@ extension InterstViewController: InterestViewModelDelegate {
         self.dismiss()
     }
     
-    func didInterestData(response: [InterestModel]?, error: String?) {
+    func didInterestData(response: InterestResponseModel?, error: String?) {
         self.dismiss()
         if error == nil {
-            interestArray = response ?? []
+            interestArray = response?.datingResponse ?? []
             collectionView.reloadData()
         }
     }

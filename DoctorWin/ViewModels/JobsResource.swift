@@ -28,7 +28,7 @@ struct JobsResource {
     }
     func getJobDataBasedOnCategory(userID: String,categoryID: Int, completion : @escaping (_ result: ResponseResult<JobResponseModel>) -> Void) {
         
-        let jobCategeoryUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getNewJobs + ApiEndpoints.userID + "=\(userID)"  + "&categoryid=\(categoryID)" + "&page=1"
+        let jobCategeoryUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getNewJobs + ApiEndpoints.userID + "=\(userID)"  + "&categoryid=\(categoryID)" + "&page=1&limit=10"
         
         let httpUtility = HttpUtility()
         do {
@@ -67,7 +67,7 @@ struct JobsResource {
     }
     func getJobAllData(pageNum: Int, completion : @escaping (_ result: ResponseResult<JobResponseModel>) -> Void) {
         
-        let jobCategeoryUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getNewJobs + "?page=\(pageNum)"
+        let jobCategeoryUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getNewJobs + "?page=\(pageNum)&limit=10"
         
         let httpUtility = HttpUtility()
         do {

@@ -44,11 +44,11 @@ struct LearningResource {
             }
         }
     }
-    func getCoursesData(userID: String, completion : @escaping (_ result: ResponseResult<[CoursesModel]>) -> Void) {
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.courses
+    func getFellowshopCoursesData(userID: String, completion : @escaping (_ result: ResponseResult<FellowshipResponseModel>) -> Void) {
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.fellowship
         let httpUtility = HttpUtility()
         do {
-            httpUtility.getApiData(urlString: homeUrlStr, resultType: [CoursesModel].self) { result in
+            httpUtility.getApiData(urlString: homeUrlStr, resultType: FellowshipResponseModel.self) { result in
                 
                 switch result {
                 case .success(let data):
@@ -80,6 +80,23 @@ struct LearningResource {
     }
     func getCategoryBasedCouresesData(userID: String,subId: String, completion : @escaping (_ result: ResponseResult<LearningCategoryResponseModel?>) -> Void) {
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getCategoryCourses + "?categoryid=\(subId)"
+        let httpUtility = HttpUtility()
+        do {
+            httpUtility.getApiData(urlString: homeUrlStr, resultType: LearningCategoryResponseModel.self) { result in
+                
+                switch result {
+                case .success(let data):
+                    completion(.success(data))
+                    
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                    
+                }
+            }
+        }
+    }
+    func getFellowshopDataBasedCategory(category: String, completion : @escaping (_ result: ResponseResult<LearningCategoryResponseModel?>) -> Void) {
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getFellowship + "?name=\(category)"
         let httpUtility = HttpUtility()
         do {
             httpUtility.getApiData(urlString: homeUrlStr, resultType: LearningCategoryResponseModel.self) { result in

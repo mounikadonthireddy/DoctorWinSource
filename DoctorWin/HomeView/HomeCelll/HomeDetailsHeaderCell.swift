@@ -29,7 +29,7 @@ class HomeDetailsHeaderCell: UITableViewCell {
 //        if let urlString = homeModel.profileImage {
 //            self.personImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
 //        }
-//        
+        
     }
     
 }

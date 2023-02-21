@@ -38,6 +38,11 @@ class CoverPicViewController: ViewController {
                 .responseJSON { (json, eror) in
     
                     self.dismiss()
+                    let str = UIStoryboard(name: "Tab", bundle: nil)
+                    let nextViewController = str.instantiateViewController(withIdentifier: "tabView")
+                    
+                    nextViewController.navigationController?.isNavigationBarHidden = true
+                    self.navigationController?.pushViewController(nextViewController, animated: true)
                 debugPrint(json)
             }
     }
