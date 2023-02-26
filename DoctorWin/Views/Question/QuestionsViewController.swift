@@ -17,9 +17,10 @@ class QuestionsViewController: ViewController {
     var loadingData = true
     override func viewDidLoad() {
         super.viewDidLoad()
-        topView.dropShadow()
+//        topView.dropShadow()
         tableView.register(UINib(nibName: "QACell", bundle: nil), forCellReuseIdentifier: "QACell")
         tableView.register(UINib(nibName: "TrendingTableCell", bundle: nil), forCellReuseIdentifier: "TrendingTableCell")
+        tableView.register(UINib(nibName: "ImageSectionTVCell", bundle: nil), forCellReuseIdentifier: "ImageSectionTVCell")
         
         tableView.register(TrendingQuestionHeaderView.nib, forHeaderFooterViewReuseIdentifier: TrendingQuestionHeaderView.identifier)
         questionVM.delegate1 = self
@@ -51,22 +52,14 @@ class QuestionsViewController: ViewController {
     @IBAction func searchQuestion(_ sender: UIButton) {
         
     }
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+
 }
 extension QuestionsViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
+        if section == 1 || section == 0 {
             return 1
         } else {
         return questionsArray.count
@@ -75,6 +68,11 @@ extension QuestionsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
+            let cell: ImageSectionTVCell
+            = tableView.dequeueReusableCell(withIdentifier: "ImageSectionTVCell") as! ImageSectionTVCell
+            return cell
+            
+        }else if indexPath.section == 1 {
             let cell: TrendingTableCell
             = tableView.dequeueReusableCell(withIdentifier: "TrendingTableCell") as! TrendingTableCell
             cell.configure(data: trendingQuestions)
@@ -88,24 +86,29 @@ extension QuestionsViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: TrendingQuestionHeaderView.identifier) as? TrendingQuestionHeaderView {
-            if section == 0 {
-                headerView.nameLbl.text  = "Trending QnA"
-            } else {
-                headerView.nameLbl.text  = "Questions for you"
+        if section != 0 {
+            if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: TrendingQuestionHeaderView.identifier) as? TrendingQuestionHeaderView {
+                if section == 1 {
+                    headerView.nameLbl.text  = "Trending QnA"
+                } else if section == 1 {
+                    headerView.nameLbl.text  = "Questions for you"
+                }
+                
+                return headerView
             }
-          
-            return headerView
         }
         return nil
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 0
+        }
         return 50
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let str = UIStoryboard(name: "Details", bundle: nil)
         let nextVC = str.instantiateViewController(withIdentifier: "QuestionDetailsViewController") as! QuestionDetailsViewController
-        nextVC.questionId = questionsArray[indexPath.row].id ?? 0
+        nextVC.questionId = questionsArray[indexPath.row].id
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
 //    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

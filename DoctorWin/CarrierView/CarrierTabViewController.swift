@@ -114,7 +114,7 @@ extension CarrierTabViewController : UICollectionViewDelegate, UICollectionViewD
             } else if sectionNumber == 2 {
                 return LayoutType.categoryLayout.getLayout()
             } else if sectionNumber == 3 {
-                return LayoutType.fullViewLayout.getLayout(height: 270)
+                return LayoutType.fullViewLayout.getLayout(withHeader: true,height: 270)
             }  else {
                 return LayoutType.headerImageSectionLayout.getLayout(withHeader: false)
             }

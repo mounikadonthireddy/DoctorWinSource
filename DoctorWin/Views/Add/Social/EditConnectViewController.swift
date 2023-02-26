@@ -51,7 +51,7 @@ class EditConnectViewController:  ViewController {
         
     }
     func loadInterests() {
-        self.showLoader()
+       // self.showLoader()
         interestVM.loadAllInterest()
     }
     

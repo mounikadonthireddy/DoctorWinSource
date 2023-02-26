@@ -328,6 +328,8 @@
 		DC88794429AB7D5B008DE949 /* AdminGroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC88794229AB7D5B008DE949 /* AdminGroupCell.xib */; };
 		DC88794729AB9B4A008DE949 /* SegmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC88794529AB9B4A008DE949 /* SegmentCell.swift */; };
 		DC88794829AB9B4A008DE949 /* SegmentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC88794629AB9B4A008DE949 /* SegmentCell.xib */; };
+		DC88794B29ABB1F7008DE949 /* ImageSectionTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC88794929ABB1F7008DE949 /* ImageSectionTVCell.swift */; };
+		DC88794C29ABB1F7008DE949 /* ImageSectionTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC88794A29ABB1F7008DE949 /* ImageSectionTVCell.xib */; };
 		DC8AE243286D815D003376A7 /* ShopCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8AE241286D815D003376A7 /* ShopCategoryCell.swift */; };
 		DC8AE244286D815D003376A7 /* ShopCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC8AE242286D815D003376A7 /* ShopCategoryCell.xib */; };
 		DC8AE246286D9DFB003376A7 /* ShopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8AE245286D9DFB003376A7 /* ShopViewModel.swift */; };
@@ -775,6 +777,8 @@
 		DC88794229AB7D5B008DE949 /* AdminGroupCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdminGroupCell.xib; sourceTree = "<group>"; };
 		DC88794529AB9B4A008DE949 /* SegmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentCell.swift; sourceTree = "<group>"; };
 		DC88794629AB9B4A008DE949 /* SegmentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SegmentCell.xib; sourceTree = "<group>"; };
+		DC88794929ABB1F7008DE949 /* ImageSectionTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSectionTVCell.swift; sourceTree = "<group>"; };
+		DC88794A29ABB1F7008DE949 /* ImageSectionTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageSectionTVCell.xib; sourceTree = "<group>"; };
 		DC8AE241286D815D003376A7 /* ShopCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCategoryCell.swift; sourceTree = "<group>"; };
 		DC8AE242286D815D003376A7 /* ShopCategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopCategoryCell.xib; sourceTree = "<group>"; };
 		DC8AE245286D9DFB003376A7 /* ShopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewModel.swift; sourceTree = "<group>"; };
@@ -944,6 +948,8 @@
 				BF1588B627C65A37000B8979 /* DataViewController.swift */,
 				DC74AE0629A7653300F34B3F /* ImageSectionCell.swift */,
 				DC74AE0729A7653300F34B3F /* ImageSectionCell.xib */,
+				DC88794929ABB1F7008DE949 /* ImageSectionTVCell.swift */,
+				DC88794A29ABB1F7008DE949 /* ImageSectionTVCell.xib */,
 				DCF1B49928F71042007F4FA3 /* Learning */,
 				BFC3EED52823DE87000A1582 /* Shop */,
 				BF170F7628101840001B3109 /* CarrierView */,
@@ -1920,6 +1926,7 @@
 				BF431C872782DC320057AF9F /* ExperienceCell.xib in Resources */,
 				DC96D3B8292B9C3300F4CCF9 /* ImageCVCell.xib in Resources */,
 				DC3A6A3328F1A46A006F73A2 /* LearningCell.xib in Resources */,
+				DC88794C29ABB1F7008DE949 /* ImageSectionTVCell.xib in Resources */,
 				DC96036D28FD5CC100007E6A /* HomeDetailsHeaderCell.xib in Resources */,
 				439DC46D273FB28800DAD6D5 /* LICENSE.txt in Resources */,
 				DC9AB75C28F8550B00C6043E /* CourseCategoryCell.xib in Resources */,
@@ -2205,6 +2212,7 @@
 				DC55BE0A2872F47400B1EE1B /* DatingResource.swift in Sources */,
 				43C1BFA2272C150D008877AA /* TopJobsDataModel.swift in Sources */,
 				BFC3EEFD282E2BBC000A1582 /* ConnectViewController.swift in Sources */,
+				DC88794B29ABB1F7008DE949 /* ImageSectionTVCell.swift in Sources */,
 				DC3A6A3528F42368006F73A2 /* QuestionDetailsViewController.swift in Sources */,
 				DC74AE0829A7653300F34B3F /* ImageSectionCell.swift in Sources */,
 				BFA90E2027BA7036009F9784 /* APIHelperClass.swift in Sources */,

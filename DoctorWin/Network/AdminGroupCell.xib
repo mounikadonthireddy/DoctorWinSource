@@ -47,7 +47,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="test" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z7e-2D-tGZ">
                                 <rect key="frame" x="50" y="16" width="29" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="100" id="CNd-vS-5b7"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="110" id="CNd-vS-5b7"/>
                                     <constraint firstAttribute="height" constant="20" id="aqk-39-pkf"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
