@@ -19,7 +19,9 @@ class AdminGroupCell: UICollectionViewCell {
     func configureWithConnectionData(data: AdminGroupModel) {
         self.groupName.text = data.name ?? ""
         if data.admin_status == true {
-            
+            headerView.isHidden = false
+        } else {
+            headerView.isHidden = true
         }
         if let urlString = data.image {
             self.groupImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))

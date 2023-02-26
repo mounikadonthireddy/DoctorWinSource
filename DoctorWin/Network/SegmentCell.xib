@@ -22,7 +22,7 @@
                         <rect key="frame" x="0.0" y="5" width="342" height="44"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdO-eS-VRQ">
-                                <rect key="frame" x="0.0" y="42" width="342" height="2"/>
+                                <rect key="frame" x="0.0" y="39" width="342" height="2"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="cDg-aI-JxV"/>
@@ -45,7 +45,7 @@
                             <constraint firstItem="ecw-ta-oCn" firstAttribute="centerY" secondItem="TRd-uQ-sqb" secondAttribute="centerY" id="JsI-Nb-w9y"/>
                             <constraint firstItem="ecw-ta-oCn" firstAttribute="leading" secondItem="TRd-uQ-sqb" secondAttribute="leading" constant="5" id="MxT-WH-a8g"/>
                             <constraint firstAttribute="trailing" secondItem="xdO-eS-VRQ" secondAttribute="trailing" id="SLS-ye-4yG"/>
-                            <constraint firstAttribute="bottom" secondItem="xdO-eS-VRQ" secondAttribute="bottom" id="mpC-ea-RdK"/>
+                            <constraint firstAttribute="bottom" secondItem="xdO-eS-VRQ" secondAttribute="bottom" constant="3" id="mpC-ea-RdK"/>
                         </constraints>
                     </view>
                 </subviews>

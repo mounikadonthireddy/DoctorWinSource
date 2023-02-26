@@ -47,7 +47,7 @@
                                             <constraint firstAttribute="height" constant="12" id="Lyy-CO-zng"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
-                                        <color key="textColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>

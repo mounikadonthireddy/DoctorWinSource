@@ -28,7 +28,7 @@ class NetworkCVCell: UICollectionViewCell {
     }
     func cellConfigureWithPeopleData(data: PeopleModel) {
         self.name.text = data.name ?? ""
-        self.qualification.text = data.hightest_qualification ?? ""
+        self.qualification.text = data.speciality ?? ""
         self.setImagesforItems(profileImg: data.image)
     }
     func setImagesforItems(profileImg: String?) {

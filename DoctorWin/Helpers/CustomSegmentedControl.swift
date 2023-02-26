@@ -90,7 +90,7 @@ extension CustomSegmentedControl {
     
     private func configSelectorView() {
         let selectorWidth = frame.width / CGFloat(self.buttonTitles.count)
-        selectorView = UIView(frame: CGRect(x: 0, y: self.frame.height, width: selectorWidth, height: 2))
+        selectorView = UIView(frame: CGRect(x: 0, y: self.frame.height, width: selectorWidth, height: 3))
         selectorView.backgroundColor = selectorViewColor
         addSubview(selectorView)
     }
@@ -102,6 +102,7 @@ extension CustomSegmentedControl {
         for buttonTitle in buttonTitles {
             let button = UIButton(type: .system)
             button.setTitle(buttonTitle, for: .normal)
+            button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
             button.addTarget(self, action:#selector(CustomSegmentedControl.buttonAction(sender:)), for: .touchUpInside)
             button.setTitleColor(textColor, for: .normal)
             buttons.append(button)

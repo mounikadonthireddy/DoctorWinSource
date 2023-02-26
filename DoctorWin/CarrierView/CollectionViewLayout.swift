@@ -154,7 +154,7 @@ class AppLayouts {
        
         if header == true {
             section.boundarySupplementaryItems = [
-                .init(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(20)), elementKind: headerKind, alignment: .top)
+                .init(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(30)), elementKind: headerKind, alignment: .top)
             ]
         }
         

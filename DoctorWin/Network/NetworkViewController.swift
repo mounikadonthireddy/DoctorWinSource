@@ -10,7 +10,6 @@ import UIKit
 class NetworkViewController: ViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var topView: UIView!
-    @IBOutlet weak var addBtn: UIButton!
     var groupVM = GroupViewModel()
     var peopleVM = PeopleViewModel()
     var groupArray :[GroupModel] = []
@@ -22,8 +21,6 @@ class NetworkViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // topView.dropShadow()
-        addBtn.setCornerRadius(radius: Float(addBtn.frame.height/2))
-        
         collectionView.register(UINib.init(nibName: "AdminGroupCell", bundle: nil), forCellWithReuseIdentifier: "AdminGroupCell")
         collectionView.register(UINib.init(nibName: "SegmentCell", bundle: nil), forCellWithReuseIdentifier: "SegmentCell")
         
@@ -92,12 +89,7 @@ class NetworkViewController: ViewController {
         //   nextVC.RequestUserID = "\(connectionsArray[indexPath.row].userid ?? 0)"
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
-    @IBAction func createGroupClicked(_ sender: UIButton) {
-        let str = UIStoryboard(name: "Add", bundle: nil)
-        let nextVC = str.instantiateViewController(withIdentifier: "CreateGroupViewController") as! CreateGroupViewController
-        //   nextVC.RequestUserID = "\(connectionsArray[indexPath.row].userid ?? 0)"
-        self.navigationController?.pushViewController(nextVC, animated: true)
-    }
+   
 }
 
 
@@ -163,7 +155,7 @@ extension NetworkViewController : UICollectionViewDelegate, UICollectionViewData
             return cell
         } else if indexPath.section == 1 {
             let cell: SegmentCell = collectionView.dequeueReusableCell(withReuseIdentifier: "SegmentCell", for: indexPath) as! SegmentCell
-
+            cell.interfaceSegmented.delegate = self
             return cell
         } else {
             let cell: NetworkCVCell = collectionView.dequeueReusableCell(withReuseIdentifier: "NetworkCVCell", for: indexPath) as! NetworkCVCell
@@ -184,6 +176,7 @@ extension NetworkViewController : UICollectionViewDelegate, UICollectionViewData
         as! SectionHeaderView
         
         header.title.text = "   My Groups"
+        header.title.textColor = UIColor.black
         return header
     }
     @objc func joinClicked(button: UIButton) {
@@ -199,11 +192,15 @@ extension NetworkViewController : UICollectionViewDelegate, UICollectionViewData
         return 3
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //        if selectedIndex == 0 {
-        //            self.navigateToUserDetails(reqId: "", groupId: "\(groupArray[indexPath.row].group_id ?? "")")
-        //        } else {
-        //        self.navigateToUserDetails(reqId: peopleArray[indexPath.row].posted_id ?? "", groupId: "")
-        //        }
+        if indexPath.section == 0 {
+            self.navigateToUserDetails(reqId: "", groupId: adminGroupArray[indexPath.row].group_id ?? "")
+        } else if indexPath.section == 2 {
+            if selectedIndex == 0 {
+                self.navigateToUserDetails(reqId: "", groupId: "\(groupArray[indexPath.row].group_id ?? "")")
+            } else {
+                self.navigateToUserDetails(reqId: peopleArray[indexPath.row].posted_id ?? "", groupId: "")
+            }
+        }
     }
     
     func navigateToUserDetails(reqId: String, groupId: String) {
@@ -223,6 +220,10 @@ extension NetworkViewController: CustomSegmentedControlDelegate {
             self.loadGropConnections()
         case 1:
             self.loadPeopleConnections()
+        case 2:
+            let str = UIStoryboard(name: "Add", bundle: nil)
+            let nextVC = str.instantiateViewController(withIdentifier: "CreateGroupViewController") as! CreateGroupViewController
+            self.navigationController?.pushViewController(nextVC, animated: true)
         default:
             print("nothing selected")
         }
