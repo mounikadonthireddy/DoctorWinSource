@@ -1,14 +1,14 @@
 //
-//  CarrierJobCell.swift
+//  JobCVCell.swift
 //  DoctorWin
 //
-//  Created by Donthireddy Mounika on 20/04/22.
+//  Created by AHP on 23/02/2566 BE.
 //
 
 import UIKit
 
-class CarrierJobCell: UITableViewCell {
-    
+class JobCVCell: UICollectionViewCell {
+
     var jobId = ""
     @IBOutlet weak var experience: UILabel!
     @IBOutlet weak var salary: UILabel!
@@ -35,13 +35,7 @@ class CarrierJobCell: UITableViewCell {
         collectionViewLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
     }
-    
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
-    }
+
     
     @IBAction func chatClicked(_ sender: Any) {
     }
@@ -63,14 +57,14 @@ class CarrierJobCell: UITableViewCell {
 //                case .failure: break
 //                   //debug
 //                }
-//               
+//
 //            }
-//            
+//
 //        }
         
     }
     func configureCell(with data: JobModel) {
-       self.hospitalName.text =  (data.category ?? "") + " in " + (data.Speciality ?? "") 
+       self.hospitalName.text =  (data.category ?? "") + " in " + (data.Speciality ?? "")
         self.specialityName.text = data.name_of_company ?? ""
         
         self.location.text = (data.city ?? "") + "," + (data.state ?? "")
@@ -97,7 +91,7 @@ class CarrierJobCell: UITableViewCell {
         return differenceOfDate
     }
 }
-extension CarrierJobCell : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension JobCVCell : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return courseArray.count
     }

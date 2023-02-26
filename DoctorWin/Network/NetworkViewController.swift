@@ -9,7 +9,6 @@ import UIKit
 
 class NetworkViewController: ViewController {
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var collectionViewLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var addBtn: UIButton!
     var groupVM = GroupViewModel()
@@ -22,22 +21,20 @@ class NetworkViewController: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        topView.dropShadow()
+        // topView.dropShadow()
         addBtn.setCornerRadius(radius: Float(addBtn.frame.height/2))
-        collectionViewLayout.scrollDirection = .vertical
-        collectionViewLayout.minimumLineSpacing = 0
-        collectionViewLayout.minimumInteritemSpacing = 0
-        collectionViewLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
+        collectionView.register(UINib.init(nibName: "AdminGroupCell", bundle: nil), forCellWithReuseIdentifier: "AdminGroupCell")
+        collectionView.register(UINib.init(nibName: "SegmentCell", bundle: nil), forCellWithReuseIdentifier: "SegmentCell")
         
         collectionView.register(UINib.init(nibName: "NetworkCVCell", bundle: nil), forCellWithReuseIdentifier: "NetworkCVCell")
-        
+        collectionView.register(SectionHeaderView.self, forSupplementaryViewOfKind: headerKind, withReuseIdentifier: Key.ReusableIdentifiers.sectionHeaderViewId)
+        configureCompositionalLayout()
         
         groupVM.delegate = self
         peopleVM.delegate = self
         self.loadGropConnections()
-      //  self.loadPeopleConnections()
-        collectionView.register(UINib(nibName: collectionViewHeaderFooterReuseIdentifier, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: collectionViewHeaderFooterReuseIdentifier)
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.tabBar.isHidden = false
@@ -127,29 +124,67 @@ extension NetworkViewController: PeopleViewModelDelegate {
     
 }
 extension NetworkViewController : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func configureCompositionalLayout() {
+        
+        let layout = UICollectionViewCompositionalLayout { (sectionNumber, env) in
+            if sectionNumber == 0  {
+                return LayoutType.fullViewLayout.getLayout(withHeader: true, height: 55)
+            } else if sectionNumber == 1 {
+                return LayoutType.fullViewLayout.getLayout(height: 55)
+            } else if sectionNumber == 2 {
+                return LayoutType.fullViewLayout.getLayout(height: 75)
+            }  else {
+                return LayoutType.headerImageSectionLayout.getLayout(withHeader: false)
+            }
+        }
+        
+        layout.register(SectionDecorationView.self, forDecorationViewOfKind: sectionBackground)
+        collectionView.setCollectionViewLayout(layout, animated: true )
+    }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if selectedIndex ==  0  {
-            return groupArray.count
-        } else if selectedIndex == 1 {
-            return peopleArray.count
+        if section == 0 {
+            return adminGroupArray.count
+        } else if section == 1 {
+            return 1
+        } else if section == 2 {
+            if selectedIndex ==  0  {
+                return groupArray.count
+            } else if selectedIndex == 1 {
+                return peopleArray.count
+            }
         }
         return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell: NetworkCVCell = collectionView.dequeueReusableCell(withReuseIdentifier: "NetworkCVCell", for: indexPath) as! NetworkCVCell
-        if selectedIndex  == 0 {
-            cell.cellConfigureWithGroupData(data: groupArray[indexPath.row])
-            cell.followBtn.addTarget(self, action: #selector(joinClicked(button:)), for: .touchUpInside)
+        if indexPath.section == 0 {
+            let cell: AdminGroupCell = collectionView.dequeueReusableCell(withReuseIdentifier: "AdminGroupCell", for: indexPath) as! AdminGroupCell
+            cell.configureWithConnectionData(data: adminGroupArray[indexPath.row])
+            return cell
+        } else if indexPath.section == 1 {
+            let cell: SegmentCell = collectionView.dequeueReusableCell(withReuseIdentifier: "SegmentCell", for: indexPath) as! SegmentCell
+
+            return cell
         } else {
-            cell.cellConfigureWithPeopleData(data: peopleArray[indexPath.row])
-            cell.followBtn.addTarget(self, action: #selector(peopleFollowClicked(button:)), for: .touchUpInside)
+            let cell: NetworkCVCell = collectionView.dequeueReusableCell(withReuseIdentifier: "NetworkCVCell", for: indexPath) as! NetworkCVCell
+            if selectedIndex  == 0 {
+                cell.cellConfigureWithGroupData(data: groupArray[indexPath.row])
+                cell.followBtn.addTarget(self, action: #selector(joinClicked(button:)), for: .touchUpInside)
+            } else {
+                cell.cellConfigureWithPeopleData(data: peopleArray[indexPath.row])
+                cell.followBtn.addTarget(self, action: #selector(peopleFollowClicked(button:)), for: .touchUpInside)
+            }
+            return cell
         }
         
+    }
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
-        return cell
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: Key.ReusableIdentifiers.sectionHeaderViewId, for: indexPath)
+        as! SectionHeaderView
         
+        header.title.text = "   My Groups"
+        return header
     }
     @objc func joinClicked(button: UIButton) {
         
@@ -157,65 +192,20 @@ extension NetworkViewController : UICollectionViewDelegate, UICollectionViewData
     @objc func peopleFollowClicked(button: UIButton) {
         
     }
-    func collectionView(_ collectionView: UICollectionView,
-                        viewForSupplementaryElementOfKind kind: String,
-                        at indexPath: IndexPath) -> UICollectionReusableView {
-        
-        switch kind {
-            
-        case UICollectionView.elementKindSectionHeader:
-            let headerView: NetworkCVHeaderView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: collectionViewHeaderFooterReuseIdentifier, for: indexPath) as! NetworkCVHeaderView
-            headerView.loadGropsData(data: adminGroupArray)
-            headerView.interfaceSegmented.delegate = self
-            headerView.delegate = self
-            //   headerView.titleLbl.text = titleArray[indexPath.section]
-            
-            return headerView
-        default:
-            assert(false, "Unexpected element kind")
-        }
-        
-    }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let yourWidth = 100
-        return CGSize(width: yourWidth, height: 220)
-    }
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5) //.zero
-    }
     
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        
-        return 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        
-        return 0
-    }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return 3
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if selectedIndex == 0 {
-            self.navigateToUserDetails(reqId: "", groupId: "\(groupArray[indexPath.row].group_id ?? "")")
-        } else {
-        self.navigateToUserDetails(reqId: peopleArray[indexPath.row].posted_id ?? "", groupId: "")
-        }
+        //        if selectedIndex == 0 {
+        //            self.navigateToUserDetails(reqId: "", groupId: "\(groupArray[indexPath.row].group_id ?? "")")
+        //        } else {
+        //        self.navigateToUserDetails(reqId: peopleArray[indexPath.row].posted_id ?? "", groupId: "")
+        //        }
     }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        
-        return CGSize(width: collectionView.frame.width, height: CGFloat(adminGroupArray.count * 50) + CGFloat(120))
-    }
+    
     func navigateToUserDetails(reqId: String, groupId: String) {
         let str = UIStoryboard(name: "Details", bundle: nil)
         let nextVC = str.instantiateViewController(withIdentifier: "UserDetailsViewController") as! UserDetailsViewController
@@ -241,15 +231,15 @@ extension NetworkViewController: CustomSegmentedControlDelegate {
     
     
 }
-extension NetworkViewController: NetworkGroupSelected {
-    func selectedGroup(groupId: String) {
-        if groupId == "request" {
-            self.requestClicked()
-        } else if groupId != "" {
-            self.navigateToUserDetails(reqId: "", groupId: groupId)
-        }
-        print("group Id : \(groupId)")
-    }
-    
-    
-}
+//extension NetworkViewController: NetworkGroupSelected {
+//    func selectedGroup(groupId: String) {
+//        if groupId == "request" {
+//            self.requestClicked()
+//        } else if groupId != "" {
+//            self.navigateToUserDetails(reqId: "", groupId: groupId)
+//        }
+//        print("group Id : \(groupId)")
+//    }
+//
+//
+//}

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="AdminGroupCell" reuseIdentifier="AdminGroupCell" id="gTV-IL-0wX" customClass="AdminGroupCell" customModule="DoctorWin" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="313" height="62"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="313" height="62"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PpX-PM-YhL">
+                        <rect key="frame" x="5" y="5" width="303" height="52"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="collegeBg" translatesAutoresizingMaskIntoConstraints="NO" id="81S-tU-1H9">
+                                <rect key="frame" x="5" y="8.6666666666666643" width="35" height="35"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="dRZ-i8-KMk"/>
+                                    <constraint firstAttribute="height" constant="35" id="i7j-Rb-uLY"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hdL-hE-Jf9">
+                                <rect key="frame" x="263" y="16" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="7oY-Zb-ONq"/>
+                                    <constraint firstAttribute="width" constant="20" id="nse-OD-VXQ"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="greaterthan" catalog="system"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="test" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z7e-2D-tGZ">
+                                <rect key="frame" x="50" y="16" width="29" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="100" id="CNd-vS-5b7"/>
+                                    <constraint firstAttribute="height" constant="20" id="aqk-39-pkf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ccj-Iv-38n">
+                                <rect key="frame" x="89" y="13.666666666666668" width="80" height="25.000000000000004"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yUo-Bh-o1A">
+                                        <rect key="frame" x="3" y="0.0" width="74" height="25"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                        <state key="normal" title="Admin" image="sheild">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="yUo-Bh-o1A" firstAttribute="leading" secondItem="ccj-Iv-38n" secondAttribute="leading" constant="3" id="5Sn-ya-USI"/>
+                                    <constraint firstAttribute="height" constant="25" id="5sV-zt-xM9"/>
+                                    <constraint firstItem="yUo-Bh-o1A" firstAttribute="top" secondItem="ccj-Iv-38n" secondAttribute="top" id="97d-sK-swE"/>
+                                    <constraint firstAttribute="trailing" secondItem="yUo-Bh-o1A" secondAttribute="trailing" constant="3" id="GGi-bw-W2w"/>
+                                    <constraint firstAttribute="bottom" secondItem="yUo-Bh-o1A" secondAttribute="bottom" id="rAF-4Z-vJa"/>
+                                    <constraint firstAttribute="width" constant="80" id="vND-wb-rrW"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="81S-tU-1H9" firstAttribute="centerY" secondItem="PpX-PM-YhL" secondAttribute="centerY" id="Aen-FB-Atx"/>
+                            <constraint firstItem="z7e-2D-tGZ" firstAttribute="leading" secondItem="81S-tU-1H9" secondAttribute="trailing" constant="10" id="ExQ-Zm-0Nk"/>
+                            <constraint firstAttribute="trailing" secondItem="hdL-hE-Jf9" secondAttribute="trailing" constant="20" id="KZB-1G-1mQ"/>
+                            <constraint firstItem="81S-tU-1H9" firstAttribute="leading" secondItem="PpX-PM-YhL" secondAttribute="leading" constant="5" id="bKe-1U-OoG"/>
+                            <constraint firstItem="z7e-2D-tGZ" firstAttribute="centerY" secondItem="PpX-PM-YhL" secondAttribute="centerY" id="cYH-8V-NRf"/>
+                            <constraint firstItem="hdL-hE-Jf9" firstAttribute="centerY" secondItem="PpX-PM-YhL" secondAttribute="centerY" id="oO5-gT-GXb"/>
+                            <constraint firstItem="ccj-Iv-38n" firstAttribute="leading" secondItem="z7e-2D-tGZ" secondAttribute="trailing" constant="10" id="pLX-nA-LGg"/>
+                            <constraint firstItem="ccj-Iv-38n" firstAttribute="centerY" secondItem="PpX-PM-YhL" secondAttribute="centerY" id="tkz-Ou-5Jb"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="PpX-PM-YhL" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="5Yp-yy-SQF"/>
+                <constraint firstItem="PpX-PM-YhL" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="Slz-0f-2nj"/>
+                <constraint firstAttribute="trailing" secondItem="PpX-PM-YhL" secondAttribute="trailing" constant="5" id="WF4-4R-a6a"/>
+                <constraint firstAttribute="bottom" secondItem="PpX-PM-YhL" secondAttribute="bottom" constant="5" id="vpc-fj-b9d"/>
+            </constraints>
+            <size key="customSize" width="313" height="62"/>
+            <connections>
+                <outlet property="groupImage" destination="81S-tU-1H9" id="Co6-Ry-8ey"/>
+                <outlet property="groupName" destination="z7e-2D-tGZ" id="Br5-ko-dPR"/>
+                <outlet property="headerView" destination="ccj-Iv-38n" id="VSQ-vV-MRw"/>
+            </connections>
+            <point key="canvasLocation" x="173.2824427480916" y="24.647887323943664"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="collegeBg" width="375" height="153"/>
+        <image name="greaterthan" catalog="system" width="128" height="108"/>
+        <image name="sheild" width="16" height="16"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

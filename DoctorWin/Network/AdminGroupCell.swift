@@ -1,27 +1,20 @@
 //
-//  NetworkCVHeaderTVCell.swift
+//  AdminGroupCell.swift
 //  DoctorWin
 //
-//  Created by AHP on 03/09/2565 BE.
+//  Created by AHP on 26/02/2566 BE.
 //
 
 import UIKit
 
-class NetworkCVHeaderTVCell: UITableViewCell {
+class AdminGroupCell: UICollectionViewCell {
     @IBOutlet weak var groupName: UILabel!
     @IBOutlet weak var groupImage: UIImageView!
     @IBOutlet weak var headerView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         groupImage.setCornerRadius(radius: Float(groupImage.frame.height)/2)
         headerView.setCornerRadius(radius: Float(headerView.frame.height)/2)
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
     }
     func configureWithConnectionData(data: AdminGroupModel) {
         self.groupName.text = data.name ?? ""
@@ -33,5 +26,4 @@ class NetworkCVHeaderTVCell: UITableViewCell {
         }
         
     }
-    
 }

@@ -179,10 +179,6 @@
 		BF170F53280D34E2001B3109 /* ProfileViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF170F51280D34E2001B3109 /* ProfileViewFooter.swift */; };
 		BF170F54280D34E2001B3109 /* ProfileViewFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF170F52280D34E2001B3109 /* ProfileViewFooter.xib */; };
 		BF170F56280D9A94001B3109 /* NetworkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF170F55280D9A94001B3109 /* NetworkViewController.swift */; };
-		BF170F59280D9AEE001B3109 /* NetworkTableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF170F58280D9AEE001B3109 /* NetworkTableHeader.swift */; };
-		BF170F5C280D9B08001B3109 /* NetworkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF170F5A280D9B08001B3109 /* NetworkCell.swift */; };
-		BF170F5D280D9B08001B3109 /* NetworkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF170F5B280D9B08001B3109 /* NetworkCell.xib */; };
-		BF170F5F280DAEFE001B3109 /* NetworkTableHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF170F5E280DAEFE001B3109 /* NetworkTableHeader.xib */; };
 		BF170F62280FCE49001B3109 /* CaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF170F60280FCE49001B3109 /* CaseCell.swift */; };
 		BF170F63280FCE49001B3109 /* CaseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF170F61280FCE49001B3109 /* CaseCell.xib */; };
 		BF170F68280FD1FC001B3109 /* ExamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF170F66280FD1FC001B3109 /* ExamCell.swift */; };
@@ -294,6 +290,11 @@
 		DC55BE0A2872F47400B1EE1B /* DatingResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC55BE092872F47400B1EE1B /* DatingResource.swift */; };
 		DC6B8A472853318A00F89D57 /* Tab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC6B8A462853318A00F89D57 /* Tab.storyboard */; };
 		DC6BCDA3287BE7D5004F143D /* SaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6BCDA2287BE7D4004F143D /* SaleViewController.swift */; };
+		DC74AE0829A7653300F34B3F /* ImageSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC74AE0629A7653300F34B3F /* ImageSectionCell.swift */; };
+		DC74AE0929A7653300F34B3F /* ImageSectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC74AE0729A7653300F34B3F /* ImageSectionCell.xib */; };
+		DC74AE0C29A773FD00F34B3F /* JobCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC74AE0A29A773FD00F34B3F /* JobCVCell.swift */; };
+		DC74AE0D29A773FD00F34B3F /* JobCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC74AE0B29A773FD00F34B3F /* JobCVCell.xib */; };
+		DC74AE0F29A77C7800F34B3F /* CollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC74AE0E29A77C7800F34B3F /* CollectionViewLayout.swift */; };
 		DC7968FE28F42422004D9FE6 /* QuestionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7968FC28F42422004D9FE6 /* QuestionHeaderCell.swift */; };
 		DC7968FF28F42422004D9FE6 /* QuestionHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC7968FD28F42422004D9FE6 /* QuestionHeaderCell.xib */; };
 		DC86698028730ED700CF89A8 /* ShowInterestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8AE24F286E95B1003376A7 /* ShowInterestViewController.swift */; };
@@ -323,6 +324,10 @@
 		DC885E4B28DC724600110418 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC885E4A28DC724600110418 /* ChatViewController.swift */; };
 		DC885E4E28DC881300110418 /* MatchesInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC885E4C28DC881300110418 /* MatchesInfoCell.swift */; };
 		DC885E4F28DC881300110418 /* MatchesInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC885E4D28DC881300110418 /* MatchesInfoCell.xib */; };
+		DC88794329AB7D5B008DE949 /* AdminGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC88794129AB7D5B008DE949 /* AdminGroupCell.swift */; };
+		DC88794429AB7D5B008DE949 /* AdminGroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC88794229AB7D5B008DE949 /* AdminGroupCell.xib */; };
+		DC88794729AB9B4A008DE949 /* SegmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC88794529AB9B4A008DE949 /* SegmentCell.swift */; };
+		DC88794829AB9B4A008DE949 /* SegmentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC88794629AB9B4A008DE949 /* SegmentCell.xib */; };
 		DC8AE243286D815D003376A7 /* ShopCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8AE241286D815D003376A7 /* ShopCategoryCell.swift */; };
 		DC8AE244286D815D003376A7 /* ShopCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC8AE242286D815D003376A7 /* ShopCategoryCell.xib */; };
 		DC8AE246286D9DFB003376A7 /* ShopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8AE245286D9DFB003376A7 /* ShopViewModel.swift */; };
@@ -381,10 +386,6 @@
 		DCA0A6E128C31463001DE3F1 /* ShopWishlistHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCA0A6DF28C31462001DE3F1 /* ShopWishlistHeaderView.xib */; };
 		DCA0A6E428C34957001DE3F1 /* NetworkCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA0A6E228C34957001DE3F1 /* NetworkCVCell.swift */; };
 		DCA0A6E528C34957001DE3F1 /* NetworkCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCA0A6E328C34957001DE3F1 /* NetworkCVCell.xib */; };
-		DCA0A6E828C36118001DE3F1 /* NetworkCVHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA0A6E628C36118001DE3F1 /* NetworkCVHeaderView.swift */; };
-		DCA0A6E928C36118001DE3F1 /* NetworkCVHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCA0A6E728C36118001DE3F1 /* NetworkCVHeaderView.xib */; };
-		DCA0A6EC28C3622A001DE3F1 /* NetworkCVHeaderTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA0A6EA28C3622A001DE3F1 /* NetworkCVHeaderTVCell.swift */; };
-		DCA0A6ED28C3622A001DE3F1 /* NetworkCVHeaderTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCA0A6EB28C3622A001DE3F1 /* NetworkCVHeaderTVCell.xib */; };
 		DCA0A6F228C4DCF1001DE3F1 /* QACell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA0A6F028C4DCF0001DE3F1 /* QACell.swift */; };
 		DCA0A6F328C4DCF1001DE3F1 /* QACell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCA0A6F128C4DCF0001DE3F1 /* QACell.xib */; };
 		DCA0A6F628C4DD50001DE3F1 /* AnswersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA0A6F428C4DD50001DE3F1 /* AnswersCell.swift */; };
@@ -627,10 +628,6 @@
 		BF170F51280D34E2001B3109 /* ProfileViewFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewFooter.swift; sourceTree = "<group>"; };
 		BF170F52280D34E2001B3109 /* ProfileViewFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewFooter.xib; sourceTree = "<group>"; };
 		BF170F55280D9A94001B3109 /* NetworkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkViewController.swift; sourceTree = "<group>"; };
-		BF170F58280D9AEE001B3109 /* NetworkTableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTableHeader.swift; sourceTree = "<group>"; };
-		BF170F5A280D9B08001B3109 /* NetworkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCell.swift; sourceTree = "<group>"; };
-		BF170F5B280D9B08001B3109 /* NetworkCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NetworkCell.xib; sourceTree = "<group>"; };
-		BF170F5E280DAEFE001B3109 /* NetworkTableHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NetworkTableHeader.xib; sourceTree = "<group>"; };
 		BF170F60280FCE49001B3109 /* CaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseCell.swift; sourceTree = "<group>"; };
 		BF170F61280FCE49001B3109 /* CaseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CaseCell.xib; sourceTree = "<group>"; };
 		BF170F66280FD1FC001B3109 /* ExamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamCell.swift; sourceTree = "<group>"; };
@@ -742,6 +739,11 @@
 		DC55BE092872F47400B1EE1B /* DatingResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatingResource.swift; sourceTree = "<group>"; };
 		DC6B8A462853318A00F89D57 /* Tab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tab.storyboard; sourceTree = "<group>"; };
 		DC6BCDA2287BE7D4004F143D /* SaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleViewController.swift; sourceTree = "<group>"; };
+		DC74AE0629A7653300F34B3F /* ImageSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSectionCell.swift; sourceTree = "<group>"; };
+		DC74AE0729A7653300F34B3F /* ImageSectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageSectionCell.xib; sourceTree = "<group>"; };
+		DC74AE0A29A773FD00F34B3F /* JobCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobCVCell.swift; sourceTree = "<group>"; };
+		DC74AE0B29A773FD00F34B3F /* JobCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JobCVCell.xib; sourceTree = "<group>"; };
+		DC74AE0E29A77C7800F34B3F /* CollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewLayout.swift; sourceTree = "<group>"; };
 		DC7968FC28F42422004D9FE6 /* QuestionHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionHeaderCell.swift; sourceTree = "<group>"; };
 		DC7968FD28F42422004D9FE6 /* QuestionHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionHeaderCell.xib; sourceTree = "<group>"; };
 		DC86698128742FAE00CF89A8 /* ShopCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCVCell.swift; sourceTree = "<group>"; };
@@ -769,6 +771,10 @@
 		DC885E4A28DC724600110418 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		DC885E4C28DC881300110418 /* MatchesInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchesInfoCell.swift; sourceTree = "<group>"; };
 		DC885E4D28DC881300110418 /* MatchesInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatchesInfoCell.xib; sourceTree = "<group>"; };
+		DC88794129AB7D5B008DE949 /* AdminGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminGroupCell.swift; sourceTree = "<group>"; };
+		DC88794229AB7D5B008DE949 /* AdminGroupCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdminGroupCell.xib; sourceTree = "<group>"; };
+		DC88794529AB9B4A008DE949 /* SegmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentCell.swift; sourceTree = "<group>"; };
+		DC88794629AB9B4A008DE949 /* SegmentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SegmentCell.xib; sourceTree = "<group>"; };
 		DC8AE241286D815D003376A7 /* ShopCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCategoryCell.swift; sourceTree = "<group>"; };
 		DC8AE242286D815D003376A7 /* ShopCategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopCategoryCell.xib; sourceTree = "<group>"; };
 		DC8AE245286D9DFB003376A7 /* ShopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewModel.swift; sourceTree = "<group>"; };
@@ -827,10 +833,6 @@
 		DCA0A6DF28C31462001DE3F1 /* ShopWishlistHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopWishlistHeaderView.xib; sourceTree = "<group>"; };
 		DCA0A6E228C34957001DE3F1 /* NetworkCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCVCell.swift; sourceTree = "<group>"; };
 		DCA0A6E328C34957001DE3F1 /* NetworkCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NetworkCVCell.xib; sourceTree = "<group>"; };
-		DCA0A6E628C36118001DE3F1 /* NetworkCVHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCVHeaderView.swift; sourceTree = "<group>"; };
-		DCA0A6E728C36118001DE3F1 /* NetworkCVHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NetworkCVHeaderView.xib; sourceTree = "<group>"; };
-		DCA0A6EA28C3622A001DE3F1 /* NetworkCVHeaderTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCVHeaderTVCell.swift; sourceTree = "<group>"; };
-		DCA0A6EB28C3622A001DE3F1 /* NetworkCVHeaderTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NetworkCVHeaderTVCell.xib; sourceTree = "<group>"; };
 		DCA0A6F028C4DCF0001DE3F1 /* QACell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QACell.swift; sourceTree = "<group>"; };
 		DCA0A6F128C4DCF0001DE3F1 /* QACell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QACell.xib; sourceTree = "<group>"; };
 		DCA0A6F428C4DD50001DE3F1 /* AnswersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersCell.swift; sourceTree = "<group>"; };
@@ -940,6 +942,8 @@
 				DC55BE012872BCB600B1EE1B /* MCQViewModel.swift */,
 				DC55BE032872BD0500B1EE1B /* MCQResource.swift */,
 				BF1588B627C65A37000B8979 /* DataViewController.swift */,
+				DC74AE0629A7653300F34B3F /* ImageSectionCell.swift */,
+				DC74AE0729A7653300F34B3F /* ImageSectionCell.xib */,
 				DCF1B49928F71042007F4FA3 /* Learning */,
 				BFC3EED52823DE87000A1582 /* Shop */,
 				BF170F7628101840001B3109 /* CarrierView */,
@@ -1357,10 +1361,10 @@
 			isa = PBXGroup;
 			children = (
 				BF170F55280D9A94001B3109 /* NetworkViewController.swift */,
-				DCA0A6E628C36118001DE3F1 /* NetworkCVHeaderView.swift */,
-				DCA0A6E728C36118001DE3F1 /* NetworkCVHeaderView.xib */,
-				DCA0A6EA28C3622A001DE3F1 /* NetworkCVHeaderTVCell.swift */,
-				DCA0A6EB28C3622A001DE3F1 /* NetworkCVHeaderTVCell.xib */,
+				DC88794529AB9B4A008DE949 /* SegmentCell.swift */,
+				DC88794629AB9B4A008DE949 /* SegmentCell.xib */,
+				DC88794129AB7D5B008DE949 /* AdminGroupCell.swift */,
+				DC88794229AB7D5B008DE949 /* AdminGroupCell.xib */,
 				BFC3EEE72824E95E000A1582 /* NetworkViewModel.swift */,
 				DCA0A6F828C610F8001DE3F1 /* GroupViewModel.swift */,
 				DCA0A6FA28C61109001DE3F1 /* PeopleViewModel.swift */,
@@ -1371,10 +1375,6 @@
 				BFC3EEF92828F780000A1582 /* UserDetailsViewModel.swift */,
 				BFC3EEF52828D7FC000A1582 /* UserHeaderView.swift */,
 				BFC3EEF72828D805000A1582 /* UserHeaderView.xib */,
-				BF170F58280D9AEE001B3109 /* NetworkTableHeader.swift */,
-				BF170F5E280DAEFE001B3109 /* NetworkTableHeader.xib */,
-				BF170F5A280D9B08001B3109 /* NetworkCell.swift */,
-				BF170F5B280D9B08001B3109 /* NetworkCell.xib */,
 				DCA0A6E228C34957001DE3F1 /* NetworkCVCell.swift */,
 				DCA0A6E328C34957001DE3F1 /* NetworkCVCell.xib */,
 				BF431C7E2782D57E0057AF9F /* FollowCell.swift */,
@@ -1428,6 +1428,8 @@
 			children = (
 				BF170F7F28101AC7001B3109 /* CarrierJobCell.swift */,
 				BF170F8028101AC7001B3109 /* CarrierJobCell.xib */,
+				DC74AE0A29A773FD00F34B3F /* JobCVCell.swift */,
+				DC74AE0B29A773FD00F34B3F /* JobCVCell.xib */,
 				BFB3A66528352A02008D0C72 /* SpecialityCell.swift */,
 				BFB3A66628352A02008D0C72 /* SpecialityCell.xib */,
 				BF170F83281119EC001B3109 /* JobDetailsCell.swift */,
@@ -1439,6 +1441,7 @@
 				BFB3A66928352C10008D0C72 /* CarrierCategoryCell.swift */,
 				BFB3A66A28352C10008D0C72 /* CarrierCategoryCell.xib */,
 				BFD5FF2E2813048D003CE888 /* CarrierTabViewController.swift */,
+				DC74AE0E29A77C7800F34B3F /* CollectionViewLayout.swift */,
 				BFC3EF082834C71C000A1582 /* CarrierJobDetailsViewController.swift */,
 			);
 			path = CarrierView;
@@ -1795,7 +1798,6 @@
 				BF431C99278352820057AF9F /* NewTypeCell.xib in Resources */,
 				DC453E4D28C77EBA00E1B72F /* UserAnswerCell.xib in Resources */,
 				DCEA4B552951A3200033FBA7 /* CourseBuyCell.xib in Resources */,
-				BF170F5F280DAEFE001B3109 /* NetworkTableHeader.xib in Resources */,
 				43B975A52725978900CDF2F1 /* CarrierSubCell.xib in Resources */,
 				DC961EAF2876E17C00F24913 /* EditConnectCell.xib in Resources */,
 				BF431CA1278442D00057AF9F /* DummyCell.xib in Resources */,
@@ -1805,6 +1807,7 @@
 				DCD98808285221E900ECCCE7 /* Details.storyboard in Resources */,
 				DC7968FF28F42422004D9FE6 /* QuestionHeaderCell.xib in Resources */,
 				BFC3EEE128242568000A1582 /* HospitalDetailsCell.xib in Resources */,
+				DC88794429AB7D5B008DE949 /* AdminGroupCell.xib in Resources */,
 				BF170F4A28084825001B3109 /* ProfileCell.xib in Resources */,
 				BF0DD93D278C931C0053747A /* TitleView.xib in Resources */,
 				DC3A6A2728EFFBDF006F73A2 /* ShopDetailsCell.xib in Resources */,
@@ -1823,10 +1826,12 @@
 				BFC3EEDD2823DEB6000A1582 /* ShopCell.xib in Resources */,
 				43B975AF2725B19B00CDF2F1 /* JobInformationCell.xib in Resources */,
 				DC4AEF20285381C100D6D4A3 /* Network.storyboard in Resources */,
+				DC74AE0929A7653300F34B3F /* ImageSectionCell.xib in Resources */,
 				DC9AB76028F863B800C6043E /* CategoryTVCell.xib in Resources */,
 				DC4AEF24285384BD00D6D4A3 /* Job.storyboard in Resources */,
 				BFB3A66828352A02008D0C72 /* SpecialityCell.xib in Resources */,
 				DCA0A6F328C4DCF1001DE3F1 /* QACell.xib in Resources */,
+				DC74AE0D29A773FD00F34B3F /* JobCVCell.xib in Resources */,
 				BF0DD95B278D5B9C0053747A /* RecommandedJobCell.xib in Resources */,
 				BFA90E2A27BB5380009F9784 /* AddCasesTitleHeader.xib in Resources */,
 				43A6A97F2732520600400F72 /* AddExperienceCell.xib in Resources */,
@@ -1849,7 +1854,6 @@
 				439923D0272BD8D30085E067 /* JobsCollectionCell.xib in Resources */,
 				BF30C7D7277AEE240047E277 /* SearchJobCell.xib in Resources */,
 				DCAE86B7297437ED004D85D5 /* FellowshipTVell.xib in Resources */,
-				BF170F5D280D9B08001B3109 /* NetworkCell.xib in Resources */,
 				439297922722D629001891B8 /* Assets.xcassets in Resources */,
 				439297C92722F0E6001891B8 /* NewsCell.xib in Resources */,
 				BF170F69280FD1FC001B3109 /* ExamCell.xib in Resources */,
@@ -1866,6 +1870,7 @@
 				DCF1B49028F42F9F007F4FA3 /* ReplyCell.xib in Resources */,
 				BF0DD970278D92EF0053747A /* CarrierHeaderCell.xib in Resources */,
 				BF170F8228101AC7001B3109 /* CarrierJobCell.xib in Resources */,
+				DC88794829AB9B4A008DE949 /* SegmentCell.xib in Resources */,
 				DC885E3D28D217ED00110418 /* TrendingTableCell.xib in Resources */,
 				DCF1B4B328F7FE9D007F4FA3 /* LearningDetailsHeaderCell.xib in Resources */,
 				43A6A99327329F1C00400F72 /* CasesTableViewCell.xib in Resources */,
@@ -1883,12 +1888,10 @@
 				DC885E2C28C8D83700110418 /* BattleWar.ttf in Resources */,
 				BFD5FF2D2812EECE003CE888 /* NewsDetailsCell.xib in Resources */,
 				439297902722D628001891B8 /* Main.storyboard in Resources */,
-				DCA0A6E928C36118001DE3F1 /* NetworkCVHeaderView.xib in Resources */,
 				439275D82727F22B00E91E33 /* HomeTableViewHeader.xib in Resources */,
 				DC6B8A472853318A00F89D57 /* Tab.storyboard in Resources */,
 				BF0DD937278C88190053747A /* CarrierHighlightCell.xib in Resources */,
 				43D04BD32742892600414771 /* EditSkillCell.xib in Resources */,
-				DCA0A6ED28C3622A001DE3F1 /* NetworkCVHeaderTVCell.xib in Resources */,
 				DCA0A6E528C34957001DE3F1 /* NetworkCVCell.xib in Resources */,
 				DCF1B4B728F81068007F4FA3 /* LearningOverViewCell.xib in Resources */,
 				BF0DD96C278D8C930053747A /* RecentSearchCVCell.xib in Resources */,
@@ -2064,7 +2067,6 @@
 				BF0DD97C2795714F0053747A /* ExpandableLabel.swift in Sources */,
 				DCF1B4AB28F725C1007F4FA3 /* CourseModel.swift in Sources */,
 				43D38BEE275D022A004B42E0 /* JobApplyResource.swift in Sources */,
-				BF170F59280D9AEE001B3109 /* NetworkTableHeader.swift in Sources */,
 				BF431C9327831BB30057AF9F /* MyNewsViewController.swift in Sources */,
 				43F57E5327561860001120C8 /* BaseViewController.swift in Sources */,
 				DCEA4B542951A3200033FBA7 /* CourseBuyCell.swift in Sources */,
@@ -2101,7 +2103,6 @@
 				BF170F53280D34E2001B3109 /* ProfileViewFooter.swift in Sources */,
 				DCAE86B92974F46F004D85D5 /* FellowshipViewModel.swift in Sources */,
 				BF170F73280FE970001B3109 /* HomeTableHeader.swift in Sources */,
-				BF170F5C280D9B08001B3109 /* NetworkCell.swift in Sources */,
 				DCF1B4AD28F7E00D007F4FA3 /* LearningDetailsViewController.swift in Sources */,
 				DCA0A6E428C34957001DE3F1 /* NetworkCVCell.swift in Sources */,
 				43B03AA9272F99E100A4337B /* AddCasesViewController.swift in Sources */,
@@ -2205,6 +2206,7 @@
 				43C1BFA2272C150D008877AA /* TopJobsDataModel.swift in Sources */,
 				BFC3EEFD282E2BBC000A1582 /* ConnectViewController.swift in Sources */,
 				DC3A6A3528F42368006F73A2 /* QuestionDetailsViewController.swift in Sources */,
+				DC74AE0829A7653300F34B3F /* ImageSectionCell.swift in Sources */,
 				BFA90E2027BA7036009F9784 /* APIHelperClass.swift in Sources */,
 				DCA0A6D428C0FA86001DE3F1 /* BioCell.swift in Sources */,
 				DC465DA328E0947C009E7D4C /* ConnectImageCell.swift in Sources */,
@@ -2222,12 +2224,12 @@
 				DC9AB74728F830C300C6043E /* CurriculamHeaderCell.swift in Sources */,
 				439923CF272BD8D30085E067 /* JobsCollectionCell.swift in Sources */,
 				DC9AB75628F84D5600C6043E /* CurriculamCourseHeaderCell.swift in Sources */,
+				DC88794729AB9B4A008DE949 /* SegmentCell.swift in Sources */,
 				BF0DD952278D46C50053747A /* ProfessionalDetailsCell.swift in Sources */,
 				43B28450273CE1BA00E8CED8 /* AddMainViewController.swift in Sources */,
 				BF170F71280FD726001B3109 /* ExamDetailsViewController.swift in Sources */,
 				43A6A97E2732520600400F72 /* AddExperienceCell.swift in Sources */,
 				DC96D3B9292B9C3300F4CCF9 /* ImageCVCell.swift in Sources */,
-				DCA0A6E828C36118001DE3F1 /* NetworkCVHeaderView.swift in Sources */,
 				DC103DEC296EB4DF00A4FD4D /* FellowshipViewController.swift in Sources */,
 				BF170F4F280D34CA001B3109 /* ProfileViewHeader.swift in Sources */,
 				DCB7D1E3284B635800F3CFDE /* LikedViewModel.swift in Sources */,
@@ -2275,11 +2277,12 @@
 				43953E8C273E9C050027CE80 /* CarrierTableView.swift in Sources */,
 				DC961EAB2876D68000F24913 /* EditConnectViewModel.swift in Sources */,
 				DC9539BB285C5B9600FBD8D0 /* NewsCategoryModel.swift in Sources */,
+				DC74AE0C29A773FD00F34B3F /* JobCVCell.swift in Sources */,
 				43AF8FC027358C0700CC69EF /* ValidationResult.swift in Sources */,
-				DCA0A6EC28C3622A001DE3F1 /* NetworkCVHeaderTVCell.swift in Sources */,
 				43F971E1275B5E8800733478 /* ProfileViewModel.swift in Sources */,
 				43AF8FB32733D96F00CC69EF /* PaddingTextFeild.swift in Sources */,
 				BFC3EEEE28252579000A1582 /* RequestViewController.swift in Sources */,
+				DC74AE0F29A77C7800F34B3F /* CollectionViewLayout.swift in Sources */,
 				BFC3EEF1282525E5000A1582 /* RequestCell.swift in Sources */,
 				435FB5662750BCD80040C406 /* TopJobsViewModel.swift in Sources */,
 				43B975B42725B63000CDF2F1 /* JobHeadCell.swift in Sources */,
@@ -2315,6 +2318,7 @@
 				43B975A027258A0000CDF2F1 /* HomeTableCell.swift in Sources */,
 				439297D227231EDE001891B8 /* InfoCell.swift in Sources */,
 				DC41528229509FE200A77DF6 /* NameCell.swift in Sources */,
+				DC88794329AB7D5B008DE949 /* AdminGroupCell.swift in Sources */,
 				4392978B2722D628001891B8 /* SceneDelegate.swift in Sources */,
 				DC86698328742FAE00CF89A8 /* ShopCVCell.swift in Sources */,
 				431052F92759E48B006BC13A /* FilterViewController.swift in Sources */,

@@ -18,10 +18,10 @@ class CarrierCategoryCell: UICollectionViewCell {
     }
     func configureCell(with data: JobCategoryModel) {
         self.jobTypeName.text = data.category
-        self.bgView.layer.cornerRadius = 10
-      jobTypeImage.setCornerRadius(radius: 35)
+//        self.bgView.layer.cornerRadius = 10
+//      jobTypeImage.setCornerRadius(radius: 35)
         if let urlString = data.image {
-            self.jobTypeImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
+            self.jobTypeImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "jobBg"))
         }
     }
     func configureCell(with data: FellowshipModel) {

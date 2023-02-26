@@ -7,6 +7,14 @@
 //
 
 import Foundation
+struct Key {
+    struct ReusableIdentifiers {
+        static let cellId = "cellId"
+
+        static let sectionHeaderViewId = "SectionHeaderView"
+
+    }
+}
 
 struct Constants {
     static let ErrorAlertTitle = "Error"
@@ -18,9 +26,9 @@ struct ApiEndpoints {
     static let qualificationArray = ["PG MS", "PG MD", "SS DNB", "SS Mch","SS DM", "Nursing GNM", "Nursing Bsc", "Nursing Msc","BDS","MDS","Veternery", "BPT", "MPT", "AYUSH", "AYUSH MD/MS", "Paramedical"]
     static let occupationArray = ["Java", "Python", "Full Stack", "Database Engineer", "Software Engineer", "Web Developer"]
     static let genderArray = ["Male", "Female"]
-    static let baseImageURL = "https://api.drworld.in/"
-    static let baseUrl = "https://api.drworld.in/api/"
-    static let baseUrl1 = "http://3.136.112.232:8000/api/"
+    static let baseImageURL = ""
+    static let baseUrl = "http://18.60.57.66:8000/api/"
+    static let baseUrl1 = "http://18.60.57.66:8000/api/"
     static let userID = "?dworks_id"
     static let login = "auth/login/"
     static let register = "auth/register"
