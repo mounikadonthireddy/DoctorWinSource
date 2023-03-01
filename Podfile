@@ -12,6 +12,7 @@ target 'DoctorWin' do
   pod 'Alamofire', '~> 5.4'
   pod "ExpandableLabel"
   pod "SkeletonView"
+
   
   target 'DoctorWinTests' do
     inherit! :search_paths

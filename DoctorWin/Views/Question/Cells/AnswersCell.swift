@@ -22,7 +22,7 @@ class AnswersCell: UICollectionViewCell {
         
         self.questionTitle.text =  homeModel.title ?? ""
        
-        self.questionDes.text = homeModel.description ?? ""
+        self.questionDes.attributedText =  homeModel.description?.htmlToAttributedString
         if let userData = homeModel.userDetails {
             self.personDesignation.text = userData.speciality ?? ""
             self.personName.text = userData.name

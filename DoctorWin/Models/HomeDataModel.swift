@@ -11,6 +11,7 @@ struct HomeDataModel: Codable {
     let id: Int
     let title: String?
     let description: String?
+    let text_description: String?
     let status: Bool?
     let posted_date: String?
     let bookmark_status: Bool?

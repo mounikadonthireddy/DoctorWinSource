@@ -27,6 +27,7 @@ class ViewController: UIViewController {
         }
     }
     func dismiss() {
+    
         dismiss(animated: false, completion: nil)
     }
 

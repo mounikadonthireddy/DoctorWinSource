@@ -112,6 +112,18 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapImageView(_:)))
         cell.commentBtn.addTarget(self, action: #selector(commentClicked(button:)), for: .touchUpInside)
         cell.postImage.tag = indexPath.row
+//        cell.subTitleLable.text =  homedataArry[indexPath.row].text_description ?? ""
+//        cell.subTitleLable.font = cell.designation.font.withSize(15)
+//        cell.subTitleLable.backgroundColor = UIColor.clear
+//        cell.subTitleLable.setLineSpacing()
+////        cell.subTitleLable.delegate = self
+//        cell.subTitleLable.delegate = self
+//        cell.subTitleLable.setLessLinkWith(lessLink: "Close", attributes: [.foregroundColor:UIColor.red], position: .left)
+//        cell.layoutIfNeeded()
+//        cell.subTitleLable.shouldCollapse = true
+//        cell.subTitleLable.textReplacementType = .character
+//        cell.subTitleLable.numberOfLines = 3
+//        cell.subTitleLable.collapsed = states[indexPath.row]
         cell.postImage?.addGestureRecognizer(tapGestureRecognizer)
         cell.layoutIfNeeded()
         return cell
@@ -251,7 +263,14 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
     }
     @objc   func willExpandLabel(_ label: ExpandableLabel) {
-        // tableView.beginUpdates()
+        let point = label.convert(CGPoint.zero, to: tableView)
+        if let indexPath = tableView.indexPathForRow(at: point) as IndexPath? {
+            let str = UIStoryboard(name: "Details", bundle: nil)
+            let nextVC = str.instantiateViewController(withIdentifier: "CaseDetailsViewController") as! CaseDetailsViewController
+            nextVC.detailsModel = homedataArry[indexPath.row]
+            //   nextVC.caseId = homedataArry[indexPath.row].postId
+            self.navigationController?.pushViewController(nextVC, animated: true)
+        }
     }
     
     @objc  func didExpandLabel(_ label: ExpandableLabel) {
