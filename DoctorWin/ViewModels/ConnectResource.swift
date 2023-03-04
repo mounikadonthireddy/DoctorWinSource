@@ -48,7 +48,7 @@ struct ConnectResource {
         do {
             let postBody = try JSONEncoder().encode(request)
             
-            httpUtility.postMethod(requestUrl: homeUrl, requestBody: postBody, resultType: BoolResponseModel.self) { (result) in
+            httpUtility.putMethod(requestUrl: homeUrl, requestBody: postBody, resultType: BoolResponseModel.self) { (result) in
                 
                 switch result {
                 case .success(let data):

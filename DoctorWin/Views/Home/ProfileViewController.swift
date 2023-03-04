@@ -104,12 +104,14 @@ extension ProfileViewController  {
     @objc func followClicked(button: Any) {
         let str = UIStoryboard(name: "Network", bundle: nil)
         let nextVC = str.instantiateViewController(withIdentifier: "FollowViewController") as! FollowViewController
+        nextVC.postId = profileModel?.posted_id ?? ""
         self.navigationController?.pushViewController(nextVC, animated: true)
         
     }
     @objc func followingClicked(button: Any) {
         let str = UIStoryboard(name: "Network", bundle: nil)
         let nextVC = str.instantiateViewController(withIdentifier: "FollowingViewController") as! FollowingViewController
+        nextVC.userid = profileModel?.posted_id ?? ""
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     @objc func bookmarkClicked(button: Any) {

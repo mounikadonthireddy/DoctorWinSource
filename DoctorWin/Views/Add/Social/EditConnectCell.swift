@@ -59,6 +59,13 @@ class EditConnectCell: UITableViewCell {
         collectionViewLayout1.minimumLineSpacing = 0
         collectionViewLayout1.minimumInteritemSpacing = 0
         collectionViewLayout1.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        genderTF.optionArray = ApiEndpoints.genderArray
+        zodiacTF.optionArray = ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio","Sagittarius", "Capucorn", "Aquarius", "Pisces"]
+        petsTF.optionArray = ["Cat" ,"Dog", "Reptile", "Amphibian" , "Dont have, but love", "Pet free", "App the pets"]
+        personalityTF.optionArray = ["Introvert", "Extrovert", "Ambvert"]
+        heightTF.optionArray = ["5'0","5'1","5'2","5'3","5'4","5'5","5'6","5'7","5'8","5'9","6'0","6'1","6'2","6'3"]
+        qualificationTF.optionArray = ApiEndpoints.qualificationArray
+        professionTF.optionArray = ApiEndpoints.occupationArray
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -88,13 +95,7 @@ class EditConnectCell: UITableViewCell {
       
        // interestArray = data.interest ?? []
 //        imageArray = data.genderimage ?? []
-        genderTF.optionArray = ApiEndpoints.genderArray
-        zodiacTF.optionArray = ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio","Sagittarius", "Capucorn", "Aquarius", "Pisces"]
-        petsTF.optionArray = ["Cat" ,"Dog", "Reptile", "Amphibian" , "Dont have, but love", "Pet free", "App the pets"]
-        personalityTF.optionArray = ["Introvert", "Extrovert", "Ambvert"]
-        heightTF.optionArray = ["5'0","5'1","5'2","5'3","5'4","5'5","5'6","5'7","5'8","5'9","6'0","6'1","6'2","6'3"]
-        qualificationTF.optionArray = ApiEndpoints.qualificationArray
-        professionTF.optionArray = ApiEndpoints.occupationArray
+       
         InterestCollectionView.reloadData()
         ImagesCollectionView.reloadData()
     }
@@ -103,8 +104,9 @@ class EditConnectCell: UITableViewCell {
         ImagesCollectionView.reloadData()
     }
     @IBAction func updateClicked(_ sender: Any) {
+        let age:Int = Int(dobTF.text ?? "0") ?? 0
         let interest = selectedInterest.joined(separator: ",")
-        let request =  ConnectProfileRequetModel(name: (nameTF.text ?? ""), intro: (bioTF.text ?? ""), gender: (genderTF.text ?? ""), age: (dobTF.text ?? ""), living: (livingTF.text ?? ""), qualification: (qualificationTF.text ?? ""), profession: (professionTF.text ?? ""), height: (heightTF.text ?? ""), looking_for: (lookingTF.text ?? ""), living_in: (livingTF.text ?? ""), institute: (occupationTF.text ?? ""), orientation: (personalityTF.text ?? ""), zodiacs: (zodiacTF.text ?? ""), pets: (petsTF.text ?? ""), income: (incomeTF.text ?? ""), interest: interest)
+        let request =  ConnectProfileRequetModel(name: (nameTF.text ?? ""), intro: (bioTF.text ?? ""), gender: (genderTF.text ?? ""), age: "\(age)", living: (livingTF.text ?? ""), qualification: (qualificationTF.text ?? ""), profession: (professionTF.text ?? ""), height: (heightTF.text ?? ""), looking_for: (lookingTF.text ?? ""), living_in: (livingTF.text ?? ""), institute: (occupationTF.text ?? ""), orientation: (personalityTF.text ?? ""), zodiacs: (zodiacTF.text ?? ""), pets: (petsTF.text ?? ""), income: (incomeTF.text ?? ""), interest: interest)
         delegate?.update(request: request)
     }
 }
@@ -142,8 +144,8 @@ extension EditConnectCell : UICollectionViewDelegate, UICollectionViewDataSource
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == InterestCollectionView {
-           // let size = (interestArray[indexPath.row].interest as NSString).size(withAttributes: nil)
-            return CGSize(width: 60 + 60, height: 30)
+            let size = ((interestArray[indexPath.row].name ?? "") as NSString).size(withAttributes: nil)
+            return CGSize(width: size.width + 40 , height: 30)
         } else {
             let yourWidth = ImagesCollectionView.frame.width/3
             let yourHeight = ImagesCollectionView.frame.height/2 - 8

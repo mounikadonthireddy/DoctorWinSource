@@ -47,7 +47,8 @@ struct ImagesModel: Codable {
 }
 struct PostedGroupDetailsModel: Codable {
     let status: Bool?
-    let id: String?
+    let id: Int?
+    let group_id: String?
     let cover_image: String?
     let image: String?
     let name: String?

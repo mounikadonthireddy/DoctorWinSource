@@ -9,7 +9,7 @@ import UIKit
 
 class SavedJobViewController: UIViewController {
     @IBOutlet weak var savedJobTableView: UITableView!
-    var savedJobArray :[JobsDataModel] = []
+    var savedJobArray :[JobModel] = []
     var customJobVM = CustomJobViewModel()
     weak var jobScreenSelectionDelegate: CustomJobScreenSelectionDelegate?
 
@@ -17,14 +17,14 @@ class SavedJobViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        savedJobTableView.register(UINib.init(nibName: "CarrierSubCell", bundle: nil), forCellReuseIdentifier: "CarrierSubCell")
-        customJobVM.delegate = self
+        savedJobTableView.register(UINib.init(nibName: "CarrierJobCell", bundle: nil), forCellReuseIdentifier: "CarrierJobCell")
+        customJobVM.delegate2 = self
         parse1()
     }
     
 
     func parse1() {
-        customJobVM.getSavedJobs(userID: User.shared.userID)
+        customJobVM.getSavedJobs(pageNum: 1)
     }
     @IBAction func backClicked(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
@@ -38,26 +38,31 @@ extension SavedJobViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: CarrierSubCell = tableView.dequeueReusableCell(withIdentifier: "CarrierSubCell") as! CarrierSubCell
+        let cell: CarrierJobCell = tableView.dequeueReusableCell(withIdentifier: "CarrierJobCell") as! CarrierJobCell
         cell.configureCell(with: savedJobArray[indexPath.row])
         
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let str = UIStoryboard(name: "Details", bundle: nil)
-        let nextVC = str.instantiateViewController(withIdentifier: "JobDetailsViewController") as! JobDetailsViewController
-        nextVC.detailsModel = savedJobArray[indexPath.row]
+        let nextVC = str.instantiateViewController(withIdentifier: "CarrierJobDetailsViewController") as! CarrierJobDetailsViewController
+        nextVC.jobId = savedJobArray[indexPath.row].id
         self.navigationController?.pushViewController(nextVC, animated: true)
         
     }
     
     
 }
-extension SavedJobViewController: CustomJobViewModelDelegate {
-    func didReceiveCustomJobs(response: [JobsDataModel]?, error: String?) {
-        self.savedJobArray = response ?? []
+extension SavedJobViewController: JobSavedDelegate {
+    func didReceiveSavedJobs(response: AppliedJobResponse?, error: String?) {
+        self.savedJobArray = response?.jobResponse ?? []
         savedJobTableView.reloadData()
-        jobScreenSelectionDelegate?.didSelectScreen(selectedType: JobTypeScreenSelection.savedJob(withCount: self.savedJobArray.count))
-
     }
+    
+//    func didReceiveSavedJobs(response: AppliedJobResponse, error: String?) {
+//        self.savedJobArray = response.jobResponse ?? []
+//        savedJobTableView.reloadData()
+//        jobScreenSelectionDelegate?.didSelectScreen(selectedType: JobTypeScreenSelection.savedJob(withCount: self.savedJobArray.count))
+//
+//    }
 }

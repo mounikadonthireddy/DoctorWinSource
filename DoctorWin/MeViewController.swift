@@ -180,6 +180,7 @@ extension MeViewController: UITableViewDelegate, UITableViewDataSource {
     @objc func followClicked(button: UIButton) {
         let str = UIStoryboard(name: "Network", bundle: nil)
         let nextVC = str.instantiateViewController(withIdentifier: "FollowViewController") as! FollowViewController
+       // nextVC.postId = profileModel.po
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     @objc func deleteClicked(button: UIButton) {

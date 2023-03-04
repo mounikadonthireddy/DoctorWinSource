@@ -11,7 +11,7 @@ class FollowingViewController: ViewController {
     @IBOutlet weak var tableView: UITableView!
     var followVM = NetworkViewModel()
     var followArray :[FollowModel] = []
-
+    var userid: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,7 +25,7 @@ class FollowingViewController: ViewController {
     }
     func loadConnections() {
         self.showLoader()
-        followVM.getFollowingDataFromAPI(userID: User.shared.userID)
+        followVM.getFollowingDataFromAPI(userID: userid)
     }
     
     @IBAction func backClicked(_ sender: Any) {
@@ -43,14 +43,20 @@ extension FollowingViewController: UITableViewDelegate, UITableViewDataSource {
         cell.cellConfigureWithFollowData(data: followArray[indexPath.row])
         return cell
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let str = UIStoryboard(name: "Details", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "UserDetailsViewController") as! UserDetailsViewController
+        nextVC.requestUserID = followArray[indexPath.row].posted_id ?? ""
+        //nextVC.groupId = groupId
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
     
 }
 extension FollowingViewController: NetworkViewModelDelegate {
-    func didReceiveFollowDataResponse(response: [FollowModel]?, error: String?) {
+    func didReceiveFollowDataResponse(response: FollowResponse?, error: String?) {
         self.dismiss()
         if let res = response {
-            followArray = res
+            followArray = res.userDetails ?? []
             tableView.reloadData()
         }
     }

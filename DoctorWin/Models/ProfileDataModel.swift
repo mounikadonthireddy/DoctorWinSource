@@ -28,6 +28,7 @@ struct ProfileModel: Codable {
     let follow_status: Bool
     let follow_count: Int
     let location: String?
+    let posted_id: String?
 }
 struct ProfileDataModel : Codable {
     let phone_number: String?

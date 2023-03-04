@@ -9,7 +9,9 @@ import Foundation
 protocol JobBookmarkedDelegate {
     func didReceiveBookmakedJobs(response: [JobModel]?, error: String?)
 }
-
+protocol JobSavedDelegate {
+    func didReceiveSavedJobs(response: AppliedJobResponse?, error: String?)
+}
 protocol CustomJobViewModelDelegate {
     func didReceiveCustomJobs(response: [JobsDataModel]?, error: String?)
 }
@@ -17,6 +19,7 @@ protocol CustomJobViewModelDelegate {
 struct CustomJobViewModel {
     var delegate : CustomJobViewModelDelegate?
     var delegate1 : JobBookmarkedDelegate?
+    var delegate2 : JobSavedDelegate?
     func getCustomJobs(userID: String) {
         let resource = CustomJobResource()
         resource.getCustomJobData(userID: userID) { response in
@@ -46,16 +49,16 @@ struct CustomJobViewModel {
 //            }
 //        }
     }
-    func getSavedJobs(userID: String) {
+    func getSavedJobs(pageNum: Int) {
         let resource = CustomJobResource()
-        resource.getSavedJobData(userID: userID) { response in
+        resource.getSavedJobData(page: pageNum) { response in
             DispatchQueue.main.async {
                 switch response {
                 case .success(let data):
-                    self.delegate?.didReceiveCustomJobs(response: data, error: nil)
+                    self.delegate2?.didReceiveSavedJobs(response: data, error: nil)
                     
                 case .failure(let error):
-                    self.delegate?.didReceiveCustomJobs(response: nil, error: error)
+                    self.delegate2?.didReceiveSavedJobs(response: nil, error: error)
                 }
             }
         }

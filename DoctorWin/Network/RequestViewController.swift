@@ -63,11 +63,12 @@ extension RequestViewController: UITableViewDelegate, UITableViewDataSource {
     
 }
 extension RequestViewController: NetworkViewModelDelegate {
-    func didReceiveFollowDataResponse(response: [FollowModel]?, error: String?) {
+    func didReceiveFollowDataResponse(response: FollowResponse?, error: String?) {
       
     }
     
     func didReceiveNetworkDataResponse(response: [NetworkModel]?, error: String?) {
+    
         self.dismiss()
         if let res = response {
             requestArray = res

@@ -86,7 +86,8 @@ struct JobsResource {
     }
     func saveJob(request: JobApplyRequest, completion : @escaping  (_ result: ResponseResult<StatusResponseModel>) -> Void) {
         
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.prefrenceApi +  "?id=\(request.id)&display_status=\(request.display_status)&preference=\(request.preference)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.prefrenceApi
+        
         let homeUrl = URL(string: homeUrlStr)!
         
         let httpUtility = HttpUtility()

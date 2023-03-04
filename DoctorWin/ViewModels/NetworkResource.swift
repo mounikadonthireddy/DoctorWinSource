@@ -50,15 +50,15 @@ struct NetworkResource {
             }
         }
     }
-    func getFollowData(userID: String, completion : @escaping (_ result: ResponseResult<[FollowModel]>) -> Void) {
+    func getFollowData(userID: String, completion : @escaping (_ result: ResponseResult<FollowResponse>) -> Void) {
         
-        let jobUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getFollow + ApiEndpoints.userID + "=\(userID)"
+        let jobUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getFollow + "?posted_id=\(userID)&q=follow"
         
         let httpUtility = HttpUtility()
         do {
             
             
-            httpUtility.getApiData(urlString: jobUrlStr, resultType: [FollowModel].self) { result in
+            httpUtility.getApiData(urlString: jobUrlStr, resultType: FollowResponse.self) { result in
                 
                 switch result {
                 case .success(let data):
@@ -71,15 +71,14 @@ struct NetworkResource {
             }
         }
     }
-    func getFollowingData(userID: String, completion : @escaping (_ result: ResponseResult<[FollowModel]>) -> Void) {
+    func getFollowingData(userID: String, completion : @escaping (_ result: ResponseResult<FollowResponse>) -> Void) {
         
-        let jobUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getFollowing + ApiEndpoints.userID + "=\(userID)&page=1"
+        let jobUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getFollow + "?posted_id=\(userID)&q=following"
         
         let httpUtility = HttpUtility()
         do {
-            
-            
-            httpUtility.getApiData(urlString: jobUrlStr, resultType: [FollowModel].self) { result in
+
+            httpUtility.getApiData(urlString: jobUrlStr, resultType: FollowResponse.self) { result in
                 
                 switch result {
                 case .success(let data):

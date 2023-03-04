@@ -25,9 +25,11 @@ extension LoginViewController : LoginViewModelDelegate {
     func didReceiveLoginResponse(wilNavigateTo: Bool, error: String?) {
         self.dismiss()
         if  error == nil {
-            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "OTPViewController") as! OTPViewController
-            nextVC.mobileNumber = self.mobileNumTF.text ?? ""
-            self.navigationController?.pushViewController(nextVC, animated: true)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "OTPViewController") as! OTPViewController
+                nextVC.mobileNumber = self.mobileNumTF.text ?? ""
+                self.navigationController?.pushViewController(nextVC, animated: true)
+            }
         } else if wilNavigateTo == false && error != nil {
             DispatchQueue.main.async {
                 let alert = UIAlertController(title: Constants.ErrorAlertTitle, message: error, preferredStyle: .alert)

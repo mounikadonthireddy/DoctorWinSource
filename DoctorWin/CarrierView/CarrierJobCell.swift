@@ -7,9 +7,10 @@
 
 import UIKit
 
+
 class CarrierJobCell: UITableViewCell {
     
-    var jobId = ""
+    var display = 0
     @IBOutlet weak var experience: UILabel!
     @IBOutlet weak var salary: UILabel!
     @IBOutlet weak var location: UILabel!
@@ -48,25 +49,25 @@ class CarrierJobCell: UITableViewCell {
     
     
     @IBAction func saveClicked(_ sender: UIButton) {
-//        let request = JobApplyRequest(user_id: User.shared.userID, job_id: "\(jobId)")
-//        let resource = JobsResource()
-//        resource.saveJob(request: request) { result in
-//            DispatchQueue.main.async {
-//                switch result {
-//                case .success( let data):
-//                    if data.status {
-//                        self.bookMarkImage.image = UIImage(named: "fmark")
-//                    }
-//                    else {
-//                        self.bookMarkImage.image = UIImage(named: "mark")
-//                    }
-//                case .failure: break
-//                   //debug
-//                }
-//               
-//            }
-//            
-//        }
+        let request = JobApplyRequest(display_status: display, id: sender.tag, preference: Preference.bookmark.rawValue)
+        let resource = JobsResource()
+        resource.saveJob(request: request) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success( let data):
+                    if data.status {
+                        self.bookMarkImage.image = UIImage(named: "fmark")
+                    }
+                    else {
+                        self.bookMarkImage.image = UIImage(named: "mark")
+                    }
+                case .failure: break
+                   //debug
+                }
+               
+            }
+            
+        }
         
     }
     func configureCell(with data: JobModel) {
@@ -76,8 +77,8 @@ class CarrierJobCell: UITableViewCell {
         self.location.text = (data.city ?? "") + "," + (data.state ?? "")
         self.experience.text = (data.min_experince ?? "" ) + "-" + (data.max_experince ?? "") + " yrs of Exp."
         
-        
-        jobId = data.jobid ?? ""
+        save.tag = data.id
+        display = data.display_status
         self.salary.text = "\(data.min_salary ?? "") -" + "\(data.max_salary ?? "") /" + (data.monthly_or_anual ?? "")
 
         self.courseArray = data.eligibility ?? []

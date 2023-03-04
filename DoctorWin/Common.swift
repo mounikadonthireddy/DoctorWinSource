@@ -44,7 +44,7 @@ struct ApiEndpoints {
   
     static let getTopJobs = "job/top/"
     static let customJobs = "custom/user/"
-    static let savedJobs = "job/bookmark/"
+    static let savedJobs = "bookmarks"
     static let appliedJobs = "appliedjob?page=1"
     static let getNewJobs = "alljobs"
     
@@ -92,7 +92,7 @@ struct ApiEndpoints {
     static let getBookMarks = "bookmarks"
     //Network
     static let getNetworkConnections = "groups"
-    static let getFollow = "auth/follow"
+    static let getFollow = "auth/follow_followers"
     static let getFollowing = "auth/following"
     static let getRequest = "auth/request/"
     static let getPeoples = "people"

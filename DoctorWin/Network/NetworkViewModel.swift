@@ -8,7 +8,7 @@
 import Foundation
 protocol NetworkViewModelDelegate {
     func didReceiveNetworkDataResponse(response: [NetworkModel]?, error: String?)
-    func didReceiveFollowDataResponse(response: [FollowModel]?, error: String?)
+    func didReceiveFollowDataResponse(response: FollowResponse?, error: String?)
 }
 
 

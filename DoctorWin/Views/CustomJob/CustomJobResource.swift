@@ -24,11 +24,11 @@ struct CustomJobResource {
             }
         }
     }
-    func getSavedJobData(userID: String, completion : @escaping (_ result: ResponseResult<[JobsDataModel]>) -> Void) {
-        let savedJobUrl = ApiEndpoints.baseUrl + ApiEndpoints.savedJobs + ApiEndpoints.userID + "=\(userID)"
+    func getSavedJobData(page: Int, completion : @escaping (_ result: ResponseResult<AppliedJobResponse>) -> Void) {
+        let savedJobUrl = ApiEndpoints.baseUrl + ApiEndpoints.savedJobs +  "?page=\(page)&display_status=6"
         let httpUtility = HttpUtility()
         do {
-            httpUtility.getApiData(urlString: savedJobUrl, resultType: [JobsDataModel].self) {result in
+            httpUtility.getApiData(urlString: savedJobUrl, resultType: AppliedJobResponse.self) {result in
                 
                 switch result {
                 case .success(let data):

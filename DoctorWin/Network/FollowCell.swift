@@ -26,17 +26,21 @@ class FollowCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func cellConfigureWithFollowData(data: FollowModel) {
-        self.name.text = data.profile_name ?? ""
-        self.nameType.text = data.username ?? ""
-        if let urlString = data.profileImage {
+        self.name.text = data.name ?? ""
+        self.nameType.text = data.speciality ?? ""
+        if let urlString = data.image {
          self.personImage.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "loginBg"))
         }
     }
 }
 
 struct FollowModel: Codable {
-    let userid: Int?
-    let username: String?
-    let profile_name: String?
-    let profileImage: String?
+    let posted_id: String?
+    let speciality: String?
+    let name: String?
+    let image: String?
+}
+struct FollowResponse: Codable {
+    let message: String?
+    let userDetails: [FollowModel]?
 }
