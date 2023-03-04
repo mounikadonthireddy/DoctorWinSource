@@ -56,6 +56,28 @@ class PopularCell: UITableViewCell {
 //        saveBtn.tag = homeModel.id
         //        replyBtn.tag = homeModel.id
     }
+    func configureDataWith(homeModel: HomeDataModel) {
+        self.postedPersonName.text = homeModel.userDetails?.name ?? ""
+        self.titleLable.attributedText =  homeModel.description?.htmlToAttributedString
+        self.designation.text = homeModel.userDetails?.speciality ?? ""
+        self.questionLbl.text = homeModel.title ?? ""
+     //   self.discussion.text = "\(homeModel.dis ?? 0)"
+        self.likeLable.text = "\(homeModel.like_count ?? 0)"
+        if homeModel.bookmark_status ?? false {
+            bookmarkImage.image = UIImage(named: "fmark")
+        }
+        
+        if homeModel.bookmark_status ?? false {
+            likeImage.image = UIImage(named: "fheart")
+            
+        }
+        if let urlString = homeModel.userDetails?.image {
+            self.personImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
+        }
+//        wishlistBtn.tag = homeModel.id
+//        saveBtn.tag = homeModel.id
+        //        replyBtn.tag = homeModel.id
+    }
     @IBAction func likeClicked(_ sender: UIButton) {
 //        let request = ComplaintLikeRequest(achievement_id: "\(sender.tag)", dworks_id: User.shared.userID)
 //        

@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import ExpandableLabel
+
 
 class CaseCell: UITableViewCell {
     
@@ -53,10 +53,14 @@ class CaseCell: UITableViewCell {
         self.titleLable.setLineSpacing()
         self.postId = homeModel.id
         self.display_status = homeModel.display_status ?? 0
-        self.subTitleLable.text = homeModel.text_description ?? ""
-        DispatchQueue.main.async {
-            self.subTitleLable.addTrailing(with: "... ", moreText: "Readmore", moreTextFont: self.subTitleLable.font!, moreTextColor: .blue)
+        if let data = homeModel.text_description {
+            self.subTitleLable.text = data
+            self.subTitleLable.numberOfLines = 5
+            DispatchQueue.main.async {
+                self.subTitleLable.addTrailing(with: "... ", moreText: "Readmore", moreTextFont: self.subTitleLable.font!, moreTextColor: .blue)
+            }
         }
+
        // self.dateLable.text = homeModel.posted_date ?? ""
  
 //        if let value = homeModel.comment_count {

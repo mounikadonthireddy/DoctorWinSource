@@ -1,6 +1,5 @@
 PODS:
   - Alamofire (5.4.4)
-  - ExpandableLabel (0.5.2)
   - iOSDropDown (0.3.4)
   - SDWebImage (5.12.1):
     - SDWebImage/Core (= 5.12.1)
@@ -10,7 +9,6 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 5.4)
-  - ExpandableLabel
   - iOSDropDown
   - SDWebImage (~> 5.0)
   - SkeletonView
@@ -19,7 +17,6 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
-    - ExpandableLabel
     - iOSDropDown
     - SDWebImage
     - SkeletonView
@@ -27,12 +24,11 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
-  ExpandableLabel: c2fab6d27860c572d67134b30522a5917746171d
   iOSDropDown: c10a761f9a00c3f1cc9d3bce43ae504628e2f692
   SDWebImage: 4dc3e42d9ec0c1028b960a33ac6b637bb432207b
   SkeletonView: 5a050f6411e697abd4cda0a8d767013399dccd69
   SkyFloatingLabelTextField: 5a338412114808e961fe2d14ea2c5452c8b6e4aa
 
-PODFILE CHECKSUM: 5451deaaa5fdc4f360d61fd58ef432fcf892de47
+PODFILE CHECKSUM: fc314de149bfea38b80104403d736113f308e86d
 
 COCOAPODS: 1.11.3

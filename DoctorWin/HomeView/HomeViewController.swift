@@ -6,8 +6,11 @@
 //
 
 import UIKit
-
-class HomeViewController: ViewController, ExpandableLabelDelegate {
+import SkeletonView
+//enum DisplayStatus {
+//    case 1,2
+//}
+class HomeViewController: ViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var questionBtn: UIButton!
     @IBOutlet weak var topView: UIView!
@@ -17,7 +20,7 @@ class HomeViewController: ViewController, ExpandableLabelDelegate {
     var loadingData = true
     var pageNumber = 1
     var nextPageAvailable = false
-    var states : Array<Bool>!
+    var totalPage = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -112,37 +115,27 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapImageView(_:)))
         cell.commentBtn.addTarget(self, action: #selector(commentClicked(button:)), for: .touchUpInside)
         cell.postImage.tag = indexPath.row
-//        cell.subTitleLable.text =  homedataArry[indexPath.row].text_description ?? ""
-//        cell.subTitleLable.font = cell.designation.font.withSize(15)
-//        cell.subTitleLable.backgroundColor = UIColor.clear
-//        cell.subTitleLable.setLineSpacing()
-////        cell.subTitleLable.delegate = self
-//        cell.subTitleLable.delegate = self
-//        cell.subTitleLable.setLessLinkWith(lessLink: "Close", attributes: [.foregroundColor:UIColor.red], position: .left)
-//        cell.layoutIfNeeded()
-//        cell.subTitleLable.shouldCollapse = true
-//        cell.subTitleLable.textReplacementType = .character
-//        cell.subTitleLable.numberOfLines = 3
-//        cell.subTitleLable.collapsed = states[indexPath.row]
         cell.postImage?.addGestureRecognizer(tapGestureRecognizer)
         cell.layoutIfNeeded()
         return cell
         
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let lastElement = homedataArry.count - 1
-        if !loadingData && indexPath.row == lastElement {
-            self.showLoader()
-            loadingData = true
-            pageNumber += 1
-            self.loadHomeData(pageNum: pageNumber)
+        if totalPage > pageNumber {
+            let lastElement = homedataArry.count - 1
+            if !loadingData && indexPath.row == lastElement {
+                self.showLoader()
+                loadingData = true
+                pageNumber += 1
+                self.loadHomeData(pageNum: pageNumber)
+            }
         }
     }
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 10
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 380
+        return 540
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
@@ -222,17 +215,31 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //        if homedataArry[indexPath.row].complaintStatus ?? false {
+        if homedataArry[indexPath.row].display_status == 4 {
+            let str = UIStoryboard(name: "Details", bundle: nil)
+            let nextVC = str.instantiateViewController(withIdentifier: "PopularQuestionDetailsViewController") as! PopularQuestionDetailsViewController
+            nextVC.homeData = homedataArry[indexPath.row]
+            self.navigationController?.pushViewController(nextVC, animated: true)
+        } else if homedataArry[indexPath.row].display_status == 1 {
+            let str = UIStoryboard(name: "Details", bundle: nil)
+            let nextVC = str.instantiateViewController(withIdentifier: "CaseDetailsViewController") as! CaseDetailsViewController
+            nextVC.detailsModel = homedataArry[indexPath.row]
+            nextVC.caseId = homedataArry[indexPath.row].id
+            self.navigationController?.pushViewController(nextVC, animated: true)
+        }
+        
+        
+//        //        if homedataArry[indexPath.row].complaintStatus ?? false {
 //        let str = UIStoryboard(name: "Details", bundle: nil)
 //        let nextVC = str.instantiateViewController(withIdentifier: "CaseDetailsViewController") as! CaseDetailsViewController
 //        nextVC.detailsModel = homedataArry[indexPath.row]
 //     //   nextVC.caseId = homedataArry[indexPath.row].postId
 //        self.navigationController?.pushViewController(nextVC, animated: true)
         //        } else if homedataArry[indexPath.row].newsStatus ?? false {
-        //            let str = UIStoryboard(name: "Details", bundle: nil)
-        //            let nextVC = str.instantiateViewController(withIdentifier: "NewsDetailsViewController") as! NewsDetailsViewController
-        //            nextVC.newsDetails = homedataArry[indexPath.row]
-        //            self.navigationController?.pushViewController(nextVC, animated: true)
+//                    let str = UIStoryboard(name: "Details", bundle: nil)
+//                    let nextVC = str.instantiateViewController(withIdentifier: "NewsDetailsViewController") as! NewsDetailsViewController
+//                    nextVC.newsDetails = homedataArry[indexPath.row]
+//                    self.navigationController?.pushViewController(nextVC, animated: true)
         //        } else if homedataArry[indexPath.row].articalStatus ?? false {
         //            let str = UIStoryboard(name: "Details", bundle: nil)
         //            let nextVC = str.instantiateViewController(withIdentifier: "ArticalDetailsViewController") as! ArticalDetailsViewController
@@ -262,43 +269,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     @objc func replyBtnClicked(button: UIButton) {
         
     }
-    @objc   func willExpandLabel(_ label: ExpandableLabel) {
-        let point = label.convert(CGPoint.zero, to: tableView)
-        if let indexPath = tableView.indexPathForRow(at: point) as IndexPath? {
-            let str = UIStoryboard(name: "Details", bundle: nil)
-            let nextVC = str.instantiateViewController(withIdentifier: "CaseDetailsViewController") as! CaseDetailsViewController
-            nextVC.detailsModel = homedataArry[indexPath.row]
-            //   nextVC.caseId = homedataArry[indexPath.row].postId
-            self.navigationController?.pushViewController(nextVC, animated: true)
-        }
-    }
-    
-    @objc  func didExpandLabel(_ label: ExpandableLabel) {
-        
-        
-        //        if let indexPath = tableView.indexPathForRow(at: point) as IndexPath? {
-        //            states[indexPath.row] = false
-        //            DispatchQueue.main.async { [weak self] in
-        //                self?.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
-        //            }
-        //        }
-        //        tableView.endUpdates()
-    }
-    
-    @objc func willCollapseLabel(_ label: ExpandableLabel) {
-        // tableView.beginUpdates()
-    }
-    
-    @objc  func didCollapseLabel(_ label: ExpandableLabel) {
-        //        let point = label.convert(CGPoint.zero, to: tableView)
-        //        if let indexPath = tableView.indexPathForRow(at: point) as IndexPath? {
-        //            states[indexPath.row] = true
-        //            DispatchQueue.main.async { [weak self] in
-        //                self?.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
-        //            }
-        //        }
-        //        tableView.endUpdates()
-    }
 }
 
 
@@ -326,6 +296,7 @@ extension HomeViewController : HomeViewModelDelegate {
     func didReciveHomeData(response: HomeResponseModel?, error: String?) {
         self.dismiss()
         loadingData = false
+        self.totalPage = response?.total_pages ?? 1
         if (error != nil) {
             let alert = UIAlertController(title: "Error", message: error!, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
@@ -336,7 +307,6 @@ extension HomeViewController : HomeViewModelDelegate {
             self.homedataArry = homedataArry + data
             self.nextPageAvailable = response?.next ?? false
             self.tableView.reloadData()
-            states = [Bool](repeating: true, count: homedataArry.count)
         }
     }
     

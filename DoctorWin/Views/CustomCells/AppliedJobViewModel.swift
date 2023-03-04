@@ -7,7 +7,7 @@
 
 import Foundation
 protocol AppliedJobViewModelDelegate {
-    func didReceiveAppliedJobs(response: [JobModel]?, error: String?)
+    func didReceiveAppliedJobs(response: AppliedJobResponse?, error: String?)
 }
 
 struct AppliedJobViewModel {

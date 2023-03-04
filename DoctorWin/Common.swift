@@ -45,7 +45,7 @@ struct ApiEndpoints {
     static let getTopJobs = "job/top/"
     static let customJobs = "custom/user/"
     static let savedJobs = "job/bookmark/"
-    static let appliedJobs = "job/apply/"
+    static let appliedJobs = "appliedjob?page=1"
     static let getNewJobs = "alljobs"
     
     //drop down
@@ -88,7 +88,7 @@ struct ApiEndpoints {
     static let searchJobs = "job/search/"
     static let trendingQuestion = "popular"
   
-    static let userPostedReplied = "ask/question/reply/show"
+    static let userPostedReplied = "post/fullview"
     static let getBookMarks = "bookmarks"
     //Network
     static let getNetworkConnections = "groups"

@@ -12,6 +12,10 @@ struct JobResponseModel: Codable {
     let total_pages: Int?
     
 }
+struct AppliedJobResponse: Codable {
+    let total_pages: Int?
+    let jobResponse: [JobModel]
+}
 struct JobModel: Codable {
     let id: Int
     let category: String?

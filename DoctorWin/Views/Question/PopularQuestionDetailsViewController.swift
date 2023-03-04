@@ -15,6 +15,7 @@ class PopularQuestionDetailsViewController: ViewController {
     var pageNumber = 1
     var loadingData = true
     var answerData: AnswersModel?
+    var homeData: HomeDataModel?
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "PopularCell", bundle: nil), forCellReuseIdentifier: "PopularCell")
@@ -33,9 +34,10 @@ extension PopularQuestionDetailsViewController: UITableViewDelegate, UITableView
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let _ = answerData {
+        if answerData != nil || homeData != nil {
             return 1
         }
+        
         return 0
     }
     
@@ -45,6 +47,9 @@ extension PopularQuestionDetailsViewController: UITableViewDelegate, UITableView
         = tableView.dequeueReusableCell(withIdentifier: "PopularCell") as! PopularCell
         if let data = answerData {
             cell.configureDataWith(homeModel: data)
+        }
+        if let data1 = homeData {
+            cell.configureDataWith(homeModel: data1)
         }
         cell.backBtn.addTarget(self, action: #selector(backClicked(button:)), for: .touchUpInside)
         cell.nextBtn.addTarget(self, action: #selector(nextClicked(button:)), for: .touchUpInside)
@@ -60,7 +65,13 @@ extension PopularQuestionDetailsViewController: UITableViewDelegate, UITableView
     @objc func nextClicked(button: UIButton) {
         let str = UIStoryboard(name: "Details", bundle: nil)
         let nextVC = str.instantiateViewController(withIdentifier: "QuestionDetailsViewController") as! QuestionDetailsViewController
-        nextVC.questionId = answerData?.id ?? 0
+        if let data = answerData {
+            nextVC.questionId = data.id
+        }
+        if let data1 = homeData {
+            nextVC.questionId = data1.qid
+        }
+      
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }

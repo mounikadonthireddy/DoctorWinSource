@@ -14,21 +14,24 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     func showLoader() {
-        let alert = UIAlertController(title: nil, message: "Loading...", preferredStyle: .alert)
-        
-        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
-        loadingIndicator.hidesWhenStopped = true
-        loadingIndicator.style = UIActivityIndicatorView.Style.medium
-        loadingIndicator.startAnimating()
-        
-        alert.view.addSubview(loadingIndicator)
-        DispatchQueue.main.async { [weak self] in
-            self?.present(alert, animated: true, completion: nil)
-        }
+//        DispatchQueue.main.async {
+            let alert = UIAlertController(title: nil, message: "Loading...", preferredStyle: .alert)
+            
+            let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+            loadingIndicator.hidesWhenStopped = true
+            loadingIndicator.style = UIActivityIndicatorView.Style.medium
+            loadingIndicator.startAnimating()
+            
+            alert.view.addSubview(loadingIndicator)
+         
+            self.present(alert, animated: true, completion: nil)
+//
+//        }
     }
     func dismiss() {
-    
-        dismiss(animated: false, completion: nil)
+        //DispatchQueue.main.async {
+            self.dismiss(animated: false, completion: nil)
+        //}
     }
 
 }

@@ -111,7 +111,8 @@ struct QuestionsResource {
     }
     func getUserRepliesPostedQuestions(userID: String,page:Int, questionId: String,completion : @escaping (_ result: ResponseResult<RepliesModel>) -> Void) {
         
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.userPostedReplied + ApiEndpoints.userID + "=\(userID)&page=\(page)&question_id=\(questionId)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.userPostedReplied + "?display_status=3&id=\(questionId)"
+       
         let httpUtility = HttpUtility()
         do {
             httpUtility.getApiData(urlString: homeUrlStr, resultType: RepliesModel.self) { result in

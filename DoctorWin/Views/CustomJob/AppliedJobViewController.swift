@@ -27,6 +27,7 @@ class AppliedJobViewController: ViewController {
         customJobVM.delegate = self
         appliedJobTableView.register(UINib.init(nibName: "CarrierJobCell", bundle: nil), forCellReuseIdentifier: "CarrierJobCell")
         // Do any additional setup after loading the view.
+        //self.showLoader()
         parse1()
     }
     
@@ -35,7 +36,7 @@ class AppliedJobViewController: ViewController {
     }
     
     func parse1() {
-        self.showLoader()
+      
         customJobVM.getAppliedJobs(userID: User.shared.userID)
         
     }
@@ -65,11 +66,14 @@ extension AppliedJobViewController : UITableViewDelegate, UITableViewDataSource 
     
 }
 extension AppliedJobViewController: AppliedJobViewModelDelegate {
-    func didReceiveAppliedJobs(response: [JobModel]?, error: String?) {
-        self.dismiss()
-        self.appliedJobArray = response ?? []
-        appliedJobTableView.reloadData()
-        jobScreenSelectionDelegate?.didSelectScreen(selectedType: JobTypeScreenSelection.appliedJob(withCount: self.appliedJobArray.count))
+    func didReceiveAppliedJobs(response: AppliedJobResponse?, error: String?) {
+        DispatchQueue.main.async {
+            self.dismiss()
+            self.appliedJobArray = response?.jobResponse ?? []
+            self.appliedJobTableView.reloadData()
+            self.jobScreenSelectionDelegate?.didSelectScreen(selectedType: JobTypeScreenSelection.appliedJob(withCount: self.appliedJobArray.count))
+        }
+       
     }
     
     

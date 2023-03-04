@@ -9,6 +9,7 @@ import Foundation
 
 struct HomeDataModel: Codable {
     let id: Int
+    let qid: Int?
     let title: String?
     let description: String?
     let text_description: String?
