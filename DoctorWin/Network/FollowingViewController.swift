@@ -54,10 +54,12 @@ extension FollowingViewController: UITableViewDelegate, UITableViewDataSource {
 }
 extension FollowingViewController: NetworkViewModelDelegate {
     func didReceiveFollowDataResponse(response: FollowResponse?, error: String?) {
-        self.dismiss()
-        if let res = response {
-            followArray = res.userDetails ?? []
-            tableView.reloadData()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.dismiss()
+            if let res = response {
+                self.followArray = res.userDetails ?? []
+                self.tableView.reloadData()
+            }
         }
     }
     
