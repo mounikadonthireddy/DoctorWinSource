@@ -103,7 +103,7 @@ struct GroupProfileModel: Codable {
     let image: String?
     let description: String?
     let cover_image: String?
-    let total_joined: Int
+    let total_joined: Int?
     let admin_status: Bool?
     let joined_status: Bool?
     let group_joined_image: [GenderImageModel]?

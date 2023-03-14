@@ -60,6 +60,7 @@ extension AppliedJobViewController : UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let str = UIStoryboard(name: "Details", bundle: nil)
             let nextVC = str.instantiateViewController(withIdentifier: "CarrierJobDetailsViewController") as! CarrierJobDetailsViewController
+        nextVC.jobId = appliedJobArray[indexPath.row].id
           // nextVC.detailsModel = appliedJobArray[indexPath.row]
             self.navigationController?.pushViewController(nextVC, animated: true)
     }

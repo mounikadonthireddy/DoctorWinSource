@@ -89,16 +89,16 @@ struct HomeViewModel {
 }
 
 protocol CaseDetailsDelegate {
-    func didReciveCaseDetails(response: CaseDetails?, error: String?)
-    func didReciveCommentsList(response: [CommentModel]?, error: String?)
+    func didReciveCaseDetails(response: CaseReponseModel?, error: String?)
+    func didReciveCommentsList(response: commentsReponseModel?, error: String?)
 }
 struct DetailsViewModel {
     var delegate: CaseDetailsDelegate?
-    func getCaseDetails(userID: String, caseId: String) {
+    func getCaseDetails(displayStatus: Int, caseId: Int) {
        
         let homeResource = HomeResource()
 
-        homeResource.getCaseDetails(userID: userID, complaintID: caseId) { response in
+        homeResource.getCaseDetails(displayStatus: displayStatus, caseId: caseId) { response in
             DispatchQueue.main.async {
                 switch response {
                 case .success(let data):
@@ -115,11 +115,11 @@ struct DetailsViewModel {
           
         
     }
-    func getComments(userID: String, caseId: String) {
+    func getComments(displayStatus: Int, caseId: Int) {
        
         let homeResource = HomeResource()
 
-        homeResource.getComments(userId: userID, postID: caseId) { response in
+        homeResource.getComments(displayStatus: displayStatus, postID: caseId) { response in
             DispatchQueue.main.async {
                 switch response {
                 case .success(let data):

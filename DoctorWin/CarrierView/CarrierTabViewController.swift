@@ -15,7 +15,7 @@ class CarrierTabViewController: ViewController {
     var categoryJobsViewModel = JobCategoryViewModel()
     var jobsVM = JobsViewModel()
     var quickSearchArray:[JobCategoryModel] = []
-    var sectionArray = ["Explore Jobs", "Saved Jobs", "Applied Jobs", "Post Jobs", "Upload Resume"]
+    var sectionArray = ["Explore Jobs","Post Jobs", "Saved Jobs", "Applied Jobs"]
     override func viewDidLoad() {
         super.viewDidLoad()
        
@@ -111,12 +111,12 @@ extension CarrierTabViewController : UICollectionViewDelegate, UICollectionViewD
                 return LayoutType.headerImageSectionLayout.getLayout()
             } else if sectionNumber == 1 {
                 return LayoutType.namesLayout.getLayout()
-            } else if sectionNumber == 2 {
+            } else if sectionNumber == 2 && self.quickSearchArray.count > 0 {
                 return LayoutType.categoryLayout.getLayout()
             } else if sectionNumber == 3 {
                 return LayoutType.fullViewLayout.getLayout(withHeader: true,height: 270)
             }  else {
-                return LayoutType.headerImageSectionLayout.getLayout(withHeader: false)
+                return LayoutType.emptyView.getLayout()
             }
         }
         
@@ -193,12 +193,12 @@ extension CarrierTabViewController : UICollectionViewDelegate, UICollectionViewD
     func navigateViewBasedOnSection(index: Int) {
         if index == 0 {
             
-        } else if index == 1 {
+        } else if index == 2 {
             let str = UIStoryboard(name: "Job", bundle: nil)
             let nextVC = str.instantiateViewController(withIdentifier: "SavedJobViewController") as! SavedJobViewController
             
             self.navigationController?.pushViewController(nextVC, animated: true)
-        } else if index == 2 {
+        } else if index == 3 {
             let str = UIStoryboard(name: "Job", bundle: nil)
             let nextVC = str.instantiateViewController(withIdentifier: "AppliedJobViewController") as! AppliedJobViewController
             self.navigationController?.pushViewController(nextVC, animated: true)

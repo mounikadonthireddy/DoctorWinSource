@@ -27,8 +27,8 @@ struct ApiEndpoints {
     static let occupationArray = ["Java", "Python", "Full Stack", "Database Engineer", "Software Engineer", "Web Developer"]
     static let genderArray = ["Male", "Female"]
     static let baseImageURL = ""
-    static let baseUrl = "http://18.60.57.66:8000/api/"
-    static let baseUrl1 = "http://18.60.57.66:8000/api/"
+    static let baseUrl = "http://35.170.72.137:8000/api/"
+    static let baseUrl1 = "http://35.170.72.137:8000/api/"
     static let userID = "?dworks_id"
     static let login = "auth/login/"
     static let register = "auth/register"
@@ -39,7 +39,7 @@ struct ApiEndpoints {
     static let homeApi = "homepage"
     static let prefrenceApi = "preference/status"
     //job
-    static let createBookMarkJobs = "job/bookmark/"
+    static let createBookMarkJobs = "jobbookmark"
     static let getJobCategory = "jobcategory"
   
     static let getTopJobs = "job/top/"
@@ -64,9 +64,9 @@ struct ApiEndpoints {
    
     static let getTabPost = "tab"
     //complaint
-    static let getComplaint = "user/social/"
+    static let getComplaint = "post/fullview"
     static let getComplaintComment = "complaint/comment/"
-    static let getComments = "user/social/comment"
+    static let getComments = "comment"
     //Question
     static let getAllQuestion =  "all/questions"
     //Profile
@@ -82,7 +82,7 @@ struct ApiEndpoints {
    
 
     static let questions = "comment/question/post/"
-    static let complaintFollow = "auth/follow/"
+    static let complaintFollow = "auth/follow"
    
     static let jobsCount = "custom/user/"
     static let searchJobs = "job/search/"

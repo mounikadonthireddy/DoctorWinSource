@@ -58,7 +58,7 @@ class PopularCell: UITableViewCell {
     }
     func configureDataWith(homeModel: HomeDataModel) {
         self.postedPersonName.text = homeModel.userDetails?.name ?? ""
-        self.titleLable.attributedText =  homeModel.description?.htmlToAttributedString
+        self.titleLable.attributedText =  homeModel.description?.convertToAttributedFromHTML()
         self.designation.text = homeModel.userDetails?.speciality ?? ""
         self.questionLbl.text = homeModel.title ?? ""
      //   self.discussion.text = "\(homeModel.dis ?? 0)"

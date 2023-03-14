@@ -25,6 +25,7 @@ struct HomeDataModel: Codable {
     let groupDetails: PostedGroupDetailsModel?
     let display_status: Int?
     let image: [ImagesModel]?
+    let loggedUser: String?
 }
 
 

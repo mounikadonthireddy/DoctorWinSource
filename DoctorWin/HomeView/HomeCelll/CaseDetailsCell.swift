@@ -10,7 +10,6 @@ import UIKit
 class CaseDetailsCell: UITableViewCell {
 
     @IBOutlet weak var personName: UILabel!
-    @IBOutlet weak var postedDate: UILabel!
     @IBOutlet weak var postTitle: UILabel!
     @IBOutlet weak var postDescription: UILabel!
     @IBOutlet weak var presentIllness: UILabel!
@@ -27,11 +26,12 @@ class CaseDetailsCell: UITableViewCell {
     @IBOutlet weak var diagnosiscResult: UILabel!
     @IBOutlet weak var postImage: UIImageView!
     @IBOutlet weak var personImage: UIImageView!
-
-    
+    @IBOutlet weak var imageHeiht: NSLayoutConstraint!
+    @IBOutlet weak var pageControl: UIPageControl!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        personImage.setCornerRadiusWithBorderColor(radius: 25, color: UIColor.lightGray, borderWidth: 0.2)
 //        personImage.setCornerRadius(radius: <#T##Float#>)
     }
     
@@ -41,36 +41,46 @@ class CaseDetailsCell: UITableViewCell {
         // Configure the view for the selected state
     }
    
-    func configureCellWith(data: HomeDataModel) {
+    func configureCellWith(data: CaseDetailsModel) {
         
-//        personName.text = data.caseName
+        personName.text = data.userDetails?.name ?? ""
 //        postedDate.text = data.postedData
-//        postTitle.text = data.title
-//        postDescription.text = data.complaint
-//        presentIllness.text = data.presentIllness
-//        pastIllness.text = data.pastIllness
-//        drugsIllness.text = data.drugIllness
-//        personalIllness.text = data.personalIllness
-//        familyIllness.text = data.familyIllness
-//        physicalExamination.text = data.physicalExamination
-//        systemExamination.text = data.systemExamination
-//        localExamination.text = data.localExamination
-//        labInvestigation.text = data.labInvestigation
-//        vitalInvestigation.text = data.vitusInvestigation
-//        ImageInvestigation.text = data.imageInvestigation
-//        diagnosiscResult.text = data.diagnosResult
-//
-//        if let urlString = data.postedImage {
-//            let finalUrlString = "http://3.132.212.116:8000" + urlString
-//
-//            self.postImage.sd_setImage(with: URL(string: finalUrlString), placeholderImage: UIImage(named: "loginBg"))
-//        }
-//
-//        if let urlString = data.caseProfileImage {
-//            let finalUrlString = "http://3.132.212.116:8000" + urlString
-//
-//            self.postImage.sd_setImage(with: URL(string: finalUrlString), placeholderImage: UIImage(named: "loginBg"))
-//        }
+        postTitle.text = data.title
+        postDescription.text = data.description
+        presentIllness.text = data.present_illness
+        pastIllness.text = data.past_illness
+        drugsIllness.text = data.drugs
+        personalIllness.text = data.personal
+        familyIllness.text = data.family
+        physicalExamination.text = data.physical_exam
+        systemExamination.text = data.system_exam
+        localExamination.text = data.local_exam
+        labInvestigation.text = data.lab_finding
+        vitalInvestigation.text = data.vitus
+        ImageInvestigation.text = data.imaging
+        diagnosiscResult.text = data.diagnosis
+
+        if let urlString = data.userDetails?.image {
+            let finalUrlString =  urlString
+
+            self.personImage.sd_setImage(with: URL(string: finalUrlString), placeholderImage: UIImage(named: "loginBg"))
+        }
+
+        if let imageData = data.image {
+            pageControl.numberOfPages = imageData.count
+            if imageData.count > 0 {
+                pageControl.isHidden = false
+                self.imageHeiht.constant = 350
+                if let urlString = imageData[0].image {
+                    self.postImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
+                }
+            } else {
+                imageHeiht.constant = 0
+            }
+        } else {
+            imageHeiht.constant = 0
+            pageControl.isHidden = true
+        }
     }
     
     

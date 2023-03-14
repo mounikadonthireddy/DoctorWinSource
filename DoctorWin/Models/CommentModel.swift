@@ -8,6 +8,10 @@
 import Foundation
 struct CommentModel: Codable {
     let comment_id : Int?
-    let comment, ProfileImage, ProfileName : String
+    let comment, image, name : String?
     
+}
+struct commentsReponseModel: Codable {
+    let is_active: Bool?
+    let userDetails: [CommentModel]
 }

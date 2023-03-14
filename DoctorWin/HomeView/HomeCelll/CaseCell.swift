@@ -12,7 +12,7 @@ class CaseCell: UITableViewCell {
     
     @IBOutlet weak var postedPersonName: UILabel!
     @IBOutlet weak var designation: UILabel!
-    //@IBOutlet weak var discussion: UILabel!
+    @IBOutlet weak var discussionBtn: UIButton!
     @IBOutlet weak var titleLable: UILabel!
     @IBOutlet weak var subTitleLable: UILabel!
 //    @IBOutlet weak var likeLable: UILabel!
@@ -33,6 +33,7 @@ class CaseCell: UITableViewCell {
     @IBOutlet weak var imageHeiht: NSLayoutConstraint!
     var postId: Int = 0
     var display_status: Int = 0
+    var userPostedID: String = ""
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -41,6 +42,7 @@ class CaseCell: UITableViewCell {
         personImage.setCornerRadiusWithBorderColor(radius: 25, color: UIColor.lightGray, borderWidth: 0.2)
         commentView.setCornerRadius(radius: Float(commentView.frame.height/2))
         commentProfileImage.setCornerRadius(radius: Float(commentProfileImage.frame.height/2))
+        followBtn.btn_setCornerRadius(radius: 8)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -56,19 +58,22 @@ class CaseCell: UITableViewCell {
         if let data = homeModel.text_description {
             self.subTitleLable.text = data
             self.subTitleLable.numberOfLines = 5
-            DispatchQueue.main.async {
-                self.subTitleLable.addTrailing(with: "... ", moreText: "Readmore", moreTextFont: self.subTitleLable.font!, moreTextColor: .blue)
+            if subTitleLable.text?.count ?? 0 > 300 {
+                DispatchQueue.main.async {
+                    self.subTitleLable.addTrailing(with: "... ", moreText: "Readmore", moreTextFont: self.subTitleLable.font!, moreTextColor: .blue)
+                }
             }
+        } else {
+            self.subTitleLable.text = homeModel.description ?? ""
         }
 
        // self.dateLable.text = homeModel.posted_date ?? ""
  
-//        if let value = homeModel.comment_count {
-//            self.c.setTitle("\(value)", for: .normal)
-//
-//        }
-        if let value1 = homeModel.like_count {
-            self.wishlistBtn.setTitle("\(value1)", for: .normal)
+        if let value = homeModel.comment_count, value > 0 {
+            self.discussionBtn.setTitle(" \(value)", for: .normal)
+        }
+        if let value1 = homeModel.like_count, value1 > 0 {
+            self.wishlistBtn.setTitle(" \(value1)", for: .normal)
         }
         if homeModel.bookmark_status ?? false {
             saveBtn.setImage(UIImage(named: "fmark"), for: .normal)
@@ -88,7 +93,7 @@ class CaseCell: UITableViewCell {
                 if let urlString = userData.image {
                     self.personImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
                 }
-               // self.postId = userData.posted_id
+                self.userPostedID = userData.posted_id ?? ""
         }
             if let groupData = homeModel.groupDetails {
                 if groupData.status == true {
@@ -97,15 +102,18 @@ class CaseCell: UITableViewCell {
                 if let urlString = groupData.image {
                     self.personImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
                 }
-              //  self.postId = groupData.id ?? ""
+           // self.userPostedID = groupData.id ?? ""
             }
            
+        }
+        if let image = homeModel.loggedUser {
+            self.commentProfileImage.sd_setImage(with: URL(string: image), placeholderImage: UIImage(named: "loginBg"))
         }
         if let imageData = homeModel.image {
             pageControl.numberOfPages = imageData.count
             if imageData.count > 0 {
                 pageControl.isHidden = false
-                self.imageHeiht.constant = 250
+                self.imageHeiht.constant = 350
                 if let urlString = imageData[0].image {
                     self.postImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
                 }
@@ -136,12 +144,15 @@ class CaseCell: UITableViewCell {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let data) :
+                    if let value1 = data.like_count, value1 > 0 {
+                        self.wishlistBtn.setTitle(" \(value1)", for: .normal)
+                    }
                     if data.status == true {
                         self.wishlistBtn.setImage(UIImage(named: "fheart"), for: .normal)
-                        //self.likeLable.text = "\(data.like_count ?? 0)"
+                       
                     } else {
                         self.wishlistBtn.setImage(UIImage(named: "heart"), for: .normal)
-                       // self.likeLable.text = "\((count ?? 1) - 1)"
+ 
                     }
                 case .failure(_):
                     print("")
@@ -152,7 +163,7 @@ class CaseCell: UITableViewCell {
         
     }
     @IBAction  func followClicked(_ sender: UIButton) {
-        let request = ComplaintFollowRequest(follow_id: "\(sender.tag)", user_id: User.shared.userID)
+        let request = ComplaintFollowRequest(posted_id: userPostedID)
         let resource = HomeResource()
         resource.followComplaint(request: request) { result in
             DispatchQueue.main.async {
@@ -297,4 +308,14 @@ extension UILabel {
              }
              return self.text!.count
          }
+}
+extension String {
+    func convertToAttributedFromHTML() -> NSAttributedString? {
+        var attributedText: NSAttributedString?
+        let options: [NSAttributedString.DocumentReadingOptionKey: Any] = [.documentType: NSAttributedString.DocumentType.html, .characterEncoding: String.Encoding.utf8.rawValue]
+        if let data = data(using: .unicode, allowLossyConversion: true), let attrStr = try? NSAttributedString(data: data, options: options, documentAttributes: nil) {
+            attributedText = attrStr
+        }
+        return attributedText
+    }
 }

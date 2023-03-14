@@ -39,24 +39,24 @@ class JobsCollectionCell: UICollectionViewCell {
         }
     }
     @IBAction func saveClicked(_ sender: UIButton) {
-        let request = JobApplyRequest(display_status: display_status, id: sender.tag, preference: Preference.jobapply.rawValue)
-        let resource = JobsResource()
-        resource.saveJob(request: request) { result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success( let data):
-                    if data.status {
-                        self.save.setImage( UIImage(named: "fmark"), for: .normal)
-                    }
-                    else {
-                        self.save.setImage( UIImage(named: "mark"), for: .normal)
-                    }
-                case .failure: break
-                   //debug
-                }
-            }
-           
-        }
+//        let request = JobApplyRequest(display_status: display_status, id: sender.tag, preference: Preference.jobapply.rawValue)
+//        let resource = JobsResource()
+//        resource.saveJob(request: request) { result in
+//            DispatchQueue.main.async {
+//                switch result {
+//                case .success( let data):
+//                    if data.status {
+//                        self.save.setImage( UIImage(named: "fmark"), for: .normal)
+//                    }
+//                    else {
+//                        self.save.setImage( UIImage(named: "mark"), for: .normal)
+//                    }
+//                case .failure: break
+//                   //debug
+//                }
+//            }
+//
+        //}
         
     }
     func configureCell(with data: JobsDataModel) {
@@ -107,4 +107,9 @@ struct JobApplyRequest: Codable {
     let display_status: Int
     let id: Int
     let preference: String
+}
+struct BookmarkRequest: Codable {
+   
+    let id: String
+   
 }

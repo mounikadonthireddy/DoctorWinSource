@@ -16,10 +16,13 @@ class JobCVCell: UICollectionViewCell {
     @IBOutlet weak var specialityName: UILabel!
     @IBOutlet weak var hospitalName: UILabel!
     @IBOutlet weak var save: UIButton!
+    @IBOutlet weak var chat: UIButton!
     @IBOutlet weak var bookMarkImage: UIImageView!
+    @IBOutlet weak var jobImage: UIImageView!
     @IBOutlet weak var courseCollectionView: UICollectionView!
     @IBOutlet weak var collectionViewLayout: UICollectionViewFlowLayout!
     var courseArray: [EligibilityModel] = []
+    var jobID: String = ""
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -38,13 +41,23 @@ class JobCVCell: UICollectionViewCell {
 
     
     @IBAction func chatClicked(_ sender: Any) {
+        let phoneNumber =  "+989160000000" // you need to change this number
+        let appURL = URL(string: "https://api.whatsapp.com/send?phone=\(phoneNumber)")!
+        if UIApplication.shared.canOpenURL(appURL) {
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(appURL, options: [:], completionHandler: nil)
+            }
+            else {
+                UIApplication.shared.openURL(appURL)
+            }
+        }
     }
     
     
     @IBAction func saveClicked(_ sender: UIButton) {
-        let request = JobApplyRequest(display_status: display, id: sender.tag, preference: Preference.bookmark.rawValue)
+
         let resource = JobsResource()
-        resource.saveJob(request: request) { result in
+        resource.saveJob(id: sender.tag) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success( let data):
@@ -73,12 +86,16 @@ class JobCVCell: UICollectionViewCell {
         
         display = data.display_status
         save.tag = data.id
+        jobID = data.jobid ?? ""
         self.salary.text = "\(data.min_salary ?? "") -" + "\(data.max_salary ?? "") /" + (data.monthly_or_anual ?? "")
 
         self.courseArray = data.eligibility ?? []
         self.courseCollectionView.reloadData()
         if data.bookmark_status == true {
             self.bookMarkImage.image = UIImage(named: "fmark")
+        }
+        if let image = data.image {
+            self.jobImage.sd_setImage(with: URL(string: image), placeholderImage: UIImage(named: "loginBg"))
         }
     }
     

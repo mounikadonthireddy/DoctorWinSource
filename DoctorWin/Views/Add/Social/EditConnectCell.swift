@@ -8,7 +8,7 @@
 import UIKit
 import iOSDropDown
 protocol connectProfileDelegate: Any {
-    func update(request: ConnectProfileRequetModel)
+    func update(request: ConnectProfileRequetModel?, error: String?)
 }
 class EditConnectCell: UITableViewCell {
     
@@ -35,6 +35,7 @@ class EditConnectCell: UITableViewCell {
     var imageArray: [GenderImageModel] = []
     var interestArray: [InterestModel] = []
     var selectedInterest:[String] = []
+   
     var delegate:connectProfileDelegate?
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -66,6 +67,7 @@ class EditConnectCell: UITableViewCell {
         heightTF.optionArray = ["5'0","5'1","5'2","5'3","5'4","5'5","5'6","5'7","5'8","5'9","6'0","6'1","6'2","6'3"]
         qualificationTF.optionArray = ApiEndpoints.qualificationArray
         professionTF.optionArray = ApiEndpoints.occupationArray
+        dobTF.addInputViewDatePicker(target: self, selector: #selector(doneButtonPressed))
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -92,10 +94,10 @@ class EditConnectCell: UITableViewCell {
         incomeTF.text = data.income
         zodiacTF.text = data.zodiacs
         petsTF.text = data.pets
-      
-       // interestArray = data.interest ?? []
-//        imageArray = data.genderimage ?? []
-       
+        
+        // interestArray = data.interest ?? []
+        //        imageArray = data.genderimage ?? []
+        
         InterestCollectionView.reloadData()
         ImagesCollectionView.reloadData()
     }
@@ -104,11 +106,29 @@ class EditConnectCell: UITableViewCell {
         ImagesCollectionView.reloadData()
     }
     @IBAction func updateClicked(_ sender: Any) {
-        let age:Int = Int(dobTF.text ?? "0") ?? 0
-        let interest = selectedInterest.joined(separator: ",")
-        let request =  ConnectProfileRequetModel(name: (nameTF.text ?? ""), intro: (bioTF.text ?? ""), gender: (genderTF.text ?? ""), age: "\(age)", living: (livingTF.text ?? ""), qualification: (qualificationTF.text ?? ""), profession: (professionTF.text ?? ""), height: (heightTF.text ?? ""), looking_for: (lookingTF.text ?? ""), living_in: (livingTF.text ?? ""), institute: (occupationTF.text ?? ""), orientation: (personalityTF.text ?? ""), zodiacs: (zodiacTF.text ?? ""), pets: (petsTF.text ?? ""), income: (incomeTF.text ?? ""), interest: interest)
-        delegate?.update(request: request)
+        if nameTF.text?.count ?? 0 < 3 {
+            delegate?.update(request: nil, error: "Please give a valid name")
+        } else if genderTF.text == "" {
+            delegate?.update(request: nil, error: "Please choose your gender")
+        }  else if dobTF.text == "" {
+            delegate?.update(request: nil, error: "Please choose your DOB")
+        } else {
+            
+            let age:Int = Int(dobTF.text ?? "0") ?? 0
+            let interest = selectedInterest.joined(separator: ",")
+            let request =  ConnectProfileRequetModel(name: (nameTF.text ?? ""), intro: (bioTF.text ?? ""), gender: (genderTF.text ?? ""), age: "\(age)", living: (livingTF.text ?? ""), qualification: (qualificationTF.text ?? ""), profession: (professionTF.text ?? ""), height: (heightTF.text ?? ""), looking_for: (lookingTF.text ?? ""), living_in: (livingTF.text ?? ""), institute: (occupationTF.text ?? ""), orientation: (personalityTF.text ?? ""), zodiacs: (zodiacTF.text ?? ""), pets: (petsTF.text ?? ""), income: (incomeTF.text ?? ""), interest: interest)
+            delegate?.update(request: request, error: nil)
+        }
     }
+    @objc func doneButtonPressed() {
+        if let  datePicker = self.dobTF.inputView as? UIDatePicker {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy"
+            self.dobTF.text = dateFormatter.string(from: datePicker.date)
+        }
+        self.dobTF.resignFirstResponder()
+     }
+
 }
 extension EditConnectCell : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -122,7 +142,7 @@ extension EditConnectCell : UICollectionViewDelegate, UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == InterestCollectionView {
             let cell: CourseNameCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CourseNameCell", for: indexPath) as! CourseNameCell
-            
+       
             cell.name.text = interestArray[indexPath.item].name
            // cell.backgroundColor = UIColor.blue
             cell.setCornerRadiusWithBorderColor(radius: 17.5, color: UIColor.secondaryLabel, borderWidth: 0.5)
@@ -145,7 +165,7 @@ extension EditConnectCell : UICollectionViewDelegate, UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == InterestCollectionView {
             let size = ((interestArray[indexPath.row].name ?? "") as NSString).size(withAttributes: nil)
-            return CGSize(width: size.width + 40 , height: 30)
+            return CGSize(width: size.width + 40, height: 35)
         } else {
             let yourWidth = ImagesCollectionView.frame.width/3
             let yourHeight = ImagesCollectionView.frame.height/2 - 8
@@ -156,7 +176,7 @@ extension EditConnectCell : UICollectionViewDelegate, UICollectionViewDataSource
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
         if collectionView == InterestCollectionView {
-        return UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         } else {
             return UIEdgeInsets.zero
         }//.zero
@@ -182,10 +202,31 @@ extension EditConnectCell : UICollectionViewDelegate, UICollectionViewDataSource
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == InterestCollectionView {
+            let selectedCell:UICollectionViewCell = collectionView.cellForItem(at: indexPath)!
+            
+            
+            let selected = interestArray[indexPath.row].name ?? ""
+            if selectedInterest.contains(selected) {
+                
+                selectedInterest.removeAll {$0 == selected }
+                selectedCell.contentView.backgroundColor = UIColor(rgb: 0xFFFFFF)
+                
+            } else {
+                selectedInterest.append(selected)
+                selectedCell.contentView.backgroundColor = UIColor(rgb: 0x4986cc)
+            }
+            print(selectedInterest)
+        }
+    }
     
 }
-
+extension EditConnectCell: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return textField.resignFirstResponder()
+    }
+}
 struct ConnectProfileRequetModel: Codable {
     let name: String
     let intro: String

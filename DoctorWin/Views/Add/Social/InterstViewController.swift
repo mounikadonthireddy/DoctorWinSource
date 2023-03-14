@@ -115,10 +115,12 @@ extension InterstViewController: InterestViewModelDelegate {
     }
     
     func didInterestData(response: InterestResponseModel?, error: String?) {
-        self.dismiss()
-        if error == nil {
-            interestArray = response?.datingResponse ?? []
-            collectionView.reloadData()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.dismiss()
+            if error == nil {
+                self.interestArray = response?.datingResponse ?? []
+                self.collectionView.reloadData()
+            }
         }
     }
     

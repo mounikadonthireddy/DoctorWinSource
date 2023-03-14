@@ -21,6 +21,7 @@ class HomeViewController: ViewController {
     var pageNumber = 1
     var nextPageAvailable = false
     var totalPage = 1
+    var displayStaus: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -135,7 +136,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         return 10
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 540
+        return 385
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
@@ -223,8 +224,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         } else if homedataArry[indexPath.row].display_status == 1 {
             let str = UIStoryboard(name: "Details", bundle: nil)
             let nextVC = str.instantiateViewController(withIdentifier: "CaseDetailsViewController") as! CaseDetailsViewController
-            nextVC.detailsModel = homedataArry[indexPath.row]
             nextVC.caseId = homedataArry[indexPath.row].id
+            nextVC.displayStaus = homedataArry[indexPath.row].display_status ?? 0
             self.navigationController?.pushViewController(nextVC, animated: true)
         }
         
@@ -294,19 +295,21 @@ extension HomeViewController: CellActionDelegate {
 
 extension HomeViewController : HomeViewModelDelegate {
     func didReciveHomeData(response: HomeResponseModel?, error: String?) {
-        self.dismiss()
-        loadingData = false
-        self.totalPage = response?.total_pages ?? 1
-        if (error != nil) {
-            let alert = UIAlertController(title: "Error", message: error!, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-            
-        } else {
-            let data = response?.homeResponse ?? []
-            self.homedataArry = homedataArry + data
-            self.nextPageAvailable = response?.next ?? false
-            self.tableView.reloadData()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.dismiss()
+            self.loadingData = false
+            self.totalPage = response?.total_pages ?? 1
+            if (error != nil) {
+                let alert = UIAlertController(title: "Error", message: error!, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                
+            } else {
+                let data = response?.homeResponse ?? []
+                self.homedataArry = self.homedataArry + data
+                self.nextPageAvailable = response?.next ?? false
+                self.tableView.reloadData()
+            }
         }
     }
     

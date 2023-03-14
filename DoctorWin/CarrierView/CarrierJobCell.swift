@@ -49,25 +49,25 @@ class CarrierJobCell: UITableViewCell {
     
     
     @IBAction func saveClicked(_ sender: UIButton) {
-        let request = JobApplyRequest(display_status: display, id: sender.tag, preference: Preference.bookmark.rawValue)
-        let resource = JobsResource()
-        resource.saveJob(request: request) { result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success( let data):
-                    if data.status {
-                        self.bookMarkImage.image = UIImage(named: "fmark")
-                    }
-                    else {
-                        self.bookMarkImage.image = UIImage(named: "mark")
-                    }
-                case .failure: break
-                   //debug
-                }
-               
-            }
-            
-        }
+//        let request = JobApplyRequest(display_status: display, id: sender.tag, preference: Preference.bookmark.rawValue)
+//        let resource = JobsResource()
+//        resource.saveJob(request: request) { result in
+//            DispatchQueue.main.async {
+//                switch result {
+//                case .success( let data):
+//                    if data.status {
+//                        self.bookMarkImage.image = UIImage(named: "fmark")
+//                    }
+//                    else {
+//                        self.bookMarkImage.image = UIImage(named: "mark")
+//                    }
+//                case .failure: break
+//                   //debug
+//                }
+//               
+//            }
+//            
+//        }
         
     }
     func configureCell(with data: JobModel) {

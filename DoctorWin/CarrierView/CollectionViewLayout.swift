@@ -16,9 +16,9 @@ enum LayoutType {
     case namesLayout
     case categoryLayout
     case fullViewLayout
-
+    case emptyView
     
-    func getLayout(withHeader: Bool = false, height:Int = 0, fractionalWidth: CGFloat = 0.4) -> NSCollectionLayoutSection {
+    func getLayout(withHeader: Bool = false, height:Int = 0, fractionalWidth: CGFloat = 0.3) -> NSCollectionLayoutSection {
         switch self {
         case .headerImageSectionLayout:
             return AppLayouts.shared.ImageBannerLayout()
@@ -28,8 +28,8 @@ enum LayoutType {
             return AppLayouts.shared.namesListLayout(fractionalWidth: fractionalWidth)
         case .fullViewLayout:
             return AppLayouts.shared.fullWidthLayout(height: height, header: withHeader)
-//        case .premiumMatchesLayout:
-//            return AppLayouts.shared.premiumMatchesLayout()
+        case .emptyView:
+            return AppLayouts.shared.emptyView()
 //        case .updateProfileLayout:
 //            return AppLayouts.shared.updateProfileLayout()
 //        case .horizontalDynamicLayout:
@@ -101,7 +101,7 @@ class AppLayouts {
     func ImageBannerLayout() -> NSCollectionLayoutSection {
         let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
         
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(275)), subitems: [item])
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(95)), subitems: [item])
         group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 15)
         
         let section = NSCollectionLayoutSection(group: group)
@@ -110,7 +110,18 @@ class AppLayouts {
         return section
     }
     
-    
+    func emptyView() -> NSCollectionLayoutSection {
+        
+        let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
+        
+        let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(30)), subitems: [item])
+        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+        
+        return section
+    }
     func namesListLayout(fractionalWidth: CGFloat) -> NSCollectionLayoutSection {
         
         let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
@@ -119,7 +130,7 @@ class AppLayouts {
         group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10)
         
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = NSDirectionalEdgeInsets(top: 20, leading: 10, bottom: 0, trailing: 10)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 20, leading: 10, bottom: 20, trailing: 10)
         section.orthogonalScrollingBehavior = .paging
         return section
     }

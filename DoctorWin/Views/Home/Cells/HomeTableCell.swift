@@ -106,7 +106,7 @@ class HomeTableCell: UITableViewCell {
 //        
     }
     @IBAction  func followClicked(_ sender: UIButton) {
-        let request = ComplaintFollowRequest(follow_id: "\(sender.tag)", user_id: User.shared.userID)
+        let request = ComplaintFollowRequest(posted_id: "\(sender.tag)")
         let resource = HomeResource()
         resource.followComplaint(request: request) { result in
             DispatchQueue.main.async {
@@ -200,8 +200,8 @@ extension UIImageView {
     }}
 
 struct ComplaintFollowRequest:Codable {
-    let follow_id: String
-    let user_id: String
+    let posted_id: String
+   
 }
 struct ComplaintLikeRequest: Codable {
     let achievement_id: String
@@ -225,7 +225,6 @@ struct NewsLikeRequest: Codable {
     let artical_id: String
 }
 struct ComplaintFollowResponse: Codable {
-    let follow: Bool
     let status: Bool
 }
 struct PostReplyRequest: Codable {

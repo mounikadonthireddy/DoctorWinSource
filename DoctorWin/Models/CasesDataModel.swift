@@ -25,27 +25,37 @@ struct CasesDataModel: Codable {
     
     
 }
-
-struct CaseDetails: Codable {
-    let lab_finding: String
-    let location: String
-    let title: String
-    let image: String
-    let physical_exam: String
-    let chief_complaint: String
-    let speciality: String
-    let like_count: Int
-    let local_exam: String
-    let past_illness: String
-    let vitus: String
-    let drugs: String
-    let ProfileName: String
-    let family: String
-    let diagnosis: String
-    let personal: String
-    let system_exam: String
-    let discussion: Int
-    let present_illness: String
-    
+struct CaseReponseModel: Codable {
+    let loggedUser: String?
+    let is_active: Bool?
+    let homeResponse: CaseDetailsModel?
+}
+struct CaseDetailsModel: Codable {
+    let vitus: String?
+    let family: String?
+    let groupDetails: GroupProfileModel?
+    let posted_date: String?
+    let description: String?
+    let like_count: Int?
+    let local_exam: String?
+    let diagnosis: String?
+    let follow_status: Bool?
+    let personal: String?
+    let drugs: String?
+    let image: [GenderImageModel]?
+    let system_exam: String?
+    let bookmark_status: Bool?
+    let comment_count: Int?
+    let status: Bool?
+    let chief_complaint: String?
+    let lab_finding: String?
+    let imaging: String?
+    let present_illness: String?
+    let physical_exam: String?
+    let userDetails: PostedUserDetailsModel?
+    let past_illness: String?
+    let title: String?
+    let like_status:Bool?
+    let group_status: Bool?
     
 }

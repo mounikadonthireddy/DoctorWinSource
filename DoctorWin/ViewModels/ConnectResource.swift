@@ -61,6 +61,27 @@ struct ConnectResource {
             print("error is \(error)")
         }
     }
+    func createProfile(request: ConnectProfileRequetModel, completion : @escaping (_ result: ResponseResult<BoolResponseModel?>) -> Void) {
+        
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.editProfile
+        let homeUrl = URL(string: homeUrlStr)!
+        let httpUtility = HttpUtility()
+        do {
+            let postBody = try JSONEncoder().encode(request)
+            
+            httpUtility.putMethod(requestUrl: homeUrl, requestBody: postBody, resultType: BoolResponseModel.self) { (result) in
+                
+                switch result {
+                case .success(let data):
+                    completion(.success(data))
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                }
+            }
+        } catch let error {
+            print("error is \(error)")
+        }
+    }
     func getProfileImages(userID: String, completion : @escaping (_ result: ResponseResult<DatingImagesResponseModel?>) -> Void) {
         
         let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getDatingImages

@@ -121,7 +121,7 @@ class ExamCell: UITableViewCell {
         }
     
     @IBAction  func followClicked(_ sender: UIButton) {
-        let request = ComplaintFollowRequest(follow_id: "\(sender.tag)", user_id: User.shared.userID)
+        let request = ComplaintFollowRequest(posted_id: "\(sender.tag)")
         let resource = HomeResource()
         resource.followComplaint(request: request) { result in
             DispatchQueue.main.async {

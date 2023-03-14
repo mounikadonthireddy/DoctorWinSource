@@ -65,23 +65,23 @@ class NetworkViewController: ViewController {
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     @objc func followBtnClicked(button: UIButton) {
-        let request = ComplaintFollowRequest(follow_id: "\(button.tag)", user_id: User.shared.userID)
-        let resource = HomeResource()
-        resource.followComplaint(request: request) { result in
-            DispatchQueue.main.async {
-                switch result {
-                    
-                case .success(let data):
-                    if data != nil && data == true {
-                        self.loadPeopleConnections()
-                    }
-                case .failure(_):
-                    print("")
-                }
-                
-            }
-            
-        }
+//        let request = ComplaintFollowRequest(follow_id: "\(button.tag)")
+//        let resource = HomeResource()
+//        resource.followComplaint(request: request) { result in
+//            DispatchQueue.main.async {
+//                switch result {
+//                    
+//                case .success(let data):
+//                    if data != nil && data == true {
+//                        self.loadPeopleConnections()
+//                    }
+//                case .failure(_):
+//                    print("")
+//                }
+//                
+//            }
+//            
+//        }
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let str = UIStoryboard(name: "Details", bundle: nil)

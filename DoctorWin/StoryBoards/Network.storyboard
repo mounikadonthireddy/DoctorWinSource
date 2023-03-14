@@ -979,14 +979,13 @@
                                 <rect key="frame" x="0.0" y="48" width="414" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="noi-Tf-xYf">
-                                        <rect key="frame" x="10" y="8" width="154" height="32"/>
+                                        <rect key="frame" x="10" y="8" width="181" height="32"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="22"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="   Edit Profile" image="back">
+                                        <state key="normal" title="   Create Profile" image="back">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="backClicked:" destination="dsq-yL-bOK" eventType="touchUpInside" id="1g0-G4-xZt"/>
                                             <action selector="backClicked:" destination="v2Z-ok-mVA" eventType="touchUpInside" id="JPg-Y5-MRl"/>
                                         </connections>
                                     </button>

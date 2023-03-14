@@ -84,18 +84,12 @@ struct JobsResource {
             }
         }
     }
-    func saveJob(request: JobApplyRequest, completion : @escaping  (_ result: ResponseResult<StatusResponseModel>) -> Void) {
+    func saveJob(id: Int, completion : @escaping  (_ result: ResponseResult<StatusResponseModel>) -> Void) {
         
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.prefrenceApi
-        
-        let homeUrl = URL(string: homeUrlStr)!
-        
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.createBookMarkJobs + "?id=\(id)"
         let httpUtility = HttpUtility()
         do {
-            let postBody = try JSONEncoder().encode(request)
-            
-            httpUtility.postMethod(requestUrl: homeUrl, requestBody: postBody, resultType: StatusResponseModel.self) {
-                result in
+            httpUtility.getApiData(urlString: homeUrlStr, resultType: StatusResponseModel.self) { result in
                 
                 switch result {
                 case .success(let data):
@@ -104,11 +98,7 @@ struct JobsResource {
                 case .failure( let error):
                     completion(.failure(error.rawValue))
                 }
-                
             }
-            
-        } catch let error {
-            debugPrint(error)
         }
     }
     func applyJob(request: JobApplyRequest, completion : @escaping  (_ result: ResponseResult<StatusResponseModel>) -> Void) {

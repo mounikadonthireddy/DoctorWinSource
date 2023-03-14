@@ -11,10 +11,10 @@ class CommentsCell: UITableViewCell {
 
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var comment: UILabel!
-    @IBOutlet weak var speciality: UILabel!
+    @IBOutlet weak var personImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        personImage.setCornerRadius(radius: Float(personImage.frame.height)/2)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -24,7 +24,11 @@ class CommentsCell: UITableViewCell {
     }
     
     func configureCellWith(data: CommentModel) {
-        comment.text = data.comment
+        comment.text = data.comment ?? ""
+        name.text = data.name ?? ""
+        if let urlString = data.image {
+            self.personImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
+        }
     }
     
 }

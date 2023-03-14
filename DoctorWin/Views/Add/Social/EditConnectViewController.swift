@@ -76,7 +76,7 @@ extension EditConnectViewController: UITableViewDelegate, UITableViewDataSource 
         cell.loadImages(array: imagesArray)
         
         
-        cell.interest.addTarget(self, action: #selector(interstClicked(button:)), for: .touchUpInside)
+//        cell.interest.addTarget(self, action: #selector(interstClicked(button:)), for: .touchUpInside)
         return cell
     }
     
@@ -114,6 +114,13 @@ extension EditConnectViewController: EditConnectProfileDelegate {
 extension EditConnectViewController: InterestViewModelDelegate {
     func submitInterestResponse(res: BoolResponseModel?, error: String?) {
         self.dismiss()
+        if res?.status == true {
+            if imagesArray.count == 0 {
+                
+            } else {
+                
+            }
+        }
     }
     
     func didInterestData(response: InterestResponseModel?, error: String?) {
@@ -127,10 +134,15 @@ extension EditConnectViewController: InterestViewModelDelegate {
     
 }
 extension EditConnectViewController: connectProfileDelegate {
-    func update(request: ConnectProfileRequetModel) {
-        self.showLoader()
-        viewModel.UpdateProfileData(request: request)
+    func update(request: ConnectProfileRequetModel?, error: String?) {
+        if error == nil {
+            self.showLoader()
+            if  viewHeight.constant == 50 {
+                viewModel.createProfileData(request: request!)
+            } else {
+                viewModel.UpdateProfileData(request: request!)
+            }
+        }
     }
-    
-    
+  
 }

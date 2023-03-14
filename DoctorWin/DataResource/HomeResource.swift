@@ -32,13 +32,14 @@ struct HomeResource {
     }
     
     
-    func getCaseDetails(userID: String,complaintID: String ,completion : @escaping (_ result: ResponseResult<CaseDetails>) -> Void) {
+    func getCaseDetails(displayStatus: Int, caseId: Int ,completion : @escaping (_ result: ResponseResult<CaseReponseModel>) -> Void) {
         
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getComplaint + ApiEndpoints.userID + "=\(userID)&id=\(complaintID)&page=1"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getComplaint +  "?display_status=\(displayStatus)&id=\(caseId)"
+        
         let httpUtility = HttpUtility()
         do {
             
-            httpUtility.getApiData(urlString: homeUrlStr, resultType: CaseDetails.self) { result in
+            httpUtility.getApiData(urlString: homeUrlStr, resultType: CaseReponseModel.self) { result in
                 
                 switch result {
                 case .success(let data):
@@ -55,7 +56,7 @@ struct HomeResource {
     
     func followComplaint(request: ComplaintFollowRequest, completion : @escaping  (_ result: ResponseResult<Bool?>) -> Void) {
         
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.complaintFollow + ApiEndpoints.userID + "=\(request.user_id)&follow_id=\(request.follow_id)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.complaintFollow
         let homeUrl = URL(string: homeUrlStr)!
         
         let httpUtility = HttpUtility()
@@ -67,7 +68,7 @@ struct HomeResource {
                 
                 switch result {
                 case .success(let data):
-                    completion(.success(data.follow))
+                    completion(.success(data.status))
                     
                 case .failure( let error):
                     completion(.failure(error.rawValue))
@@ -129,12 +130,12 @@ struct HomeResource {
     }
     
    
-    func getComments(userId: String,postID: String, completion : @escaping (_ result: ResponseResult<[CommentModel]>) -> Void) {
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getComments + ApiEndpoints.userID + "=\(userId)" + "&achievement_id=\(postID)"
+    func getComments(displayStatus: Int,postID: Int, completion : @escaping (_ result: ResponseResult<commentsReponseModel>) -> Void) {
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getComments + "?display_status=\(displayStatus)&id=\(postID)"
       
         let httpUtility = HttpUtility()
         do {
-            httpUtility.getApiData(urlString: homeUrlStr, resultType: [CommentModel].self) { result in
+            httpUtility.getApiData(urlString: homeUrlStr, resultType: commentsReponseModel.self) { result in
                 
                 switch result {
                 case .success(let data):

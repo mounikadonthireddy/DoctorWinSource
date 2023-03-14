@@ -105,6 +105,7 @@ extension CarrierJobDetailsViewController : UITableViewDelegate, UITableViewData
                     headerView.wishlistBtn.setImage(UIImage(named: "fmark"), for: .normal)
         
                 }
+                headerView.chatBtn.addTarget(self, action: #selector(chatClicked(button:)), for: .touchUpInside)
                 displayStaus = data.display_status ?? 0
             }
             headerView.backBtn.addTarget(self, action: #selector(backClicked(button:)), for: .touchUpInside)
@@ -117,7 +118,18 @@ extension CarrierJobDetailsViewController : UITableViewDelegate, UITableViewData
     @objc func backClicked(button: Any) {
         self.navigationController?.popViewController(animated: true)
     }
-    
+    @objc func chatClicked(button: Any) {
+        let phoneNumber =  "+989160000000" // you need to change this number
+        let appURL = URL(string: "https://api.whatsapp.com/send?phone=\(phoneNumber)")!
+        if UIApplication.shared.canOpenURL(appURL) {
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(appURL, options: [:], completionHandler: nil)
+            }
+            else {
+                UIApplication.shared.openURL(appURL)
+            }
+        }
+    }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }

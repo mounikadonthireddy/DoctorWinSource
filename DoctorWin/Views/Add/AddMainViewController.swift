@@ -11,6 +11,7 @@ enum AddSelectionType: String {
     case camera
     case gallary
     case sale
+    
 }
 protocol AddScreenSelectionDelegate: class {
     func didSelectScreen(selectedType: AddSelectionType)

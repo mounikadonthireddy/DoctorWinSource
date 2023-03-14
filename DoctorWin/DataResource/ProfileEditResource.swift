@@ -336,7 +336,7 @@ struct ProfileEditResource {
                 
                 switch result {
                 case .success(let data):
-                    completion(.success(data.follow))
+                    completion(.success(data.status))
                     
                 case .failure( let error):
                     completion(.failure(error.rawValue))

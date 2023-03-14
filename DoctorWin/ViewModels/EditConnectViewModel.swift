@@ -44,6 +44,21 @@ struct EditConnectViewModel {
             }
         }
     }
+    func createProfileData(request: ConnectProfileRequetModel) {
+        let homeResource = ConnectResource()
+        homeResource.UpdateProfile(request: request) { response in
+            DispatchQueue.main.async {
+                switch response {
+                case .success(let data):
+                    self.delegate?.updateProfile(response: data, error: nil)
+                    
+                case .failure(let error):
+                    self.delegate?.updateProfile(response: nil, error: error)
+                }
+                
+            }
+        }
+    }
     func loadImagesData(userId: String) {
         let homeResource = ConnectResource()
         homeResource.getProfileImages(userID: userId) { response in
