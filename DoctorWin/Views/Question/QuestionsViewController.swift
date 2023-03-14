@@ -59,8 +59,10 @@ extension QuestionsViewController: UITableViewDelegate, UITableViewDataSource {
         return 3
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 1 || section == 0 {
+        if section == 0 {
             return 1
+        } else if section == 1 {
+            return 0
         } else {
         return questionsArray.count
         }
@@ -86,12 +88,12 @@ extension QuestionsViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if section != 0 {
+        if section == 2 {
             if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: TrendingQuestionHeaderView.identifier) as? TrendingQuestionHeaderView {
                 if section == 1 {
                     headerView.nameLbl.text  = "Trending QnA"
-                } else if section == 1 {
-                    headerView.nameLbl.text  = "Questions for you"
+                } else if section == 2 {
+                    headerView.nameLbl.text  = "Write Your Answer"
                 }
                 
                 return headerView
@@ -100,10 +102,10 @@ extension QuestionsViewController: UITableViewDelegate, UITableViewDataSource {
         return nil
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 0 {
-            return 0
+        if section == 2 {
+            return 50
         }
-        return 50
+        return 0
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let str = UIStoryboard(name: "Details", bundle: nil)

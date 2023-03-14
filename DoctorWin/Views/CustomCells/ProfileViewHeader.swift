@@ -9,7 +9,6 @@ import UIKit
 
 class ProfileViewHeader: UITableViewHeaderFooterView {
     @IBOutlet weak var profileName: UILabel!
-    @IBOutlet weak var profileQualification: UILabel!
     @IBOutlet weak var profileLocation: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var coverImage: UIImageView!
@@ -17,13 +16,14 @@ class ProfileViewHeader: UITableViewHeaderFooterView {
     @IBOutlet weak var followingBtn: UIButton!
     @IBOutlet weak var viewBtn: UIButton!
     @IBOutlet weak var bookmarkBtn: UIButton!
-    @IBOutlet weak var resumeBtn: UIButton!
-    @IBOutlet weak var mcqBtn: UIButton!
+    @IBOutlet weak var bookmarkWidth: NSLayoutConstraint!
+    var userID: String = ""
     @IBOutlet weak var interfaceSegmented: CustomSegmentedControl!{
         didSet{
             interfaceSegmented.setButtonTitles(buttonTitles: ["Post", "Cases", "Questions", "Answers"])
-            interfaceSegmented.selectorViewColor = .blue
-            interfaceSegmented.selectorTextColor = .blue
+            interfaceSegmented.selectorViewColor = .black
+            interfaceSegmented.selectorTextColor = .black
+            interfaceSegmented.textColor = .lightGray
         }
     }
     static var nib: UINib {
@@ -41,9 +41,9 @@ class ProfileViewHeader: UITableViewHeaderFooterView {
         profileImage.setCornerRadius(radius: Float(profileImage.frame.width)/2)
     }
     func configureView(data:ProfileModel) {
-        profileName.text = "DR. " + (data.name ?? "")
-        profileQualification.text = data.hightest_qualification ?? ""
-        profileLocation.text  = (data.speciality ?? "") + " At " + (data.location ?? "")
+        profileName.text =  data.name ?? ""
+
+        profileLocation.text  = (data.speciality ?? "") 
         
         followBtn.setTitle("\(data.follow_count ) Follow", for: .normal)
         
@@ -54,7 +54,29 @@ class ProfileViewHeader: UITableViewHeaderFooterView {
         if let urlString1 = data.cover_image {
             self.coverImage.sd_setImage(with: URL(string: urlString1), placeholderImage: UIImage(named: "loginBg"))
         }
-        
+        userID = data.posted_id ?? ""
     }
-    
+    @IBAction  func followClicked(_ sender: UIButton) {
+        
+        let request = ComplaintFollowRequest(posted_id: userID)
+        let resource = HomeResource()
+        resource.followComplaint(request: request) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let data):
+                    if data != nil && data == true {
+                        self.viewBtn.setTitle("Unfollow", for: .normal)
+                        self.viewBtn.backgroundColor = UIColor(rgb: 0xE6E6E6)
+                    } else {
+                        self.viewBtn.setTitle("Follow", for: .normal)
+                        self.viewBtn.backgroundColor = UIColor(rgb:0x1D9BF0)
+                    }
+                case .failure(_):
+                    print("")
+                }
+                
+            }
+            
+        }
+    }
 }

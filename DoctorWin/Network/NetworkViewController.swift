@@ -27,6 +27,7 @@ class NetworkViewController: ViewController {
         collectionView.register(UINib.init(nibName: "NetworkCVCell", bundle: nil), forCellWithReuseIdentifier: "NetworkCVCell")
         collectionView.register(SectionHeaderView.self, forSupplementaryViewOfKind: headerKind, withReuseIdentifier: Key.ReusableIdentifiers.sectionHeaderViewId)
         configureCompositionalLayout()
+       
         
         groupVM.delegate = self
         peopleVM.delegate = self
@@ -185,29 +186,28 @@ extension NetworkViewController : UICollectionViewDelegate, UICollectionViewData
     @objc func peopleFollowClicked(button: UIButton) {
         
     }
-    
-    
-    
+
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 3
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section == 0 {
-            self.navigateToUserDetails(reqId: "", groupId: adminGroupArray[indexPath.row].group_id ?? "")
+            self.navigateToUserDetails(reqId: "", groupId: adminGroupArray[indexPath.row].group_id ?? "", titile: adminGroupArray[indexPath.row].name ?? "")
         } else if indexPath.section == 2 {
             if selectedIndex == 0 {
-                self.navigateToUserDetails(reqId: "", groupId: "\(groupArray[indexPath.row].group_id ?? "")")
+                self.navigateToUserDetails(reqId: "", groupId: "\(groupArray[indexPath.row].group_id ?? "")", titile: groupArray[indexPath.row].name ?? "")
             } else {
-                self.navigateToUserDetails(reqId: peopleArray[indexPath.row].posted_id ?? "", groupId: "")
+                self.navigateToUserDetails(reqId: peopleArray[indexPath.row].posted_id ?? "", groupId: "", titile: "Profile")
             }
         }
     }
     
-    func navigateToUserDetails(reqId: String, groupId: String) {
+    func navigateToUserDetails(reqId: String, groupId: String, titile: String) {
         let str = UIStoryboard(name: "Details", bundle: nil)
         let nextVC = str.instantiateViewController(withIdentifier: "UserDetailsViewController") as! UserDetailsViewController
         nextVC.requestUserID = reqId
         nextVC.groupId = groupId
+        nextVC.navigationTitle = titile
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     

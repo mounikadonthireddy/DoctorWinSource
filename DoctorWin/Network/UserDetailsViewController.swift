@@ -14,6 +14,7 @@ class UserDetailsViewController: ViewController {
     @IBOutlet weak var postViewHeight: NSLayoutConstraint!
     @IBOutlet weak var postPersonImage: UIImageView!
     @IBOutlet weak var postBtn: UIButton!
+    @IBOutlet weak var titleLbl: UIButton!
     var userDetailsModel : ProfileModel?
     var groupModel : GroupProfileModel?
     var postsArray:[HomeDataModel] = []
@@ -21,19 +22,20 @@ class UserDetailsViewController: ViewController {
     var requestUserID = ""
     var groupId = ""
     var preference = 0
+    var navigationTitle = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         postPersonImage.setCornerRadius(radius: Float(postPersonImage.frame.width)/2)
         postView.setCornerRadius(radius: Float(postView.frame.height)/2)
         self.profileTableView.register(UINib(nibName: "UserHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "UserHeaderView")
         profileTableView.register(UINib(nibName: "CaseCell", bundle: nil), forCellReuseIdentifier: "CaseCell")
-        
+        profileTableView.register(ProfileViewHeader.nib, forHeaderFooterViewReuseIdentifier: ProfileViewHeader.identifier)
        
         profileTableView.register(UINib(nibName: "QACell", bundle: nil), forCellReuseIdentifier: "QACell")
         profileTableView.register(UINib(nibName: "UserAnswerCell", bundle: nil), forCellReuseIdentifier: "UserAnswerCell")
+        titleLbl.setTitle(navigationTitle, for: .normal)
         
-        
-        
+        self.postView.setCornerRadius(radius: Float(postView.frame.height)/2)
         self.navigationController?.isNavigationBarHidden = true
         profileTableView.contentInset = UIEdgeInsets(top: -10, left: 0, bottom: 0, right: 0)
         userVM.delegate = self
@@ -41,7 +43,9 @@ class UserDetailsViewController: ViewController {
         self.loadPostsData()
         self.loadGroupData()
     }
-    
+    @IBAction func backClicked(_ button: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
@@ -92,31 +96,22 @@ extension UserDetailsViewController: UITableViewDelegate, UITableViewDataSource 
  
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if let details = groupModel {
-            if details.joined_status == true {
-                return 412
-            }
-        }
-        return 382
+//        if let details = groupModel {
+//            if details.joined_status == true {
+//                return 412
+//            }
+//        }
+        return 440
         
     }
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "UserHeaderView") as? UserHeaderView {
-            if let userDetails = userDetailsModel {
-//                headerView.configureView(data: userDetails)
-//                if userDetails.followStatus == true {
-//                    headerView.joinBtn.setTitle("Following", for: .normal)
-//                } else {
-//                    headerView.joinBtn.setTitle("Follow", for: .normal)
-//                }
-//                headerView.joinBtn.addTarget(self, action: #selector(followClicked(button:)), for: .touchUpInside)
-               
-            }
-            headerView.joinBtn.tag = 1
-            if let details = groupModel {
+        if let details = groupModel {
+            if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "UserHeaderView") as? UserHeaderView {
+                headerView.joinBtn.tag = 1
+                
                 headerView.configureView(data: details)
                 if details.admin_status == true {
                     headerView.joinBtn.setTitle("Edit", for: .normal)
@@ -124,7 +119,7 @@ extension UserDetailsViewController: UITableViewDelegate, UITableViewDataSource 
                     postView.isHidden = false
                     postViewHeight.constant = 40
                 } else if details.joined_status == true {
-                headerView.joinBtn.setTitle("Joined", for: .normal)
+                    headerView.joinBtn.setTitle("Joined", for: .normal)
                     postView.isHidden = false
                     postViewHeight.constant = 40
                 } else {
@@ -133,18 +128,53 @@ extension UserDetailsViewController: UITableViewDelegate, UITableViewDataSource 
                     postView.isHidden = true
                 }
                 headerView.joinBtn.addTarget(self, action: #selector(joinClicked(button:)), for: .touchUpInside)
+                
+                headerView.backBtn.addTarget(self, action: #selector(backClicked(button:)), for: .touchUpInside)
+                headerView.followBtn.addTarget(self, action: #selector(followCountClicked(button:)), for: .touchUpInside)
+                //            headerView.postBtn.addTarget(self, action: #selector(postClicked(button:)), for: .touchUpInside)
+                //            headerView.followCountBtn.addTarget(self, action: #selector(followCountClicked(button:)), for: .touchUpInside)
+                //            headerView.followingCountBtn.addTarget(self, action: #selector(followingCountClicked(button:)), for: .touchUpInside)
+                headerView.interfaceSegmented.delegate = self
+                return headerView
             }
-            headerView.backBtn.addTarget(self, action: #selector(backClicked(button:)), for: .touchUpInside)
-            headerView.followBtn.addTarget(self, action: #selector(followCountClicked(button:)), for: .touchUpInside)
-//            headerView.postBtn.addTarget(self, action: #selector(postClicked(button:)), for: .touchUpInside)
-            //            headerView.followCountBtn.addTarget(self, action: #selector(followCountClicked(button:)), for: .touchUpInside)
-            //            headerView.followingCountBtn.addTarget(self, action: #selector(followingCountClicked(button:)), for: .touchUpInside)
-            headerView.interfaceSegmented.delegate = self
-            return headerView
+        } else {
+            if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: ProfileViewHeader.identifier) as? ProfileViewHeader {
+                if  let profile = userDetailsModel {
+                    headerView.configureView(data: profile)
+                   
+                    if profile.follow_status {
+                        headerView.viewBtn.setTitle("Unfollow", for: .normal)
+                        headerView.viewBtn.backgroundColor = UIColor(rgb:0x1D9BF0)
+                    } else {
+                        headerView.viewBtn.setTitle("Follow", for: .normal)
+                        headerView.viewBtn.backgroundColor = UIColor(rgb: 0xE6E6E6)
+                    }
+                    headerView.bookmarkWidth.constant = 0
+                    headerView.followBtn.addTarget(self, action: #selector(followClicked(button:)), for: .touchUpInside)
+                    headerView.followingBtn.addTarget(self, action: #selector(followingClicked(button:)), for: .touchUpInside)
+
+                }
+                headerView.interfaceSegmented.delegate  = self
+                return headerView
+            }
         }
         
         return nil
         
+    }
+  
+    @objc func followClicked(button: Any) {
+        let str = UIStoryboard(name: "Network", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "FollowViewController") as! FollowViewController
+        nextVC.postId = userDetailsModel?.posted_id ?? ""
+        self.navigationController?.pushViewController(nextVC, animated: true)
+        
+    }
+    @objc func followingClicked(button: Any) {
+        let str = UIStoryboard(name: "Network", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "FollowingViewController") as! FollowingViewController
+        nextVC.userid = userDetailsModel?.posted_id ?? ""
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
     @objc func backClicked(button: UIButton) {
         self.navigationController?.popViewController(animated: true)
@@ -165,7 +195,7 @@ extension UserDetailsViewController: UITableViewDelegate, UITableViewDataSource 
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
   
-    @objc func followClicked(button: UIButton) {
+   // @objc func followClicked(button: UIButton) {
 //        if let userDetails = userDetailsModel {
 //            self.showLoader()
 //            let request = FollowRequest(follow_id: userDetails.dworks_id ?? "", dworks_id: User.shared.userID)
@@ -188,7 +218,7 @@ extension UserDetailsViewController: UITableViewDelegate, UITableViewDataSource 
 //
 //        }
 //        }
-    }
+   // }
     @objc func joinClicked(button: UIButton) {
         if button.tag == 2 {
             let str = UIStoryboard(name: "Add", bundle: nil)

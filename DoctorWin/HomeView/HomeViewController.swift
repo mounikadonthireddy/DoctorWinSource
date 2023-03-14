@@ -22,7 +22,7 @@ class HomeViewController: ViewController {
     var nextPageAvailable = false
     var totalPage = 1
     var displayStaus: Int = 0
-    
+    var myProfileImage: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -118,6 +118,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         cell.postImage.tag = indexPath.row
         cell.postImage?.addGestureRecognizer(tapGestureRecognizer)
         cell.layoutIfNeeded()
+        
+        cell.commentProfileImage.sd_setImage(with: URL(string: myProfileImage), placeholderImage: UIImage(named: "loginBg"))
+        
         return cell
         
     }
@@ -299,6 +302,7 @@ extension HomeViewController : HomeViewModelDelegate {
             self.dismiss()
             self.loadingData = false
             self.totalPage = response?.total_pages ?? 1
+            self.myProfileImage = response?.loggedUser ?? ""
             if (error != nil) {
                 let alert = UIAlertController(title: "Error", message: error!, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))

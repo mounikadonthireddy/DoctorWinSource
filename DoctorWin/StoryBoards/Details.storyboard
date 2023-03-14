@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -532,7 +532,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="xVY-EP-JEw">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="40" width="375" height="627"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="zeH-R7-1kf" id="pL3-b8-a9d"/>
@@ -576,15 +576,67 @@
                                     <constraint firstItem="R5E-KV-djY" firstAttribute="leading" secondItem="cO2-Y5-M5g" secondAttribute="leading" constant="10" id="o8y-u4-VHA"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="unz-LC-Exf">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b33-YL-xpI">
+                                        <rect key="frame" x="0.0" y="0.0" width="45" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="45" id="JAK-vM-5uC"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="back"/>
+                                        <connections>
+                                            <action selector="backClicked:" destination="zeH-R7-1kf" eventType="touchUpInside" id="ALi-8W-FQa"/>
+                                            <action selector="backClikced:" destination="5Aq-W5-iqD" eventType="touchUpInside" id="ied-aa-skE"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u0R-Mr-OaN">
+                                        <rect key="frame" x="60" y="0.0" width="260" height="40"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
+                                        <state key="normal" title="  Exam">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="backClicked:" destination="zeH-R7-1kf" eventType="touchUpInside" id="bek-Fr-2Sj"/>
+                                            <action selector="backClikced:" destination="5Aq-W5-iqD" eventType="touchUpInside" id="yVS-GO-PgL"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pfy-k5-kII">
+                                        <rect key="frame" x="347" y="7" width="20" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="OxX-gF-mAl"/>
+                                            <constraint firstAttribute="width" constant="20" id="xYc-pp-rfo"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="3dot"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="pfy-k5-kII" secondAttribute="trailing" constant="8" id="1Hf-lz-UwC"/>
+                                    <constraint firstItem="u0R-Mr-OaN" firstAttribute="leading" secondItem="b33-YL-xpI" secondAttribute="trailing" constant="15" id="2NE-5y-DfU"/>
+                                    <constraint firstAttribute="trailing" secondItem="u0R-Mr-OaN" secondAttribute="trailing" constant="55" id="BFb-TE-947"/>
+                                    <constraint firstAttribute="bottom" secondItem="b33-YL-xpI" secondAttribute="bottom" id="GK3-gK-mBf"/>
+                                    <constraint firstItem="b33-YL-xpI" firstAttribute="top" secondItem="unz-LC-Exf" secondAttribute="top" id="I91-3q-UHC"/>
+                                    <constraint firstItem="pfy-k5-kII" firstAttribute="top" secondItem="unz-LC-Exf" secondAttribute="top" constant="7" id="OIR-Oq-S3Y"/>
+                                    <constraint firstItem="u0R-Mr-OaN" firstAttribute="top" secondItem="unz-LC-Exf" secondAttribute="top" id="TDB-Vy-9jV"/>
+                                    <constraint firstAttribute="bottom" secondItem="u0R-Mr-OaN" secondAttribute="bottom" id="Ub6-gy-QRk"/>
+                                    <constraint firstAttribute="height" constant="40" id="pd8-Qg-eIP"/>
+                                    <constraint firstItem="b33-YL-xpI" firstAttribute="leading" secondItem="unz-LC-Exf" secondAttribute="leading" id="sga-0O-TX6"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="MJc-iI-cE9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="MJc-iI-cE9" firstAttribute="bottom" secondItem="cO2-Y5-M5g" secondAttribute="bottom" constant="30" id="4VA-K6-zLF"/>
-                            <constraint firstItem="xVY-EP-JEw" firstAttribute="top" secondItem="MJc-iI-cE9" secondAttribute="top" id="6vj-st-YMp"/>
+                            <constraint firstItem="xVY-EP-JEw" firstAttribute="top" secondItem="MJc-iI-cE9" secondAttribute="top" constant="40" id="6vj-st-YMp"/>
                             <constraint firstItem="xVY-EP-JEw" firstAttribute="leading" secondItem="MJc-iI-cE9" secondAttribute="leading" id="8N7-ax-4vx"/>
+                            <constraint firstItem="unz-LC-Exf" firstAttribute="top" secondItem="MJc-iI-cE9" secondAttribute="top" id="AIZ-dW-5Y2"/>
                             <constraint firstAttribute="trailing" secondItem="cO2-Y5-M5g" secondAttribute="trailing" constant="20" id="IaV-Zg-9HV"/>
+                            <constraint firstItem="unz-LC-Exf" firstAttribute="leading" secondItem="MJc-iI-cE9" secondAttribute="leading" id="eG0-86-p7j"/>
                             <constraint firstItem="cO2-Y5-M5g" firstAttribute="leading" secondItem="3Qh-3f-aY0" secondAttribute="leading" constant="20" id="jfl-HI-BEq"/>
+                            <constraint firstAttribute="trailing" secondItem="unz-LC-Exf" secondAttribute="trailing" id="qLD-Bh-Wr2"/>
                             <constraint firstItem="MJc-iI-cE9" firstAttribute="trailing" secondItem="xVY-EP-JEw" secondAttribute="trailing" id="u7U-MA-2E6"/>
                             <constraint firstItem="MJc-iI-cE9" firstAttribute="bottom" secondItem="xVY-EP-JEw" secondAttribute="bottom" id="wM1-xq-H6S"/>
                         </constraints>
@@ -595,6 +647,7 @@
                         <outlet property="postView" destination="cO2-Y5-M5g" id="X3h-W1-A17"/>
                         <outlet property="postViewHeight" destination="X4I-Jk-3Ch" id="Vhl-a6-yAk"/>
                         <outlet property="profileTableView" destination="xVY-EP-JEw" id="AwU-mP-7vo"/>
+                        <outlet property="titleLbl" destination="u0R-Mr-OaN" id="63R-Pz-Fvj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I9e-bd-WQS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -859,7 +912,6 @@
         <!--Artical Details View Controller-->
         <scene sceneID="plI-3R-YHi">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2Wj-75-V4R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="ArticalDetailsViewController" id="NJZ-Yb-s8J" customClass="ArticalDetailsViewController" customModule="DoctorWin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EjU-db-fMV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -906,6 +958,7 @@
                         <outlet property="tableView" destination="MKl-72-17D" id="c4s-5b-PH3"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Wj-75-V4R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="22154" y="691"/>
         </scene>
@@ -979,13 +1032,14 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow.2.circlepath" catalog="system" width="128" height="101"/>
-        <image name="arrow.backward" catalog="system" width="128" height="98"/>
+        <image name="3dot" width="24" height="24"/>
+        <image name="arrow.2.circlepath" catalog="system" width="128" height="104"/>
+        <image name="arrow.backward" catalog="system" width="128" height="95"/>
         <image name="back" width="32" height="32"/>
-        <image name="bookmark" catalog="system" width="112" height="128"/>
-        <image name="heart" catalog="system" width="128" height="109"/>
-        <image name="message" catalog="system" width="128" height="113"/>
-        <image name="paperplane" catalog="system" width="128" height="118"/>
+        <image name="bookmark" catalog="system" width="110" height="128"/>
+        <image name="heart" catalog="system" width="128" height="107"/>
+        <image name="message" catalog="system" width="128" height="116"/>
+        <image name="paperplane" catalog="system" width="128" height="119"/>
         <image name="person" width="171" height="171"/>
         <image name="wback" width="512" height="512"/>
         <systemColor name="secondaryLabelColor">

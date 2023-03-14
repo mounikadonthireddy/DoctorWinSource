@@ -106,9 +106,7 @@ class CaseCell: UITableViewCell {
             }
            
         }
-        if let image = homeModel.loggedUser {
-            self.commentProfileImage.sd_setImage(with: URL(string: image), placeholderImage: UIImage(named: "loginBg"))
-        }
+       
         if let imageData = homeModel.image {
             pageControl.numberOfPages = imageData.count
             if imageData.count > 0 {

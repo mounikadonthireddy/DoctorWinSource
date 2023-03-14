@@ -25,8 +25,9 @@ class UserHeaderView: UITableViewHeaderFooterView {
     @IBOutlet weak var interfaceSegmented: CustomSegmentedControl!{
         didSet{
             interfaceSegmented.setButtonTitles(buttonTitles: [ "Post","Cases", "Questions", "Answers"])
-            interfaceSegmented.selectorViewColor = .blue
-            interfaceSegmented.selectorTextColor = .blue
+            interfaceSegmented.selectorViewColor = .black
+            interfaceSegmented.selectorTextColor = .black
+            interfaceSegmented.textColor = .lightGray
             //interfaceSegmented.delegate = self
         }
     }
@@ -35,11 +36,9 @@ class UserHeaderView: UITableViewHeaderFooterView {
         super.awakeFromNib()
         // Initialization code
         interfaceSegmented.delegate = self
-        joinBtn.setCornerRadius(radius: 5)
-        inviteBtn.setCornerRadius(radius: 5)
-        shareBtn.setCornerRadius(radius: 5)
-        self.personImage.setCornerRadiusWithBorderColor(radius: 10, color: UIColor.white, borderWidth: 4)
-      
+        joinBtn.setCornerRadius(radius: Float(joinBtn.frame.height)/2)
+        personImage.setCornerRadius(radius: Float(personImage.frame.height)/2)
+
         collectionViewLayout.scrollDirection = .vertical
         collectionViewLayout.minimumLineSpacing = 0
         collectionViewLayout.minimumInteritemSpacing = 0
@@ -66,7 +65,9 @@ class UserHeaderView: UITableViewHeaderFooterView {
     func configureView(data: GroupProfileModel) {
         nameLbl.text = "\(data.name ?? "")"
         specialityLbl.text = data.description ?? ""
-        followBtn.setTitle("\(data.total_joined ) Participants", for: .normal)
+        if let count = data.total_joined {
+            followBtn.setTitle("\(count) Participants", for: .normal)
+        }
         specialityLbl.text = data.description ?? ""
         imageArray = data.group_joined_image ?? []
         if imageArray.count == 0 {
@@ -77,16 +78,16 @@ class UserHeaderView: UITableViewHeaderFooterView {
         personsCV.reloadData()
         if data.admin_status == true {
             joinBtn.setTitle("Edit", for: .normal)
-            adminViewHeight.constant = 20
+           // adminViewHeight.constant = 20
         }
         else if data.joined_status == false {
             joinBtn.setTitle("Join", for: .normal)
-            adminViewHeight.constant = 0
+            //adminViewHeight.constant = 0
         } else {
             joinBtn.setTitle("Joined", for: .normal)
-            joinBtn.backgroundColor = UIColor.lightGray
+            joinBtn.backgroundColor = UIColor(rgb: 0xEEEEEE)
             joinBtn.isEnabled = false
-            adminViewHeight.constant = 20
+            //adminViewHeight.constant = 20
         }
         if let urlString = data.image {
             
@@ -110,7 +111,8 @@ extension UserHeaderView: CustomSegmentedControlDelegate {
 }
 extension UserHeaderView : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return imageArray.count
+       // return imageArray.count
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

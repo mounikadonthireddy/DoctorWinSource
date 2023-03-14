@@ -80,7 +80,6 @@ struct UserDetailsResource {
     }
 }
 
-
 struct PostedQuestionModel: Codable {
     let asked_question: String?
     let number_of_answer: Int?
@@ -88,29 +87,27 @@ struct PostedQuestionModel: Codable {
     let id: Int?
 }
 
-
-
-
-
 struct RepliesModel: Codable {
-    let id: Int
-    let asked_question: String?
-    let reply_by: [AnswersModel1]?
+    let is_active: Bool?
+    let question: String?
+    let AnswersList: [QuestionRepliesModel]?
+}
+struct QuestionRepliesModel: Codable {
+    let id: Int?
+    let description: String?
+    let text_description: String?
+    let display_status: Int?
+    let follow_status: Bool?
+    let comment_count: Int?
+    let bookmark_status: Bool?
+    let userDetails: PostedUserDetailsModel?
+    let groupDetails: GroupProfileModel?
+    let image: [GenderImageModel]?
+    let like_count: Int?
+    let like_status: Bool?
+    let posted_by: Bool?
 }
 
-//struct ReplyByModel: Codable {
-//    let number_of_like: Int?
-//    let bookmark_status: Bool?
-//    let cover_image: String?
-//    let speciality: String?
-//    let ProfileName: String?
-//    let ans: String?
-//    let ProfileImage: String?
-//    let posted_ans_image: String?
-//    let number_of_comment: Int?
-//    let posted_ans_id: Int?
-//    let ansquestionid: Int?
-//}
 struct AnswersModel: Codable {
     let ProfileName: String?
     let ProfileImage: String?

@@ -79,8 +79,8 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
                 headerView.viewBtn.addTarget(self, action: #selector(viewClicked(button:)), for: .touchUpInside)
                 headerView.followBtn.addTarget(self, action: #selector(followClicked(button:)), for: .touchUpInside)
                 headerView.followingBtn.addTarget(self, action: #selector(followingClicked(button:)), for: .touchUpInside)
-                headerView.mcqBtn.addTarget(self, action: #selector(mcqsClicked(button:)), for: .touchUpInside)
-                headerView.resumeBtn.addTarget(self, action: #selector(resumeClicked(button:)), for: .touchUpInside)
+                
+//                headerView.resumeBtn.addTarget(self, action: #selector(resumeClicked(button:)), for: .touchUpInside)
                 headerView.bookmarkBtn.addTarget(self, action: #selector(bookmarkClicked(button:)), for: .touchUpInside)
             }
             headerView.interfaceSegmented.delegate  = self
@@ -121,11 +121,7 @@ extension ProfileViewController  {
     }
     @objc func resumeClicked(button: Any) {
     }
-    @objc func mcqsClicked(button: Any) {
-        let str = UIStoryboard(name: "Me", bundle: nil)
-        let nextVC = str.instantiateViewController(withIdentifier: "MCQViewController") as! MCQViewController
-        self.navigationController?.pushViewController(nextVC, animated: true)
-    }
+   
 }
 
 

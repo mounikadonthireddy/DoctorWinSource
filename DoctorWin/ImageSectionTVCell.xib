@@ -88,6 +88,7 @@
                     <constraint firstItem="8gw-lb-dM2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Dw4-7C-Saw"/>
                     <constraint firstAttribute="trailing" secondItem="8gw-lb-dM2" secondAttribute="trailing" id="Fyc-sa-1hx"/>
                     <constraint firstItem="Asn-xg-03j" firstAttribute="top" secondItem="8gw-lb-dM2" secondAttribute="bottom" constant="10" id="N6M-UT-G1I"/>
+                    <constraint firstItem="8gw-lb-dM2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="NKS-oX-KQ4"/>
                     <constraint firstAttribute="bottomMargin" secondItem="Asn-xg-03j" secondAttribute="bottom" constant="1" id="Zvg-Pr-MDt"/>
                 </constraints>
             </tableViewCellContentView>

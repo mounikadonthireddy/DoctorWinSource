@@ -17,6 +17,7 @@ class QACell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        answerBtn.setCornerRadiusWithBorderColor(radius: Float(answerBtn.frame.height)/2, color: UIColor.lightGray, borderWidth: 0.5)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

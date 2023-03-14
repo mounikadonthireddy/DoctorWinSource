@@ -51,7 +51,7 @@ extension QuestionDetailsViewController: UITableViewDelegate, UITableViewDataSou
         if section == 0 {
             return 1
         } else {
-            return repleisData?.reply_by?.count ?? 0
+            return repleisData?.AnswersList?.count ?? 0
         }
     }
     
@@ -60,7 +60,7 @@ extension QuestionDetailsViewController: UITableViewDelegate, UITableViewDataSou
             let cell: QuestionHeaderCell
             = tableView.dequeueReusableCell(withIdentifier: "QuestionHeaderCell") as! QuestionHeaderCell
             if let data = repleisData {
-                cell.questionLbl.text = data.asked_question ?? ""
+                cell.questionLbl.text = data.question ?? ""
             }
             cell.backBtn.addTarget(self, action: #selector(backClicked(button:)), for: .touchUpInside)
             cell.answer.addTarget(self, action: #selector(answerClicked(button:)), for: .touchUpInside)
@@ -70,7 +70,7 @@ extension QuestionDetailsViewController: UITableViewDelegate, UITableViewDataSou
         } else {
             let cell: ReplyCell
             = tableView.dequeueReusableCell(withIdentifier: "ReplyCell") as! ReplyCell
-            if let data = repleisData?.reply_by {
+            if let data = repleisData?.AnswersList {
                 cell.configureDataWith(homeModel: data[indexPath.row])
                 cell.titleLable.delegate = self
                 cell.titleLable.setLessLinkWith(lessLink: "Close", attributes: [.foregroundColor:UIColor.red], position: .left)
@@ -79,18 +79,18 @@ extension QuestionDetailsViewController: UITableViewDelegate, UITableViewDataSou
                 cell.titleLable.textReplacementType = .character
                 cell.titleLable.numberOfLines = 5
                 cell.titleLable.collapsed = states[indexPath.row]
-                if !states[indexPath.row] {
-                    if let _ =  data[indexPath.row].posted_ans_image {
-                        cell.imageHeiht.constant = 300
-                    }
-                else {
-                    cell.imageHeiht.constant = 0
-                }
-            }
-                else {
-                    cell.imageHeiht.constant = 0
-                }
-                cell.titleLable.text = data[indexPath.row].ans
+//                if !states[indexPath.row] {
+//                    if let _ =  data[indexPath.row].image {
+//                        cell.imageHeiht.constant = 300
+//                    }
+//                else {
+//                    cell.imageHeiht.constant = 0
+//                }
+//            }
+//                else {
+//                    cell.imageHeiht.constant = 0
+//                }
+                cell.titleLable.text = data[indexPath.row].text_description ?? ""
             }
             return cell
         }
@@ -134,19 +134,20 @@ extension QuestionDetailsViewController: UITableViewDelegate, UITableViewDataSou
     @objc func answerClicked(button: UIButton) {
         let str = UIStoryboard(name: "Add", bundle: nil)
         let nextVC = str.instantiateViewController(withIdentifier: "AddAnswerViewController") as! AddAnswerViewController
-        nextVC.askedQuestion = repleisData?.asked_question ?? ""
+        nextVC.askedQuestion = repleisData?.question ?? ""
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }
 extension QuestionDetailsViewController: RepliesViewModelDelegate {
     func didReceiveUserRepliesData(response: RepliesModel?, error: String?) {
-        self.dismiss()
-        if let data  = response {
-            repleisData = data
-            states = [Bool](repeating: true, count: response?.reply_by?.count ?? 0)
-            tableView.reloadData()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.dismiss()
+            if let data  = response {
+                self.repleisData = data
+                self.states = [Bool](repeating: true, count: response?.AnswersList?.count ?? 0)
+                self.tableView.reloadData()
+            }
         }
     }
-    
     
 }
