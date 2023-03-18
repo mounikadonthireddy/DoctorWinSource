@@ -277,6 +277,7 @@
                 <outlet property="connect" destination="6NX-IO-dCy" id="l8V-xl-bWs"/>
                 <outlet property="education" destination="jaW-f1-FOd" id="UZw-O9-9fA"/>
                 <outlet property="job" destination="eeG-4q-O4w" id="bia-SO-t9O"/>
+                <outlet property="mentor" destination="Qlm-MA-r70" id="66a-sN-0QM"/>
                 <outlet property="news" destination="Xfa-hY-BcW" id="fcw-55-Bft"/>
                 <outlet property="products" destination="0r3-OU-Dlc" id="brU-ZC-zj5"/>
                 <outlet property="stack1" destination="gaV-5O-Rsj" id="WPd-lD-YTo"/>

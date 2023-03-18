@@ -151,6 +151,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             headerView.connect.addTarget(self, action: #selector(connectClicked(button:)), for: .touchUpInside)
             headerView.products.addTarget(self, action: #selector(productsClicked(button:)), for: .touchUpInside)
             headerView.education.addTarget(self, action: #selector(educationClicked(button:)), for: .touchUpInside)
+            headerView.mentor.addTarget(self, action: #selector(mentorClicked(button:)), for: .touchUpInside)
             headerView.stack1.setCornerRadius(radius: 10)
             headerView.stack2.setCornerRadius(radius: 10)
             headerView.bgView.setCornerRadius(radius: 20)
@@ -163,6 +164,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     @objc func newsClicked(button: UIButton) {
         let str = UIStoryboard(name: "Me", bundle: nil)
         let nextVC = str.instantiateViewController(withIdentifier: "MyNewsViewController") as! MyNewsViewController
+        self.navigationController?.pushViewController(nextVC, animated: true)
+        
+    }
+    @objc func mentorClicked(button: UIButton) {
+        let str = UIStoryboard(name: "Network", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "MentorViewController") as! MentorViewController
         self.navigationController?.pushViewController(nextVC, animated: true)
         
     }
@@ -198,7 +205,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let dating = UserDefaults.standard.bool(forKey: "datingProfile")
         if dating == false {
             let str = UIStoryboard(name: "Network", bundle: nil)
-            let nextVC = str.instantiateViewController(withIdentifier: "EditConnectViewController") as! EditConnectViewController
+            let nextVC = str.instantiateViewController(withIdentifier: "ConnectViewController") as! ConnectViewController
             
             self.navigationController?.pushViewController(nextVC, animated: true)
         } else {

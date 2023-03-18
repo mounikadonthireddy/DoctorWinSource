@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ServicesCell" customModule="DoctorWin" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="317" height="212"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="317" height="212"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="answer" translatesAutoresizingMaskIntoConstraints="NO" id="1iP-e0-td9">
+                        <rect key="frame" x="108.66666666666669" y="15" width="100" height="100"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="100" id="14N-Os-O6O"/>
+                            <constraint firstAttribute="width" constant="100" id="7rY-mL-1GK"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NEET PG Counselling" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VZF-fj-pav">
+                        <rect key="frame" x="0.0" y="125" width="317" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="WgI-fE-hxP"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grace Hrris for contigencies will nt only lengthen thier batting order but also give them an additional spin option" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RxO-8S-Uqy">
+                        <rect key="frame" x="5" y="156" width="307" height="46"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16" id="vDf-Nn-HJR"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="RxO-8S-Uqy" secondAttribute="bottom" priority="999" constant="10" id="1TC-xb-vpT"/>
+                <constraint firstItem="RxO-8S-Uqy" firstAttribute="top" secondItem="VZF-fj-pav" secondAttribute="bottom" constant="10" id="248-wT-7m0"/>
+                <constraint firstItem="RxO-8S-Uqy" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="8h3-JR-CR1"/>
+                <constraint firstItem="VZF-fj-pav" firstAttribute="top" secondItem="1iP-e0-td9" secondAttribute="bottom" constant="10" id="FSK-O5-kHZ"/>
+                <constraint firstItem="1iP-e0-td9" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="LUx-PB-fOt"/>
+                <constraint firstAttribute="trailing" secondItem="VZF-fj-pav" secondAttribute="trailing" id="RrI-bJ-HQY"/>
+                <constraint firstItem="VZF-fj-pav" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="iwo-Jf-edb"/>
+                <constraint firstAttribute="trailing" secondItem="RxO-8S-Uqy" secondAttribute="trailing" constant="5" id="mQk-fb-1vW"/>
+                <constraint firstItem="1iP-e0-td9" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="15" id="sCX-Nx-sI2"/>
+            </constraints>
+            <size key="customSize" width="317" height="213"/>
+            <point key="canvasLocation" x="159.54198473282443" y="77.816901408450704"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="answer" width="225" height="225"/>
+    </resources>
+</document>

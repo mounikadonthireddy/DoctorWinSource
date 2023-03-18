@@ -17,6 +17,11 @@ enum LayoutType {
     case categoryLayout
     case fullViewLayout
     case emptyView
+    case mentorImage
+    case mentorApp
+    case mentorServices
+    case testimonals
+    case doubts
     
     func getLayout(withHeader: Bool = false, height:Int = 0, fractionalWidth: CGFloat = 0.3) -> NSCollectionLayoutSection {
         switch self {
@@ -30,6 +35,18 @@ enum LayoutType {
             return AppLayouts.shared.fullWidthLayout(height: height, header: withHeader)
         case .emptyView:
             return AppLayouts.shared.emptyView()
+        case .mentorImage:
+            return AppLayouts.shared.MentorImageBanner()
+        case .mentorApp:
+            return AppLayouts.shared.MentorAppBanner()
+        case .mentorServices:
+            return AppLayouts.shared.fullWidthLayout1(height: 215, header: true)
+        case .testimonals:
+            return AppLayouts.shared.TestimonalsLayout()
+        case .doubts:
+            return AppLayouts.shared.homeSupportLayout()
+            
+            
 //        case .updateProfileLayout:
 //            return AppLayouts.shared.updateProfileLayout()
 //        case .horizontalDynamicLayout:
@@ -175,6 +192,28 @@ class AppLayouts {
         
         return section
     }
+    func fullWidthLayout1(height: Int, header:Bool) -> NSCollectionLayoutSection {
+        let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
+        
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(CGFloat(height))), subitems: [item])
+        group.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 0, trailing: 10)
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 20, leading: 10, bottom: 20, trailing: 0)
+        //  section.orthogonalScrollingBehavior = .paging
+       
+        if header == true {
+            section.boundarySupplementaryItems = [
+                .init(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(30)), elementKind: headerKind, alignment: .top)
+            ]
+        }
+        
+        
+        //        let decorationItem = NSCollectionLayoutDecorationItem.background(elementKind: sectionBackground)
+        //        section.decorationItems = [decorationItem]
+        
+        return section
+    }
     
     func premiumMatchesLayout() -> NSCollectionLayoutSection {
         let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
@@ -282,15 +321,57 @@ class AppLayouts {
         
         let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
         
-        let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(widthDimension: .fractionalWidth(0.75), heightDimension: .absolute(100)), subitems: [item])
+        let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(50)), subitems: [item])
         group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 8, trailing: 0)
         
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5)
-       section.orthogonalScrollingBehavior = .paging
+        section.contentInsets = NSDirectionalEdgeInsets(top: 20, leading: 5, bottom: 20, trailing: 5)
+        section.boundarySupplementaryItems = [
+            .init(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(40)), elementKind: headerKind, alignment: .top)
+        ]
+       //section.orthogonalScrollingBehavior = .paging
         return section
     }
-    
+    func MentorImageBanner() -> NSCollectionLayoutSection {
+        let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
+        
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(250)), subitems: [item])
+        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .continuous
+        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+        return section
+    }
+    func MentorAppBanner() -> NSCollectionLayoutSection {
+        let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
+        
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(490)), subitems: [item])
+        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15)
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .continuous
+        section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 15, bottom: 20, trailing: 0)
+        section.boundarySupplementaryItems = [
+            .init(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(80)), elementKind: headerKind, alignment: .top)
+        ]
+        return section
+    }
+    func TestimonalsLayout() -> NSCollectionLayoutSection {
+        
+        let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
+        
+        let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(widthDimension: .fractionalWidth(0.5), heightDimension: .absolute(310)), subitems: [item])
+        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 8, trailing: 10)
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 20, leading: 5, bottom: 0, trailing: 5)
+        section.boundarySupplementaryItems = [
+            .init(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(40)), elementKind: headerKind, alignment: .top)
+        ]
+        section.orthogonalScrollingBehavior = .paging
+        return section
+    }
     
 }
 class SectionDecorationView: UICollectionReusableView {
@@ -328,7 +409,7 @@ class SectionHeaderView: UICollectionReusableView {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
         l.text = "  Recommended Jobs"
-        l.font = UIFont.boldSystemFont(ofSize: 16)
+        l.font = UIFont.boldSystemFont(ofSize: 26)
         l.textColor = UIColor(red: 142/255, green: 37/255, blue: 144/255, alpha: 1.0)
         return l
     }()

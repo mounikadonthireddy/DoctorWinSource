@@ -15,6 +15,7 @@ class HomeTableHeader: UITableViewHeaderFooterView {
     @IBOutlet weak var connect: UIButton!
     @IBOutlet weak var stack1: BorderView!
     @IBOutlet weak var stack2: BorderView!
+    @IBOutlet weak var mentor: UIButton!
     @IBOutlet weak var bgView: UIView!
     static var nib: UINib {
         return UINib(nibName: identifier, bundle: nil)

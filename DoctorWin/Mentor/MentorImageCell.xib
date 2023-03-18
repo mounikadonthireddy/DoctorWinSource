@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MentorImageCell" id="gTV-IL-0wX" customClass="MentorImageCell" customModule="DoctorWin" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="350" height="350"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="350" height="350"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mentor 1" translatesAutoresizingMaskIntoConstraints="NO" id="5h2-S9-b8M">
+                        <rect key="frame" x="-10" y="0.0" width="370" height="350"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="350" id="Gmi-N9-rUS"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sbv-IT-Mzg">
+                        <rect key="frame" x="0.0" y="15" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="R4Z-vd-ODf"/>
+                            <constraint firstAttribute="width" constant="40" id="im1-rx-mLL"/>
+                        </constraints>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" image="back"/>
+                    </button>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="Sbv-IT-Mzg" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="89P-RQ-yQe"/>
+                <constraint firstAttribute="trailing" secondItem="5h2-S9-b8M" secondAttribute="trailing" constant="-10" id="GaY-fA-dcP"/>
+                <constraint firstAttribute="bottom" secondItem="5h2-S9-b8M" secondAttribute="bottom" id="KU7-YB-vtR"/>
+                <constraint firstItem="Sbv-IT-Mzg" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="15" id="Okq-Pw-3xq"/>
+                <constraint firstItem="5h2-S9-b8M" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="WX9-Nr-Mit"/>
+                <constraint firstItem="5h2-S9-b8M" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="-10" id="XNe-qO-HhD"/>
+            </constraints>
+            <size key="customSize" width="350" height="342"/>
+            <point key="canvasLocation" x="184.73282442748092" y="123.23943661971832"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="back" width="32" height="32"/>
+        <image name="mentor 1" width="800" height="802"/>
+    </resources>
+</document>
