@@ -28,14 +28,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login" translatesAutoresizingMaskIntoConstraints="NO" id="Tt8-A2-9dJ">
-                                <rect key="frame" x="0.0" y="91" width="390" height="429"/>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tUD-KF-wnz">
-                                <rect key="frame" x="10" y="520" width="390" height="280"/>
+                                <rect key="frame" x="10" y="520" width="370" height="280"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lfI-TI-hk1">
-                                        <rect key="frame" x="22" y="117.66666666666663" width="348" height="45"/>
+                                        <rect key="frame" x="22" y="117.66666666666663" width="308" height="45"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+91" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O0Z-Av-cU0">
                                                 <rect key="frame" x="10" y="0.0" width="29" height="45"/>
@@ -44,7 +41,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="moa-Uy-Ecd">
-                                                <rect key="frame" x="44" y="0.0" width="304" height="45"/>
+                                                <rect key="frame" x="44" y="0.0" width="264" height="45"/>
                                                 <color key="textColor" red="0.0" green="0.1803921568627451" blue="0.59607843137254901" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="phonePad" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="tel"/>
@@ -66,14 +63,14 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CoC-l2-2MC">
-                                        <rect key="frame" x="120" y="192.66666666666663" width="150" height="40"/>
+                                        <rect key="frame" x="110" y="192.66666666666663" width="150" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="OiQ-ij-LTo"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="mxT-Mt-KMW"/>
                                         </constraints>
                                         <state key="normal" title="Send OTP">
-                                            <color key="titleColor" systemColor="labelColor"/>
+                                            <color key="titleColor" red="0.08235294118" green="0.39607843139999999" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="loginClicked:" destination="SpJ-VT-iH2" eventType="touchUpInside" id="c2b-93-ltr"/>
@@ -86,21 +83,43 @@
                                     <constraint firstItem="lfI-TI-hk1" firstAttribute="leading" secondItem="tUD-KF-wnz" secondAttribute="leading" constant="22" id="5BW-KZ-KWE"/>
                                     <constraint firstAttribute="height" constant="280" id="Kwa-Lk-yzF"/>
                                     <constraint firstItem="CoC-l2-2MC" firstAttribute="top" secondItem="lfI-TI-hk1" secondAttribute="bottom" constant="30" id="Xtg-YC-dKS"/>
-                                    <constraint firstAttribute="trailing" secondItem="lfI-TI-hk1" secondAttribute="trailing" constant="20" id="fZl-AK-1Wj"/>
+                                    <constraint firstAttribute="trailing" secondItem="lfI-TI-hk1" secondAttribute="trailing" constant="40" id="fZl-AK-1Wj"/>
                                     <constraint firstItem="CoC-l2-2MC" firstAttribute="centerX" secondItem="tUD-KF-wnz" secondAttribute="centerX" id="nhJ-Rj-Api"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SBH-mv-l6j">
+                                <rect key="frame" x="0.0" y="91" width="390" height="429"/>
+                                <subviews>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H7o-3n-OB5">
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="429"/>
+                                    </scrollView>
+                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="Hbo-Bb-tNo">
+                                        <rect key="frame" x="127.66666666666667" y="393" width="134.66666666666663" height="26"/>
+                                        <color key="pageIndicatorTintColor" red="0.31764705879999999" green="0.21176470589999999" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="currentPageIndicatorTintColor" red="0.31764705879999999" green="0.21176470589999999" blue="0.56078431370000004" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </pageControl>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="H7o-3n-OB5" firstAttribute="centerY" secondItem="SBH-mv-l6j" secondAttribute="centerY" id="50B-rH-zhK"/>
+                                    <constraint firstAttribute="bottom" secondItem="Hbo-Bb-tNo" secondAttribute="bottom" constant="10" id="CFm-44-zKS"/>
+                                    <constraint firstItem="H7o-3n-OB5" firstAttribute="width" secondItem="SBH-mv-l6j" secondAttribute="width" id="cbx-81-Qc6"/>
+                                    <constraint firstItem="H7o-3n-OB5" firstAttribute="centerX" secondItem="SBH-mv-l6j" secondAttribute="centerX" id="chT-Sz-BJX"/>
+                                    <constraint firstItem="H7o-3n-OB5" firstAttribute="height" secondItem="SBH-mv-l6j" secondAttribute="height" id="dIH-4k-xen"/>
+                                    <constraint firstItem="Hbo-Bb-tNo" firstAttribute="centerX" secondItem="SBH-mv-l6j" secondAttribute="centerX" id="fab-be-H3f"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="q7u-4c-xFW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Tt8-A2-9dJ" firstAttribute="top" secondItem="q7u-4c-xFW" secondAttribute="top" id="2Ur-DK-bkL"/>
-                            <constraint firstItem="tUD-KF-wnz" firstAttribute="top" secondItem="Tt8-A2-9dJ" secondAttribute="bottom" id="3oW-cU-uP4"/>
-                            <constraint firstItem="tUD-KF-wnz" firstAttribute="trailing" secondItem="q7u-4c-xFW" secondAttribute="trailing" constant="10" id="8Cl-zQ-bYX"/>
-                            <constraint firstItem="Tt8-A2-9dJ" firstAttribute="leading" secondItem="q7u-4c-xFW" secondAttribute="leading" id="bgF-AG-VJf"/>
+                            <constraint firstItem="q7u-4c-xFW" firstAttribute="trailing" secondItem="SBH-mv-l6j" secondAttribute="trailing" id="420-B6-sXz"/>
+                            <constraint firstItem="SBH-mv-l6j" firstAttribute="top" secondItem="q7u-4c-xFW" secondAttribute="top" id="4Fw-UO-P4T"/>
+                            <constraint firstItem="tUD-KF-wnz" firstAttribute="trailing" secondItem="q7u-4c-xFW" secondAttribute="trailing" constant="-10" id="8Cl-zQ-bYX"/>
+                            <constraint firstItem="tUD-KF-wnz" firstAttribute="top" secondItem="SBH-mv-l6j" secondAttribute="bottom" id="Cza-ho-uII"/>
+                            <constraint firstItem="SBH-mv-l6j" firstAttribute="leading" secondItem="q7u-4c-xFW" secondAttribute="leading" id="cPH-ob-jGq"/>
                             <constraint firstItem="tUD-KF-wnz" firstAttribute="leading" secondItem="q7u-4c-xFW" secondAttribute="leading" constant="10" id="caP-aF-Kyf"/>
                             <constraint firstItem="tUD-KF-wnz" firstAttribute="bottom" secondItem="q7u-4c-xFW" secondAttribute="bottom" constant="-10" id="mTp-rt-SMC"/>
-                            <constraint firstItem="Tt8-A2-9dJ" firstAttribute="trailing" secondItem="q7u-4c-xFW" secondAttribute="trailing" id="t9K-qk-krr"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="nFe-3j-jAe"/>
@@ -108,7 +127,10 @@
                         <outlet property="loginButton" destination="CoC-l2-2MC" id="cBZ-Uy-xJ9"/>
                         <outlet property="loginView" destination="tUD-KF-wnz" id="V8e-0A-0Tk"/>
                         <outlet property="mobileNumTF" destination="moa-Uy-Ecd" id="kku-Pr-Nj1"/>
+                        <outlet property="pageControl" destination="Hbo-Bb-tNo" id="BrV-jg-S4g"/>
+                        <outlet property="scrollView" destination="H7o-3n-OB5" id="GKN-Rt-FAa"/>
                         <outlet property="textFeildView" destination="lfI-TI-hk1" id="WEJ-kO-fby"/>
+                        <outlet property="viewScroll" destination="SBH-mv-l6j" id="eeC-hc-kWA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jw3-0r-V35" sceneMemberID="firstResponder"/>
@@ -1476,7 +1498,6 @@
         <image name="arrow.left" catalog="system" width="128" height="95"/>
         <image name="back" width="32" height="32"/>
         <image name="camera_icon" width="60" height="60"/>
-        <image name="login" width="1080" height="1078"/>
         <image name="splashLogo" width="632" height="240"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

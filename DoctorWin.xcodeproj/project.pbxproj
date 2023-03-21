@@ -386,6 +386,20 @@
 		DC9F6C5329C58F86000B9BA2 /* MentorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9F6C5229C58F86000B9BA2 /* MentorViewController.swift */; };
 		DC9F6C5629C5928B000B9BA2 /* MentorImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9F6C5429C5928B000B9BA2 /* MentorImageCell.swift */; };
 		DC9F6C5729C5928B000B9BA2 /* MentorImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC9F6C5529C5928B000B9BA2 /* MentorImageCell.xib */; };
+		DC9F6C5B29C5CC2B000B9BA2 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9F6C5929C5CC2B000B9BA2 /* VideoCell.swift */; };
+		DC9F6C5C29C5CC2B000B9BA2 /* VideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC9F6C5A29C5CC2B000B9BA2 /* VideoCell.xib */; };
+		DC9F6C5E29C5CC3E000B9BA2 /* VideosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9F6C5D29C5CC3E000B9BA2 /* VideosViewController.swift */; };
+		DC9F6C6029C5DD0C000B9BA2 /* ASVideoContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9F6C5F29C5DD0B000B9BA2 /* ASVideoContainer.swift */; };
+		DC9F6C6229C5DD52000B9BA2 /* ASVideoPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9F6C6129C5DD52000B9BA2 /* ASVideoPlayerController.swift */; };
+		DC9F6C6429C5DD87000B9BA2 /* ASVideoLayerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9F6C6329C5DD87000B9BA2 /* ASVideoLayerObject.swift */; };
+		DC9F6C6729C5DDC1000B9BA2 /* ShotTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC9F6C6529C5DDBE000B9BA2 /* ShotTableViewCell.xib */; };
+		DC9F6C6829C5DDC1000B9BA2 /* ShotTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9F6C6629C5DDC0000B9BA2 /* ShotTableViewCell.swift */; };
+		DC9F6C6A29C5F5B8000B9BA2 /* VideosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9F6C6929C5F5B8000B9BA2 /* VideosViewModel.swift */; };
+		DC9F6C6C29C5F5CC000B9BA2 /* VideosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9F6C6B29C5F5CC000B9BA2 /* VideosModel.swift */; };
+		DC9F6C6E29C5F5DD000B9BA2 /* VideosResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9F6C6D29C5F5DD000B9BA2 /* VideosResource.swift */; };
+		DC9F6C7529C9F1A1000B9BA2 /* Slide.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC9F6C7329C9F1A0000B9BA2 /* Slide.xib */; };
+		DC9F6C7629C9F1A1000B9BA2 /* Slide.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9F6C7429C9F1A1000B9BA2 /* Slide.swift */; };
+		DC9F6C7829CA04AA000B9BA2 /* MentorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9F6C7729CA04AA000B9BA2 /* MentorModel.swift */; };
 		DCA0A67028C0A7B4001DE3F1 /* EditBioDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA0A66F28C0A7B4001DE3F1 /* EditBioDataController.swift */; };
 		DCA0A6CF28C0F9A4001DE3F1 /* PersonalInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA0A6CD28C0F9A3001DE3F1 /* PersonalInfoCell.swift */; };
 		DCA0A6D028C0F9A4001DE3F1 /* PersonalInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCA0A6CE28C0F9A4001DE3F1 /* PersonalInfoCell.xib */; };
@@ -846,6 +860,20 @@
 		DC9F6C5229C58F86000B9BA2 /* MentorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorViewController.swift; sourceTree = "<group>"; };
 		DC9F6C5429C5928B000B9BA2 /* MentorImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorImageCell.swift; sourceTree = "<group>"; };
 		DC9F6C5529C5928B000B9BA2 /* MentorImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MentorImageCell.xib; sourceTree = "<group>"; };
+		DC9F6C5929C5CC2B000B9BA2 /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
+		DC9F6C5A29C5CC2B000B9BA2 /* VideoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoCell.xib; sourceTree = "<group>"; };
+		DC9F6C5D29C5CC3E000B9BA2 /* VideosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosViewController.swift; sourceTree = "<group>"; };
+		DC9F6C5F29C5DD0B000B9BA2 /* ASVideoContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASVideoContainer.swift; sourceTree = "<group>"; };
+		DC9F6C6129C5DD52000B9BA2 /* ASVideoPlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASVideoPlayerController.swift; sourceTree = "<group>"; };
+		DC9F6C6329C5DD87000B9BA2 /* ASVideoLayerObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASVideoLayerObject.swift; sourceTree = "<group>"; };
+		DC9F6C6529C5DDBE000B9BA2 /* ShotTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShotTableViewCell.xib; sourceTree = "<group>"; };
+		DC9F6C6629C5DDC0000B9BA2 /* ShotTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShotTableViewCell.swift; sourceTree = "<group>"; };
+		DC9F6C6929C5F5B8000B9BA2 /* VideosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosViewModel.swift; sourceTree = "<group>"; };
+		DC9F6C6B29C5F5CC000B9BA2 /* VideosModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosModel.swift; sourceTree = "<group>"; };
+		DC9F6C6D29C5F5DD000B9BA2 /* VideosResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosResource.swift; sourceTree = "<group>"; };
+		DC9F6C7329C9F1A0000B9BA2 /* Slide.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Slide.xib; sourceTree = "<group>"; };
+		DC9F6C7429C9F1A1000B9BA2 /* Slide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Slide.swift; sourceTree = "<group>"; };
+		DC9F6C7729CA04AA000B9BA2 /* MentorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorModel.swift; sourceTree = "<group>"; };
 		DCA0A66F28C0A7B4001DE3F1 /* EditBioDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBioDataController.swift; sourceTree = "<group>"; };
 		DCA0A6CD28C0F9A3001DE3F1 /* PersonalInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInfoCell.swift; sourceTree = "<group>"; };
 		DCA0A6CE28C0F9A4001DE3F1 /* PersonalInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonalInfoCell.xib; sourceTree = "<group>"; };
@@ -957,6 +985,8 @@
 			children = (
 				439297882722D628001891B8 /* AppDelegate.swift */,
 				43AF8FC927358C9900CC69EF /* Common.swift */,
+				DC9F6C7229C9F15B000B9BA2 /* Login */,
+				DC9F6C5829C5CC0E000B9BA2 /* Videos */,
 				DC9F6C4129C57C76000B9BA2 /* Mentor */,
 				43AF9F85272975150020CCF3 /* Models */,
 				43AF8FC827358C8B00CC69EF /* Source */,
@@ -1546,6 +1576,7 @@
 		DC9F6C4129C57C76000B9BA2 /* Mentor */ = {
 			isa = PBXGroup;
 			children = (
+				DC9F6C7729CA04AA000B9BA2 /* MentorModel.swift */,
 				DC9F6C4229C57CAB000B9BA2 /* TestimonialCell.swift */,
 				DC9F6C4329C57CAB000B9BA2 /* TestimonialCell.xib */,
 				DC9F6C4629C57E7D000B9BA2 /* ServicesCell.swift */,
@@ -1559,6 +1590,33 @@
 				DC9F6C5229C58F86000B9BA2 /* MentorViewController.swift */,
 			);
 			path = Mentor;
+			sourceTree = "<group>";
+		};
+		DC9F6C5829C5CC0E000B9BA2 /* Videos */ = {
+			isa = PBXGroup;
+			children = (
+				DC9F6C5929C5CC2B000B9BA2 /* VideoCell.swift */,
+				DC9F6C5A29C5CC2B000B9BA2 /* VideoCell.xib */,
+				DC9F6C5D29C5CC3E000B9BA2 /* VideosViewController.swift */,
+				DC9F6C6929C5F5B8000B9BA2 /* VideosViewModel.swift */,
+				DC9F6C6B29C5F5CC000B9BA2 /* VideosModel.swift */,
+				DC9F6C6D29C5F5DD000B9BA2 /* VideosResource.swift */,
+				DC9F6C5F29C5DD0B000B9BA2 /* ASVideoContainer.swift */,
+				DC9F6C6129C5DD52000B9BA2 /* ASVideoPlayerController.swift */,
+				DC9F6C6329C5DD87000B9BA2 /* ASVideoLayerObject.swift */,
+				DC9F6C6629C5DDC0000B9BA2 /* ShotTableViewCell.swift */,
+				DC9F6C6529C5DDBE000B9BA2 /* ShotTableViewCell.xib */,
+			);
+			path = Videos;
+			sourceTree = "<group>";
+		};
+		DC9F6C7229C9F15B000B9BA2 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				DC9F6C7429C9F1A1000B9BA2 /* Slide.swift */,
+				DC9F6C7329C9F1A0000B9BA2 /* Slide.xib */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		DCA0A6A928C0ADD2001DE3F1 /* EditProfile */ = {
@@ -1879,6 +1937,7 @@
 				DC4AEF24285384BD00D6D4A3 /* Job.storyboard in Resources */,
 				BFB3A66828352A02008D0C72 /* SpecialityCell.xib in Resources */,
 				DCA0A6F328C4DCF1001DE3F1 /* QACell.xib in Resources */,
+				DC9F6C7529C9F1A1000B9BA2 /* Slide.xib in Resources */,
 				DC74AE0D29A773FD00F34B3F /* JobCVCell.xib in Resources */,
 				BF0DD95B278D5B9C0053747A /* RecommandedJobCell.xib in Resources */,
 				BFA90E2A27BB5380009F9784 /* AddCasesTitleHeader.xib in Resources */,
@@ -1903,6 +1962,7 @@
 				BF0DD957278D4C820053747A /* ProfileSkillsCell.xib in Resources */,
 				43B975A127258A0000CDF2F1 /* HomeTableCell.xib in Resources */,
 				439923D0272BD8D30085E067 /* JobsCollectionCell.xib in Resources */,
+				DC9F6C5C29C5CC2B000B9BA2 /* VideoCell.xib in Resources */,
 				BF30C7D7277AEE240047E277 /* SearchJobCell.xib in Resources */,
 				DCAE86B7297437ED004D85D5 /* FellowshipTVell.xib in Resources */,
 				439297922722D629001891B8 /* Assets.xcassets in Resources */,
@@ -1956,6 +2016,7 @@
 				BF0DD964278D6CA40053747A /* QuickJobTVCell.xib in Resources */,
 				DC8AE244286D815D003376A7 /* ShopCategoryCell.xib in Resources */,
 				BF170F63280FCE49001B3109 /* CaseCell.xib in Resources */,
+				DC9F6C6729C5DDC1000B9BA2 /* ShotTableViewCell.xib in Resources */,
 				DC885E3928D20A3300110418 /* TrendingQuestionHeaderView.xib in Resources */,
 				439DC46B273FB28800DAD6D5 /* Roboto-Light.ttf in Resources */,
 				DC103DEA296D682700A4FD4D /* TrendingCourseCell.xib in Resources */,
@@ -2111,6 +2172,7 @@
 				DC9F6C5629C5928B000B9BA2 /* MentorImageCell.swift in Sources */,
 				DC885E4B28DC724600110418 /* ChatViewController.swift in Sources */,
 				43B2E8CF275F450C0022CD16 /* QuestionsResource.swift in Sources */,
+				DC9F6C5B29C5CC2B000B9BA2 /* VideoCell.swift in Sources */,
 				DC8AE243286D815D003376A7 /* ShopCategoryCell.swift in Sources */,
 				43B231FF273AA65B00038F8A /* CustomJobViewController.swift in Sources */,
 				43F57E4F27561572001120C8 /* RegisterViewModel.swift in Sources */,
@@ -2189,12 +2251,14 @@
 				43AF8FAC2733D54500CC69EF /* RegisterCell.swift in Sources */,
 				DC55BE062872F40500B1EE1B /* DatingModel.swift in Sources */,
 				DC9539B5285C5B4800FBD8D0 /* CommentModel.swift in Sources */,
+				DC9F6C6429C5DD87000B9BA2 /* ASVideoLayerObject.swift in Sources */,
 				BFA90E2827BB5346009F9784 /* AddCasesTitleHeader.swift in Sources */,
 				BFA90E1B27B4E97B009F9784 /* ProfileImageCell.swift in Sources */,
 				43B23206273AAA2C00038F8A /* AppliedJobCell.swift in Sources */,
 				435FB5682750BD100040C406 /* JobsResource.swift in Sources */,
 				DCA0A6FD28C757EC001DE3F1 /* UserDetailsResource.swift in Sources */,
 				439AA1F7273632A200D09E26 /* LoginVCExtension.swift in Sources */,
+				DC9F6C6E29C5F5DD000B9BA2 /* VideosResource.swift in Sources */,
 				BF170F62280FCE49001B3109 /* CaseCell.swift in Sources */,
 				DC8D9AD1285787EE009533DC /* ConnectResource.swift in Sources */,
 				BF0DD96F278D92EF0053747A /* CarrierHeaderCell.swift in Sources */,
@@ -2203,6 +2267,7 @@
 				DC6BCDA3287BE7D5004F143D /* SaleViewController.swift in Sources */,
 				DC885E4728DC704900110418 /* MatchesViewController.swift in Sources */,
 				DCF1B49E28F711C0007F4FA3 /* LearningCategoryCell.swift in Sources */,
+				DC9F6C6829C5DDC1000B9BA2 /* ShotTableViewCell.swift in Sources */,
 				BFC3EEE028242568000A1582 /* HospitalDetailsCell.swift in Sources */,
 				43B231FB273AA38600038F8A /* SearchJobsViewController.swift in Sources */,
 				43B975B12725B20000CDF2F1 /* JobInformationCell.swift in Sources */,
@@ -2211,6 +2276,7 @@
 				43B5CBCD2726779900DFEC71 /* JobsCell.swift in Sources */,
 				DC9AB75F28F863B800C6043E /* CategoryTVCell.swift in Sources */,
 				43A6A99227329F1C00400F72 /* CasesTableViewCell.swift in Sources */,
+				DC9F6C5E29C5CC3E000B9BA2 /* VideosViewController.swift in Sources */,
 				DC7968FE28F42422004D9FE6 /* QuestionHeaderCell.swift in Sources */,
 				43B52E36273BCA51004EF637 /* PostQuestionHeader.swift in Sources */,
 				DCA0A6FB28C61109001DE3F1 /* PeopleViewModel.swift in Sources */,
@@ -2229,10 +2295,15 @@
 				439923CA272BD8A70085E067 /* JobTableCell.swift in Sources */,
 				43A6A98627329D0200400F72 /* AddSkillsCell.swift in Sources */,
 				BF0DD93B278C93130053747A /* TitleView.swift in Sources */,
+				DC9F6C7829CA04AA000B9BA2 /* MentorModel.swift in Sources */,
+				DC9F6C6029C5DD0C000B9BA2 /* ASVideoContainer.swift in Sources */,
+				DC9F6C6A29C5F5B8000B9BA2 /* VideosViewModel.swift in Sources */,
 				BF0DD939278C8F980053747A /* CarrierPageViewController.swift in Sources */,
 				DC9F6C5029C58874000B9BA2 /* MentorCell.swift in Sources */,
+				DC9F6C6C29C5F5CC000B9BA2 /* VideosModel.swift in Sources */,
 				BF30C7D6277AEE240047E277 /* SearchJobCell.swift in Sources */,
 				DC96036C28FD5CC100007E6A /* HomeDetailsHeaderCell.swift in Sources */,
+				DC9F6C6229C5DD52000B9BA2 /* ASVideoPlayerController.swift in Sources */,
 				439297C82722F0E6001891B8 /* NewsCell.swift in Sources */,
 				43AF8FBC27358BFA00CC69EF /* LoginRequest.swift in Sources */,
 				DC885E3C28D217ED00110418 /* TrendingTableCell.swift in Sources */,
@@ -2329,6 +2400,7 @@
 				DCF1B4B928F816D1007F4FA3 /* LearningDetailsVieModel.swift in Sources */,
 				BFCB16B627997832005E3FEB /* CustomSegmentedControl.swift in Sources */,
 				BF0DD95A278D5B9C0053747A /* RecommandedJobCell.swift in Sources */,
+				DC9F6C7629C9F1A1000B9BA2 /* Slide.swift in Sources */,
 				43B03AA1272F98CA00A4337B /* AddNewsViewController.swift in Sources */,
 				DC961EAE2876E17C00F24913 /* EditConnectCell.swift in Sources */,
 				439297CB2722FCED001891B8 /* NewsDetailsViewController.swift in Sources */,

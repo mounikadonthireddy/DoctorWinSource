@@ -7,12 +7,18 @@
 
 import UIKit
 
-class LoginViewController: ViewController,UIScrollViewDelegate {
+class LoginViewController: ViewController {
     
-    let scrollView = UIScrollView()
-    var colors:[UIColor] = [UIColor.red, UIColor.blue, UIColor.green, UIColor.yellow]
-    var frame: CGRect = CGRect(x:0, y:0, width:0, height:0)
-    var pageControl : UIPageControl = UIPageControl(frame: CGRect(x:50,y: 300, width:200, height:50))
+    @IBOutlet weak var scrollView: UIScrollView!{
+        didSet{
+            scrollView.delegate = self
+        }
+    }
+    @IBOutlet weak var viewScroll: UIView!
+    @IBOutlet weak var pageControl: UIPageControl!
+    
+    
+    var slides:[Slide] = [];
     
     @IBOutlet weak var loginView: UIView!
     @IBOutlet weak var loginButton: UIButton!
@@ -33,47 +39,16 @@ class LoginViewController: ViewController,UIScrollViewDelegate {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-        configurePageControl()
-        scrollView.frame = CGRect(x:0, y:190, width:self.view.frame.width,height: 350)
-        scrollView.delegate = self
-        scrollView.isPagingEnabled = true
+        slides = createSlides()
+        setupSlideScrollView(slides: slides)
         
-        self.view.addSubview(scrollView)
-        for index in 0..<4 {
-            
-            frame.origin.x = self.scrollView.frame.size.width * CGFloat(index)
-            frame.size = self.scrollView.frame.size
-            
-            let subView = UIView(frame: frame)
-            subView.backgroundColor = colors[index]
-            self.scrollView .addSubview(subView)
-        }
-        
-        self.scrollView.contentSize = CGSize(width:self.scrollView.frame.size.width * 4,height: self.scrollView.frame.size.height)
-        pageControl.addTarget(self, action: #selector(self.changePage(sender:)), for: .valueChanged)
-        
-        
-    }
-    func configurePageControl() {
-        // The total number of pages that are available is based on how many available colors we have.
-        self.pageControl.numberOfPages = colors.count
-        self.pageControl.currentPage = 0
-        self.pageControl.tintColor = UIColor.red
-        self.pageControl.pageIndicatorTintColor = UIColor.black
-        self.pageControl.currentPageIndicatorTintColor = UIColor.green
-        self.view.addSubview(pageControl)
-        
-    }
-    @objc func changePage(sender: AnyObject) -> () {
-        let x = CGFloat(pageControl.currentPage) * scrollView.frame.size.width
-        scrollView.setContentOffset(CGPoint(x:x, y:0), animated: true)
+        pageControl.numberOfPages = slides.count
+        pageControl.currentPage = 0
+        view.bringSubviewToFront(pageControl)
+ 
     }
     
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        
-        let pageNumber = round(scrollView.contentOffset.x / scrollView.frame.size.width)
-        pageControl.currentPage = Int(pageNumber)
-    }
+    
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             if view.frame.origin.y == 0 {

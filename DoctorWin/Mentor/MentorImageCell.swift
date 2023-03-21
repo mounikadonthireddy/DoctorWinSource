@@ -8,7 +8,7 @@
 import UIKit
 
 class MentorImageCell: UICollectionViewCell {
-
+    @IBOutlet weak var backBtn: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

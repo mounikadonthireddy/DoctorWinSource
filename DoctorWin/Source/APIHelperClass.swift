@@ -26,7 +26,10 @@ struct APIHelperClass {
         
         URLSession.shared.dataTask(with: urlRequest) { (data, httpUrlResponse, error) in
             print(data?.prettyPrintedJSONString)
-            if(data != nil && data?.count != 0)  {
+            if error != nil {
+                completionHandler(.failure(RequestError.invalidUrl))
+            }
+            else if(data != nil && data?.count != 0)  {
                 let decoder = JSONDecoder()
                 do {
                     let result = try decoder.decode(T.self, from: data!)

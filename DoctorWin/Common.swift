@@ -140,7 +140,10 @@ struct ApiEndpoints {
     static let undoProfile = "connect/dating/undo/skip/profile"
     
     //Videos
-    static let clips = "clips/video"
+    static let clips = "clip/reels"
+    //Mentor
+    static let testimonial = "mentor/testimonial"
+    
 }
 
 class User {

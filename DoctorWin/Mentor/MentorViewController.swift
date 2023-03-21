@@ -25,7 +25,9 @@ class MentorViewController: UIViewController {
 
         configureCompositionalLayout()
     }
-    
+    @objc func backClicked(button: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
 
 }
 extension MentorViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -49,6 +51,7 @@ extension MentorViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0 {
             let cell: MentorImageCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MentorImageCell", for: indexPath) as! MentorImageCell
+            cell.backBtn.addTarget(self, action: #selector(backClicked(button:)), for: .touchUpInside)
             return cell
         } else if indexPath.section == 1 {
             let cell: MentorCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MentorCell", for: indexPath) as! MentorCell
