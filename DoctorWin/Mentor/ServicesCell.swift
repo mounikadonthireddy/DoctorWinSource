@@ -8,11 +8,11 @@
 import UIKit
 
 class ServicesCell: UICollectionViewCell {
-
+    @IBOutlet weak var bgView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        self.setCornerRadiusWithBorderColor(radius: 10, color: UIColor.lightGray, borderWidth: 0.7)
+        self.bgView.setCornerRadiusWithBorderColor(radius: 10, color: UIColor.lightGray, borderWidth: 0.7)
     }
 
 }

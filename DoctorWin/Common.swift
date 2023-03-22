@@ -143,6 +143,7 @@ struct ApiEndpoints {
     static let clips = "clip/reels"
     //Mentor
     static let testimonial = "mentor/testimonial"
+    static let dailyUpdate = "mentor/notification"
     
 }
 

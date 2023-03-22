@@ -17,7 +17,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="150" height="304"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="collegeBg" translatesAutoresizingMaskIntoConstraints="NO" id="UsX-JJ-2cB">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="collegeBg" translatesAutoresizingMaskIntoConstraints="NO" id="UsX-JJ-2cB">
                         <rect key="frame" x="0.0" y="0.0" width="150" height="70"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="70" id="fcE-lP-NOG"/>
@@ -57,6 +57,11 @@
                 <constraint firstItem="UsX-JJ-2cB" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="tc5-XR-tAd"/>
             </constraints>
             <size key="customSize" width="150" height="304"/>
+            <connections>
+                <outlet property="messageLbl" destination="yiW-mL-Y5n" id="wrs-Ni-a0Q"/>
+                <outlet property="nameLbl" destination="mar-ih-arS" id="b3B-xw-ENj"/>
+                <outlet property="personImage" destination="UsX-JJ-2cB" id="SGG-07-HHA"/>
+            </connections>
             <point key="canvasLocation" x="32.061068702290072" y="109.1549295774648"/>
         </collectionViewCell>
     </objects>

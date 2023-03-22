@@ -7,12 +7,16 @@
 
 import UIKit
 
-class MentorViewController: UIViewController {
-    var sectionArray = ["","Why Mentor App?","Services Available", "Testimonials", "People also ask"]
+class MentorViewController: ViewController {
+    var sectionArray = ["","Daily Updates","","Services Available", "Testimonials", "People also ask"]
     @IBOutlet weak var collectionView: UICollectionView!
+    var dailyUpdateArr: [DailyUpdatesModel] = []
+    var testimonalArr: [TestimonialModel] = []
+    var mentorVM = MentorViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        collectionView.register(UINib.init(nibName: "DailyUpdatesCell", bundle: nil), forCellWithReuseIdentifier: "DailyUpdatesCell")
+        
         collectionView.register(UINib.init(nibName: "MentorCell", bundle: nil), forCellWithReuseIdentifier: "MentorCell")
         collectionView.register(UINib.init(nibName: "DoubtsCell", bundle: nil), forCellWithReuseIdentifier: "DoubtsCell")
         collectionView.register(UINib.init(nibName: "ServicesCell", bundle: nil), forCellWithReuseIdentifier: "ServicesCell")
@@ -22,28 +26,44 @@ class MentorViewController: UIViewController {
         collectionView.register(UINib.init(nibName: "MentorImageCell", bundle: nil), forCellWithReuseIdentifier: "MentorImageCell")
         collectionView.register(UINib.init(nibName: "CourseNameCell", bundle: nil), forCellWithReuseIdentifier: "CourseNameCell")
         collectionView.register(SectionHeaderView.self, forSupplementaryViewOfKind: headerKind, withReuseIdentifier: Key.ReusableIdentifiers.sectionHeaderViewId)
-
+        mentorVM.delegate = self
+        loadDailyUpdatesData()
         configureCompositionalLayout()
+        loadTestimonalsData()
     }
     @objc func backClicked(button: UIButton) {
         self.navigationController?.popViewController(animated: true)
+    }
+    func loadDailyUpdatesData() {
+        self.showLoader()
+        mentorVM.getDailyUpdatesDataFromAPI(pageNum: 0)
+    }
+    func loadTestimonalsData() {
+        self.showLoader()
+        mentorVM.getTestimonalsDataFromAPI(pageNum: 0)
     }
 
 }
 extension MentorViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 5
+        return 6
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
-        case 0,1:
+        case 0:
             return 1
+        case 1:
+            return dailyUpdateArr.count
         case 2:
-            return 5
+            return 1
         case 3:
-            return 3
+            return 5
         case 4:
+            return testimonalArr.count
+        case 5:
             return 4
+        case 6:
+            return 1
         default:
             return 0
         }
@@ -54,16 +74,22 @@ extension MentorViewController: UICollectionViewDelegate, UICollectionViewDataSo
             cell.backBtn.addTarget(self, action: #selector(backClicked(button:)), for: .touchUpInside)
             return cell
         } else if indexPath.section == 1 {
+            let cell: DailyUpdatesCell = collectionView.dequeueReusableCell(withReuseIdentifier: "DailyUpdatesCell", for: indexPath) as! DailyUpdatesCell
+            cell.configureWith(data: dailyUpdateArr[indexPath.row])
+            return cell
+        }
+        else if indexPath.section == 2 {
             let cell: MentorCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MentorCell", for: indexPath) as! MentorCell
             return cell
-        } else if indexPath.section == 2 {
+        } else if indexPath.section == 3 {
             let cell: ServicesCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ServicesCell", for: indexPath) as! ServicesCell
             return cell
             
-        } else if indexPath.section == 3 {
-            let cell: TestimonialCell = collectionView.dequeueReusableCell(withReuseIdentifier: "TestimonialCell", for: indexPath) as! TestimonialCell
-            return cell
         } else if indexPath.section == 4 {
+            let cell: TestimonialCell = collectionView.dequeueReusableCell(withReuseIdentifier: "TestimonialCell", for: indexPath) as! TestimonialCell
+            cell.configureWith(data: testimonalArr[indexPath.row])
+            return cell
+        } else if indexPath.section == 5 {
             let cell: DoubtsCell = collectionView.dequeueReusableCell(withReuseIdentifier: "DoubtsCell", for: indexPath) as! DoubtsCell
             return cell
         } else {
@@ -76,12 +102,14 @@ extension MentorViewController: UICollectionViewDelegate, UICollectionViewDataSo
             if sectionNumber == 0  {
                 return LayoutType.mentorImage.getLayout()
             } else if sectionNumber == 1 {
+                return LayoutType.dailyUpdates.getLayout()
+            }else if sectionNumber == 2 {
                 return LayoutType.mentorApp.getLayout()
-            } else if sectionNumber == 2 {
-                return LayoutType.mentorServices.getLayout()
             } else if sectionNumber == 3 {
-                return LayoutType.testimonals.getLayout()
+                return LayoutType.mentorServices.getLayout()
             } else if sectionNumber == 4 {
+                return LayoutType.testimonals.getLayout()
+            } else if sectionNumber == 5 {
                 return LayoutType.doubts.getLayout()
             } else {
                 return LayoutType.mentorImage.getLayout()
@@ -97,5 +125,23 @@ extension MentorViewController: UICollectionViewDelegate, UICollectionViewDataSo
         header.title.text = sectionArray[indexPath.section]
             return header
     }
+    
+}
+extension MentorViewController: MentorViewModelDelegate {
+    func didReciveTestimonalsData(response: TestimonialResponseModel?, error: String?) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.dismiss()
+            self.testimonalArr = response?.description ?? []
+            self.collectionView.reloadData()
+        }
+    }
+    func didReciveDailyUpdatesData(response: DailyUpdatesResponseModel?, error: String?) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.dismiss()
+            self.dailyUpdateArr = response?.description ?? []
+            self.collectionView.reloadData()
+        }
+    }
+    
     
 }

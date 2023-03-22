@@ -11,57 +11,85 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ServicesCell" customModule="DoctorWin" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="317" height="212"/>
+            <rect key="frame" x="0.0" y="0.0" width="363" height="257"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="317" height="212"/>
+                <rect key="frame" x="0.0" y="0.0" width="363" height="257"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="answer" translatesAutoresizingMaskIntoConstraints="NO" id="1iP-e0-td9">
-                        <rect key="frame" x="108.66666666666669" y="15" width="100" height="100"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jdo-5k-i7T">
+                        <rect key="frame" x="20" y="20" width="323" height="227"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NEET PG Counselling" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VZF-fj-pav">
+                                <rect key="frame" x="5" y="90" width="313" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="RcQ-YV-Dgg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
+                                <color key="textColor" red="0.9137254901960784" green="0.78431372549019607" blue="0.3529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grace Hrris for contigencies will nt only lengthen thier batting order but also give them an additional spin option" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RxO-8S-Uqy">
+                                <rect key="frame" x="5" y="141" width="313" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="gs7-fm-dc3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bn4-D9-fy2">
+                                <rect key="frame" x="5" y="128" width="45" height="3"/>
+                                <color key="backgroundColor" red="0.91372549020000005" green="0.7843137255" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="3" id="9oI-bI-GXB"/>
+                                    <constraint firstAttribute="width" constant="45" id="H5I-4X-gaz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.043137254899999998" green="0.37254901959999998" blue="0.38823529410000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="100" id="14N-Os-O6O"/>
-                            <constraint firstAttribute="width" constant="100" id="7rY-mL-1GK"/>
+                            <constraint firstItem="Bn4-D9-fy2" firstAttribute="top" secondItem="VZF-fj-pav" secondAttribute="bottom" id="1mY-Y8-Imo"/>
+                            <constraint firstItem="RxO-8S-Uqy" firstAttribute="top" secondItem="Bn4-D9-fy2" secondAttribute="bottom" constant="10" id="97P-7Q-ZYh"/>
+                            <constraint firstItem="VZF-fj-pav" firstAttribute="leading" secondItem="Jdo-5k-i7T" secondAttribute="leading" constant="5" id="Imh-vQ-JVM"/>
+                            <constraint firstItem="Bn4-D9-fy2" firstAttribute="leading" secondItem="Jdo-5k-i7T" secondAttribute="leading" constant="5" id="S0l-Xo-7DN"/>
+                            <constraint firstAttribute="trailing" secondItem="VZF-fj-pav" secondAttribute="trailing" constant="5" id="Wx0-pQ-AKf"/>
+                            <constraint firstItem="RxO-8S-Uqy" firstAttribute="leading" secondItem="Jdo-5k-i7T" secondAttribute="leading" constant="5" id="Y8T-FI-FJz"/>
+                            <constraint firstAttribute="bottom" secondItem="RxO-8S-Uqy" secondAttribute="bottom" priority="999" constant="5" id="YpZ-k3-r0L"/>
+                            <constraint firstItem="VZF-fj-pav" firstAttribute="top" secondItem="Jdo-5k-i7T" secondAttribute="top" constant="90" id="d86-NC-Oqa"/>
+                            <constraint firstAttribute="trailing" secondItem="RxO-8S-Uqy" secondAttribute="trailing" constant="5" id="dDO-Iw-HPs"/>
+                        </constraints>
+                    </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="service" translatesAutoresizingMaskIntoConstraints="NO" id="1iP-e0-td9">
+                        <rect key="frame" x="25" y="0.0" width="80" height="90"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="90" id="7zz-lE-X1m"/>
+                            <constraint firstAttribute="width" constant="80" id="GT7-6K-qpJ"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NEET PG Counselling" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VZF-fj-pav">
-                        <rect key="frame" x="0.0" y="125" width="317" height="21"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="21" id="WgI-fE-hxP"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grace Hrris for contigencies will nt only lengthen thier batting order but also give them an additional spin option" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RxO-8S-Uqy">
-                        <rect key="frame" x="5" y="156" width="307" height="46"/>
-                        <constraints>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16" id="vDf-Nn-HJR"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="RxO-8S-Uqy" secondAttribute="bottom" priority="999" constant="10" id="1TC-xb-vpT"/>
-                <constraint firstItem="RxO-8S-Uqy" firstAttribute="top" secondItem="VZF-fj-pav" secondAttribute="bottom" constant="10" id="248-wT-7m0"/>
-                <constraint firstItem="RxO-8S-Uqy" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="8h3-JR-CR1"/>
-                <constraint firstItem="VZF-fj-pav" firstAttribute="top" secondItem="1iP-e0-td9" secondAttribute="bottom" constant="10" id="FSK-O5-kHZ"/>
-                <constraint firstItem="1iP-e0-td9" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="LUx-PB-fOt"/>
-                <constraint firstAttribute="trailing" secondItem="VZF-fj-pav" secondAttribute="trailing" id="RrI-bJ-HQY"/>
-                <constraint firstItem="VZF-fj-pav" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="iwo-Jf-edb"/>
-                <constraint firstAttribute="trailing" secondItem="RxO-8S-Uqy" secondAttribute="trailing" constant="5" id="mQk-fb-1vW"/>
-                <constraint firstItem="1iP-e0-td9" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="15" id="sCX-Nx-sI2"/>
+                <constraint firstItem="Jdo-5k-i7T" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="20" id="3KC-OK-pwq"/>
+                <constraint firstItem="1iP-e0-td9" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="25" id="3m9-DN-9rP"/>
+                <constraint firstAttribute="trailing" secondItem="Jdo-5k-i7T" secondAttribute="trailing" constant="20" id="6fo-pr-OSQ"/>
+                <constraint firstItem="Jdo-5k-i7T" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="Jfh-Bm-YAm"/>
+                <constraint firstItem="1iP-e0-td9" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="aGY-ai-m80"/>
+                <constraint firstAttribute="bottom" secondItem="Jdo-5k-i7T" secondAttribute="bottom" constant="10" id="fIJ-P5-WIG"/>
             </constraints>
-            <size key="customSize" width="317" height="213"/>
-            <point key="canvasLocation" x="159.54198473282443" y="77.816901408450704"/>
+            <size key="customSize" width="363" height="258"/>
+            <connections>
+                <outlet property="bgView" destination="Jdo-5k-i7T" id="M0o-hN-Iiw"/>
+            </connections>
+            <point key="canvasLocation" x="194.6564885496183" y="93.309859154929583"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="answer" width="225" height="225"/>
+        <image name="service" width="113" height="86"/>
     </resources>
 </document>

@@ -193,6 +193,11 @@ extension CarrierTabViewController : UICollectionViewDelegate, UICollectionViewD
     func navigateViewBasedOnSection(index: Int) {
         if index == 0 {
             
+        } else if index == 1 {
+            let str = UIStoryboard(name: "Me", bundle: nil)
+            let nextVC = str.instantiateViewController(withIdentifier: "PostJobViewController") as! PostJobViewController
+            
+            self.navigationController?.pushViewController(nextVC, animated: true)
         } else if index == 2 {
             let str = UIStoryboard(name: "Job", bundle: nil)
             let nextVC = str.instantiateViewController(withIdentifier: "SavedJobViewController") as! SavedJobViewController
