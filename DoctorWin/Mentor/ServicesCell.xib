@@ -85,6 +85,8 @@
             <size key="customSize" width="363" height="258"/>
             <connections>
                 <outlet property="bgView" destination="Jdo-5k-i7T" id="M0o-hN-Iiw"/>
+                <outlet property="descriptionLbl" destination="RxO-8S-Uqy" id="nqc-mH-dga"/>
+                <outlet property="nameLbl" destination="VZF-fj-pav" id="QGC-b0-Shf"/>
             </connections>
             <point key="canvasLocation" x="194.6564885496183" y="93.309859154929583"/>
         </collectionViewCell>

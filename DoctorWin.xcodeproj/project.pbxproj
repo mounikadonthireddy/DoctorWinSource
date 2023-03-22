@@ -380,6 +380,13 @@
 		DC9BEEA029CB178600376A51 /* FAQCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC9BEE9E29CB178600376A51 /* FAQCell.xib */; };
 		DC9BEEA329CB37AA00376A51 /* AboutAppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9BEEA129CB37AA00376A51 /* AboutAppCell.swift */; };
 		DC9BEEA429CB37AA00376A51 /* AboutAppCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC9BEEA229CB37AA00376A51 /* AboutAppCell.xib */; };
+		DC9BEEA729CB404900376A51 /* AppointmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9BEEA529CB404900376A51 /* AppointmentCell.swift */; };
+		DC9BEEA829CB404900376A51 /* AppointmentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC9BEEA629CB404900376A51 /* AppointmentCell.xib */; };
+		DC9BEEAC29CB49E800376A51 /* CounsellingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC9BEEAA29CB49E800376A51 /* CounsellingCell.xib */; };
+		DC9BEEAF29CB4B5D00376A51 /* CounsellingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9BEEAD29CB4B5D00376A51 /* CounsellingCell.swift */; };
+		DC9BEEB429CB4CF100376A51 /* AboutServiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9BEEB229CB4CF100376A51 /* AboutServiceCell.swift */; };
+		DC9BEEB529CB4CF100376A51 /* AboutServiceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC9BEEB329CB4CF100376A51 /* AboutServiceCell.xib */; };
+		DC9BEEB829CB4E4900376A51 /* MentorSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9BEEB629CB4E4900376A51 /* MentorSelectionViewController.swift */; };
 		DC9F6C4429C57CAB000B9BA2 /* TestimonialCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9F6C4229C57CAB000B9BA2 /* TestimonialCell.swift */; };
 		DC9F6C4529C57CAB000B9BA2 /* TestimonialCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC9F6C4329C57CAB000B9BA2 /* TestimonialCell.xib */; };
 		DC9F6C4829C57E7D000B9BA2 /* ServicesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9F6C4629C57E7D000B9BA2 /* ServicesCell.swift */; };
@@ -863,6 +870,13 @@
 		DC9BEE9E29CB178600376A51 /* FAQCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FAQCell.xib; sourceTree = "<group>"; };
 		DC9BEEA129CB37AA00376A51 /* AboutAppCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppCell.swift; sourceTree = "<group>"; };
 		DC9BEEA229CB37AA00376A51 /* AboutAppCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutAppCell.xib; sourceTree = "<group>"; };
+		DC9BEEA529CB404900376A51 /* AppointmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentCell.swift; sourceTree = "<group>"; };
+		DC9BEEA629CB404900376A51 /* AppointmentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppointmentCell.xib; sourceTree = "<group>"; };
+		DC9BEEAA29CB49E800376A51 /* CounsellingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CounsellingCell.xib; sourceTree = "<group>"; };
+		DC9BEEAD29CB4B5D00376A51 /* CounsellingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CounsellingCell.swift; path = ../CarrierView/CounsellingCell.swift; sourceTree = "<group>"; };
+		DC9BEEB229CB4CF100376A51 /* AboutServiceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutServiceCell.swift; sourceTree = "<group>"; };
+		DC9BEEB329CB4CF100376A51 /* AboutServiceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutServiceCell.xib; sourceTree = "<group>"; };
+		DC9BEEB629CB4E4900376A51 /* MentorSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorSelectionViewController.swift; sourceTree = "<group>"; };
 		DC9F6C4229C57CAB000B9BA2 /* TestimonialCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestimonialCell.swift; sourceTree = "<group>"; };
 		DC9F6C4329C57CAB000B9BA2 /* TestimonialCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestimonialCell.xib; sourceTree = "<group>"; };
 		DC9F6C4629C57E7D000B9BA2 /* ServicesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesCell.swift; sourceTree = "<group>"; };
@@ -1594,6 +1608,13 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		DC9BEEB129CB4CD400376A51 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		DC9F6C4129C57C76000B9BA2 /* Mentor */ = {
 			isa = PBXGroup;
 			children = (
@@ -1604,6 +1625,12 @@
 				DC9F6C4329C57CAB000B9BA2 /* TestimonialCell.xib */,
 				DCDCB4E229CA08AE00FE166D /* DailyUpdatesCell.swift */,
 				DCDCB4E329CA08AE00FE166D /* DailyUpdatesCell.xib */,
+				DC9BEEA529CB404900376A51 /* AppointmentCell.swift */,
+				DC9BEEA629CB404900376A51 /* AppointmentCell.xib */,
+				DC9BEEAD29CB4B5D00376A51 /* CounsellingCell.swift */,
+				DC9BEEAA29CB49E800376A51 /* CounsellingCell.xib */,
+				DC9BEEB229CB4CF100376A51 /* AboutServiceCell.swift */,
+				DC9BEEB329CB4CF100376A51 /* AboutServiceCell.xib */,
 				DC9F6C4629C57E7D000B9BA2 /* ServicesCell.swift */,
 				DC9F6C4729C57E7D000B9BA2 /* ServicesCell.xib */,
 				DC9F6C4A29C5808C000B9BA2 /* DoubtsCell.swift */,
@@ -1612,9 +1639,11 @@
 				DC9F6C4F29C58874000B9BA2 /* MentorCell.xib */,
 				DC9BEEA129CB37AA00376A51 /* AboutAppCell.swift */,
 				DC9BEEA229CB37AA00376A51 /* AboutAppCell.xib */,
+				DC9BEEB129CB4CD400376A51 /* New Group */,
 				DC9F6C5429C5928B000B9BA2 /* MentorImageCell.swift */,
 				DC9F6C5529C5928B000B9BA2 /* MentorImageCell.xib */,
 				DC9F6C5229C58F86000B9BA2 /* MentorViewController.swift */,
+				DC9BEEB629CB4E4900376A51 /* MentorSelectionViewController.swift */,
 			);
 			path = Mentor;
 			sourceTree = "<group>";
@@ -1954,6 +1983,7 @@
 				BFA90E2427BB50F9009F9784 /* AddCaseTextCell.xib in Resources */,
 				DCF1B49828F6F11F007F4FA3 /* PopularCell.xib in Resources */,
 				BF0DD960278D5DAC0053747A /* CollectionTableCell.xib in Resources */,
+				DC9BEEA829CB404900376A51 /* AppointmentCell.xib in Resources */,
 				43A6A98727329D0200400F72 /* AddSkillsCell.xib in Resources */,
 				BF170F54280D34E2001B3109 /* ProfileViewFooter.xib in Resources */,
 				BF0DD949278D393C0053747A /* ProfileNameCell.xib in Resources */,
@@ -1975,9 +2005,11 @@
 				43A6A97F2732520600400F72 /* AddExperienceCell.xib in Resources */,
 				DC9F6C4929C57E7D000B9BA2 /* ServicesCell.xib in Resources */,
 				BFC3EEF82828D805000A1582 /* UserHeaderView.xib in Resources */,
+				DC9BEEB529CB4CF100376A51 /* AboutServiceCell.xib in Resources */,
 				DC9F6C5129C58874000B9BA2 /* MentorCell.xib in Resources */,
 				BFC3EEE32824A979000A1582 /* Add.storyboard in Resources */,
 				DCA0A6D328C0FA86001DE3F1 /* BioCell.xib in Resources */,
+				DC9BEEAC29CB49E800376A51 /* CounsellingCell.xib in Resources */,
 				439297D327231EDE001891B8 /* InfoCell.xib in Resources */,
 				DCA0A6DD28C10079001DE3F1 /* EditProfessionalDetailsCell.xib in Resources */,
 				DCA0A6F728C4DD50001DE3F1 /* AnswersCell.xib in Resources */,
@@ -2242,6 +2274,7 @@
 				43B975AA2725B18A00CDF2F1 /* JobRequirementCell.swift in Sources */,
 				43B03AAF2730104A00A4337B /* JobDetailsModel.swift in Sources */,
 				439297BA2722D639001891B8 /* LoginViewController.swift in Sources */,
+				DC9BEEB429CB4CF100376A51 /* AboutServiceCell.swift in Sources */,
 				439297BB2722D639001891B8 /* RegisterViewController.swift in Sources */,
 				DC9539B7285C5B6E00FBD8D0 /* NewscategoryDataModel.swift in Sources */,
 				BF170F6F280FD67F001B3109 /* CaseDetailsViewController.swift in Sources */,
@@ -2272,6 +2305,7 @@
 				BF431C802782D57E0057AF9F /* FollowCell.swift in Sources */,
 				DCA0A6F628C4DD50001DE3F1 /* AnswersCell.swift in Sources */,
 				DC3A6A2628EFFBDF006F73A2 /* ShopDetailsCell.swift in Sources */,
+				DC9BEEB829CB4E4900376A51 /* MentorSelectionViewController.swift in Sources */,
 				DC885E4128D89B8A00110418 /* ConnectionsViewController.swift in Sources */,
 				DC453E4C28C77EBA00E1B72F /* UserAnswerCell.swift in Sources */,
 				DCF1B49428F6E2D6007F4FA3 /* PopularQuestionDetailsViewController.swift in Sources */,
@@ -2350,6 +2384,7 @@
 				43B975A42725978900CDF2F1 /* CarrierSubCell.swift in Sources */,
 				DC885E4928DC721600110418 /* ConnectionLikeViewController.swift in Sources */,
 				43AF9F892729D4390020CCF3 /* CustomSegmentedContrl.swift in Sources */,
+				DC9BEEAF29CB4B5D00376A51 /* CounsellingCell.swift in Sources */,
 				BFC3EEE82824E95E000A1582 /* NetworkViewModel.swift in Sources */,
 				DC885E2E28C8DD8C00110418 /* AddQuestionViewController.swift in Sources */,
 				DCF1B4A928F725AC007F4FA3 /* LearningResource.swift in Sources */,
@@ -2433,6 +2468,7 @@
 				DCF1B4B928F816D1007F4FA3 /* LearningDetailsVieModel.swift in Sources */,
 				BFCB16B627997832005E3FEB /* CustomSegmentedControl.swift in Sources */,
 				BF0DD95A278D5B9C0053747A /* RecommandedJobCell.swift in Sources */,
+				DC9BEEA729CB404900376A51 /* AppointmentCell.swift in Sources */,
 				DC9F6C7629C9F1A1000B9BA2 /* Slide.swift in Sources */,
 				43B03AA1272F98CA00A4337B /* AddNewsViewController.swift in Sources */,
 				DC961EAE2876E17C00F24913 /* EditConnectCell.swift in Sources */,

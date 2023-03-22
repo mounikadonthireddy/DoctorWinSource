@@ -57,7 +57,7 @@ extension MentorViewController: UICollectionViewDelegate, UICollectionViewDataSo
         case 2:
             return 1
         case 3:
-            return 5
+            return self.getPlanModelArray().count
         case 4:
             return testimonalArr.count
         case 5:
@@ -83,6 +83,7 @@ extension MentorViewController: UICollectionViewDelegate, UICollectionViewDataSo
             return cell
         } else if indexPath.section == 3 {
             let cell: ServicesCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ServicesCell", for: indexPath) as! ServicesCell
+            cell.configureCell(data: self.getPlanModelArray()[indexPath.row])
             return cell
             
         } else if indexPath.section == 4 {
@@ -143,5 +144,18 @@ extension MentorViewController: MentorViewModelDelegate {
         }
     }
     
+    func getPlanModelArray() -> [PlanModel] {
+        let array = [PlanModel(name: "NEET PG Counselling", description: "NEET PG Couselling is the process of seat allocation for admission into postgraduate medical course in India.The Nati...More"),
+        PlanModel(name: "NEET UG Counselling", description: "NEET UG Counselling is the process that takes place after the declaration of NEET UG results. NEET UG is the National Eligi...More"),
+        PlanModel(name: "NEET MDS Counselling", description: "NEET MDS (National Eligibility cum Entrance Test - Master of Dental Surgery) is an entrance examination conducted by the...More"),
+        PlanModel(name: "Abroad Study Counselling", description: "Abroad Study Counselling is a valuable service that provides students with guidance and support as they navigate the comp...More"),
+        PlanModel(name: "New Hospital Establishment", description: "A new hospital is being established in the heart of the city with state-of-the-art facilities and advanced medical equip....More"),
+        PlanModel(name: "Grow Your Hospital", description: "Grow Your hospital is a comprehesive and innovative platforn designed to help hospital administration and healthcare pr...More")]
+        return array
+    }
     
+}
+struct PlanModel: Codable {
+    let name: String
+    let description: String
 }
