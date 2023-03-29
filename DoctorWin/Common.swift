@@ -144,6 +144,11 @@ struct ApiEndpoints {
     //Mentor
     static let testimonial = "mentor/testimonial"
     static let dailyUpdate = "mentor/notification"
+    static let asktomentor = "mentor/asktomentor"
+    static let mentorplan = "mentor/mentorplan"
+    static let askquestion = "mentor/askquestion"
+    static let expertcategory = "mentor/expertcategory?id=1"
+   static let aboutus = "mentor/aboutus"
     
 }
 

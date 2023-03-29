@@ -353,7 +353,6 @@ class AppLayouts {
         group.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
         
         let section = NSCollectionLayoutSection(group: group)
-        section.orthogonalScrollingBehavior = .continuous
         section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
         return section
     }
@@ -369,17 +368,18 @@ class AppLayouts {
         section.boundarySupplementaryItems = [
             .init(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(0)), elementKind: headerKind, alignment: .top)
         ]
+        section.orthogonalScrollingBehavior = .none
         return section
     }
     func TestimonalsLayout() -> NSCollectionLayoutSection {
         
-        let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
+        let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(310)))
         
         let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(widthDimension: .fractionalWidth(0.5), heightDimension: .estimated(310)), subitems: [item])
         group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 8, trailing: 10)
         
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = NSDirectionalEdgeInsets(top: 20, leading: 5, bottom: 0, trailing: 5)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 20, leading: 15, bottom: 0, trailing: 5)
         section.boundarySupplementaryItems = [
             .init(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(40)), elementKind: headerKind, alignment: .top)
         ]

@@ -12,6 +12,8 @@ class MentorViewController: ViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     var dailyUpdateArr: [DailyUpdatesModel] = []
     var testimonalArr: [TestimonialModel] = []
+    var faqArr: [FAQModel] = []
+    var planArr: [MentorPlanModel] = []
     var mentorVM = MentorViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,14 +27,22 @@ class MentorViewController: ViewController {
         collectionView.register(UINib.init(nibName: "TestimonialCell", bundle: nil), forCellWithReuseIdentifier: "TestimonialCell")
         collectionView.register(UINib.init(nibName: "MentorImageCell", bundle: nil), forCellWithReuseIdentifier: "MentorImageCell")
         collectionView.register(UINib.init(nibName: "CourseNameCell", bundle: nil), forCellWithReuseIdentifier: "CourseNameCell")
+        collectionView.register(UINib.init(nibName: "AboutAppCell", bundle: nil), forCellWithReuseIdentifier: "AboutAppCell")
+
         collectionView.register(SectionHeaderView.self, forSupplementaryViewOfKind: headerKind, withReuseIdentifier: Key.ReusableIdentifiers.sectionHeaderViewId)
         mentorVM.delegate = self
         loadDailyUpdatesData()
         configureCompositionalLayout()
         loadTestimonalsData()
+        loadFAQData()
+        loadServicesData()
+       // loadAboutApp()
     }
     @objc func backClicked(button: UIButton) {
         self.navigationController?.popViewController(animated: true)
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = true
     }
     func loadDailyUpdatesData() {
         self.showLoader()
@@ -42,11 +52,22 @@ class MentorViewController: ViewController {
         self.showLoader()
         mentorVM.getTestimonalsDataFromAPI(pageNum: 0)
     }
-
+    func loadFAQData() {
+        self.showLoader()
+        mentorVM.getFAQDataFromAPI(pageNum: 0)
+    }
+    func loadServicesData() {
+        self.showLoader()
+        mentorVM.getServicesFromAPI(pageNum: 0)
+    }
+    func loadAboutApp() {
+        self.showLoader()
+        mentorVM.getAboutAppAPI(pageNum: 0)
+    }
 }
 extension MentorViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 6
+        return 7
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
@@ -57,11 +78,11 @@ extension MentorViewController: UICollectionViewDelegate, UICollectionViewDataSo
         case 2:
             return 1
         case 3:
-            return self.getPlanModelArray().count
+            return planArr.count
         case 4:
             return testimonalArr.count
         case 5:
-            return 4
+            return faqArr.count
         case 6:
             return 1
         default:
@@ -83,7 +104,7 @@ extension MentorViewController: UICollectionViewDelegate, UICollectionViewDataSo
             return cell
         } else if indexPath.section == 3 {
             let cell: ServicesCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ServicesCell", for: indexPath) as! ServicesCell
-            cell.configureCell(data: self.getPlanModelArray()[indexPath.row])
+            cell.configureCell(data: planArr[indexPath.row])
             return cell
             
         } else if indexPath.section == 4 {
@@ -92,6 +113,9 @@ extension MentorViewController: UICollectionViewDelegate, UICollectionViewDataSo
             return cell
         } else if indexPath.section == 5 {
             let cell: DoubtsCell = collectionView.dequeueReusableCell(withReuseIdentifier: "DoubtsCell", for: indexPath) as! DoubtsCell
+            return cell
+        } else if indexPath.section == 6 {
+            let cell: AboutAppCell = collectionView.dequeueReusableCell(withReuseIdentifier: "AboutAppCell", for: indexPath) as! AboutAppCell
             return cell
         } else {
             return UICollectionViewCell()
@@ -126,9 +150,31 @@ extension MentorViewController: UICollectionViewDelegate, UICollectionViewDataSo
         header.title.text = sectionArray[indexPath.section]
             return header
     }
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.section == 3 {
+            let str = UIStoryboard(name: "Network", bundle: nil)
+            let nextVC = str.instantiateViewController(withIdentifier: "MentorSelectionViewController") as! MentorSelectionViewController
+            self.navigationController?.pushViewController(nextVC, animated: true)
+        }
+    }
 }
 extension MentorViewController: MentorViewModelDelegate {
+    func didMentorPlanData(response: MentorPlanResponseModel?, error: String?) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.dismiss()
+            self.planArr = response?.description ?? []
+            self.collectionView.reloadData()
+        }
+    }
+    
+    func didReciveFAQData(response: FAQResponseModel?, error: String?) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.dismiss()
+            self.faqArr = response?.description ?? []
+            self.collectionView.reloadData()
+        }
+    }
+    
     func didReciveTestimonalsData(response: TestimonialResponseModel?, error: String?) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.dismiss()

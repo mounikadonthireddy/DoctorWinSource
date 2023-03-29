@@ -9,7 +9,7 @@ import UIKit
 
 class PostJobViewController: UIViewController {
     @IBOutlet weak var interfaceSegmented: CustomSegmentedControl!{
-        didSet{
+        didSet {
             interfaceSegmented.setButtonTitles(buttonTitles: ["Jobs","Cases",  "News", "Social","Answers"])
             interfaceSegmented.selectorViewColor = .black
             interfaceSegmented.selectorTextColor = .black

@@ -10,8 +10,8 @@ import Foundation
 struct TestimonialModel: Codable {
     let image: String?
     let id: Int?
-    let message: String?
-    let name: String?
+    let description: String?
+    let title: String?
 }
 struct TestimonialResponseModel: Codable {
     let description: [TestimonialModel]?
@@ -20,8 +20,28 @@ struct TestimonialResponseModel: Codable {
 }
 
 struct DailyUpdatesModel: Codable {
-    let message: String?
+    let description: String?
 }
 struct DailyUpdatesResponseModel: Codable {
     let description: [DailyUpdatesModel]?
+}
+struct FAQResponseModel: Codable {
+    let description: [FAQModel]?
+    let message: String?
+}
+struct FAQModel: Codable {
+    let title: String?
+    let description: String?
+}
+struct MentorPlanResponseModel: Codable {
+    let description: [MentorPlanModel]?
+    let status: Bool?
+}
+struct MentorPlanModel: Codable {
+    let id: Int?
+    let title: String?
+    let related_to: String?
+    let image: String?
+    let description: String?
+    
 }

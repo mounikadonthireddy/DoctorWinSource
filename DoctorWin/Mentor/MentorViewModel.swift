@@ -9,6 +9,9 @@ import Foundation
 protocol MentorViewModelDelegate {
     func didReciveTestimonalsData(response: TestimonialResponseModel?, error: String?)
     func didReciveDailyUpdatesData(response: DailyUpdatesResponseModel?, error: String?)
+    func didReciveFAQData(response: FAQResponseModel?, error: String?)
+    func didMentorPlanData(response: MentorPlanResponseModel?, error: String?)
+
 }
 
 struct MentorViewModel {
@@ -40,6 +43,54 @@ struct MentorViewModel {
                     
                 case .failure(let error):
                     self.delegate?.didReciveDailyUpdatesData(response: nil, error: error)
+                }
+                
+            }
+            
+        }
+    }
+    func getFAQDataFromAPI(pageNum: Int) {
+        let homeResource = MentorResource()
+        homeResource.getFAQData(pageNum: pageNum) { response in
+            DispatchQueue.main.async {
+                switch response {
+                case .success(let data):
+                    self.delegate?.didReciveFAQData(response: data, error: nil)
+                    
+                case .failure(let error):
+                    self.delegate?.didReciveFAQData(response: nil, error: error)
+                }
+                
+            }
+            
+        }
+    }
+    func getServicesFromAPI(pageNum: Int) {
+        let homeResource = MentorResource()
+        homeResource.getServicesData(pageNum: pageNum) { response in
+            DispatchQueue.main.async {
+                switch response {
+                case .success(let data):
+                    self.delegate?.didMentorPlanData(response: data, error: nil)
+                    
+                case .failure(let error):
+                    self.delegate?.didMentorPlanData(response: nil, error: error)
+                }
+                
+            }
+            
+        }
+    }
+    func getAboutAppAPI(pageNum: Int) {
+        let homeResource = MentorResource()
+        homeResource.getAskMentorData(pageNum: pageNum) { response in
+            DispatchQueue.main.async {
+                switch response {
+                case .success(let data):
+                    self.delegate?.didMentorPlanData(response: data, error: nil)
+                    
+                case .failure(let error):
+                    self.delegate?.didMentorPlanData(response: nil, error: error)
                 }
                 
             }

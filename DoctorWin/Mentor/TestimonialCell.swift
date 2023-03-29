@@ -18,8 +18,8 @@ class TestimonialCell: UICollectionViewCell {
     }
     
     func configureWith(data: TestimonialModel) {
-        messageLbl.text = data.message ?? ""
-        if let name = data.name {
+        messageLbl.text = data.description ?? ""
+        if let name = data.title {
             nameLbl.text = "- \(name)"
         }
         if let urlString = data.image {

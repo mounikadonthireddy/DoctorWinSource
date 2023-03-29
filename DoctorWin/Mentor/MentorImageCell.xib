@@ -5,22 +5,24 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MentorImageCell" id="gTV-IL-0wX" customClass="MentorImageCell" customModule="DoctorWin" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="350" height="350"/>
+            <rect key="frame" x="0.0" y="0.0" width="350" height="250"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="350" height="350"/>
+                <rect key="frame" x="0.0" y="0.0" width="350" height="250"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mentor 1" translatesAutoresizingMaskIntoConstraints="NO" id="5h2-S9-b8M">
-                        <rect key="frame" x="-10" y="0.0" width="370" height="350"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5h2-S9-b8M">
+                        <rect key="frame" x="-10" y="0.0" width="370" height="250"/>
+                        <color key="backgroundColor" red="0.054901960784313725" green="0.4392156862745098" blue="0.45098039215686275" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="350" id="Gmi-N9-rUS"/>
+                            <constraint firstAttribute="height" constant="250" id="Gmi-N9-rUS"/>
                         </constraints>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sbv-IT-Mzg">
@@ -29,29 +31,80 @@
                             <constraint firstAttribute="height" constant="40" id="R4Z-vd-ODf"/>
                             <constraint firstAttribute="width" constant="40" id="im1-rx-mLL"/>
                         </constraints>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                        <state key="normal" image="back"/>
+                        <state key="normal" image="arrow.left" catalog="system"/>
                     </button>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oL5-EP-dq8">
+                        <rect key="frame" x="15" y="75" width="325" height="86"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doctors" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ief-xM-4Pl">
+                                <rect key="frame" x="0.0" y="0.0" width="325" height="27.666666666666668"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mentor App" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HPb-94-1g9">
+                                <rect key="frame" x="0.0" y="27.666666666666675" width="325" height="32.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="27"/>
+                                <color key="textColor" red="0.91372549020000005" green="0.7843137255" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FInd the right mentor to help you secure the perfect seat" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3kp-O8-Zbh">
+                                <rect key="frame" x="0.0" y="60" width="325" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="26" id="DD1-ZA-gMU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="86" id="PAF-Vy-Voa"/>
+                        </constraints>
+                    </stackView>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="4fq-gE-bIm">
+                        <rect key="frame" x="20" y="176" width="310" height="50"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="yvV-Zb-6sh"/>
+                        </constraints>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ya9-oO-c7j">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                    </collectionView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
+                <constraint firstItem="4fq-gE-bIm" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="7Yo-ak-A4U"/>
                 <constraint firstItem="Sbv-IT-Mzg" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="89P-RQ-yQe"/>
+                <constraint firstAttribute="trailing" secondItem="oL5-EP-dq8" secondAttribute="trailing" constant="10" id="9sb-IK-7J4"/>
                 <constraint firstAttribute="trailing" secondItem="5h2-S9-b8M" secondAttribute="trailing" constant="-10" id="GaY-fA-dcP"/>
                 <constraint firstAttribute="bottom" secondItem="5h2-S9-b8M" secondAttribute="bottom" id="KU7-YB-vtR"/>
+                <constraint firstItem="4fq-gE-bIm" firstAttribute="top" secondItem="oL5-EP-dq8" secondAttribute="bottom" constant="15" id="LF9-y5-t9t"/>
                 <constraint firstItem="Sbv-IT-Mzg" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="15" id="Okq-Pw-3xq"/>
+                <constraint firstItem="oL5-EP-dq8" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="RtZ-T5-JUW"/>
                 <constraint firstItem="5h2-S9-b8M" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="WX9-Nr-Mit"/>
                 <constraint firstItem="5h2-S9-b8M" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="-10" id="XNe-qO-HhD"/>
+                <constraint firstItem="oL5-EP-dq8" firstAttribute="top" secondItem="Sbv-IT-Mzg" secondAttribute="bottom" constant="20" id="bPg-TC-zKh"/>
+                <constraint firstAttribute="trailing" secondItem="4fq-gE-bIm" secondAttribute="trailing" constant="20" id="feZ-Rr-mUW"/>
             </constraints>
-            <size key="customSize" width="350" height="342"/>
+            <size key="customSize" width="350" height="242"/>
             <connections>
                 <outlet property="backBtn" destination="Sbv-IT-Mzg" id="DAf-EK-0AO"/>
             </connections>
-            <point key="canvasLocation" x="184.73282442748092" y="123.23943661971832"/>
+            <point key="canvasLocation" x="219.84732824427479" y="53.521126760563384"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="back" width="32" height="32"/>
-        <image name="mentor 1" width="800" height="802"/>
+        <image name="arrow.left" catalog="system" width="128" height="95"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

@@ -14,6 +14,6 @@ class DailyUpdatesCell: UICollectionViewCell {
         // Initialization code
     }
     func configureWith(data: DailyUpdatesModel) {
-        messageLbl.text = data.message ?? ""
+        messageLbl.text = data.description ?? ""
     }
 }
