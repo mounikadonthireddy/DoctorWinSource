@@ -56,7 +56,7 @@ class OTPViewController: ViewController {
         }
     }
     @IBAction func verifyClicked(_ sender: Any) {
-        
+        self.showLoader()
         let otp = self.otpTF1.text! + self.otpTF2.text! + self.otpTF3.text! + self.otpTF4.text!
         let request = OTPRequest(phone_number: mobileNumber , otp: otp)
         
@@ -144,36 +144,37 @@ extension OTPViewController: UITextFieldDelegate {
 extension OTPViewController: RegisterViewModelDelegate {
     
     func didReceiveRegsiterResponse(userData: LoginUserDetails?, error: String?) {
-        
-        self.dismiss()
-        if let data = userData {
-         UserDefaults.standard.setValue("\(data.name ?? "")", forKey: "username")
-            UserDefaults.standard.setValue(data.phone_number ?? "", forKey: "mobileNum")
-            UserDefaults.standard.set(data.dating_profile_status, forKey: "datingProfile")
-            UserDefaults.standard.setValue("\(data.token ?? "")", forKey: "token")
-            User.shared.token = data.token ?? ""
-            if data.profile_image == false {
-                let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "ProfilePicViewController") as! ProfilePicViewController
-                
-                self.navigationController?.pushViewController(nextVC, animated: true)
-                
-            } else if data.cover_image == false {
-                let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "CoverPicViewController") as! CoverPicViewController
-                
-                self.navigationController?.pushViewController(nextVC, animated: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.dismiss()
+            if let data = userData {
+                UserDefaults.standard.setValue("\(data.name ?? "")", forKey: "username")
+                UserDefaults.standard.setValue(data.phone_number ?? "", forKey: "mobileNum")
+                UserDefaults.standard.set(data.dating_profile_status, forKey: "datingProfile")
+                UserDefaults.standard.setValue("\(data.token ?? "")", forKey: "token")
+                User.shared.token = data.token ?? ""
+                if data.profile_image == false {
+                    let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "ProfilePicViewController") as! ProfilePicViewController
+                    
+                    self.navigationController?.pushViewController(nextVC, animated: true)
+                    
+                } else if data.cover_image == false {
+                    let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "CoverPicViewController") as! CoverPicViewController
+                    
+                    self.navigationController?.pushViewController(nextVC, animated: true)
+                } else {
+                    let str = UIStoryboard(name: "Tab", bundle: nil)
+                    let nextViewController = str.instantiateViewController(withIdentifier: "tabView")
+                    
+                    nextViewController.navigationController?.isNavigationBarHidden = true
+                    self.navigationController?.pushViewController(nextViewController, animated: true)
+                }
             } else {
-                let str = UIStoryboard(name: "Tab", bundle: nil)
-                let nextViewController = str.instantiateViewController(withIdentifier: "tabView")
+                let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
+                nextVC.mobileNum = self.mobileNumber
                 
-                nextViewController.navigationController?.isNavigationBarHidden = true
-                self.navigationController?.pushViewController(nextViewController, animated: true)
+                self.navigationController?.pushViewController(nextVC, animated: true)
             }
-        } else {
-            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
-            nextVC.mobileNum = mobileNumber
             
-            self.navigationController?.pushViewController(nextVC, animated: true)
         }
-        
     }
 }

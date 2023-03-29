@@ -54,30 +54,32 @@ extension CreateAccountViewController: RegisterViewModelDelegate {
     }
     
     func didReceiveRegsiterResponse(userData: LoginUserDetails?, error: String?) {
-        self.dismiss()
-        DispatchQueue.main.async {
-            if let data = userData {
-                UserDefaults.standard.setValue("\(data.name ?? "")", forKey: "username")
-                UserDefaults.standard.setValue(data.phone_number ?? "", forKey: "mobileNum")
-                UserDefaults.standard.set(data.dating_profile_status, forKey: "datingProfile")
-                UserDefaults.standard.setValue("\(data.token ?? "")", forKey: "token")
-                User.shared.token = data.token ?? ""
-                
-                if data.profile_image == false {
-                    let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "ProfilePicViewController") as! ProfilePicViewController
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.dismiss()
+            DispatchQueue.main.async {
+                if let data = userData {
+                    UserDefaults.standard.setValue("\(data.name ?? "")", forKey: "username")
+                    UserDefaults.standard.setValue(data.phone_number ?? "", forKey: "mobileNum")
+                    UserDefaults.standard.set(data.dating_profile_status, forKey: "datingProfile")
+                    UserDefaults.standard.setValue("\(data.token ?? "")", forKey: "token")
+                    User.shared.token = data.token ?? ""
                     
-                    self.navigationController?.pushViewController(nextVC, animated: true)
-                    
-                } else if data.cover_image == false {
-                    let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "CoverPicViewController") as! CoverPicViewController
-                    
-                    self.navigationController?.pushViewController(nextVC, animated: true)
-                } else {
-                    let str = UIStoryboard(name: "Tab", bundle: nil)
-                    let nextViewController = str.instantiateViewController(withIdentifier: "tabView")
-                    
-                    nextViewController.navigationController?.isNavigationBarHidden = true
-                    self.navigationController?.pushViewController(nextViewController, animated: true)
+                    if data.profile_image == false {
+                        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "ProfilePicViewController") as! ProfilePicViewController
+                        
+                        self.navigationController?.pushViewController(nextVC, animated: true)
+                        
+                    } else if data.cover_image == false {
+                        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "CoverPicViewController") as! CoverPicViewController
+                        
+                        self.navigationController?.pushViewController(nextVC, animated: true)
+                    } else {
+                        let str = UIStoryboard(name: "Tab", bundle: nil)
+                        let nextViewController = str.instantiateViewController(withIdentifier: "tabView")
+                        
+                        nextViewController.navigationController?.isNavigationBarHidden = true
+                        self.navigationController?.pushViewController(nextViewController, animated: true)
+                    }
                 }
             }
         }

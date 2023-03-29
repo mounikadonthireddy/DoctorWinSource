@@ -56,7 +56,7 @@ class ProfilePicViewController: ViewController {
 extension ProfilePicViewController: ImagePickerDelegate {
     func didSelect(image: UIImage?, fileName: String?, fileType: String?) {
         imageBtn.setBackgroundImage(image, for: .normal)
-        imageUpload1.append(AGImageStructInfo(fileName: fileName!, type: "image/jpeg", data: image!.toData()))
+        imageUpload1.append(AGImageStructInfo(fileName: fileName ?? "jpg", type: "image/jpeg", data: image!.toData()))
     }
     
 }
