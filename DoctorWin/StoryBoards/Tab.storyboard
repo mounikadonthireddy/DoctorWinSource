@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -86,8 +87,12 @@
                                                     <constraint firstAttribute="height" constant="50" id="xcd-5h-yBo"/>
                                                 </constraints>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <inset key="imageEdgeInsets" minX="13" minY="13" maxX="13" maxY="13"/>
-                                                <state key="normal" image="message 1"/>
+                                                <state key="normal">
+                                                    <imageReference key="image" image="person.crop.circle" catalog="system" symbolScale="large"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="navigateToProfile:" destination="rh3-gR-uTq" eventType="touchUpInside" id="5Gh-rk-7SO"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -98,20 +103,15 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZFL-cw-y6H">
                                         <rect key="frame" x="0.0" y="41" width="120" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="SjT-Sh-O32"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="XzM-7G-NTC"/>
                                             <constraint firstAttribute="height" constant="50" id="e3R-ST-PXb"/>
-                                            <constraint firstAttribute="width" constant="120" id="ivW-eW-VUl"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="22"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="24"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
-                                        <state key="normal" title="  Jobs" image="plus">
+                                        <state key="normal" title="  drworld" image="plus">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
-                                        <connections>
-                                            <action selector="plusClikced:" destination="va8-Rw-Ruy" eventType="touchUpInside" id="Gix-JM-ICr"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -210,8 +210,12 @@
                                                     <constraint firstAttribute="height" constant="50" id="rlv-Rl-KxO"/>
                                                 </constraints>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <inset key="imageEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
-                                                <state key="normal" image="message 1"/>
+                                                <state key="normal">
+                                                    <imageReference key="image" image="person.crop.circle" catalog="system" symbolScale="large"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="navigateToProfile:" destination="va8-Rw-Ruy" eventType="touchUpInside" id="XYV-as-AWm"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -225,10 +229,10 @@
                                             <constraint firstAttribute="width" constant="120" id="8CM-RB-4bX"/>
                                             <constraint firstAttribute="height" constant="50" id="XkM-zq-qiI"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="22"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="24"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
-                                        <state key="normal" title="  Post" image="plus">
+                                        <state key="normal" title="  drworld" image="plus">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -258,9 +262,6 @@
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="plus" catalog="system"/>
-                                <connections>
-                                    <action selector="plusClikced:" destination="va8-Rw-Ruy" eventType="touchUpInside" id="YP1-q4-qvs"/>
-                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="igZ-wy-L63"/>
@@ -301,20 +302,17 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W9X-ep-bSW">
-                                        <rect key="frame" x="10" y="55" width="165" height="50"/>
+                                        <rect key="frame" x="10" y="55" width="130" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="JPV-zq-T5k"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="qlc-8I-vYs"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="22"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="24"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
-                                        <state key="normal" title="    My Network" image="plus">
+                                        <state key="normal" title="    drworld" image="plus">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
-                                        <connections>
-                                            <action selector="plusClikced:" destination="va8-Rw-Ruy" eventType="touchUpInside" id="PRH-AB-a57"/>
-                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xe0-Hk-bp7">
                                         <rect key="frame" x="254" y="50" width="150" height="50"/>
@@ -326,7 +324,7 @@
                                                     <constraint firstAttribute="width" constant="50" id="Mtp-q2-hpZ"/>
                                                 </constraints>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                                <inset key="imageEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
                                                 <state key="normal" image="search"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DRe-QY-6Xe">
@@ -336,7 +334,7 @@
                                                     <constraint firstAttribute="width" constant="50" id="OCv-jG-N3C"/>
                                                 </constraints>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                                <inset key="imageEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
                                                 <state key="normal" image="bell"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EWy-Mf-BBg">
@@ -346,8 +344,12 @@
                                                     <constraint firstAttribute="width" constant="50" id="SVi-WJ-eYC"/>
                                                 </constraints>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
-                                                <state key="normal" image="message 1"/>
+                                                <state key="normal">
+                                                    <imageReference key="image" image="person.crop.circle" catalog="system" symbolScale="large"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="navigateToProfile:" destination="zj2-kU-Rup" eventType="touchUpInside" id="KqQ-xq-CNK"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -415,7 +417,7 @@
         <!--Videos View Controller-->
         <scene sceneID="1N5-Xq-eDO">
             <objects>
-                <viewController storyboardIdentifier="ProfileViewController" id="Opn-GW-xNA" customClass="VideosViewController" customModule="DoctorWin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VideosViewController" id="Opn-GW-xNA" customClass="VideosViewController" customModule="DoctorWin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sHH-Sq-EC9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -467,52 +469,70 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mL0-oB-7Nn">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lO5-oO-4eT">
-                                        <rect key="frame" x="15" y="65" width="80.5" height="25"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KKR-Qe-owW">
+                                        <rect key="frame" x="10" y="50" width="130" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="3Zr-NX-JYN"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="hyY-1t-Vtz"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="121" id="4hO-8U-oVq"/>
+                                            <constraint firstAttribute="height" constant="50" id="vFT-UJ-o5e"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="24"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dei-RM-rLo">
-                                        <rect key="frame" x="359" y="45" width="40" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="Au1-kg-tXh"/>
-                                            <constraint firstAttribute="width" constant="40" id="DkX-5B-va9"/>
-                                        </constraints>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
-                                        <state key="normal" image="questionmark"/>
-                                        <connections>
-                                            <action selector="postQuestion:" destination="OOz-um-2GT" eventType="touchUpInside" id="zG8-oW-RBK"/>
-                                        </connections>
+                                        <inset key="imageEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
+                                        <state key="normal" title="    drworld" image="plus">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LZ2-J3-2K2">
-                                        <rect key="frame" x="319" y="45" width="40" height="40"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="WbY-T9-Uef">
+                                        <rect key="frame" x="264" y="50" width="150" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Akl-hs-8F0">
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="TGO-st-cq5"/>
+                                                    <constraint firstAttribute="width" constant="50" id="X6t-H2-ndT"/>
+                                                </constraints>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                                <state key="normal" image="search"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6em-xt-HQe">
+                                                <rect key="frame" x="50" y="0.0" width="50" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="V8O-QF-2vk"/>
+                                                    <constraint firstAttribute="width" constant="50" id="sV5-zI-Rcy"/>
+                                                </constraints>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                                <state key="normal" image="bell"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iDW-mt-8DM">
+                                                <rect key="frame" x="100" y="0.0" width="50" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="50" id="ORA-98-jVH"/>
+                                                    <constraint firstAttribute="height" constant="50" id="gf2-FJ-KdQ"/>
+                                                </constraints>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal">
+                                                    <imageReference key="image" image="person.crop.circle" catalog="system" symbolScale="large"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="navigateToProfile:" destination="OOz-um-2GT" eventType="touchDragInside" id="ltS-Sz-PbZ"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="3aU-g8-3bS"/>
-                                            <constraint firstAttribute="width" constant="40" id="fGt-oE-5Nl"/>
+                                            <constraint firstAttribute="height" constant="50" id="EDZ-IF-Kkd"/>
+                                            <constraint firstAttribute="width" constant="150" id="Ti6-dW-FVM"/>
                                         </constraints>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
-                                        <state key="normal" image="answers_menu"/>
-                                        <connections>
-                                            <action selector="searchQuestion:" destination="OOz-um-2GT" eventType="touchUpInside" id="pev-bw-nQ3"/>
-                                        </connections>
-                                    </button>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="Dei-RM-rLo" secondAttribute="trailing" constant="15" id="5MG-jy-tZE"/>
                                     <constraint firstAttribute="height" constant="100" id="5TQ-dV-4zH"/>
-                                    <constraint firstAttribute="bottom" secondItem="LZ2-J3-2K2" secondAttribute="bottom" constant="15" id="80Y-ew-L7W"/>
-                                    <constraint firstAttribute="bottom" secondItem="Dei-RM-rLo" secondAttribute="bottom" constant="15" id="Qzb-rT-Osa"/>
-                                    <constraint firstItem="Dei-RM-rLo" firstAttribute="leading" secondItem="LZ2-J3-2K2" secondAttribute="trailing" id="RaV-xf-PDU"/>
-                                    <constraint firstAttribute="bottom" secondItem="lO5-oO-4eT" secondAttribute="bottom" constant="10" id="hei-BO-JGP"/>
-                                    <constraint firstItem="lO5-oO-4eT" firstAttribute="leading" secondItem="mL0-oB-7Nn" secondAttribute="leading" constant="15" id="uYi-1K-cTU"/>
+                                    <constraint firstItem="KKR-Qe-owW" firstAttribute="top" secondItem="mL0-oB-7Nn" secondAttribute="top" constant="50" id="62V-mT-Xb6"/>
+                                    <constraint firstItem="KKR-Qe-owW" firstAttribute="leading" secondItem="mL0-oB-7Nn" secondAttribute="leading" constant="10" id="8Cp-99-dRz"/>
+                                    <constraint firstAttribute="bottom" secondItem="WbY-T9-Uef" secondAttribute="bottom" id="Rw6-7d-ZlK"/>
+                                    <constraint firstAttribute="trailing" secondItem="WbY-T9-Uef" secondAttribute="trailing" id="ysy-Ac-3R1"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -550,10 +570,10 @@
                     </tabBar>
                     <connections>
                         <segue destination="2Jg-JZ-ome" kind="relationship" relationship="viewControllers" id="gka-uU-x6u"/>
+                        <segue destination="RhS-ab-RdL" kind="relationship" relationship="viewControllers" id="p1N-db-hoY"/>
+                        <segue destination="mY3-5V-V1X" kind="relationship" relationship="viewControllers" id="weB-tI-wqI"/>
                         <segue destination="nxr-PP-d9X" kind="relationship" relationship="viewControllers" id="fLf-8r-MHd"/>
                         <segue destination="78I-fJ-oFl" kind="relationship" relationship="viewControllers" id="Bvd-BT-f3B"/>
-                        <segue destination="mY3-5V-V1X" kind="relationship" relationship="viewControllers" id="weB-tI-wqI"/>
-                        <segue destination="RhS-ab-RdL" kind="relationship" relationship="viewControllers" id="p1N-db-hoY"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="275-Yv-QKR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -617,11 +637,11 @@
             </objects>
             <point key="canvasLocation" x="19772" y="358"/>
         </scene>
-        <!--Account-->
+        <!--Clips-->
         <scene sceneID="w4B-k3-Y4h">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RhS-ab-RdL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Account" image="person.circle" catalog="system" id="Upx-ZB-tV8"/>
+                    <tabBarItem key="tabBarItem" title="Clips" image="reels" id="Upx-ZB-tV8"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xaN-gO-4PQ">
                         <rect key="frame" x="0.0" y="48" width="414" height="44"/>
@@ -657,17 +677,15 @@
         </scene>
     </scenes>
     <resources>
-        <image name="answers_menu" width="64" height="64"/>
         <image name="bag" catalog="system" width="128" height="128"/>
         <image name="bell" width="32" height="32"/>
         <image name="chevron.up" catalog="system" width="128" height="70"/>
         <image name="house" catalog="system" width="128" height="104"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
-        <image name="message 1" width="32" height="32"/>
-        <image name="person.circle" catalog="system" width="128" height="123"/>
-        <image name="plus" width="24" height="24"/>
+        <image name="person.crop.circle" catalog="system" width="128" height="123"/>
         <image name="plus" catalog="system" width="128" height="113"/>
-        <image name="questionmark" width="64" height="64"/>
+        <image name="plus" width="24" height="24"/>
+        <image name="reels" width="24" height="24"/>
         <image name="search" width="32" height="32"/>
         <image name="square.and.pencil" catalog="system" width="128" height="113"/>
         <namedColor name="AccentColor">

@@ -16,7 +16,7 @@ class CaseCell: UITableViewCell {
     @IBOutlet weak var titleLable: UILabel!
     @IBOutlet weak var subTitleLable: UILabel!
 //    @IBOutlet weak var likeLable: UILabel!
-//    @IBOutlet weak var dateLable: UILabel!
+    @IBOutlet weak var categoryLable: UILabel!
     @IBOutlet weak var postImage: UIImageView!
     @IBOutlet weak var followBtn: UIButton!
     @IBOutlet weak var wishlistBtn: UIButton!
@@ -122,7 +122,19 @@ class CaseCell: UITableViewCell {
             imageHeiht.constant = 0
             pageControl.isHidden = true
         }
+        
     }
+//    func getCategory(staus:Int) -> String {
+////        switch staus {
+////        case 4:
+////            return "Answer"
+////        case 2:
+////            return "Social"
+////        case 3:
+////
+//
+////        }
+//    }
     func configureProfileData(profileData: PostedUserDetailsModel?) {
         if let userData = profileData {
             self.designation.text = userData.speciality ?? ""

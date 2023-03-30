@@ -51,11 +51,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Childern specialist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NYr-u8-8Fd">
-                                <rect key="frame" x="75" y="40" width="98" height="18"/>
+                                <rect key="frame" x="75" y="40" width="114.5" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="KeK-i1-1mS"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -126,41 +126,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ckW-3S-q3B">
                                 <rect key="frame" x="20" y="516" width="425" height="50"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jr4-RY-W4S">
-                                        <rect key="frame" x="0.0" y="5" width="50" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="8IF-Dk-Fzg"/>
-                                        </constraints>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" image="plus.message" catalog="system">
-                                            <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bgp-d7-Ckf">
-                                        <rect key="frame" x="60" y="5" width="40" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="6KH-HX-lWw"/>
-                                        </constraints>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" image="arrow.up.right" catalog="system"/>
-                                        <connections>
-                                            <action selector="shareClicked:" destination="e4c-gT-axW" eventType="touchUpInside" id="uYN-Rf-6W8"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VY4-UY-hmQ">
-                                        <rect key="frame" x="110" y="5" width="40" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="bw6-R4-2rG"/>
-                                        </constraints>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" image="mark"/>
-                                        <connections>
-                                            <action selector="saveClicked:" destination="e4c-gT-axW" eventType="touchUpInside" id="EOt-iP-xYn"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JmZ-38-d7X">
                                         <rect key="frame" x="375" y="5" width="50" height="40"/>
                                         <constraints>
@@ -174,6 +139,41 @@
                                         <connections>
                                             <action selector="likeClicked:" destination="e4c-gT-axW" eventType="touchUpInside" id="t5R-HK-EGf"/>
                                         </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bgp-d7-Ckf">
+                                        <rect key="frame" x="70" y="5" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="6KH-HX-lWw"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="arrow.up.right" catalog="system"/>
+                                        <connections>
+                                            <action selector="shareClicked:" destination="e4c-gT-axW" eventType="touchUpInside" id="uYN-Rf-6W8"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VY4-UY-hmQ">
+                                        <rect key="frame" x="120" y="5" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="bw6-R4-2rG"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="mark"/>
+                                        <connections>
+                                            <action selector="saveClicked:" destination="e4c-gT-axW" eventType="touchUpInside" id="EOt-iP-xYn"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jr4-RY-W4S">
+                                        <rect key="frame" x="0.0" y="5" width="60" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="8IF-Dk-Fzg"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="plus.message" catalog="system">
+                                            <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                     </button>
                                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="fill" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="nup-4G-JVg">
                                         <rect key="frame" x="0.0" y="12" width="425" height="26"/>
@@ -219,6 +219,15 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="3dot"/>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="siX-tt-sOw">
+                                <rect key="frame" x="199.5" y="40" width="0.0" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="18" id="ppe-4S-HK9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="11"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -227,6 +236,7 @@
                             <constraint firstItem="sym-So-vva" firstAttribute="leading" secondItem="98B-4H-Y3H" secondAttribute="leading" constant="15" id="E0e-XN-zZK"/>
                             <constraint firstItem="l1D-ig-be7" firstAttribute="top" secondItem="98B-4H-Y3H" secondAttribute="top" constant="20" id="Jdl-MA-olY"/>
                             <constraint firstItem="0rW-9n-hqn" firstAttribute="leading" secondItem="QoL-FK-7T3" secondAttribute="trailing" constant="15" id="KrL-xL-3RP"/>
+                            <constraint firstItem="siX-tt-sOw" firstAttribute="leading" secondItem="NYr-u8-8Fd" secondAttribute="trailing" constant="10" id="NVR-pU-rIq"/>
                             <constraint firstAttribute="trailing" secondItem="l1D-ig-be7" secondAttribute="trailing" constant="5" id="NWc-gU-VT8"/>
                             <constraint firstAttribute="trailing" secondItem="Nv5-uX-TC7" secondAttribute="trailing" constant="10" id="Ndx-LH-G01"/>
                             <constraint firstItem="7s5-jh-I0q" firstAttribute="leading" secondItem="98B-4H-Y3H" secondAttribute="leading" id="Ph0-Xy-Eow"/>
@@ -239,6 +249,7 @@
                             <constraint firstAttribute="trailing" secondItem="fBP-Dd-bG9" secondAttribute="trailing" constant="30" id="a0f-zh-kIl"/>
                             <constraint firstAttribute="trailing" secondItem="7s5-jh-I0q" secondAttribute="trailing" id="cKf-kv-yzS"/>
                             <constraint firstItem="ITZ-x7-cOu" firstAttribute="top" secondItem="QoL-FK-7T3" secondAttribute="bottom" constant="10" id="dJu-uc-so5"/>
+                            <constraint firstItem="siX-tt-sOw" firstAttribute="centerY" secondItem="NYr-u8-8Fd" secondAttribute="centerY" id="diW-rA-7bP"/>
                             <constraint firstItem="ITZ-x7-cOu" firstAttribute="leading" secondItem="98B-4H-Y3H" secondAttribute="leading" constant="10" id="f2q-Bq-0Um"/>
                             <constraint firstItem="Nv5-uX-TC7" firstAttribute="leading" secondItem="98B-4H-Y3H" secondAttribute="leading" constant="10" id="fki-oh-nYb"/>
                             <constraint firstItem="fBP-Dd-bG9" firstAttribute="top" secondItem="98B-4H-Y3H" secondAttribute="top" constant="20" id="haX-tO-wkm"/>
@@ -262,6 +273,7 @@
             <viewLayoutGuide key="safeArea" id="JGf-DJ-Izn"/>
             <connections>
                 <outlet property="bgView" destination="98B-4H-Y3H" id="1My-fM-LPr"/>
+                <outlet property="categoryLable" destination="siX-tt-sOw" id="O7h-lC-P3v"/>
                 <outlet property="commentBtn" destination="GEX-Pa-Dhz" id="UJJ-fk-5VI"/>
                 <outlet property="commentProfileImage" destination="Q9e-ia-hBt" id="9uv-Tx-aL9"/>
                 <outlet property="commentView" destination="sym-So-vva" id="Mpt-Ts-nuI"/>

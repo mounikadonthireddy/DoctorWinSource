@@ -20,7 +20,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DV9-sC-daJ">
                         <rect key="frame" x="5" y="5" width="357" height="603"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="247" translatesAutoresizingMaskIntoConstraints="NO" id="Enj-OB-VM0">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iv_com" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Enj-OB-VM0">
                                 <rect key="frame" x="20" y="90" width="30" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -28,7 +28,7 @@
                                     <constraint firstAttribute="height" constant="30" id="Ff4-Dn-9jy"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="247" translatesAutoresizingMaskIntoConstraints="NO" id="Nhg-o1-oY3">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iv_collge" translatesAutoresizingMaskIntoConstraints="NO" id="Nhg-o1-oY3">
                                 <rect key="frame" x="20" y="240.66666666666666" width="30" height="29.999999999999972"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -124,7 +124,7 @@ GUIDANCE</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="247" translatesAutoresizingMaskIntoConstraints="NO" id="bZ0-3t-zma">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iv_hos_detail" translatesAutoresizingMaskIntoConstraints="NO" id="bZ0-3t-zma">
                                 <rect key="frame" x="20" y="310" width="30" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -154,7 +154,7 @@ SESSIONS</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="247" translatesAutoresizingMaskIntoConstraints="NO" id="5sc-rT-9Hq">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iv_sound" translatesAutoresizingMaskIntoConstraints="NO" id="5sc-rT-9Hq">
                                 <rect key="frame" x="20" y="472" width="30" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -173,7 +173,7 @@ SESSIONS</string>
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="247" translatesAutoresizingMaskIntoConstraints="NO" id="csm-Oc-pYG">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iv_person_video" translatesAutoresizingMaskIntoConstraints="NO" id="csm-Oc-pYG">
                                 <rect key="frame" x="20" y="382" width="30" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -202,13 +202,13 @@ SESSIONS</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Why Mentor App?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aaQ-eF-QBo">
-                                <rect key="frame" x="81.000000000000014" y="20" width="195.33333333333337" height="28.666666666666671"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                <rect key="frame" x="74" y="20" width="209" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <color key="textColor" red="0.054901960780000002" green="0.43921568630000002" blue="0.45098039220000002" alpha="0.90196079019999997" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Oe-oO-ozS">
-                                <rect key="frame" x="87" y="48.666666666666664" width="183" height="16.999999999999993"/>
+                                <rect key="frame" x="87" y="60" width="183" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="hzk-nH-k9b"/>
                                 </constraints>
@@ -254,7 +254,7 @@ SESSIONS</string>
                             <constraint firstAttribute="trailing" secondItem="2yp-xG-uT4" secondAttribute="trailing" constant="10" id="kfe-9Z-7KG"/>
                             <constraint firstItem="uhk-KM-LUl" firstAttribute="leading" secondItem="DV9-sC-daJ" secondAttribute="leading" constant="60" id="oRF-aB-e5H"/>
                             <constraint firstItem="3YS-6j-fs6" firstAttribute="top" secondItem="rsI-CH-Ytr" secondAttribute="bottom" id="shu-PR-P4b"/>
-                            <constraint firstItem="7Oe-oO-ozS" firstAttribute="top" secondItem="aaQ-eF-QBo" secondAttribute="bottom" id="toA-aN-mrd"/>
+                            <constraint firstItem="7Oe-oO-ozS" firstAttribute="top" secondItem="aaQ-eF-QBo" secondAttribute="bottom" constant="10" id="toA-aN-mrd"/>
                             <constraint firstItem="WHN-23-Fxy" firstAttribute="top" secondItem="pGs-5u-cmc" secondAttribute="bottom" id="vl5-Ai-4MB"/>
                             <constraint firstItem="mVD-hD-Nse" firstAttribute="leading" secondItem="Enj-OB-VM0" secondAttribute="trailing" constant="10" id="voi-D9-FnJ"/>
                             <constraint firstItem="3YS-6j-fs6" firstAttribute="leading" secondItem="DV9-sC-daJ" secondAttribute="leading" constant="60" id="vu0-rk-UEs"/>
@@ -280,7 +280,11 @@ SESSIONS</string>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="247" width="40" height="40"/>
+        <image name="iv_collge" width="160" height="160"/>
+        <image name="iv_com" width="160" height="160"/>
+        <image name="iv_hos_detail" width="160" height="160"/>
+        <image name="iv_person_video" width="160" height="160"/>
+        <image name="iv_sound" width="160" height="160"/>
         <image name="smallDot" width="16" height="16"/>
     </resources>
 </document>
