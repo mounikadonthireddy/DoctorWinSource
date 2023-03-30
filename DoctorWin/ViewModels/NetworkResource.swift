@@ -91,15 +91,15 @@ struct NetworkResource {
             }
         }
     }
-    func getRequestData(userID: String, completion : @escaping (_ result: ResponseResult<[NetworkModel]>) -> Void) {
+    func getRequestData(userID: String, completion : @escaping (_ result: ResponseResult<NotificationResponseModel>) -> Void) {
         
-        let jobUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getRequest + ApiEndpoints.userID + "=\(userID)"
+        let jobUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.getRequest
         
         let httpUtility = HttpUtility()
         do {
             
             
-            httpUtility.getApiData(urlString: jobUrlStr, resultType: [NetworkModel].self) { result in
+            httpUtility.getApiData(urlString: jobUrlStr, resultType: NotificationResponseModel.self) { result in
                 
                 switch result {
                 case .success(let data):

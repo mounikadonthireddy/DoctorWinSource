@@ -132,6 +132,7 @@ extension NetworkViewController : UICollectionViewDelegate, UICollectionViewData
         }
         
         layout.register(SectionDecorationView.self, forDecorationViewOfKind: sectionBackground)
+        
         collectionView.setCollectionViewLayout(layout, animated: true )
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

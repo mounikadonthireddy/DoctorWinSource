@@ -45,3 +45,14 @@ struct MentorPlanModel: Codable {
     let description: String?
     
 }
+
+struct ServicesResponseModel: Codable {
+    let description: [ServiceModel]?
+}
+struct ServiceModel: Codable {
+    let category: String?
+    let subcategory: [SubCategory]?
+}
+struct SubCategory: Codable {
+    let name: String?
+}

@@ -121,4 +121,42 @@ struct MentorResource {
         }
         
     }
+    func getMentorPlanData(pageNum: Int, completion : @escaping (_ result: ResponseResult<MentorPlanResponseModel>) -> Void) {
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.mentorplan
+        
+        let httpUtility = HttpUtility()
+        do {
+            httpUtility.getApiData(urlString: homeUrlStr, resultType: MentorPlanResponseModel.self) { result in
+                
+                switch result {
+                case .success(let data):
+                    completion(.success(data))
+                    
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                    
+                }
+            }
+        }
+        
+    }
+    func getServicesData(id: Int, completion : @escaping (_ result: ResponseResult<ServicesResponseModel>) -> Void) {
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.expertcategory + "?id=\(id)"
+        
+        let httpUtility = HttpUtility()
+        do {
+            httpUtility.getApiData(urlString: homeUrlStr, resultType: ServicesResponseModel.self) { result in
+                
+                switch result {
+                case .success(let data):
+                    completion(.success(data))
+                    
+                case .failure( let error):
+                    completion(.failure(error.rawValue))
+                    
+                }
+            }
+        }
+        
+    }
 }

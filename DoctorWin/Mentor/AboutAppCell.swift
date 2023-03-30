@@ -14,5 +14,9 @@ class AboutAppCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    func configureCell(data: MentorPlanModel){
+        titlleLbl.text = data.title ?? ""
+        descLbl.text = data.description ?? ""
+        
+    }
 }

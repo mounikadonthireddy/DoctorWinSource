@@ -9,8 +9,8 @@ import UIKit
 
 class RequestViewController: ViewController {
     @IBOutlet weak var tableView: UITableView!
-    var followVM = NetworkViewModel()
-    var requestArray :[NetworkModel] = []
+    var followVM = RequestViewModel()
+    var requestArray :[NotificationModel] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +22,10 @@ class RequestViewController: ViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
         tabBarController?.tabBar.isHidden = true
+        tableView.reloadData()
     }
     func loadConnections() {
-        self.showLoader()
+        //self.showLoader()
         followVM.getRequestDataFromAPI(userID: User.shared.userID)
     }
     
@@ -56,24 +57,19 @@ extension RequestViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let str = UIStoryboard(name: "Details", bundle: nil)
         let nextVC = str.instantiateViewController(withIdentifier: "UserDetailsViewController") as! UserDetailsViewController
-        nextVC.requestUserID = requestArray[indexPath.row].dworks_id ?? ""
+        nextVC.requestUserID = requestArray[indexPath.row].posted_id ?? ""
         nextVC.groupId = ""
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
 }
-extension RequestViewController: NetworkViewModelDelegate {
-    func didReceiveFollowDataResponse(response: FollowResponse?, error: String?) {
-      
-    }
-    
-    func didReceiveNetworkDataResponse(response: [NetworkModel]?, error: String?) {
-    
+extension RequestViewController: RequestViewModelDelegate {
+    func didReceiveNotificationRes(response: NotificationResponseModel?, error: String?) {
         self.dismiss()
-        if let res = response {
-            requestArray = res
-            tableView.reloadData()
-        }
+        requestArray = response?.followersDetails ?? []
+        tableView.reloadData()
     }
+    
+   
 }
 

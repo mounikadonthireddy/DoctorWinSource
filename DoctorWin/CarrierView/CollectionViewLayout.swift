@@ -23,6 +23,7 @@ enum LayoutType {
     case testimonals
     case doubts
     case dailyUpdates
+    case aboutApp
     
     func getLayout(withHeader: Bool = false, height:Int = 0, fractionalWidth: CGFloat = 0.3) -> NSCollectionLayoutSection {
         switch self {
@@ -48,6 +49,8 @@ enum LayoutType {
             return AppLayouts.shared.homeSupportLayout()
         case .dailyUpdates:
             return AppLayouts.shared.dailyUpdatesLayout()
+        case .aboutApp:
+            return AppLayouts.shared.aboutAppLayout()
             
             
 //        case .updateProfileLayout:
@@ -354,6 +357,15 @@ class AppLayouts {
         
         let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+        section.boundarySupplementaryItems = [
+            .init(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(60)), elementKind: headerKind, alignment: .top)
+            
+        ]
+
+//        let decorationItem = NSCollectionLayoutDecorationItem.background(elementKind: "DaillyDecorationView")
+    
+        //section.decorationItems = [decorationItem]
+      
         return section
     }
     func MentorAppBanner() -> NSCollectionLayoutSection {
@@ -386,6 +398,49 @@ class AppLayouts {
         section.orthogonalScrollingBehavior = .paging
         return section
     }
+    func aboutAppLayout() -> NSCollectionLayoutSection {
+        let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(150)))
+        
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(150)), subitems: [item])
+        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+        section.boundarySupplementaryItems = [
+            .init(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(50)), elementKind: headerKind, alignment: .top)
+            
+        ]
+
+        let decorationItem = NSCollectionLayoutDecorationItem.background(elementKind: "DaillyDecorationView")
+    
+        section.decorationItems = [decorationItem]
+      
+        return section
+    }
+    
+}
+class DaillyDecorationView: UICollectionReusableView {
+    
+    // MARK: MAIN -
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setUpViews()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: FUNCTIONS -
+    
+    func setUpViews(){
+        self.backgroundColor = UIColor(red: 237/255, green: 237/255, blue: 237/255, alpha: 1)
+    }
+    
+    func setUpViews1(color: UIColor){
+        self.backgroundColor = color
+    }
     
 }
 class SectionDecorationView: UICollectionReusableView {
@@ -407,6 +462,10 @@ class SectionDecorationView: UICollectionReusableView {
         self.backgroundColor = UIColor(red: 27/255, green: 48/255, blue: 40/255, alpha: 1)
     }
     
+    func setUpViews1(color: UIColor){
+        self.backgroundColor = color
+    }
+    
 }
 class SectionHeaderView: UICollectionReusableView {
     
@@ -425,6 +484,7 @@ class SectionHeaderView: UICollectionReusableView {
         l.text = "  Recommended Jobs"
         l.font = UIFont.boldSystemFont(ofSize: 26)
         l.textColor = UIColor(red: 142/255, green: 37/255, blue: 144/255, alpha: 1.0)
+        l.textAlignment = .center
         return l
     }()
     

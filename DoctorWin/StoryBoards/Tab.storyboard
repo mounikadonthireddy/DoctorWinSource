@@ -79,6 +79,9 @@
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <inset key="imageEdgeInsets" minX="13" minY="13" maxX="13" maxY="13"/>
                                                 <state key="normal" image="bell"/>
+                                                <connections>
+                                                    <action selector="navigateToRequest:" destination="rh3-gR-uTq" eventType="touchUpInside" id="H2o-CU-r5m"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VNg-CV-I9f">
                                                 <rect key="frame" x="100" y="0.0" width="50" height="50"/>
@@ -202,6 +205,9 @@
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <inset key="imageEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
                                                 <state key="normal" image="bell"/>
+                                                <connections>
+                                                    <action selector="navigateToRequest:" destination="va8-Rw-Ruy" eventType="touchUpInside" id="nag-Ku-AeM"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pq5-gf-b6s">
                                                 <rect key="frame" x="100" y="0.0" width="50" height="50"/>
@@ -336,6 +342,9 @@
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <inset key="imageEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
                                                 <state key="normal" image="bell"/>
+                                                <connections>
+                                                    <action selector="navigateToRequest:" destination="zj2-kU-Rup" eventType="touchUpInside" id="z9e-ET-aRa"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EWy-Mf-BBg">
                                                 <rect key="frame" x="100" y="0.0" width="50" height="50"/>
@@ -504,6 +513,9 @@
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                                 <state key="normal" image="bell"/>
+                                                <connections>
+                                                    <action selector="navigateToRequest:" destination="OOz-um-2GT" eventType="touchUpInside" id="cfP-yB-rgV"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iDW-mt-8DM">
                                                 <rect key="frame" x="100" y="0.0" width="50" height="50"/>

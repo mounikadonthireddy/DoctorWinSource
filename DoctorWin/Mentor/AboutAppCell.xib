@@ -11,17 +11,17 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="AboutAppCell" customModule="DoctorWin" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="342" height="250"/>
+            <rect key="frame" x="0.0" y="0.0" width="343" height="212"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="342" height="250"/>
+                <rect key="frame" x="0.0" y="0.0" width="343" height="212"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aIv-ZD-7mJ">
-                        <rect key="frame" x="10" y="10" width="322" height="230"/>
+                        <rect key="frame" x="10" y="10" width="323" height="192"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tS1-nf-nXF">
-                                <rect key="frame" x="0.0" y="41" width="322" height="179"/>
+                                <rect key="frame" x="10" y="41" width="313" height="141"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="NXP-00-elj"/>
                                 </constraints>
@@ -31,7 +31,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NEET UG Counselling" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yTs-Cv-ufE">
-                                <rect key="frame" x="0.0" y="10" width="322" height="21"/>
+                                <rect key="frame" x="10" y="10" width="313" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Vyl-nT-Q6A"/>
                                 </constraints>
@@ -45,9 +45,9 @@
                             <constraint firstAttribute="trailing" secondItem="yTs-Cv-ufE" secondAttribute="trailing" id="68s-Nu-iFl"/>
                             <constraint firstItem="yTs-Cv-ufE" firstAttribute="top" secondItem="aIv-ZD-7mJ" secondAttribute="top" constant="10" id="7t5-S0-mVk"/>
                             <constraint firstAttribute="bottom" secondItem="tS1-nf-nXF" secondAttribute="bottom" constant="10" id="Om4-CZ-aUX"/>
-                            <constraint firstItem="yTs-Cv-ufE" firstAttribute="leading" secondItem="aIv-ZD-7mJ" secondAttribute="leading" id="VnU-Pr-FDc"/>
+                            <constraint firstItem="yTs-Cv-ufE" firstAttribute="leading" secondItem="aIv-ZD-7mJ" secondAttribute="leading" constant="10" id="VnU-Pr-FDc"/>
                             <constraint firstItem="tS1-nf-nXF" firstAttribute="top" secondItem="yTs-Cv-ufE" secondAttribute="bottom" constant="10" id="Wxc-fO-m4l"/>
-                            <constraint firstItem="tS1-nf-nXF" firstAttribute="leading" secondItem="aIv-ZD-7mJ" secondAttribute="leading" id="faA-d0-Zk2"/>
+                            <constraint firstItem="tS1-nf-nXF" firstAttribute="leading" secondItem="aIv-ZD-7mJ" secondAttribute="leading" constant="10" id="faA-d0-Zk2"/>
                             <constraint firstAttribute="trailing" secondItem="tS1-nf-nXF" secondAttribute="trailing" id="izn-oc-Xc2"/>
                         </constraints>
                     </view>
@@ -60,12 +60,12 @@
                 <constraint firstAttribute="trailing" secondItem="aIv-ZD-7mJ" secondAttribute="trailing" constant="10" id="MIz-tn-8TI"/>
                 <constraint firstAttribute="bottom" secondItem="aIv-ZD-7mJ" secondAttribute="bottom" constant="10" id="mS4-Fw-5g7"/>
             </constraints>
-            <size key="customSize" width="342" height="250"/>
+            <size key="customSize" width="343" height="212"/>
             <connections>
                 <outlet property="descLbl" destination="tS1-nf-nXF" id="VEn-Ow-l2V"/>
                 <outlet property="titlleLbl" destination="yTs-Cv-ufE" id="NIY-GE-wEb"/>
             </connections>
-            <point key="canvasLocation" x="232.06106870229007" y="90.845070422535215"/>
+            <point key="canvasLocation" x="232.82442748091603" y="77.464788732394368"/>
         </collectionViewCell>
     </objects>
 </document>

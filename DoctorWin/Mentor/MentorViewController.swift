@@ -8,7 +8,7 @@
 import UIKit
 
 class MentorViewController: ViewController {
-    var sectionArray = ["","Daily Updates","","Services Available", "Testimonials", "People also ask"]
+    var sectionArray = ["","Daily Updates","","Services Available", "Testimonials", "People also ask", "About Mentor App"]
     @IBOutlet weak var collectionView: UICollectionView!
     var dailyUpdateArr: [DailyUpdatesModel] = []
     var testimonalArr: [TestimonialModel] = []
@@ -84,7 +84,7 @@ extension MentorViewController: UICollectionViewDelegate, UICollectionViewDataSo
         case 5:
             return faqArr.count
         case 6:
-            return 1
+            return planArr.count
         default:
             return 0
         }
@@ -116,6 +116,7 @@ extension MentorViewController: UICollectionViewDelegate, UICollectionViewDataSo
             return cell
         } else if indexPath.section == 6 {
             let cell: AboutAppCell = collectionView.dequeueReusableCell(withReuseIdentifier: "AboutAppCell", for: indexPath) as! AboutAppCell
+            cell.configureCell(data: planArr[indexPath.row])
             return cell
         } else {
             return UICollectionViewCell()
@@ -128,7 +129,7 @@ extension MentorViewController: UICollectionViewDelegate, UICollectionViewDataSo
                 return LayoutType.mentorImage.getLayout()
             } else if sectionNumber == 1 {
                 return LayoutType.dailyUpdates.getLayout()
-            }else if sectionNumber == 2 {
+            } else if sectionNumber == 2 {
                 return LayoutType.mentorApp.getLayout()
             } else if sectionNumber == 3 {
                 return LayoutType.mentorServices.getLayout()
@@ -136,11 +137,14 @@ extension MentorViewController: UICollectionViewDelegate, UICollectionViewDataSo
                 return LayoutType.testimonals.getLayout()
             } else if sectionNumber == 5 {
                 return LayoutType.doubts.getLayout()
+            } else if sectionNumber == 6 {
+                return LayoutType.aboutApp.getLayout()
             } else {
                 return LayoutType.mentorImage.getLayout()
             }
         }
         
+        layout.register(DaillyDecorationView.self, forDecorationViewOfKind: "DaillyDecorationView")
         layout.register(SectionDecorationView.self, forDecorationViewOfKind: sectionBackground)
         collectionView.setCollectionViewLayout(layout, animated: true )
     }
@@ -148,12 +152,19 @@ extension MentorViewController: UICollectionViewDelegate, UICollectionViewDataSo
         
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: Key.ReusableIdentifiers.sectionHeaderViewId, for: indexPath) as! SectionHeaderView
         header.title.text = sectionArray[indexPath.section]
+//        header.title.frame = CGRectMake(10, 10, self.view.frame.width - 20, 45)
+        header.title.textAlignment = .center
             return header
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section == 3 {
             let str = UIStoryboard(name: "Network", bundle: nil)
             let nextVC = str.instantiateViewController(withIdentifier: "MentorSelectionViewController") as! MentorSelectionViewController
+            nextVC.navTitle = planArr[indexPath.row].title ?? ""
+            if indexPath.row == 0 || indexPath.row == 1 {
+                nextVC.type = true
+            }
+            nextVC.descTitle = planArr[indexPath.row].description ?? ""
             self.navigationController?.pushViewController(nextVC, animated: true)
         }
     }

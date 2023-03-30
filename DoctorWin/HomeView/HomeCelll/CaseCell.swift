@@ -67,7 +67,7 @@ class CaseCell: UITableViewCell {
             self.subTitleLable.text = homeModel.description ?? ""
         }
 
-       // self.dateLable.text = homeModel.posted_date ?? ""
+        self.categoryLable.text = getCategory(staus: homeModel.display_status ?? 0) 
  
         if let value = homeModel.comment_count, value > 0 {
             self.discussionBtn.setTitle(" \(value)", for: .normal)
@@ -124,17 +124,18 @@ class CaseCell: UITableViewCell {
         }
         
     }
-//    func getCategory(staus:Int) -> String {
-////        switch staus {
-////        case 4:
-////            return "Answer"
-////        case 2:
-////            return "Social"
-////        case 3:
-////
-//
-////        }
-//    }
+    func getCategory(staus:Int) -> String {
+        switch staus {
+        case 4:
+            return "Answer"
+        case 2:
+            return "Social"
+        case 1:
+            return "Case"
+        default:
+            return ""
+        }
+    }
     func configureProfileData(profileData: PostedUserDetailsModel?) {
         if let userData = profileData {
             self.designation.text = userData.speciality ?? ""

@@ -94,7 +94,7 @@ struct ApiEndpoints {
     static let getNetworkConnections = "groups"
     static let getFollow = "auth/follow_followers"
     static let getFollowing = "auth/following"
-    static let getRequest = "auth/request/"
+    static let getRequest = "auth/follow"
     static let getPeoples = "people"
     static let createGroup = "group/create"
     static let postQuestion = "ask/question"
@@ -147,7 +147,7 @@ struct ApiEndpoints {
     static let asktomentor = "mentor/asktomentor"
     static let mentorplan = "mentor/mentorplan"
     static let askquestion = "mentor/askquestion"
-    static let expertcategory = "mentor/expertcategory?id=1"
+    static let expertcategory = "mentor/expertcategory"
    static let aboutus = "mentor/aboutus"
     
 }

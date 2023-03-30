@@ -24,6 +24,8 @@ class CreateGroupViewController: ViewController {
     var tag = -1
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.groupDescriptionTV.setCornerRadiusWithBorderColor(radius: 5, color: UIColor.lightGray, borderWidth: 0.4)
+        groupImage.setCornerRadius(radius: Float(groupImage.frame.height)/2)
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
         if let data = groupModel {
             groupNameTF.text = data.name ?? ""

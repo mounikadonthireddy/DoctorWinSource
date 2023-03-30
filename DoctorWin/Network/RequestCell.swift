@@ -27,10 +27,10 @@ class RequestCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    func cellConfigureWithConnectionData(data: NetworkModel) {
-        self.name.text = data.ProfileName ?? ""
-        self.qualification.text = (data.hightest_qualification ?? "" ) + ", started following you"
-        if let urlString = data.ProfileImage {
+    func cellConfigureWithConnectionData(data: NotificationModel) {
+        self.name.text = (data.name ?? "") + (data.speciality ?? "" ) + ", started following you"
+//        self.qualification.text = (data.hightest_qualification ?? "" ) + ", started following you"
+        if let urlString = data.image {
             self.personImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
         }
     }

@@ -98,3 +98,26 @@ struct MentorViewModel {
         }
     }
 }
+protocol MentorServicesViewModelDelegate {
+    func didReciveServicesData(response: ServicesResponseModel?, error: String?)
+}
+struct MentorServicesViewModel {
+    var delegate : MentorServicesViewModelDelegate?
+    
+    func getTestimonalsDataFromAPI(id: Int) {
+        let homeResource = MentorResource()
+        homeResource.getServicesData(id: id) { response in
+            DispatchQueue.main.async {
+                switch response {
+                case .success(let data):
+                    self.delegate?.didReciveServicesData(response: data, error: nil)
+                    
+                case .failure(let error):
+                    self.delegate?.didReciveServicesData(response: nil, error: error)
+                }
+                
+            }
+            
+        }
+    }
+}

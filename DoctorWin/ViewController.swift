@@ -41,9 +41,9 @@ class ViewController: UIViewController {
     func navigateToProfile() {
      
     }
-    func navigateToRequest() {
-        let str = UIStoryboard(name: "Details", bundle: nil)
-        let nextVC = str.instantiateViewController(withIdentifier: "PopularQuestionDetailsViewController") as! PopularQuestionDetailsViewController
+    @IBAction func navigateToRequest(_ sender: UIButton) {
+        let str = UIStoryboard(name: "Network", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "RequestViewController") as! RequestViewController
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     @IBAction func navigateToProfile(_ sender: UIButton) {

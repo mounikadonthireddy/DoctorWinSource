@@ -45,19 +45,19 @@ struct NetworkViewModel {
     }
     
     func getRequestDataFromAPI(userID: String) {
-        let homeResource = NetworkResource()
-        homeResource.getRequestData(userID: userID) { response in
-            DispatchQueue.main.async {
-                switch response {
-                case .success(let data):
-                    self.delegate?.didReceiveNetworkDataResponse(response: data, error: nil)
-                    
-                case .failure(let error):
-                    self.delegate?.didReceiveNetworkDataResponse(response: nil, error: error)
-                }
-            }
-        }
-    }
+//        let homeResource = NetworkResource()
+//        homeResource.getRequestData(userID: userID) { response in
+//            DispatchQueue.main.async {
+//                switch response {
+//                case .success(let data):
+//                    self.delegate?.didReceiveNetworkDataResponse(response: data, error: nil)
+//                    
+//                case .failure(let error):
+//                    self.delegate?.didReceiveNetworkDataResponse(response: nil, error: error)
+//                }
+//            }
+//        }
+   }
    
 }
 
@@ -107,4 +107,35 @@ struct PeopleModel: Codable {
 struct PeopleResponseModel: Codable {
     let is_active: Bool
     let userDetails: [PeopleModel]?
+}
+struct NotificationResponseModel: Codable {
+    let followersDetails: [NotificationModel]?
+}
+struct NotificationModel: Codable {
+    let posted_id: String?
+    let id: Int?
+    let speciality: String?
+    let name: String?
+    let image: String?
+    
+}
+protocol RequestViewModelDelegate {
+    func didReceiveNotificationRes(response: NotificationResponseModel?, error: String?)
+}
+struct RequestViewModel {
+    var delegate : RequestViewModelDelegate?
+    func getRequestDataFromAPI(userID: String) {
+        let homeResource = NetworkResource()
+        homeResource.getRequestData(userID: userID) { response in
+            DispatchQueue.main.async {
+                switch response {
+                case .success(let data):
+                    self.delegate?.didReceiveNotificationRes(response: data, error: nil)
+                    
+                case .failure(let error):
+                    self.delegate?.didReceiveNotificationRes(response: nil, error: error)
+                }
+            }
+        }
+    }
 }

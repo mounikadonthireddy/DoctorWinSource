@@ -15,9 +15,15 @@ class CounsellingCell: UITableViewCell {
     @IBOutlet weak var casteTF: DropDown!
     @IBOutlet weak var stateTF: DropDown!
     @IBOutlet weak var bookBtn: UIButton!
+    @IBOutlet weak var bgView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        casteTF.optionArray = ["Economically weak", "General", "Other Backward Classes", "Scheduled caste", "Scheduled Tribe"]
+        bgView.dropShadow()
+        //bgView.setCornerRadius(radius: 10)
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
