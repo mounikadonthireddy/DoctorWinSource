@@ -1426,8 +1426,9 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="M9V-Qn-XDr">
                                         <rect key="frame" x="0.0" y="190.5" width="394" height="46.5"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sale_icon" translatesAutoresizingMaskIntoConstraints="NO" id="auG-5A-oYF">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newspaper" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="auG-5A-oYF">
                                                 <rect key="frame" x="0.0" y="8.5" width="30" height="30"/>
+                                                <color key="tintColor" red="0.023529411760000001" green="0.1764705882" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="HsO-zW-d4q"/>
                                                     <constraint firstAttribute="width" constant="30" id="KNZ-94-RIX"/>
@@ -1437,7 +1438,7 @@
                                                 <rect key="frame" x="50" y="8" width="344" height="31"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
-                                                <state key="normal" title=" Sale Product">
+                                                <state key="normal" title="Post News">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
@@ -1450,7 +1451,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="W9p-g3-UW4">
                                         <rect key="frame" x="0.0" y="238" width="394" height="47"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sale_icon" translatesAutoresizingMaskIntoConstraints="NO" id="gkR-oH-TJP">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Article" translatesAutoresizingMaskIntoConstraints="NO" id="gkR-oH-TJP">
                                                 <rect key="frame" x="0.0" y="8.5" width="30" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="ZZU-H0-oo8"/>
@@ -1461,7 +1462,7 @@
                                                 <rect key="frame" x="50" y="8" width="344" height="31"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
-                                                <state key="normal" title=" Sale Product">
+                                                <state key="normal" title="Write Article">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
@@ -1485,7 +1486,7 @@
                                                 <rect key="frame" x="50" y="7.5" width="344" height="31"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
-                                                <state key="normal" title=" Sale Product">
+                                                <state key="normal" title="Write Blogs">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
@@ -1509,7 +1510,7 @@
                                                 <rect key="frame" x="50" y="7.5" width="344" height="31"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
-                                                <state key="normal" title=" Sale Product">
+                                                <state key="normal" title=" Publish Journals">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
@@ -1997,6 +1998,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Article" width="512" height="512"/>
         <image name="add_chief_comp" width="22" height="22"/>
         <image name="add_investigation" width="18" height="18"/>
         <image name="add_patient_his" width="24" height="24"/>
@@ -2008,6 +2010,7 @@
         <image name="close" width="64" height="64"/>
         <image name="collegeBg" width="375" height="153"/>
         <image name="folder.fill" catalog="system" width="128" height="96"/>
+        <image name="newspaper" catalog="system" width="128" height="111"/>
         <image name="person" width="171" height="171"/>
         <image name="photo_icon" width="60" height="60"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="123"/>

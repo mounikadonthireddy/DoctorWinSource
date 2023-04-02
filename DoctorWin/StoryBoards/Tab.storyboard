@@ -67,6 +67,7 @@
                                                 <inset key="imageEdgeInsets" minX="13" minY="13" maxX="13" maxY="13"/>
                                                 <state key="normal" image="search"/>
                                                 <connections>
+                                                    <action selector="navigateToSearch:" destination="rh3-gR-uTq" eventType="touchUpInside" id="eAv-AI-Vb9"/>
                                                     <action selector="searchClicked:" destination="rh3-gR-uTq" eventType="touchUpInside" id="XJW-G3-gFj"/>
                                                 </connections>
                                             </button>
@@ -195,6 +196,9 @@
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <inset key="imageEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
                                                 <state key="normal" image="search"/>
+                                                <connections>
+                                                    <action selector="navigateToSearch:" destination="va8-Rw-Ruy" eventType="touchUpInside" id="hvB-VG-rcx"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wxS-83-Ds2">
                                                 <rect key="frame" x="50" y="0.0" width="50" height="50"/>
@@ -332,6 +336,9 @@
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <inset key="imageEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
                                                 <state key="normal" image="search"/>
+                                                <connections>
+                                                    <action selector="navigateToSearch:" destination="zj2-kU-Rup" eventType="touchUpInside" id="BST-a2-NgS"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DRe-QY-6Xe">
                                                 <rect key="frame" x="50" y="0.0" width="50" height="50"/>
@@ -503,6 +510,9 @@
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                                 <state key="normal" image="search"/>
+                                                <connections>
+                                                    <action selector="navigateToSearch:" destination="OOz-um-2GT" eventType="touchUpInside" id="Ykm-Vz-khh"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6em-xt-HQe">
                                                 <rect key="frame" x="50" y="0.0" width="50" height="50"/>
@@ -695,8 +705,8 @@
         <image name="house" catalog="system" width="128" height="104"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="person.crop.circle" catalog="system" width="128" height="123"/>
-        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="plus" width="24" height="24"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="reels" width="24" height="24"/>
         <image name="search" width="32" height="32"/>
         <image name="square.and.pencil" catalog="system" width="128" height="113"/>

@@ -44,7 +44,10 @@ class MentorSelectionViewController: ViewController {
 }
 extension MentorSelectionViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        if servicesArray.count > 0 {
+            return 2
+        }
+        return 0
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -74,17 +77,17 @@ extension MentorSelectionViewController: UITableViewDelegate, UITableViewDataSou
         if section == 1 {
             return servicesArray[section].category ?? ""
         }
-        return "kjhgfdsdfghj"
+        return ""
     }
     
 }
 extension MentorSelectionViewController: MentorServicesViewModelDelegate {
     func didReciveServicesData(response: ServicesResponseModel?, error: String?) {
-        self.dismiss()
-        self.servicesArray = response?.description ?? []
-       
-        tableView.reloadData()
-        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.dismiss()
+            self.servicesArray = response?.description ?? []
+            self.tableView.reloadData()
+        }
     }
 
 }

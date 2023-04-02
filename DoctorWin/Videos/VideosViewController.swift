@@ -27,7 +27,7 @@ class VideosViewController: ViewController, UITableViewDelegate, UITableViewData
    
         NotificationCenter.default.addObserver(self, selector: #selector(self.appEnteredFromBackground), name: UIApplication.willEnterForegroundNotification
                     , object: nil)
-        self.loadVideos()
+       
     }
     func loadVideos() {
         self.showLoader()
@@ -41,6 +41,7 @@ class VideosViewController: ViewController, UITableViewDelegate, UITableViewData
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.loadVideos()
         
     }
     override func viewDidAppear(_ animated: Bool) {

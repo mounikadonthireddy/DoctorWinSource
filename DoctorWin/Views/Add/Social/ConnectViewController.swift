@@ -30,6 +30,7 @@ class ConnectViewController: ViewController, UIImagePickerControllerDelegate {
     @IBOutlet weak var InterestCollectionView: UICollectionView!
     @IBOutlet weak var collectionViewLayout1: UICollectionViewFlowLayout!
     @IBOutlet weak var dummyImage: UIImageView!
+    @IBOutlet weak var nextBtn: UIButton!
     var imageArray: [GenderImageModel] = []
     var interestArray: [InterestModel] = []
     var selectedInterest:[String] = []
@@ -44,7 +45,7 @@ class ConnectViewController: ViewController, UIImagePickerControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         interestVM.delegate = self
-       
+        nextBtn.setCornerRadius(radius: Float(nextBtn.frame.height)/2)
         loadInterests()
         // Do any additional setup after loading the view.
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
@@ -68,15 +69,7 @@ class ConnectViewController: ViewController, UIImagePickerControllerDelegate {
     @IBAction func backClicked(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     func setCollectionView() {
         ImagesCollectionView.register(UINib.init(nibName: "ImageCell", bundle: nil), forCellWithReuseIdentifier: "ImageCell")
         // Do any additional setup after loading the view.
@@ -105,22 +98,26 @@ class ConnectViewController: ViewController, UIImagePickerControllerDelegate {
         qualificationTF.optionArray = ApiEndpoints.qualificationArray
         professionTF.optionArray = ApiEndpoints.occupationArray
         dobTF.addInputViewDatePicker(target: self, selector: #selector(doneButtonPressed))
-       self.dummyImage.isHidden = true
+     self.dummyImage.isHidden = true
     }
     @IBAction func updateClicked(_ sender: Any) {
-        if nameTF.text?.count ?? 0 < 3 {
-            self.update(bool: nil, error: "Please give a valid name")
-            
-        } else if genderTF.text == "" {
-            self.update(bool: nil, error: "Please choose your gender")
-        }  else if dobTF.text == "" {
-            self.update(bool: nil, error: "Please choose your DOB")
+        if dummyImage.isHidden {
+            imageUpload()
         } else {
-            self.update(bool: true, error: nil)
-            let age:Int = Int(dobTF.text ?? "0") ?? 0
-            let interest = selectedInterest.joined(separator: ",")
-            let request =  ConnectProfileRequetModel(name: (nameTF.text ?? ""), intro: (bioTF.text ?? ""), gender: (genderTF.text ?? ""), age: "\(age)", living: (livingTF.text ?? ""), qualification: (qualificationTF.text ?? ""), profession: (professionTF.text ?? ""), height: (heightTF.text ?? ""), looking_for: (lookingTF.text ?? ""), living_in: (livingTF.text ?? ""), institute: (occupationTF.text ?? ""), orientation: (personalityTF.text ?? ""), zodiacs: (zodiacTF.text ?? ""), pets: (petsTF.text ?? ""), income: (incomeTF.text ?? ""), interest: interest)
-            viewModel.createProfileData(request: request)
+            if nameTF.text?.count ?? 0 < 3 {
+                self.update(bool: nil, error: "Please give a valid name")
+                
+            } else if genderTF.text == "" {
+                self.update(bool: nil, error: "Please choose your gender")
+            }  else if dobTF.text == "" {
+                self.update(bool: nil, error: "Please choose your DOB")
+            } else {
+                self.update(bool: true, error: nil)
+                let age:Int = Int(dobTF.text ?? "0") ?? 0
+                let interest = selectedInterest.joined(separator: ",")
+                let request =  ConnectProfileRequetModel(name: (nameTF.text ?? ""), intro: (bioTF.text ?? ""), gender: (genderTF.text ?? ""), age: "\(age)", living: (livingTF.text ?? ""), qualification: (qualificationTF.text ?? ""), profession: (professionTF.text ?? ""), height: (heightTF.text ?? ""), looking_for: (lookingTF.text ?? ""), living_in: (livingTF.text ?? ""), institute: (occupationTF.text ?? ""), orientation: (personalityTF.text ?? ""), zodiacs: (zodiacTF.text ?? ""), pets: (petsTF.text ?? ""), income: (incomeTF.text ?? ""), interest: interest)
+                viewModel.createProfileData(request: request)
+            }
         }
     }
     @objc func doneButtonPressed() {
@@ -168,9 +165,15 @@ extension ConnectViewController: ShowLoader {
             self.present(alert, animated: true, completion: nil)
             
         } else if error == nil && bool == true {
-            self.showLoader()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.showLoader()
+                self.dummyImage.isHidden = true
+                self.ImagesCollectionView.isHidden = false
+            }
         } else if bool == false {
-            self.dismiss()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.dismiss()
+            }
         }
     }
 
@@ -213,14 +216,17 @@ extension ConnectViewController : UICollectionViewDelegate, UICollectionViewData
         } else  {
         let cell: ImageCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! ImageCell
             cell.imageBtn.addTarget(self, action: #selector(imageClicked(button:)), for: .touchUpInside)
-            if imageArray.count == 5 {
-                if let urlString = imageArray[indexPath.row].image {
-                    cell.profileImage.sd_setImage(with: URL(string:  urlString), placeholderImage: UIImage(named: "loginBg"))
-                } else {
+            if imagesArray.count > indexPath.row {
+//                if let urlString = imagesArray[indexPath.row] {
+//                    cell.profileImage.sd_setImage(with: URL(string:  urlString), placeholderImage: UIImage(named: "loginBg"))
+                    cell.imageBtn.isHidden = true
+                    cell.profileImage.image = imagesArray[indexPath.row]
+                }
+            else {
                     cell.profileImage.image = nil
                 }
                 
-            }
+//            }
     
         return cell
         }
@@ -289,7 +295,41 @@ extension ConnectViewController : UICollectionViewDelegate, UICollectionViewData
     @objc func imageClicked(button: UIButton) {
         self.imagePicker.present(from: button)
     }
-    
+   func imageUpload() {
+        let param = [:] as [String : Any]
+        self.showLoader()
+        let url = ApiEndpoints.baseUrl + ApiEndpoints.getDatingImages
+        let parameters: [String: Any] = [
+            "image": imageUpload1
+        ]
+       for image in imageUpload1 {
+           
+           HttpUtility().profileUpload1(img: image.data, url: url, imageName: image.fileName, imageUploadName: "image", param: param) { res in
+               DispatchQueue.main.async {
+                   self.dismiss()
+                   print(res)
+                   // self.showAlertView(message: "News Posted Successfully")
+                   
+               }
+           }
+       }
+            AGUploadImageWebServices(url: url, parameter: parameters, inputData: param, method: .post )
+                .responseJSON { (json, eror) in
+                    self.dismiss()
+                debugPrint(json)
+            }
+//            HttpUtility().profileUpload(img: image.data, url: url, imageName: image.fileName, imageUploadName: "image", param: nil) { res in
+//                DispatchQueue.main.async {
+//                    self.dismiss()
+//                    print(res)
+//
+////                   self.showAlertView(message: "News Posted Successfully")
+//
+//                }
+//
+//            }
+//        }
+    }
     
 }
 extension ConnectViewController: UITextFieldDelegate {

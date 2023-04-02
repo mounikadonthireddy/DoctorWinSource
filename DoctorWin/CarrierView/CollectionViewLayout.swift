@@ -325,9 +325,9 @@ class AppLayouts {
     
     func homeSupportLayout() -> NSCollectionLayoutSection {
         
-        let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
+        let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(50)))
         
-        let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(50)), subitems: [item])
+        let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(50)), subitems: [item])
         group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 8, trailing: 0)
         
         let section = NSCollectionLayoutSection(group: group)
@@ -482,7 +482,8 @@ class SectionHeaderView: UICollectionReusableView {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
         l.text = "  Recommended Jobs"
-        l.font = UIFont.boldSystemFont(ofSize: 26)
+        l.font = UIFont.boldSystemFont(ofSize: 24)
+//        l.frame = CGRectMake(0, 0, UIWindow.frame.width, 50)
         l.textColor = UIColor(red: 142/255, green: 37/255, blue: 144/255, alpha: 1.0)
         l.textAlignment = .center
         return l
@@ -492,7 +493,7 @@ class SectionHeaderView: UICollectionReusableView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setUpViews()
+        setUpViews(frame: frame)
         setUpConstraints()
     }
     
@@ -502,7 +503,8 @@ class SectionHeaderView: UICollectionReusableView {
     
     // MARK: FUNCTIONS -
     
-    func setUpViews(){
+    func setUpViews(frame: CGRect){
+    title.frame = frame
         addSubview(dividerView)
         addSubview(title)
     }

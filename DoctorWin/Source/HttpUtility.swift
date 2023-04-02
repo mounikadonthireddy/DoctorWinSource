@@ -117,7 +117,53 @@ struct HttpUtility {
     private  func generateBoundaryString() -> String {
         return "----------V2ymHFg03ehbqgZCaKO6jy"
     }
-    
+    func profileUpload1(img: Data, url: String, imageName: String, imageUploadName: String, param: [String:Any], completionHandler: @escaping(BoolResponseModel)-> Void ) {
+        
+        let url = URL(string: url)
+        let request = NSMutableURLRequest(url: url!)
+        request.httpMethod="POST"
+        
+        if User.shared.token != "" {
+            request.setValue("\(User.shared.token)", forHTTPHeaderField: "jwt")
+        }
+        let boundary = generateBoundaryString()
+        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+       // let imageData = img.jpegData(compressionQuality: 0.1)
+//
+//        if imageData==nil {
+//            print("image data is nil")
+//            return
+//        }
+//
+        request.httpBody = createBodyWithParameters(parameters: param, imageName: imageName, filePathKey: imageUploadName, imageDataKey: img, boundary: boundary)
+        
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest) {
+            data, response, error in
+            if error != nil {
+                print("error=\(String(describing: error))")
+                return
+            }
+            
+            //You can print out response object
+            print("***** response = \(String(describing: response))")
+            
+            // Print out reponse body
+            let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+            print("**** response data = \(responseString!)")
+            let decoder = JSONDecoder()
+            
+            do {
+                let result = try decoder.decode(BoolResponseModel.self, from: data!)
+                completionHandler(result)
+            }
+            catch let error {
+                print(error)
+            }
+        }
+        task.resume()
+  
+    }
     func profileUpload(img: UIImage, url: String, imageName: String, imageUploadName: String, param: [String:Any], completionHandler: @escaping(BoolResponseModel)-> Void ) {
         
         let url = URL(string: url)

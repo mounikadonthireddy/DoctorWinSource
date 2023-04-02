@@ -20,8 +20,8 @@ class ServicesCell: UICollectionViewCell {
     func configureCell(data: MentorPlanModel){
         nameLbl.text = data.title ?? ""
         descriptionLbl.text = data.description ?? ""
-        if let urlString = data.image {
-            self.planImage.sd_setImage(with: URL(string:ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
-        }
+//        if let urlString = data.image {
+//            self.planImage.sd_setImage(with: URL(string:ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
+//        }
     }
 }

@@ -33,9 +33,9 @@ class ViewController: UIViewController {
         self.dismiss(animated: false, completion: nil)
         //}
     }
-    func navigateToSearch() {
-        let str = UIStoryboard(name: "Details", bundle: nil)
-        let nextVC = str.instantiateViewController(withIdentifier: "PopularQuestionDetailsViewController") as! PopularQuestionDetailsViewController
+    @IBAction func navigateToSearch(_ sender: UIButton) {
+        let str = UIStoryboard(name: "Me", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "SearchViewController") as! SearchViewController
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     func navigateToProfile() {

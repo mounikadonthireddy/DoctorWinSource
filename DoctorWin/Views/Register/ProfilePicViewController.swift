@@ -31,7 +31,7 @@ class ProfilePicViewController: ViewController {
         self.showLoader()
         let parm = [String: Any]()
             
-            let url = ApiEndpoints.baseUrl + ApiEndpoints.register
+            let url = ApiEndpoints.baseUrl + ApiEndpoints.getDatingImages
             self.showLoader()
             
             

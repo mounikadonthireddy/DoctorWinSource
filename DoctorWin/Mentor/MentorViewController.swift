@@ -8,13 +8,14 @@
 import UIKit
 
 class MentorViewController: ViewController {
-    var sectionArray = ["","Daily Updates","","Services Available", "Testimonials", "People also ask", "About Mentor App"]
+    var sectionArray = ["","  Daily Updates","","  Services Available", "  Testimonials", "  People also ask", "  About Mentor App"]
     @IBOutlet weak var collectionView: UICollectionView!
     var dailyUpdateArr: [DailyUpdatesModel] = []
     var testimonalArr: [TestimonialModel] = []
     var faqArr: [FAQModel] = []
     var planArr: [MentorPlanModel] = []
     var mentorVM = MentorViewModel()
+    var expandArray: [Bool] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(UINib.init(nibName: "DailyUpdatesCell", bundle: nil), forCellWithReuseIdentifier: "DailyUpdatesCell")
@@ -113,6 +114,9 @@ extension MentorViewController: UICollectionViewDelegate, UICollectionViewDataSo
             return cell
         } else if indexPath.section == 5 {
             let cell: DoubtsCell = collectionView.dequeueReusableCell(withReuseIdentifier: "DoubtsCell", for: indexPath) as! DoubtsCell
+            cell.questionBtn.tag = indexPath.row
+            cell.questionBtn.addTarget(self, action: #selector(expandClicked(button:)), for: .touchUpInside)
+            cell.configureCell(data: faqArr[indexPath.row], willExpand: expandArray[indexPath.row])
             return cell
         } else if indexPath.section == 6 {
             let cell: AboutAppCell = collectionView.dequeueReusableCell(withReuseIdentifier: "AboutAppCell", for: indexPath) as! AboutAppCell
@@ -164,9 +168,14 @@ extension MentorViewController: UICollectionViewDelegate, UICollectionViewDataSo
             if indexPath.row == 0 || indexPath.row == 1 {
                 nextVC.type = true
             }
+            nextVC.id = planArr[indexPath.row].id ?? 0
             nextVC.descTitle = planArr[indexPath.row].description ?? ""
             self.navigationController?.pushViewController(nextVC, animated: true)
         }
+    }
+    @objc func expandClicked(button: UIButton) {
+        expandArray[button.tag] = !expandArray[button.tag]
+        collectionView.reloadData()
     }
 }
 extension MentorViewController: MentorViewModelDelegate {
@@ -179,9 +188,10 @@ extension MentorViewController: MentorViewModelDelegate {
     }
     
     func didReciveFAQData(response: FAQResponseModel?, error: String?) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [self] in
             self.dismiss()
             self.faqArr = response?.description ?? []
+            self.expandArray = Array(repeating: false, count: self.faqArr.count)
             self.collectionView.reloadData()
         }
     }
