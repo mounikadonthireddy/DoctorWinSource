@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		374773A5DD63296C89A4623F /* Pods_DoctorWin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A09804BC68F94A7ED859E3B0 /* Pods_DoctorWin.framework */; };
 		431052F92759E48B006BC13A /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431052F82759E48B006BC13A /* FilterViewController.swift */; };
 		431052FD275A099A006BC13A /* ProfileEditResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431052FC275A099A006BC13A /* ProfileEditResource.swift */; };
 		4347EF442746589100E634E9 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4347EF432746589100E634E9 /* HomeViewModel.swift */; };
@@ -142,10 +141,10 @@
 		43F57E51275615F9001120C8 /* RegisterResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F57E50275615F9001120C8 /* RegisterResource.swift */; };
 		43F57E5327561860001120C8 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F57E5227561860001120C8 /* BaseViewController.swift */; };
 		43F971E1275B5E8800733478 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F971E0275B5E8800733478 /* ProfileViewModel.swift */; };
+		7ACBC41732220CC22306E350 /* Pods_DoctorWin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F0DCB69D9B55E4285F73F73 /* Pods_DoctorWin.framework */; };
+		88D04CACA67A6B541A3848BB /* Pods_DoctorWin_DoctorWinUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A4D707B85E64C254BC250FA /* Pods_DoctorWin_DoctorWinUITests.framework */; };
 		8FF9ACFE2771B9B4002F4700 /* OTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF9ACFD2771B9B4002F4700 /* OTPViewModel.swift */; };
 		8FF9AD0227731525002F4700 /* NewsJobResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF9AD0127731525002F4700 /* NewsJobResource.swift */; };
-		91081772765C1A0B97616E69 /* Pods_DoctorWinTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 968112DC4E4E426C6FD7BD78 /* Pods_DoctorWinTests.framework */; };
-		92090A9F281AD4A980169631 /* Pods_DoctorWin_DoctorWinUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BDDA2635A6F61E4F15F8578 /* Pods_DoctorWin_DoctorWinUITests.framework */; };
 		BF0DD936278C88190053747A /* CarrierHighlightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0DD934278C88190053747A /* CarrierHighlightCell.swift */; };
 		BF0DD937278C88190053747A /* CarrierHighlightCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF0DD935278C88190053747A /* CarrierHighlightCell.xib */; };
 		BF0DD939278C8F980053747A /* CarrierPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0DD938278C8F980053747A /* CarrierPageViewController.swift */; };
@@ -259,10 +258,12 @@
 		BFD5FF2C2812EECE003CE888 /* NewsDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5FF2A2812EECE003CE888 /* NewsDetailsCell.swift */; };
 		BFD5FF2D2812EECE003CE888 /* NewsDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFD5FF2B2812EECE003CE888 /* NewsDetailsCell.xib */; };
 		BFD5FF2F2813048E003CE888 /* CarrierTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5FF2E2813048D003CE888 /* CarrierTabViewController.swift */; };
+		C024C72261E25EE7216A5368 /* Pods_DoctorWinTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 489D36EB0076CFF59C45B580 /* Pods_DoctorWinTests.framework */; };
 		DC103DE6296C3B2F00A4FD4D /* LearningImageBannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF1B4A028F71251007F4FA3 /* LearningImageBannerCell.swift */; };
 		DC103DE9296D682700A4FD4D /* TrendingCourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC103DE7296D682700A4FD4D /* TrendingCourseCell.swift */; };
 		DC103DEA296D682700A4FD4D /* TrendingCourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC103DE8296D682700A4FD4D /* TrendingCourseCell.xib */; };
 		DC103DEC296EB4DF00A4FD4D /* FellowshipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC103DEB296EB4DF00A4FD4D /* FellowshipViewController.swift */; };
+		DC16ADF029DFD5E50042DEFF /* Carrier.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC16ADEF29DFD5E50042DEFF /* Carrier.storyboard */; };
 		DC178D4129D4956400F81926 /* gif_image.gif in Resources */ = {isa = PBXBuildFile; fileRef = DC178D4029D4956300F81926 /* gif_image.gif */; };
 		DC178D4829D5A2D200F81926 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC178D4729D5A2D200F81926 /* SearchViewController.swift */; };
 		DC3A6A2628EFFBDF006F73A2 /* ShopDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3A6A2428EFFBDF006F73A2 /* ShopDetailsCell.swift */; };
@@ -280,6 +281,7 @@
 		DC465DA028E08D1C009E7D4C /* ConnectLikeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC465D9E28E08D1C009E7D4C /* ConnectLikeCell.xib */; };
 		DC465DA328E0947C009E7D4C /* ConnectImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC465DA128E0947C009E7D4C /* ConnectImageCell.swift */; };
 		DC465DA428E0947C009E7D4C /* ConnectImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC465DA228E0947C009E7D4C /* ConnectImageCell.xib */; };
+		DC48908629DD8EDC00A2943A /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC48908529DD8EDC00A2943A /* Socket.swift */; };
 		DC4AEF1E2853813D00D6D4A3 /* Me.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC4AEF1D2853813D00D6D4A3 /* Me.storyboard */; };
 		DC4AEF20285381C100D6D4A3 /* Network.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC4AEF1F285381C100D6D4A3 /* Network.storyboard */; };
 		DC4AEF222853847C00D6D4A3 /* Shop.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC4AEF212853847C00D6D4A3 /* Shop.storyboard */; };
@@ -290,10 +292,16 @@
 		DC55BE062872F40500B1EE1B /* DatingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC55BE052872F40500B1EE1B /* DatingModel.swift */; };
 		DC55BE082872F42900B1EE1B /* DatingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC55BE072872F42900B1EE1B /* DatingViewModel.swift */; };
 		DC55BE0A2872F47400B1EE1B /* DatingResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC55BE092872F47400B1EE1B /* DatingResource.swift */; };
+		DC61695929DDC79B00BA464F /* ChatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC61695829DDC79B00BA464F /* ChatListViewModel.swift */; };
+		DC61695B29DDC80600BA464F /* ChatResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC61695A29DDC80600BA464F /* ChatResource.swift */; };
+		DC61695D29DDCA3700BA464F /* ChatListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC61695C29DDCA3700BA464F /* ChatListModel.swift */; };
 		DC6B8A472853318A00F89D57 /* Tab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC6B8A462853318A00F89D57 /* Tab.storyboard */; };
 		DC6BCDA3287BE7D5004F143D /* SaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6BCDA2287BE7D4004F143D /* SaleViewController.swift */; };
 		DC6E4C2F29D5E78F00F9EC83 /* AboutCounsellingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6E4C2D29D5E78F00F9EC83 /* AboutCounsellingCell.swift */; };
 		DC6E4C3029D5E78F00F9EC83 /* AboutCounsellingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC6E4C2E29D5E78F00F9EC83 /* AboutCounsellingCell.xib */; };
+		DC7169C429DDC12100446025 /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7169C329DDC12000446025 /* ChatListViewController.swift */; };
+		DC7169C729DDC25700446025 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7169C529DDC25700446025 /* ChatCell.swift */; };
+		DC7169C829DDC25700446025 /* ChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC7169C629DDC25700446025 /* ChatCell.xib */; };
 		DC74AE0829A7653300F34B3F /* ImageSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC74AE0629A7653300F34B3F /* ImageSectionCell.swift */; };
 		DC74AE0929A7653300F34B3F /* ImageSectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC74AE0729A7653300F34B3F /* ImageSectionCell.xib */; };
 		DC74AE0C29A773FD00F34B3F /* JobCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC74AE0A29A773FD00F34B3F /* JobCVCell.swift */; };
@@ -494,7 +502,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0250EC400ED02723119E7CA8 /* Pods-DoctorWin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorWin.release.xcconfig"; path = "Target Support Files/Pods-DoctorWin/Pods-DoctorWin.release.xcconfig"; sourceTree = "<group>"; };
+		05FD5E4354927D1BC0DBFCE6 /* Pods-DoctorWin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorWin.release.xcconfig"; path = "Target Support Files/Pods-DoctorWin/Pods-DoctorWin.release.xcconfig"; sourceTree = "<group>"; };
+		0A4D707B85E64C254BC250FA /* Pods_DoctorWin_DoctorWinUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoctorWin_DoctorWinUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E2D2291AD167916760DD588 /* Pods-DoctorWinTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorWinTests.debug.xcconfig"; path = "Target Support Files/Pods-DoctorWinTests/Pods-DoctorWinTests.debug.xcconfig"; sourceTree = "<group>"; };
+		342B2692DDAF89351489A583 /* Pods-DoctorWin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorWin.debug.xcconfig"; path = "Target Support Files/Pods-DoctorWin/Pods-DoctorWin.debug.xcconfig"; sourceTree = "<group>"; };
 		431052F82759E48B006BC13A /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		431052FC275A099A006BC13A /* ProfileEditResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditResource.swift; sourceTree = "<group>"; };
 		4347EF432746589100E634E9 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -635,14 +646,11 @@
 		43F57E50275615F9001120C8 /* RegisterResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterResource.swift; sourceTree = "<group>"; };
 		43F57E5227561860001120C8 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		43F971E0275B5E8800733478 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
-		4BDDA2635A6F61E4F15F8578 /* Pods_DoctorWin_DoctorWinUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoctorWin_DoctorWinUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4E552430B9EE5A355A34C680 /* Pods-DoctorWin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorWin.debug.xcconfig"; path = "Target Support Files/Pods-DoctorWin/Pods-DoctorWin.debug.xcconfig"; sourceTree = "<group>"; };
-		5A3E4100895420D494512681 /* Pods-DoctorWin-DoctorWinUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorWin-DoctorWinUITests.debug.xcconfig"; path = "Target Support Files/Pods-DoctorWin-DoctorWinUITests/Pods-DoctorWin-DoctorWinUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		489D36EB0076CFF59C45B580 /* Pods_DoctorWinTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoctorWinTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		895D653D76157B87E49B8BB8 /* Pods-DoctorWin-DoctorWinUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorWin-DoctorWinUITests.debug.xcconfig"; path = "Target Support Files/Pods-DoctorWin-DoctorWinUITests/Pods-DoctorWin-DoctorWinUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		8F0DCB69D9B55E4285F73F73 /* Pods_DoctorWin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoctorWin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FF9ACFD2771B9B4002F4700 /* OTPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewModel.swift; sourceTree = "<group>"; };
 		8FF9AD0127731525002F4700 /* NewsJobResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsJobResource.swift; sourceTree = "<group>"; };
-		94EDB2E4E945E92A335EAAC8 /* Pods-DoctorWinTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorWinTests.release.xcconfig"; path = "Target Support Files/Pods-DoctorWinTests/Pods-DoctorWinTests.release.xcconfig"; sourceTree = "<group>"; };
-		968112DC4E4E426C6FD7BD78 /* Pods_DoctorWinTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoctorWinTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A09804BC68F94A7ED859E3B0 /* Pods_DoctorWin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoctorWin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF0DD934278C88190053747A /* CarrierHighlightCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrierHighlightCell.swift; sourceTree = "<group>"; };
 		BF0DD935278C88190053747A /* CarrierHighlightCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarrierHighlightCell.xib; sourceTree = "<group>"; };
 		BF0DD938278C8F980053747A /* CarrierPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrierPageViewController.swift; sourceTree = "<group>"; };
@@ -756,10 +764,11 @@
 		BFD5FF2A2812EECE003CE888 /* NewsDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailsCell.swift; sourceTree = "<group>"; };
 		BFD5FF2B2812EECE003CE888 /* NewsDetailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsDetailsCell.xib; sourceTree = "<group>"; };
 		BFD5FF2E2813048D003CE888 /* CarrierTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrierTabViewController.swift; sourceTree = "<group>"; };
-		CFDC4F24275C623FA5230FA3 /* Pods-DoctorWin-DoctorWinUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorWin-DoctorWinUITests.release.xcconfig"; path = "Target Support Files/Pods-DoctorWin-DoctorWinUITests/Pods-DoctorWin-DoctorWinUITests.release.xcconfig"; sourceTree = "<group>"; };
+		D75A55F9511307E302A97934 /* Pods-DoctorWinTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorWinTests.release.xcconfig"; path = "Target Support Files/Pods-DoctorWinTests/Pods-DoctorWinTests.release.xcconfig"; sourceTree = "<group>"; };
 		DC103DE7296D682700A4FD4D /* TrendingCourseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCourseCell.swift; sourceTree = "<group>"; };
 		DC103DE8296D682700A4FD4D /* TrendingCourseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrendingCourseCell.xib; sourceTree = "<group>"; };
 		DC103DEB296EB4DF00A4FD4D /* FellowshipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FellowshipViewController.swift; sourceTree = "<group>"; };
+		DC16ADEF29DFD5E50042DEFF /* Carrier.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Carrier.storyboard; sourceTree = "<group>"; };
 		DC178D4029D4956300F81926 /* gif_image.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = gif_image.gif; sourceTree = "<group>"; };
 		DC178D4729D5A2D200F81926 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		DC3A6A2428EFFBDF006F73A2 /* ShopDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDetailsCell.swift; sourceTree = "<group>"; };
@@ -777,6 +786,7 @@
 		DC465D9E28E08D1C009E7D4C /* ConnectLikeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConnectLikeCell.xib; sourceTree = "<group>"; };
 		DC465DA128E0947C009E7D4C /* ConnectImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectImageCell.swift; sourceTree = "<group>"; };
 		DC465DA228E0947C009E7D4C /* ConnectImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConnectImageCell.xib; sourceTree = "<group>"; };
+		DC48908529DD8EDC00A2943A /* Socket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Socket.swift; sourceTree = "<group>"; };
 		DC4AEF1D2853813D00D6D4A3 /* Me.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Me.storyboard; sourceTree = "<group>"; };
 		DC4AEF1F285381C100D6D4A3 /* Network.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Network.storyboard; sourceTree = "<group>"; };
 		DC4AEF212853847C00D6D4A3 /* Shop.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Shop.storyboard; sourceTree = "<group>"; };
@@ -787,10 +797,16 @@
 		DC55BE052872F40500B1EE1B /* DatingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatingModel.swift; sourceTree = "<group>"; };
 		DC55BE072872F42900B1EE1B /* DatingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatingViewModel.swift; sourceTree = "<group>"; };
 		DC55BE092872F47400B1EE1B /* DatingResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatingResource.swift; sourceTree = "<group>"; };
+		DC61695829DDC79B00BA464F /* ChatListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewModel.swift; sourceTree = "<group>"; };
+		DC61695A29DDC80600BA464F /* ChatResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatResource.swift; sourceTree = "<group>"; };
+		DC61695C29DDCA3700BA464F /* ChatListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListModel.swift; sourceTree = "<group>"; };
 		DC6B8A462853318A00F89D57 /* Tab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tab.storyboard; sourceTree = "<group>"; };
 		DC6BCDA2287BE7D4004F143D /* SaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleViewController.swift; sourceTree = "<group>"; };
 		DC6E4C2D29D5E78F00F9EC83 /* AboutCounsellingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCounsellingCell.swift; sourceTree = "<group>"; };
 		DC6E4C2E29D5E78F00F9EC83 /* AboutCounsellingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutCounsellingCell.xib; sourceTree = "<group>"; };
+		DC7169C329DDC12000446025 /* ChatListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewController.swift; sourceTree = "<group>"; };
+		DC7169C529DDC25700446025 /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
+		DC7169C629DDC25700446025 /* ChatCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatCell.xib; sourceTree = "<group>"; };
 		DC74AE0629A7653300F34B3F /* ImageSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSectionCell.swift; sourceTree = "<group>"; };
 		DC74AE0729A7653300F34B3F /* ImageSectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageSectionCell.xib; sourceTree = "<group>"; };
 		DC74AE0A29A773FD00F34B3F /* JobCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobCVCell.swift; sourceTree = "<group>"; };
@@ -969,7 +985,7 @@
 		DCF1B4B528F81068007F4FA3 /* LearningOverViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LearningOverViewCell.xib; sourceTree = "<group>"; };
 		DCF1B4B828F816D0007F4FA3 /* LearningDetailsVieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningDetailsVieModel.swift; sourceTree = "<group>"; };
 		DCF1B4BA28F816E5007F4FA3 /* LearningDetailsResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningDetailsResource.swift; sourceTree = "<group>"; };
-		E9F70AFB71164BEA0D30A370 /* Pods-DoctorWinTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorWinTests.debug.xcconfig"; path = "Target Support Files/Pods-DoctorWinTests/Pods-DoctorWinTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F3943D5703A8B670DDDEE568 /* Pods-DoctorWin-DoctorWinUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoctorWin-DoctorWinUITests.release.xcconfig"; path = "Target Support Files/Pods-DoctorWin-DoctorWinUITests/Pods-DoctorWin-DoctorWinUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -977,7 +993,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				374773A5DD63296C89A4623F /* Pods_DoctorWin.framework in Frameworks */,
+				7ACBC41732220CC22306E350 /* Pods_DoctorWin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -985,7 +1001,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91081772765C1A0B97616E69 /* Pods_DoctorWinTests.framework in Frameworks */,
+				C024C72261E25EE7216A5368 /* Pods_DoctorWinTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -993,7 +1009,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92090A9F281AD4A980169631 /* Pods_DoctorWin_DoctorWinUITests.framework in Frameworks */,
+				88D04CACA67A6B541A3848BB /* Pods_DoctorWin_DoctorWinUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1008,7 +1024,7 @@
 				439297A92722D629001891B8 /* DoctorWinUITests */,
 				439297862722D628001891B8 /* Products */,
 				4A65DAA7355CEE25182E3851 /* Pods */,
-				E5A4093318F988623876636C /* Frameworks */,
+				65556698AD951ECF52513695 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1030,6 +1046,7 @@
 				43AF8FC927358C9900CC69EF /* Common.swift */,
 				DC9BEE9B29CABD5F00376A51 /* PostJobViewController.swift */,
 				DC178D4729D5A2D200F81926 /* SearchViewController.swift */,
+				DC7169C229DDC0E000446025 /* Chat */,
 				DC9BEE9D29CB178600376A51 /* FAQCell.swift */,
 				DC9BEE9E29CB178600376A51 /* FAQCell.xib */,
 				DC9F6C7229C9F15B000B9BA2 /* Login */,
@@ -1206,6 +1223,7 @@
 				439297B82722D639001891B8 /* LoginViewController.swift */,
 				43F57E5227561860001120C8 /* BaseViewController.swift */,
 				439AA1F6273632A200D09E26 /* LoginVCExtension.swift */,
+				DC48908529DD8EDC00A2943A /* Socket.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1445,14 +1463,24 @@
 		4A65DAA7355CEE25182E3851 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				4E552430B9EE5A355A34C680 /* Pods-DoctorWin.debug.xcconfig */,
-				0250EC400ED02723119E7CA8 /* Pods-DoctorWin.release.xcconfig */,
-				5A3E4100895420D494512681 /* Pods-DoctorWin-DoctorWinUITests.debug.xcconfig */,
-				CFDC4F24275C623FA5230FA3 /* Pods-DoctorWin-DoctorWinUITests.release.xcconfig */,
-				E9F70AFB71164BEA0D30A370 /* Pods-DoctorWinTests.debug.xcconfig */,
-				94EDB2E4E945E92A335EAAC8 /* Pods-DoctorWinTests.release.xcconfig */,
+				342B2692DDAF89351489A583 /* Pods-DoctorWin.debug.xcconfig */,
+				05FD5E4354927D1BC0DBFCE6 /* Pods-DoctorWin.release.xcconfig */,
+				895D653D76157B87E49B8BB8 /* Pods-DoctorWin-DoctorWinUITests.debug.xcconfig */,
+				F3943D5703A8B670DDDEE568 /* Pods-DoctorWin-DoctorWinUITests.release.xcconfig */,
+				1E2D2291AD167916760DD588 /* Pods-DoctorWinTests.debug.xcconfig */,
+				D75A55F9511307E302A97934 /* Pods-DoctorWinTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		65556698AD951ECF52513695 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8F0DCB69D9B55E4285F73F73 /* Pods_DoctorWin.framework */,
+				0A4D707B85E64C254BC250FA /* Pods_DoctorWin_DoctorWinUITests.framework */,
+				489D36EB0076CFF59C45B580 /* Pods_DoctorWinTests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		BF0DD95C278D5CFD0053747A /* ProfileCells */ = {
@@ -1550,6 +1578,7 @@
 				BFD5FF2E2813048D003CE888 /* CarrierTabViewController.swift */,
 				DC74AE0E29A77C7800F34B3F /* CollectionViewLayout.swift */,
 				BFC3EF082834C71C000A1582 /* CarrierJobDetailsViewController.swift */,
+				DC16ADEF29DFD5E50042DEFF /* Carrier.storyboard */,
 			);
 			path = CarrierView;
 			sourceTree = "<group>";
@@ -1619,6 +1648,19 @@
 				DCF1B4A128F71251007F4FA3 /* LearningImageBannerCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		DC7169C229DDC0E000446025 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				DC7169C329DDC12000446025 /* ChatListViewController.swift */,
+				DC7169C529DDC25700446025 /* ChatCell.swift */,
+				DC7169C629DDC25700446025 /* ChatCell.xib */,
+				DC61695829DDC79B00BA464F /* ChatListViewModel.swift */,
+				DC61695A29DDC80600BA464F /* ChatResource.swift */,
+				DC61695C29DDCA3700BA464F /* ChatListModel.swift */,
+			);
+			path = Chat;
 			sourceTree = "<group>";
 		};
 		DC9BEEB129CB4CD400376A51 /* New Group */ = {
@@ -1849,16 +1891,6 @@
 			path = Learning;
 			sourceTree = "<group>";
 		};
-		E5A4093318F988623876636C /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				A09804BC68F94A7ED859E3B0 /* Pods_DoctorWin.framework */,
-				4BDDA2635A6F61E4F15F8578 /* Pods_DoctorWin_DoctorWinUITests.framework */,
-				968112DC4E4E426C6FD7BD78 /* Pods_DoctorWinTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1866,11 +1898,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 439297AF2722D629001891B8 /* Build configuration list for PBXNativeTarget "DoctorWin" */;
 			buildPhases = (
-				C195B483E5AAABB348075D0F /* [CP] Check Pods Manifest.lock */,
+				68E7FFD6D88BCCCA295195B8 /* [CP] Check Pods Manifest.lock */,
 				439297812722D628001891B8 /* Sources */,
 				439297822722D628001891B8 /* Frameworks */,
 				439297832722D628001891B8 /* Resources */,
-				0E9B0A4577028AE8FE0D8733 /* [CP] Embed Pods Frameworks */,
+				22CAD9694C4159DCCF6BA900 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1885,7 +1917,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 439297B22722D629001891B8 /* Build configuration list for PBXNativeTarget "DoctorWinTests" */;
 			buildPhases = (
-				422845EB38F49AF52C6B222B /* [CP] Check Pods Manifest.lock */,
+				1FA0A7B5C091902F08BAC808 /* [CP] Check Pods Manifest.lock */,
 				439297972722D629001891B8 /* Sources */,
 				439297982722D629001891B8 /* Frameworks */,
 				439297992722D629001891B8 /* Resources */,
@@ -1904,11 +1936,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 439297B52722D629001891B8 /* Build configuration list for PBXNativeTarget "DoctorWinUITests" */;
 			buildPhases = (
-				C5E1CA3F76DE506DE0D4CAC2 /* [CP] Check Pods Manifest.lock */,
+				2CDFACB941919C08AF8E169A /* [CP] Check Pods Manifest.lock */,
 				439297A22722D629001891B8 /* Sources */,
 				439297A32722D629001891B8 /* Frameworks */,
 				439297A42722D629001891B8 /* Resources */,
-				ECAC1A855D0FEAE1F5B6B2D4 /* [CP] Embed Pods Frameworks */,
+				A6EFE34E098CD547259DEA26 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2024,6 +2056,7 @@
 				DC9BEEB529CB4CF100376A51 /* AboutServiceCell.xib in Resources */,
 				DC9F6C5129C58874000B9BA2 /* MentorCell.xib in Resources */,
 				BFC3EEE32824A979000A1582 /* Add.storyboard in Resources */,
+				DC16ADF029DFD5E50042DEFF /* Carrier.storyboard in Resources */,
 				DCA0A6D328C0FA86001DE3F1 /* BioCell.xib in Resources */,
 				DC9BEEAC29CB49E800376A51 /* CounsellingCell.xib in Resources */,
 				439297D327231EDE001891B8 /* InfoCell.xib in Resources */,
@@ -2081,6 +2114,7 @@
 				439275D82727F22B00E91E33 /* HomeTableViewHeader.xib in Resources */,
 				DC6B8A472853318A00F89D57 /* Tab.storyboard in Resources */,
 				BF0DD937278C88190053747A /* CarrierHighlightCell.xib in Resources */,
+				DC7169C829DDC25700446025 /* ChatCell.xib in Resources */,
 				43D04BD32742892600414771 /* EditSkillCell.xib in Resources */,
 				DCA0A6E528C34957001DE3F1 /* NetworkCVCell.xib in Resources */,
 				DCF1B4B728F81068007F4FA3 /* LearningOverViewCell.xib in Resources */,
@@ -2137,24 +2171,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0E9B0A4577028AE8FE0D8733 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DoctorWin/Pods-DoctorWin-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DoctorWin/Pods-DoctorWin-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DoctorWin/Pods-DoctorWin-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		422845EB38F49AF52C6B222B /* [CP] Check Pods Manifest.lock */ = {
+		1FA0A7B5C091902F08BAC808 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2176,29 +2193,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C195B483E5AAABB348075D0F /* [CP] Check Pods Manifest.lock */ = {
+		22CAD9694C4159DCCF6BA900 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DoctorWin/Pods-DoctorWin-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DoctorWin-checkManifestLockResult.txt",
+				"${PODS_ROOT}/Target Support Files/Pods-DoctorWin/Pods-DoctorWin-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DoctorWin/Pods-DoctorWin-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C5E1CA3F76DE506DE0D4CAC2 /* [CP] Check Pods Manifest.lock */ = {
+		2CDFACB941919C08AF8E169A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2220,7 +2232,29 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		ECAC1A855D0FEAE1F5B6B2D4 /* [CP] Embed Pods Frameworks */ = {
+		68E7FFD6D88BCCCA295195B8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DoctorWin-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A6EFE34E098CD547259DEA26 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2346,6 +2380,7 @@
 				DC55BE002872B9B900B1EE1B /* MCQViewController.swift in Sources */,
 				BFB3A66728352A02008D0C72 /* SpecialityCell.swift in Sources */,
 				DC6BCDA3287BE7D5004F143D /* SaleViewController.swift in Sources */,
+				DC48908629DD8EDC00A2943A /* Socket.swift in Sources */,
 				DC885E4728DC704900110418 /* MatchesViewController.swift in Sources */,
 				DCF1B49E28F711C0007F4FA3 /* LearningCategoryCell.swift in Sources */,
 				DC9F6C6829C5DDC1000B9BA2 /* ShotTableViewCell.swift in Sources */,
@@ -2363,6 +2398,7 @@
 				DCA0A6FB28C61109001DE3F1 /* PeopleViewModel.swift in Sources */,
 				43AF8FAF2733D5B800CC69EF /* RegisterDetailsViewController.swift in Sources */,
 				43AF9F87272975260020CCF3 /* HomeDataModel.swift in Sources */,
+				DC61695D29DDCA3700BA464F /* ChatListModel.swift in Sources */,
 				DC6E4C2F29D5E78F00F9EC83 /* AboutCounsellingCell.swift in Sources */,
 				DC8AE24A286D9E33003376A7 /* ShopModel.swift in Sources */,
 				BF170F4928084825001B3109 /* ProfileCell.swift in Sources */,
@@ -2376,6 +2412,7 @@
 				439275CF2727CE8400E91E33 /* StoryCell.swift in Sources */,
 				DCA0A6E028C31463001DE3F1 /* ShopWishlistHeaderView.swift in Sources */,
 				439923CA272BD8A70085E067 /* JobTableCell.swift in Sources */,
+				DC7169C429DDC12100446025 /* ChatListViewController.swift in Sources */,
 				43A6A98627329D0200400F72 /* AddSkillsCell.swift in Sources */,
 				BF0DD93B278C93130053747A /* TitleView.swift in Sources */,
 				DC9F6C7829CA04AA000B9BA2 /* MentorModel.swift in Sources */,
@@ -2394,6 +2431,7 @@
 				DC94B31729D951E0006A3CB7 /* AboutViewController.swift in Sources */,
 				DC103DE9296D682700A4FD4D /* TrendingCourseCell.swift in Sources */,
 				43B52E42273BD1CB004EF637 /* PostReplyTableView.swift in Sources */,
+				DC61695929DDC79B00BA464F /* ChatListViewModel.swift in Sources */,
 				43B231FD273AA65100038F8A /* CustomJobMainViewController.swift in Sources */,
 				BFD5FF2C2812EECE003CE888 /* NewsDetailsCell.swift in Sources */,
 				BF431C912782FAF20057AF9F /* ExperienceViewController.swift in Sources */,
@@ -2499,6 +2537,7 @@
 				DC74AE0C29A773FD00F34B3F /* JobCVCell.swift in Sources */,
 				43AF8FC027358C0700CC69EF /* ValidationResult.swift in Sources */,
 				43F971E1275B5E8800733478 /* ProfileViewModel.swift in Sources */,
+				DC7169C729DDC25700446025 /* ChatCell.swift in Sources */,
 				43AF8FB32733D96F00CC69EF /* PaddingTextFeild.swift in Sources */,
 				BFC3EEEE28252579000A1582 /* RequestViewController.swift in Sources */,
 				DC74AE0F29A77C7800F34B3F /* CollectionViewLayout.swift in Sources */,
@@ -2547,6 +2586,7 @@
 				DCDCB4E729CA0A7000FE166D /* MentorResource.swift in Sources */,
 				DC9F6C4429C57CAB000B9BA2 /* TestimonialCell.swift in Sources */,
 				439297BF2722D718001891B8 /* HomeViewController.swift in Sources */,
+				DC61695B29DDC80600BA464F /* ChatResource.swift in Sources */,
 				DC9AB74F28F8311200C6043E /* CurriculamExpandCell.swift in Sources */,
 				DCDCB4E929CA0A7E00FE166D /* MentorViewModel.swift in Sources */,
 				DC9AB76228F867C100C6043E /* LearningCategoryViewModel.swift in Sources */,
@@ -2728,7 +2768,7 @@
 		};
 		439297B02722D629001891B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4E552430B9EE5A355A34C680 /* Pods-DoctorWin.debug.xcconfig */;
+			baseConfigurationReference = 342B2692DDAF89351489A583 /* Pods-DoctorWin.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -2752,7 +2792,7 @@
 		};
 		439297B12722D629001891B8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0250EC400ED02723119E7CA8 /* Pods-DoctorWin.release.xcconfig */;
+			baseConfigurationReference = 05FD5E4354927D1BC0DBFCE6 /* Pods-DoctorWin.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -2776,7 +2816,7 @@
 		};
 		439297B32722D629001891B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E9F70AFB71164BEA0D30A370 /* Pods-DoctorWinTests.debug.xcconfig */;
+			baseConfigurationReference = 1E2D2291AD167916760DD588 /* Pods-DoctorWinTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -2798,7 +2838,7 @@
 		};
 		439297B42722D629001891B8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 94EDB2E4E945E92A335EAAC8 /* Pods-DoctorWinTests.release.xcconfig */;
+			baseConfigurationReference = D75A55F9511307E302A97934 /* Pods-DoctorWinTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -2820,7 +2860,7 @@
 		};
 		439297B62722D629001891B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5A3E4100895420D494512681 /* Pods-DoctorWin-DoctorWinUITests.debug.xcconfig */;
+			baseConfigurationReference = 895D653D76157B87E49B8BB8 /* Pods-DoctorWin-DoctorWinUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -2840,7 +2880,7 @@
 		};
 		439297B72722D629001891B8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CFDC4F24275C623FA5230FA3 /* Pods-DoctorWin-DoctorWinUITests.release.xcconfig */;
+			baseConfigurationReference = F3943D5703A8B670DDDEE568 /* Pods-DoctorWin-DoctorWinUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

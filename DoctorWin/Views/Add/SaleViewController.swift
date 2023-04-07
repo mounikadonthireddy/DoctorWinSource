@@ -18,7 +18,9 @@ class SaleViewController: ViewController {
     @IBOutlet weak var productModel: UITextField!
     @IBOutlet weak var productLocation: UITextField!
     @IBOutlet weak var mobileNumber: UITextField!
+    @IBOutlet weak var desciptionTV: UITextView!
     var imageUpload : [AGImageStructInfo] = []
+    var shopVM = ShopViewModel()
     var imagePicker: ImagePicker!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,19 +31,23 @@ class SaleViewController: ViewController {
         collectionViewLayout.minimumLineSpacing = 0
         collectionViewLayout.minimumInteritemSpacing = 0
         collectionViewLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+//        productCategory.optionArray = ["Books", "Electronic", "Health & Beauty", "Home Furniture", "Hospital Furniture", "Laptop & Computer", "Other", "Pets", "Properties", "Vehicals"]
+        shopVM.delegate = self
+       
+       loadShopCategoryData()
     }
     @IBAction func backClicked(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
     @IBAction func postClicked(_ sender: UIButton) {
-        let inputDict = ["category_name": "Book",
-                         "product_name": "Book",
-                         "product_condition": "Good",
-                         "product_models": "LKG",
-                         "product_price": "1000",
-                         "location": "Hyderabad",
-                         "phone": "114324545",
-                         "description": "vsdfgsdfgdsfgdf"
+        let inputDict = ["category_name": productCategory.text,
+                         "name": productName.text,
+                         "product_condition": productCondition.text,
+                         "product_models": productModel.text,
+                         "price": productPrice.text,
+                         "location": productLocation.text,
+                         "phone": mobileNumber.text,
+                         "description": desciptionTV.text
         ]
         let parameters: [String: Any] = [
             "image": imageUpload
@@ -53,6 +59,10 @@ class SaleViewController: ViewController {
             debugPrint(json)
         }
         
+    }
+    func loadShopCategoryData() {
+        showLoader()
+        shopVM.getShopCategoryData(userID: User.shared.userID, pageNum: 0)
     }
 }
 extension SaleViewController : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -112,5 +122,47 @@ extension SaleViewController: ImagePickerDelegate {
         imageUpload.append(AGImageStructInfo(fileName: fileName!, type: "image/jpeg", data: image!.toData()))
 
     }
+    
+}
+extension SaleViewController: UITextViewDelegate, UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return textField.resignFirstResponder()
+    }
+    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+        return textView.resignFirstResponder()
+    }
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+}
+extension SaleViewController: ShopDelegate {
+    func didReciveShopData(response: ShopResponseModel?, error: String?) {
+       
+        
+    }
+    
+    func didReciveShopBannerData(response: [ImageBannerModel]?, error: String?) {
+        self.dismiss()
+       
+    }
+    
+    func didReciveShopData(response: [ShopModel]?, error: String?) {
+        self.dismiss()
+        
+    }
+    
+    func didReciveShopCategoryData(response: [ShopCategoryModel]?, error: String?) {
+        self.dismiss()
+        if let data = response {
+            productCategory.optionArray = data.map { data in
+                return data.name ?? ""
+            }
+        }
+    }
+    
     
 }

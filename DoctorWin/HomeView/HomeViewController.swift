@@ -32,6 +32,7 @@ class HomeViewController: ViewController {
         //topView.dropShadow()
         
         tableView.register(HomeTableHeader.nib, forHeaderFooterViewReuseIdentifier: HomeTableHeader.identifier)
+        //let socket = WebSocketClient(url: <#String#>)
         
         
         self.tableView.delegate = self
@@ -217,7 +218,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
        
     }
     @objc func jobClicked(button: UIButton) {
-        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "CarrierTabViewController") as! CarrierTabViewController
+        let str = UIStoryboard(name: "Carrier", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "CarrierTabViewController") as! CarrierTabViewController
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     @objc func explainClicked(button: UIButton) {

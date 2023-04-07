@@ -218,14 +218,14 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Write a Case summary with chief complaint, history and examinations etc..?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="v8d-nP-DFl">
-                                                <rect key="frame" x="20" y="150" width="374" height="358.5"/>
+                                                <rect key="frame" x="20" y="175" width="374" height="358.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3zY-VJ-mXk">
-                                                <rect key="frame" x="20" y="528.5" width="374" height="30"/>
+                                                <rect key="frame" x="20" y="553.5" width="374" height="30"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add_chief_comp" translatesAutoresizingMaskIntoConstraints="NO" id="wGF-8v-QHU">
                                                         <rect key="frame" x="0.0" y="2.5" width="25" height="25"/>
@@ -263,7 +263,7 @@
                                                 </constraints>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Htq-eC-uWO">
-                                                <rect key="frame" x="25" y="558.5" width="369" height="60"/>
+                                                <rect key="frame" x="25" y="583.5" width="369" height="60"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="  write your chief complaint.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ufE-el-tAz">
                                                         <rect key="frame" x="35" y="8" width="334" height="44"/>
@@ -284,7 +284,7 @@
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Dre-qR-jAw">
-                                                <rect key="frame" x="20" y="638.5" width="374" height="30"/>
+                                                <rect key="frame" x="20" y="663.5" width="374" height="30"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add_patient_his" translatesAutoresizingMaskIntoConstraints="NO" id="frE-wA-dWf">
                                                         <rect key="frame" x="0.0" y="2.5" width="25" height="25"/>
@@ -322,7 +322,7 @@
                                                 </constraints>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wvW-nN-bGd">
-                                                <rect key="frame" x="25" y="668.5" width="369" height="290"/>
+                                                <rect key="frame" x="25" y="693.5" width="369" height="290"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rEA-s8-iMx">
                                                         <rect key="frame" x="35" y="15" width="334" height="265"/>
@@ -385,7 +385,7 @@
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mnc-X9-DJO">
-                                                <rect key="frame" x="25" y="978.5" width="369" height="30"/>
+                                                <rect key="frame" x="25" y="1003.5" width="369" height="30"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add_investigation" translatesAutoresizingMaskIntoConstraints="NO" id="QLn-ru-uZ0">
                                                         <rect key="frame" x="0.0" y="2.5" width="25" height="25"/>
@@ -423,7 +423,7 @@
                                                 </constraints>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Beb-ZU-Zd5">
-                                                <rect key="frame" x="25" y="1008.5" width="364" height="165"/>
+                                                <rect key="frame" x="25" y="1033.5" width="364" height="165"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Bf1-1S-Cg9">
                                                         <rect key="frame" x="35" y="15" width="329" height="156"/>
@@ -467,7 +467,7 @@
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Zkf-YK-wMc">
-                                                <rect key="frame" x="25" y="1193.5" width="369" height="30"/>
+                                                <rect key="frame" x="25" y="1218.5" width="369" height="30"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add_investigation" translatesAutoresizingMaskIntoConstraints="NO" id="PVS-TJ-Y2w">
                                                         <rect key="frame" x="0.0" y="2.5" width="25" height="25"/>
@@ -505,7 +505,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dAM-ox-WwY">
-                                                <rect key="frame" x="25" y="1408.5" width="369" height="30"/>
+                                                <rect key="frame" x="25" y="1433.5" width="369" height="30"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add_pro_diagnosis" translatesAutoresizingMaskIntoConstraints="NO" id="7CY-P9-Xug">
                                                         <rect key="frame" x="0.0" y="2.5" width="25" height="25"/>
@@ -543,7 +543,7 @@
                                                 </constraints>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dJz-z1-cZW">
-                                                <rect key="frame" x="25" y="1223.5" width="364" height="165"/>
+                                                <rect key="frame" x="25" y="1248.5" width="364" height="165"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="HC6-JH-7n0">
                                                         <rect key="frame" x="35" y="15" width="329" height="155"/>
@@ -587,7 +587,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xOj-Gh-0ZI">
-                                                <rect key="frame" x="25" y="1438.5" width="364" height="60"/>
+                                                <rect key="frame" x="25" y="1463.5" width="364" height="60"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="  write your chief complaint.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KRX-j3-koq">
                                                         <rect key="frame" x="35" y="20" width="329" height="44"/>
@@ -619,13 +619,13 @@
                                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="r1f-Yn-Jtm">
-                                                <rect key="frame" x="20" y="55" width="374" height="75"/>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="r1f-Yn-Jtm">
+                                                <rect key="frame" x="20" y="55" width="374" height="100"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="75" id="gzg-QH-srv"/>
+                                                    <constraint firstAttribute="height" constant="100" id="gzg-QH-srv"/>
                                                 </constraints>
-                                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="A5K-XK-P1g">
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="A5K-XK-P1g">
                                                     <size key="itemSize" width="128" height="128"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -633,7 +633,7 @@
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="zR5-Pd-CbM">
-                                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                        <rect key="frame" x="0.0" y="-14" width="128" height="128"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="yH8-x1-gTv">
                                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
@@ -817,7 +817,7 @@
                                 <rect key="frame" x="0.0" y="108" width="414" height="754"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uuN-Ju-YUh">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1100"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1400"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Add your product details" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Jdd-lz-ZPQ">
                                                 <rect key="frame" x="20" y="140" width="374" height="269"/>
@@ -825,6 +825,9 @@
                                                 <color key="textColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="22"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="MfA-Ka-a5I" id="jpg-Uf-Vwn"/>
+                                                </connections>
                                             </textView>
                                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qXv-d8-oFg">
                                                 <rect key="frame" x="307" y="8" width="107" height="23"/>
@@ -852,6 +855,9 @@
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="wOl-0v-eP1" id="MpE-KW-hkz"/>
+                                                                </connections>
                                                             </textField>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jvb-W0-HWB">
                                                                 <rect key="frame" x="0.0" y="85" width="369" height="20"/>
@@ -869,7 +875,10 @@
                                                                     <constraint firstAttribute="height" constant="45" id="kq9-az-JkR"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="wOl-0v-eP1" id="TMH-to-NAe"/>
+                                                                </connections>
                                                             </textField>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Condition" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GLz-un-8lM">
                                                                 <rect key="frame" x="0.0" y="170" width="369" height="20"/>
@@ -887,6 +896,9 @@
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="wOl-0v-eP1" id="Zzw-Nk-0e4"/>
+                                                                </connections>
                                                             </textField>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NNC-Xx-AoE">
                                                                 <rect key="frame" x="0.0" y="255" width="369" height="20"/>
@@ -904,6 +916,9 @@
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="wOl-0v-eP1" id="ddg-pT-war"/>
+                                                                </connections>
                                                             </textField>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Model" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5h4-Dm-8Br">
                                                                 <rect key="frame" x="0.0" y="340" width="369" height="20"/>
@@ -921,6 +936,9 @@
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="wOl-0v-eP1" id="IoK-nB-47D"/>
+                                                                </connections>
                                                             </textField>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OIs-z4-4MD">
                                                                 <rect key="frame" x="0.0" y="425" width="369" height="20"/>
@@ -935,6 +953,9 @@
                                                                 <rect key="frame" x="0.0" y="455" width="369" height="34"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="wOl-0v-eP1" id="F6d-qH-nI9"/>
+                                                                </connections>
                                                             </textField>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="psE-l6-0g3">
                                                                 <rect key="frame" x="0.0" y="499" width="369" height="20"/>
@@ -952,6 +973,9 @@
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="wOl-0v-eP1" id="yJq-rm-F80"/>
+                                                                </connections>
                                                             </textField>
                                                         </subviews>
                                                         <constraints>
@@ -1007,7 +1031,7 @@
                                             <constraint firstAttribute="trailing" secondItem="gDV-c4-0b1" secondAttribute="trailing" id="KxZ-Rh-i0h"/>
                                             <constraint firstItem="Jdd-lz-ZPQ" firstAttribute="top" secondItem="gDV-c4-0b1" secondAttribute="bottom" constant="20" id="Lqs-vl-mwT"/>
                                             <constraint firstItem="TdA-re-8c2" firstAttribute="leading" secondItem="uuN-Ju-YUh" secondAttribute="leading" constant="25" id="TmK-Qz-dxx"/>
-                                            <constraint firstAttribute="height" constant="1100" id="UXw-Gl-ete"/>
+                                            <constraint firstAttribute="height" constant="1400" id="UXw-Gl-ete"/>
                                             <constraint firstItem="Jdd-lz-ZPQ" firstAttribute="leading" secondItem="uuN-Ju-YUh" secondAttribute="leading" constant="20" id="fQr-7F-kyG"/>
                                             <constraint firstAttribute="trailing" secondItem="TdA-re-8c2" secondAttribute="trailing" constant="20" id="vXB-VY-SsH"/>
                                             <constraint firstItem="gDV-c4-0b1" firstAttribute="top" secondItem="uuN-Ju-YUh" secondAttribute="top" constant="20" id="yFm-w3-M5j"/>
@@ -1041,6 +1065,7 @@
                     <connections>
                         <outlet property="collectionView" destination="gDV-c4-0b1" id="Fc5-WO-60q"/>
                         <outlet property="collectionViewLayout" destination="hAE-YE-r02" id="KZc-4J-Or1"/>
+                        <outlet property="desciptionTV" destination="Jdd-lz-ZPQ" id="Ot0-Qu-XqV"/>
                         <outlet property="mobileNumber" destination="b2P-o5-uqj" id="ODj-vJ-Yw7"/>
                         <outlet property="productCategory" destination="t01-Ca-e2O" id="uCO-Uo-VCL"/>
                         <outlet property="productCondition" destination="dUg-1V-lWH" id="s8F-OL-lY0"/>
@@ -1696,6 +1721,9 @@
                                 <color key="textColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="etn-Ct-wmU" id="TYT-HA-uMd"/>
+                                </connections>
                             </textView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mKD-vO-Qox">
                                 <rect key="frame" x="0.0" y="40" width="414" height="60"/>

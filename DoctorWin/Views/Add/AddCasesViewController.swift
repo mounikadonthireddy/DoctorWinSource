@@ -196,7 +196,16 @@ extension AddCasesViewController: UITextFieldDelegate, UITextViewDelegate {
         return textField.resignFirstResponder()
     }
     
-    
+    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+        return textView.resignFirstResponder()
+    }
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
 }
 extension AddCasesViewController: ImagePickerDelegate {
     func didSelect(image: UIImage?, fileName: String?, fileType: String?) {
@@ -231,6 +240,12 @@ extension AddCasesViewController : UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell: ImageCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! ImageCell
+        if imageUpload1.count > indexPath.row {
+            cell.profileImage.image = UIImage(data: imageUpload1[indexPath.row].data)
+            cell.imageBtn.isHidden = true
+        } else {
+            cell.imageBtn.isHidden = false
+        }
            
         cell.imageBtn.addTarget(self, action: #selector(selectImage(button:)), for: .touchUpInside)
 //        if self.imageView.image != nil {
@@ -241,28 +256,28 @@ extension AddCasesViewController : UICollectionViewDelegate, UICollectionViewDat
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
      
-        let yourWidth = CGFloat(90)
+        let yourWidth = CGFloat(100)
         return CGSize(width: yourWidth, height: collectionView.bounds.height)
        
     }
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2) //.zero
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0) //.zero
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         
-        return 2
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         
-        return 5
+        return 0
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {

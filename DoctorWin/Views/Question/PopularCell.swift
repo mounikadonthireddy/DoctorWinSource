@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import WebKit
 class PopularCell: UITableViewCell {
 
     @IBOutlet weak var questionLbl: UILabel!
@@ -58,6 +58,12 @@ class PopularCell: UITableViewCell {
     }
     func configureDataWith(homeModel: HomeDataModel) {
         self.postedPersonName.text = homeModel.userDetails?.name ?? ""
+        let webView2 = UIWebView()
+        if let des = homeModel.description {
+            webView2.loadHTMLString(des, baseURL: nil)
+        }
+        webView2.frame = self.frame
+        self.addSubview(webView2)
         self.titleLable.attributedText =  homeModel.description?.convertToAttributedFromHTML()
         self.designation.text = homeModel.userDetails?.speciality ?? ""
         self.questionLbl.text = homeModel.title ?? ""

@@ -57,7 +57,7 @@ struct ShopResource {
         
     }
     func getshopCategoryData(userID: String, pageNum: Int, completion : @escaping (_ result: ResponseResult<[ShopCategoryModel]>) -> Void) {
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.shopCategory + ApiEndpoints.userID + "=\(userID)"
+        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.shopCategory 
         let httpUtility = HttpUtility()
         do {
             httpUtility.getApiData(urlString: homeUrlStr, resultType: ShopCategoryResponseModel.self) { result in

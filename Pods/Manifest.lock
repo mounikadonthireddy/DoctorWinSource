@@ -1,11 +1,12 @@
 PODS:
-  - Alamofire (5.4.4)
-  - iOSDropDown (0.3.4)
-  - SDWebImage (5.12.1):
-    - SDWebImage/Core (= 5.12.1)
-  - SDWebImage/Core (5.12.1)
+  - Alamofire (5.6.4)
+  - iOSDropDown (0.4.0)
+  - SDWebImage (5.15.5):
+    - SDWebImage/Core (= 5.15.5)
+  - SDWebImage/Core (5.15.5)
   - SkeletonView (1.30.4)
   - SkyFloatingLabelTextField (3.8.0)
+  - SwiftWebSocket (2.7.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.4)
@@ -13,6 +14,7 @@ DEPENDENCIES:
   - SDWebImage (~> 5.0)
   - SkeletonView
   - SkyFloatingLabelTextField (~> 3.0)
+  - SwiftWebSocket
 
 SPEC REPOS:
   trunk:
@@ -21,14 +23,16 @@ SPEC REPOS:
     - SDWebImage
     - SkeletonView
     - SkyFloatingLabelTextField
+    - SwiftWebSocket
 
 SPEC CHECKSUMS:
-  Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
-  iOSDropDown: c10a761f9a00c3f1cc9d3bce43ae504628e2f692
-  SDWebImage: 4dc3e42d9ec0c1028b960a33ac6b637bb432207b
+  Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
+  iOSDropDown: ce9daa584eaa5567cafc1b633e3cc7eb6d9cea42
+  SDWebImage: fd7e1a22f00303e058058278639bf6196ee431fe
   SkeletonView: 5a050f6411e697abd4cda0a8d767013399dccd69
   SkyFloatingLabelTextField: 5a338412114808e961fe2d14ea2c5452c8b6e4aa
+  SwiftWebSocket: 612c9729fd503cb6b0b8b45390c788686dac306f
 
-PODFILE CHECKSUM: fc314de149bfea38b80104403d736113f308e86d
+PODFILE CHECKSUM: 08160cc3380c9d27e291c3efe76525c5a46d1032
 
 COCOAPODS: 1.11.3

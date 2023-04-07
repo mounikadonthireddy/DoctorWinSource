@@ -59,6 +59,13 @@ extension ImageSectionTVCell : UICollectionViewDelegate, UICollectionViewDataSou
         cell.name.text = courseArray[indexPath.item]
         cell.name.backgroundColor = UIColor.white
         cell.setCornerRadiusWithBorderColor(radius: 3, color: UIColor.secondaryLabel, borderWidth: 0.5)
+        
+            if cell.isSelected {
+                cell.name.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            } else {
+                cell.name.textColor = #colorLiteral(red: 0, green: 0.381624639, blue: 0.6041520834, alpha: 1)
+            }
+        cell.setCornerRadiusWithBorderColor(radius: 10, color: #colorLiteral(red: 0, green: 0.381624639, blue: 0.6041520834, alpha: 1), borderWidth: 0.8)
         return cell
         
     }

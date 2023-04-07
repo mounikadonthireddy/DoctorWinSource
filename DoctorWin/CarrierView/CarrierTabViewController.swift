@@ -55,7 +55,12 @@ class CarrierTabViewController: ViewController {
         self.navigationController?.pushViewController(nextVC, animated: true)
         
     }
-
+    @IBAction func postClicked(_ sender: UIButton) {
+        let str = UIStoryboard(name: "Me", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "PostJobViewController") as! PostJobViewController
+        
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
 }
 
 extension CarrierTabViewController: JobCategoryViewModelDelegate {

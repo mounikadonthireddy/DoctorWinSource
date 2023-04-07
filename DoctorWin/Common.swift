@@ -96,7 +96,7 @@ struct ApiEndpoints {
     static let getFollowing = "auth/following"
     static let getRequest = "auth/follow"
     static let getPeoples = "people"
-    static let createGroup = "group/create"
+    static let createGroup = "groups/"
     static let postQuestion = "ask/question"
     //Requested User
     static let userCases = "user/case"
@@ -118,7 +118,7 @@ struct ApiEndpoints {
     static let shopSale = "sale/userrelatedproducts"
     static let shopRecent = "shopping/product/view"
     static let shopBookmark = "shopping/product/bookmark"
-    static let postProduct = "shopping/product/post"
+    static let postProduct = "sale/product"
     //Elearning
     static let learningBanner = "admin/banner/get?name=elearningimage"
     static let trendingCourses = "learning/trending"
@@ -149,6 +149,8 @@ struct ApiEndpoints {
     static let askquestion = "mentor/askquestion"
     static let expertcategory = "mentor/expertcategory"
    static let aboutus = "mentor/aboutus"
+    //Chat
+    static let chatList = "chatroom/"
     
 }
 

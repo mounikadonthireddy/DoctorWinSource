@@ -11,6 +11,7 @@ target 'DoctorWin' do
   pod 'SkyFloatingLabelTextField', '~> 3.0'
   pod 'Alamofire', '~> 5.4'
   pod "SkeletonView"
+  pod 'SwiftWebSocket'
 
   
   target 'DoctorWinTests' do

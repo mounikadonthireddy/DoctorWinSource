@@ -66,6 +66,7 @@ class CreateGroupViewController: ViewController {
         AGUploadImageWebServices(url: url, parameter: parameters, inputData: param, method: .post)
             .responseJSON { (json, eror) in
                 self.dismiss()
+                
             debugPrint(json)
         }
             
@@ -80,6 +81,15 @@ class CreateGroupViewController: ViewController {
         self.imagePicker.present(from: sender)
     }
 
+}
+extension CreateGroupViewController: UITextViewDelegate {
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+           if(text == "\n") {
+               textView.resignFirstResponder()
+               return false
+           }
+           return true
+       }
 }
 extension CreateGroupViewController: ImagePickerDelegate {
     func didSelect(image: UIImage?, fileName: String?, fileType: String?) {
