@@ -30,6 +30,16 @@ class JobsCollectionCell: UICollectionViewCell {
         hospitalImage.setCornerRadius(radius: 10)
     }
     @IBAction func chatClicked(_ sender: UIButton) {
+        let phoneNumber =  "8500001406" // you need to change this number
+        let appURL = URL(string: "https://api.whatsapp.com/send?phone=\(phoneNumber)")!
+        if UIApplication.shared.canOpenURL(appURL) {
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(appURL, options: [:], completionHandler: nil)
+            }
+            else {
+                UIApplication.shared.openURL(appURL)
+            }
+        }
     }
     
     @IBAction func callClicked(_ sender: UIButton) {

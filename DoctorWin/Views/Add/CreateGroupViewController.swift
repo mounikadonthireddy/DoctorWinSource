@@ -20,6 +20,7 @@ class CreateGroupViewController: ViewController {
     var imageUpload1 : AGImageStructInfo?
     var imageUpload2 : AGImageStructInfo?
     var groupModel : GroupProfileModel?
+    var isUpdate: Bool = false
  
     var tag = -1
     override func viewDidLoad() {
@@ -53,17 +54,18 @@ class CreateGroupViewController: ViewController {
     }
     @IBAction func createClicked(_ sender: UIButton) {
         let param = ["name_of_group": groupNameTF.text ?? "",
-                     "description": groupDescriptionTV.text ?? ""] as [String : Any]
+                     "description": groupDescriptionTV.text ?? "",
+                     "cover_image": nil] as [String : Any]
        self.showLoader()
         let url = ApiEndpoints.baseUrl + ApiEndpoints.createGroup
 
         
-        let parameters: [String: Any] = [
+        let parameters: [String: Any?] = [
             "image": imageUpload1,
-            "cover_image": imageUpload2
+           
         ]
 
-        AGUploadImageWebServices(url: url, parameter: parameters, inputData: param, method: .post)
+        AGUploadImageWebServices(url: url, parameter: parameters, inputData: param, method: isUpdate ? .put : .post)
             .responseJSON { (json, eror) in
                 self.dismiss()
                 

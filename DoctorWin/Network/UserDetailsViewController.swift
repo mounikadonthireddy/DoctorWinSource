@@ -91,6 +91,9 @@ extension UserDetailsViewController: UITableViewDelegate, UITableViewDataSource 
             let cell: CaseCell
             = tableView.dequeueReusableCell(withIdentifier: "CaseCell") as! CaseCell
             cell.configureData(homeModel: postsArray[indexPath.row])
+            if let data = userDetailsModel {
+                cell.updateUserDetails(data: data)
+            }
             return cell
         }
  
@@ -101,66 +104,79 @@ extension UserDetailsViewController: UITableViewDelegate, UITableViewDataSource 
 //                return 412
 //            }
 //        }
-        return 440
+        return UITableView.automaticDimension
         
     }
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if let details = groupModel {
-            if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "UserHeaderView") as? UserHeaderView {
-                headerView.joinBtn.tag = 1
-                
-                headerView.configureView(data: details)
-                if details.admin_status == true {
-                    headerView.joinBtn.setTitle("Edit", for: .normal)
-                    headerView.joinBtn.tag = 2
-                    postView.isHidden = false
-                    postViewHeight.constant = 40
-                } else if details.joined_status == true {
-                    headerView.joinBtn.setTitle("Joined", for: .normal)
-                    postView.isHidden = false
-                    postViewHeight.constant = 40
-                } else {
-                    headerView.joinBtn.setTitle("Join", for: .normal)
-                    postViewHeight.constant = 0
-                    postView.isHidden = true
-                }
-                headerView.joinBtn.addTarget(self, action: #selector(joinClicked(button:)), for: .touchUpInside)
-                
-                headerView.backBtn.addTarget(self, action: #selector(backClicked(button:)), for: .touchUpInside)
-                headerView.followBtn.addTarget(self, action: #selector(followCountClicked(button:)), for: .touchUpInside)
-                //            headerView.postBtn.addTarget(self, action: #selector(postClicked(button:)), for: .touchUpInside)
-                //            headerView.followCountBtn.addTarget(self, action: #selector(followCountClicked(button:)), for: .touchUpInside)
-                //            headerView.followingCountBtn.addTarget(self, action: #selector(followingCountClicked(button:)), for: .touchUpInside)
-                headerView.interfaceSegmented.delegate = self
-                return headerView
-            }
-        } else {
-            if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: ProfileViewHeader.identifier) as? ProfileViewHeader {
+//        if let details = groupModel {
+//            if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "UserHeaderView") as? UserHeaderView {
+//                headerView.joinBtn.tag = 1
+//
+//                headerView.configureView(data: details)
+//                if details.admin_status == true {
+//                    headerView.joinBtn.setTitle("Edit", for: .normal)
+//                    headerView.joinBtn.tag = 2
+//                    postView.isHidden = false
+//                    postViewHeight.constant = 40
+//                } else if details.joined_status == true {
+//                    headerView.joinBtn.setTitle("Joined", for: .normal)
+//                    postView.isHidden = false
+//                    postViewHeight.constant = 40
+//                } else {
+//                    headerView.joinBtn.setTitle("Join", for: .normal)
+//                    postViewHeight.constant = 0
+//                    postView.isHidden = true
+//                }
+//                headerView.joinBtn.addTarget(self, action: #selector(joinClicked(button:)), for: .touchUpInside)
+//
+//                headerView.backBtn.addTarget(self, action: #selector(backClicked(button:)), for: .touchUpInside)
+//                headerView.followBtn.addTarget(self, action: #selector(followCountClicked(button:)), for: .touchUpInside)
+//                //            headerView.postBtn.addTarget(self, action: #selector(postClicked(button:)), for: .touchUpInside)
+//                //            headerView.followCountBtn.addTarget(self, action: #selector(followCountClicked(button:)), for: .touchUpInside)
+//                //            headerView.followingCountBtn.addTarget(self, action: #selector(followingCountClicked(button:)), for: .touchUpInside)
+//                headerView.interfaceSegmented.delegate = self
+//                return headerView
+//            }
+//        } else {
+            if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: UserHeaderView.identifier) as? UserHeaderView {
                 if  let profile = userDetailsModel {
                     headerView.configureView(data: profile)
-                   
-                    if profile.follow_status {
-                        headerView.viewBtn.setTitle("Unfollow", for: .normal)
-                        headerView.viewBtn.backgroundColor = UIColor(rgb:0x1D9BF0)
-                    } else {
-                        headerView.viewBtn.setTitle("Follow", for: .normal)
-                        headerView.viewBtn.backgroundColor = UIColor(rgb: 0xE6E6E6)
-                    }
-                    headerView.bookmarkWidth.constant = 0
+
                     headerView.followBtn.addTarget(self, action: #selector(followClicked(button:)), for: .touchUpInside)
                     headerView.followingBtn.addTarget(self, action: #selector(followingClicked(button:)), for: .touchUpInside)
 
                 }
+                if  let groupProfile = groupModel {
+                    headerView.configureView(data: groupProfile)
+                    if groupProfile.admin_status == true {
+                        headerView.viewBtn.addTarget(self, action: #selector(editClicked(button:)), for: .touchUpInside)
+                    }
+                   
+                   // headerView.bookmarkWidth.constant = 0
+//                    headerView.followBtn.addTarget(self, action: #selector(followClicked(button:)), for: .touchUpInside)
+//                    headerView.followingBtn.addTarget(self, action: #selector(followingClicked(button:)), for: .touchUpInside)
+
+                }
                 headerView.interfaceSegmented.delegate  = self
                 return headerView
-            }
+//            }
         }
         
         return nil
         
+    }
+    @objc func editClicked(button: Any) {
+        let str = UIStoryboard(name: "Add", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "CreateGroupViewController") as! CreateGroupViewController
+        if let data = groupModel {
+            nextVC.groupModel = data
+            nextVC.isUpdate = true
+        }
+        
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
   
     @objc func followClicked(button: Any) {

@@ -133,12 +133,9 @@
                                         </constraints>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" image="heart" catalog="system">
+                                        <state key="normal" image="plus.message" catalog="system">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
-                                        <connections>
-                                            <action selector="likeClicked:" destination="e4c-gT-axW" eventType="touchUpInside" id="t5R-HK-EGf"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bgp-d7-Ckf">
                                         <rect key="frame" x="70" y="5" width="40" height="40"/>
@@ -171,9 +168,12 @@
                                         </constraints>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" image="plus.message" catalog="system">
+                                        <state key="normal" image="heart" catalog="system">
                                             <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="likeClicked:" destination="e4c-gT-axW" eventType="touchUpInside" id="8gB-Zh-2u6"/>
+                                        </connections>
                                     </button>
                                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="fill" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="nup-4G-JVg">
                                         <rect key="frame" x="0.0" y="12" width="425" height="26"/>
@@ -228,6 +228,11 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tPA-TX-68T">
+                                <rect key="frame" x="0.0" y="0.0" width="367" height="62"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -278,17 +283,18 @@
                 <outlet property="commentProfileImage" destination="Q9e-ia-hBt" id="9uv-Tx-aL9"/>
                 <outlet property="commentView" destination="sym-So-vva" id="Mpt-Ts-nuI"/>
                 <outlet property="designation" destination="NYr-u8-8Fd" id="uo3-BB-Dhr"/>
-                <outlet property="discussionBtn" destination="Jr4-RY-W4S" id="WYm-gL-ylU"/>
+                <outlet property="discussionBtn" destination="JmZ-38-d7X" id="8wR-fl-ON9"/>
                 <outlet property="followBtn" destination="fBP-Dd-bG9" id="r39-bm-UEM"/>
                 <outlet property="imageHeiht" destination="6D6-T2-LCB" id="bnT-di-Ib4"/>
                 <outlet property="pageControl" destination="nup-4G-JVg" id="qps-M7-5af"/>
                 <outlet property="personImage" destination="QoL-FK-7T3" id="xim-Mj-E1o"/>
                 <outlet property="postImage" destination="7s5-jh-I0q" id="uth-Fc-WDD"/>
                 <outlet property="postedPersonName" destination="0rW-9n-hqn" id="N5F-cJ-H9P"/>
+                <outlet property="profileBtn" destination="tPA-TX-68T" id="N8p-Pp-LAS"/>
                 <outlet property="saveBtn" destination="VY4-UY-hmQ" id="Rdh-lh-6mP"/>
                 <outlet property="subTitleLable" destination="Nv5-uX-TC7" id="vPI-lZ-37c"/>
                 <outlet property="titleLable" destination="ITZ-x7-cOu" id="JJL-Ke-sSH"/>
-                <outlet property="wishlistBtn" destination="JmZ-38-d7X" id="kn5-Qt-OhY"/>
+                <outlet property="wishlistBtn" destination="Jr4-RY-W4S" id="vez-rm-3PX"/>
             </connections>
             <point key="canvasLocation" x="251.44927536231887" y="218.97321428571428"/>
         </tableViewCell>

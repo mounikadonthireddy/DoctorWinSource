@@ -35,8 +35,10 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let url = "ws://35.170.72.137:8000/ws/beta/\(chatArray[indexPath.row].room_id)/"
-        let soket = WebSocketClient(url: url)
+      
+        let str = UIStoryboard(name: "Connect", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "ChatHistoryViewController") as! ChatHistoryViewController
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
     

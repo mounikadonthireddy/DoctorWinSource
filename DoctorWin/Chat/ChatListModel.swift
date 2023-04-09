@@ -14,3 +14,15 @@ struct ChatListModel: Codable {
     let name: String?
     let phone_number:String?
 }
+struct ChatHistoryModel: Codable {
+    let message: String?
+    let data: [ChatModel]?
+}
+struct ChatModel: Codable {
+    let name: String?
+    let time: String?
+    let message: String?
+}
+struct ChatMessageModel: Codable {
+    let message: [ChatModel]?
+}

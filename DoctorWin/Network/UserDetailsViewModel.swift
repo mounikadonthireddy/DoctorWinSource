@@ -100,6 +100,8 @@ struct UserDetailsModel: Codable {
 }
 struct GroupProfileModel: Codable {
     let name: String?
+    let group_id: String?
+    let id: Int?
     let image: String?
     let description: String?
     let cover_image: String?

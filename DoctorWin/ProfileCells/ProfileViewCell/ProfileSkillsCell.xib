@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -63,7 +63,7 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="MwF-pa-xQs" secondAttribute="bottom" constant="10" id="KWq-cL-c7r"/>
+                            <constraint firstAttribute="bottom" secondItem="MwF-pa-xQs" secondAttribute="bottom" priority="999" constant="10" id="KWq-cL-c7r"/>
                             <constraint firstItem="MwF-pa-xQs" firstAttribute="top" secondItem="Jc3-kD-8R0" secondAttribute="bottom" constant="10" id="Kzy-LE-EYa"/>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="Lpl-Hm-pQS"/>
                             <constraint firstAttribute="trailing" secondItem="3N0-su-Ftj" secondAttribute="trailing" constant="5" id="TMI-Is-rSt"/>

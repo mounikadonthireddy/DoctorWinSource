@@ -102,8 +102,6 @@
 		43B231FF273AA65B00038F8A /* CustomJobViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B231FE273AA65B00038F8A /* CustomJobViewController.swift */; };
 		43B23201273AA66500038F8A /* SavedJobViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B23200273AA66500038F8A /* SavedJobViewController.swift */; };
 		43B23203273AA67100038F8A /* AppliedJobViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B23202273AA67100038F8A /* AppliedJobViewController.swift */; };
-		43B23206273AAA2C00038F8A /* AppliedJobCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B23204273AAA2C00038F8A /* AppliedJobCell.swift */; };
-		43B23207273AAA2C00038F8A /* AppliedJobCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43B23205273AAA2C00038F8A /* AppliedJobCell.xib */; };
 		43B28450273CE1BA00E8CED8 /* AddMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B2844F273CE1BA00E8CED8 /* AddMainViewController.swift */; };
 		43B2E8CD275F44B90022CD16 /* QuestionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B2E8CC275F44B90022CD16 /* QuestionsViewModel.swift */; };
 		43B2E8CF275F450C0022CD16 /* QuestionsResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B2E8CE275F450C0022CD16 /* QuestionsResource.swift */; };
@@ -147,7 +145,6 @@
 		8FF9AD0227731525002F4700 /* NewsJobResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF9AD0127731525002F4700 /* NewsJobResource.swift */; };
 		BF0DD936278C88190053747A /* CarrierHighlightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0DD934278C88190053747A /* CarrierHighlightCell.swift */; };
 		BF0DD937278C88190053747A /* CarrierHighlightCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF0DD935278C88190053747A /* CarrierHighlightCell.xib */; };
-		BF0DD939278C8F980053747A /* CarrierPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0DD938278C8F980053747A /* CarrierPageViewController.swift */; };
 		BF0DD93B278C93130053747A /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0DD93A278C93130053747A /* TitleView.swift */; };
 		BF0DD93D278C931C0053747A /* TitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF0DD93C278C931C0053747A /* TitleView.xib */; };
 		BF0DD948278D393C0053747A /* ProfileNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0DD946278D393C0053747A /* ProfileNameCell.swift */; };
@@ -264,6 +261,10 @@
 		DC103DEA296D682700A4FD4D /* TrendingCourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC103DE8296D682700A4FD4D /* TrendingCourseCell.xib */; };
 		DC103DEC296EB4DF00A4FD4D /* FellowshipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC103DEB296EB4DF00A4FD4D /* FellowshipViewController.swift */; };
 		DC16ADF029DFD5E50042DEFF /* Carrier.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC16ADEF29DFD5E50042DEFF /* Carrier.storyboard */; };
+		DC16ADFA29E044380042DEFF /* ChatHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC16ADF929E044380042DEFF /* ChatHistoryViewController.swift */; };
+		DC16ADFC29E044ED0042DEFF /* Connect.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC16ADFB29E044ED0042DEFF /* Connect.storyboard */; };
+		DC16AE0029E078B20042DEFF /* ChatHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC16ADFE29E078B20042DEFF /* ChatHistoryCell.swift */; };
+		DC16AE0129E078B20042DEFF /* ChatHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC16ADFF29E078B20042DEFF /* ChatHistoryCell.xib */; };
 		DC178D4129D4956400F81926 /* gif_image.gif in Resources */ = {isa = PBXBuildFile; fileRef = DC178D4029D4956300F81926 /* gif_image.gif */; };
 		DC178D4829D5A2D200F81926 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC178D4729D5A2D200F81926 /* SearchViewController.swift */; };
 		DC3A6A2628EFFBDF006F73A2 /* ShopDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3A6A2428EFFBDF006F73A2 /* ShopDetailsCell.swift */; };
@@ -607,8 +608,6 @@
 		43B231FE273AA65B00038F8A /* CustomJobViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomJobViewController.swift; sourceTree = "<group>"; };
 		43B23200273AA66500038F8A /* SavedJobViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedJobViewController.swift; sourceTree = "<group>"; };
 		43B23202273AA67100038F8A /* AppliedJobViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppliedJobViewController.swift; sourceTree = "<group>"; };
-		43B23204273AAA2C00038F8A /* AppliedJobCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppliedJobCell.swift; sourceTree = "<group>"; };
-		43B23205273AAA2C00038F8A /* AppliedJobCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppliedJobCell.xib; sourceTree = "<group>"; };
 		43B2844F273CE1BA00E8CED8 /* AddMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMainViewController.swift; sourceTree = "<group>"; };
 		43B2E8CC275F44B90022CD16 /* QuestionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsViewModel.swift; sourceTree = "<group>"; };
 		43B2E8CE275F450C0022CD16 /* QuestionsResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsResource.swift; sourceTree = "<group>"; };
@@ -653,7 +652,6 @@
 		8FF9AD0127731525002F4700 /* NewsJobResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsJobResource.swift; sourceTree = "<group>"; };
 		BF0DD934278C88190053747A /* CarrierHighlightCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrierHighlightCell.swift; sourceTree = "<group>"; };
 		BF0DD935278C88190053747A /* CarrierHighlightCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarrierHighlightCell.xib; sourceTree = "<group>"; };
-		BF0DD938278C8F980053747A /* CarrierPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrierPageViewController.swift; sourceTree = "<group>"; };
 		BF0DD93A278C93130053747A /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		BF0DD93C278C931C0053747A /* TitleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleView.xib; sourceTree = "<group>"; };
 		BF0DD946278D393C0053747A /* ProfileNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNameCell.swift; sourceTree = "<group>"; };
@@ -769,6 +767,10 @@
 		DC103DE8296D682700A4FD4D /* TrendingCourseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrendingCourseCell.xib; sourceTree = "<group>"; };
 		DC103DEB296EB4DF00A4FD4D /* FellowshipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FellowshipViewController.swift; sourceTree = "<group>"; };
 		DC16ADEF29DFD5E50042DEFF /* Carrier.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Carrier.storyboard; sourceTree = "<group>"; };
+		DC16ADF929E044380042DEFF /* ChatHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHistoryViewController.swift; sourceTree = "<group>"; };
+		DC16ADFB29E044ED0042DEFF /* Connect.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Connect.storyboard; sourceTree = "<group>"; };
+		DC16ADFE29E078B20042DEFF /* ChatHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHistoryCell.swift; sourceTree = "<group>"; };
+		DC16ADFF29E078B20042DEFF /* ChatHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatHistoryCell.xib; sourceTree = "<group>"; };
 		DC178D4029D4956300F81926 /* gif_image.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = gif_image.gif; sourceTree = "<group>"; };
 		DC178D4729D5A2D200F81926 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		DC3A6A2428EFFBDF006F73A2 /* ShopDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDetailsCell.swift; sourceTree = "<group>"; };
@@ -1324,7 +1326,6 @@
 				43B975A627259FE400CDF2F1 /* ApplyJobViewController.swift */,
 				43B231FA273AA38600038F8A /* SearchJobsViewController.swift */,
 				431052F82759E48B006BC13A /* FilterViewController.swift */,
-				BF0DD938278C8F980053747A /* CarrierPageViewController.swift */,
 			);
 			path = Carrier;
 			sourceTree = "<group>";
@@ -1413,9 +1414,7 @@
 				43B975A32725978900CDF2F1 /* CarrierSubCell.xib */,
 				BF30C7D4277AEE240047E277 /* SearchJobCell.swift */,
 				BF30C7D5277AEE240047E277 /* SearchJobCell.xib */,
-				43B23204273AAA2C00038F8A /* AppliedJobCell.swift */,
 				DCD9880528521ABB00ECCCE7 /* AppliedJobViewModel.swift */,
-				43B23205273AAA2C00038F8A /* AppliedJobCell.xib */,
 				43B975A82725B18A00CDF2F1 /* JobRequirementCell.swift */,
 				43B975A92725B18A00CDF2F1 /* JobRequirementCell.xib */,
 				43B975B22725B63000CDF2F1 /* JobHeadCell.swift */,
@@ -1637,6 +1636,13 @@
 			path = Social;
 			sourceTree = "<group>";
 		};
+		DC16ADFD29E0788B0042DEFF /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		DC3A6A2F28F1A3AF006F73A2 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -1654,11 +1660,15 @@
 			isa = PBXGroup;
 			children = (
 				DC7169C329DDC12000446025 /* ChatListViewController.swift */,
+				DC16ADF929E044380042DEFF /* ChatHistoryViewController.swift */,
 				DC7169C529DDC25700446025 /* ChatCell.swift */,
 				DC7169C629DDC25700446025 /* ChatCell.xib */,
 				DC61695829DDC79B00BA464F /* ChatListViewModel.swift */,
 				DC61695A29DDC80600BA464F /* ChatResource.swift */,
 				DC61695C29DDCA3700BA464F /* ChatListModel.swift */,
+				DC16ADFE29E078B20042DEFF /* ChatHistoryCell.swift */,
+				DC16ADFF29E078B20042DEFF /* ChatHistoryCell.xib */,
+				DC16ADFD29E0788B0042DEFF /* New Group */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -1842,6 +1852,7 @@
 				DC4AEF23285384BD00D6D4A3 /* Job.storyboard */,
 				DC4AEF212853847C00D6D4A3 /* Shop.storyboard */,
 				DC4AEF1F285381C100D6D4A3 /* Network.storyboard */,
+				DC16ADFB29E044ED0042DEFF /* Connect.storyboard */,
 				BFC3EEE22824A979000A1582 /* Add.storyboard */,
 				DC4AEF1D2853813D00D6D4A3 /* Me.storyboard */,
 				DC6B8A462853318A00F89D57 /* Tab.storyboard */,
@@ -2049,6 +2060,7 @@
 				DC74AE0D29A773FD00F34B3F /* JobCVCell.xib in Resources */,
 				BF0DD95B278D5B9C0053747A /* RecommandedJobCell.xib in Resources */,
 				BFA90E2A27BB5380009F9784 /* AddCasesTitleHeader.xib in Resources */,
+				DC16ADFC29E044ED0042DEFF /* Connect.storyboard in Resources */,
 				DC9F6C4D29C5808C000B9BA2 /* DoubtsCell.xib in Resources */,
 				43A6A97F2732520600400F72 /* AddExperienceCell.xib in Resources */,
 				DC9F6C4929C57E7D000B9BA2 /* ServicesCell.xib in Resources */,
@@ -2130,6 +2142,7 @@
 				DC8AE244286D815D003376A7 /* ShopCategoryCell.xib in Resources */,
 				BF170F63280FCE49001B3109 /* CaseCell.xib in Resources */,
 				DC9F6C6729C5DDC1000B9BA2 /* ShotTableViewCell.xib in Resources */,
+				DC16AE0129E078B20042DEFF /* ChatHistoryCell.xib in Resources */,
 				DC885E3928D20A3300110418 /* TrendingQuestionHeaderView.xib in Resources */,
 				439DC46B273FB28800DAD6D5 /* Roboto-Light.ttf in Resources */,
 				DC103DEA296D682700A4FD4D /* TrendingCourseCell.xib in Resources */,
@@ -2150,7 +2163,6 @@
 				DC96036D28FD5CC100007E6A /* HomeDetailsHeaderCell.xib in Resources */,
 				439DC46D273FB28800DAD6D5 /* LICENSE.txt in Resources */,
 				DC9AB75C28F8550B00C6043E /* CourseCategoryCell.xib in Resources */,
-				43B23207273AAA2C00038F8A /* AppliedJobCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2369,7 +2381,6 @@
 				DC9F6C6429C5DD87000B9BA2 /* ASVideoLayerObject.swift in Sources */,
 				BFA90E2827BB5346009F9784 /* AddCasesTitleHeader.swift in Sources */,
 				BFA90E1B27B4E97B009F9784 /* ProfileImageCell.swift in Sources */,
-				43B23206273AAA2C00038F8A /* AppliedJobCell.swift in Sources */,
 				435FB5682750BD100040C406 /* JobsResource.swift in Sources */,
 				DCA0A6FD28C757EC001DE3F1 /* UserDetailsResource.swift in Sources */,
 				439AA1F7273632A200D09E26 /* LoginVCExtension.swift in Sources */,
@@ -2392,6 +2403,7 @@
 				43B5CBCD2726779900DFEC71 /* JobsCell.swift in Sources */,
 				DC9AB75F28F863B800C6043E /* CategoryTVCell.swift in Sources */,
 				43A6A99227329F1C00400F72 /* CasesTableViewCell.swift in Sources */,
+				DC16AE0029E078B20042DEFF /* ChatHistoryCell.swift in Sources */,
 				DC9F6C5E29C5CC3E000B9BA2 /* VideosViewController.swift in Sources */,
 				DC7968FE28F42422004D9FE6 /* QuestionHeaderCell.swift in Sources */,
 				43B52E36273BCA51004EF637 /* PostQuestionHeader.swift in Sources */,
@@ -2418,7 +2430,6 @@
 				DC9F6C7829CA04AA000B9BA2 /* MentorModel.swift in Sources */,
 				DC9F6C6029C5DD0C000B9BA2 /* ASVideoContainer.swift in Sources */,
 				DC9F6C6A29C5F5B8000B9BA2 /* VideosViewModel.swift in Sources */,
-				BF0DD939278C8F980053747A /* CarrierPageViewController.swift in Sources */,
 				DC9F6C5029C58874000B9BA2 /* MentorCell.swift in Sources */,
 				DC9F6C6C29C5F5CC000B9BA2 /* VideosModel.swift in Sources */,
 				BF30C7D6277AEE240047E277 /* SearchJobCell.swift in Sources */,
@@ -2455,6 +2466,7 @@
 				DC8669892874396E00CF89A8 /* ShopWishlistCell.swift in Sources */,
 				DC55BE0A2872F47400B1EE1B /* DatingResource.swift in Sources */,
 				43C1BFA2272C150D008877AA /* TopJobsDataModel.swift in Sources */,
+				DC16ADFA29E044380042DEFF /* ChatHistoryViewController.swift in Sources */,
 				BFC3EEFD282E2BBC000A1582 /* ConnectViewController.swift in Sources */,
 				DC88794B29ABB1F7008DE949 /* ImageSectionTVCell.swift in Sources */,
 				DC3A6A3528F42368006F73A2 /* QuestionDetailsViewController.swift in Sources */,

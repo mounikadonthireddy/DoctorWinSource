@@ -22,6 +22,7 @@ class CaseCell: UITableViewCell {
     @IBOutlet weak var wishlistBtn: UIButton!
     @IBOutlet weak var saveBtn: UIButton!
     @IBOutlet weak var commentBtn: UIButton!
+    @IBOutlet weak var profileBtn: UIButton!
     @IBOutlet weak var commentView: UIView!
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var commentProfileImage: UIImageView!
@@ -83,7 +84,7 @@ class CaseCell: UITableViewCell {
             self.followBtn.setTitle("Following", for: .normal)
         }
         if homeModel.like_status ?? false {
-            wishlistBtn.setImage(UIImage(named: "fheart"), for: .normal)
+            wishlistBtn.setImage(UIImage(systemName: "heart.fill"), for: .normal)
         }
         
        
@@ -124,6 +125,15 @@ class CaseCell: UITableViewCell {
         }
         
     }
+    func updateUserDetails(data: ProfileModel) {
+        
+        self.designation.text = data.speciality ?? ""
+        self.postedPersonName.text = data.name
+        if let urlString = data.image {
+            self.personImage.sd_setImage(with: URL(string: ApiEndpoints.baseImageURL + urlString), placeholderImage: UIImage(named: "loginBg"))
+        }
+        userPostedID = data.posted_id ?? ""
+    }
     func getCategory(staus:Int) -> String {
         switch staus {
         case 4:
@@ -159,10 +169,10 @@ class CaseCell: UITableViewCell {
                         self.wishlistBtn.setTitle(" \(value1)", for: .normal)
                     }
                     if data.status == true {
-                        self.wishlistBtn.setImage(UIImage(named: "fheart"), for: .normal)
+                        self.wishlistBtn.setImage(UIImage(systemName: "heart.fill"), for: .normal)
                        
                     } else {
-                        self.wishlistBtn.setImage(UIImage(named: "heart"), for: .normal)
+                        self.wishlistBtn.setImage(UIImage(systemName: "heart"), for: .normal)
  
                     }
                 case .failure(_):

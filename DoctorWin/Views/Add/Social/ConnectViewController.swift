@@ -296,23 +296,30 @@ extension ConnectViewController : UICollectionViewDelegate, UICollectionViewData
         self.imagePicker.present(from: button)
     }
    func imageUpload() {
-        let param = [:] as [String : Any]
+       let age:Int = Int(dobTF.text ?? "0") ?? 0
+       let interest = selectedInterest.joined(separator: ",")
+       
+       let param: [String : Any] =  ["name": (nameTF.text ?? ""), "intro": (bioTF.text ?? ""), "gender": (genderTF.text ?? ""), "age": "\(age)", "living": (livingTF.text ?? ""), "qualification": (qualificationTF.text ?? ""), "profession": (professionTF.text ?? ""), "height": (heightTF.text ?? ""), "looking_for": (lookingTF.text ?? ""), "living_in": (livingTF.text ?? ""), "institute": (occupationTF.text ?? ""), "orientation": (personalityTF.text ?? ""), "zodiacs": (zodiacTF.text ?? ""), "pets": (petsTF.text ?? ""), "income": (incomeTF.text ?? ""), "interest": interest]
+       // let param = [:] as [String : Any]
         self.showLoader()
         let url = ApiEndpoints.baseUrl + ApiEndpoints.getDatingImages
         let parameters: [String: Any] = [
             "image": imageUpload1
         ]
-       for image in imageUpload1 {
-           
-           HttpUtility().profileUpload1(img: image.data, url: url, imageName: image.fileName, imageUploadName: "image", param: param) { res in
-               DispatchQueue.main.async {
-                   self.dismiss()
-                   print(res)
-                   // self.showAlertView(message: "News Posted Successfully")
-                   
-               }
-           }
+       self.uploadImagesWithParameters(images: imagesArray, parameters: param, url: URL(string: url)!) { _ in
+           print("kjhgfc")
        }
+//       for image in imageUpload1 {
+//
+//           HttpUtility().profileUpload1(img: image.data, url: url, imageName: image.fileName, imageUploadName: "image", param: param) { res in
+//               DispatchQueue.main.async {
+//                   self.dismiss()
+//                   print(res)
+//                   // self.showAlertView(message: "News Posted Successfully")
+//
+//               }
+//           }
+//       }
             AGUploadImageWebServices(url: url, parameter: parameters, inputData: param, method: .post )
                 .responseJSON { (json, eror) in
                     self.dismiss()
@@ -330,6 +337,66 @@ extension ConnectViewController : UICollectionViewDelegate, UICollectionViewData
 //            }
 //        }
     }
+    func uploadImagesWithParameters(images: [UIImage], parameters: [String: Any], url: URL, completion: @escaping (Error?) -> Void) {
+        // create a boundary string to separate the parts of the request
+        let boundary = "Boundary-\(UUID().uuidString)"
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        if User.shared.token != "" {
+            request.setValue("\(User.shared.token)", forHTTPHeaderField: "jwt")
+        }
+        
+        
+        let body = NSMutableData()
+        
+        // add parameters to the request body
+        for (key, value) in parameters {
+            body.append("--\(boundary)\r\n".data(using: String.Encoding.utf8)!)
+            body.append("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n".data(using: String.Encoding.utf8)!)
+            body.append("\(value)\r\n".data(using: String.Encoding.utf8)!)
+        }
+        
+        // add images to the request body
+        for image in images {
+            let imageData = image.jpegData(compressionQuality: 0.5)!
+            body.append("--\(boundary)\r\n".data(using: String.Encoding.utf8)!)
+            body.append("Content-Disposition: form-data; name=\"image\"; filename=\"image.jpg\"\r\n".data(using: String.Encoding.utf8)!)
+            body.append("Content-Type: image/jpeg\r\n\r\n".data(using: String.Encoding.utf8)!)
+            body.append(imageData)
+            body.append("\r\n".data(using: String.Encoding.utf8)!)
+        }
+        
+        body.append("--\(boundary)--\r\n".data(using: String.Encoding.utf8)!)
+        
+        request.httpBody = body as Data
+        
+        let session = URLSession.shared
+        
+        let task = session.dataTask(with: request) { data, response, error in
+            if let error = error {
+                completion(error)
+                print(error)
+                return
+            }
+            print(data?.prettyPrintedJSONString ?? "")
+            
+            
+            guard let httpResponse = response as? HTTPURLResponse,
+                  (200...299).contains(httpResponse.statusCode) else {
+                let error = NSError(domain: "com.example.upload", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid response"])
+                print(error)
+                completion(error)
+                return
+            }
+            
+            completion(nil)
+        }
+        
+        task.resume()
+    }
+
     
 }
 extension ConnectViewController: UITextFieldDelegate {
@@ -349,5 +416,6 @@ extension Date {
 
         return ""
     }
+   
 }
 

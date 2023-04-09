@@ -55,11 +55,7 @@ class MeViewController: ViewController {
         profileVM.getProfileData(userID: User.shared.userID)
         
     }
-    func loadExperince() {
-//        self.showLoader()
-//        profileVM.getProfileExperienceData(userID: User.shared.userID)
-        
-    }
+ 
     override func viewWillDisappear(_ animated: Bool) {
         //  tabBarController?.tabBar.isHidden = true
     }
@@ -195,7 +191,7 @@ extension MeViewController: UITableViewDelegate, UITableViewDataSource {
                     alert.addAction(UIAlertAction(title: Constants.OkAlertTitle, style: .default, handler: nil))
                     
                     self.present(alert, animated: true)
-                    self.loadExperince()
+                   
                 }
             }
         }
@@ -226,12 +222,14 @@ extension MeViewController: UITableViewDelegate, UITableViewDataSource {
 extension MeViewController: ProfileViewModelDelegate {
    
     func didReciveProfileData(response: ProfileDataModel?, error: String?) {
-        self.dismiss()
-        if let data = response {
-            profileModel = data
-            experienceArray = data.experience ?? []
-            profileTableView.reloadData()
-            
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.dismiss()
+            if let data = response {
+                self.profileModel = data
+                self.experienceArray = data.experience ?? []
+                self.profileTableView.reloadData()
+                
+            }
         }
     }
 

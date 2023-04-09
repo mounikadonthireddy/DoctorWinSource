@@ -116,6 +116,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         cell.configureData(homeModel: homedataArry[indexPath.row])
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapImageView(_:)))
         cell.commentBtn.addTarget(self, action: #selector(commentClicked(button:)), for: .touchUpInside)
+        cell.profileBtn.addTarget(self, action: #selector(profileClicked(button:)), for: .touchUpInside)
+        cell.profileBtn.tag = indexPath.row
         cell.postImage.tag = indexPath.row
         cell.postImage?.addGestureRecognizer(tapGestureRecognizer)
         cell.layoutIfNeeded()
@@ -187,6 +189,14 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     @objc func educationClicked(button: UIButton) {
         let str = UIStoryboard(name: "Learning", bundle: nil)
         let nextVC = str.instantiateViewController(withIdentifier: "LearningViewController") as! LearningViewController
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+    @objc func profileClicked(button: UIButton) {
+        let str = UIStoryboard(name: "Details", bundle: nil)
+        let nextVC = str.instantiateViewController(withIdentifier: "UserDetailsViewController") as! UserDetailsViewController
+        nextVC.requestUserID = homedataArry[button.tag].userDetails?.posted_id ?? ""
+        nextVC.groupId = ""
+        nextVC.navigationTitle = homedataArry[button.tag].userDetails?.name ?? ""
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     @objc func commentClicked(button: UIButton) {

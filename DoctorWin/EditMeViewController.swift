@@ -213,14 +213,17 @@ extension EditMeViewController: UITableViewDelegate, UITableViewDataSource {
 }
 extension EditMeViewController: ProfileEditViewModelDelegate {
     func didProfessionalData(response: ProfessionalDropDownModel?, error: String?) {
-        professionalData = response
-        profileTableView.reloadData()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.professionalData = response
+            self.profileTableView.reloadData()
+        }
     }
     
     func didReceiveTopJobs(response: ProfileEditDropDownModel?, error: String?) {
-        personalDropDownData = response
-        profileTableView.reloadData()
-        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.personalDropDownData = response
+            self.profileTableView.reloadData()
+        }
     }
     
     
@@ -244,6 +247,7 @@ extension EditMeViewController: UITextFieldDelegate {
 
 extension EditMeViewController: ImagePickerDelegate {
     func didSelect(image: UIImage?, fileName: String?, fileType: String?) {
+        
         self.imageView.image = image
         self.imageFileName = fileName ?? ""
         self.fileType = fileType ?? ""

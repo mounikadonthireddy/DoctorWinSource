@@ -113,23 +113,7 @@ struct ProfileEditResource {
             }
         }
     }
-    func getProfileExperienceData(userID: String, completion : @escaping (_ result: ResponseResult<[ExperienceModel]>) -> Void) {
-        
-        let homeUrlStr = ApiEndpoints.baseUrl + ApiEndpoints.addExperience + ApiEndpoints.userID + "=\(userID)"
-        let httpUtility = HttpUtility()
-        do {
-            httpUtility.getApiData(urlString: homeUrlStr, resultType: [ExperienceModel].self) { result in
-                
-                switch result {
-                case .success(let data):
-                    completion(.success(data))
-                    
-                case .failure( let error):
-                    completion(.failure(error.rawValue))
-                }
-            }
-        }
-    }
+    
     
     func editProfileProfessionalInfoData(userID: String,profileReq: ProfessionalEditModel,  completion : @escaping (_ result: ResponseResult<ProfessionalResponseModel?>) -> Void) {
         

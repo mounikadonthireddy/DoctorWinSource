@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,7 +21,7 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BioCell" rowHeight="129" id="bCi-l8-Sk3" customClass="BioCell" customModule="DoctorWin" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="347" height="129"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="bCi-l8-Sk3" id="Def-Nw-wax">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bCi-l8-Sk3" id="Def-Nw-wax">
                 <rect key="frame" x="0.0" y="0.0" width="347" height="129"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -71,7 +71,7 @@
                 <constraints>
                     <constraint firstItem="ojp-XD-faP" firstAttribute="top" secondItem="Def-Nw-wax" secondAttribute="topMargin" id="4mh-nl-O93"/>
                     <constraint firstItem="ojp-XD-faP" firstAttribute="leading" secondItem="Def-Nw-wax" secondAttribute="leading" id="Di2-Yb-2Ws"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="ojp-XD-faP" secondAttribute="bottom" id="L0h-uV-Imb"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="ojp-XD-faP" secondAttribute="bottom" priority="999" id="L0h-uV-Imb"/>
                     <constraint firstAttribute="trailing" secondItem="ojp-XD-faP" secondAttribute="trailing" constant="10" id="TgI-Xf-I7P"/>
                 </constraints>
             </tableViewCellContentView>

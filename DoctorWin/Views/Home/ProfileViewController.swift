@@ -105,8 +105,8 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
                     headerView.followBtn.addTarget(self, action: #selector(followClicked(button:)), for: .touchUpInside)
                     headerView.followingBtn.addTarget(self, action: #selector(followingClicked(button:)), for: .touchUpInside)
                     
-                    //                headerView.resumeBtn.addTarget(self, action: #selector(resumeClicked(button:)), for: .touchUpInside)
-                    headerView.bookmarkBtn.addTarget(self, action: #selector(bookmarkClicked(button:)), for: .touchUpInside)
+//                    //                headerView.resumeBtn.addTarget(self, action: #selector(resumeClicked(button:)), for: .touchUpInside)
+//                    headerView.bookmarkBtn.addTarget(self, action: #selector(bookmarkClicked(button:)), for: .touchUpInside)
                 }
                 headerView.interfaceSegmented.delegate  = self
                 return headerView
@@ -117,7 +117,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if tableView == profileTableView {
-            return 390
+            return UITableView.automaticDimension
         }
         return 0
     }
@@ -194,7 +194,9 @@ extension ProfileViewController: UserDetailsViewModelDelegate {
     }
     
     func didReciveGroupProfileData(response: GroupProfileModel?, error: String?) {
-        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.dismiss()
+        }
     }
     
     func didRecivePostsData(response: HomeResponseModel?, error: String?) {
