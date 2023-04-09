@@ -155,12 +155,12 @@ class AddCasesViewController: ViewController {
     
     @IBAction func submitClicked(_ sender: UIButton) {
         
-        if caseTitle.text == "" || chiefComplaint.text == "" {
+        if caseTitle.text == ""  {
             showAlertView(message: "Enter Mention title of the case and Description")
             
         } else {
                     
-        let parm = ["title": caseTitle.text!  , "chief_complaint": chiefComplaint.text!, "present_illness": presentIllness.text! , "past_illness": pastIllness.text! , "drugs": drugs.text!  , "personal": personal.text! , "family": family.text!  , "physical_exam": physicalExamination.text! , "system_exam": systemExamination.text!  , "local_exam": localExamination.text!  , "vitus": vitus.text!  , "lab_finding": labFinding.text!  , "imaging": imaging.text! , "diagnosis": probableDiagnosis.text!]
+        let parm = ["title": caseTitle.text!  , "chief_complaint": (chiefComplaint.text ?? ""), "present_illness": presentIllness.text! , "past_illness": pastIllness.text! , "drugs": drugs.text!  , "personal": personal.text! , "family": family.text!  , "physical_exam": physicalExamination.text! , "system_exam": systemExamination.text!  , "local_exam": localExamination.text!  , "vitus": vitus.text!  , "lab_finding": labFinding.text!  , "imaging": imaging.text! , "diagnosis": probableDiagnosis.text!]
             
             let url = ApiEndpoints.baseUrl + ApiEndpoints.addCase
             self.showLoader()
@@ -172,11 +172,14 @@ class AddCasesViewController: ViewController {
 
             AGUploadImageWebServices(url: url, parameter: parameters, inputData: parm, method: .post)
                 .responseJSON { (json, eror) in
-    
+                    
                     self.dismiss()
-                debugPrint(json)
-            }
- }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                   
+                }
+        }
     }
     func showAlertView(message: String) {
         
@@ -205,6 +208,19 @@ extension AddCasesViewController: UITextFieldDelegate, UITextViewDelegate {
             return false
         }
         return true
+    }
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if caseTitle.text == "Write a Case summary with chief complaint, history and examinations etc..?" {
+            caseTitle.text = ""
+            caseTitle.textColor = UIColor.black
+        }
+    }
+    
+   func textViewDidEndEditing(_ textView: UITextView) {
+        if caseTitle.text.isEmpty {
+            caseTitle.text = "Write a Case summary with chief complaint, history and examinations etc..?"
+            caseTitle.textColor = UIColor.lightGray
+        }
     }
 }
 extension AddCasesViewController: ImagePickerDelegate {

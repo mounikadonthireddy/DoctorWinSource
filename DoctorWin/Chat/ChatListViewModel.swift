@@ -8,7 +8,8 @@
 import Foundation
 
 protocol ChatListViewModelDelegate {
-    func didReciveVideosData(response: [ChatListModel]?, error: String?)
+    func didReciveChatListData(response: [ChatListModel]?, error: String?)
+    func didReciveRecentChatsData(response: [RecentChatModel]?, error: String?)
 }
 struct ChatListViewModel {
     var delegate : ChatListViewModelDelegate?
@@ -19,10 +20,26 @@ struct ChatListViewModel {
             DispatchQueue.main.async {
                 switch response {
                 case .success(let data):
-                    self.delegate?.didReciveVideosData(response: data, error: nil)
+                    self.delegate?.didReciveChatListData(response: data, error: nil)
                     
                 case .failure(let error):
-                    self.delegate?.didReciveVideosData(response: nil, error: error)
+                    self.delegate?.didReciveChatListData(response: nil, error: error)
+                }
+                
+            }
+            
+        }
+    }
+    func getRecentChatListDataFromAPI(pageNum: Int) {
+        let homeResource = ChatResource()
+        homeResource.getRecentChatProfilesData(pageNum: pageNum) { response in
+            DispatchQueue.main.async {
+                switch response {
+                case .success(let data):
+                    self.delegate?.didReciveRecentChatsData(response: data, error: nil)
+                    
+                case .failure(let error):
+                    self.delegate?.didReciveRecentChatsData(response: nil, error: error)
                 }
                 
             }

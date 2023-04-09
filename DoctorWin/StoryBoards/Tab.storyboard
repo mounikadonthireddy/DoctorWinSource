@@ -29,10 +29,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Tn-Da-InT">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="94"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="130"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bEI-Qy-Ats">
-                                        <rect key="frame" x="254" y="41" width="150" height="50"/>
+                                        <rect key="frame" x="304" y="67" width="100" height="50"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S2v-8N-BgD">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -40,39 +40,29 @@
                                                     <constraint firstAttribute="width" constant="50" id="QrW-29-0s7"/>
                                                     <constraint firstAttribute="height" constant="50" id="bOY-l7-9kF"/>
                                                 </constraints>
-                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <inset key="imageEdgeInsets" minX="13" minY="13" maxX="13" maxY="13"/>
-                                                <state key="normal" image="search"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tn0-d6-7py">
-                                                <rect key="frame" x="50" y="0.0" width="50" height="50"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="50" id="1zy-ce-agO"/>
-                                                    <constraint firstAttribute="height" constant="50" id="D2o-Cx-xrb"/>
-                                                </constraints>
-                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <inset key="imageEdgeInsets" minX="13" minY="13" maxX="13" maxY="13"/>
-                                                <state key="normal" image="bell"/>
+                                                <state key="normal" image="magnifyingglass" catalog="system"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VNg-CV-I9f">
-                                                <rect key="frame" x="100" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="50" y="0.0" width="50" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="50" id="GKQ-79-6dM"/>
                                                     <constraint firstAttribute="height" constant="50" id="xcd-5h-yBo"/>
                                                 </constraints>
-                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal">
-                                                    <imageReference key="image" image="person.crop.circle" catalog="system" symbolScale="large"/>
+                                                    <imageReference key="image" image="plus" catalog="system" symbolScale="large"/>
                                                 </state>
                                             </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="2qV-Aa-jJT"/>
-                                            <constraint firstAttribute="width" constant="150" id="YMz-UM-xST"/>
+                                            <constraint firstAttribute="width" constant="100" id="YMz-UM-xST"/>
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZFL-cw-y6H">
-                                        <rect key="frame" x="0.0" y="41" width="120" height="50"/>
+                                        <rect key="frame" x="0.0" y="67" width="132" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="XzM-7G-NTC"/>
                                             <constraint firstAttribute="height" constant="50" id="e3R-ST-PXb"/>
@@ -80,22 +70,22 @@
                                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="24"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
-                                        <state key="normal" title="  drworld" image="plus">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="  Chat Room">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.08235294118" green="0.39607843139999999" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="ZFL-cw-y6H" secondAttribute="bottom" constant="3" id="9aS-Hr-CTA"/>
+                                    <constraint firstAttribute="bottom" secondItem="ZFL-cw-y6H" secondAttribute="bottom" constant="13" id="9aS-Hr-CTA"/>
                                     <constraint firstItem="ZFL-cw-y6H" firstAttribute="leading" secondItem="8Tn-Da-InT" secondAttribute="leading" id="C3D-7D-WwX"/>
-                                    <constraint firstAttribute="bottom" secondItem="bEI-Qy-Ats" secondAttribute="bottom" constant="3" id="JaM-lW-iIv"/>
-                                    <constraint firstAttribute="height" constant="94" id="OjC-WX-6My"/>
+                                    <constraint firstAttribute="bottom" secondItem="bEI-Qy-Ats" secondAttribute="bottom" constant="13" id="JaM-lW-iIv"/>
+                                    <constraint firstAttribute="height" constant="130" id="OjC-WX-6My"/>
                                     <constraint firstAttribute="trailing" secondItem="bEI-Qy-Ats" secondAttribute="trailing" constant="10" id="yDe-07-A52"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="dRS-XW-rFQ">
-                                <rect key="frame" x="0.0" y="94" width="414" height="719"/>
+                                <rect key="frame" x="0.0" y="120" width="414" height="693"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="rh3-gR-uTq" id="lJ0-rQ-wTF"/>
@@ -104,14 +94,14 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fXl-DZ-3OH"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="8Tn-Da-InT" firstAttribute="trailing" secondItem="fXl-DZ-3OH" secondAttribute="trailing" id="1Mx-Wi-mZn"/>
                             <constraint firstItem="8Tn-Da-InT" firstAttribute="top" secondItem="0uF-aE-6iY" secondAttribute="top" id="E4U-X4-aYE"/>
-                            <constraint firstItem="dRS-XW-rFQ" firstAttribute="top" secondItem="8Tn-Da-InT" secondAttribute="bottom" id="JD5-dy-s7m"/>
-                            <constraint firstItem="dRS-XW-rFQ" firstAttribute="leading" secondItem="fXl-DZ-3OH" secondAttribute="leading" id="RGf-3g-C9C"/>
-                            <constraint firstItem="fXl-DZ-3OH" firstAttribute="bottom" secondItem="dRS-XW-rFQ" secondAttribute="bottom" id="YjU-Nc-frK"/>
-                            <constraint firstItem="fXl-DZ-3OH" firstAttribute="trailing" secondItem="dRS-XW-rFQ" secondAttribute="trailing" id="fUo-ci-0Zx"/>
+                            <constraint firstItem="dRS-XW-rFQ" firstAttribute="top" secondItem="0uF-aE-6iY" secondAttribute="top" constant="120" id="U0e-ZR-Q0b"/>
+                            <constraint firstItem="dRS-XW-rFQ" firstAttribute="bottom" secondItem="fXl-DZ-3OH" secondAttribute="bottom" id="fL4-6A-g4m"/>
+                            <constraint firstItem="dRS-XW-rFQ" firstAttribute="leading" secondItem="8Tn-Da-InT" secondAttribute="leading" id="fiR-GK-6r4"/>
+                            <constraint firstItem="dRS-XW-rFQ" firstAttribute="trailing" secondItem="8Tn-Da-InT" secondAttribute="trailing" id="kmb-Lv-D0H"/>
                             <constraint firstItem="8Tn-Da-InT" firstAttribute="leading" secondItem="fXl-DZ-3OH" secondAttribute="leading" id="zgX-S6-TeZ"/>
                         </constraints>
                     </view>
@@ -681,8 +671,8 @@
         <image name="house" catalog="system" width="128" height="104"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="person.crop.circle" catalog="system" width="128" height="123"/>
-        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="plus" width="24" height="24"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="reels" width="24" height="24"/>
         <image name="search" width="32" height="32"/>
         <image name="square.and.pencil" catalog="system" width="128" height="113"/>

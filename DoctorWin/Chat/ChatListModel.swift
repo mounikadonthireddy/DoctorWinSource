@@ -26,3 +26,9 @@ struct ChatModel: Codable {
 struct ChatMessageModel: Codable {
     let message: [ChatModel]?
 }
+struct RecentChatModel: Codable {
+    let roomid: String?
+    let relatedname: String?
+    let message: String?
+    let image: String?
+}

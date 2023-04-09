@@ -151,6 +151,7 @@ struct ApiEndpoints {
    static let aboutus = "mentor/aboutus"
     //Chat
     static let chatList = "chatroom/"
+    static let recentChatList = "chatroom/chat"
     
 }
 

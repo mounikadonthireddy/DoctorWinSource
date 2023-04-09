@@ -30,4 +30,11 @@ class ChatCell: UITableViewCell {
          self.personImage.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "loginBg"))
         }
     }
+    func cellConfigureWithFollowData(data: RecentChatModel) {
+        self.name.text = data.relatedname ?? ""
+        self.nameType.text = data.message ?? ""
+        if let urlString = data.image {
+         self.personImage.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "loginBg"))
+        }
+    }
 }

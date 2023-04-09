@@ -87,6 +87,13 @@ class AddMainViewController: UIViewController {
     @IBAction func backClicked(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
+    @IBAction func createClicked(_ sender: Any) {
+        if interfaceSegmented.selectedIndex == 1 {
+            vc1.postClicked(sender as! UIButton)
+        } else if interfaceSegmented.selectedIndex == 0 {
+          //  vc.pos
+        }
+    }
 }
 extension AddMainViewController: CustomSegmentedControlDelegate {
     func change(to index: Int) {

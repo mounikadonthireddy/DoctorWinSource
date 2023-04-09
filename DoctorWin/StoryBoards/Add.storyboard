@@ -21,6 +21,7 @@
         <!--Add Poll-->
         <scene sceneID="cBF-5b-tXL">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YJH-Tq-Hvn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="AddPollViewController" id="V96-kG-BVL" customClass="AddPollViewController" customModule="DoctorWin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gbs-90-9JQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -151,7 +152,6 @@
                         <outlet property="questionTF" destination="ang-LL-L5d" id="p8G-Yj-yoW"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YJH-Tq-Hvn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="23409" y="-90"/>
         </scene>
@@ -167,8 +167,8 @@
                                 <rect key="frame" x="0.0" y="60" width="414" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post a case" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X83-BP-fdI">
-                                        <rect key="frame" x="80" y="20" width="84" height="18"/>
-                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="16"/>
+                                        <rect key="frame" x="80" y="0.0" width="104" height="50"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -187,7 +187,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kzg-jp-vYC">
-                                        <rect key="frame" x="10" y="10" width="50" height="50"/>
+                                        <rect key="frame" x="10" y="0.0" width="50" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="eR6-ZT-jMH"/>
                                             <constraint firstAttribute="height" constant="50" id="psT-4b-Vh1"/>
@@ -204,9 +204,10 @@
                                     <constraint firstItem="Kzg-jp-vYC" firstAttribute="leading" secondItem="CgK-hp-bzO" secondAttribute="leading" constant="10" id="15r-tZ-x5Q"/>
                                     <constraint firstAttribute="height" constant="60" id="3KV-4t-Q2w"/>
                                     <constraint firstItem="X83-BP-fdI" firstAttribute="leading" secondItem="Kzg-jp-vYC" secondAttribute="trailing" constant="20" id="B7a-O7-UC3"/>
-                                    <constraint firstItem="X83-BP-fdI" firstAttribute="top" secondItem="CgK-hp-bzO" secondAttribute="top" constant="20" id="Cnt-lT-SOZ"/>
+                                    <constraint firstItem="X83-BP-fdI" firstAttribute="height" secondItem="Kzg-jp-vYC" secondAttribute="height" id="PJM-6d-Kcq"/>
+                                    <constraint firstAttribute="bottom" secondItem="X83-BP-fdI" secondAttribute="bottom" constant="10" id="RZg-uc-H9g"/>
+                                    <constraint firstAttribute="bottom" secondItem="Kzg-jp-vYC" secondAttribute="bottom" constant="10" id="SEO-eN-kQI"/>
                                     <constraint firstAttribute="trailing" secondItem="05H-qb-Ygo" secondAttribute="trailing" constant="10" id="SQj-9f-hR4"/>
-                                    <constraint firstItem="Kzg-jp-vYC" firstAttribute="top" secondItem="CgK-hp-bzO" secondAttribute="top" constant="10" id="T9T-rF-Vzf"/>
                                     <constraint firstItem="05H-qb-Ygo" firstAttribute="top" secondItem="CgK-hp-bzO" secondAttribute="top" constant="5" id="hh4-Ut-C1D"/>
                                     <constraint firstAttribute="bottom" secondItem="05H-qb-Ygo" secondAttribute="bottom" constant="10" id="zAH-FQ-50K"/>
                                 </constraints>
@@ -218,14 +219,14 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Write a Case summary with chief complaint, history and examinations etc..?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="v8d-nP-DFl">
-                                                <rect key="frame" x="20" y="175" width="374" height="358.5"/>
+                                                <rect key="frame" x="20" y="150" width="374" height="358.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3zY-VJ-mXk">
-                                                <rect key="frame" x="20" y="553.5" width="374" height="30"/>
+                                                <rect key="frame" x="20" y="528.5" width="374" height="30"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add_chief_comp" translatesAutoresizingMaskIntoConstraints="NO" id="wGF-8v-QHU">
                                                         <rect key="frame" x="0.0" y="2.5" width="25" height="25"/>
@@ -263,7 +264,7 @@
                                                 </constraints>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Htq-eC-uWO">
-                                                <rect key="frame" x="25" y="583.5" width="369" height="60"/>
+                                                <rect key="frame" x="25" y="558.5" width="369" height="60"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="  write your chief complaint.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ufE-el-tAz">
                                                         <rect key="frame" x="35" y="8" width="334" height="44"/>
@@ -284,7 +285,7 @@
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Dre-qR-jAw">
-                                                <rect key="frame" x="20" y="663.5" width="374" height="30"/>
+                                                <rect key="frame" x="20" y="638.5" width="374" height="30"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add_patient_his" translatesAutoresizingMaskIntoConstraints="NO" id="frE-wA-dWf">
                                                         <rect key="frame" x="0.0" y="2.5" width="25" height="25"/>
@@ -322,7 +323,7 @@
                                                 </constraints>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wvW-nN-bGd">
-                                                <rect key="frame" x="25" y="693.5" width="369" height="290"/>
+                                                <rect key="frame" x="25" y="668.5" width="369" height="290"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rEA-s8-iMx">
                                                         <rect key="frame" x="35" y="15" width="334" height="265"/>
@@ -385,7 +386,7 @@
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mnc-X9-DJO">
-                                                <rect key="frame" x="25" y="1003.5" width="369" height="30"/>
+                                                <rect key="frame" x="25" y="978.5" width="369" height="30"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add_investigation" translatesAutoresizingMaskIntoConstraints="NO" id="QLn-ru-uZ0">
                                                         <rect key="frame" x="0.0" y="2.5" width="25" height="25"/>
@@ -423,7 +424,7 @@
                                                 </constraints>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Beb-ZU-Zd5">
-                                                <rect key="frame" x="25" y="1033.5" width="364" height="165"/>
+                                                <rect key="frame" x="25" y="1008.5" width="364" height="165"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Bf1-1S-Cg9">
                                                         <rect key="frame" x="35" y="15" width="329" height="156"/>
@@ -467,7 +468,7 @@
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Zkf-YK-wMc">
-                                                <rect key="frame" x="25" y="1218.5" width="369" height="30"/>
+                                                <rect key="frame" x="25" y="1193.5" width="369" height="30"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add_investigation" translatesAutoresizingMaskIntoConstraints="NO" id="PVS-TJ-Y2w">
                                                         <rect key="frame" x="0.0" y="2.5" width="25" height="25"/>
@@ -505,7 +506,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dAM-ox-WwY">
-                                                <rect key="frame" x="25" y="1433.5" width="369" height="30"/>
+                                                <rect key="frame" x="25" y="1408.5" width="369" height="30"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add_pro_diagnosis" translatesAutoresizingMaskIntoConstraints="NO" id="7CY-P9-Xug">
                                                         <rect key="frame" x="0.0" y="2.5" width="25" height="25"/>
@@ -543,7 +544,7 @@
                                                 </constraints>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dJz-z1-cZW">
-                                                <rect key="frame" x="25" y="1248.5" width="364" height="165"/>
+                                                <rect key="frame" x="25" y="1223.5" width="364" height="165"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="HC6-JH-7n0">
                                                         <rect key="frame" x="35" y="15" width="329" height="155"/>
@@ -587,7 +588,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xOj-Gh-0ZI">
-                                                <rect key="frame" x="25" y="1463.5" width="364" height="60"/>
+                                                <rect key="frame" x="25" y="1438.5" width="364" height="60"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="  write your chief complaint.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KRX-j3-koq">
                                                         <rect key="frame" x="35" y="20" width="329" height="44"/>
@@ -610,17 +611,17 @@
                                                 </constraints>
                                             </view>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Write a Case title..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="JPO-6L-SJf">
-                                                <rect key="frame" x="10" y="10" width="394" height="30"/>
+                                                <rect key="frame" x="10" y="10" width="394" height="0.0"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="2qZ-vr-1zN"/>
+                                                    <constraint firstAttribute="height" id="2qZ-vr-1zN"/>
                                                 </constraints>
                                                 <color key="textColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="r1f-Yn-Jtm">
-                                                <rect key="frame" x="20" y="55" width="374" height="100"/>
+                                                <rect key="frame" x="20" y="30" width="374" height="100"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="gzg-QH-srv"/>
@@ -672,7 +673,7 @@
                                             <constraint firstAttribute="trailing" secondItem="mnc-X9-DJO" secondAttribute="trailing" constant="20" id="VZO-br-BB8"/>
                                             <constraint firstAttribute="trailing" secondItem="Dre-qR-jAw" secondAttribute="trailing" constant="20" id="WsR-xW-OCF"/>
                                             <constraint firstItem="Dre-qR-jAw" firstAttribute="top" secondItem="Htq-eC-uWO" secondAttribute="bottom" constant="20" id="ZCK-mg-b28"/>
-                                            <constraint firstItem="r1f-Yn-Jtm" firstAttribute="top" secondItem="JPO-6L-SJf" secondAttribute="bottom" constant="15" id="bTB-Fh-eas"/>
+                                            <constraint firstItem="r1f-Yn-Jtm" firstAttribute="top" secondItem="JPO-6L-SJf" secondAttribute="bottom" constant="20" id="bTB-Fh-eas"/>
                                             <constraint firstItem="v8d-nP-DFl" firstAttribute="top" secondItem="r1f-Yn-Jtm" secondAttribute="bottom" constant="20" id="bfR-Nr-XP5"/>
                                             <constraint firstAttribute="trailing" secondItem="Zkf-YK-wMc" secondAttribute="trailing" constant="20" id="bxU-l1-uOF"/>
                                             <constraint firstItem="v8d-nP-DFl" firstAttribute="leading" secondItem="pHp-G1-pYZ" secondAttribute="leading" constant="20" id="e4M-vY-aVw"/>
@@ -1082,6 +1083,7 @@
         <!--CreateCaseViewController-->
         <scene sceneID="cTw-Eo-syU">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Plt-EJ-YF2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="CreateCaseViewController" title="CreateCaseViewController" id="xpK-uT-KrD" customClass="CreateCaseViewController" customModule="DoctorWin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vOY-9k-xcT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -1171,7 +1173,6 @@
                         <outlet property="tableView" destination="IuR-oh-EPF" id="uuQ-tv-e78"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Plt-EJ-YF2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="29101.44927536232" y="577.98913043478262"/>
         </scene>
@@ -1184,28 +1185,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Easily start your question, case discussion here..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="YbG-S0-mcd">
-                                <rect key="frame" x="10" y="238" width="394" height="614"/>
+                                <rect key="frame" x="10" y="188" width="394" height="664"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="h3m-HV-8Fi" id="jl4-0H-YI9"/>
+                                </connections>
                             </textView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D9T-6m-eNg">
-                                <rect key="frame" x="10" y="108" width="394" height="100"/>
+                                <rect key="frame" x="10" y="108" width="394" height="50"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="LXp-BS-mnP">
-                                        <rect key="frame" x="10" y="18" width="374" height="35"/>
+                                        <rect key="frame" x="10" y="8" width="374" height="0.0"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="PHh-ef-yzX">
-                                                <rect key="frame" x="0.0" y="-0.5" width="15" height="15"/>
+                                                <rect key="frame" x="0.0" y="-0.5" width="0.0" height="0.0"/>
                                                 <color key="tintColor" red="0.0" green="0.18039215689999999" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="15" id="2Iv-Y4-7FY"/>
-                                                    <constraint firstAttribute="width" constant="15" id="2xD-Ut-RYZ"/>
+                                                    <constraint firstAttribute="height" id="2Iv-Y4-7FY"/>
+                                                    <constraint firstAttribute="width" id="2xD-Ut-RYZ"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To ask case discussion,mention chief complaints relevant history, examination.(Hidepatient face and identity)." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bnU-qv-HX0">
-                                                <rect key="frame" x="20" y="0.0" width="354" height="30.5"/>
+                                                <rect key="frame" x="5" y="0.0" width="369" height="0.0"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
                                                 <color key="textColor" red="0.0" green="0.18039215689999999" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -1213,11 +1217,11 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="35" id="9J9-88-svf"/>
+                                            <constraint firstAttribute="height" id="9J9-88-svf"/>
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="IAl-wE-RCt">
-                                        <rect key="frame" x="10" y="63" width="374" height="20"/>
+                                        <rect key="frame" x="10" y="18" width="374" height="20"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="yQ8-iG-HIW">
                                                 <rect key="frame" x="0.0" y="-0.5" width="15" height="15"/>
@@ -1243,12 +1247,12 @@
                                 <color key="backgroundColor" red="0.87843137250000003" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="IAl-wE-RCt" firstAttribute="leading" secondItem="D9T-6m-eNg" secondAttribute="leading" constant="10" id="8wJ-Yr-Tng"/>
-                                    <constraint firstAttribute="height" constant="100" id="Aca-Mn-LDb"/>
+                                    <constraint firstAttribute="height" constant="50" id="Aca-Mn-LDb"/>
                                     <constraint firstItem="LXp-BS-mnP" firstAttribute="leading" secondItem="D9T-6m-eNg" secondAttribute="leading" constant="10" id="FHH-Sg-XcO"/>
                                     <constraint firstItem="IAl-wE-RCt" firstAttribute="top" secondItem="LXp-BS-mnP" secondAttribute="bottom" constant="10" id="NDQ-Ik-hld"/>
                                     <constraint firstAttribute="trailing" secondItem="IAl-wE-RCt" secondAttribute="trailing" constant="10" id="be9-Ws-7NO"/>
                                     <constraint firstAttribute="trailing" secondItem="LXp-BS-mnP" secondAttribute="trailing" constant="10" id="pDb-3n-QOQ"/>
-                                    <constraint firstItem="LXp-BS-mnP" firstAttribute="top" secondItem="D9T-6m-eNg" secondAttribute="top" constant="18" id="yZY-Je-k2S"/>
+                                    <constraint firstItem="LXp-BS-mnP" firstAttribute="top" secondItem="D9T-6m-eNg" secondAttribute="top" constant="8" id="yZY-Je-k2S"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aZp-gP-bcm">
@@ -1263,9 +1267,7 @@
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="xmark" catalog="system"/>
                                         <connections>
-                                            <action selector="backClicked:" destination="PSN-aS-8h1" eventType="touchUpInside" id="E2J-r9-e5r"/>
                                             <action selector="closeClicked:" destination="h3m-HV-8Fi" eventType="touchUpInside" id="2yw-7u-Hqg"/>
-                                            <action selector="closeClicked:" destination="PSN-aS-8h1" eventType="touchUpInside" id="ZVg-IE-nWm"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Question" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="twE-xz-xhD">
@@ -1279,6 +1281,7 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sXt-Lm-MOF">
                                         <rect key="frame" x="324" y="2.5" width="80" height="45"/>
+                                        <color key="backgroundColor" red="0.93333333330000001" green="1" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="cFa-wW-gVl"/>
                                             <constraint firstAttribute="height" constant="45" id="dRd-zb-qOP"/>
@@ -1617,6 +1620,9 @@
                                         <state key="normal" title="POST">
                                             <color key="titleColor" red="0.0" green="0.18039215689999999" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="createClicked:" destination="PSN-aS-8h1" eventType="touchUpInside" id="3h5-kw-Cg4"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

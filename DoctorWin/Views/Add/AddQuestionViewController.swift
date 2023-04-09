@@ -51,7 +51,39 @@ class AddQuestionViewController: ViewController {
 extension AddQuestionViewController: PostQuestionViewModelDelegate {
     func didPostedQuestion(status: Bool, error: String?) {
         self.dismiss()
+        if status {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
     }
     
     
+}
+extension AddQuestionViewController:  UITextViewDelegate {
+  
+    
+    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+        return textView.resignFirstResponder()
+    }
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if questionTV.text == "Easily start your question, case discussion here..." {
+            questionTV.text = ""
+            questionTV.textColor = UIColor.black
+        }
+    }
+    
+   func textViewDidEndEditing(_ textView: UITextView) {
+        if questionTV.text.isEmpty {
+            questionTV.text = "Write a Case summary with chief complaint, history and examinations etc..?"
+            questionTV.textColor = UIColor.lightGray
+        }
+    }
 }
