@@ -80,9 +80,9 @@ extension ShopViewController : UICollectionViewDelegate, UICollectionViewDataSou
             if sectionNumber == 1  {
                 return LayoutType.mentorImage.getLayout()
             } else if sectionNumber == 0 {
-                return LayoutType.namesLayout.getLayout()
+                return LayoutType.shopCategory.getLayout()
             } else if sectionNumber == 2 {
-                return LayoutType.mentorServices.getLayout()
+                return LayoutType.shop.getLayout()
             }  else {
                 return LayoutType.mentorImage.getLayout()
             }
@@ -116,13 +116,13 @@ extension ShopViewController : UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.row == 0 {
+        if indexPath.section == 0 {
             let cell: ShopCategoryCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShopCategoryCell", for: indexPath) as! ShopCategoryCell
             cell.bgView.setCornerRadiusWithBorderColor(radius: 5, color: UIColor.secondaryLabel, borderWidth: 0.5)
           cell.configureCell(data: categoryArray[indexPath.row])
             return cell
             
-        } else if indexPath.row == 1 {
+        } else if indexPath.section == 1 {
                 let cell: ImageCVCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCVCell", for: indexPath) as! ImageCVCell
                 cell.loadCellBannerImages(data: bannerArray)
                 return cell
@@ -143,12 +143,12 @@ extension ShopViewController : UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.row == 2 {
+        if indexPath.section == 2 {
             let str = UIStoryboard(name: "Shop", bundle: nil)
             let nextVC = str.instantiateViewController(withIdentifier: "ShopDetailsViewController") as! ShopDetailsViewController
             nextVC.productId = shopArray[indexPath.row].id ?? 0
             self.navigationController?.pushViewController(nextVC, animated: true)
-        } else if indexPath.row == 1 {
+        } else if indexPath.section == 0 {
             let type = categoryArray[indexPath.row].name
             let str = UIStoryboard(name: "Shop", bundle: nil)
             let nextVC = str.instantiateViewController(withIdentifier: "ShopCategoryViewController") as! ShopCategoryViewController

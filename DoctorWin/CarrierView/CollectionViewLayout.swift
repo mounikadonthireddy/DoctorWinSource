@@ -24,6 +24,8 @@ enum LayoutType {
     case doubts
     case dailyUpdates
     case aboutApp
+    case shopCategory
+    case shop
     
     func getLayout(withHeader: Bool = false, height:Int = 0, fractionalWidth: CGFloat = 0.3) -> NSCollectionLayoutSection {
         switch self {
@@ -51,6 +53,10 @@ enum LayoutType {
             return AppLayouts.shared.dailyUpdatesLayout()
         case .aboutApp:
             return AppLayouts.shared.aboutAppLayout()
+        case .shopCategory:
+            return AppLayouts.shared.shopeCategory()
+        case .shop:
+            return AppLayouts.shared.shopLayout()
             
             
 //        case .updateProfileLayout:
@@ -157,6 +163,19 @@ class AppLayouts {
         section.orthogonalScrollingBehavior = .paging
         return section
     }
+
+func shopeCategory() -> NSCollectionLayoutSection {
+    
+    let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .estimated(50), heightDimension: .fractionalHeight(1)))
+    
+    let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(widthDimension: .estimated(30), heightDimension: .absolute(40)), subitems: [item])
+    group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10)
+    
+    let section = NSCollectionLayoutSection(group: group)
+    section.contentInsets = NSDirectionalEdgeInsets(top: 20, leading: 10, bottom: 20, trailing: 10)
+    section.orthogonalScrollingBehavior = .paging
+    return section
+}
     func viewedMatchesLayout( withHeader: Bool = true ) -> NSCollectionLayoutSection {
         let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
         
@@ -221,25 +240,33 @@ class AppLayouts {
         return section
     }
     
-    func premiumMatchesLayout() -> NSCollectionLayoutSection {
-        let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
+    func shopLayout() -> NSCollectionLayoutSection {
+        let cellHeight = NSCollectionLayoutDimension.fractionalHeight(1)
+        // Cell will be 1/3 width of the enclosing group
+        let cellWidth = NSCollectionLayoutDimension.fractionalWidth(0.5)
+        // The size of the cell
+        let size = NSCollectionLayoutSize(widthDimension: cellWidth, heightDimension: cellHeight)
+        // This item represents a single cell
+        let item = NSCollectionLayoutItem(layoutSize: size)
+        // The cell will be inset by these distances within the item
+        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5)
         
-        let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(widthDimension: .fractionalWidth(0.3), heightDimension: .absolute(180)), subitems: [item])
-        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 8, trailing: 0)
+        // The group will be a fixed height
+        let groupHeight = NSCollectionLayoutDimension.absolute(195)
+        // The group will occupy the full available width
+        let groupWidth = NSCollectionLayoutDimension.fractionalWidth(1)
+        // The group will repeat to hold as many of the cells as it can in a horizontal row before wrapping
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: groupWidth, heightDimension: groupHeight), subitems: [item])
         
+        // The actual section, which consists of a single group
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5)
-        section.orthogonalScrollingBehavior = .paging
-        section.boundarySupplementaryItems = [
-            .init(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(60)), elementKind: headerKind, alignment: .top),
-            .init(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(70)), elementKind: footerKind, alignment: .bottom)
-            
-        ]
+        // The insets of the group from the edge of the collection view
+        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
         
+        // Create and assign the layout
+        let layout = UICollectionViewCompositionalLayout(section: section)
+        // collectionView.collectionViewLayout = layout
         
-        let decorationItem = NSCollectionLayoutDecorationItem.background(elementKind: sectionBackground)
-    
-        section.decorationItems = [decorationItem]
         return section
     }
     
@@ -417,7 +444,7 @@ class AppLayouts {
       
         return section
     }
-    
+
 }
 class DaillyDecorationView: UICollectionReusableView {
     
